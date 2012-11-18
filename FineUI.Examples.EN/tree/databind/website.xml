@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tree>
+    <TreeNode Text="China" Expanded="true" NodeId="China">
+        <TreeNode Text="Henan Province" Expanded="true" NodeId="henan">
+            <TreeNode Text="Zhumadian City"  NodeId="zhumadian"  />
+            <TreeNode Text="Luohe City" NodeId="luohe"  />
+        </TreeNode>
+        <TreeNode Text="Anhui Province" Expanded="true" NodeId="anhui">
+            <TreeNode Text="Hefei City" NodeId="hefei" Icon="ApplicationForm">
+                <TreeNode Text="Golden Pond Community"  NodeId="golden" >
+                </TreeNode>
+            </TreeNode>
+        </TreeNode>
+    </TreeNode>
+</Tree>

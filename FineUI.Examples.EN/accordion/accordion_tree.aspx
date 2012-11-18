@@ -1,0 +1,49 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="accordion_tree.aspx.cs"
+    Inherits="FineUI.Examples.accordion.accordion_tree" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <x:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server">
+    </x:PageManager>
+    <x:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
+        <Regions>
+            <x:Region ID="Region2" Split="true" Width="200px" Margins="0 0 0 0" ShowHeader="false"
+                Title="Folder" EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
+                <Items>
+                    <x:Accordion Width="250px" Height="450px" runat="server" ShowBorder="false" ShowHeader="false"
+                        ShowCollapseTool="true">
+                        <Panes>
+                            <x:AccordionPane runat="server" Title="Panel 1" IconUrl="~/images/16/1.png" BodyPadding="2px 5px"
+                                Layout="Fit" ShowBorder="false">
+                                <Items>
+                                    <x:Tree runat="server" EnableArrows="true" ShowBorder="false" ShowHeader="false"
+                                        AutoScroll="true" ID="treeMenu">
+                                    </x:Tree>
+                                </Items>
+                            </x:AccordionPane>
+                            <x:AccordionPane runat="server" Title="Panel 2" IconUrl="~/images/16/4.png" BodyPadding="2px 5px"
+                                ShowBorder="false">
+                                <Items>
+                                    <x:Label Text="Text in Panel 2" runat="server">
+                                    </x:Label>
+                                </Items>
+                            </x:AccordionPane>
+                        </Panes>
+                    </x:Accordion>
+                </Items>
+            </x:Region>
+            <x:Region ID="Region3" ShowHeader="false" EnableIFrame="true" IFrameUrl="~/accordion/accordion_tree_index.htm"
+                IFrameName="main" Margins="0 0 0 0" Position="Center" runat="server">
+            </x:Region>
+        </Regions>
+    </x:RegionPanel>
+    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/menu.xml"></asp:XmlDataSource>
+    </form>
+</body>
+</html>

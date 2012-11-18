@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-size: 13px;
+        }
+        ul li
+        {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Modify Web.config</div>
+    <ul>
+        <li>Open web.config, in configuration section:
+            <br />
+            <pre style="font-style: italic;">
+    &lt;configSections&gt;
+        &lt;section name="FineUI" type="FineUI.ConfigSection, FineUI"/&gt;
+    &lt;/configSections&gt;
+
+    &lt;!-- Avaiable configurations (Here list the default values): Language="zh_CN" AjaxTimeout="60" EnableAjax="true" Theme="blue" FormMessageTarget="qtip" FormOffsetRight="20" FormLabelWidth="100" FormLabelSeparator="：" IconBasePath="~/icon" EnableAjaxLoading="true" AjaxLoadingType="default" CustomTheme="" CustomThemeBasePath="~/theme" --&gt;
+    &lt;FineUI EnableBigFont="true" DebugMode="false" /&gt;
+            </pre>
+            Parameters in FineUI config section:
+            <br />
+            <ul>
+                <li>Theme: Control theme, with three built-in themes (blue/gray/access, Default value: blue)</li>
+                <li>Language: Control language (en/zh_CN/zh_TW/..., Default value: zh_CN)</li>
+                <li>FormMessageTarget: The display target of form field error tips (side/qtip, Default value: side)</li>
+                <li>FormOffsetRight: The distance between form field content and right border (Default value: 20px)</li>
+                <li>FormLabelWidth: Form label width (Default value: 100px)</li>
+                <li>FormLabelSeparator: Separator of form field label and field content (Default value: "：")</li>
+                <li>EnableAjax: Enable AJAX (Default value: true)</li>
+                <li>AjaxTimeout: AJAX timeout (Unit: second, Default value: 60s)</li>
+                <li>EnableBigFont: Enable big font. If enabled this property, all 11px font will changed to 12px (Default value: false)</li>
+                <li>DebugMode: Enable debug mode. If enabled this property, the output JavaScript code will be formatted for debug purpose (Default value: false)</li>
+                <li>EnableAjaxLoading: Enable Ajax loading tip (Default value: true)</li>
+                <li>AjaxLoadingType: Ajax loading type. Default to show a yellow tip on top of page, you can modify this property to use extjs loading tip (default/mask, Default value: default)</li>
+            </ul>
+            <br />
+            <br />
+        </li>
+        <li>In system.web section:
+            <pre style="font-style: italic;">
+    &lt;pages&gt;
+      &lt;controls&gt;
+        &lt;add assembly="FineUI" namespace="FineUI" tagPrefix="ext"/&gt;
+      &lt;/controls&gt;
+    &lt;/pages&gt;
+    
+    &lt;httpModules&gt;
+      &lt;add name="FineUIScriptModule" type="FineUI.ScriptModule, FineUI"/&gt;
+    &lt;/httpModules&gt;
+
+    &lt;httpHandlers&gt;
+        &lt;add verb="GET" path="res.axd" type="FineUI.ResourceHandler, FineUI"/&gt;
+    &lt;/httpHandlers&gt;
+        </pre>
+        </li>
+        <li>Done.</li>
+    </ul>
+    <br />
+    <div style="font-weight: bold; color: Red;">
+        Attention Please:</div>
+    <br />
+    Project base on .Net 4.0, you must add two properties controlRenderingCompatibilityVersion and clientIDMode to &lt;page&gt; tag.
+    <pre style="font-style: italic;">
+    &lt;pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID"&gt;
+        &lt;controls&gt;
+        &lt;add assembly="FineUI" namespace="FineUI" tagPrefix="ext" /&gt;
+        &lt;/controls&gt;
+    &lt;/pages&gt;
+    </pre>
+    <br />
+    <div style="font-weight: bold; color: Red;">
+        Also be careful of Newtonsoft.Json.dll version:</div>
+    <br />
+    FineUI.dll only has one version for .Net2.0, which can be used in project based on .Net2.0, 3.5, 4.0.
+    <br />
+    <br />
+    However Newtonsoft.Json.dll has separate versions for different .Net versions.
+    <br />
+    If your project is based on .Net2.0, please reference the file json.net\Net20\Newtonsoft.Json.dll; If your project is based on .Net4.0, you should reference the file json.net\Net40\Newtonsoft.Json.dll.
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+</html>

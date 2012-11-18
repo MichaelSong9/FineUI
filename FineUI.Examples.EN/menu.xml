@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tree>
+  <TreeNode Text="Configuration" SingleClickExpand="true">
+    <TreeNode Text="Release History" NavigateUrl="~/config/release_history_en.txt">
+    </TreeNode>
+    <TreeNode Text="Release Circle" NavigateUrl="~/config/release_time_chart.htm" >
+    </TreeNode>
+    <TreeNode Text="Modify Web.config" NavigateUrl="~/config/modify_webconfig.htm" >
+    </TreeNode>
+    <TreeNode Text="Icons" NavigateUrl="~/config/icons.htm" >
+    </TreeNode>
+    <TreeNode Text="AJAX Proprites List" NavigateUrl="~/config/ajax.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Base Usage" SingleClickExpand="true">
+    <TreeNode Text="Hello FineUI" NavigateUrl="~/basic/hello.aspx" >
+    </TreeNode>
+    <TreeNode Text="Hello AspNet" NavigateUrl="~/basic/hello_aspnet.aspx">
+    </TreeNode>
+    <TreeNode Text="Login Page" NavigateUrl="~/basic/login.aspx" >
+    </TreeNode>
+    <TreeNode Text="Login Page (Verification Code)" NavigateUrl="~/basic/login_captcha.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Button Control" SingleClickExpand="true">
+    <TreeNode Text="Simple Button" NavigateUrl="~/button/button.aspx" >
+    </TreeNode>
+    <TreeNode Text="Button Icon" NavigateUrl="~/button/button_icon.aspx" >
+    </TreeNode>
+    <TreeNode Text="Click Event" NavigateUrl="~/button/button_click.aspx" >
+    </TreeNode>
+    <TreeNode Text="Link Button" NavigateUrl="~/button/button_linkbutton.aspx" >
+    </TreeNode>
+    <TreeNode Text="Menu Button" NavigateUrl="~/button/button_menu.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Form Controls" SingleClickExpand="true">
+    <TreeNode Text="Basic Element" SingleClickExpand="true">
+      <TreeNode Text="Lanel" NavigateUrl="~/form/label.aspx" >
+      </TreeNode>
+      <TreeNode Text="HyperLink" NavigateUrl="~/form/hyperlink.aspx" >
+      </TreeNode>
+      <TreeNode Text="Image Control" NavigateUrl="~/form/image.aspx" >
+      </TreeNode>
+      <TreeNode Text="Tooltip" NavigateUrl="~/form/tooltip.aspx" >
+      </TreeNode>
+      <TreeNode Text="Calendar" NavigateUrl="~/form/calendar.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Input Control" SingleClickExpand="true">
+      <TreeNode Text="TextBox" NavigateUrl="~/form/textbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="TextBox (Auto Poseback)" NavigateUrl="~/form/textbox_autopostback.aspx" >
+      </TreeNode>
+      <TreeNode Text="TextArea (Auto Grow)" NavigateUrl="~/form/textarea_autogrow.aspx" >
+      </TreeNode>
+      <TreeNode Text="HtmlEditor" NavigateUrl="~/form/htmleditor.aspx" >
+      </TreeNode>
+      <TreeNode Text="TriggerBox" NavigateUrl="~/form/triggerbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="TwinTriggerBox" NavigateUrl="~/form/twintriggerbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="NumberBox" NavigateUrl="~/form/numberbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="DatePicker" NavigateUrl="~/form/datepicker.aspx" >
+      </TreeNode>
+      <TreeNode Text="DatePicker (Auto Poseback)" NavigateUrl="~/form/datepicker_autopostback.aspx" >
+      </TreeNode>
+      <TreeNode Text="DatePicker (Limit Range)" NavigateUrl="~/form/datepicker_range.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Select Box" SingleClickExpand="true">
+      <TreeNode Text="CheckBox" NavigateUrl="~/form/checkbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="CheckBoxList" NavigateUrl="~/form/checkboxlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="CheckBoxList Update" NavigateUrl="~/form/checkboxlist_update.aspx" >
+      </TreeNode>
+      <TreeNode Text="RadioButton" NavigateUrl="~/form/radiobutton.aspx" >
+      </TreeNode>
+      <TreeNode Text="RadioButtonList" NavigateUrl="~/form/radiobuttonlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="RadioButtonList Update" NavigateUrl="~/form/radiobuttonlist_update.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Form Validation" SingleClickExpand="true">
+      <TreeNode Text="Form Validation" NavigateUrl="~/form/form_compare.aspx" >
+      </TreeNode>
+      <TreeNode Text="Server-side Validation" NavigateUrl="~/form/form_validate.aspx" >
+      </TreeNode>
+      <TreeNode Text="Validate Two Froms" NavigateUrl="~/form/form.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Dynamic Create Elements" SingleClickExpand="true">
+      <TreeNode Text="Dynamic Create Elements" NavigateUrl="~/form/form_dynamic.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Upload Control" SingleClickExpand="true">
+      <TreeNode Text="Upload Control" NavigateUrl="~/form/fileupload.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Complex Layout" SingleClickExpand="true">
+      <TreeNode Text="Embed Panel in Form" NavigateUrl="~/form/layout_panel.aspx" >
+      </TreeNode>
+      <TreeNode Text="Custom SimpleForm Layout" NavigateUrl="~/form/layout_panel2.aspx" >
+      </TreeNode>
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="DropDownList Control" SingleClickExpand="true">
+    <TreeNode Text="Simple DropDownList" NavigateUrl="~/dropdownlist/dropdownlist.aspx" >
+    </TreeNode>
+    <TreeNode Text="DropDownList (Empty Value)" NavigateUrl="~/dropdownlist/dropdownlist_emptyvalue.aspx" >
+    </TreeNode>
+    <TreeNode Text="DropDownList (EnableEdit)" NavigateUrl="~/dropdownlist/dropdownlist_enableedit.aspx" >
+    </TreeNode>
+    <TreeNode Text="DropDownList (ForceSelection)" NavigateUrl="~/dropdownlist/dropdownlist_forceselection.aspx" >
+    </TreeNode>
+    <TreeNode Text="Data Binding" SingleClickExpand="true">
+      <TreeNode Text="Bind to Simple List" NavigateUrl="~/dropdownlist/databind/dropdownlist_simplelist.aspx" >
+      </TreeNode>
+      <TreeNode Text="Bind to Composite List" NavigateUrl="~/dropdownlist/databind/dropdownlist_compositelist.aspx" >
+      </TreeNode>
+      <TreeNode Text="Bind to DataTable" NavigateUrl="~/dropdownlist/databind/dropdownlist_datatable.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Simulate Tree DropDownList" NavigateUrl="~/dropdownlist/dropdownlist_simulate_tree.aspx" >
+    </TreeNode>
+    <TreeNode Text="DropDownList Interaction" NavigateUrl="~/dropdownlist/shengshixian.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Table Control" SingleClickExpand="true">
+    <TreeNode Text="FineUI Table" NavigateUrl="~/grid/grid.aspx" >
+    </TreeNode>
+    <TreeNode Text="AspNet Table" NavigateUrl="~/grid/grid_aspnet.aspx" >
+    </TreeNode>
+    <TreeNode Text="Expanded Column" SingleClickExpand="true">
+      <TreeNode Text="Index &amp; CheckBox Column" NavigateUrl="~/grid/grid_checkall.aspx" >
+      </TreeNode>
+      <TreeNode Text="Row Expander Column" NavigateUrl="~/grid/grid_rowexpander.aspx" >
+      </TreeNode>
+      <TreeNode Text="Row Expander Column (Expand All Rows)" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
+      </TreeNode>
+      <TreeNode Text="Row Expander Column (ExpandAllRowExpanders)" NavigateUrl="~/grid/grid_rowexpander_expandall2.aspx" >
+      </TreeNode>
+      <TreeNode Text="Simulate Tree Column" NavigateUrl="~/grid/grid_simulate_tree.aspx" >
+      </TreeNode>
+      <TreeNode Text="Window Column" NavigateUrl="~/grid/grid_iframe.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Page &amp; Sort" SingleClickExpand="true">
+      <TreeNode Text="Sort" NavigateUrl="~/grid/grid_sorting.aspx" >
+      </TreeNode>
+      <TreeNode Text="Memory Paging" NavigateUrl="~/grid/grid_paging.aspx" >
+      </TreeNode>
+      <TreeNode Text="Database Paging" NavigateUrl="~/grid/grid_database_paging.aspx" >
+      </TreeNode>
+      <TreeNode Text="Memory Paging &amp; Sort" NavigateUrl="~/grid/grid_paging_sorting.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Event" SingleClickExpand="true">
+      <TreeNode Text="Row Command Event" NavigateUrl="~/grid/grid_rowcommand.aspx" >
+      </TreeNode>
+      <TreeNode Text="Row DataBound Event" NavigateUrl="~/grid/grid_rowdatabound.aspx" >
+      </TreeNode>
+      <TreeNode Text="Row PreDataBound Event" NavigateUrl="~/grid/grid_prerowdatabound.aspx" >
+      </TreeNode>
+      <TreeNode Text="Row Click Event" NavigateUrl="~/grid/grid_autopostback.aspx">
+      </TreeNode>
+      <TreeNode Text="Row Double Click Event" NavigateUrl="~/grid/grid_doubleclick.aspx">
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="CheckBox Column" SingleClickExpand="true">
+      <TreeNode Text="CheckBox Column" NavigateUrl="~/grid/grid_checkboxfield.aspx" >
+      </TreeNode>
+      <TreeNode Text="CheckBox Column (Auto PostBack)" NavigateUrl="~/grid/grid_checkboxfield_autopostback.aspx" >
+      </TreeNode>
+      <TreeNode Text="Select All Row CheckBox" NavigateUrl="~/grid/grid_rowcheckall.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Template Column" SingleClickExpand="true">
+      <TreeNode Text="Edit TextBox" NavigateUrl="~/grid/grid_edit.aspx" >
+      </TreeNode>
+      <TreeNode Text="Edit DropDownList" NavigateUrl="~/grid/grid_edit_dropdownlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="Edit DropDownList (Bind Data in Server-side)" NavigateUrl="~/grid/grid_edit_dropdownlist2.aspx" >
+      </TreeNode>
+      <TreeNode Text="Update DropDownList in Server-side" NavigateUrl="~/grid/grid_edit_dropdownlist_update.aspx" >
+      </TreeNode>
+      <TreeNode Text="Edit RadioButtonList" NavigateUrl="~/grid/grid_edit_radiobuttonlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="Edit CheckBoxList" NavigateUrl="~/grid/grid_edit_checkboxlist.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Multi-Header" SingleClickExpand="true">
+      <TreeNode Text="Multi-Header" NavigateUrl="~/grid/grid_groupheader.aspx" >
+      </TreeNode>
+      <TreeNode Text="Multi-Header &amp; Sort" NavigateUrl="~/grid/grid_groupheader2.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Dynamic Create Column" SingleClickExpand="true">
+      <TreeNode Text="Dynamic Create Column" NavigateUrl="~/grid/grid_dynamic_columns.aspx" >
+      </TreeNode>
+      <TreeNode Text="Dynamic Create Template Column" NavigateUrl="~/grid/grid_dynamic_columns2.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Export to Excel" SingleClickExpand="true">
+      <TreeNode Text="Export GridView to Excel" NavigateUrl="~/grid/grid_excel_aspnet.aspx" >
+      </TreeNode>
+      <TreeNode Text="Export Grid to Excel" NavigateUrl="~/grid/grid_excel.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Others" SingleClickExpand="true">
+      <TreeNode Text="Mater-Detail Table" NavigateUrl="~/grid/grid_twogrid.aspx" >
+      </TreeNode>
+      <TreeNode Text="Change Row Background Color" NavigateUrl="~/grid/grid_rowcolor.aspx" >
+      </TreeNode>
+      <TreeNode Text="Column Text Align" NavigateUrl="~/grid/grid_centercolumn.aspx" >
+      </TreeNode>
+      <TreeNode Text="Show &amp; Hide Column" NavigateUrl="~/grid/grid_hidecolumn.aspx" >
+      </TreeNode>
+      <TreeNode Text="Bind to Composite Properties" NavigateUrl="~/grid/grid_complex_property.aspx" >
+      </TreeNode>
+      <TreeNode Text="Allow Select Text in Table" NavigateUrl="~/grid/grid_textselection.aspx" >
+      </TreeNode>
+      <TreeNode Text="Auto Adjust Column Width" NavigateUrl="~/grid/grid_forcefit.aspx" >
+      </TreeNode>
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Tree Control" SingleClickExpand="true">
+    <TreeNode Text="Simple Tree" NavigateUrl="~/tree/tree.aspx" >
+    </TreeNode>
+    <TreeNode Text="Icon &amp; HyperLink" NavigateUrl="~/tree/tree_icon.aspx" >
+    </TreeNode>
+    <TreeNode Text="Delay Load Tree" NavigateUrl="~/tree/tree_ajax.aspx" >
+    </TreeNode>
+    <TreeNode Text="DataBind" SingleClickExpand="true">
+      <TreeNode Text="Bind to XmlDocument" NavigateUrl="~/tree/databind/tree_document.aspx" >
+      </TreeNode>
+      <TreeNode Text="Bind to XmlDataSource" NavigateUrl="~/tree/databind/tree_datasource.aspx" >
+      </TreeNode>
+      <TreeNode Text="Bind to SiteMap" NavigateUrl="~/tree/databind/tree_sitemap.aspx" >
+      </TreeNode>
+      <TreeNode Text="Bind to DataTable" NavigateUrl="~/tree/databind/tree_datatable.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="CheckBox" SingleClickExpand="true">
+      <TreeNode Text="Simple CheckBox" NavigateUrl="~/tree/checkbox/tree_checked.aspx" >
+      </TreeNode>
+      <TreeNode Text="Select &amp; Unselect All" NavigateUrl="~/tree/checkbox/tree_checkall.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="Row Selection" SingleClickExpand="true">
+      <TreeNode Text="Select One Row" NavigateUrl="~/tree/select/tree_select.aspx" >
+      </TreeNode>
+      <TreeNode Text="Select Multi-Row" NavigateUrl="~/tree/select/tree_multi_select.aspx" >
+      </TreeNode>
+      <TreeNode Text="Node Command" NavigateUrl="~/tree/select/tree_nodecommand.aspx" >
+      </TreeNode>
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="TabStrip Control" SingleClickExpand="true">
+    <TreeNode Text="Basic Usage" NavigateUrl="~/tabstrip/tabstrip.aspx" >
+    </TreeNode>
+    <TreeNode Text="Auto PostBack" NavigateUrl="~/tabstrip/tabstrip_autopostback.aspx" >
+    </TreeNode>
+    <TreeNode Text="Embed IFrame" NavigateUrl="~/tabstrip/tabstrip_iframe.aspx" >
+    </TreeNode>
+    <TreeNode Text="Close Button" NavigateUrl="~/tabstrip/tabstrip_enableclose.aspx"  >
+    </TreeNode>
+    <TreeNode Text="Dynamic Add Tab" NavigateUrl="~/tabstrip/tabstrip_addtab.aspx"  >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Accordion Control" SingleClickExpand="true">
+    <TreeNode Text="Basic Usage" NavigateUrl="~/accordion/accordion.aspx" >
+    </TreeNode>
+    <!--<TreeNode Text="Links" NavigateUrl="~/accordion/accordion_links.aspx" >
+    </TreeNode>-->
+    <TreeNode Text="Acordion &amp; Tree" NavigateUrl="~/accordion/accordion_tree.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Page Layout" SingleClickExpand="true">
+    <TreeNode Text="Panel" NavigateUrl="~/layout/panel.aspx" >
+    </TreeNode>
+    <TreeNode Text="Group Panel" NavigateUrl="~/layout/group_panel.aspx" >
+    </TreeNode>
+    <TreeNode Text="Window" NavigateUrl="~/layout/window.aspx" >
+    </TreeNode>
+    <TreeNode Text="Layout - Fit" NavigateUrl="~/layout/fit.aspx" >
+    </TreeNode>
+    <TreeNode Text="Layout - Anchor" NavigateUrl="~/layout/anchor.aspx" >
+    </TreeNode>
+    <TreeNode Text="Layout - Column" NavigateUrl="~/layout/column.aspx" >
+    </TreeNode>
+    <TreeNode Text="Layout - Row" NavigateUrl="~/layout/row.aspx" >
+    </TreeNode>
+    <TreeNode Text="Layout - Absolute" NavigateUrl="~/layout/absolute.aspx"  >
+    </TreeNode>
+    <TreeNode Text="Layout - Table" NavigateUrl="~/layout/table.aspx"  >
+    </TreeNode>
+    <TreeNode Text="Layout - HBox" NavigateUrl="~/layout/hbox.aspx"  >
+    </TreeNode>
+    <TreeNode Text="Layout - VBox" NavigateUrl="~/layout/vbox.aspx"  >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="IFrame Framework" SingleClickExpand="true">
+    <TreeNode Text="Popup Window (Self &amp; Parent)" NavigateUrl="~/iframe/button_iframe.aspx" >
+    </TreeNode>
+    <TreeNode Text="Table &amp; Edit Window" NavigateUrl="~/iframe/grid_iframe.aspx" >
+    </TreeNode>
+    <TreeNode Text="Self &amp; Parent Window (Pass Value)" NavigateUrl="~/iframe/passvalue_iframe.aspx" >
+    </TreeNode>
+    <TreeNode Text="TriggerBox &amp; IFrame (Pass Value)" NavigateUrl="~/iframe/triggerbox_iframe.aspx" >
+    </TreeNode>
+    <TreeNode Text="Popup Window from Window" NavigateUrl="~/iframe/iframe_iframe.aspx">
+    </TreeNode>
+    <TreeNode Text="PostBack Parent Window" NavigateUrl="~/iframe/parent_postback_top.aspx" >
+    </TreeNode>
+    <TreeNode Text="PostBack Parent Window 2" NavigateUrl="~/iframe/parent_postback.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="ASP.NET Interaction" SingleClickExpand="true">
+    <TreeNode Text="ASP.NET Control" NavigateUrl="~/aspnet/aspnet.aspx" >
+    </TreeNode>
+    <TreeNode Text="Label &amp; Literal" NavigateUrl="~/aspnet/aspnet_literal.aspx" >
+    </TreeNode>
+    <TreeNode Text="File Upload" NavigateUrl="~/aspnet/fileupload.aspx" >
+    </TreeNode>
+    <TreeNode Text="FCKEditor" NavigateUrl="~/aspnet/fckeditor.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="User Control" SingleClickExpand="true">
+    <TreeNode Text="User Control" NavigateUrl="~/usercontrol/userinfo.aspx" >
+    </TreeNode>
+    <TreeNode Text="User Control (Dynamic)" NavigateUrl="~/usercontrol/userinfo_dynamic.aspx" >
+    </TreeNode>
+    <TreeNode Text="User Control &amp; Layout" NavigateUrl="~/usercontrol/userinfo2.aspx" >
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Toolbar" SingleClickExpand="true">
+    <TreeNode Text="Toolbar &amp; Menu" NavigateUrl="~/toolbar/menu_dynamic.aspx" >
+    </TreeNode>
+    <TreeNode Text="Dynamic Add Button to Toolbar" NavigateUrl="~/toolbar/menu_dynamic2.aspx" >
+    </TreeNode>
+    <TreeNode Text="Open IFrame in Panel" NavigateUrl="~/toolbar/toolbar_iframe.aspx">
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="Other" SingleClickExpand="true">
+    <TreeNode Text="Timer" NavigateUrl="~/other/timer.aspx" >
+    </TreeNode>
+    <TreeNode Text="Custom PostBack" NavigateUrl="~/other/custom_postback.aspx">
+    </TreeNode>
+    <TreeNode Text="CssStyle &amp; CssClass" NavigateUrl="~/other/cssstyle.aspx">
+    </TreeNode>
+    <TreeNode Text="FormItemClass" NavigateUrl="~/other/formitemclass.aspx">
+    </TreeNode>
+    <TreeNode Text="Add Tab to Parent Page" NavigateUrl="~/other/addtab.aspx">
+    </TreeNode>
+    <TreeNode Text="Ajax Tip" NavigateUrl="~/other/ajax_loading.aspx">
+    </TreeNode>
+    <TreeNode Text="Custom Alert Icon" NavigateUrl="~/other/alert.aspx">
+    </TreeNode>
+  </TreeNode>
+</Tree>

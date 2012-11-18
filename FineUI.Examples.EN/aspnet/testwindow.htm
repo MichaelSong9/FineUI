@@ -1,0 +1,111 @@
+﻿
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title><!-- Powered by ExtAspNet v3.1.0 - ExtJS based ASP.NET 2.0 Controls with Full AJAX Support - http://extaspnet.codeplex.com/ -->
+<link href="/WebResource.axd?d=jPAPLY6yYtTKnYubYdjvqK_hOgHjpTbeiJROQzzsf0Yqgx27A7nW9DStpMG0dv2Tiz_EQmnpW1lEo1d7Sq6egGf9ZqnFig4u7H5jg-uQ7lkQYqPNQV7HkSvW6Gv5M4pEvCYNlg2&t=634688117804938437" rel="stylesheet" text="text/css"/>
+
+    <style>
+        form
+        {
+            height:300px;
+        }
+    </style>
+    <script>
+
+
+        function onReady() {
+            var x0 = new Ext.Button({
+                x_state: {},
+                id: "btnTest2",
+                renderTo: "container1",
+                text: "测试",
+                handler: function () {
+                    document.getElementById('ok').innerHTML = 'OK#############';
+                    return false;
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <form name="form1" method="post" action="TestWindow.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzk2NTEyMzEwZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUHYnRuVGVzdIbY4t/tQ9oCdeampKBV8XFIMAkg" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var theForm = document.forms['form1'];
+    if (!theForm) {
+        theForm = document.form1;
+    }
+    function __doPostBack(eventTarget, eventArgument) {
+        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+        }
+    }
+//]]>
+</script>
+
+
+   <div id='loading-mask'></div><div id='loading'><div class='loading-indicator'><img align='absmiddle' src='/WebResource.axd?d=3SQZYA1Khu8btj1F1AyYKjYK7WlHz4ykbi8P65PaeAkn3_sq8jn1xCO-z4MYMKoBbQPQiEwFabIMsHDsEbqz3eI08e1ddgp8awr9jNRVQ8ggoVSFL5I3ul7AT_EvVcOnOPntEA2&t=634688117804938437'/></div></div>
+    <div id="btnTest_wrapper"></div>
+    <input type="button" onclick="document.getElementById('ok').innerHTML = 'OK';" value="PPP" />
+    <div id="ok"></div>
+
+    <div id="container1"></div>
+    
+<script src="/WebResource.axd?d=HQJn3XzkZGfdorczYChvKGdCA-7Ugs0TH5JNoyWs_ltlwhGqTFBEqgU3Ebe_cuS2yqWoMOW3etaVhgLWOldRLd7z9yjJevEQ_55IOeOHqqwxdkwy0&t=634688117804938437" type="text/javascript"></script>
+<script src="/WebResource.axd?d=JIhPtUkw21508UG2HSJ3FHVrj9nsXlvCVLfciV0weCbRRJa__qLWDFlxAG42sThY5K-DeDWpFWmcK-_vgfD37OqAVo6UHfMF4TbsFyzrlc1YbOoZ5tTtdKOGinYpSAn5Se0E0Q2&t=634688117804938437" type="text/javascript"></script>
+<script src="/WebResource.axd?d=3zPwqHP23JS-gGqj5TFu15URCw_GiPWs9dfNOpMk2E1WcHQfU2BxTVL7SR8LQFtkUpB1J4u4I5IIvj6CtcH6M8XJBKHF7mRVz5l3MVKCsLr3CWVI0&t=634688117804938437" type="text/javascript"></script>
+<script src="/WebResource.axd?d=lWBJtobaEmHwrR71fbebiL68Dr0IzuSvpOMKeytgGM4blDw768rtwWJ5LP7f-Zz0EO8UQ4-xnQ43iD8XFiegZ4Jroi4HveQSGLhC8vAc9KebT1SCzYF7m9h8e3yhbhSBRe4YWQ2&t=634688117804938437" type="text/javascript"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+    Ext.onReady(function () {
+        Ext.QuickTips.init(false);
+//        Ext.QuickTips.init();
+//        X.ajax.hookPostBack();
+//        X.util.makeAspnetSubmitButtonAjax();
+//        X.form_upload_file = false;
+//        X.global_disable_ajax = false;
+//        X.window_default_group = new Ext.WindowGroup();
+//        X.window_default_group.zseed = 6000;
+//        X.util.setHiddenFieldValue('X_CHANGED', 'false');
+//        document.forms[0].autocomplete = 'off';
+
+
+//        Ext.getBody().addClass('bigfont');
+
+        // Default empty image
+//        if (Ext.isIE6 || Ext.isIE7) {
+//            Ext.BLANK_IMAGE_URL = '/WebResource.axd?d=cerR6gc0oF_iXdik12XRkYSC8SZP-SriRSr8NE8gihHRTcNCrEqKkVIRQVBT0PB9NXq5Vsk2PgHfrXN69ZovTe3btDTykO8D7MVVrWo8F7NrNUKF0&t=634688117804938437';
+//        }
+//        
+        var x0 = new Ext.Button({
+            x_state: {},
+            id: "btnTest",
+            renderTo: "btnTest_wrapper",
+            text: "点击此Button查看alert是否报错",
+            handler: function () {
+                document.getElementById('ok').innerHTML = 'OK@@@@@@';
+                return false;
+            }
+        });
+        X.util.removePageLoading(false);
+        if (typeof (onReady) === 'function') {
+            onReady.call(window);
+        }
+        
+    });//]]>
+</script>
+</form>
+</body>
+</html>

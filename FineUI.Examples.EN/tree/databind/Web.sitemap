@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode title="China" Expanded="true" NodeId="China">
+        <siteMapNode title="Henan Province" Expanded="true" NodeId="henan">
+            <siteMapNode title="Zhumadian City"  NodeId="zhumadian"  />
+            <siteMapNode title="Luohe City" NodeId="luohe"  />
+        </siteMapNode>
+        <siteMapNode title="Anhui Province" Expanded="true" NodeId="anhui">
+            <siteMapNode title="Hefei City" NodeId="hefei">
+                <siteMapNode title="Golden Pond Community"  NodeId="golden" >
+                </siteMapNode>
+            </siteMapNode>
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>
