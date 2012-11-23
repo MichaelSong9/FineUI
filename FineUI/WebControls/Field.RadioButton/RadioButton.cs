@@ -215,10 +215,22 @@ namespace FineUI
 
             #region AutoPostBack
 
-            if (AutoPostBack)
+            //if (AutoPostBack)
+            //{
+            //    OB.Listeners.AddProperty("check", JsHelper.GetFunction(GetPostBackEventReference()), true);
+            //}
+
+            string checkScript = String.Empty;
+            if (!String.IsNullOrEmpty(GroupName))
             {
-                OB.Listeners.AddProperty("check", JsHelper.GetFunction(GetPostBackEventReference()), true);
-            } 
+                checkScript = "if(X.util.checkGroupLastTime('" + GroupName + "')){" + GetPostBackEventReference() + "}";
+            }
+            else
+            {
+                checkScript = GetPostBackEventReference();
+            }
+
+            OB.Listeners.AddProperty("check", JsHelper.GetFunction(checkScript), true);
 
             #endregion
 

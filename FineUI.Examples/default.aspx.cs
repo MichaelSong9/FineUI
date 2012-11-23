@@ -39,8 +39,12 @@ namespace FineUI.Examples
                 ids.Add("menuType", "menu");
             }
 
-            string idsScriptStr = String.Format("window.IDS={0};", ids.ToString(Newtonsoft.Json.Formatting.None));
-            PageContext.RegisterStartupScript(idsScriptStr);
+            // 只在页面第一次加载时注册客户端用到的脚本
+            if (!Page.IsPostBack)
+            {
+                string idsScriptStr = String.Format("window.IDS={0};", ids.ToString(Newtonsoft.Json.Formatting.None));
+                PageContext.RegisterStartupScript(idsScriptStr);
+            }
         }
 
         private Accordion InitAccordionMenu()
@@ -237,6 +241,14 @@ namespace FineUI.Examples
 
         protected void MenuLang_CheckedChanged(object sender, EventArgs e)
         {
+            MenuCheckBox menuCheckBox = sender as MenuCheckBox;
+            if (!menuCheckBox.Checked)
+            {
+                // CheckedChanged会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+                // 这里不处理取消选中的菜单项的事件，从而防止此函数重复执行两次
+                return;
+            }
+
             string langValue = "zh_cn";
             string langID = GetSelectedMenuID(MenuLang);
 
@@ -258,6 +270,14 @@ namespace FineUI.Examples
 
         protected void MenuTheme_CheckedChanged(object sender, EventArgs e)
         {
+            MenuCheckBox menuCheckBox = sender as MenuCheckBox;
+            if (!menuCheckBox.Checked)
+            {
+                // CheckedChanged会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+                // 这里不处理取消选中的菜单项的事件，从而防止此函数重复执行两次
+                return;
+            }
+
             string themeValue = "Blue";
             string themeID = GetSelectedMenuID(MenuTheme);
 
@@ -291,6 +311,14 @@ namespace FineUI.Examples
 
         protected void MenuStyle_CheckedChanged(object sender, EventArgs e)
         {
+            MenuCheckBox menuCheckBox = sender as MenuCheckBox;
+            if (!menuCheckBox.Checked)
+            {
+                // CheckedChanged会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+                // 这里不处理取消选中的菜单项的事件，从而防止此函数重复执行两次
+                return;
+            }
+
             string menuValue = "menu";
             string menuStyleID = GetSelectedMenuID(MenuStyle);
              

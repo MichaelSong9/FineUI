@@ -1324,6 +1324,21 @@ X.ajaxReady = function () {
 
             return items;
 
+        },
+
+        checkGroupLastTime: function (groupName) {
+            var checkName = groupName + '_lastupdatetime';
+            var checkValue = X.util[checkName];
+            X.util[checkName] = new Date();
+            if (typeof(checkValue) === 'undefined' ) {
+                return true;
+            } else {
+                if ((new Date() - checkValue) < 100) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
         }
 
 
