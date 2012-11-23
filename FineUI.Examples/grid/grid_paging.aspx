@@ -28,6 +28,7 @@
             <x:ImageField Width="60px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
                 HeaderText="分组"></x:ImageField>
         </Columns>
+        
     </x:Grid>
     <br />
     <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">

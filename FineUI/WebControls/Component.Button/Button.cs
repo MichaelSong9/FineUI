@@ -504,29 +504,6 @@ namespace FineUI
         }
 
 
-        /*
-        private MenuCollection _menus;
-
-        /// <summary>
-        /// 按钮的上下文菜单
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [NotifyParentProperty(true)]
-        [PersistenceMode(PersistenceMode.InnerProperty)]
-        [Description("按钮的上下文菜单")]
-        public virtual MenuCollection Menus
-        {
-            get
-            {
-                if (_menus == null)
-                {
-                    _menus = new MenuCollection(this);
-                }
-                return _menus;
-            }
-        }
-         * */
-
         #endregion
 
         #region CreateChildControls
@@ -535,15 +512,12 @@ namespace FineUI
         {
             base.CreateChildControls();
 
-            Menu.RenderWrapperNode = false;
-            Controls.Add(Menu);
+            if (_menu != null)
+            {
+                Menu.RenderWrapperNode = false;
+                Controls.Add(Menu);
+            }
 
-            //// 添加子控件
-            //foreach (Menu menu in Menus)
-            //{
-            //    menu.RenderWrapperDiv = false;
-            //    Controls.Add(menu);
-            //}
         }
         #endregion
 
@@ -725,16 +699,12 @@ namespace FineUI
 
             #region Menu
 
-            /*
-            if (Menus.Count > 0)
+            if (_menu != null)
             {
-                // 一个Button只能由一个Menu
-                OB.AddProperty("menu", String.Format("{0}", Menus[0].XID), true);
-            }
-             * */
-            if (Menu.Items.Count > 0)
-            {
-                OB.AddProperty("menu", String.Format("{0}", Menu.XID), true);
+                if (Menu.Items.Count > 0)
+                {
+                    OB.AddProperty("menu", String.Format("{0}", Menu.XID), true);
+                }
             }
 
             #endregion

@@ -10,13 +10,13 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Button ID="btnMenu" Text="中国科学技术大学" EnablePostBack="false" runat="server">
-        <Menu>
+        <Menu runat="server">
             <x:MenuHyperLink runat="server" Icon="TagGreen" Target="_blank" NavigateUrl="http://scms.ustc.edu.cn/"
                 Text="化学与材料科学学院">
             </x:MenuHyperLink>
             <x:MenuHyperLink runat="server" Icon="TagBlue" Target="_blank" NavigateUrl="http://business.ustc.edu.cn/zh_CN/"
                 Text="管理学院">
-                <Menu>
+                <Menu runat="server">
                     <x:MenuHyperLink runat="server" Icon="TagPink" Target="_blank" NavigateUrl="http://is.ustc.edu.cn/"
                         Text="工商管理系">
                     </x:MenuHyperLink>
