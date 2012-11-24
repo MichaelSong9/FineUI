@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_rowexpander_expandall2.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_rowexpander_expandall2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_pageitems_rowexpander.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_pageitems_rowexpander" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,10 +24,12 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" Height="450px"
-        runat="server" DataKeyNames="Id,Name" ExpandAllRowExpanders="true">
+    <x:Grid ID="Grid1" Title="表格" PageSize="5" ShowBorder="true" ShowHeader="true" AutoHeight="true"
+        AllowPaging="true" runat="server" EnableCheckBoxSelect="false" Width="800px"
+        Height="350px" DataKeyNames="Id,Name" OnPageIndexChange="Grid1_PageIndexChange"
+        EnableRowNumber="false" ExpandAllRowExpanders="true">
         <Columns>
-            <x:TemplateField RenderAsRowExpander="true">
+            <x:TemplateField Hidden="true" RenderAsRowExpander="true">
                 <ItemTemplate>
                     <div class="expander">
                         <p>
@@ -45,7 +47,6 @@
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
                 <ItemTemplate>
-                    <%-- Container.DataItem 的类型是 System.Data.DataRowView 或者用户自定义类型 --%>
                     <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
@@ -56,20 +57,21 @@
                 DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
             <x:ImageField Width="60px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
                 HeaderText="分组"></x:ImageField>
-            <x:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yy-MM-dd}" HeaderText="注册日期" />
         </Columns>
+        <PageItems>
+            <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
+            </x:ToolbarSeparator>
+            <x:Button Text="显示描述信息" runat="server" EnablePress="true" Pressed="true" ID="btnShowRowExpanders"
+                OnClick="btnShowRowExpanders_Click">
+            </x:Button>
+        </PageItems>
     </x:Grid>
     <br />
-    <x:Button ID="Button1" runat="server" Text="重新绑定表格" CssClass="inline" OnClick="Button1_Click">
-    </x:Button>
-    <x:Button ID="btnExpandRowExpanders" runat="server" CssClass="inline" Text="展开全部的行扩展列" OnClick="btnExpandRowExpanders_Click">
-    </x:Button>
-    <x:Button ID="btnCollapseRowExpanders" runat="server" Text="折叠全部的行扩展列" OnClick="btnCollapseRowExpanders_Click">
+    <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
     </x:Button>
     <br />
-    <br />
-    注：请注意如何通过一个简单的属性，来控制是否展开所有行扩展列（即使在重新绑定数据后，依然能够保持所有扩展列的展开状态）。
-    <br />
+    <x:Label ID="labResult" EncodeText="false" runat="server">
+    </x:Label>
     </form>
 </body>
 </html>

@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_paging.aspx.cs" Inherits="FineUI.Examples.grid.grid_paging" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_pageitems.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_pageitems" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,14 @@
             <x:ImageField Width="60px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
                 HeaderText="分组"></x:ImageField>
         </Columns>
+        <PageItems>
+            <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
+            </x:ToolbarSeparator>
+            <x:Button Text="选中所有行" runat="server" ID="btnSelectAll" OnClick="btnSelectAll_Click">
+            </x:Button>
+            <x:Button Text="清空选中" runat="server" ID="btnClearSelect" OnClick="btnClearSelect_Click">
+            </x:Button>
+        </PageItems>
     </x:Grid>
     <br />
     <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">

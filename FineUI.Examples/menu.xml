@@ -215,6 +215,12 @@
       <TreeNode Text="Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel.aspx" >
       </TreeNode>
     </TreeNode>
+    <TreeNode Text="分页工具条" SingleClickExpand="true">
+      <TreeNode Text="选中所有行" NavigateUrl="~/grid/grid_pageitems.aspx" >
+      </TreeNode>
+      <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_pageitems_rowexpander.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="其他" SingleClickExpand="true">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>

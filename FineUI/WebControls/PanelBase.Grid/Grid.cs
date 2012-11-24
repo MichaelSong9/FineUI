@@ -62,8 +62,11 @@ namespace FineUI
             // 严格的说，PageIndex、SortColumnIndex、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
             AddServerAjaxProperties("X_Rows", "PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
-            AddClientAjaxProperties("X_States", "HiddenColumnIndexArray", "SelectedRowIndexArray");
+            AddClientAjaxProperties("X_States", "HiddenColumnIndexArray", "SelectedRowIndexArray", "ExpandAllRowExpanders");
         }
+
+        // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
+        private bool _registerScriptRowExpanders = false;
 
         #endregion
 
@@ -960,7 +963,6 @@ namespace FineUI
         {
             get
             {
-
                 List<int> hiddens = new List<int>();
                 if (AllColumns.Count > 0)
                 {
@@ -1076,6 +1078,28 @@ namespace FineUI
         #endregion
 
         #region GroupColumns/Columns/Rows
+
+        private ControlBaseCollection _pageItems;
+
+        /// <summary>
+        /// 分页工具条项集合
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [NotifyParentProperty(true)]
+        [PersistenceMode(PersistenceMode.InnerProperty)]
+        public virtual ControlBaseCollection PageItems
+        {
+            get
+            {
+                if (_pageItems == null)
+                {
+                    _pageItems = new ControlBaseCollection(this);
+                }
+                return _pageItems;
+            }
+        }
+
+
 
         private GridGroupColumnCollection _groupColumns;
 
@@ -1574,26 +1598,46 @@ namespace FineUI
             }
 
             bool selectRowsScriptRegistered = false;
-
             if (PropertyModified("SelectedRowIndexArray"))
             {
                 sb.AppendFormat("{0}.x_selectRows();", XID);
-
                 selectRowsScriptRegistered = true;
             }
 
             if (PropertyModified("HiddenColumnIndexArray"))
             {
-                sb.AppendFormat("{0}.x_hiddenColumns();", XID);
+                sb.AppendFormat("{0}.x_updateColumnsHiddenStatus();", XID);
             }
 
-            // 如果数据重新加载了
-            if (dataReloaded)
+
+            bool rowExpandersScriptRegistered = false;
+            if (PropertyModified("ExpandAllRowExpanders") || _registerScriptRowExpanders)
             {
-                // 判断是否需要展开所有的行扩展列
                 if (ExpandAllRowExpanders)
                 {
                     sb.AppendFormat("{0}.x_expandAllRows();", XID);
+                }
+                else
+                {
+                    sb.AppendFormat("{0}.x_collapseAllRows();", XID);
+                }
+                rowExpandersScriptRegistered = true;
+            }
+
+            // 如果数据重新加载了，即每行的数据都更新了
+            if (dataReloaded)
+            {
+                if (!rowExpandersScriptRegistered)
+                {
+                    // 判断是否需要展开所有的行扩展列
+                    if (ExpandAllRowExpanders)
+                    {
+                        sb.AppendFormat("{0}.x_expandAllRows();", XID);
+                    }
+                    else
+                    {
+                        sb.AppendFormat("{0}.x_collapseAllRows();", XID);
+                    }
                 }
 
                 // 是否启用文本选择
@@ -1619,6 +1663,17 @@ namespace FineUI
         {
             // 确保 X_Rows 在页面第一次加载时都存在于x_state中
             XState.AddModifiedProperty("X_Rows");
+
+            // 因为可以在 ASPX 中指定列的 Hidden 属性
+            // 如果在 ASPX 中指定了列的 Hidden 属性，但是 HiddenColumnIndexArray 不在改变的属性列表中，
+            // 为了在客户端初始化隐藏的列，需要手工将 HiddenColumnIndexArray 添加到改变的属性列表中，以便使其存在于 x_state 属性中。
+            if (HiddenColumnIndexArray.Length > 0)
+            {
+                XState.AddModifiedProperty("HiddenColumnIndexArray");
+            }
+
+
+            // 不需要手工添加 SelectedRowIndexArray 属性，是因为只能通过代码设置此属性
 
             base.OnFirstPreRender();
 
@@ -1664,7 +1719,7 @@ namespace FineUI
             string autoExpandColumnID = AutoExpandColumn; // GetAutoExpandColumnID();
             if (String.IsNullOrEmpty(autoExpandColumnID))
             {
-                autoExpandColumnID = GetAutoExpandColumnID();  
+                autoExpandColumnID = GetAutoExpandColumnID();
             }
 
             if (!String.IsNullOrEmpty(autoExpandColumnID))
@@ -1684,7 +1739,7 @@ namespace FineUI
 
 
             JsObjectBuilder viewBuilder = new JsObjectBuilder();
-            if(ForceFitAllTime)
+            if (ForceFitAllTime)
             {
                 viewBuilder.AddProperty("forceFit", true);
             }
@@ -1739,7 +1794,7 @@ namespace FineUI
                 OB.AddProperty("deferRowRender", false);
             }
 
-            
+
 
             #endregion
 
@@ -1785,6 +1840,21 @@ namespace FineUI
                 string loadPageScript = JsHelper.GetFunction(postbackScript.Replace("'#PLACEHOLDER#'", "'Page$'+pageIndex"), "pageIndex");
 
                 pagingBuilder.AddProperty("onLoadPage", loadPageScript, true);
+
+
+                if (PageItems.Count > 0)
+                {
+                    JsArrayBuilder ab = new JsArrayBuilder();
+                    foreach (ControlBase item in PageItems)
+                    {
+                        if (item.Visible)
+                        {
+                            ab.AddProperty(String.Format("{0}", item.XID), true);
+                        }
+                    }
+
+                    pagingBuilder.AddProperty("items", ab.ToString(), true);
+                }
 
 
                 pagingScript = String.Format("var {0}=new Ext.ux.SimplePagingToolbar({1});", Render_PagingID, pagingBuilder);
@@ -1962,18 +2032,14 @@ namespace FineUI
             viewreadySB.Append("cmp.x_selectRows();");
 
 
-            // 展开所有的行扩展列
-            if (ExpandAllRowExpanders)
-            {
-                viewreadySB.Append("cmp.x_expandAllRows();");
-            }
-
             if (EnableTextSelection)
             {
                 OB.AddProperty("cls", CssClass + " x-grid-selectable");
 
                 viewreadySB.Append("cmp.x_enableTextSelection();");
             }
+
+            
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
 
@@ -1984,8 +2050,20 @@ namespace FineUI
 
             StringBuilder renderSB = new StringBuilder();
 
-
+            // 加载表格数据
             renderSB.Append("cmp.x_loadData();");
+
+            // 隐藏列
+            if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
+            {
+                renderSB.Append("cmp.x_updateColumnsHiddenStatus();");
+            }
+
+            // 展开所有的行扩展列
+            if (ExpandAllRowExpanders)
+            {
+                renderSB.Append("cmp.x_expandAllRows();");
+            }
 
             OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderSB.ToString(), "cmp"), true);
 
@@ -2342,7 +2420,7 @@ namespace FineUI
                     level--;
                 }
             }
-        } 
+        }
 
         #endregion
 
@@ -3027,7 +3105,7 @@ namespace FineUI
         }
         #endregion
 
-        #region FindColumn
+        #region FindColumn/SelectAllRows
 
         /// <summary>
         /// 通过列ID获取列实例
@@ -3047,7 +3125,45 @@ namespace FineUI
             return null;
         }
 
+
+        /// <summary>
+        /// 选中所有行（设置SelectedRowIndexArray属性）
+        /// </summary>
+        public void SelectAllRows()
+        {
+            List<int> rowIndexs = new List<int>();
+            for (int i = 0; i < Rows.Count; i++)
+            {
+                rowIndexs.Add(i);
+            }
+            SelectedRowIndexArray = rowIndexs.ToArray();
+        }
+
+        /// <summary>
+        /// 展开全部的行扩展列
+        /// </summary>
+        public void ExpandRowExpanders()
+        {
+            _registerScriptRowExpanders = true;
+
+            ExpandAllRowExpanders = true;
+            //PageContext.RegisterStartupScript(String.Format("{0}.x_expandAllRows();", ScriptID));
+        }
+
+        /// <summary>
+        /// 折叠全部的行扩展列
+        /// </summary>
+        public void CollapseRowExpanders()
+        {
+            _registerScriptRowExpanders = true;
+
+            ExpandAllRowExpanders = false;
+            //PageContext.RegisterStartupScript(String.Format("{0}.x_collapseAllRows();", ScriptID));
+        }
+
         #endregion
+
+        
 
         #region IPostBackEventHandler
 

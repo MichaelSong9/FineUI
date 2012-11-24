@@ -68,7 +68,7 @@ namespace FineUI.Examples.iframe
 
         private void BindGrid2()
         {
-            DataTable table = GetDataTable2();
+            DataTable table = GetDataTable();
 
             Grid2.DataSource = table;
             Grid2.DataBind();

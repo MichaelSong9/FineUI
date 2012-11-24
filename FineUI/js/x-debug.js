@@ -2405,12 +2405,12 @@ if (Ext.form.CheckboxGroup) {
 if (Ext.form.ComboBox) {
     Ext.override(Ext.form.ComboBox, {
         // Load data from local cache.
-//        mode: "local",
-//        triggerAction: "all",
+        //        mode: "local",
+        //        triggerAction: "all",
         displayField: "text",
         valueField: "value",
         //tpl: "<tpl for=\".\"><div class=\"x-combo-list-item <tpl if=\"!enabled\">x-combo-list-item-disable</tpl>\">{prefix}{text}</div></tpl>",
-        
+
         // These variables are in the Ext.form.ComboBox.prototype, therefore all instance will refer to the same store instance.
         //store: new Ext.data.ArrayStore({ fields: ['value', 'text', 'enabled', 'prefix'] }),
 
@@ -2534,10 +2534,21 @@ if (Ext.grid.GridPanel) {
             }
         },
 
-        // Expand all expander rows.
+        // 展开所有的行扩展列
         x_expandAllRows: function () {
-            for (var i = 0, count = this.store.getCount(); i < count; i++) {
-                this.plugins[0].expandRow(i);
+            if (this.plugins && this.plugins[0] && this.plugins[0].id === 'expander') {
+                for (var i = 0, count = this.store.getCount(); i < count; i++) {
+                    this.plugins[0].expandRow(i);
+                }
+            }
+        },
+
+        // 隐藏所有的行扩展列
+        x_collapseAllRows: function () {
+            if (this.plugins && this.plugins[0] && this.plugins[0].id === 'expander') {
+                for (var i = 0, count = this.store.getCount(); i < count; i++) {
+                    this.plugins[0].collapseRow(i);
+                }
             }
         },
 
@@ -2569,6 +2580,7 @@ if (Ext.grid.GridPanel) {
             return selectRows;
         },
 
+        // 获取隐藏列的索引列表
         x_getHiddenColumns: function () {
             var hiddens = [], model = this.getColumnModel(), columns = model.config;
             Ext.each(columns, function (column, index) {
@@ -2579,14 +2591,14 @@ if (Ext.grid.GridPanel) {
             return hiddens;
         },
 
-        x_hiddenColumns: function (hiddens) {
+        // 隐藏需要隐藏的列，显示不需要隐藏的列
+        x_updateColumnsHiddenStatus: function (hiddens) {
             hiddens = hiddens || this.x_state['HiddenColumnIndexArray'] || [];
             var model = this.getColumnModel(), columns = model.config;
             Ext.each(columns, function (column, index) {
                 if (hiddens.indexOf(index) !== -1) {
                     model.setHidden(index, true);
-                }
-                else {
+                } else {
                     model.setHidden(index, false);
                 }
             });

@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_rowexpander_expandall2 {
+    public partial class grid_pageitems {
         
         /// <summary>
         /// form1 控件。
@@ -40,15 +40,6 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// Label1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// Label2 控件。
         /// </summary>
         /// <remarks>
@@ -56,6 +47,33 @@ namespace FineUI.Examples.grid {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// ToolbarSeparator1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.ToolbarSeparator ToolbarSeparator1;
+        
+        /// <summary>
+        /// btnSelectAll 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnSelectAll;
+        
+        /// <summary>
+        /// btnClearSelect 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnClearSelect;
         
         /// <summary>
         /// Button1 控件。
@@ -67,21 +85,12 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// btnExpandRowExpanders 控件。
+        /// labResult 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnExpandRowExpanders;
-        
-        /// <summary>
-        /// btnCollapseRowExpanders 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnCollapseRowExpanders;
+        protected global::FineUI.Label labResult;
     }
 }

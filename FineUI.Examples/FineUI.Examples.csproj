@@ -152,6 +152,8 @@
     <Content Include="grid\grid_excel_aspnet.aspx" />
     <Content Include="grid\grid_edit_radiobuttonlist.aspx" />
     <Content Include="grid\grid_edit_checkboxlist.aspx" />
+    <Content Include="grid\grid_pageitems.aspx" />
+    <Content Include="grid\grid_pageitems_rowexpander.aspx" />
     <Content Include="iframe\passvalue_iframe.aspx" />
     <Content Include="iframe\passvalue_iframe_iframe.aspx" />
     <Content Include="iframe\parent_postback_top.aspx" />
@@ -797,6 +799,20 @@
     </Compile>
     <Compile Include="grid\grid_edit_checkboxlist.aspx.designer.cs">
       <DependentUpon>grid_edit_checkboxlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_pageitems.aspx.cs">
+      <DependentUpon>grid_pageitems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_pageitems.aspx.designer.cs">
+      <DependentUpon>grid_pageitems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_pageitems_rowexpander.aspx.cs">
+      <DependentUpon>grid_pageitems_rowexpander.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_pageitems_rowexpander.aspx.designer.cs">
+      <DependentUpon>grid_pageitems_rowexpander.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\passvalue_iframe.aspx.cs">
       <DependentUpon>passvalue_iframe.aspx</DependentUpon>

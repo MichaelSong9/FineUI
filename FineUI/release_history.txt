@@ -24,7 +24,13 @@ Apache License 2.0 (Apache)
 		-MenuCheckBox的CheckedChanged事件处理函数，防止事件重复执行两次。
 		-向客户端注册的window.IDS脚本只在页面第一次加载时执行。
 	-优化集合类（比如TabCollection，ControlBaseCollection）的实现，避免动态添加控件时存在的潜在风险。
-
+	+Grid增强。
+		-增加SelectAllRows方法。
+		-增加PageItems属性，可以向分页工具条中添加控件，比如分隔符、按钮、下拉列表等。
+		-增加示例grid/grid_pageitems.aspx，grid/grid_pageitems_rowexpander.aspx。
+		-修正第一次打开页面无法隐藏表格列的问题。
+		-优化ExpandAllRowExpanders属性，从而避免页面第一次打开时的闪烁现象（grid/grid_rowexpander_expandall2.aspx）。
+		-增加两个方法ExpandRowExpanders和CollapseRowExpanders。
 
 
 
