@@ -36,7 +36,6 @@ namespace FineUI
     /// </summary>
     public class CheckItemCollection : Collection<CheckItem>
     {
-
         /// <summary>
         /// 通过文本查找复选项
         /// </summary>

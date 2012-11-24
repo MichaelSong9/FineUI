@@ -824,6 +824,12 @@ namespace FineUI
 
         #endregion
 
+        protected override void CreateChildControls()
+        {
+            base.CreateChildControls();
+
+        }
+
         #region OnPreRender
 
         #region Render_LoaderID

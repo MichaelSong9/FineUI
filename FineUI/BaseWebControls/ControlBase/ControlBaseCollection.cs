@@ -32,23 +32,21 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 控件集合，继承自Collection<ControlBase>
+    /// 控件集合，继承自BaseCollection<ControlBase>
     /// </summary>
-    public class ControlBaseCollection : Collection<ControlBase>
+    public class ControlBaseCollection : BaseCollection<ControlBase>
     {
-        // This Collection should always in the first place of Controls, Other Collections will be followed, for example Toolbars.
-
-        private ControlBase _parent;
-
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="parentControl">父控件实例</param>
-        public ControlBaseCollection(ControlBase parentControl)
+        /// <param name="parent">父控件实例</param>
+        public ControlBaseCollection(ControlBase parent)
+            : base(parent)
         {
-            this._parent = parentControl;
+
         }
 
+        /*
         protected override void InsertItem(int index, ControlBase item)
         {
             item.RenderWrapperNode = false;
@@ -75,6 +73,6 @@ namespace FineUI
 
             base.ClearItems();
         }
-
+        */
     }
 }

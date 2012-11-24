@@ -32,21 +32,20 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 工具条控件集合，继承自Collection<Toolbar>
+    /// 工具条控件集合，继承自BaseCollection<Toolbar>
     /// </summary>
-    public class ToolbarCollection : Collection<Toolbar>
+    public class ToolbarCollection : BaseCollection<Toolbar>
     {
-        private PanelBase panelBase;
-
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="panelBase">面板实例</param>
-        public ToolbarCollection(PanelBase panelBase)
+        /// <param name="parent">父控件实例</param>
+        public ToolbarCollection(PanelBase parent)
+            : base(parent)
         {
-            this.panelBase = panelBase;
         }
 
+        /*
         protected override void InsertItem(int index, Toolbar item)
         {
             item.RenderWrapperNode = false;
@@ -90,5 +89,6 @@ namespace FineUI
                 return panelBase.Items.Count;
             }
         }
+         * */
     }
 }

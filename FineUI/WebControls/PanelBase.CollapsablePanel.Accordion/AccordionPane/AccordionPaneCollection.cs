@@ -31,10 +31,21 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 手风琴面板控件集合，继承自Collection<AccordionPane>
+    /// 手风琴面板控件集合，继承自BaseCollection<AccordionPane>
     /// </summary>
-    public class AccordionPaneCollection : Collection<AccordionPane>
+    public class AccordionPaneCollection : BaseCollection<AccordionPane>
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="parent">父控件实例</param>
+        public AccordionPaneCollection(Accordion parent)
+            : base(parent)
+        {
+
+        }
+
+        /*
         private Accordion _accordion;
 
         /// <summary>
@@ -54,6 +65,6 @@ namespace FineUI
 
             base.InsertItem(index, item);
         }
-
+        */
     }
 }

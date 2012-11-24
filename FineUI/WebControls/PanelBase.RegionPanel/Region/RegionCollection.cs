@@ -31,10 +31,20 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// Region控件集合，继承自Collection<Region>
+    /// Region控件集合，继承自BaseCollection<Region>
     /// </summary>
-    public class RegionCollection : Collection<Region>
+    public class RegionCollection : BaseCollection<Region>
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="parent">父控件实例</param>
+        public RegionCollection(PanelBase parent)
+            : base(parent)
+        {
+
+        }
+        /*
         private PanelBase panelBase;
 
         /// <summary>
@@ -54,5 +64,6 @@ namespace FineUI
             item.RenderWrapperNode = false;
             panelBase.Controls.AddAt(index, item);
         }
+        */
     }
 }

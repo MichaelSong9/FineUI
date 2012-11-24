@@ -32,11 +32,20 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 菜单项控件集合，继承自Collection<BaseMenuItem>
+    /// 菜单项控件集合，继承自BaseCollection<BaseMenuItem>
     /// </summary>
-    public class MenuItemCollection : Collection<BaseMenuItem>
+    public class MenuItemCollection : BaseCollection<BaseMenuItem>
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="parent">父控件实例</param>
+        public MenuItemCollection(Menu parent)
+            : base(parent)
+        {
 
+        }
+        /*
         private Menu _parent;
 
         /// <summary>
@@ -55,6 +64,7 @@ namespace FineUI
             item.RenderWrapperNode = false;
             _parent.Controls.AddAt(index, item);
         }
+         * */
 
     }
 }

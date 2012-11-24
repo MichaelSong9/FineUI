@@ -114,36 +114,5 @@ namespace FineUI
             return ((IList)this).Add(item);
         }
 
-
-        #region old code
-
-        //public int GetSelectedIndex()
-        //{
-        //    int selectedIndex = -1;
-        //    for (int i = 0, count = Items.Count; i < count; i++)
-        //    {
-        //        if (Items[i].Selected)
-        //        {
-        //            selectedIndex = i;
-        //            break;
-        //        }
-        //    }
-        //    return selectedIndex;
-        //}
-
-        //public string GetSelectedValue()
-        //{
-        //    int selectedIndex = GetSelectedIndex();
-        //    if (selectedIndex >= 0 && selectedIndex < Items.Count)
-        //    {
-        //        return Items[selectedIndex].Value;
-        //    }
-        //    return null;
-        //}
-
-        
-
-        #endregion
-
     }
 }

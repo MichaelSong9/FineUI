@@ -31,10 +31,20 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 选项卡集合，继承自Collection<Tab>
+    /// 选项卡集合，继承自BaseCollection<Tab>
     /// </summary>
-    public class TabCollection : Collection<Tab>
+    public class TabCollection : BaseCollection<Tab>
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="parent">父控件实例</param>
+        public TabCollection(TabStrip parent)
+            : base(parent)
+        {
+
+        }
+        /*
         private TabStrip _tabStrip;
 
         /// <summary>
@@ -73,6 +83,6 @@ namespace FineUI
             base.ClearItems();
         }
 
-
+        */
     }
 }

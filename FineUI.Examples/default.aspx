@@ -15,13 +15,14 @@
     <x:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></x:PageManager>
     <x:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
         <Regions>
-            <x:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="60px" ShowHeader="false"
+            <x:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="50px" ShowHeader="false"
                 Position="Top" Layout="Fit" runat="server">
                 <Items>
                     <x:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" ID="ContentPanel1"
                         runat="server">
                         <div class="title">
-                            <a href="./default.aspx" style="color:#fff;">FineUI在线示例</a>
+                            <a href="http://fineui.com/" title="FineUI首页" class="logo"><img src="./images/logo/logo2.gif" alt="FineUI Logo"/></a>
+                            &nbsp;<a href="./default.aspx" style="color:#fff;">FineUI在线示例</a>
                         </div>
 						<div class="version">
                             <a href="http://fineui.com/demo/en/" target="_blank" style="color:#fff;">English Version</a>

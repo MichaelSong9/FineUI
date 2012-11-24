@@ -199,7 +199,7 @@ namespace FineUI
 
         #region Rows
 
-        private FormRowCollection rows;
+        private FormRowCollection _rows;
 
         /// <summary>
         /// 表单行控件集合
@@ -213,11 +213,11 @@ namespace FineUI
         {
             get
             {
-                if (rows == null)
+                if (_rows == null)
                 {
-                    rows = new FormRowCollection(this);
+                    _rows = new FormRowCollection(this);
                 }
-                return rows;
+                return _rows;
             }
         }
         #endregion
@@ -227,6 +227,13 @@ namespace FineUI
         protected override void CreateChildControls()
         {
             base.CreateChildControls();
+            /*
+            foreach (FormRow row in Rows)
+            {
+                row.RenderWrapperNode = false;
+                Controls.Add(row);
+            }
+             * */
         }
 
         #endregion

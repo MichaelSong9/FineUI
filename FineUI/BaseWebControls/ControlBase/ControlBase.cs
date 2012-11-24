@@ -264,6 +264,17 @@ namespace FineUI
         }
 
 
+        private string _groupName;
+
+        /// <summary>
+        /// 此控件所在的集合分组，只在BaseCollection中使用
+        /// </summary>
+        internal string GroupName
+        {
+            get { return _groupName; }
+            set { _groupName = value; }
+        }
+
         #endregion
 
         #region ReadOnly Properties

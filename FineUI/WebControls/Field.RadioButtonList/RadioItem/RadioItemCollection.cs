@@ -36,7 +36,6 @@ namespace FineUI
     /// </summary>
     public class RadioItemCollection : Collection<RadioItem>
     {
-
         /// <summary>
         /// 通过文本查找单选项
         /// </summary>

@@ -33,24 +33,31 @@
     background-color: transparent;
     position: relative;
     z-index: 2;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 
 .jumbotron .title
 {
-    background-image: url(../images/logo/logo2.gif);
+    /*background-image: url(../images/logo/logo2.gif);
     background-position: left 6px;
     background-repeat: no-repeat;
-    padding-left: 50px;
-    margin-top: 3px;
-    margin-left: 5px;
+    padding-left: 50px;*/
+    margin-top: 12px;
+    margin-left: 10px;
 }
+.jumbotron .title a.logo img
+{
+    height: 28px;
+    vertical-align: bottom;
+    
+}
+
 .jumbotron .title a
 {
     color: #fff;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 24px;
     text-decoration: none;
 }
 
@@ -58,14 +65,14 @@
 {
     position: absolute;
     right: 10px;
-    top: 8px;
+    bottom: 8px;
 }
 
 .jumbotron .version a
 {
     color: #fff;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 13px;
 }
 
 

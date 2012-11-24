@@ -699,13 +699,11 @@ namespace FineUI
 
             #region Menu
 
-            if (_menu != null)
+            if (Menu.Items.Count > 0)
             {
-                if (Menu.Items.Count > 0)
-                {
-                    OB.AddProperty("menu", String.Format("{0}", Menu.XID), true);
-                }
+                OB.AddProperty("menu", String.Format("{0}", Menu.XID), true);
             }
+
 
             #endregion
 
