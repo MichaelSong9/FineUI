@@ -46,7 +46,7 @@ namespace FineUI
         public BaseCollection(ControlBase parentControl)
         {
             _parent = parentControl;
-            _groupName = new Guid().ToString();
+            _groupName = Guid.NewGuid().ToString();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace FineUI
         /// <param name="item"></param>
         protected override void InsertItem(int index, T item)
         {
-            item.GroupName = _groupName;
+            item.CollectionGroupName = _groupName;
             item.RenderWrapperNode = false;
 
             int startIndex = GetStartIndex();
@@ -104,7 +104,7 @@ namespace FineUI
 
             foreach (ControlBase control in _parent.Controls)
             {
-                if (control.GroupName == _groupName)
+                if (control.CollectionGroupName == _groupName)
                 {
                     break;
                 }

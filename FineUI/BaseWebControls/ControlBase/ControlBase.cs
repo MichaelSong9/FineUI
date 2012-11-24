@@ -264,15 +264,15 @@ namespace FineUI
         }
 
 
-        private string _groupName;
+        private string _collectionGroupName;
 
         /// <summary>
         /// 此控件所在的集合分组，只在BaseCollection中使用
         /// </summary>
-        internal string GroupName
+        internal string CollectionGroupName
         {
-            get { return _groupName; }
-            set { _groupName = value; }
+            get { return _collectionGroupName; }
+            set { _collectionGroupName = value; }
         }
 
         #endregion

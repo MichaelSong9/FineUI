@@ -23,7 +23,8 @@ Apache License 2.0 (Apache)
 	+优化示例首页代码。
 		-MenuCheckBox的CheckedChanged事件处理函数，防止事件重复执行两次。
 		-向客户端注册的window.IDS脚本只在页面第一次加载时执行。
-		-优化集合类（比如TabCollection，ControlBaseCollection）的实现，避免动态添加控件时存在的潜在风险。
+	-优化集合类（比如TabCollection，ControlBaseCollection）的实现，避免动态添加控件时存在的潜在风险。
+
 
 
 
