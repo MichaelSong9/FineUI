@@ -158,7 +158,7 @@
       </TreeNode>
       <TreeNode Text="内存分页" NavigateUrl="~/grid/grid_paging.aspx" >
       </TreeNode>
-      <TreeNode Text="数据库分页" NavigateUrl="~/grid/grid_database_paging.aspx" >
+      <TreeNode Text="数据库分页" NavigateUrl="~/grid/grid_paging_database.aspx" >
       </TreeNode>
       <TreeNode Text="内存分页与排序" NavigateUrl="~/grid/grid_paging_sorting.aspx" >
       </TreeNode>
@@ -219,6 +219,10 @@
       <TreeNode Text="选中所有行" NavigateUrl="~/grid/grid_pageitems.aspx" >
       </TreeNode>
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_pageitems_rowexpander.aspx" >
+      </TreeNode>
+      <TreeNode Text="每页记录数" NavigateUrl="~/grid/grid_pageitems_pagesize.aspx" >
+      </TreeNode>
+      <TreeNode Text="每页记录数（数据库分页）" NavigateUrl="~/grid/grid_pageitems_pagesize_database.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="其他" SingleClickExpand="true">

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_database_paging : PageBase
+    public partial class grid_paging_database : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace FineUI.Examples.grid
         /// <returns></returns>
         private int GetTotalCount()
         {
-            return GetDataTable().Rows.Count;
+            return GetDataTable2().Rows.Count;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace FineUI.Examples.grid
         /// <returns></returns>
         private DataTable GetPagedDataTable(int pageIndex, int pageSize)
         {
-            DataTable source = GetDataTable();
+            DataTable source = GetDataTable2();
 
             DataTable paged = source.Clone();
 

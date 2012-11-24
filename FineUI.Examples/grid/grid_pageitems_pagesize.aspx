@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_pageitems.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_pageitems" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_pageitems_pagesize.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_pageitems_pagesize" %>
 
 <!DOCTYPE html>
 <html>
@@ -31,10 +31,15 @@
         <PageItems>
             <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
             </x:ToolbarSeparator>
-            <x:Button Text="选中所有行" runat="server" ID="btnSelectAll" OnClick="btnSelectAll_Click">
-            </x:Button>
-            <x:Button Text="清空选中" runat="server" ID="btnClearSelect" OnClick="btnClearSelect_Click">
-            </x:Button>
+            <x:ToolbarText runat="server" Text="每页记录数：">
+            </x:ToolbarText>
+            <x:DropDownList runat="server" ID="ddlPageSize" Width="80px" AutoPostBack="true"
+                OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
+                <x:ListItem Text="5" Value="5" />
+                <x:ListItem Text="10" Value="10" />
+                <x:ListItem Text="15" Value="15" />
+                <x:ListItem Text="20" Value="20" />
+            </x:DropDownList>
         </PageItems>
     </x:Grid>
     <br />

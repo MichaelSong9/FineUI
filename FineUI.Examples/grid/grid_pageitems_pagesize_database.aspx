@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_pageitems.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_pageitems" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_pageitems_pagesize_database.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_pageitems_pagesize_database" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,8 +11,9 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" PageSize="5" ShowBorder="true" ShowHeader="true" AutoHeight="true"
-        AllowPaging="true" runat="server" EnableCheckBoxSelect="True" Width="800px" Height="350px" DataKeyNames="Id,Name"
-        OnPageIndexChange="Grid1_PageIndexChange" EnableRowNumber="True">
+        AllowPaging="true" runat="server" EnableCheckBoxSelect="True" Width="800px" Height="350px"
+        DataKeyNames="Id,Name" OnPageIndexChange="Grid1_PageIndexChange" IsDatabasePaging="true"
+        EnableRowNumber="True">
         <Columns>
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
@@ -31,10 +32,15 @@
         <PageItems>
             <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
             </x:ToolbarSeparator>
-            <x:Button Text="选中所有行" runat="server" ID="btnSelectAll" OnClick="btnSelectAll_Click">
-            </x:Button>
-            <x:Button Text="清空选中" runat="server" ID="btnClearSelect" OnClick="btnClearSelect_Click">
-            </x:Button>
+            <x:ToolbarText runat="server" Text="每页记录数：">
+            </x:ToolbarText>
+            <x:DropDownList runat="server" ID="ddlPageSize" Width="80px" AutoPostBack="true"
+                OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged">
+                <x:ListItem Text="5" Value="5" />
+                <x:ListItem Text="10" Value="10" />
+                <x:ListItem Text="15" Value="15" />
+                <x:ListItem Text="20" Value="20" />
+            </x:DropDownList>
         </PageItems>
     </x:Grid>
     <br />

@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_database_paging.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_database_paging" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_paging_database.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_paging_database" %>
 
 <!DOCTYPE html>
 <html>

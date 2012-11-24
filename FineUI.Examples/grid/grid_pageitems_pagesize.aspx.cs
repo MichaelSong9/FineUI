@@ -8,13 +8,15 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_paging : PageBase
+    public partial class grid_pageitems_pagesize : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 BindGrid();
+
+                ddlPageSize.SelectedValue = Grid1.PageSize.ToString();
             }
         }
 
@@ -26,7 +28,6 @@ namespace FineUI.Examples.grid
 
             Grid1.DataSource = table;
             Grid1.DataBind();
-
         }
 
         #endregion
@@ -41,6 +42,11 @@ namespace FineUI.Examples.grid
         protected void Grid1_PageIndexChange(object sender, FineUI.GridPageEventArgs e)
         {
             Grid1.PageIndex = e.NewPageIndex;
+        }
+
+        protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Grid1.PageSize = Convert.ToInt32(ddlPageSize.SelectedValue);
         }
 
         #endregion

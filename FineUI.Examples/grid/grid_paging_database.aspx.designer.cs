@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_database_paging {
+    public partial class grid_paging_database {
         
         /// <summary>
         /// form1 控件。
