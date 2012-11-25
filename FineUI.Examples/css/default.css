@@ -43,14 +43,22 @@
     background-position: left 6px;
     background-repeat: no-repeat;
     padding-left: 50px;*/
-    margin-top: 15px;
-    margin-left: 10px;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+.jumbotron .title a.logo
+{
+    padding: 3px;
+    border: solid 1px transparent;
+}
+.jumbotron .title a.logo:hover
+{
+    border: solid 1px #999;
 }
 .jumbotron .title a.logo img
 {
     height: 28px;
-    vertical-align: bottom;
-    
+    vertical-align: bottom; 
 }
 
 .jumbotron .title a
@@ -65,14 +73,14 @@
 {
     position: absolute;
     right: 10px;
-    bottom: 8px;
+    top: 5px;
 }
 
 .jumbotron .version a
 {
     color: #fff;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 

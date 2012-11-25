@@ -104,6 +104,8 @@
     <TreeNode Text="上传控件" SingleClickExpand="true">
       <TreeNode Text="上传控件" NavigateUrl="~/form/fileupload.aspx" >
       </TreeNode>
+      <TreeNode Text="上传控件（自动回发）" NavigateUrl="~/form/fileupload_autopostback.aspx" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="复杂布局" SingleClickExpand="true">
       <TreeNode Text="Form中嵌入Panel" NavigateUrl="~/form/layout_panel.aspx" >

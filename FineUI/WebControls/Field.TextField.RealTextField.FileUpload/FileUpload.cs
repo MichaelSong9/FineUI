@@ -45,7 +45,7 @@ namespace FineUI
     [ToolboxBitmap(typeof(FileUpload), "res.toolbox.FileUpload.bmp")]
     [Description("文件上传控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
-    public class FileUpload : RealTextField
+    public class FileUpload : RealTextField, IPostBackEventHandler
     {
         #region Constructor
 
@@ -289,6 +289,12 @@ namespace FineUI
             //    OB.AddProperty("inputType", TextModeHelper.GetName(TextMode));
             //}
 
+            if (AutoPostBack)
+            {
+                OB.Listeners.RemoveProperty("change");
+                OB.Listeners.AddProperty("fileselected", JsHelper.GetFunction(GetPostBackEventReference()), true);
+            }
+
             string jsContent = String.Format("var {0}=new Ext.ux.form.FileUploadField({1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
@@ -296,5 +302,70 @@ namespace FineUI
         #endregion
 
 
+        #region IPostBackDataHandler Members
+
+        /// <summary>
+        /// 处理回发数据
+        /// </summary>
+        /// <param name="postDataKey">回发数据键</param>
+        /// <param name="postCollection">回发数据集</param>
+        /// <returns>回发数据是否改变</returns>
+        public override bool LoadPostData(string postDataKey, System.Collections.Specialized.NameValueCollection postCollection)
+        {
+            // FileUpload控件不响应回发数据改变事件（因此此控件不保存文本值，也无法判断文本是否改变）
+            return false;
+        }
+
+        /// <summary>
+        /// 触发回发数据改变事件
+        /// </summary>
+        public override void RaisePostDataChangedEvent()
+        {
+            
+        }
+
+        #endregion
+
+        #region IPostBackEventHandler
+
+        /// <summary>
+        /// 处理回发事件
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        public void RaisePostBackEvent(string eventArgument)
+        {
+            OnFileSelected(EventArgs.Empty);
+        }
+
+
+        private static readonly object _handlerKey = new object();
+
+        /// <summary>
+        /// 选择文件事件（需要启用AutoPostBack）
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("选择文件事件（需要启用AutoPostBack）")]
+        public virtual event EventHandler FileSelected
+        {
+            add
+            {
+                Events.AddHandler(_handlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_handlerKey, value);
+            }
+        }
+
+        protected virtual void OnFileSelected(EventArgs e)
+        {
+            EventHandler handler = Events[_handlerKey] as EventHandler;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
     }
 }

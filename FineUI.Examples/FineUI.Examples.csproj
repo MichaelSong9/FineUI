@@ -111,6 +111,7 @@
     <Content Include="form\checkboxlist_update.aspx" />
     <Content Include="form\radiobuttonlist_update.aspx" />
     <Content Include="form\timepicker.aspx" />
+    <Content Include="form\fileupload_autopostback.aspx" />
     <Content Include="grid\grid.aspx" />
     <Content Include="grid\grid_aspnet.aspx" />
     <Content Include="grid\grid_autopostback.aspx" />
@@ -163,6 +164,7 @@
     <Content Include="iframe\parent_postback_top3.aspx" />
     <Content Include="iframe\parent_simplepostback.aspx" />
     <Content Include="iframe\parent_simplepostback2.aspx" />
+    <Content Include="images\blank.png" />
     <Content Include="images\code.gif" />
     <Content Include="images\collapse-all.gif" />
     <Content Include="images\comment.gif" />
@@ -514,6 +516,13 @@
     </Compile>
     <Compile Include="form\timepicker.aspx.designer.cs">
       <DependentUpon>timepicker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\fileupload_autopostback.aspx.cs">
+      <DependentUpon>fileupload_autopostback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\fileupload_autopostback.aspx.designer.cs">
+      <DependentUpon>fileupload_autopostback.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid.aspx.cs">
       <DependentUpon>grid.aspx</DependentUpon>
