@@ -317,7 +317,7 @@ X.ajaxReady = function () {
             var valid = true;
             var firstInvalidField = null;
             for (var i = 0; i < forms.length; i++) {
-                var result = X(forms[i]).isValid();
+                var result = X(forms[i]).x_isValid();
                 if (!result[0]) {
                     valid = false;
                     if (firstInvalidField == null) {
@@ -1545,7 +1545,7 @@ Ext.override(Ext.Component, {
 
 // 验证一个表单是否有效，会递归查询表单中每个字段
 Ext.override(Ext.Panel, {
-    isValid: function () {
+    x_isValid: function () {
         var valid = true;
         var firstInvalidField = null;
         this.items.each(function (f) {
@@ -1556,9 +1556,8 @@ Ext.override(Ext.Panel, {
                         firstInvalidField = f;
                     }
                 }
-            }
-            else if (f.items) {
-                var validResult = this.isValid(f);
+            } else if (f.items) {
+                var validResult = this.x_isValid();
                 if (!validResult[0]) {
                     valid = false;
                     if (firstInvalidField == null) {
@@ -1568,6 +1567,16 @@ Ext.override(Ext.Panel, {
             }
         });
         return [valid, firstInvalidField];
+    },
+
+    x_reset: function () {
+        this.items.each(function (f) {
+            if (f.isXType('field')) {
+                f.reset();
+            } else if (f.items) {
+                validResult = this.x_reset();
+            }
+        });
     },
 
 

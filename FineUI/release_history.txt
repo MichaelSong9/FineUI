@@ -31,6 +31,8 @@ Apache License 2.0 (Apache)
 		-修正第一次打开页面无法隐藏表格列的问题。
 		-优化ExpandAllRowExpanders属性，从而避免页面第一次打开时的闪烁现象（grid/grid_rowexpander_expandall2.aspx）。
 		-增加两个方法ExpandRowExpanders和CollapseRowExpanders。
+	-修正FileUpload控件的HasFile属性总是为true的问题（黑冰.cn、8730574、☆幻~精灵、feitian78）。
+	-为表单字段增加Reset方法，为面板控件增加Reset方法，用来重置表单字段（小豬仔→pig/抓、随便逛逛、六脉神剑）。
 
 
 

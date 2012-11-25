@@ -181,7 +181,7 @@ namespace FineUI
         {
             get
             {
-                return PostedFile != null;
+                return PostedFile != null && PostedFile.ContentLength > 0;
             }
         }
 

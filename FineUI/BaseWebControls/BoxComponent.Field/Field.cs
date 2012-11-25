@@ -391,6 +391,18 @@ namespace FineUI
 
         #endregion
 
+        #region Reset
+
+        /// <summary>
+        /// 重置此字段的值（比如用来清空FileUpload的内容）
+        /// </summary>
+        public void Reset()
+        {
+            PageContext.RegisterStartupScript(String.Format("{0}.reset();", ScriptID));
+        }
+
+        #endregion
+
         #region GetValueReference
 
         /// <summary>

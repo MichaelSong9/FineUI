@@ -27,6 +27,13 @@ namespace FineUI.Examples.form
 
             labResult.Text = "<p>用户名：" + tbxUseraName.Text + "</p>" +
                 "<p>头像：<br /><img src=\""+ ResolveUrl("~/upload/" + fileName) +"\" /></p>" ;
+
+            //// 清空表单字段（第一种方法）
+            //tbxUseraName.Reset();
+            //filePhoto.Reset();
+
+            // 清空表单字段（第三种方法）
+            SimpleForm1.Reset();
         }
 
     }

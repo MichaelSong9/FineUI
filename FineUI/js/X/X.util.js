@@ -317,7 +317,7 @@ X.ajaxReady = function () {
             var valid = true;
             var firstInvalidField = null;
             for (var i = 0; i < forms.length; i++) {
-                var result = X(forms[i]).isValid();
+                var result = X(forms[i]).x_isValid();
                 if (!result[0]) {
                     valid = false;
                     if (firstInvalidField == null) {
