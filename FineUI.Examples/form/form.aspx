@@ -12,10 +12,10 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="_form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Form Width="600px" BodyPadding="5px" ID="extForm1" EnableBackgroundColor="true"
-        LabelWidth="100px" runat="server" Title="表单 1">
+    <x:Form Width="600px" BodyPadding="5px" ID="Form1" EnableBackgroundColor="true" LabelWidth="100px"
+        runat="server" Title="表单 1">
         <Rows>
             <x:FormRow ColumnWidths="40% 60%">
                 <Items>
@@ -27,8 +27,7 @@
             </x:FormRow>
             <x:FormRow ColumnWidths="40% 60%">
                 <Items>
-                    <x:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true"
-                        ShowRedStar="True">
+                    <x:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True">
                         <x:ListItem Selected="true" Text="可选项 1" Value="0"></x:ListItem>
                         <x:ListItem Text="可选项 2" Value="1"></x:ListItem>
                     </x:DropDownList>
@@ -42,8 +41,10 @@
                     <x:Panel ID="Panel1" runat="server" EnableBackgroundColor="true" ShowBorder="false"
                         ShowHeader="false">
                         <Items>
-                            <x:Button runat="server" Text="验证此表单并提交" ValidateForms="extForm1" ID="btnSubmitForm1"
-                                OnClick="btnSubmitForm1_Click">
+                            <x:Button runat="server" Text="验证此表单并提交" CssClass="inline" ValidateForms="Form1"
+                                ID="btnSubmitForm1" OnClick="btnSubmitForm1_Click">
+                            </x:Button>
+                            <x:Button ID="btnResetForm1" EnablePostBack="false" Text="重置表单" runat="server">
                             </x:Button>
                         </Items>
                     </x:Panel>
@@ -53,7 +54,7 @@
     </x:Form>
     <br />
     <x:Form Width="600px" LabelWidth="100px" EnableBackgroundColor="true" BodyPadding="5px"
-        ID="extForm2" runat="server" Title="表单 2">
+        ID="Form2" runat="server" Title="表单 2">
         <Rows>
             <x:FormRow>
                 <Items>
@@ -93,12 +94,26 @@
             </x:FormRow>
             <x:FormRow>
                 <Items>
-                    <x:Button ID="btnSubmitAll" Text="验证两个表单并提交" runat="server" OnClick="btnSubmitAll_Click"
-                        ValidateForms="extForm1,extForm2" />
+                    <x:Panel ID="Panel2" runat="server" EnableBackgroundColor="true" ShowBorder="false"
+                        ShowHeader="false">
+                        <Items>
+                            <x:Button ID="btnSubmitForm2" Text="验证此表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitForm2_Click"
+                                ValidateForms="Form2">
+                            </x:Button>
+                            <x:Button ID="btnResetForm2" EnablePostBack="false" Text="重置表单" runat="server">
+                            </x:Button>
+                        </Items>
+                    </x:Panel>
                 </Items>
             </x:FormRow>
         </Rows>
     </x:Form>
+    <br />
+    <x:Button ID="btnSubmitAll" Text="验证两个表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitAll_Click"
+        ValidateForms="Form1,Form2">
+    </x:Button>
+    <x:Button ID="btnResetAll" EnablePostBack="false" Text="重置表单" runat="server">
+    </x:Button>
     </form>
 </body>
 </html>

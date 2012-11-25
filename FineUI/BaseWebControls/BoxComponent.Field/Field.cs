@@ -398,7 +398,16 @@ namespace FineUI
         /// </summary>
         public void Reset()
         {
-            PageContext.RegisterStartupScript(String.Format("{0}.reset();", ScriptID));
+            PageContext.RegisterStartupScript(GetResetReference());
+        }
+
+        /// <summary>
+        /// 获取重置此字段的客户端脚本
+        /// </summary>
+        /// <returns></returns>
+        public virtual string GetResetReference()
+        {
+            return String.Format("{0}.reset();", ScriptID);
         }
 
         #endregion
@@ -406,7 +415,7 @@ namespace FineUI
         #region GetValueReference
 
         /// <summary>
-        /// 获取此字段值的客户端脚本
+        /// 获取此字段值的客户端脚本（注意返回的脚本不带结束分号）
         /// </summary>
         /// <returns>客户端脚本</returns>
         public virtual string GetValueReference()

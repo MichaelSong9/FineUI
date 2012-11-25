@@ -1123,11 +1123,20 @@ namespace FineUI
         #region Reset
 
         /// <summary>
-        /// 重置面板中所有字段的值
+        /// 重置面板中所有字段
         /// </summary>
-        public void Reset()
+        public virtual void Reset()
         {
-            PageContext.RegisterStartupScript(String.Format("{0}.x_reset();", ScriptID));
+            PageContext.RegisterStartupScript(GetResetReference());
+        }
+
+        /// <summary>
+        /// 获取重置面板中所有字段的客户端脚本
+        /// </summary>
+        /// <returns></returns>
+        public virtual string GetResetReference()
+        {
+            return String.Format("{0}.x_reset();", ScriptID);
         }
 
         #endregion

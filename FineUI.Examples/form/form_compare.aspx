@@ -42,7 +42,10 @@
             </x:TextBox>
             <x:Label runat="server">
             </x:Label>
-            <x:Button ID="btnSubmit" ValidateForms="SimpleForm1" Text="提交表单" runat="server">
+            <x:Button ID="btnSubmit" ValidateForms="SimpleForm1" CssClass="inline" Text="提交表单"
+                runat="server">
+            </x:Button>
+            <x:Button ID="btnReset" Text="重置表单" EnablePostBack="false" runat="server">
             </x:Button>
         </Items>
     </x:SimpleForm>

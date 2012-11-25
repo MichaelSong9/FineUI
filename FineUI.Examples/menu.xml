@@ -92,9 +92,9 @@
     <TreeNode Text="表单验证" SingleClickExpand="true">
       <TreeNode Text="表单验证" NavigateUrl="~/form/form_compare.aspx" >
       </TreeNode>
-      <TreeNode Text="服务器端验证" NavigateUrl="~/form/form_validate.aspx" >
-      </TreeNode>
       <TreeNode Text="验证多个表单" NavigateUrl="~/form/form.aspx" >
+      </TreeNode>
+      <TreeNode Text="服务器端验证" NavigateUrl="~/form/form_validate.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="动态创建表单元素" SingleClickExpand="true">

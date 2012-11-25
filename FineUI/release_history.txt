@@ -27,12 +27,13 @@ Apache License 2.0 (Apache)
 	+Grid增强。
 		-增加SelectAllRows方法。
 		-增加PageItems属性，可以向分页工具条中添加控件，比如分隔符、按钮、下拉列表等。
-		-增加示例grid/grid_pageitems.aspx，grid/grid_pageitems_rowexpander.aspx，grid/grid_pageitems_pagesize.aspx。
+		-增加示例grid/grid_pageitems.aspx、grid/grid_pageitems_rowexpander.aspx、grid/grid_pageitems_pagesize.aspx。
 		-修正第一次打开页面无法隐藏表格列的问题。
 		-优化ExpandAllRowExpanders属性，从而避免页面第一次打开时的闪烁现象（grid/grid_rowexpander_expandall2.aspx）。
 		-增加两个方法ExpandRowExpanders和CollapseRowExpanders。
 	-修正FileUpload控件的HasFile属性总是为true的问题（黑冰.cn、8730574、☆幻~精灵、feitian78）。
-	-为表单字段增加Reset方法，为面板控件增加Reset方法，用来重置表单字段（小豬仔→pig/抓、随便逛逛、六脉神剑）。
+	+为表单字段和面板控件增加Reset和GetResetReference方法，用来重置表单字段（小豬仔→pig/抓、随便逛逛、六脉神剑）。
+		-更新示例form/form_compare.aspx、form/form.aspx、form/fileupload.aspx。
 
 
 
@@ -45,7 +46,7 @@ Apache License 2.0 (Apache)
 	-修正Alert.Show始终显示默认图标的问题（swtseaman）。
 	-为提示对话框增加自定义图标功能，通过Icon或者IconUrl来自定义（swtseaman）。
 	-增加选择时间的控件TimePicker（时分）。
-	-内置资源改为短格式，比如/res.axd?css=blue.css&v=1。
+	-内置资源改为短格式，比如/res.axd?css=blue.css&v=1（◇辉◆:、swtseaman）。
 	-更新示例站点样式，将配置项放到左侧菜单的上方，增加主区域空间。
 	-增加控件MenuCheckBox（复选框或单选框）。
 	-为RadioButton增加AutoPostBack属性。
