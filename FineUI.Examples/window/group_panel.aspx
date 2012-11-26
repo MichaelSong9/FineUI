@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="group_panel.aspx.cs" Inherits="FineUI.Examples.layout.group_panel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="group_panel.aspx.cs" Inherits="FineUI.Examples.window.group_panel" %>
 
 <!DOCTYPE html>
 <html>

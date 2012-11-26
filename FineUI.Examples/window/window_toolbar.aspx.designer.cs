@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.layout {
+namespace FineUI.Examples.window {
     
     
-    public partial class group_panel {
+    public partial class window_toolbar {
         
         /// <summary>
         /// form1 控件。
@@ -31,75 +31,39 @@ namespace FineUI.Examples.layout {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Panel1 控件。
+        /// btnShowInServer 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Panel Panel1;
+        protected global::FineUI.Button btnShowInServer;
         
         /// <summary>
-        /// GroupPanel1 控件。
+        /// Window2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.GroupPanel GroupPanel1;
+        protected global::FineUI.Window Window2;
         
         /// <summary>
-        /// SimpleForm1 控件。
+        /// labWindowContent 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.SimpleForm SimpleForm1;
+        protected global::FineUI.Label labWindowContent;
         
         /// <summary>
-        /// TextBox1 控件。
+        /// btnClose 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox TextBox1;
-        
-        /// <summary>
-        /// TextArea1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextArea TextArea1;
-        
-        /// <summary>
-        /// GroupPanel2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.GroupPanel GroupPanel2;
-        
-        /// <summary>
-        /// ContentPanel1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel1;
-        
-        /// <summary>
-        /// Button2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button Button2;
+        protected global::FineUI.Button btnClose;
     }
 }

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.layout {
+namespace FineUI.Examples.window {
     
     
     public partial class panel {

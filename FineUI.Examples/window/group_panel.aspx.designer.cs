@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.layout {
+namespace FineUI.Examples.window {
     
     
-    public partial class window {
+    public partial class group_panel {
         
         /// <summary>
         /// form1 控件。
@@ -31,66 +31,75 @@ namespace FineUI.Examples.layout {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// btnShowInServer 控件。
+        /// Panel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnShowInServer;
+        protected global::FineUI.Panel Panel1;
         
         /// <summary>
-        /// btnHideInServer 控件。
+        /// GroupPanel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnHideInServer;
+        protected global::FineUI.GroupPanel GroupPanel1;
         
         /// <summary>
-        /// btnShowInClient 控件。
+        /// SimpleForm1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnShowInClient;
+        protected global::FineUI.SimpleForm SimpleForm1;
         
         /// <summary>
-        /// btnHideInClient 控件。
+        /// TextBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnHideInClient;
+        protected global::FineUI.TextBox TextBox1;
         
         /// <summary>
-        /// btnHideInClient2 控件。
+        /// TextArea1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnHideInClient2;
+        protected global::FineUI.TextArea TextArea1;
         
         /// <summary>
-        /// Window2 控件。
+        /// GroupPanel2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Window Window2;
+        protected global::FineUI.GroupPanel GroupPanel2;
         
         /// <summary>
-        /// ContentPanel2 控件。
+        /// ContentPanel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel2;
+        protected global::FineUI.ContentPanel ContentPanel1;
+        
+        /// <summary>
+        /// Button2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button Button2;
     }
 }

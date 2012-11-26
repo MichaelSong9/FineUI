@@ -211,6 +211,10 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="window\group_panel.aspx" />
+    <Content Include="window\panel.aspx" />
+    <Content Include="window\window.aspx" />
+    <Content Include="window\window_toolbar.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aspnet\aspnet.aspx.cs">
@@ -1280,20 +1284,6 @@
     <Compile Include="layout\form.aspx.designer.cs">
       <DependentUpon>form.aspx</DependentUpon>
     </Compile>
-    <Compile Include="layout\group_panel.aspx.cs">
-      <DependentUpon>group_panel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="layout\group_panel.aspx.designer.cs">
-      <DependentUpon>group_panel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="layout\panel.aspx.cs">
-      <DependentUpon>panel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="layout\panel.aspx.designer.cs">
-      <DependentUpon>panel.aspx</DependentUpon>
-    </Compile>
     <Compile Include="layout\row.aspx.cs">
       <DependentUpon>row.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1314,13 +1304,6 @@
     </Compile>
     <Compile Include="tabstrip\tabstrip.aspx.designer.cs">
       <DependentUpon>tabstrip.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="layout\window.aspx.cs">
-      <DependentUpon>window.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="layout\window.aspx.designer.cs">
-      <DependentUpon>window.aspx</DependentUpon>
     </Compile>
     <Compile Include="toolbar\menu_dynamic2.aspx.cs">
       <DependentUpon>menu_dynamic2.aspx</DependentUpon>
@@ -1467,6 +1450,34 @@
     <Compile Include="usercontrol\userinfo_dynamic.aspx.designer.cs">
       <DependentUpon>userinfo_dynamic.aspx</DependentUpon>
     </Compile>
+    <Compile Include="window\group_panel.aspx.cs">
+      <DependentUpon>group_panel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\group_panel.aspx.designer.cs">
+      <DependentUpon>group_panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\panel.aspx.cs">
+      <DependentUpon>panel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\panel.aspx.designer.cs">
+      <DependentUpon>panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\window.aspx.cs">
+      <DependentUpon>window.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window.aspx.designer.cs">
+      <DependentUpon>window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\window_toolbar.aspx.cs">
+      <DependentUpon>window_toolbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window_toolbar.aspx.designer.cs">
+      <DependentUpon>window_toolbar.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FineUI\FineUI.csproj">
@@ -1506,12 +1517,9 @@
     <Content Include="layout\column.aspx" />
     <Content Include="layout\fit.aspx" />
     <Content Include="layout\form.aspx" />
-    <Content Include="layout\group_panel.aspx" />
-    <Content Include="layout\panel.aspx" />
     <Content Include="layout\row.aspx" />
     <Content Include="tabstrip\tabstrip_iframe.aspx" />
     <Content Include="tabstrip\tabstrip.aspx" />
-    <Content Include="layout\window.aspx" />
     <Content Include="library\Wilco.SyntaxHighlighter.dll" />
     <Content Include="other\toolbar.aspx" />
     <Content Include="config\release_history.txt" />

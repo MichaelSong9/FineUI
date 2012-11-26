@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
 
-namespace FineUI.Examples.layout
+namespace FineUI.Examples.window
 {
     public partial class panel : PageBase
     {

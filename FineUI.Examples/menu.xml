@@ -296,13 +296,17 @@
     <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
     </TreeNode>
   </TreeNode>
+  <TreeNode Text="面板与窗体" SingleClickExpand="true">
+    <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
+    </TreeNode>
+    <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
+    </TreeNode>
+    <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
+    </TreeNode>
+    <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
+    </TreeNode>
+  </TreeNode>
   <TreeNode Text="页面布局" SingleClickExpand="true">
-    <TreeNode Text="面板" NavigateUrl="~/layout/panel.aspx" >
-    </TreeNode>
-    <TreeNode Text="分组面板" NavigateUrl="~/layout/group_panel.aspx" >
-    </TreeNode>
-    <TreeNode Text="窗体" NavigateUrl="~/layout/window.aspx" >
-    </TreeNode>
     <TreeNode Text="布局 - Fit" NavigateUrl="~/layout/fit.aspx" >
     </TreeNode>
     <TreeNode Text="布局 - Anchor" NavigateUrl="~/layout/anchor.aspx" >

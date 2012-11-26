@@ -827,7 +827,7 @@ namespace FineUI
             //if (EnableClose != EnableClose_Default) OB.AddProperty(OptionName.Closable, EnableClose);
             //OB.AddProperty(OptionName.Constrain, Constrain);
             //OB.AddProperty(OptionName.ConstrainHeader, ConstrainHeader);
-            OB.AddProperty("plain", false);
+            OB.AddProperty("plain", true);
             OB.AddProperty("modal", IsModal);
             OB.AddProperty("draggable", EnableDrag);
 
