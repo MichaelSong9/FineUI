@@ -498,6 +498,10 @@ namespace FineUI
                 if (_menu == null)
                 {
                     _menu = new Menu();
+
+                    _menu.RenderWrapperNode = false;
+                    Controls.Add(_menu);
+
                 }
                 return _menu;
             }
@@ -511,12 +515,6 @@ namespace FineUI
         protected override void CreateChildControls()
         {
             base.CreateChildControls();
-
-            if (_menu != null)
-            {
-                Menu.RenderWrapperNode = false;
-                Controls.Add(Menu);
-            }
 
         }
         #endregion
@@ -699,7 +697,7 @@ namespace FineUI
 
             #region Menu
 
-            if (Menu.Items.Count > 0)
+            if (_menu != null && Menu.Items.Count > 0)
             {
                 OB.AddProperty("menu", String.Format("{0}", Menu.XID), true);
             }

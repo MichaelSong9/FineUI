@@ -19,6 +19,11 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2012-12-* v3.2.2
+	-修正动态添加按钮菜单的错误，并更新示例button/button_menu.aspx（西门吹雪）。
+
+
+
 +2012-11-25 v3.2.1
 	+优化示例首页代码。
 		-MenuCheckBox的CheckedChanged事件处理函数，防止事件重复执行两次。

@@ -29,6 +29,10 @@
     </x:Button>
     <br />
     <br />
+    <x:Button ID="Button1" Text="中国科学技术大学（动态创建下拉菜单）" EnablePostBack="false" runat="server">
+    </x:Button>
+    <br />
+    <br />
     </form>
 </body>
 </html>
