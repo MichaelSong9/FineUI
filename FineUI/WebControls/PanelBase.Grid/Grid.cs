@@ -2747,6 +2747,9 @@ namespace FineUI
             {
                 ClearRows();
 
+                // 重新绑定数据前清空选中的值
+                SelectedRowIndexArray = null;
+
                 if (_dataSource is DataView || _dataSource is DataSet || _dataSource is DataTable)
                 {
                     DataTable dataTable = null;
@@ -3211,8 +3214,8 @@ namespace FineUI
                         SortDirection = "ASC";
                     }
 
-                    // 服务器端排序后，清空选中的状态
-                    SelectedRowIndexArray = null;
+                    //// 服务器端排序后，清空选中的状态（一定会重新绑定数据的）
+                    //SelectedRowIndexArray = null;
 
                     OnSort(new GridSortEventArgs(sortField, SortDirection, SortColumnIndex));
                 }
@@ -3235,6 +3238,7 @@ namespace FineUI
                     OnPageIndexChange(new GridPageEventArgs(Convert.ToInt32(commandArgs[1])));
 
                     // 分页后清空选中的值
+                    // 这个地方单独调用，是因为服务器端分页时不会重新绑定数据，数据库分页才会重新绑定数据
                     SelectedRowIndexArray = null;
                 }
             }

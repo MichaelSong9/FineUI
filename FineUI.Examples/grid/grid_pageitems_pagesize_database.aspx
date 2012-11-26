@@ -43,7 +43,6 @@
             </x:DropDownList>
         </PageItems>
     </x:Grid>
-    <br />
     <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
     </x:Button>
     <br />

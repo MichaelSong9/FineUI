@@ -24,7 +24,9 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
-            DataTable table = GetDataTable2();
+            ViewState["UseDataSource1"] = true;
+
+            DataTable table = GetDataTable();
 
             Grid1.DataSource = table;
             Grid1.DataBind();
@@ -33,6 +35,24 @@ namespace FineUI.Examples.grid
         #endregion
 
         #region Events
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            DataTable table;
+            if (Convert.ToBoolean(ViewState["UseDataSource1"]))
+            {
+                ViewState["UseDataSource1"] = false;
+                table = GetDataTable2();
+            }
+            else
+            {
+                ViewState["UseDataSource1"] = true;
+                table = GetDataTable();
+            }
+
+            Grid1.DataSource = table;
+            Grid1.DataBind();
+        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {

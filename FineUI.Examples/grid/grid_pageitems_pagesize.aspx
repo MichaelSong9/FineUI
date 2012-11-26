@@ -43,6 +43,8 @@
         </PageItems>
     </x:Grid>
     <br />
+    <x:Button ID="Button2" runat="server" CssClass="inline" Text="重新绑定表格" OnClick="Button2_Click">
+    </x:Button>
     <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
     </x:Button>
     <br />
