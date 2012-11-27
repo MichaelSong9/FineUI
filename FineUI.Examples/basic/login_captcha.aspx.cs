@@ -21,8 +21,17 @@ namespace FineUI.Examples.basic
 
         private void LoadData()
         {
+            InitCaptchaCode();
+        }
+
+        /// <summary>
+        /// 初始化验证码
+        /// </summary>
+        private void InitCaptchaCode()
+        {
             // 创建一个 6 位的随机数并保存在 Session 对象中
             Session["CaptchaImageText"] = GenerateRandomCode();
+            imgCaptcha.ImageUrl = "~/basic/captcha/captcha.ashx?w=150&h=30&t=" + DateTime.Now.Ticks;
         }
 
         /// <summary>
@@ -38,6 +47,11 @@ namespace FineUI.Examples.basic
                 s += random.Next(10).ToString();
             }
             return s;
+        }
+
+        protected void btnRefresh_Click(object sender, EventArgs e)
+        {
+            InitCaptchaCode();
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

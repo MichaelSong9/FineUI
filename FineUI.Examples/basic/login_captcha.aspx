@@ -27,8 +27,16 @@
                     </x:TextBox>
                     <x:TextBox ID="tbxCaptcha" Label="验证码" Required="true" runat="server">
                     </x:TextBox>
-                    <x:Image ID="imgCaptcha" runat="server" ShowEmptyLabel="true" ImageUrl="~/basic/captcha/captcha.ashx?w=231&h=30">
-                    </x:Image>
+                    <x:Panel CssStyle="padding-left:65px;" ShowBorder="false" ShowHeader="false" EnableBackgroundColor="true"
+                        runat="server">
+                        <Items>
+                            <x:Image ID="imgCaptcha" CssStyle="float:left;width:160px;" runat="server" ShowEmptyLabel="true">
+                            </x:Image>
+                            <x:LinkButton CssStyle="float:left;padding-top:8px;" ID="btnRefresh" Text="看不清？"
+                                runat="server" OnClick="btnRefresh_Click">
+                            </x:LinkButton>
+                        </Items>
+                    </x:Panel>
                 </Items>
             </x:SimpleForm>
         </Items>
