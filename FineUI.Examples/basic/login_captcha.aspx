@@ -25,16 +25,22 @@
                     </x:TextBox>
                     <x:TextBox ID="tbxPassword" Label="密码" TextMode="Password" Required="true" runat="server">
                     </x:TextBox>
-                    <x:Image ID="imgCaptcha" runat="server" ShowEmptyLabel="true" ImageUrl="~/basic/captcha/captcha.ashx?w=231&h=30">
-                    </x:Image>
                     <x:TextBox ID="tbxCaptcha" Label="验证码" Required="true" runat="server">
                     </x:TextBox>
+                    <x:Image ID="imgCaptcha" runat="server" ShowEmptyLabel="true" ImageUrl="~/basic/captcha/captcha.ashx?w=231&h=30">
+                    </x:Image>
+                </Items>
+            </x:SimpleForm>
+        </Items>
+        <Toolbars>
+            <x:Toolbar ID="Toolbar1" runat="server" Position="Footer">
+                <Items>
                     <x:Button ID="btnLogin" Text="登录" Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
                         runat="server" OnClick="btnLogin_Click">
                     </x:Button>
                 </Items>
-            </x:SimpleForm>
-        </Items>
+            </x:Toolbar>
+        </Toolbars>
     </x:Window>
     </form>
 </body>

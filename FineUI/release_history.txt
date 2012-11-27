@@ -21,7 +21,9 @@ Apache License 2.0 (Apache)
 
 +2012-12-* v3.2.2
 	-修正动态添加按钮菜单的错误，并更新示例button/button_menu.aspx（西门吹雪）。
-	-为Window控件增加Plain属性；为ToolbarPosition增加Footer类型；并增加示例window/window_toolbar.aspx。
+	+为Window控件增加Plain属性；为ToolbarPosition增加Footer类型；为面板增加FooterBarAlign属性。
+		-增加示例window/window_toolbar.aspx。
+		-更新示例basic/login.aspx、basic/login_captcha.aspx。
 	+Grid增强。
 		+重新绑定数据时（DataBind）清空选中的行（SelectedRowIndexArray）（欧志辉）。
 			-更新注意：1. 需要先绑定表格数据，再设置选中的行。2.重新绑定数据时不再需要手工清空选中的行。

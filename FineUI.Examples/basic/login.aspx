@@ -15,7 +15,7 @@
     <br />
     <br />
     <x:Window ID="Window1" runat="server" Title="登录表单" IsModal="false" EnableClose="false"
-        WindowPosition="GoldenSection" Width="350px">
+        WindowPosition="GoldenSection" Width="350px" FooterBarAlign="Right">
         <Items>
             <x:SimpleForm ID="SimpleForm1" runat="server" ShowBorder="false" BodyPadding="10px"
                 LabelWidth="60px" EnableBackgroundColor="true" ShowHeader="false">
@@ -24,12 +24,18 @@
                     </x:TextBox>
                     <x:TextBox ID="tbxPassword" Label="密码" TextMode="Password" Required="true" runat="server">
                     </x:TextBox>
+                </Items>
+            </x:SimpleForm>
+        </Items>
+        <Toolbars>
+            <x:Toolbar ID="Toolbar1" runat="server" Position="Footer">
+                <Items>
                     <x:Button ID="btnLogin" Text="登录" Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
                         runat="server" OnClick="btnLogin_Click">
                     </x:Button>
                 </Items>
-            </x:SimpleForm>
-        </Items>
+            </x:Toolbar>
+        </Toolbars>
     </x:Window>
     </form>
 </body>
