@@ -179,11 +179,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 是否显示背景色，目前仅Blue和Gray两个Theme支持此属性
+        /// 内容区域是否显示背景色，目前仅Blue和Gray两个Theme支持此属性（也可以通过设置BodyStyle属性达到相同的效果）
         /// </summary>
         [Category(CategoryName.BASEOPTIONS)]
         [DefaultValue(false)]
-        [Description("是否显示背景色")]
+        [Description("内容区域是否显示背景色，目前仅Blue和Gray两个Theme支持此属性（也可以通过设置BodyStyle属性达到相同的效果）")]
         public virtual bool EnableBackgroundColor
         {
             get
@@ -710,6 +710,10 @@ namespace FineUI
                 else if (bar.Position == ToolbarPosition.Bottom)
                 {
                     OB.AddProperty("bbar", toolbarID, true);
+                }
+                else if (bar.Position == ToolbarPosition.Footer)
+                {
+                    OB.AddProperty("fbar", toolbarID, true);
                 }
             }
 

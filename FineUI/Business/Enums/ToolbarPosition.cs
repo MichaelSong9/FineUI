@@ -41,7 +41,11 @@ namespace FineUI
         /// <summary>
         /// 底部
         /// </summary>
-        Bottom
+        Bottom,
+        /// <summary>
+        /// 页脚
+        /// </summary>
+        Footer
     }
 
 }

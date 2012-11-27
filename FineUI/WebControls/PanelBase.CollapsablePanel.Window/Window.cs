@@ -595,6 +595,25 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 内容区域颜色是否和边框颜色相同，默认为true
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("内容区域颜色是否和边框颜色相同，默认为true")]
+        public bool Plain
+        {
+            get
+            {
+                object obj = XState["Plain"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                XState["Plain"] = value;
+            }
+        }
+
         #region old code
 
         //private CloseAction CloseAction_Default = CloseAction.None;
@@ -827,7 +846,7 @@ namespace FineUI
             //if (EnableClose != EnableClose_Default) OB.AddProperty(OptionName.Closable, EnableClose);
             //OB.AddProperty(OptionName.Constrain, Constrain);
             //OB.AddProperty(OptionName.ConstrainHeader, ConstrainHeader);
-            OB.AddProperty("plain", true);
+            OB.AddProperty("plain", Plain);
             OB.AddProperty("modal", IsModal);
             OB.AddProperty("draggable", EnableDrag);
 

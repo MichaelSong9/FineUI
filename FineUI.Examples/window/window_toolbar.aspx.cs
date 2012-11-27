@@ -12,20 +12,19 @@ namespace FineUI.Examples.window
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
-        protected void btnShowInServer_Click(object sender, EventArgs e)
+        protected void btnClose_Click(object sender, EventArgs e)
         {
-            Window2.Hidden = false;
+            Window2.Hidden = true;
         }
 
-        protected void Window2_Close(object sender, WindowCloseEventArgs e)
+        protected void btnChangeContent_Click(object sender, EventArgs e)
         {
-            Alert.ShowInTop("窗体被关闭了。参数：" + e.CloseArgument);
+            labWindowContent.Text += " " + DateTime.Now.ToString();
         }
-
 
     }
 }
