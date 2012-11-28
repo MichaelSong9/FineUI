@@ -366,6 +366,26 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 序号列的宽度（默认为23px）
+        /// </summary>
+        [Category(CategoryName.LAYOUT)]
+        [DefaultValue(typeof(Unit), "")]
+        [Description("序号列的宽度（默认为23px）")]
+        public Unit RowNumberWidth
+        {
+            get
+            {
+                object obj = XState["RowNumberWidth"];
+                return obj == null ? Unit.Empty : (Unit)obj;
+            }
+            set
+            {
+                XState["RowNumberWidth"] = value;
+            }
+        }
+
+
+        /// <summary>
         /// 点击行是否自动回发（请使用EnableRowClick属性）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -562,11 +582,11 @@ namespace FineUI
         #endregion
 
         /// <summary>
-        /// 启用行索引
+        /// 启用行序号列
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("启用行索引")]
+        [Description("启用行序号列")]
         public bool EnableRowNumber
         {
             get
@@ -580,6 +600,25 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 行序号列是否支持分页（默认为false，也即是每页都从1开始）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("行序号列是否支持分页（默认为false，也即是每页都从1开始）")]
+        public bool EnableRowNumberPaging
+        {
+            get
+            {
+                object obj = XState["EnableRowNumberPaging"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableRowNumberPaging"] = value;
+            }
+        }
 
         /// <summary>
         /// 显示表格表头
@@ -2077,7 +2116,7 @@ namespace FineUI
             #endregion
 
             StringBuilder sb = new StringBuilder();
-            sb.Append(gridSelectModelScript + gridStoreScript + gridColumnsScript + pagingScript);
+            sb.Append(gridSelectModelScript + gridStoreScript + pagingScript + gridColumnsScript);
             sb.AppendFormat("var {0}=new Ext.grid.GridPanel({1});", XID, OB);
 
             AddStartupScript(sb.ToString());
@@ -2210,7 +2249,21 @@ namespace FineUI
             // 如果启用行序号，则放在第一列
             if (EnableRowNumber)
             {
-                columnsBuilder.AddProperty("new Ext.grid.RowNumberer()", true);
+                JsObjectBuilder rowNumberBuilder = new JsObjectBuilder();
+                if (RowNumberWidth != Unit.Empty)
+                {
+                    rowNumberBuilder.AddProperty("width", RowNumberWidth.Value);
+                }
+                if (AllowPaging)
+                {
+                    rowNumberBuilder.AddProperty("x_paging", Render_PagingID, true);
+                }
+                if (EnableRowNumberPaging)
+                {
+                    rowNumberBuilder.AddProperty("x_paging_enabled", EnableRowNumberPaging);
+                }
+
+                columnsBuilder.AddProperty(String.Format("new Ext.grid.RowNumberer({0})", rowNumberBuilder.ToString()), true);
             }
             // 如果启用CheckBox，则放在第二列
             if (EnableCheckBoxSelect)

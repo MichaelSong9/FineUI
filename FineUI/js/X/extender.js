@@ -309,6 +309,26 @@ if (Ext.Button) {
 }
 
 
+if (Ext.grid.RowNumberer) {
+
+    X.originalRowNumbererRenderer = Ext.grid.RowNumberer.prototype.renderer;
+    Ext.override(Ext.grid.RowNumberer, {
+
+        renderer: function (v, p, record, rowIndex) {
+
+            var number = X.originalRowNumbererRenderer.call(this, v, p, record, rowIndex);
+
+            if (this.x_paging_enabled && this.x_paging) {
+                number += this.x_paging.pageIndex * this.x_paging.pageSize;
+            }
+
+            return number;
+        }
+
+    });
+
+}
+
 
 if (Ext.grid.GridPanel) {
     Ext.override(Ext.grid.GridPanel, {
@@ -847,12 +867,12 @@ if (Ext.TabPanel) {
 
 
 // 修正IE7下，窗口出现滚动条时，点击Window控件标题栏有时node为null的问题
-var originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
+X.originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
 Ext.dd.DragDrop.prototype.isValidHandleChild = function (node) {
     if (!node || !node.nodeName) {
         return false;
     }
-    return originalIsValidHandleChild.apply(this, [node]);
+    return X.originalIsValidHandleChild.apply(this, [node]);
 };
 
 if (Ext.grid.GridPanel) {

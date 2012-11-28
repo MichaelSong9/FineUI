@@ -141,7 +141,7 @@ namespace FineUI
 
             if (GlobalConfig.GetDebugMode())
             {
-                AddJavascriptIncludeToPageBottom(page, "x-debug.js", "FineUI.js.x-debug.js&v=" + DateTime.Now.Ticks.ToString());
+                AddJavascriptIncludeToPageBottom(page, "x-debug.js", "FineUI.js.x-debug.js&v=" + fineuiVersion); //DateTime.Now.Ticks.ToString());
             }
             else
             {

@@ -28,7 +28,10 @@ Apache License 2.0 (Apache)
 	+Grid增强。
 		+重新绑定数据时（DataBind）清空选中的行（SelectedRowIndexArray）（欧志辉）。
 			-更新注意：1. 需要先绑定表格数据，再设置选中的行。2.重新绑定数据时不再需要手工清空选中的行。
-		-
+		-增加RowNumberWidth属性，对于序号列可能大于等于100的表格，需要设置合适的宽度，比如30px。
+		+增加EnableRowNumberPaging属性，行序号列是否支持分页（默认为false，也即是每页都从1开始）。
+			-增加示例
+
 
 
 +2012-11-25 v3.2.1
