@@ -9,33 +9,21 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Accordion ID="Accordion1" Title="手风琴控件" runat="server" Width="300px" Height="450px"
-        EnableFill="true" ShowBorder="True">
-        <Panes>
-            <x:AccordionPane ID="AccordionPane1" runat="server" Collapsed="true" Title="面板一" IconUrl="../images/16/1.png"
-                BodyPadding="2px 5px" ShowBorder="false">
-                <Items>
-                    <x:Label ID="Label1" Text="面板一中的文本" runat="server">
-                    </x:Label>
-                </Items>
-            </x:AccordionPane>
-            <x:AccordionPane ID="AccordionPane2" runat="server" Collapsed="false" Title="面板二" IconUrl="../images/16/4.png"
-                BodyPadding="2px 5px" ShowBorder="false">
-                <Items>
-                    <x:Label ID="Label2" Text="面板二中的文本" runat="server">
-                    </x:Label>
-                </Items>
-            </x:AccordionPane>
-            <x:AccordionPane ID="AccordionPane3" runat="server" Collapsed="true" Title="面板三" IconUrl="../images/16/7.png"
-                BodyPadding="2px 5px" ShowBorder="false">
-                <Items>
-                    <x:Label ID="Label3" Text="面板三中的文本" runat="server">
-                    </x:Label>
-                </Items>
-            </x:AccordionPane>
-        </Panes>
-    </x:Accordion>
-    <br />
+    <x:Grid ID="Grid1" PageSize="20" DataKeyNames="Remarks" runat="server" AllowPaging="True"
+        EnableCheckBoxSelect="True" EnableRowNumber="True" IsDatabasePaging="false" ShowBorder="true"
+        ShowHeader="true" Width="500px" Height="200px" EnableMultiSelect="False" OnPageIndexChange="Grid1_PageIndexChange">
+        <Columns>
+            <x:BoundField TextAlign="Center" ExpandUnusedSpace="true" DataField="Remarks" DataFormatString="{0}"
+                HeaderText="备注" />
+        </Columns>
+        <PageItems>
+            <x:ToolbarSeparator ID="ToolbarSeparator4" runat="server">
+            </x:ToolbarSeparator>
+            <x:Button runat="server" ID="btnRefresh" Icon="DatabaseRefresh" OnClick="btnRefresh_Click"
+                ToolTip="刷新">
+            </x:Button>
+        </PageItems>
+    </x:Grid>
     </form>
 </body>
 </html>

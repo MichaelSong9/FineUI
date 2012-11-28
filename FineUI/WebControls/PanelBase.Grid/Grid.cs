@@ -1679,6 +1679,12 @@ namespace FineUI
 
             ResourceManager.Instance.AddJavaScriptComponent("grid");
 
+            // 分页工具栏使用了 Ext.form.NumberField 组件，所以必须引入 form 的JavaScript
+            if (AllowPaging)
+            {
+                ResourceManager.Instance.AddJavaScriptComponent("form");
+            }
+
             //OB.Listeners.AddProperty("rowmousedown", "function(){alert('ok');}", true);
 
             #region selectModel/gridStore/gridColumn
