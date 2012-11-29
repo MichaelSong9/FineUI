@@ -35,6 +35,11 @@ namespace FineUI.Examples.grid
         #endregion
 
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            GridColumn genderColumn = Grid1.FindColumn("expander");
+            genderColumn.Hidden = !genderColumn.Hidden;
+        }
 
     }
 }

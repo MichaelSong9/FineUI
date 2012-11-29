@@ -27,7 +27,7 @@
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px"
         runat="server" DataKeyNames="Id,Name">
         <Columns>
-            <x:TemplateField RenderAsRowExpander="true">
+            <x:TemplateField ColumnID="expander" RenderAsRowExpander="true">
                 <ItemTemplate>
                     <div class="expander">
                         <p>
@@ -62,6 +62,10 @@
     </x:Grid>
     <br />
     <br />
+    <x:Button ID="Button3" runat="server" Text="显示/隐藏行扩展列" OnClick="Button3_Click">
+    </x:Button>
+    <br />
+    注：隐藏后仍然可以通过选中行按ENTER键展开折叠行扩展列的内容区域。
     </form>
 </body>
 </html>

@@ -1058,7 +1058,6 @@ namespace FineUI
         }
 
 
-
         /// <summary>
         /// 行关键字段
         /// </summary>
@@ -2802,13 +2801,12 @@ namespace FineUI
         {
             //base.DataBind();
 
+            ClearRows();
+
+            int recordCount = 0;
+
             if (_dataSource != null)
             {
-                ClearRows();
-
-                // 重新绑定数据前清空选中的值
-                SelectedRowIndexArray = null;
-
                 if (_dataSource is DataView || _dataSource is DataSet || _dataSource is DataTable)
                 {
                     DataTable dataTable = null;
@@ -2825,22 +2823,24 @@ namespace FineUI
                     {
                         dataTable = ((DataTable)_dataSource);
                     }
-
-                    DataBindToDataTable(dataTable);
+                    
+                    recordCount = DataBindToDataTable(dataTable);
                 }
                 else if (_dataSource is IEnumerable)
                 {
-                    DataBindToEnumerable((IEnumerable)_dataSource);
+                    recordCount = DataBindToEnumerable((IEnumerable)_dataSource);
                 }
                 else
                 {
                     throw new Exception("DataSource doesn't support data type: " + _dataSource.GetType().ToString());
                 }
             }
+
+            AfterDataBind(recordCount);
         }
 
 
-        private void DataBindToDataTable(DataTable dataTable)
+        private int DataBindToDataTable(DataTable dataTable)
         {
             BeforeDataBind();
 
@@ -2850,10 +2850,10 @@ namespace FineUI
                 DataBindRow(rowIndex, dataTable.DefaultView[rowIndex]);
             }
 
-            AfterDataBind(rowIndex);
+            return rowIndex;
         }
 
-        private void DataBindToEnumerable(IEnumerable list)
+        private int DataBindToEnumerable(IEnumerable list)
         {
             BeforeDataBind();
 
@@ -2865,7 +2865,7 @@ namespace FineUI
                 rowIndex++;
             }
 
-            AfterDataBind(rowIndex);
+            return rowIndex;
         }
 
         private void DataBindRow(int rowIndex, object rowObj)
@@ -2887,6 +2887,8 @@ namespace FineUI
         {
             OnPreDataBound(EventArgs.Empty);
         }
+
+        #region AfterDataBind
 
         private void AfterDataBind(int recordCount)
         {
@@ -2940,14 +2942,20 @@ namespace FineUI
                     Rows[rowIndex].Values[simulateTreeColumn.ColumnIndex] = silumateTree[rowIndex].Text;
                 }
             }
-        }
+        } 
+        #endregion
 
+        #region ClearRows
 
         /// <summary>
         /// 清空Rows，同时清除Controls中的GridRow控件
         /// </summary>
         private void ClearRows()
         {
+            // 重新绑定数据前清空选中的值
+            SelectedRowIndexArray = null;
+
+            // 清空现有的行
             Rows.Clear();
 
             // 会重新创建这些控件，所以要先删除之前存在的GridRow
@@ -2958,7 +2966,7 @@ namespace FineUI
                     Controls.RemoveAt(i);
                 }
             }
-        }
+        } 
 
         #endregion
 
@@ -3226,6 +3234,8 @@ namespace FineUI
         #endregion
 
         
+
+        #endregion
 
         #region IPostBackEventHandler
 

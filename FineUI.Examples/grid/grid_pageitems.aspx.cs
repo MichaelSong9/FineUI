@@ -53,6 +53,25 @@ namespace FineUI.Examples.grid
             Grid1.SelectedRowIndexArray = null;
         }
 
+        protected void btnClearData_Click(object sender, EventArgs e)
+        {
+            // 方法一
+            Grid1.DataSource = null;
+            Grid1.DataBind();
+
+            //// 方法二
+            //DataTable table = GetEmptyDataTable();
+            //Grid1.DataSource = table;
+            //Grid1.DataBind();
+        }
+
+
+        protected void btnRebindData_Click(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+        
+
         #endregion
     }
 }

@@ -76,6 +76,24 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.Button btnClearSelect;
         
         /// <summary>
+        /// btnClearData 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnClearData;
+        
+        /// <summary>
+        /// btnRebind 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnRebind;
+        
+        /// <summary>
         /// Button1 控件。
         /// </summary>
         /// <remarks>

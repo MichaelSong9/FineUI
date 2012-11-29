@@ -33,7 +33,11 @@
             </x:ToolbarSeparator>
             <x:Button Text="选中所有行" runat="server" ID="btnSelectAll" OnClick="btnSelectAll_Click">
             </x:Button>
-            <x:Button Text="清空选中" runat="server" ID="btnClearSelect" OnClick="btnClearSelect_Click">
+            <x:Button Text="清空选中行" runat="server" ID="btnClearSelect" OnClick="btnClearSelect_Click">
+            </x:Button>
+            <x:Button Text="清空表格数据" runat="server" ID="btnClearData" OnClick="btnClearData_Click">
+            </x:Button>
+            <x:Button Text="重新绑定表格数据" runat="server" ID="btnRebind" OnClick="btnRebindData_Click">
             </x:Button>
         </PageItems>
     </x:Grid>

@@ -11,7 +11,10 @@ namespace FineUI.Examples
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-           
+            if (!IsPostBack)
+            {
+                BindGrid1();
+            }
         }
 
         private void BindGrid1()
@@ -37,7 +40,18 @@ namespace FineUI.Examples
 
         protected void btnRefresh_Click(object sender, EventArgs e)
         {
-            BindGrid1();
+            //Grid1.DataSource = null;
+            //Grid1.DataBind();
+            
+
+            //DataTable table;
+            //DataRow row;
+
+            //table = new DataTable();
+            //table.Columns.Add(new DataColumn("Remarks", typeof(String)));
+
+            Grid1.DataSource = null;
+            Grid1.DataBind();
         }
 
         protected void Grid1_PageIndexChange(object sender, FineUI.GridPageEventArgs e)
