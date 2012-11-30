@@ -141,8 +141,26 @@
     </TreeNode>
     <TreeNode Text="AspNet 表格" NavigateUrl="~/grid/grid_aspnet.aspx" >
     </TreeNode>
+    <TreeNode Text="分页与排序" SingleClickExpand="true">
+      <TreeNode Text="排序" NavigateUrl="~/grid/grid_sorting.aspx" >
+      </TreeNode>
+      <TreeNode Text="内存分页" NavigateUrl="~/grid/grid_paging.aspx" >
+      </TreeNode>
+      <TreeNode Text="数据库分页" NavigateUrl="~/grid/grid_paging_database.aspx" >
+      </TreeNode>
+      <TreeNode Text="内存分页与排序" NavigateUrl="~/grid/grid_paging_sorting.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="序号列" SingleClickExpand="true">
+      <TreeNode Text="序号列与内存分页" NavigateUrl="~/grid/grid_rownumber_paging.aspx" >
+      </TreeNode>
+      <TreeNode Text="序号列与数据库分页" NavigateUrl="~/grid/grid_rownumber_paging_database.aspx" >
+      </TreeNode>
+      <TreeNode Text="序号列的宽度" NavigateUrl="~/grid/grid_rownumber_width.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="扩展列" SingleClickExpand="true">
-      <TreeNode Text="序号列与复选列" NavigateUrl="~/grid/grid_checkall.aspx" >
+      <TreeNode Text="复选列" NavigateUrl="~/grid/grid_checkall.aspx" >
       </TreeNode>
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
       </TreeNode>
@@ -153,16 +171,6 @@
       <TreeNode Text="模拟树列" NavigateUrl="~/grid/grid_simulate_tree.aspx" >
       </TreeNode>
       <TreeNode Text="弹出窗体列" NavigateUrl="~/grid/grid_iframe.aspx" >
-      </TreeNode>
-    </TreeNode>
-    <TreeNode Text="分页与排序" SingleClickExpand="true">
-      <TreeNode Text="排序" NavigateUrl="~/grid/grid_sorting.aspx" >
-      </TreeNode>
-      <TreeNode Text="内存分页" NavigateUrl="~/grid/grid_paging.aspx" >
-      </TreeNode>
-      <TreeNode Text="数据库分页" NavigateUrl="~/grid/grid_paging_database.aspx" >
-      </TreeNode>
-      <TreeNode Text="内存分页与排序" NavigateUrl="~/grid/grid_paging_sorting.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="事件" SingleClickExpand="true">

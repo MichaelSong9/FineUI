@@ -87,7 +87,7 @@ namespace FineUI.Examples
             if (selectedCount > 0)
             {
                 sb.AppendFormat("共选中了 {0} 行：", selectedCount);
-                sb.Append("<table style=\"width:500px;\">");
+                sb.Append("<table class=\"result\">");
 
                 sb.Append("<tr><th>行号</th>");
                 foreach (string datakey in grid.DataKeyNames)

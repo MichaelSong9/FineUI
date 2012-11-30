@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_paging_database : PageBase
+    public partial class grid_rownumber_width : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,11 +22,13 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
+            int recordCount = 999;
+
             // 1.设置总项数（特别注意：数据库分页一定要设置总记录数RecordCount）
-            Grid1.RecordCount = GetTotalCount();
+            Grid1.RecordCount = recordCount;
 
             // 2.获取当前分页数据
-            DataTable table = GetPagedDataTable(Grid1.PageIndex, Grid1.PageSize);
+            DataTable table = GetPagedDataTable(Grid1.PageIndex, Grid1.PageSize, recordCount);
 
             // 3.绑定到Grid
             Grid1.DataSource = table;
@@ -34,37 +36,26 @@ namespace FineUI.Examples.grid
         }
 
         /// <summary>
-        /// 模拟返回总项数
-        /// </summary>
-        /// <returns></returns>
-        private int GetTotalCount()
-        {
-            return GetDataTable2().Rows.Count;
-        }
-
-        /// <summary>
         /// 模拟数据库分页
         /// </summary>
         /// <returns></returns>
-        private DataTable GetPagedDataTable(int pageIndex, int pageSize)
+        private DataTable GetPagedDataTable(int pageIndex, int pageSize, int recordCount)
         {
-            DataTable source = GetDataTable2();
+            DataTable table = new DataTable();
+            table.Columns.Add(new DataColumn("Id", typeof(int)));
+            table.Columns.Add(new DataColumn("EntranceTime", typeof(DateTime)));
 
-            DataTable paged = source.Clone();
+            DataRow row = null;
 
-            int rowbegin = pageIndex * pageSize;
-            int rowend = (pageIndex + 1) * pageSize;
-            if (rowend > source.Rows.Count)
+            for (int i = pageIndex * pageSize, count = Math.Min(recordCount, pageIndex * pageSize + pageSize); i < count; i++)
             {
-                rowend = source.Rows.Count;
+                row = table.NewRow();
+                row[0] = 1000 + i;
+                row[1] = DateTime.Now.AddSeconds(i);
+                table.Rows.Add(row);
             }
 
-            for (int i = rowbegin; i < rowend; i++)
-            {
-                paged.ImportRow(source.Rows[i]);
-            }
-
-            return paged;
+            return table;
         }
 
         #endregion

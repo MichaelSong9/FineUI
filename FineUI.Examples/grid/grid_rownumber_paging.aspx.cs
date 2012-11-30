@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_paging : PageBase
+    public partial class grid_rownumber_paging : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +26,7 @@ namespace FineUI.Examples.grid
 
             Grid1.DataSource = table;
             Grid1.DataBind();
+
         }
 
         #endregion

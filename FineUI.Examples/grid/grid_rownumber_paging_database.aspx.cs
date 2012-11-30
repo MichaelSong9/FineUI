@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_paging_database : PageBase
+    public partial class grid_rownumber_paging_database : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

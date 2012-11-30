@@ -157,6 +157,9 @@
     <Content Include="grid\grid_pageitems_rowexpander.aspx" />
     <Content Include="grid\grid_pageitems.aspx" />
     <Content Include="grid\grid_pageitems_pagesize_database.aspx" />
+    <Content Include="grid\grid_rownumber_paging.aspx" />
+    <Content Include="grid\grid_rownumber_width.aspx" />
+    <Content Include="grid\grid_rownumber_paging_database.aspx" />
     <Content Include="iframe\passvalue_iframe.aspx" />
     <Content Include="iframe\passvalue_iframe_iframe.aspx" />
     <Content Include="iframe\parent_postback_top.aspx" />
@@ -842,6 +845,27 @@
     </Compile>
     <Compile Include="grid\grid_pageitems_pagesize_database.aspx.designer.cs">
       <DependentUpon>grid_pageitems_pagesize_database.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_paging.aspx.cs">
+      <DependentUpon>grid_rownumber_paging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_paging.aspx.designer.cs">
+      <DependentUpon>grid_rownumber_paging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_width.aspx.cs">
+      <DependentUpon>grid_rownumber_width.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_width.aspx.designer.cs">
+      <DependentUpon>grid_rownumber_width.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_paging_database.aspx.cs">
+      <DependentUpon>grid_rownumber_paging_database.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_paging_database.aspx.designer.cs">
+      <DependentUpon>grid_rownumber_paging_database.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\passvalue_iframe.aspx.cs">
       <DependentUpon>passvalue_iframe.aspx</DependentUpon>
