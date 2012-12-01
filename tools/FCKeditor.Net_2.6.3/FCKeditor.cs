@@ -38,7 +38,7 @@ namespace FredCK.FCKeditorV2
     }
 
     /// <summary>
-    /// 注意：这是个修改过的版本，为了和ExtAspNet兼容。
+    /// 注意：这是个修改过的版本，为了和FineUI兼容。
     /// 主要修改了OnPreRender和Render两个函数。
     /// </summary>
     [DefaultProperty("Value")]
@@ -443,7 +443,7 @@ namespace FredCK.FCKeditorV2
             }
 
 
-            object extPageManager = GetPageControl("ExtAspNet.PageManager");
+            object extPageManager = GetPageControl("FineUI.PageManager");
             if (extPageManager != null)
             {
                 try
