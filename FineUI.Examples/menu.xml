@@ -348,14 +348,18 @@
     <TreeNode Text="回发父页面2" NavigateUrl="~/iframe/parent_postback.aspx" >
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="ASP.NET 交互" SingleClickExpand="true">
+  <TreeNode Text="ASP.NET控件" SingleClickExpand="true">
     <TreeNode Text="ASP.NET 控件" NavigateUrl="~/aspnet/aspnet.aspx" >
     </TreeNode>
     <TreeNode Text="Label与Literal的区别" NavigateUrl="~/aspnet/aspnet_literal.aspx" >
     </TreeNode>
-    <TreeNode Text="文件上传" NavigateUrl="~/aspnet/fileupload.aspx" >
+    <TreeNode Text="FCKEditor控件" SingleClickExpand="true">
+      <TreeNode Text="FCKEditor控件" NavigateUrl="~/aspnet/fckeditor.aspx" >
+      </TreeNode>
     </TreeNode>
-    <TreeNode Text="FCKEditor" NavigateUrl="~/aspnet/fckeditor.aspx" >
+    <TreeNode Text="CKEditor控件" SingleClickExpand="true">
+      <TreeNode Text="CKEditor控件" NavigateUrl="~/aspnet/ckeditor.aspx" >
+      </TreeNode>
     </TreeNode>
   </TreeNode>
   <TreeNode Text="用户控件" SingleClickExpand="true">

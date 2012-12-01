@@ -14,7 +14,7 @@ namespace FineUI.Examples.aspnet
         {
             if (!IsPostBack)
             {
-
+                FCKeditor1.Value = "<p>This is some <strong>sample text</strong>. You are using <a href=\"http://www.fckeditor.net/\">FCKEditor</a>.</p>";
             }
         }
 
@@ -25,7 +25,9 @@ namespace FineUI.Examples.aspnet
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            FCKeditor1.Value = "<strong>FineUI</strong> - 基于 ExtJS 的专业 ASP.NET 2.0 控件库，拥有完善的 AJAX 支持和丰富的界面效果。";
+            string content = "<p><strong>FineUI</strong> - 基于 ExtJS 的专业 ASP.NET 2.0 控件库，拥有完善的 AJAX 支持和丰富的界面效果。</p>";
+
+            PageContext.RegisterStartupScript(String.Format("updateFCKEditor({0});", JsHelper.Enquote(content)));
         }
 
 

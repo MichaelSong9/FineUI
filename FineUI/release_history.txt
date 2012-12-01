@@ -25,7 +25,10 @@ Apache License 2.0 (Apache)
 		-增加示例window/window_toolbar.aspx。
 		-更新示例basic/login.aspx、basic/login_captcha.aspx。
 	-更新示例basic/login_captcha.aspx，增加刷新验证码的功能。
-	-修正示例aspnet/fckeditor.aspx无法获取用户输入值的问题。
+	+第三方编辑器增强。
+		-修正示例aspnet/fckeditor.aspx无法获取用户输入值的问题。
+		-增强示例aspnet/fckeditor.aspx，在更新编辑器内容时不需要刷新整个编辑器。
+		-增加示例aspnet/ckeditor.aspx，演示如何在项目中整合CKEditor4.0。
 	+Grid增强。
 		+重新绑定数据时（DataBind）清空选中的行（SelectedRowIndexArray）（欧志辉）。
 			-更新注意：1. 需要先绑定表格数据，再设置选中的行。2.重新绑定数据时不再需要手工清空选中的行。

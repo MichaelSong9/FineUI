@@ -10,10 +10,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" AjaxAspnetControls="FCKeditor1" runat="server" />
+    <x:PageManager ID="PageManager1" runat="server" />
     <x:ContentPanel ID="ContentPanel1" runat="server" Width="800px" BodyPadding="5px"
         EnableBackgroundColor="true" ShowBorder="true" ShowHeader="true" Title="内容面板">
-        <FCKeditorV2:FCKeditor ID="FCKeditor1" BasePath="../fckeditor/" runat="server">
+        <FCKeditorV2:FCKeditor ID="FCKeditor1" BasePath="~/fckeditor/" Value="" runat="server">
         </FCKeditorV2:FCKeditor>
     </x:ContentPanel>
     <br />
@@ -24,5 +24,11 @@
     <x:Button ID="Button1" runat="server" Text="获取 FCKEditor 的值" OnClick="Button1_Click">
     </x:Button>
     </form>
+    <script type="text/javascript">
+        function updateFCKEditor(content) {
+            var editor = FCKeditorAPI.GetInstance('<%= FCKeditor1.UniqueID %>');
+            editor.SetData(content);
+        }
+    </script>
 </body>
 </html>
