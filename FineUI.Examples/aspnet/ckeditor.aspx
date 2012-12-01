@@ -18,13 +18,13 @@
 		</CKEditor:CKEditorControl>
     </x:ContentPanel>
     <br />
-    <br />
     <x:Button ID="Button2" runat="server" CssClass="inline" Text="设置 CKEditor 的值" OnClick="Button2_Click">
     </x:Button>
     <x:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
     </x:Button>
     </form>
     <script type="text/javascript">
+        // 更新编辑器内容
         function updateCKEditor(content) {
             var editor = CKEDITOR.instances['<%= CKEditor1.ClientID %>'];
             editor.setData(content);

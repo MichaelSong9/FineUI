@@ -361,6 +361,10 @@
       <TreeNode Text="CKEditor控件" NavigateUrl="~/aspnet/ckeditor.aspx" >
       </TreeNode>
     </TreeNode>
+    <TreeNode Text="UEditor控件" SingleClickExpand="true">
+      <TreeNode Text="UEditor控件" NavigateUrl="~/aspnet/ueditor.aspx" >
+      </TreeNode>
+    </TreeNode>
   </TreeNode>
   <TreeNode Text="用户控件" SingleClickExpand="true">
     <TreeNode Text="用户控件" NavigateUrl="~/usercontrol/userinfo.aspx" >

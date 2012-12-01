@@ -71,6 +71,7 @@
     <Content Include="aspnet\TestWindow.aspx" />
     <Content Include="aspnet\testwindow.htm" />
     <Content Include="aspnet\ckeditor.aspx" />
+    <Content Include="aspnet\ueditor.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
     <Content Include="button\button_icon.aspx" />
@@ -275,6 +276,13 @@
     </Compile>
     <Compile Include="aspnet\ckeditor.aspx.designer.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet\ueditor.aspx.cs">
+      <DependentUpon>ueditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspnet\ueditor.aspx.designer.cs">
+      <DependentUpon>ueditor.aspx</DependentUpon>
     </Compile>
     <Compile Include="basic\Captcha\captcha.ashx.cs">
       <DependentUpon>captcha.ashx</DependentUpon>
@@ -1460,6 +1468,7 @@
     <Compile Include="tree\select\tree_multi_select.aspx.designer.cs">
       <DependentUpon>tree_multi_select.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ueditor\net\Uploader.cs" />
     <Compile Include="usercontrol\UserInfoControl.ascx.cs">
       <DependentUpon>UserInfoControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1656,6 +1665,15 @@
     <Content Include="grid\image.ashx" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="ueditor\net\fileUp.ashx" />
+    <Content Include="ueditor\net\getContent.ashx" />
+    <Content Include="ueditor\net\getMovie.ashx" />
+    <Content Include="ueditor\net\getRemoteImage.ashx" />
+    <Content Include="ueditor\net\imageManager.ashx" />
+    <Content Include="ueditor\net\imageUp.ashx" />
+    <Content Include="ueditor\net\scrawlUp.ashx" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
