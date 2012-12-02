@@ -19,6 +19,31 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2012-12-03 v3.2.2
+	-修正动态添加按钮菜单的错误，并更新示例button/button_menu.aspx（西门吹雪）。
+	+为Window控件增加Plain属性；为ToolbarPosition增加Footer类型；为面板增加FooterBarAlign属性。
+		-增加示例window/window_toolbar.aspx。
+		-更新示例basic/login.aspx、basic/login_captcha.aspx。
+	-更新示例basic/login_captcha.aspx，增加刷新验证码的功能。
+	+第三方编辑器增强。
+		-修正示例aspnet/fckeditor.aspx无法获取用户输入值的问题。
+		-增强示例aspnet/fckeditor.aspx，在更新编辑器内容时不需要刷新整个编辑器。
+		-增加示例aspnet/ckeditor.aspx，演示如何在项目中整合CKEditor_4.0。
+		-增加示例aspnet/ueditor.aspx，演示如何在项目中整合UEditor_1.2.3。
+	+Grid增强。
+		+重新绑定数据时（DataBind）清空选中的行（SelectedRowIndexArray）（欧志辉）。
+			-更新注意：1. 需要先绑定表格数据，再设置选中的行。2.重新绑定数据时不再需要手工清空选中的行。
+		-增加RowNumberWidth属性，对于序号列可能大于等于100的表格，需要设置合适的宽度，比如30px（凡人哥）。
+		+增加EnableRowNumberPaging属性，行序号列是否支持分页（默认为false，也即是每页都从1开始）（欧志辉）。
+			-增加示例grid/grid_rownumber_paging.aspx、grid/grid_rownumber_paging_database.aspx。
+		+修正设置DataSource为null时无法清空表格内容的问题（猪八戒）。
+			-更新grid/grid_pageitems.aspx，演示如何清空表格数据。
+		-更新grid/grid_rowexpander.aspx示例，控制显示隐藏行扩展列。
+		+增加ClearSelectedRowsAfterPaging属性，用来控制是否在服务器端分页后清空选中的行。
+			-增加示例grid/grid_paging_selection.aspx和grid/grid_paging_database_selection.aspx。
+
+
+
 +2012-11-25 v3.2.1
 	+优化示例首页代码。
 		-MenuCheckBox的CheckedChanged事件处理函数，防止事件重复执行两次。
@@ -26,7 +51,7 @@ Apache License 2.0 (Apache)
 	-优化集合类（比如TabCollection，ControlBaseCollection）的实现，避免动态添加控件时存在的潜在风险。
 	+Grid增强。
 		-增加SelectAllRows方法。
-		-增加PageItems属性，可以向分页工具条中添加控件，比如分隔符、按钮、下拉列表等。
+		-增加PageItems属性，可以向分页工具条中添加控件，比如分隔符、按钮、下拉列表等（欧志辉）。
 		-增加示例grid/grid_pageitems.aspx、grid/grid_pageitems_rowexpander.aspx、grid/grid_pageitems_pagesize.aspx。
 		-修正第一次打开页面无法隐藏表格列的问题。
 		-优化ExpandAllRowExpanders属性，从而避免页面第一次打开时的闪烁现象（grid/grid_rowexpander_expandall2.aspx）。
