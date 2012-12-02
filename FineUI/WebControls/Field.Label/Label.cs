@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 文本控件
     /// </summary>
-    [Designer(typeof(LabelDesigner))]
+    [Designer("FineUI.Design.LabelDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Label Text=\"Label\" Label=\"Label\" runat=server></{0}:Label>")]
     [ToolboxBitmap(typeof(Label), "res.toolbox.Label.bmp")]

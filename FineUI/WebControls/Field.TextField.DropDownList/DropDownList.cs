@@ -43,7 +43,7 @@ namespace FineUI
     /// <summary>
     /// 下拉列表控件
     /// </summary>
-    [Designer(typeof(DropDownListDesigner))]
+    [Designer("FineUI.Design.DropDownListDesigner, FineUI.Design")]
     [ToolboxData("<{0}:DropDownList Label=\"Label\" runat=\"server\"></{0}:DropDownList>")]
     [ToolboxBitmap(typeof(DropDownList), "res.toolbox.DropDownList.bmp")]
     [Description("下拉列表控件")]

@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 按钮控件
     /// </summary>
-    [Designer(typeof(ButtonDesigner))]
+    [Designer("FineUI.Design.ButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Button Text=\"Button\" runat=\"server\"></{0}:Button>")]
     [ToolboxBitmap(typeof(Button), "res.toolbox.Button.bmp")]

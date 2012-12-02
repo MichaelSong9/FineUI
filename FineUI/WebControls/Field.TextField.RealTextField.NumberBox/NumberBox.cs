@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 数字输入框控件
     /// </summary>
-    [Designer(typeof(NumberBoxDesigner))]
+    [Designer("FineUI.Design.NumberBoxDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:NumberBox Label=\"Label\" runat=\"server\"></{0}:NumberBox>")]
     [ToolboxBitmap(typeof(NumberBox), "res.toolbox.NumberBox.bmp")]

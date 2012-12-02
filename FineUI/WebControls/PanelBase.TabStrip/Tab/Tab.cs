@@ -42,6 +42,7 @@ namespace FineUI
     /// <summary>
     /// 选项卡控件
     /// </summary>
+    [Designer("FineUI.Design.TabDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Tab Title=\"Tab\" EnableBackgroundColor=\"true\" BodyPadding=\"5px\" runat=\"server\"></{0}:Tab>")]
     [ToolboxBitmap(typeof(Tab), "res.toolbox.Tab.bmp")]
     [Description("选项卡控件")]

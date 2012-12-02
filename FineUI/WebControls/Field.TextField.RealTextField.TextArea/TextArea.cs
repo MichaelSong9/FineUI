@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 多行文本框控件
     /// </summary>
-    [Designer(typeof(TextAreaDesigner))]
+    [Designer("FineUI.Design.TextAreaDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:TextArea Label=\"Label\" Text=\"\" Height=\"250px\" runat=\"server\"></{0}:TextArea>")]
     [ToolboxBitmap(typeof(TextArea), "res.toolbox.TextArea.bmp")]

@@ -45,7 +45,7 @@ namespace FineUI
     /// <summary>
     /// 树控件
     /// </summary>
-    [Designer(typeof(TreeDesigner))]
+    [Designer("FineUI.Design.TreeDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Tree Title=\"Tree\" EnableArrows=\"true\" AutoScroll=\"true\" runat=\"server\"></{0}:Tree>")]
     [ToolboxBitmap(typeof(Tree), "res.toolbox.Tree.bmp")]
     [Description("树控件")]

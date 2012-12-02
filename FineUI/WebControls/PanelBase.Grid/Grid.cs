@@ -46,7 +46,7 @@ namespace FineUI
     /// <summary>
     /// 表格控件
     /// </summary>
-    [Designer(typeof(GridDesigner))]
+    [Designer("FineUI.Design.GridDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Grid Title=\"Grid\" EnableRowNumber=\"true\" EnableCheckBoxSelect=\"true\" runat=\"server\"><Columns></Columns></{0}:Grid>")]
     [ToolboxBitmap(typeof(Grid), "res.toolbox.Grid.bmp")]
     [Description("表格控件")]

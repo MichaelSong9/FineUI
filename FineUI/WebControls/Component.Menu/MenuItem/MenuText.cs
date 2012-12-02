@@ -41,6 +41,7 @@ namespace FineUI
     /// <summary>
     /// 菜单项文本控件
     /// </summary>
+    [Designer("FineUI.Design.MenuTextDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuText runat=\"server\"></{0}:MenuText>")]
     [ToolboxBitmap(typeof(MenuText), "res.toolbox.MenuText.bmp")]
     [Description("菜单项文本控件")]

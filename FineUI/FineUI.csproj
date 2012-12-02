@@ -139,51 +139,6 @@
     <Compile Include="Business\Util\HtmlNodeBuilder.cs" />
     <Compile Include="Business\Util\StyleUtil.cs" />
     <Compile Include="Business\Util\JSONUtil.cs" />
-    <Compile Include="Designer\AccordionDesigner.cs" />
-    <Compile Include="Designer\ButtonDesigner.cs" />
-    <Compile Include="Designer\CalendarDesigner.cs" />
-    <Compile Include="Designer\CheckBoxDesigner.cs" />
-    <Compile Include="Designer\CollapsablePanelDesigner.cs" />
-    <Compile Include="Designer\ContentPanelDesigner.cs" />
-    <Compile Include="Designer\ControlBaseContainerDesigner.cs" />
-    <Compile Include="Designer\ControlBaseDesigner.cs" />
-    <Compile Include="Designer\DatePickerDesigner.cs" />
-    <Compile Include="Designer\DropDownListDesigner.cs" />
-    <Compile Include="Designer\FlashObjectDesigner.cs" />
-    <Compile Include="Designer\FormDesigner.cs" />
-    <Compile Include="Designer\GridDesigner.cs" />
-    <Compile Include="Designer\GroupPanelDesigner.cs" />
-    <Compile Include="Designer\HiddenFieldDesigner.cs" />
-    <Compile Include="Designer\HtmlEditorDesigner.cs" />
-    <Compile Include="Designer\HyperLinkDesigner.cs" />
-    <Compile Include="Designer\ImageDesigner.cs" />
-    <Compile Include="Designer\LabelDesigner.cs" />
-    <Compile Include="Designer\LinkButtonDesigner.cs" />
-    <Compile Include="Designer\MenuDesigner.cs" />
-    <Compile Include="Designer\NumberBoxDesigner.cs" />
-    <Compile Include="Designer\PageLayoutDesigner.cs" />
-    <Compile Include="Designer\PageLoadingDesigner.cs" />
-    <Compile Include="Designer\PageManagerDesigner.cs" />
-    <Compile Include="Designer\PanelBaseDesigner.cs" />
-    <Compile Include="Designer\PanelDesigner.cs" />
-    <Compile Include="Designer\RadioButtonDesigner.cs" />
-    <Compile Include="Designer\RadioButtonListDesigner.cs" />
-    <Compile Include="Designer\RegionPanelDesigner.cs" />
-    <Compile Include="Designer\SimpleFormDesigner.cs" />
-    <Compile Include="Designer\SplitButtonDesigner.cs" />
-    <Compile Include="Designer\TabStripDesigner.cs" />
-    <Compile Include="Designer\TextAreaDesigner.cs" />
-    <Compile Include="Designer\TextBoxDesigner.cs" />
-    <Compile Include="Designer\TimerDesigner.cs" />
-    <Compile Include="Designer\ToolbarDesigner.cs" />
-    <Compile Include="Designer\ToolbarFillDesigner.cs" />
-    <Compile Include="Designer\ToolbarSeparatorDesigner.cs" />
-    <Compile Include="Designer\ToolbarTextDesigner.cs" />
-    <Compile Include="Designer\TreeDesigner.cs" />
-    <Compile Include="Designer\TriggerBoxDesigner.cs" />
-    <Compile Include="Designer\TwinTriggerBoxDesigner.cs" />
-    <Compile Include="Designer\UserControlConnectorDesigner.cs" />
-    <Compile Include="Designer\WindowDesigner.cs" />
     <Compile Include="lib\HtmlAgilityPack\crc32.cs" />
     <Compile Include="lib\HtmlAgilityPack\EncodingFoundException.cs" />
     <Compile Include="lib\HtmlAgilityPack\HtmlAttribute.cs" />
@@ -1053,7 +1008,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -47,7 +47,6 @@ namespace FineUI
     /// <summary>
     /// 控件基类（抽象类）
     /// </summary>
-    [Designer(typeof(ControlBaseDesigner))]
     [AspNetHostingPermission(SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Minimal)]
     [AspNetHostingPermission(SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
     public abstract class ControlBase : Control, INamingContainer

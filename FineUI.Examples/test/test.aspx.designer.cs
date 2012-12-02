@@ -31,48 +31,12 @@ namespace FineUI.Examples.test {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Form2 控件。
+        /// Window2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Form Form2;
-        
-        /// <summary>
-        /// TextBox1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox TextBox1;
-        
-        /// <summary>
-        /// Image1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Image Image1;
-        
-        /// <summary>
-        /// Button1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button Button1;
-        
-        /// <summary>
-        /// btnClose 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnClose;
+        protected global::FineUI.Window Window2;
     }
 }

@@ -39,7 +39,7 @@ namespace FineUI
     /// <summary>
     /// 文件上传控件
     /// </summary>
-    [Designer(typeof(TextBoxDesigner))]
+    [Designer("FineUI.Design.FileUploadDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:FileUpload Label=\"Label\" runat=\"server\"></{0}:FileUpload>")]
     [ToolboxBitmap(typeof(FileUpload), "res.toolbox.FileUpload.bmp")]

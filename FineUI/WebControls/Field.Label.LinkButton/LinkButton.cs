@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 链接按钮控件
     /// </summary>
-    [Designer(typeof(LinkButtonDesigner))]
+    [Designer("FineUI.Design.LinkButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:LinkButton Text=\"LinkButton\" Label=\"Label\" runat=server></{0}:LinkButton>")]
     [ToolboxBitmap(typeof(LinkButton), "res.toolbox.LinkButton.bmp")]

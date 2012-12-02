@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 单选框控件
     /// </summary>
-    [Designer(typeof(RadioButtonDesigner))]
+    [Designer("FineUI.Design.RadioButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:RadioButton Label=\"Label\" Text=\"RadioButton\" runat=server></{0}:RadioButton>")]
     [ToolboxBitmap(typeof(RadioButton), "res.toolbox.RadioButton.bmp")]

@@ -37,7 +37,7 @@ namespace FineUI
     /// <summary>
     /// 工具栏文本控件
     /// </summary>
-    [Designer(typeof(ToolbarTextDesigner))]
+    [Designer("FineUI.Design.ToolbarTextDesigner, FineUI.Design")]
     [ToolboxData("<{0}:ToolbarText runat=server></{0}:ToolbarText>")]
     [ToolboxBitmap(typeof(ToolbarText), "res.toolbox.ToolbarText.bmp")]
     [Description("工具栏文本控件")]

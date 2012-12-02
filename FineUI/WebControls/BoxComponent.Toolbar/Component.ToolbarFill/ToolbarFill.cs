@@ -37,7 +37,7 @@ namespace FineUI
     /// <summary>
     /// 工具栏左右分隔符控件
     /// </summary>
-    [Designer(typeof(ToolbarFillDesigner))]
+    [Designer("FineUI.Design.ToolbarFillDesigner, FineUI.Design")]
     [ToolboxData("<{0}:ToolbarFill runat=server></{0}:ToolbarFill>")]
     [ToolboxBitmap(typeof(ToolbarFill), "res.toolbox.ToolbarFill.bmp")]
     [Description("工具栏左右分隔符控件")]

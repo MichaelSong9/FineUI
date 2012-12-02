@@ -37,7 +37,7 @@ namespace FineUI
     /// <summary>
     /// 时间选择框控件
     /// </summary>
-    //[Designer(typeof(TimePickerDesigner))]
+    [Designer("FineUI.Design.TimePickerDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:TimePicker Label=\"Label\" runat=\"server\"></{0}:TimePicker>")]
     [ToolboxBitmap(typeof(TimePicker), "res.toolbox.TimePicker.bmp")]

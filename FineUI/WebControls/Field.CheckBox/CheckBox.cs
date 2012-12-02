@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 复选框控件
     /// </summary>
-    [Designer(typeof(CheckBoxDesigner))]
+    [Designer("FineUI.Design.CheckBoxDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:CheckBox Label=\"Label\" Text=\"CheckBox\" runat=\"server\"></{0}:CheckBox>")]
     [ToolboxBitmap(typeof(CheckBox), "res.toolbox.CheckBox.bmp")]

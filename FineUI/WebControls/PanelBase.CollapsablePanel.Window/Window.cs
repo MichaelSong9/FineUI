@@ -47,6 +47,7 @@ using System.Web.UI.Design.WebControls;
 
 using Newtonsoft.Json;
 using System.Web.UI.HtmlControls;
+using System.ComponentModel.Design;
 
 namespace FineUI
 {
@@ -54,10 +55,10 @@ namespace FineUI
     /// <summary>
     /// 窗体控件
     /// </summary>
-    [Designer(typeof(CollapsablePanelDesigner))]
+    [Designer("FineUI.Design.WindowDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Window IsModal=\"true\" Popup=\"true\" Width=\"500px\" Height=\"350px\" Title=\"Window\" runat=\"server\"></{0}:Window>")]
     [ToolboxBitmap(typeof(Window), "res.toolbox.Window.bmp")]
-    [Description("Window Control")]
+    [Description("窗体控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

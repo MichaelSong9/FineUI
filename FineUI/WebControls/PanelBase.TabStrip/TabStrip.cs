@@ -41,7 +41,7 @@ namespace FineUI
     /// <summary>
     /// 选项卡面板控件
     /// </summary>
-    [Designer(typeof(TabStripDesigner))]
+    [Designer("FineUI.Design.TabStripDesigner, FineUI.Design")]
     [ToolboxData("<{0}:TabStrip ShowBorder=\"True\" ActiveTabIndex=\"0\" runat=\"server\"><Tabs><{0}:Tab runat=\"server\" Title=\"Tab1\" EnableBackgroundColor=\"true\" BodyPadding=\"5px\"></{0}:Tab><{0}:Tab runat=\"server\" Title=\"Tab2\" EnableBackgroundColor=\"true\" BodyPadding=\"5px\"></{0}:Tab></Tabs></{0}:TabStrip>")]
     [ToolboxBitmap(typeof(TabStrip), "res.toolbox.TabStrip.bmp")]
     [Description("选项卡面板控件")]

@@ -36,7 +36,7 @@ namespace FineUI
     /// <summary>
     /// 页面配置管理器（每个页面必须包含一个 PageManager 控件）
     /// </summary>
-    [Designer(typeof(PageManagerDesigner))]
+    [Designer("FineUI.Design.PageManagerDesigner, FineUI.Design")]
     [ToolboxData("<{0}:PageManager runat=\"server\"></{0}:PageManager>")]
     [ToolboxBitmap(typeof(PageManager), "res.toolbox.PageManager.bmp")]
     [Description("页面配置管理器（每个页面必须包含一个 PageManager 控件）")]

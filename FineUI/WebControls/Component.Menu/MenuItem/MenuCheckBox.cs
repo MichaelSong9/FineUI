@@ -41,6 +41,7 @@ namespace FineUI
     /// <summary>
     /// 菜单项复选框控件（单选框）
     /// </summary>
+    [Designer("FineUI.Design.MenuCheckBoxDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuCheckBox runat=\"server\"></{0}:MenuCheckBox>")]
     [ToolboxBitmap(typeof(MenuCheckBox), "res.toolbox.MenuCheckBox.bmp")]
     [Description("菜单项复选框控件（单选框）")]

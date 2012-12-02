@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 日期控件
     /// </summary>
-    [Designer(typeof(CalendarDesigner))]
+    [Designer("FineUI.Design.CalendarDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Calendar runat=server></{0}:Calendar>")]
     [ToolboxBitmap(typeof(Calendar), "res.toolbox.Calendar.bmp")]

@@ -33,7 +33,10 @@ using System.Web.UI.Design;
 
 namespace FineUI
 {
-    [Designer(typeof(TimerDesigner))]
+    /// <summary>
+    /// 定时器控件
+    /// </summary>
+    [Designer("FineUI.Design.TimerDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Timer Interval=\"30\" runat=\"server\"></{0}:Timer>")]
     [ToolboxBitmap(typeof(Timer), "res.toolbox.Timer.bmp")]
     [Description("定时器")]

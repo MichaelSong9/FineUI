@@ -43,7 +43,7 @@ namespace FineUI
     /// <summary>
     /// 复选框列表控件
     /// </summary>
-    [Designer(typeof(RadioButtonListDesigner))]
+    [Designer("FineUI.Design.CheckBoxListDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:CheckBoxList runat=server></{0}:CheckBoxList>")]
     [ToolboxBitmap(typeof(CheckBoxList), "res.toolbox.CheckBoxList.bmp")]

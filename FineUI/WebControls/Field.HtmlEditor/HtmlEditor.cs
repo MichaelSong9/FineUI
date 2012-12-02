@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// HTML编辑框控件
     /// </summary>
-    [Designer(typeof(HtmlEditorDesigner))]
+    [Designer("FineUI.Design.HtmlEditorDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:HtmlEditor Label=\"Label\" Text=\"\" Height=\"250px\" runat=server></{0}:HtmlEditor>")]
     [ToolboxBitmap(typeof(HtmlEditor), "res.toolbox.HtmlEditor.bmp")]

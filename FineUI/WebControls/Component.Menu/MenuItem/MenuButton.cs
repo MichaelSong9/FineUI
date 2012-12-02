@@ -41,6 +41,7 @@ namespace FineUI
     /// <summary>
     /// 菜单项按钮控件
     /// </summary>
+    [Designer("FineUI.Design.MenuButtonDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuButton runat=\"server\"></{0}:MenuButton>")]
     [ToolboxBitmap(typeof(MenuButton), "res.toolbox.MenuButton.bmp")]
     [Description("菜单项按钮控件")]

@@ -41,7 +41,7 @@ namespace FineUI
     /// <summary>
     /// 面板控件
     /// </summary>
-    [Designer(typeof(CollapsablePanelDesigner))]
+    [Designer("FineUI.Design.PanelDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Panel Title=\"Panel\" BodyPadding=\"5px\" ShowHeader=\"true\" ShowBorder=\"true\" EnableBackgroundColor=\"true\" runat=\"server\"><Items></Items></{0}:Panel>")]
     [ToolboxBitmap(typeof(Panel), "res.toolbox.Panel.bmp")]
     [Description("面板控件")]

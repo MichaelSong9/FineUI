@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 扩展文本框控件
     /// </summary>
-    [Designer(typeof(TwinTriggerBoxDesigner))]
+    [Designer("FineUI.Design.TwinTriggerBoxDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [DefaultEvent("TriggerClick")]
     [ToolboxData("<{0}:TwinTriggerBox Label=\"Label\" Trigger1Icon=\"Clear\" Trigger2Icon=\"Search\" runat=\"server\"></{0}:TwinTriggerBox>")]

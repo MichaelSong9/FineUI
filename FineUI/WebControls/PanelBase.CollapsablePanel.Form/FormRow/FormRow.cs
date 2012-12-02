@@ -42,10 +42,13 @@ namespace FineUI
     /// <summary>
     /// 表单行控件
     /// </summary>
-    [ToolboxItem(false)]
-    [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
+    [Designer("FineUI.Design.FormRowDesigner, FineUI.Design")]
+    [ToolboxData("<{0}:FormRow runat=\"server\"></{0}:FormRow>")]
+    [ToolboxBitmap(typeof(FormRow), "res.toolbox.FormRow.bmp")]
+    [Description("表单行控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]
+    [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class FormRow : ControlBase
     {
 

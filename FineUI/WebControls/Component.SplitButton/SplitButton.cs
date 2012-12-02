@@ -35,8 +35,10 @@ using System.Web.UI.Design;
 
 namespace FineUI
 {
-
-    [Designer(typeof(SplitButtonDesigner))]
+    /// <summary>
+    /// 带下拉列表的按钮
+    /// </summary>
+    [Designer("FineUI.Design.SplitButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:SplitButton runat=\"server\"></{0}:SplitButton>")]
     [ToolboxBitmap(typeof(SplitButton), "res.toolbox.SplitButton.bmp")]

@@ -38,7 +38,7 @@ using System.Web.UI.HtmlControls;
 
 namespace FineUI
 {
-    [Designer(typeof(RegionPanelDesigner))]
+    [Designer("FineUI.Design.RegionPanelDesigner, FineUI.Design")]
     [ToolboxData("<{0}:RegionPanel ShowBorder=\"false\" runat=\"server\"><Regions><{0}:Region Split=\"true\" Width=\"200px\" ShowHeader=\"true\" Title=\"Left Region\" Position=\"Left\" runat=\"server\"></{0}:Region><{0}:Region Title=\"Center Region\" Position=\"Center\" ShowHeader=\"true\" runat=\"server\"></{0}:Region></Regions></{0}:RegionPanel>")]
     [ToolboxBitmap(typeof(RegionPanel), "res.toolbox.RegionPanel.bmp")]
     [Description("布局控件")]

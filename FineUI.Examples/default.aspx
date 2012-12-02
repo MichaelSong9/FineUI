@@ -162,24 +162,7 @@
                                         <br />
                                             下载：<a target="_blank" href="http://fineui.codeplex.com/">http://fineui.codeplex.com/</a>
                                         <br />
-                                        <br />
-                                        <h2>贡献者</h2>
-                                        dcding、jima、jqpeng、zgjiang2、clyin2、leizhang5、xmzhu、huihuang、huayu、jbzhang、
-                                        xlli、xmq、mgzhenhong、千帆、shguo、your568、503684912、Steve.Wei、yigehaoren、
-                                        geruger、chenguizhu2006、efrigate43、abaocoole、skydb、kedee、sun1299shine、
-                                        dk3214、thebox、wdrabbit、wjl_wjl520、BluesT、kaywood、gxpan、yymaoji、eroach、
-                                        Blues T、sun1299shine、bmck、lqm4108、alexa99、olivia919、nopnop9、anson、Violet、
-                                        davidwen、zqmars、261629698、zhaowenke、mmdcup、youwei、StevenGuan、hazardvn、gavindou、
-                                        ttjacky、vbelyaev、ben.zhou、OktaEndy、abdullaharslan、RedOcean、ronnieoverby、GMz、
-                                        tonyredondo、goansonpan、sa、土豆丝、李渝川、vazumi、yfen、用情、dotnet试验田、あ雨换晴、
-                                        〓飚〓、173242184、※晨曦后浪、yezie、宇洋、dennis、第一滴冰雨、快乐的猪、恒业创达、杜志彬、
-                                        大石头、凤舞天翔、泗水亭长、稻草人、低调的生活、知心叔叔、惊鸿沧海、峰回路转、随便逛逛、
-                                        郑伟、redleaf、Landroid、渔夫子、过往烟云、czfeifan、大雄、幻之达、隨风.NET、被遗忘的角落、
-                                        22854632、水若寒冰、emissary、落末醉、大鸟打小鸟、HUGO.理、河蟹社会、信徒、swtseaman、张怡、
-                                        magicyugi、⑥阿太⑥、TiDi、西门吹雪、含章、￡快乐→无罪、feitian78、e先生、你是我的、蓝色天空、
-                                        松松工作室、Dennis_Liu、︶ㄣ東東ㄣ、天蓝若空、李剑飞、克儿~、石头鱼、Spring、梦如人生、破风、
-                                        吉吉、落叶飞尘、黑眼睛咪咪、◇辉◆:、隨風往事、Vian_Pan、sam.chang
-
+                                        
                                         
                                     </x:ContentPanel>
                                 </Items>

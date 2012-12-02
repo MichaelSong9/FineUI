@@ -33,7 +33,7 @@ using System.Web.UI.Design;
 
 namespace FineUI
 {
-    //[Designer(typeof(PageLoadingDesigner))]
+    [Designer("FineUI.Design.PageLoadingDesigner, FineUI.Design")]
     [ToolboxData("<{0}:PageLoading runat=server></{0}:PageLoading>")]
     [ToolboxBitmap(typeof(PageLoading), "res.toolbox.PageLoading.bmp")]
     [Description("")]

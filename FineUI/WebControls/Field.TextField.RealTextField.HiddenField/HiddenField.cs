@@ -38,7 +38,7 @@ namespace FineUI
     /// <summary>
     /// 隐藏表单控件
     /// </summary>
-    [Designer(typeof(HiddenFieldDesigner))]
+    [Designer("FineUI.Design.HiddenFieldDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:HiddenField runat=\"server\"></{0}:HiddenField>")]
     [ToolboxBitmap(typeof(HiddenField), "res.toolbox.HiddenField.bmp")]

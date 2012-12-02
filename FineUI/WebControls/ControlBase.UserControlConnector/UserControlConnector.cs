@@ -35,7 +35,7 @@ namespace FineUI
     /// <summary>
     /// 用户控件的容器
     /// </summary>
-    [Designer(typeof(UserControlConnectorDesigner))]
+    [Designer("FineUI.Design.UserControlConnectorDesigner, FineUI.Design")]
     [ToolboxData("<{0}:UserControlConnector runat=\"server\"></{0}:UserControlConnector>")]
     [ToolboxBitmap(typeof(UserControlConnector), "res.toolbox.UserControlConnector.bmp")]
     [Description("用户控件的容器")]
