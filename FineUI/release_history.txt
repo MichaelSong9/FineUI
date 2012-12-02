@@ -19,7 +19,7 @@ Apache License 2.0 (Apache)
 
 发布历史
 
-+2012-12-02 v3.2.2
++2012-12-03 v3.2.2
 	-修正动态添加按钮菜单的错误，并更新示例button/button_menu.aspx（西门吹雪）。
 	+为Window控件增加Plain属性；为ToolbarPosition增加Footer类型；为面板增加FooterBarAlign属性。
 		-增加示例window/window_toolbar.aspx。
@@ -39,7 +39,8 @@ Apache License 2.0 (Apache)
 		+修正设置DataSource为null时无法清空表格内容的问题（猪八戒）。
 			-更新grid/grid_pageitems.aspx，演示如何清空表格数据。
 		-更新grid/grid_rowexpander.aspx示例，控制显示隐藏行扩展列。
-		-
+		+增加ClearSelectedRowsAfterPaging属性，用来控制是否在服务器端分页后清空选中的行。
+			-增加示例grid/grid_paging_selection.aspx和grid/grid_paging_database_selection.aspx。
 
 
 

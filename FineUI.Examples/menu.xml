@@ -150,6 +150,10 @@
       </TreeNode>
       <TreeNode Text="内存分页与排序" NavigateUrl="~/grid/grid_paging_sorting.aspx" >
       </TreeNode>
+      <TreeNode Text="内存分页（跨页保持选中行）" NavigateUrl="~/grid/grid_paging_selection.aspx" >
+      </TreeNode>
+      <TreeNode Text="数据库分页（跨页保持选中行）" NavigateUrl="~/grid/grid_paging_database_selection.aspx" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="序号列" SingleClickExpand="true">
       <TreeNode Text="序号列与内存分页" NavigateUrl="~/grid/grid_rownumber_paging.aspx" >

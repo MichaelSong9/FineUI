@@ -185,6 +185,26 @@ namespace FineUI
 
 
         /// <summary>
+        /// 服务器端分页后清空选中的行
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("服务器端分页后清空选中的行")]
+        public bool ClearSelectedRowsAfterPaging
+        {
+            get
+            {
+                object obj = XState["ClearSelectedRowsAfterPaging"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                XState["ClearSelectedRowsAfterPaging"] = value;
+            }
+        }
+
+
+        /// <summary>
         /// 每页显示项数
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -2801,6 +2821,7 @@ namespace FineUI
         {
             //base.DataBind();
 
+            // 数据绑定之前要先清空现有的数据，以及选中行，DataKeys
             ClearRows();
 
             int recordCount = 0;
@@ -2952,6 +2973,9 @@ namespace FineUI
         /// </summary>
         private void ClearRows()
         {
+            // 数据绑定之前要先清空 _dataKeys
+            _dataKeys = null;
+
             // 重新绑定数据前清空选中的值
             SelectedRowIndexArray = null;
 
@@ -3000,7 +3024,6 @@ namespace FineUI
 
 
 
-            // X_Rows Maybe changed in this PostBack, because row States maybe changed in client-side.
             JArray rowStates = JArray.Parse(postCollection[RowStatesHiddenFieldID]);
             int startRowIndex, endRowIndex;
             ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
@@ -3306,9 +3329,13 @@ namespace FineUI
                 {
                     OnPageIndexChange(new GridPageEventArgs(Convert.ToInt32(commandArgs[1])));
 
-                    // 分页后清空选中的值
-                    // 这个地方单独调用，是因为服务器端分页时不会重新绑定数据，数据库分页才会重新绑定数据
-                    SelectedRowIndexArray = null;
+                    if (ClearSelectedRowsAfterPaging)
+                    {
+                        // 分页后清空选中的值
+                        // 因为服务器端分页时不会重新绑定数据（数据库分页才会重新绑定数据，所以数据库分页时自然会清空选中的行）
+                        // 所以需要一个设置，在分页结束后自动清空选中的行
+                        SelectedRowIndexArray = null;
+                    }
                 }
             }
             else if (eventArgument.StartsWith("RowClick$"))
