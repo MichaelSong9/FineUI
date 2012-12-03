@@ -36,10 +36,22 @@ namespace FineUI.Examples.grid
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            labResult.Text = HowManyRowsAreSelected(Grid1);
+            SyncSelectedRowIndexArrayToHiddenField();
+
+            labResult.Text = "选中行的ID列表为：" + hfSelectedIDS.Text.Trim();
         }
 
         protected void Grid1_PageIndexChange(object sender, FineUI.GridPageEventArgs e)
+        {
+            SyncSelectedRowIndexArrayToHiddenField();
+
+            Grid1.PageIndex = e.NewPageIndex;
+
+            UpdateSelectedRowIndexArray();
+
+        }
+
+        private List<string> GetSelectedRowIndexArrayFromHiddenField()
         {
             JArray idsArray = new JArray();
 
@@ -48,12 +60,18 @@ namespace FineUI.Examples.grid
             {
                 idsArray = JArray.Parse(currentIDS);
             }
-            else 
+            else
             {
                 idsArray = new JArray();
             }
-            List<string> ids = new List<string>(idsArray.ToObject<string[]>());
-            
+
+            return new List<string>(idsArray.ToObject<string[]>());
+        }
+
+        private void SyncSelectedRowIndexArrayToHiddenField()
+        {
+            List<string> ids = GetSelectedRowIndexArrayFromHiddenField();
+
 
             if (Grid1.SelectedRowIndexArray != null && Grid1.SelectedRowIndexArray.Length > 0)
             {
@@ -80,8 +98,12 @@ namespace FineUI.Examples.grid
             }
 
             hfSelectedIDS.Text = new JArray(ids).ToString(Formatting.None);
+        }
 
-            Grid1.PageIndex = e.NewPageIndex;
+
+        private void UpdateSelectedRowIndexArray()
+        {
+            List<string> ids = GetSelectedRowIndexArrayFromHiddenField();
 
             List<int> nextSelectedRowIndexArray = new List<int>();
             int nextStartPageIndex = Grid1.PageIndex * Grid1.PageSize;
@@ -94,7 +116,6 @@ namespace FineUI.Examples.grid
                 }
             }
             Grid1.SelectedRowIndexArray = nextSelectedRowIndexArray.ToArray();
-
         }
 
         #endregion

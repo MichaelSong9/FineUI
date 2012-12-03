@@ -40,7 +40,7 @@ Apache License 2.0 (Apache)
 			-更新grid/grid_pageitems.aspx，演示如何清空表格数据。
 		-更新grid/grid_rowexpander.aspx示例，控制显示隐藏行扩展列。
 		+增加ClearSelectedRowsAfterPaging属性，用来控制是否在服务器端分页后清空选中的行。
-			-增加示例grid/grid_paging_selection.aspx和grid/grid_paging_database_selection.aspx。
+			-增加示例grid/grid_paging_selection.aspx和grid/grid_paging_database_selection.aspx，演示如何跨页保持选中数据。
 
 
 
