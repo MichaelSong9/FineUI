@@ -112,32 +112,35 @@ namespace FineUI.Examples.grid
         {
             List<string> ids = GetSelectedRowIndexArrayFromHiddenField();
 
+            List<int> selectedRows = new List<int>();
             if (Grid1.SelectedRowIndexArray != null && Grid1.SelectedRowIndexArray.Length > 0)
             {
-                List<int> selectedRows = new List<int>(Grid1.SelectedRowIndexArray);
-                for (int i = 0, count = Math.Min(Grid1.PageSize, (Grid1.RecordCount - Grid1.PageIndex * Grid1.PageSize)); i < count; i++)
+                selectedRows = new List<int>(Grid1.SelectedRowIndexArray);
+            }
+
+            for (int i = 0, count = Math.Min(Grid1.PageSize, (Grid1.RecordCount - Grid1.PageIndex * Grid1.PageSize)); i < count; i++)
+            {
+                string id = Grid1.DataKeys[i][0].ToString();
+                if (selectedRows.Contains(i))
                 {
-                    string id = Grid1.DataKeys[i][0].ToString();
-                    if (selectedRows.Contains(i))
+                    if (!ids.Contains(id))
                     {
-                        if (!ids.Contains(id))
-                        {
-                            ids.Add(id);
-                        }
-                    }
-                    else
-                    {
-                        if (ids.Contains(id))
-                        {
-                            ids.Remove(id);
-                        }
+                        ids.Add(id);
                     }
                 }
+                else
+                {
+                    if (ids.Contains(id))
+                    {
+                        ids.Remove(id);
+                    }
+                }
+
             }
 
             hfSelectedIDS.Text = new JArray(ids).ToString(Formatting.None);
 
-            
+
         }
 
         private void UpdateSelectedRowIndexArray()
