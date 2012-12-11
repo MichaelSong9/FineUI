@@ -399,6 +399,8 @@
     </TreeNode>
     <TreeNode Text="FormItemClass属性" NavigateUrl="~/other/formitemclass.aspx">
     </TreeNode>
+    <TreeNode Text="表单中的按钮" NavigateUrl="~/other/button_in_form.aspx">
+    </TreeNode>
     <TreeNode Text="向父页面添加Tab" NavigateUrl="~/other/addtab.aspx">
     </TreeNode>
     <TreeNode Text="Ajax提示信息" NavigateUrl="~/other/ajax_loading.aspx">

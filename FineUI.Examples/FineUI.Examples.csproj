@@ -197,6 +197,7 @@
     <Content Include="library\CKEditor.NET.dll" />
     <Content Include="library\FredCK.FCKeditorV2.dll" />
     <Content Include="other\alert.aspx" />
+    <Content Include="other\button_in_form.aspx" />
     <Content Include="test\start.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\formitemclass.aspx" />
@@ -981,6 +982,13 @@
     </Compile>
     <Compile Include="other\alert.aspx.designer.cs">
       <DependentUpon>alert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="other\button_in_form.aspx.cs">
+      <DependentUpon>button_in_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\button_in_form.aspx.designer.cs">
+      <DependentUpon>button_in_form.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\start.aspx.cs">
       <DependentUpon>start.aspx</DependentUpon>
