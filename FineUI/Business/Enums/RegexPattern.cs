@@ -100,11 +100,11 @@ namespace FineUI
         private const string ALPHA_NUMERIC_UNDERLINE = "^[a-zA-Z0-9_]+$";
         private const string ALPHA_LOWER_CASE = @"^[a-z]+$";
         private const string ALPHA_UPPER_CASE = @"^[A-Z]+$";
-        private const string EMAIL = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
-        private const string URL = @"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?";
+        private const string EMAIL = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+        private const string URL = @"^http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?$";
         private const string POSTAL_CODE = @"^\d{6}$";
-        private const string IP_ADDRESS = @"/(\d+)\.(\d+)\.(\d+)\.(\d+)/g";
-        private const string IDENTITY_CARD = @"/^(\d{15}|\d{17}[x0-9])$/i";
+        private const string IP_ADDRESS = @"^(\d+)\.(\d+)\.(\d+)\.(\d+)$";
+        private const string IDENTITY_CARD = @"^(\d{15}|\d{17}[x0-9])$";
 
         public static string GetRegexValue(RegexPattern type)
         {

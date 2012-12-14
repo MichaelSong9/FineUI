@@ -226,6 +226,27 @@ namespace FineUI
             }
         }
 
+
+
+        /// <summary>
+        /// 正则表达式是否忽略大小写
+        /// </summary>
+        [Category(CategoryName.VALIDATION)]
+        [DefaultValue(true)]
+        [Description("正则表达式是否忽略大小写")]
+        public bool RegexIgnoreCase
+        {
+            get
+            {
+                object obj = XState["RegexIgnoreCase"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                XState["RegexIgnoreCase"] = value;
+            }
+        }
+
         #endregion
 
         #region Compare
@@ -415,7 +436,13 @@ namespace FineUI
 
             if (!String.IsNullOrEmpty(regexStr))
             {
-                OB.AddProperty("regex", String.Format("new RegExp({0})", JsHelper.Enquote(regexStr)), true);
+                string ignoreCaseStr = String.Empty;
+                if (RegexIgnoreCase)
+                {
+                    ignoreCaseStr = ",'i'";
+                }
+
+                OB.AddProperty("regex", String.Format("new RegExp({0}{1})", JsHelper.Enquote(regexStr), ignoreCaseStr), true);
                 if (!String.IsNullOrEmpty(RegexMessage))
                 {
                     OB.AddProperty("regexText", RegexMessage);

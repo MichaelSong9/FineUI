@@ -9,17 +9,17 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager2" runat="server" />
-    <x:Panel ID="Panel1" runat="server" Height="300px" Width="400px" ShowBorder="True"
-        Layout="Anchor" ShowHeader="True" Title="Panel1">
+    <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelWidth="180px"
+        runat="server" EnableBackgroundColor="true" ShowBorder="True" ShowHeader="True"
+        Title="简单表单">
         <Items>
-            <x:Panel ID="Panel2" AnchorValue="100%" Height="100" EnableBackgroundColor="true"
-                runat="server" ShowBorder="True" ShowHeader="true" Title="Panel2">
-            </x:Panel>
-            <x:Panel ID="Panel3" AnchorValue="100% -100" EnableBackgroundColor="true" runat="server"
-                ShowBorder="True" ShowHeader="true" Title="Panel3">
-            </x:Panel>
+            <x:TextBox ID="tbxSfzhm" runat="server" Label="身份证号码" RegexPattern="EMAIL"
+                RegexMessage="请输入有效的身份证号码！">
+            </x:TextBox>
+            <x:Button ID="btnReset" Text="重置表单" ValidateForms="SimpleForm1" runat="server">
+            </x:Button>
         </Items>
-    </x:Panel>
+    </x:SimpleForm>
     </form>
 </body>
 </html>
