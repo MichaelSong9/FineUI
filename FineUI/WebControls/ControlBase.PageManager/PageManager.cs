@@ -85,6 +85,19 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 不支持此属性
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override bool Visible
+        {
+            get
+            {
+                return true;
+            }
+        }
+
 
         /// <summary>
         /// 不支持此属性
@@ -696,7 +709,7 @@ namespace FineUI
         /// <summary>
         /// Ajax正在加载提示的类型
         /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
+        [Category(CategoryName.OPTIONS)]
         [DefaultValue(AjaxLoadingType.Default)]
         [Description("Ajax正在加载提示的类型")]
         public new AjaxLoadingType AjaxLoadingType

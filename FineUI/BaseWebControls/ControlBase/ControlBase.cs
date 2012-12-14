@@ -292,20 +292,6 @@ namespace FineUI
         }
 
 
-        ///// <summary>
-        ///// 不支持此属性（请使用 Hidden 属性）
-        ///// </summary>
-        //[Browsable(false)]
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        //public override bool Visible
-        //{
-        //    get
-        //    {
-        //        return true;
-        //    }
-        //}
-
-
         /// <summary>
         /// 控件的客户端ID（比如：RegionPanel1_Button1）
         /// </summary>
@@ -410,11 +396,30 @@ namespace FineUI
 
 
         /// <summary>
-        /// [AJAX属性]是否隐藏
+        /// 指示控件是否被渲染出来（如果想要显示隐藏控件，请使用Hidden属性）
+        /// </summary>
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue(true)]
+        [Description("指示控件是否被渲染出来（如果想要显示隐藏控件，请使用Hidden属性）")]
+        public override bool Visible
+        {
+            get
+            {
+                return base.Visible;
+            }
+            set
+            {
+                base.Visible = value;
+            }
+        }
+
+
+        /// <summary>
+        /// [AJAX属性]是否隐藏控件
         /// </summary>
         [Category(CategoryName.BASEOPTIONS)]
         [DefaultValue(false)]
-        [Description("[AJAX属性]是否隐藏")]
+        [Description("[AJAX属性]是否隐藏控件")]
         public virtual bool Hidden
         {
             get
@@ -452,7 +457,7 @@ namespace FineUI
         /// 是否启用AJAX
         /// </summary>
         [Category(CategoryName.BASEOPTIONS)]
-        //[DefaultValue(true)]
+        [DefaultValue(true)]
         [Description("是否启用AJAX")]
         public virtual bool EnableAjax
         {
@@ -461,7 +466,14 @@ namespace FineUI
                 object obj = XState["EnableAjax"];
                 if (obj == null)
                 {
-                    return PageManager.Instance.EnableAjax;
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return PageManager.Instance.EnableAjax;
+                    }
                 }
                 return (bool)obj;
             }
@@ -475,8 +487,8 @@ namespace FineUI
         /// <summary>
         /// 是否启用Ajax正在加载提示
         /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        //[DefaultValue(true)]
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue(true)]
         [Description("是否启用Ajax正在加载提示")]
         public bool EnableAjaxLoading
         {
@@ -485,7 +497,14 @@ namespace FineUI
                 object obj = XState["EnableAjaxLoading"];
                 if (obj == null)
                 {
-                    return PageManager.Instance.EnableAjaxLoading;
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return PageManager.Instance.EnableAjaxLoading;
+                    }
                 }
                 return (bool)obj;
             }
@@ -500,7 +519,7 @@ namespace FineUI
         /// Ajax正在加载提示的类型
         /// </summary>
         [Category(CategoryName.BASEOPTIONS)]
-        //[DefaultValue(AjaxLoadingType.Default)]
+        [DefaultValue(AjaxLoadingType.Default)]
         [Description("Ajax正在加载提示的类型")]
         public AjaxLoadingType AjaxLoadingType
         {
@@ -509,7 +528,14 @@ namespace FineUI
                 object obj = XState["AjaxLoadingType"];
                 if (obj == null)
                 {
-                    return PageManager.Instance.AjaxLoadingType;
+                    if (DesignMode)
+                    {
+                        return AjaxLoadingType.Default;
+                    }
+                    else
+                    {
+                        return PageManager.Instance.AjaxLoadingType;
+                    }
                 }
                 return (AjaxLoadingType)obj;
             }
@@ -1610,7 +1636,7 @@ namespace FineUI
         //}
 
 
-        //[Category(CategoryName.OPTIONS)]
+        //[Category(CategoryName.BASEOPTIONS)]
         //[DefaultValue(false)]
         //[Description("Ajax回发时强制更新此控件全部内容")]
         //internal virtual bool AjaxForceCompleteUpdate
