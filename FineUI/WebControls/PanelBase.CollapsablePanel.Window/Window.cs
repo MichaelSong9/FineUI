@@ -1732,10 +1732,10 @@ namespace FineUI
         private static readonly object _handlerKey = new object();
 
         /// <summary>
-        /// 关闭窗体的事件
+        /// 关闭窗体的事件（需要设置EnableClose=true和CloseAction=HidePostBack）
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("关闭窗体的事件")]
+        [Description("关闭窗体的事件（需要设置EnableClose=true和CloseAction=HidePostBack）")]
         public event EventHandler<WindowCloseEventArgs> Close
         {
             add

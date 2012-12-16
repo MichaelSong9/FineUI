@@ -29,7 +29,7 @@ using System.Text;
 namespace FineUI
 {
     /// <summary>
-    /// 在HBox布局或者VBox布局中，用来控制容器子控件的尺寸
+    /// 在HBox布局或者VBox布局中，用来控制容器子控件的位置
     /// </summary>
     public enum BoxLayoutAlign
     {

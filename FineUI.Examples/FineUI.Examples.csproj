@@ -1551,6 +1551,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FineUI.Design\FineUI.Design.csproj">
+      <Project>{10A1F3D1-2F9F-4777-BAE8-042622C8BA80}</Project>
+      <Name>FineUI.Design</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FineUI\FineUI.csproj">
       <Project>{0F8BF1F6-DDC2-43DA-BB0B-416CC287AC1B}</Project>
       <Name>FineUI</Name>

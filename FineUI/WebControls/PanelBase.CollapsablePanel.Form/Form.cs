@@ -154,7 +154,7 @@ namespace FineUI
         /// 标签与字段的分隔符
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        //[DefaultValue(typeof(String), ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT)]
+        [DefaultValue(typeof(String), ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT)]
         [Description("标签与字段的分隔符")]
         public String LabelSeparator
         {
@@ -163,8 +163,15 @@ namespace FineUI
                 object obj = XState["LabelSeparator"];
                 if (obj == null)
                 {
-                    //return ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT;
-                    return PageManager.Instance.FormLabelSeparator;
+                    if (DesignMode)
+                    {
+                        return ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT;
+                    }
+                    else
+                    {
+                        //return ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT;
+                        return PageManager.Instance.FormLabelSeparator;
+                    }
                 }
                 return obj.ToString();
             }

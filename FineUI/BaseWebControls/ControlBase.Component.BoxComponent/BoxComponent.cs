@@ -96,11 +96,11 @@ namespace FineUI
         #region Layout Properties
 
         /// <summary>
-        /// 锚点值
+        /// 锚点值（当父容器的Layout=Anchor时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("")]
-        [Description("锚点值")]
+        [Description("锚点值（当父容器的Layout=Anchor时有效）")]
         public string AnchorValue
         {
             get
@@ -116,11 +116,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 列的宽度
+        /// 列的宽度（当父容器的Layout=Column时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("")]
-        [Description("列的宽度")]
+        [Description("列的宽度（当父容器的Layout=Column时有效）")]
         public string ColumnWidth
         {
             get
@@ -136,11 +136,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 行的宽度
+        /// 行的宽度（当父容器的Layout=Row时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("")]
-        [Description("行的宽度")]
+        [Description("行的宽度（当父容器的Layout=Row时有效）")]
         public string RowHeight
         {
             get
@@ -156,11 +156,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// AbsoluteX
+        /// 绝对定位的X坐标（当父容器的Layout=Absolute时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(typeof(Unit), "")]
-        [Description("X")]
+        [Description("绝对定位的X坐标（当父容器的Layout=Absolute时有效）")]
         public Unit AbsoluteX
         {
             get
@@ -176,11 +176,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// AbsoluteY
+        /// 绝对定位的Y坐标（当父容器的Layout=Absolute时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(typeof(Unit), "")]
-        [Description("Y")]
+        [Description("绝对定位的Y坐标（当父容器的Layout=Absolute时有效）")]
         public Unit AbsoluteY
         {
             get
@@ -196,11 +196,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 表格列数
+        /// 表格列数（当父容器的Layout=Table时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(3)]
-        [Description("表格列数")]
+        [Description("表格列数（当父容器的Layout=Table时有效）")]
         public int TableConfigColumns
         {
             get
@@ -215,11 +215,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 表格合并行
+        /// 表格合并行（当父容器的Layout=Table时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(1)]
-        [Description("表格合并行")]
+        [Description("表格合并行（当父容器的Layout=Table时有效）")]
         public int TableRowspan
         {
             get
@@ -234,11 +234,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 表格合并列
+        /// 表格合并列（当父容器的Layout=Table时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(1)]
-        [Description("表格合并列")]
+        [Description("表格合并列（当父容器的Layout=Table时有效）")]
         public int TableColspan
         {
             get
@@ -253,11 +253,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 位置
+        /// 控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）
         /// </summary>
-        [Category(CategoryName.OPTIONS)]
+        [Category(CategoryName.LAYOUT)]
         [DefaultValue(BoxLayoutAlign.Start)]
-        [Description("位置")]
+        [Description("控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）")]
         public BoxLayoutAlign BoxConfigAlign
         {
             get
@@ -272,11 +272,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 位置
+        /// 控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）
         /// </summary>
-        [Category(CategoryName.OPTIONS)]
+        [Category(CategoryName.LAYOUT)]
         [DefaultValue(BoxLayoutPosition.Start)]
-        [Description("位置")]
+        [Description("控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）")]
         public BoxLayoutPosition BoxConfigPosition
         {
             get
@@ -291,11 +291,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Padding
+        /// 内边距（当父容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("0")]
-        [Description("Padding")]
+        [Description("内边距（当父容器的Layout=VBox或者HBox时有效）")]
         public string BoxConfigPadding
         {
             get
@@ -310,11 +310,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 子控件之间的Margin
+        /// 子控件的外边距（当父容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("0")]
-        [Description("子控件之间的Margin")]
+        [Description("子控件的外边距（当父容器的Layout=VBox或者HBox时有效）")]
         public string BoxConfigChildMargin
         {
             get
@@ -329,11 +329,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Flex
+        /// 控制子控件的尺寸（当父容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(0)]
-        [Description("Flex")]
+        [Description("控制子控件的尺寸（当父容器的Layout=VBox或者HBox时有效）")]
         public int BoxFlex
         {
             get
@@ -349,11 +349,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// Margin
+        /// 外边距（当父容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("")]
-        [Description("Margin")]
+        [Description("外边距（当父容器的Layout=VBox或者HBox时有效）")]
         public string BoxMargin
         {
             get

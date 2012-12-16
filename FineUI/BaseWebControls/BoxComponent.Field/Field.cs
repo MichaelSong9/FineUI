@@ -122,8 +122,15 @@ namespace FineUI
                 object obj = XState["LabelSeparator"];
                 if (obj == null)
                 {
-                    //return ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT;
-                    return PageManager.Instance.FormLabelSeparator;
+                    if (DesignMode)
+                    {
+                        return ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT;
+                    }
+                    else
+                    {
+                        //return ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT;
+                        return PageManager.Instance.FormLabelSeparator;
+                    }
                 }
                 return (String)obj;
             }
