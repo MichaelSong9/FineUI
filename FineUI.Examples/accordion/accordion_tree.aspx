@@ -9,8 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server">
-    </x:PageManager>
+    <x:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></x:PageManager>
     <x:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
         <Regions>
             <x:Region ID="Region2" Split="true" Width="200px" Margins="0 0 0 0" ShowHeader="false"
