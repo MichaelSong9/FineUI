@@ -707,12 +707,9 @@
     <EmbeddedResource Include="res\toolbox\CheckBox.bmp" />
     <EmbeddedResource Include="res\toolbox\CheckBoxList.bmp" />
     <EmbeddedResource Include="res\toolbox\ContentPanel.bmp" />
-    <EmbeddedResource Include="res\toolbox\ContentPlaceHolderConnector.bmp" />
     <EmbeddedResource Include="res\toolbox\DatePicker.bmp" />
     <EmbeddedResource Include="res\toolbox\DropDownList.bmp" />
-    <EmbeddedResource Include="res\toolbox\FlashObject.bmp" />
     <EmbeddedResource Include="res\toolbox\Form.bmp" />
-    <EmbeddedResource Include="res\toolbox\FropDownList.bmp" />
     <EmbeddedResource Include="res\toolbox\Grid.bmp" />
     <EmbeddedResource Include="res\toolbox\GroupPanel.bmp" />
     <EmbeddedResource Include="res\toolbox\HiddenField.bmp" />
@@ -728,7 +725,6 @@
     <EmbeddedResource Include="res\toolbox\MenuSeparator.bmp" />
     <EmbeddedResource Include="res\toolbox\MenuText.bmp" />
     <EmbeddedResource Include="res\toolbox\NumberBox.bmp" />
-    <EmbeddedResource Include="res\toolbox\PageLayout.bmp" />
     <EmbeddedResource Include="res\toolbox\PageLoading.bmp" />
     <EmbeddedResource Include="res\toolbox\PageManager.bmp" />
     <EmbeddedResource Include="res\toolbox\Panel.bmp" />
@@ -737,7 +733,6 @@
     <EmbeddedResource Include="res\toolbox\RegionPanel.bmp" />
     <EmbeddedResource Include="res\toolbox\SimpleForm.bmp" />
     <EmbeddedResource Include="res\toolbox\SplitButton.bmp" />
-    <EmbeddedResource Include="res\toolbox\Tab.bmp" />
     <EmbeddedResource Include="res\toolbox\TabStrip.bmp" />
     <EmbeddedResource Include="res\toolbox\TextArea.bmp" />
     <EmbeddedResource Include="res\toolbox\TextBox.bmp" />
@@ -947,6 +942,7 @@
     <EmbeddedResource Include="res\img\unchecked_disabled.gif" />
     <Content Include="res\css\ux\FineUI.css" />
     <EmbeddedResource Include="res\toolbox\MenuCheckBox.bmp" />
+    <EmbeddedResource Include="res\toolbox\TimePicker.bmp" />
     <Content Include="Web.config.txt" />
   </ItemGroup>
   <ItemGroup>

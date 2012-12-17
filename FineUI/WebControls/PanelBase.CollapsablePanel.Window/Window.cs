@@ -578,11 +578,11 @@ namespace FineUI
         //}
 
         /// <summary>
-        /// 弹出窗口的目标位置
+        /// 弹出窗口的目标位置（只有在EnableIFrame=true的情况下有效）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(Target.Self)]
-        [Description("弹出窗口的目标位置")]
+        [Description("弹出窗口的目标位置（只有在EnableIFrame=true的情况下有效）")]
         public Target Target
         {
             get
