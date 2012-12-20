@@ -72,6 +72,9 @@
     <Content Include="aspnet\testwindow.htm" />
     <Content Include="aspnet\ckeditor.aspx" />
     <Content Include="aspnet\ueditor.aspx" />
+    <Content Include="autocomplete\inline.aspx" />
+    <Content Include="autocomplete\custom_display.aspx" />
+    <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
     <Content Include="button\button_icon.aspx" />
@@ -286,6 +289,27 @@
     </Compile>
     <Compile Include="aspnet\ueditor.aspx.designer.cs">
       <DependentUpon>ueditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\inline.aspx.cs">
+      <DependentUpon>inline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocomplete\inline.aspx.designer.cs">
+      <DependentUpon>inline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\custom_display.aspx.cs">
+      <DependentUpon>custom_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocomplete\custom_display.aspx.designer.cs">
+      <DependentUpon>custom_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="other\keydown.aspx.cs">
+      <DependentUpon>keydown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\keydown.aspx.designer.cs">
+      <DependentUpon>keydown.aspx</DependentUpon>
     </Compile>
     <Compile Include="basic\Captcha\captcha.ashx.cs">
       <DependentUpon>captcha.ashx</DependentUpon>
