@@ -20,7 +20,7 @@ Apache License 2.0 (Apache)
 发布历史
 
 +2013-02-* v3.2.3
-	-修正身份证和IP地址验证规则错误（Mr.Wu）。
+	-修正身份证和IP地址验证规则错误（Mr.Wu、轻雨湿意）。
 	-为正则表达式验证增加RegexIgnoreCase属性，默认是区分大小写的。
 
 
