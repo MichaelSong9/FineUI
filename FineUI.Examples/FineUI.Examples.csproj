@@ -74,6 +74,10 @@
     <Content Include="aspnet\ueditor.aspx" />
     <Content Include="autocomplete\inline.aspx" />
     <Content Include="autocomplete\custom_display.aspx" />
+    <Content Include="autocomplete\multi_values_remote.aspx" />
+    <Content Include="autocomplete\multi_values.aspx" />
+    <Content Include="autocomplete\remote_with_cache.aspx" />
+    <Content Include="autocomplete\email.aspx" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -303,6 +307,37 @@
     </Compile>
     <Compile Include="autocomplete\custom_display.aspx.designer.cs">
       <DependentUpon>custom_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\multi_values_remote.aspx.cs">
+      <DependentUpon>multi_values_remote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocomplete\multi_values_remote.aspx.designer.cs">
+      <DependentUpon>multi_values_remote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\search.ashx.cs">
+      <DependentUpon>search.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\multi_values.aspx.cs">
+      <DependentUpon>multi_values.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocomplete\multi_values.aspx.designer.cs">
+      <DependentUpon>multi_values.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\remote_with_cache.aspx.cs">
+      <DependentUpon>remote_with_cache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocomplete\remote_with_cache.aspx.designer.cs">
+      <DependentUpon>remote_with_cache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="autocomplete\email.aspx.cs">
+      <DependentUpon>email.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocomplete\email.aspx.designer.cs">
+      <DependentUpon>email.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>
@@ -1716,7 +1751,9 @@
     <Content Include="tree\select\tree_multi_select.aspx" />
     <Content Include="grid\image.ashx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="autocomplete\search.ashx" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="ueditor\net\fileUp.ashx" />
     <Content Include="ueditor\net\getContent.ashx" />
