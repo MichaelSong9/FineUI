@@ -390,10 +390,26 @@
     <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
     </TreeNode>
   </TreeNode>
+  <TreeNode Text="自动补全组件" SingleClickExpand="true">
+    <TreeNode Text="内联数据" NavigateUrl="~/autocomplete/inline.aspx" >
+    </TreeNode>
+    <TreeNode Text="自动补全邮件地址" NavigateUrl="~/autocomplete/email.aspx" >
+    </TreeNode>
+    <TreeNode Text="多行显示补全数据" NavigateUrl="~/autocomplete/custom_display.aspx" >
+    </TreeNode>
+    <TreeNode Text="输入逗号分隔的多个值" NavigateUrl="~/autocomplete/multi_values.aspx" >
+    </TreeNode>
+    <TreeNode Text="输入多值（数据来自远程服务器）" NavigateUrl="~/autocomplete/multi_values_remote.aspx" >
+    </TreeNode>
+    <TreeNode Text="客户端缓存（数据来自远程服务器）" NavigateUrl="~/autocomplete/remote_with_cache.aspx" >
+    </TreeNode>
+  </TreeNode>
   <TreeNode Text="其它" SingleClickExpand="true">
     <TreeNode Text="定时器" NavigateUrl="~/other/timer.aspx" >
     </TreeNode>
     <TreeNode Text="自定义回发" NavigateUrl="~/other/custom_postback.aspx">
+    </TreeNode>
+    <TreeNode Text="文本框的keypress事件" NavigateUrl="~/other/custom_postback.aspx">
     </TreeNode>
     <TreeNode Text="CssStyle与CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
     </TreeNode>
