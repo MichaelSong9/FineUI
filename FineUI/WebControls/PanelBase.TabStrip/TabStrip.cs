@@ -304,6 +304,23 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 当前激活的选项卡
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Tab ActiveTab
+        {
+            get
+            {
+                if (ActiveTabIndex >= 0 && ActiveTabIndex < Tabs.Count)
+                {
+                    return Tabs[ActiveTabIndex];
+                }
+                return null;
+            }
+        }
+
         #endregion
 
         #region Tabs
