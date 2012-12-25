@@ -173,7 +173,14 @@ namespace FineUI.Examples.form
 
         protected void btnUpdateList4_Click(object sender, EventArgs e)
         {
-            BindCheckBoxList4();
+            if (CheckBoxList4.Items.Count > 0)
+            {
+                ClearCheckBoxList4();
+            }
+            else
+            {
+                BindCheckBoxList4();
+            }
         }
 
         private void BindCheckBoxList4()
@@ -193,6 +200,11 @@ namespace FineUI.Examples.form
 
             CheckBoxList4.SelectedValueArray = new string[] { "value1", "value2" };
 
+        }
+
+        private void ClearCheckBoxList4()
+        {
+            CheckBoxList4.Items.Clear();
         }
 
         protected void btnCheckedItemsList4_Click(object sender, EventArgs e)
