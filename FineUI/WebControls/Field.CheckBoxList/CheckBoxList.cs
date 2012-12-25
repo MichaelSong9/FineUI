@@ -553,6 +553,14 @@ namespace FineUI
             {
                 sb.AppendFormat("{0}.x_reloadData('{1}');", XID, UniqueID); //, GetItemsJArray().ToString(Formatting.None));
 
+                // 注意，在x_reloadData中重新创建了列表实例，所以要重新赋值
+                sb.AppendFormat("{0}=X('{1}');", XID, ClientID);
+
+                if (Items.Count == 0)
+                {
+                    sb.AppendFormat("{0}.x_toBeDeleted();", XID);
+                }
+
                 dataReloaded = true;
             }
 

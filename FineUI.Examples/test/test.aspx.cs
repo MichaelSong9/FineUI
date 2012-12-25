@@ -14,15 +14,27 @@ namespace FineUI.Examples.test
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
+                //cblone.Items.Add("1", "1");
+                //cblone.Items.Add("2", "2");
+            }
+
+        }
+
+        protected void btnHello_Click(object sender, EventArgs e)
+        {
+            if (cblone.Items.Count == 0)
+            {
+                cblone.Items.Add("1", "1");
+                cblone.Items.Add("2", "2");
+            }
+            else
+            {
+                cblone.Items.Clear();
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
     }

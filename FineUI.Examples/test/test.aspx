@@ -10,14 +10,17 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:ContentPanel runat="server" ID="Panel1" EnableBackgroundColor="true" Width="600px"
+    <%--<x:ContentPanel runat="server" ID="Panel1" EnableBackgroundColor="true" Width="600px"
         Height="150px" Title="页面">
         
         <asp:Button 
         ID="Button1" runat="server" Text="Button" OnClick="Button1_Click"></asp:Button>
     
-    </x:ContentPanel>
-   
+    </x:ContentPanel>--%>
+    <x:CheckBoxList ID="cblone" runat="server">
+    </x:CheckBoxList>
+    <x:Button Text="点击清空CheckBoxList" runat="server" ID="btnHello" OnClick="btnHello_Click">
+    </x:Button>
     </form>
 </body>
 </html>
