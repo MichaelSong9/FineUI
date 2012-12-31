@@ -342,13 +342,20 @@ namespace FineUI
                 object obj = XState["SortColumnIndex"];
                 if (obj == null)
                 {
-                    if (!String.IsNullOrEmpty(SortColumn))
+                    if (DesignMode)
                     {
-                        return FindColumn(SortColumn).ColumnIndex;
+                        return -1;
                     }
                     else
                     {
-                        return -1;
+                        if (!String.IsNullOrEmpty(SortColumn))
+                        {
+                            return FindColumn(SortColumn).ColumnIndex;
+                        }
+                        else
+                        {
+                            return -1;
+                        }
                     }
                 }
                 else
@@ -737,7 +744,7 @@ namespace FineUI
 
         #endregion
 
-        #region Width
+        #region ForceFitAllTime
 
         /// <summary>
         /// 列的最小宽度
