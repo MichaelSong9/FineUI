@@ -561,7 +561,7 @@ namespace FineUI
 
             if (PropertyModified("Icon", "IconUrl"))
             {
-                string resolvedIconUrl = IconHelper.GetResolvedIconUrl(this.Icon, IconUrl);
+                string resolvedIconUrl = IconHelper.GetResolvedIconUrl(Icon, IconUrl);
                 if (!String.IsNullOrEmpty(resolvedIconUrl))
                 {
                     sb.AppendFormat("{0}.setIcon({1});", XID, JsHelper.Enquote(resolvedIconUrl));

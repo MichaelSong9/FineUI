@@ -87,9 +87,12 @@ namespace FineUI
                 object obj = XState["IconUrl"];
                 if (obj == null)
                 {
-                    if (Icon != Icon.None)
+                    if (!DesignMode)
                     {
-                        obj = IconHelper.GetIconUrl(Icon);
+                        if (Icon != Icon.None)
+                        {
+                            obj = IconHelper.GetIconUrl(Icon);
+                        }
                     }
                 }
                 return obj == null ? "" : (string)obj;

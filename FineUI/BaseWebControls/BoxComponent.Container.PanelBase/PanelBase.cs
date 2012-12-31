@@ -295,53 +295,6 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 图标地址
-        /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue("")]
-        [Description("图标地址")]
-        [Editor(typeof(ImageUrlEditor), typeof(UITypeEditor))]
-        public string IconUrl
-        {
-            get
-            {
-                object obj = XState["IconUrl"];
-                if (obj == null)
-                {
-                    if (Icon != Icon.None)
-                    {
-                        obj = IconHelper.GetIconUrl(Icon);
-                    }
-                }
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                XState["IconUrl"] = value;
-            }
-        }
-
-
-        /// <summary>
-        /// 预定义图标
-        /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue(Icon.None)]
-        [Description("预定义图标")]
-        public virtual Icon Icon
-        {
-            get
-            {
-                object obj = XState["Icon"];
-                return obj == null ? Icon.None : (Icon)obj;
-            }
-            set
-            {
-                XState["Icon"] = value;
-            }
-        }
-
 
         #endregion
 
@@ -426,18 +379,7 @@ namespace FineUI
         }
         #endregion
 
-        #region IFrame Related
-
-        //[Browsable(false)]
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        //[Description("ID")]
-        //protected string IFrameID
-        //{
-        //    get
-        //    {
-        //        return String.Format("{0}_iframe", ClientJavascriptID);
-        //    }
-        //}
+        #region IFrameUrl/IFrameName/EnableIFrame
 
 
         /// <summary>
@@ -780,23 +722,7 @@ namespace FineUI
 
             #endregion
 
-            #region IconUrl
-
-            if (!String.IsNullOrEmpty(IconUrl))
-            {
-                // Window控件的特殊处理在Window控件中
-                // 添加CSS样式
-                string className = String.Format("fineui_{0}_panelbase_icon", XID);
-                AddStartupCSS(className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
-
-                OB.AddProperty("iconCls", className);
-
-                //// 下面这种方式不行，这个样式是要添加到Head中的，而不是最外层的DIV
-                //AddExtraStyle("background", StyleUtil.GetNoRepeatBackgroundStyleValue(ResolveUrl(IconUrl)));
-            }
-
-            #endregion
-
+            
             #region Width/Height
 
             // 对于Panel，如果宽度/高度没有定义

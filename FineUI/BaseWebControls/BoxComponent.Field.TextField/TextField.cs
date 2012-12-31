@@ -49,7 +49,7 @@ namespace FineUI
 
         #endregion
 
-        #region validate properties
+        #region Validate Properties
 
         /// <summary>
         /// 是否必填项

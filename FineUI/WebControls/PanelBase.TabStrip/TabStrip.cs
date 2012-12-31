@@ -167,11 +167,11 @@ namespace FineUI
         #region Properties
 
         /// <summary>
-        /// 是否自动回发（切换Tab）
+        /// 切换选项卡时是否自动回发
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否自动回发（切换Tab）")]
+        [Description("切换选项卡时是否自动回发")]
         public bool AutoPostBack
         {
             get
@@ -205,11 +205,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 是否启用右键菜单 - 可用来关闭当前Tab和所有其他Tab
+        /// 是否启用右键菜单（可用来关闭当前Tab和所有其他Tab）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否启用右键菜单 - 可用来关闭当前Tab和所有其他Tab")]
+        [Description("是否启用右键菜单（可用来关闭当前Tab和所有其他Tab）")]
         public bool EnableTabCloseMenu
         {
             get

@@ -60,34 +60,50 @@ namespace FineUI
         {
             get
             {
-                if (String.IsNullOrEmpty(Text))
+                if (DesignMode)
                 {
-                    return null;
+                    object obj = XState["SelectedDate"];
+                    return obj == null ? null : (DateTime?)obj;
                 }
                 else
                 {
-                    try
+
+                    if (String.IsNullOrEmpty(Text))
                     {
-                        // OktaEndy - return null when DateFormatString = "dd/MM/yyyy" - Trying to Parse DateTime using it's DateFormatString
-                        // http://stackoverflow.com/questions/1368636/why-cant-datetime-parseexact-parse-9-1-2009-using-m-d-yyyy
-                        return DateTime.ParseExact(Text, TimeFormatString, CultureInfo.InvariantCulture);
-                    }
-                    catch (Exception)
-                    {
-                        // Text is not valid DateTime fomat.
                         return null;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            // OktaEndy - return null when DateFormatString = "dd/MM/yyyy" - Trying to Parse DateTime using it's DateFormatString
+                            // http://stackoverflow.com/questions/1368636/why-cant-datetime-parseexact-parse-9-1-2009-using-m-d-yyyy
+                            return DateTime.ParseExact(Text, TimeFormatString, CultureInfo.InvariantCulture);
+                        }
+                        catch (Exception)
+                        {
+                            // Text is not valid DateTime fomat.
+                            return null;
+                        }
                     }
                 }
             }
             set
             {
-                if (value == null)
+                if (DesignMode)
                 {
-                    Text = String.Empty;
+                    XState["SelectedDate"] = value;
                 }
                 else
                 {
-                    Text = value.Value.ToString(TimeFormatString);
+                    if (value == null)
+                    {
+                        Text = String.Empty;
+                    }
+                    else
+                    {
+                        Text = value.Value.ToString(TimeFormatString);
+                    }
                 }
             }
         }

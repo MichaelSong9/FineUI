@@ -35,6 +35,7 @@ using System.Web.UI.Design.WebControls;
 
 using Newtonsoft.Json;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.Design;
 
 namespace FineUI
 {
@@ -183,6 +184,59 @@ namespace FineUI
         //    }
         //}
 
+
+
+
+        /// <summary>
+        /// 图标地址
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("图标地址")]
+        [Editor(typeof(ImageUrlEditor), typeof(UITypeEditor))]
+        public string IconUrl
+        {
+            get
+            {
+                object obj = XState["IconUrl"];
+                if (obj == null)
+                {
+                    if (!DesignMode)
+                    {
+                        if (Icon != Icon.None)
+                        {
+                            obj = IconHelper.GetIconUrl(Icon);
+                        }
+                    }
+                }
+                return obj == null ? "" : (string)obj;
+            }
+            set
+            {
+                XState["IconUrl"] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 图标
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(Icon.None)]
+        [Description("图标")]
+        public virtual Icon Icon
+        {
+            get
+            {
+                object obj = XState["Icon"];
+                return obj == null ? Icon.None : (Icon)obj;
+            }
+            set
+            {
+                XState["Icon"] = value;
+            }
+        }
+
         #endregion
 
         #region CollapsedHiddenFieldID
@@ -259,6 +313,23 @@ namespace FineUI
             else
             {
                 OB.AddProperty("header", false);
+            }
+
+            #endregion
+
+            #region IconUrl
+
+            if (!String.IsNullOrEmpty(IconUrl))
+            {
+                // Window控件的特殊处理在Window控件中
+                // 添加CSS样式
+                string className = String.Format("fineui_{0}_panelbase_icon", XID);
+                AddStartupCSS(className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
+
+                OB.AddProperty("iconCls", className);
+
+                //// 下面这种方式不行，这个样式是要添加到Head中的，而不是最外层的DIV
+                //AddExtraStyle("background", StyleUtil.GetNoRepeatBackgroundStyleValue(ResolveUrl(IconUrl)));
             }
 
             #endregion

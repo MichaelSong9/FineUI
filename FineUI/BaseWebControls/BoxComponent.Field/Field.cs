@@ -316,7 +316,7 @@ namespace FineUI
                 OB.AddProperty("hideEmptyLabel", false);
             }
             
-            // A Field should be in a Form control, then some properties can take effects.
+            // 只有在表单中，有些属性才有效
             if (ShowLabel)
             {
                 if (!String.IsNullOrEmpty(Label))

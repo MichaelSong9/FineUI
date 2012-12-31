@@ -126,7 +126,7 @@ namespace FineUI
         /// 标签的宽度
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        //[DefaultValue(typeof(Unit), ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT_STRING)]
+        [DefaultValue(typeof(Unit), ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT_STRING)]
         [Description("标签的宽度")]
         public Unit LabelWidth
         {
@@ -135,8 +135,15 @@ namespace FineUI
                 object obj = XState["LabelWidth"];
                 if (obj == null)
                 {
-                    //return (Unit)ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT;
-                    return PageManager.Instance.FormLabelWidth;
+                    if (DesignMode)
+                    {
+                        return ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT;
+                    }
+                    else
+                    {
+                        //return (Unit)ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT;
+                        return PageManager.Instance.FormLabelWidth;
+                    }
                 }
                 return (Unit)obj;
             }
@@ -181,7 +188,7 @@ namespace FineUI
         /// 距离右侧边界的宽度
         /// </summary>
         [Category(CategoryName.LAYOUT)]
-        //[DefaultValue(typeof(Unit), ConfigPropertyValue.FORM_OFFSETRIGHT_DEFAULT_STRING)]
+        [DefaultValue(typeof(Unit), ConfigPropertyValue.FORM_OFFSETRIGHT_DEFAULT_STRING)]
         [Description("距离右侧边界的宽度")]
         public Unit OffsetRight
         {
@@ -190,7 +197,14 @@ namespace FineUI
                 object obj = XState["OffsetRight"];
                 if (obj == null)
                 {
-                    return (Unit)PageManager.Instance.FormOffsetRight;
+                    if (DesignMode)
+                    {
+                        return ConfigPropertyValue.FORM_OFFSETRIGHT_DEFAULT;
+                    }
+                    else
+                    {
+                        return (Unit)PageManager.Instance.FormOffsetRight;
+                    }
                 }
                 return (Unit)obj;
             }
