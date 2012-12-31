@@ -6,7 +6,7 @@
  * 
  * FileName:    Alert.cs
  * CreatedOn:   2008-04-07
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
@@ -14,7 +14,7 @@
  *   
  * History：
  *       
- *      ->2008-04-30    sanshi.ustc@gmail.com    改为静态帮助类
+ *      ->2008-04-30    30372245@qq.com    改为静态帮助类
  * 
  * 
  * 

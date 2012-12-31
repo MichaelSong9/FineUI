@@ -6,7 +6,7 @@
  * 
  * FileName:    ObjectUtil.cs
  * CreatedOn:   2008-06-11
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

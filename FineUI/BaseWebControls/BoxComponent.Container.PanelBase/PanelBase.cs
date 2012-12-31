@@ -6,7 +6,7 @@
  * 
  * FileName:    PanelBase.cs
  * CreatedOn:   2008-05-07
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
@@ -582,22 +582,22 @@ namespace FineUI
 
         #region AddParsedSubObject
 
-        protected override void AddParsedSubObject(object obj)
-        {
-            if (RenderChildrenAsContent)
-            {
-                base.AddParsedSubObject(obj);
-            }
-            else
-            {
-                ControlBase c = obj as ControlBase;
-                if (c != null)
-                {
-                    c.RenderWrapperNode = false;
-                    base.AddParsedSubObject(c);
-                }
-            }
-        }
+        //protected override void AddParsedSubObject(object obj)
+        //{
+        //    if (RenderChildrenAsContent)
+        //    {
+        //        base.AddParsedSubObject(obj);
+        //    }
+        //    else
+        //    {
+        //        ControlBase c = obj as ControlBase;
+        //        if (c != null)
+        //        {
+        //            c.RenderWrapperNode = false;
+        //            base.AddParsedSubObject(c);
+        //        }
+        //    }
+        //}
 
         #endregion
 

@@ -6,7 +6,7 @@
  * 
  * FileName:    PageContext.cs
  * CreatedOn:   2008-06-09
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
@@ -15,7 +15,7 @@
  * History：
  *      -> 什么是PageStateChanged？（表单中任何一个字段发生改变，则页面状态PageState就改变了）
  *      PageStateChanged 更改为 FormChanged 
- *      sanshi.ustc@gmail.com 2009-02-26
+ *      30372245@qq.com 2009-02-26
  *      
  * 
  * 

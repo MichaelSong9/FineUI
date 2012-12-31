@@ -6,7 +6,7 @@
  * 
  * FileName:    TextArea.cs
  * CreatedOn:   2008-04-23
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

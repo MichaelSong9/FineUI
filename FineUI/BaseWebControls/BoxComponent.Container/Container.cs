@@ -6,7 +6,7 @@
  * 
  * FileName:    Container.cs
  * CreatedOn:   2008-04-14
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

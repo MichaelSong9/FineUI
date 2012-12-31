@@ -6,7 +6,7 @@
  * 
  * FileName:    ResourceManager.cs
  * CreatedOn:   2008-04-07
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
@@ -638,7 +638,7 @@ namespace FineUI
 
         /// <summary>
         /// 取得应该将Script插入的位置
-        /// modified by sanshi.ustc@gmail.com, 要能够向上回溯，因为控件A的父的父控件可能不存在列表中
+        /// modified by 30372245@qq.com, 要能够向上回溯，因为控件A的父的父控件可能不存在列表中
         /// </summary>
         /// <param name="control"></param>
         /// <param name="testList"></param>
@@ -796,7 +796,7 @@ namespace FineUI
 
         /// <summary>
         /// 添加脚本
-        /// 相同控件的脚本合并在一起（sanshi.ustc@gmail.com 2008-7-4）
+        /// 相同控件的脚本合并在一起（30372245@qq.com 2008-7-4）
         /// </summary>
         /// <param name="control"></param>
         /// <param name="script"></param>

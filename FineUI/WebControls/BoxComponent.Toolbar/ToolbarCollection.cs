@@ -6,7 +6,7 @@
  * 
  * FileName:    ToolbarCollection.cs
  * CreatedOn:   2009-08-31
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

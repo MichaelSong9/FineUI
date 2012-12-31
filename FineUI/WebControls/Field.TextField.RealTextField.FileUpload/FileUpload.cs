@@ -6,14 +6,14 @@
  * 
  * FileName:    FileUpload.cs
  * CreatedOn:   2011-12-25
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
  *      ->
  *   
  * History：
- *      ->2011-12-25    sanshi.ustc@gmail.com  
+ *      ->2011-12-25    30372245@qq.com  
  * 
  * 
  * 

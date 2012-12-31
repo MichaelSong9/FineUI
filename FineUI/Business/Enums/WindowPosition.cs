@@ -6,7 +6,7 @@
  * 
  * FileName:    WindowPositionType.cs
  * CreatedOn:   2008-06-17
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

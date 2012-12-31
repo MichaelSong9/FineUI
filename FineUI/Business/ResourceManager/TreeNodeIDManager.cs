@@ -6,7 +6,7 @@
  * 
  * FileName:    TreeNodeIDManager.cs
  * CreatedOn:   2012-08-13
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

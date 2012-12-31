@@ -6,7 +6,7 @@
  * 
  * FileName:    RadioItemCollection.cs
  * CreatedOn:   2010-04-07
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

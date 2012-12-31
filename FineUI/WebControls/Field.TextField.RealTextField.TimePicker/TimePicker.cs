@@ -6,7 +6,7 @@
  * 
  * FileName:    TimePicker.cs
  * CreatedOn:   2012-11-01
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

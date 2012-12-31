@@ -1,5 +1,5 @@
 
-// added by sanshi.ustc@gmail.com on 2009-7-4
+// added by 30372245@qq.com on 2009-7-4
 
 (function() {
 

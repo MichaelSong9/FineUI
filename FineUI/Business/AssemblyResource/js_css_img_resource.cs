@@ -6,7 +6,7 @@
  * 
  * FileName:    js_css_img_resource.cs
  * CreatedOn:   2008-04-07
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

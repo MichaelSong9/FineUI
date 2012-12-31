@@ -6,7 +6,7 @@
  * 
  * FileName:    AjaxLoadingType.cs
  * CreatedOn:   2012-05-12
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

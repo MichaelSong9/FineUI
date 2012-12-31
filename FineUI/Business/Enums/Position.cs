@@ -7,7 +7,7 @@
  * 
  * FileName:    PositionType.cs
  * CreatedOn:   2008-06-12
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

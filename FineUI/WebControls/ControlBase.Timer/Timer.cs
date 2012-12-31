@@ -6,7 +6,7 @@
  * 
  * FileName:    Timer.cs
  * CreatedOn:   2009-09-14
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

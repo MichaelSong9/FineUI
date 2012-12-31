@@ -6,7 +6,7 @@
  * 
  * FileName:    Window.cs
  * CreatedOn:   2008-05-20
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
@@ -23,10 +23,10 @@
  * 
  *      ->想让Ext-Window不受嵌套层次的限制（总在最外层），好办 
  *      只需在创建Window对象之前，使用Javascript向form中添加一个DIV用来放置Window对象（而不是使用RenderImmediately的方法实现）
- *      sanshi.ustc@gmail.com 2009-02-25 
+ *      30372245@qq.com 2009-02-25 
  *      
  *      ->当前的Ext-Window可能要在父页面弹出，也就是要添加到父页面，为了放置名称的冲突，需要随机一个GUID，以便向父页面添加Ext-Window时使用
- *      sanshi.ustc@gmail.com 2009-02-25 
+ *      30372245@qq.com 2009-02-25 
  *      
  * 
  * 

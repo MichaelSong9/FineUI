@@ -6,7 +6,7 @@
  * 
  * FileName:    IconHelper.cs
  * CreatedOn:   2012-05-26
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

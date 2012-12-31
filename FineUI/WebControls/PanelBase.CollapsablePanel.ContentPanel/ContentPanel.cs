@@ -6,7 +6,7 @@
  * 
  * FileName:    ContentPanel.cs
  * CreatedOn:   2008-05-30
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
@@ -47,6 +47,7 @@ namespace FineUI
     [Description("容器面板控件")]
     [ParseChildren(false)]
     [PersistChildren(true)]
+    [ControlBuilder(typeof(ContentPanelBuilder))]
     public class ContentPanel : CollapsablePanel
     {
         #region Unsupported Properties

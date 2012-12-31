@@ -7,7 +7,7 @@ Ext.ux.FormViewport = Ext.extend(Ext.Container, {
         Ext.ux.FormViewport.superclass.initComponent.call(this);
         document.getElementsByTagName('html')[0].className += ' x-viewport';
 
-        // added by sanshi.ustc@gmail.com at 2008-07-03
+        // added by 30372245@qq.com at 2008-07-03
         if (this.renderTo != '') {
             this.el = Ext.get(this.renderTo);
         }
@@ -409,7 +409,7 @@ Ext.ux.TabCloseMenu = Ext.extend(Object, {
 });
 
 Ext.preg('tabclosemenu', Ext.ux.TabCloseMenu);
-// added by sanshi.ustc@gmail.com on 2009-7-4
+// added by 30372245@qq.com on 2009-7-4
 
 (function() {
 

@@ -6,7 +6,7 @@
  * 
  * FileName:    PageManager.cs
  * CreatedOn:   2008-07-31
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

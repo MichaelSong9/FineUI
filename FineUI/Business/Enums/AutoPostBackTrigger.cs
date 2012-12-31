@@ -6,14 +6,14 @@
 // * 
 // * FileName:    AutoPostBackTrigger.cs
 // * CreatedOn:   2012-03-22
-// * CreatedBy:   sanshi.ustc@gmail.com
+// * CreatedBy:   30372245@qq.com
 // * 
 // * 
 // * Description：
 // *      ->
 // *   
 // * History：
-// *      ->2012-03-22    sanshi.ustc@gmail.com  
+// *      ->2012-03-22    30372245@qq.com  
 // * 
 // * 
 // * 

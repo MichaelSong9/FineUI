@@ -397,4 +397,4 @@ Release History
 This project's first version is released on 2008-04-11, the previous release history is in another document(release_history_cn.txt) under this folder.
 
 	
-Copyright 2008 sanshi.ustc@gmail.com, All rights reserved.
+Copyright 2008 30372245@qq.com, All rights reserved.

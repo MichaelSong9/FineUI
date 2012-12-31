@@ -7,7 +7,7 @@ Ext.ux.FormViewport = Ext.extend(Ext.Container, {
         Ext.ux.FormViewport.superclass.initComponent.call(this);
         document.getElementsByTagName('html')[0].className += ' x-viewport';
 
-        // added by sanshi.ustc@gmail.com at 2008-07-03
+        // added by 30372245@qq.com at 2008-07-03
         if (this.renderTo != '') {
             this.el = Ext.get(this.renderTo);
         }

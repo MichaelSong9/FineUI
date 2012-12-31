@@ -6,7 +6,7 @@
  * 
  * FileName:    IconType.cs
  * CreatedOn:   2009-09-18
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

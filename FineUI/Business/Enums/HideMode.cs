@@ -6,7 +6,7 @@
  * 
  * FileName:    HideMode.cs
  * CreatedOn:   2008-09-16
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：

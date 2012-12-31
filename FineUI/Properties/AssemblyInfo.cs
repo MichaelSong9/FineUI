@@ -17,7 +17,7 @@ using System.Web.UI;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FineUI")]
 [assembly: AssemblyProduct("FineUI")]
-[assembly: AssemblyCopyright("Copyright (C) 2008-2012 sanshi.ustc@gmail.com")]
+[assembly: AssemblyCopyright("Copyright (C) 2008-2012 30372245@qq.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

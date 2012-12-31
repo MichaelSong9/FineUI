@@ -1550,4 +1550,4 @@ Apache License 2.0 (Apache)
 	
 	
 	
-Copyright 2008 sanshi.ustc@gmail.com, All rights reserved.
+Copyright 2008 30372245@qq.com, All rights reserved.

@@ -5,7 +5,7 @@
  * 
  * FileName:    GridRowControl.cs
  * CreatedOn:   2008-05-27
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description£º

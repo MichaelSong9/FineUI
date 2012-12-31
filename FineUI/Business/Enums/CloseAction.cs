@@ -7,7 +7,7 @@
  * 
  * FileName:    CloseAction.cs
  * CreatedOn:   2010-01-25
- * CreatedBy:   sanshi.ustc@gmail.com
+ * CreatedBy:   30372245@qq.com
  * 
  * 
  * Description：
