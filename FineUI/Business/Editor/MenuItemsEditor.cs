@@ -4,7 +4,7 @@
 /*
  * Project：    FineUI
  * 
- * FileName:    GridColumnsEditor.cs
+ * FileName:    MenuItemsEditor.cs
  * CreatedOn:   2013-01-02
  * CreatedBy:   30372245@qq.com
  * 
@@ -29,21 +29,19 @@ using System.ComponentModel.Design;
 
 namespace FineUI
 {
-    public class GridColumnsEditor : CollectionEditor
+    public class MenuItemsEditor : CollectionEditor
     {
         private Type[] types;
 
-        public GridColumnsEditor(Type type)
+        public MenuItemsEditor(Type type)
             : base(type)
         {
             types = new Type[] { 
-                typeof(BoundField), 
-                typeof(CheckBoxField), 
-                typeof(HyperLinkField), 
-                typeof(TemplateField), 
-                typeof(ImageField),
-                typeof(WindowField),
-                typeof(LinkButtonField)
+                typeof(MenuButton), 
+                typeof(MenuCheckBox), 
+                typeof(MenuHyperLink), 
+                typeof(MenuSeparator), 
+                typeof(MenuText)
             };
         }
 

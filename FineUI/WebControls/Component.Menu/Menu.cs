@@ -66,6 +66,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerDefaultProperty)]
+        [Editor(typeof(MenuItemsEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual MenuItemCollection Items
         {
             get

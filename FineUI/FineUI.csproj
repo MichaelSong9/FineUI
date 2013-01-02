@@ -88,12 +88,15 @@
     <Compile Include="BaseWebControls\ControlBase.Component\Component.cs" />
     <Compile Include="BaseWebControls\ControlBase\ControlBase.cs" />
     <Compile Include="BaseWebControls\ControlBase\ControlBaseCollection.cs" />
-    <Compile Include="BaseWebControls\ControlBase\NotAllowWhitespaceLiteralsBuilder.cs" />
+    <Compile Include="Business\ControlBuilder\NotAllowWhitespaceLiteralsBuilder.cs" />
     <Compile Include="BaseWebControls\ControlBase\BaseCollection.cs" />
-    <Compile Include="BaseWebControls\ControlBase\ContentPanelBuilder.cs" />
+    <Compile Include="Business\ControlBuilder\ContentPanelBuilder.cs" />
     <Compile Include="Business\AssemblyResource\img_resource.cs" />
     <Compile Include="Business\AssemblyResource\js_css_img_resource.cs" />
     <Compile Include="Business\Config\GlobalConfig.cs" />
+    <Compile Include="Business\Editor\ControlBaseItemsEditor.cs" />
+    <Compile Include="Business\Editor\MenuItemsEditor.cs" />
+    <Compile Include="Business\Editor\ToolbarItemsEditor.cs" />
     <Compile Include="Business\Enums\CompareType.cs" />
     <Compile Include="Business\Enums\HideMode.cs" />
     <Compile Include="Business\Enums\Icon.cs">
@@ -201,7 +204,7 @@
     <Compile Include="WebControls\Field.TextField.RealTextField.TriggerBox\TriggerBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumnsEditor.cs" />
+    <Compile Include="Business\Editor\GridColumnsEditor.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumn.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumnCollection.cs" />
     <Compile Include="WebControls\PanelBase.RegionPanel\RegionPanel.cs" />

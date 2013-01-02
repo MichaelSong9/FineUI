@@ -37,6 +37,7 @@ using System.Data;
 using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.Design;
 
 namespace FineUI
 {
@@ -610,6 +611,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerDefaultProperty)]
+        [Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual ListItemCollection Items
         {
             get

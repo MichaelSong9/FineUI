@@ -347,6 +347,7 @@ namespace FineUI
         [PersistenceMode(PersistenceMode.InnerProperty)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Description("子控件")]
+        [Editor(typeof(ControlBaseItemsEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual ControlBaseCollection Items
         {
             get

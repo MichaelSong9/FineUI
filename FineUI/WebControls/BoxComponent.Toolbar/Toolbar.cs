@@ -107,6 +107,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(ToolbarItemsEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual ControlBaseCollection Items
         {
             get
