@@ -1153,6 +1153,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(ControlBaseItemsEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual ControlBaseCollection PageItems
         {
             get
@@ -1207,6 +1208,8 @@ namespace FineUI
         /// <summary>
         /// 全部的列
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual GridColumnCollection AllColumns
         {
             get

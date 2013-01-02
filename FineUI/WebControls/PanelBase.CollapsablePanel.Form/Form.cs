@@ -35,6 +35,7 @@ using System.Web.UI.Design.WebControls;
 
 using Newtonsoft.Json;
 using System.Web.UI.HtmlControls;
+using System.ComponentModel.Design;
 
 namespace FineUI
 {
@@ -156,7 +157,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(typeof(String), ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT)]
         [Description("标签与字段的分隔符")]
-        public String LabelSeparator
+        public string LabelSeparator
         {
             get
             {
@@ -216,6 +217,7 @@ namespace FineUI
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual FormRowCollection Rows
         {
             get
