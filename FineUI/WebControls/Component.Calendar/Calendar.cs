@@ -75,8 +75,15 @@ namespace FineUI
             }
             set
             {
-                // 传入的值可能包含时间信息，这里就是为了把时间信息去掉，只保留日期信息
-                XState["SelectedDate"] = DateTime.ParseExact(value.Value.ToString(DateFormatString), DateFormatString, CultureInfo.InvariantCulture);
+                if (DesignMode)
+                {
+                    XState["SelectedDate"] = value;
+                }
+                else
+                {
+                    // 传入的值可能包含时间信息，这里就是为了把时间信息去掉，只保留日期信息
+                    XState["SelectedDate"] = DateTime.ParseExact(value.Value.ToString(DateFormatString), DateFormatString, CultureInfo.InvariantCulture);
+                }
             }
         }
 
@@ -232,7 +239,6 @@ namespace FineUI
         }
 
         #endregion
-
 
         #region RaisePostBackEvent
 

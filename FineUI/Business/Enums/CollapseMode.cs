@@ -46,7 +46,7 @@ namespace FineUI
     }
 
     /// <summary>
-    /// CollapseMode supports two configuration values.
+    /// 折叠模式（用于Region控件）的名称
     /// </summary>
     internal static class CollapseModeName
     {

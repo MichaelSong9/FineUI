@@ -85,11 +85,11 @@ namespace FineUI
         //}
 
         /// <summary>
-        /// 是否可以拖动边界
+        /// 是否可以拖动分隔条
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否可以拖动边界")]
+        [Description("是否可以拖动分隔条")]
         public bool Split
         {
             get
@@ -105,11 +105,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// true to display a tooltip when the user hovers over a region's split bar (defaults to false). The tooltip text will be the value of either SplitTip or CollapsibleSplitTip as appropriate.
+        /// 是否启用分隔条提示
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否可以拖动边界")]
+        [Description("是否启用分隔条提示")]
         public bool EnableSplitTip
         {
             get
@@ -125,11 +125,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// The tooltip to display when the user hovers over a non-collapsible region's split bar (defaults to 'Drag to resize.'). Only applies if EnableSplitTip = true.
+        /// 分隔条提示信息
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("The tooltip to display when the user hovers over a non-collapsible region's split bar (defaults to 'Drag to resize.'). Only applies if EnableSplitTip = true.")]
+        [Description("分隔条提示信息")]
         public string SplitTip
         {
             get
@@ -144,11 +144,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// The tooltip to display when the user hovers over a collapsible region's split bar (defaults to 'Drag to resize. Double click to hide.'). Only applies if EnableSplitTip = true.
+        /// 可折叠区域的分隔条提示信息
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("The tooltip to display when the user hovers over a collapsible region's split bar (defaults to 'Drag to resize. Double click to hide.'). Only applies if EnableSplitTip = true.")]
+        [Description("可折叠区域的分隔条提示信息")]
         public string CollapsibleSplitTip
         {
             get
@@ -222,11 +222,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Collapse Mode.
+        /// 折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(CollapseMode.Default)]
-        [Description("Collapse Mode.")]
+        [Description("折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）")]
         public CollapseMode CollapseMode
         {
             get

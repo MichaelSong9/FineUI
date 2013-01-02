@@ -40,6 +40,7 @@ using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Collections;
 using System.Collections.Specialized;
+using System.ComponentModel.Design;
 
 namespace FineUI
 {
@@ -1174,6 +1175,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual GridGroupColumnCollection GroupColumns
         {
             get
@@ -1226,6 +1228,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(GridColumnsEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual GridColumnCollection Columns
         {
             get

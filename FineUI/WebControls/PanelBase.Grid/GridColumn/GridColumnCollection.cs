@@ -28,6 +28,7 @@ using System.Text;
 using System.Collections;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Web.UI;
 
 
 namespace FineUI
@@ -38,7 +39,7 @@ namespace FineUI
     public class GridColumnCollection : Collection<GridColumn>
     {
         private Grid _grid;
-
+        
         /// <summary>
         /// ¹¹Ôìº¯Êý
         /// </summary>
@@ -63,8 +64,9 @@ namespace FineUI
         }
 
         #region old code
+        
 
-        //protected override Type[] GetKnownTypes()
+        //protected Type[] GetKnownTypes()
         //{
         //    Type[] types = new Type[] { 
         //        typeof(BoundField), 
@@ -79,7 +81,7 @@ namespace FineUI
         //    return types;
         //}
 
-        //protected override object CreateKnownType(int index)
+        //protected object CreateKnownType(int index)
         //{
         //    switch (index)
         //    {

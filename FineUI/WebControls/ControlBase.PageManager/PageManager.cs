@@ -270,11 +270,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 每次页面回发时总是执行onReady脚本（包括Ajax局部回发）
+        /// 每次页面回发后总是执行onReady脚本（包括Ajax局部回发）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("每次页面回发时总是执行onReady脚本（包括Ajax局部回发）")]
+        [Description("每次页面回发后总是执行onReady脚本（包括Ajax局部回发）")]
         public bool ExecuteOnReadyWhenPostBack
         {
             get
@@ -364,7 +364,7 @@ namespace FineUI
 
         #endregion
 
-        #region config
+        #region Theme
 
         /// <summary>
         /// 样式

@@ -201,6 +201,7 @@
     <Compile Include="WebControls\Field.TextField.RealTextField.TriggerBox\TriggerBox.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumnsEditor.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumn.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumnCollection.cs" />
     <Compile Include="WebControls\PanelBase.RegionPanel\RegionPanel.cs" />

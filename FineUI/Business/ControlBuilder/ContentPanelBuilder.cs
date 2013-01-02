@@ -64,5 +64,12 @@ namespace FineUI
             return base.GetChildControlType(tagName, attribs);
         }
 
+        public override Type DeclareType
+        {
+            get
+            {
+                return base.DeclareType;
+            }
+        }
     }
 }

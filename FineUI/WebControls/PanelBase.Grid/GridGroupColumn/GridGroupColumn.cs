@@ -34,6 +34,7 @@ using System.Globalization;
 using System.Data;
 using System.Reflection;
 using System.Web.UI.WebControls;
+using System.ComponentModel.Design;
 
 
 namespace FineUI
@@ -118,7 +119,6 @@ namespace FineUI
 
         #endregion
 
-
         #region Columns/Rows
 
         private GridGroupColumnCollection _groupColumns;
@@ -129,6 +129,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual GridGroupColumnCollection GroupColumns
         {
             get
@@ -150,6 +151,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(GridColumnsEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public virtual GridColumnCollection Columns
         {
             get

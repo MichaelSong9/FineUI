@@ -41,6 +41,7 @@ namespace FineUI
     [Description("用户控件的容器")]
     [ParseChildren(false)]
     [PersistChildren(true)]
+    [ControlBuilder(typeof(ContentPanelBuilder))]
     public class UserControlConnector : ControlBase
     {
         #region OnPreRender
