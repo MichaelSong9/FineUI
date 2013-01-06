@@ -990,6 +990,8 @@ namespace FineUI
         /// <summary>
         /// 选中项改变事件（需要启用AutoPostBack）
         /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("选中项改变事件（需要启用AutoPostBack）")]
         public event EventHandler SelectedIndexChanged
         {
             add

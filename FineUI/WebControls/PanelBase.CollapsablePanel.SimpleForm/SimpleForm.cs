@@ -42,7 +42,7 @@ namespace FineUI
     /// 简单的表单容器控件
     /// </summary>
     [Designer("FineUI.Design.SimpleFormDesigner, FineUI.Design")]
-    [ToolboxData("<{0}:SimpleForm Title=\"SimpleForm\" BodyPadding=\"5px\" EnableBackgroundColor=\"true\" runat=server><Items></Items></{0}:SimpleForm>")]
+    [ToolboxData("<{0}:SimpleForm Title=\"SimpleForm\" BodyPadding=\"5px\" runat=server><Items></Items></{0}:SimpleForm>")]
     [ToolboxBitmap(typeof(SimpleForm), "res.toolbox.SimpleForm.bmp")]
     [Description("简单的表单容器控件")]
     [ParseChildren(true)]

@@ -25,6 +25,9 @@ Apache License 2.0 (Apache)
 	-修正清空CheckBoxList或者RadioButtonList时仍然存在一项的问题（liugeZ）。
 	-整合jQuery UI Autocomplete组件，并增加了6个示例。
 	-增强grid/grid_edit.aspx示例，现在可以通过回车键遍历所有的文本框（Mr.Wu）。
+	-增强表单字段的Label为Ajax属性，也即是可以在页面回发时修改。
+	-修正表单字段隐藏后仍然进行有效性校验的问题。
+
 
 
 

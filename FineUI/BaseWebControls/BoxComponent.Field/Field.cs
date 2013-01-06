@@ -43,7 +43,7 @@ namespace FineUI
         /// </summary>
         public Field()
         {
-            AddServerAjaxProperties("Readonly");
+            AddServerAjaxProperties("Readonly", "Label");
             AddClientAjaxProperties();
         }
 
@@ -91,11 +91,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 标签文本
+        /// [AJAX属性]标签文本
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("标签文本")]
+        [Description("[AJAX属性]标签文本")]
         public virtual string Label
         {
             get
@@ -301,6 +301,17 @@ namespace FineUI
                 sb.AppendFormat("{0}.setReadOnly({1});", XID, Readonly.ToString().ToLower());
             }
 
+            if (PropertyModified("Label"))
+            {
+                string newLabel = Label;
+                if (ShowRedStar)
+                {
+                    newLabel += GetRedStarHtml();
+                }
+                newLabel += LabelSeparator;
+                sb.AppendFormat("{0}.x_setLabel({1});", XID, JsHelper.Enquote(newLabel));
+            }
+
             AddAjaxScript(sb);
         }
 
@@ -309,13 +320,13 @@ namespace FineUI
             base.OnFirstPreRender();
 
             ResourceManager.Instance.AddJavaScriptComponent("form");
-            
+
             // 默认隐藏空白标签
             if (ShowEmptyLabel)
             {
                 OB.AddProperty("hideEmptyLabel", false);
             }
-            
+
             // 只有在表单中，有些属性才有效
             if (ShowLabel)
             {
@@ -323,7 +334,7 @@ namespace FineUI
                 {
                     if (ShowRedStar)
                     {
-                        OB.AddProperty("fieldLabel", Label + "<span style=\"color:red;\">*</span>");
+                        OB.AddProperty("fieldLabel", Label + GetRedStarHtml());
                     }
                     else
                     {
@@ -396,6 +407,11 @@ namespace FineUI
 
         }
 
+        private string GetRedStarHtml()
+        {
+            return "<span style=\"color:red;\">*</span>";
+        }
+
         #endregion
 
         #region Reset
@@ -436,7 +452,7 @@ namespace FineUI
 
         #region GetDesignTimeHtml
 
-        
+
         internal string GetDesignTimeHtml(string content)
         {
             StringBuilder sb = new StringBuilder();

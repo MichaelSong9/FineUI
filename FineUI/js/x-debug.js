@@ -2169,24 +2169,26 @@ Ext.override(Ext.Panel, {
     x_isValid: function () {
         var valid = true;
         var firstInvalidField = null;
-        this.items.each(function (f) {
-            if (f.isXType('field')) {
-                if (!f.validate()) {
-                    valid = false;
-                    if (firstInvalidField == null) {
-                        firstInvalidField = f;
+        if (!this.hidden) {
+            this.items.each(function (f) {
+                if (f.isXType('field') && !f.hidden) {
+                    if (!f.validate()) {
+                        valid = false;
+                        if (firstInvalidField == null) {
+                            firstInvalidField = f;
+                        }
+                    }
+                } else if (f.items) {
+                    var validResult = this.x_isValid();
+                    if (!validResult[0]) {
+                        valid = false;
+                        if (firstInvalidField == null) {
+                            firstInvalidField = validResult[1];
+                        }
                     }
                 }
-            } else if (f.items) {
-                var validResult = this.x_isValid();
-                if (!validResult[0]) {
-                    valid = false;
-                    if (firstInvalidField == null) {
-                        firstInvalidField = validResult[1];
-                    }
-                }
-            }
-        });
+            });
+        }
         return [valid, firstInvalidField];
     },
 
@@ -2276,6 +2278,12 @@ if (Ext.form.Field) {
 
         x_setValue: function () {
             this.setValue(this.x_state['Text']);
+        },
+
+        x_setLabel: function (text) {
+            if (this.label && this.label.update) {
+                this.label.update(text || this.x_state['Label']);
+            }
         }
 
     });

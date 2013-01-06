@@ -12,28 +12,31 @@ Ext.override(Ext.Component, {
 });
 
 // 验证一个表单是否有效，会递归查询表单中每个字段
+// 如果表单隐藏或者字段隐藏，则不进行有效性校验
 Ext.override(Ext.Panel, {
     x_isValid: function () {
         var valid = true;
         var firstInvalidField = null;
-        this.items.each(function (f) {
-            if (f.isXType('field')) {
-                if (!f.validate()) {
-                    valid = false;
-                    if (firstInvalidField == null) {
-                        firstInvalidField = f;
+        if (!this.hidden) {
+            this.items.each(function (f) {
+                if (f.isXType('field') && !f.hidden) {
+                    if (!f.validate()) {
+                        valid = false;
+                        if (firstInvalidField == null) {
+                            firstInvalidField = f;
+                        }
+                    }
+                } else if (f.items) {
+                    var validResult = this.x_isValid();
+                    if (!validResult[0]) {
+                        valid = false;
+                        if (firstInvalidField == null) {
+                            firstInvalidField = validResult[1];
+                        }
                     }
                 }
-            } else if (f.items) {
-                var validResult = this.x_isValid();
-                if (!validResult[0]) {
-                    valid = false;
-                    if (firstInvalidField == null) {
-                        firstInvalidField = validResult[1];
-                    }
-                }
-            }
-        });
+            });
+        }
         return [valid, firstInvalidField];
     },
 
@@ -123,6 +126,12 @@ if (Ext.form.Field) {
 
         x_setValue: function () {
             this.setValue(this.x_state['Text']);
+        },
+
+        x_setLabel: function (text) {
+            if (this.label && this.label.update) {
+                this.label.update(text || this.x_state['Label']);
+            }
         }
 
     });
