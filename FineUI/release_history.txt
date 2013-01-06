@@ -27,6 +27,8 @@ Apache License 2.0 (Apache)
 	-增强grid/grid_edit.aspx示例，现在可以通过回车键遍历所有的文本框（Mr.Wu）。
 	-增强表单字段的Label为Ajax属性，也即是可以在页面回发时修改。
 	-修正表单字段隐藏后仍然进行有效性校验的问题。
+	-增加工具栏图标。
+
 
 
 
