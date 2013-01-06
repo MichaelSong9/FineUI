@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px"
-        runat="server" DataKeyNames="Id,Name">
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"
+        DataKeyNames="Id,Name">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
@@ -40,10 +40,11 @@
     </x:Grid>
     <br />
     请注意如何实现：
-    <br />
-    1. 使用Tab键遍历所有的文本输入框。
-    <br />
-    2. 点击输入框即可选中全部文本。
+    <ul>
+        <li>使用Tab键遍历所有的文本输入框（通过TextBox的TabIndex属性）</li>
+        <li>使用Enter键遍历所有的文本输入框（JavaScript函数registerEnterEvent）</li>
+        <li>点击输入框即可选中全部文本（JavaScript函数registerSelectEvent）</li>
+    </ul>
     <br />
     <br />
     <br />
@@ -67,16 +68,32 @@
             });
         }
 
+        function registerEnterEvent() {
+            var grid = X(gridClientID);
+            grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
+                if (evt.getKey() == evt.ENTER) {
+                    var nextRow = Ext.get(el).parent('.x-grid3-row').next();
+                    if (nextRow) {
+                        nextRow.query('.x-grid-tpl input')[0].select();
+                    }
+                }
+            });
+        }
+
         function onReady() {
             var grid = X(gridClientID);
 
             grid.on('viewready', function () {
                 registerSelectEvent();
+
+                registerEnterEvent();
             });
         }
 
         function onAjaxReady() {
             registerSelectEvent();
+
+            registerEnterEvent();
         }
     </script>
 </body>

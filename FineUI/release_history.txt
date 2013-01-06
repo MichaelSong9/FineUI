@@ -23,7 +23,8 @@ Apache License 2.0 (Apache)
 	-修正身份证和IP地址验证规则错误（Mr.Wu、轻雨湿意）。
 	-为正则表达式验证增加RegexIgnoreCase属性，默认是区分大小写的。
 	-修正清空CheckBoxList或者RadioButtonList时仍然存在一项的问题（liugeZ）。
-	-增加FineUI与jQuery UI Autocomplete整合的几个示例。
+	-整合jQuery UI Autocomplete组件，并增加了6个示例。
+	-增强grid/grid_edit.aspx示例，现在可以通过回车键遍历所有的文本框。
 
 
 
