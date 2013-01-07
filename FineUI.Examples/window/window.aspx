@@ -27,7 +27,7 @@
     </x:Button>
     <br />
     <br />
-    <x:Window ID="Window2" Width="500px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="false"
+    <x:Window ID="Window2" Width="500px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="true"
         EnableMaximize="true" EnableCollapse="true" runat="server" EnableResize="true"
         IsModal="false" CloseAction="HidePostBack" OnClose="Window2_Close" Layout="Fit">
         <Items>
