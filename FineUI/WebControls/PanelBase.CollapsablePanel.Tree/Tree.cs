@@ -1851,7 +1851,7 @@ namespace FineUI
 
                     if (node.Nodes != null && node.Nodes.Count > 0)
                     {
-                        CollapseAllNodes(node.Nodes);
+                        ExpandAllNodes(node.Nodes);
                     }
                 }
             }

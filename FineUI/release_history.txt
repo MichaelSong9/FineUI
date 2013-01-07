@@ -28,6 +28,10 @@ Apache License 2.0 (Apache)
 	-增强表单字段的Label为Ajax属性，也即是可以在页面回发时修改。
 	-修正表单字段隐藏后仍然进行有效性校验的问题。
 	-增加工具栏图标。
+	+修正ExpandAllNodes无法展开二级节点的问题（szjazz）。
+		-现在有两个办法来展开全部节点tree.ExpandAllNodes()或者PageContext.RegisterStartupScript(tree.GetExpandAllNodesReference())。
+
+	-FineUI的设计时支持，以商业软件的形式单独提供，请到官方论坛了解详情。
 
 
 
