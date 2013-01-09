@@ -19,7 +19,7 @@ Apache License 2.0 (Apache)
 
 发布历史
 
-+2013-02-* v3.2.3
++2013-01-09 v3.2.3
 	-修正身份证和IP地址验证规则错误（Mr.Wu、轻雨湿意）。
 	-为正则表达式验证增加RegexIgnoreCase属性，默认是区分大小写的。
 	-修正清空CheckBoxList或者RadioButtonList时仍然存在一项的问题（liugeZ）。
@@ -31,10 +31,7 @@ Apache License 2.0 (Apache)
 	+修正ExpandAllNodes无法展开二级节点的问题（szjazz）。
 		-现在有两个办法来展开全部节点tree.ExpandAllNodes()；
 		-或者PageContext.RegisterStartupScript(tree.GetExpandAllNodesReference())。
-
 	-FineUI的设计时支持，以商业软件的形式单独提供，请到官方论坛了解详情。
-
-
 
 
 
