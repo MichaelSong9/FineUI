@@ -131,7 +131,7 @@ namespace FineUI
         /// 标签的宽度
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        //[DefaultValue(typeof(Unit), ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT_STRING)]
+        [DefaultValue(typeof(Unit), ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT_STRING)]
         [Description("标签的宽度")]
         public Unit LabelWidth
         {
@@ -140,8 +140,14 @@ namespace FineUI
                 object obj = XState["LabelWidth"];
                 if (obj == null)
                 {
-                    //return (Unit)ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT;
-                    return PageManager.Instance.FormLabelWidth;
+                    if (DesignMode)
+                    {
+                        return (Unit)ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT;
+                    }
+                    else
+                    {
+                        return PageManager.Instance.FormLabelWidth;
+                    }
                 }
                 return (Unit)obj;
             }

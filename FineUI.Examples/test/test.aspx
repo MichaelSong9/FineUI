@@ -21,6 +21,14 @@
     </x:CheckBoxList>
     <x:Button Text="点击清空CheckBoxList" runat="server" ID="btnHello" OnClick="btnHello_Click">
     </x:Button>
+    <x:Form ID="Form2" runat="server" BodyPadding="5px" Title="Form">
+    <Rows>
+        <x:FormRow ID="FormRow1" runat="server">
+        </x:FormRow>
+        <x:FormRow ID="FormRow2" runat="server">
+        </x:FormRow>
+    </Rows>
+</x:Form>
     </form>
 </body>
 </html>
