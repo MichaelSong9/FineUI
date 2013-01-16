@@ -5,6 +5,12 @@
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <style>
+        .x-toolbar-left table
+        {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
