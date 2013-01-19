@@ -699,7 +699,7 @@ X.ajaxReady = function () {
 
             X.ajax.hookPostBack();
             if (enableAspnetSubmitButtonAjax) {
-                //X.util.makeAspnetSubmitButtonAjax();
+                X.util.makeAspnetSubmitButtonAjax();
             }
 
             X.global_enable_ajax = enableAjax;
@@ -1098,7 +1098,7 @@ X.ajaxReady = function () {
             */
 
             function resetButton(button) {
-                //button.set({ "type": "button" });
+                button.set({ "type": "button" });
                 button.addListener("click", function (event, el) {
                     __doPostBack(el.getAttribute("name"), "");
                     event.stopEvent();
@@ -2165,6 +2165,7 @@ Ext.override(Ext.Component, {
 });
 
 // 验证一个表单是否有效，会递归查询表单中每个字段
+// 如果表单隐藏或者字段隐藏，则不进行有效性校验
 Ext.override(Ext.Panel, {
     x_isValid: function () {
         var valid = true;

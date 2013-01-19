@@ -78,7 +78,7 @@ X.ajaxReady = function () {
 
             X.ajax.hookPostBack();
             if (enableAspnetSubmitButtonAjax) {
-                //X.util.makeAspnetSubmitButtonAjax();
+                X.util.makeAspnetSubmitButtonAjax();
             }
 
             X.global_enable_ajax = enableAjax;
@@ -477,7 +477,7 @@ X.ajaxReady = function () {
             */
 
             function resetButton(button) {
-                //button.set({ "type": "button" });
+                button.set({ "type": "button" });
                 button.addListener("click", function (event, el) {
                     __doPostBack(el.getAttribute("name"), "");
                     event.stopEvent();

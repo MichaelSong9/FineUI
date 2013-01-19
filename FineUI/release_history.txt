@@ -19,6 +19,10 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2013-02-* v3.2.4
+	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。
+
+
 +2013-01-09 v3.2.3
 	-修正身份证和IP地址验证规则错误（Mr.Wu、轻雨湿意）。
 	-为正则表达式验证增加RegexIgnoreCase属性，默认是区分大小写的。
