@@ -253,11 +253,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）
+        /// 控制子控件的位置（当本容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(BoxLayoutAlign.Start)]
-        [Description("控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）")]
+        [Description("控制子控件的位置（当本容器的Layout=VBox或者HBox时有效）")]
         public BoxLayoutAlign BoxConfigAlign
         {
             get
@@ -272,11 +272,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）
+        /// 控制子控件的位置（当本容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(BoxLayoutPosition.Start)]
-        [Description("控制子控件的位置（当父容器的Layout=VBox或者HBox时有效）")]
+        [Description("控制子控件的位置（当本容器的Layout=VBox或者HBox时有效）")]
         public BoxLayoutPosition BoxConfigPosition
         {
             get
@@ -291,11 +291,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 内边距（当父容器的Layout=VBox或者HBox时有效）
+        /// 内边距（当本容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("0")]
-        [Description("内边距（当父容器的Layout=VBox或者HBox时有效）")]
+        [Description("内边距（当本容器的Layout=VBox或者HBox时有效）")]
         public string BoxConfigPadding
         {
             get
@@ -310,11 +310,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 子控件的外边距（当父容器的Layout=VBox或者HBox时有效）
+        /// 子控件的外边距（当本容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
         [DefaultValue("0")]
-        [Description("子控件的外边距（当父容器的Layout=VBox或者HBox时有效）")]
+        [Description("子控件的外边距（当本容器的Layout=VBox或者HBox时有效）")]
         public string BoxConfigChildMargin
         {
             get
