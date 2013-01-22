@@ -111,20 +111,17 @@
 
                 window.setTimeout(function () {
 
-                    var rowNum = 0, idPattern = /^Grid1_c\dr(\d)_.+$/.exec(el.id);
-                    if (idPattern && idPattern.length == 2) {
-                        rowNum = rowNum[1];
-                    }
                     var row = Ext.get(el).parent('.x-grid3-row');
                     var num1 = row.query('.x-grid3-col-ct6 input')[0].value;
                     var num2 = row.query('.x-grid3-col-ct7 input')[0].value;
-                    var resultNode = row.query('.x-grid3-col-ct8 span.result')[0];
+                    var resultNode = Ext.get(row.query('.x-grid3-col-ct8 span.result'));
+                    resultNode.removeClass(['success', 'error']);
                     if (num1 == num2) {
-                        resultNode.className = 'success';
-                        resultNode.innerHTML = '两组录入一致';
+                        resultNode.addClass('success');
+                        resultNode.update('两组录入一致');
                     } else {
-                        resultNode.className = 'error';
-                        resultNode.innerHTML = '两组录入不一致！';
+                        resultNode.addClass('error');
+                        resultNode.update('两组录入不一致！');
                     }
 
                 }, 500);
