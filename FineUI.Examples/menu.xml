@@ -210,6 +210,10 @@
       </TreeNode>
       <TreeNode Text="编辑复选框列表" NavigateUrl="~/grid/grid_edit_checkboxlist.aspx" >
       </TreeNode>
+      <TreeNode Text="比较两个模板列的值" NavigateUrl="~/grid/grid_edit_compare.aspx" >
+      </TreeNode>
+      <TreeNode Text="下拉列表同步到文本框" NavigateUrl="~/grid/grid_edit_dropdownlist_textbox.aspx" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="多表头" SingleClickExpand="true">
       <TreeNode Text="多表头" NavigateUrl="~/grid/grid_groupheader.aspx" >

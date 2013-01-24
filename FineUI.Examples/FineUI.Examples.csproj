@@ -79,6 +79,7 @@
     <Content Include="autocomplete\remote_with_cache.aspx" />
     <Content Include="autocomplete\email.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
+    <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -346,6 +347,13 @@
     </Compile>
     <Compile Include="grid\grid_edit_compare.aspx.designer.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.cs">
+      <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.designer.cs">
+      <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>

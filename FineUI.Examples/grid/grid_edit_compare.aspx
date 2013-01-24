@@ -92,7 +92,7 @@
         function registerEnterEvent() {
             var grid = X(gridClientID);
             grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
-                var colNum = 1, idPattern = /^Grid1_c(\d)r\d_.+$/.exec(el.id);
+                var colNum = 1, idPattern = /^Grid1_c(\d+)r\d+_.+$/.exec(el.id);
                 if (idPattern && idPattern.length == 2) {
                     colNum = idPattern[1];
                 }
