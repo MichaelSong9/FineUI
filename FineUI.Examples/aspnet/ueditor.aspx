@@ -25,7 +25,7 @@
     </x:Button>
     </form>
     <script>
-        window.UEDITOR_HOME_URL = "/ueditor/";
+        window.UEDITOR_HOME_URL = "<%= ResolveUrl("~/ueditor/") %>";
     </script>
     <script type="text/javascript" src="../ueditor/editor_config.js"></script>
     <script type="text/javascript" src="../ueditor/editor_all.js"></script>
