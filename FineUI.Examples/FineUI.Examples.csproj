@@ -208,6 +208,7 @@
     <Content Include="other\alert.aspx" />
     <Content Include="other\button_in_form.aspx" />
     <Content Include="test\start.aspx" />
+    <Content Include="test\WebForm3.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\formitemclass.aspx" />
     <Content Include="other\cssstyle.aspx" />
@@ -1071,6 +1072,13 @@
     </Compile>
     <Compile Include="test\start.aspx.designer.cs">
       <DependentUpon>start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="toolbar\toolbar_iframe.aspx.cs">
       <DependentUpon>toolbar_iframe.aspx</DependentUpon>

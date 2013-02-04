@@ -1623,6 +1623,14 @@ if (Ext.form.Field) {
             this.enableBubble('change');
         }),
 
+        listeners: {
+            specialkey: function (field, e) {
+                if (e.getKey() == e.ENTER) {
+                    e.stopEvent();
+                }
+            }
+        },
+
         // When show or hide the field, also hide the label.
         hide: function () {
             Ext.form.Field.superclass.hide.call(this);
