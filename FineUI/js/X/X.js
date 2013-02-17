@@ -1551,19 +1551,21 @@ Ext.override(Ext.Panel, {
         var firstInvalidField = null;
         if (!this.hidden) {
             this.items.each(function (f) {
-                if (f.isXType('field') && !f.hidden) {
-                    if (!f.validate()) {
-                        valid = false;
-                        if (firstInvalidField == null) {
-                            firstInvalidField = f;
+                if (!f.hidden) {
+                    if (f.isXType('field')) {
+                        if (!f.validate()) {
+                            valid = false;
+                            if (firstInvalidField == null) {
+                                firstInvalidField = f;
+                            }
                         }
-                    }
-                } else if (f.items) {
-                    var validResult = this.x_isValid();
-                    if (!validResult[0]) {
-                        valid = false;
-                        if (firstInvalidField == null) {
-                            firstInvalidField = validResult[1];
+                    } else if (f.items) {
+                        var validResult = f.x_isValid();
+                        if (!validResult[0]) {
+                            valid = false;
+                            if (firstInvalidField == null) {
+                                firstInvalidField = validResult[1];
+                            }
                         }
                     }
                 }
