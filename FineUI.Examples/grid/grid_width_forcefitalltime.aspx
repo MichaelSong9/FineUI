@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_forcefit.aspx.cs" Inherits="FineUI.Examples.grid.grid_forcefit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_width_forcefitalltime.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_width_forcefitalltime" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" AutoSizePanelID="Grid1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格（ForceFitAllTime=true）(改变页面大小来观察每列宽度的变化)" Width="900px"
+    <x:Grid ID="Grid1" ShowBorder="false" ShowHeader="true" Title="表格（ForceFitAllTime=true）(改变页面大小来观察每列宽度的变化)"
         ForceFitAllTime="true" runat="server" DataKeyNames="Guid">
         <Columns>
             <x:TemplateField Width="50px">

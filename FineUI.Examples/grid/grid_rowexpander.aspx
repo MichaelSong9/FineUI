@@ -25,7 +25,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px"
-        runat="server" DataKeyNames="Id,Name" EnableRowNumber="true" EnableCheckBoxSelect="true">
+        runat="server" DataKeyNames="Id,Name" EnableRowNumber="false" EnableCheckBoxSelect="false">
         <Columns>
             <x:TemplateField ColumnID="expander" RenderAsRowExpander="true">
                 <ItemTemplate>

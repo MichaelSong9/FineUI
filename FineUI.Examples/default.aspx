@@ -116,16 +116,16 @@
                                             <x:Button ID="btnSourceCode" Icon="PageWhiteCode" Text="源代码" EnablePostBack="false"
                                                 runat="server">
                                             </x:Button>
-                                            <%--<x:ToolbarSeparator runat="server">
-                                            </x:ToolbarSeparator>
-                                            <x:Button ID="btnGotoOpenSourceSite" Icon="TabGo" Text="下载" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
-                                                EnablePostBack="false" runat="server">
-                                            </x:Button>--%>
                                             <%--<x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
                                             </x:ToolbarSeparator>
                                             <x:Button ID="Button1" Icon="TabGo" Text="论坛" OnClientClick="window.open('http://bbs.fineui.com', '_blank');"
                                                 EnablePostBack="false" runat="server">
                                             </x:Button>--%>
+                                            <x:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
+                                            </x:ToolbarSeparator>
+                                            <x:Button ID="btnGotoOpenSourceSite" Icon="TabGo" Text="下载示例" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
+                                                EnablePostBack="false" runat="server">
+                                            </x:Button>
                                             <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
                                             </x:ToolbarSeparator>
                                             <x:Button ID="Button1" Icon="TabGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"

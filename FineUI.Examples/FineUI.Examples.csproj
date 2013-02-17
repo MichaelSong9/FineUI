@@ -79,7 +79,10 @@
     <Content Include="autocomplete\remote_with_cache.aspx" />
     <Content Include="autocomplete\email.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
-    <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
+    <Content Include="grid\grid_width_forcefitalltime.aspx" />
+    <Content Include="grid\grid_width_forcefitfirsttime.aspx" />
+    <Content Include="grid\grid_width_expandunusedspace.aspx" />
+    <Content Include="grid\grid_width.aspx" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -349,12 +352,33 @@
     <Compile Include="grid\grid_edit_compare.aspx.designer.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.cs">
-      <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
+    <Compile Include="grid\grid_width_forcefitalltime.aspx.cs">
+      <DependentUpon>grid_width_forcefitalltime.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.designer.cs">
-      <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
+    <Compile Include="grid\grid_width_forcefitalltime.aspx.designer.cs">
+      <DependentUpon>grid_width_forcefitalltime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_width_forcefitfirsttime.aspx.cs">
+      <DependentUpon>grid_width_forcefitfirsttime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_width_forcefitfirsttime.aspx.designer.cs">
+      <DependentUpon>grid_width_forcefitfirsttime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_width_expandunusedspace.aspx.cs">
+      <DependentUpon>grid_width_expandunusedspace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_width_expandunusedspace.aspx.designer.cs">
+      <DependentUpon>grid_width_expandunusedspace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_width.aspx.cs">
+      <DependentUpon>grid_width.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_width.aspx.designer.cs">
+      <DependentUpon>grid_width.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>

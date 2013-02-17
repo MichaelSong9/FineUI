@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_forcefit.aspx.cs" Inherits="FineUI.Examples.grid.grid_forcefit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_width_expandunusedspace.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_width_expandunusedspace" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" AutoSizePanelID="Grid1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格（ForceFitAllTime=true）(改变页面大小来观察每列宽度的变化)" Width="900px"
-        ForceFitAllTime="true" runat="server" DataKeyNames="Guid">
+    <x:Grid ID="Grid1" ShowBorder="false" ShowHeader="true" Title="表格（ExpandUnusedSpace）(改变页面大小来观察每列宽度的变化)"
+        runat="server" DataKeyNames="Guid">
         <Columns>
             <x:TemplateField Width="50px">
                 <ItemTemplate>
@@ -30,7 +31,7 @@
             <x:HyperLinkField Width="200px" HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                 DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                 DataNavigateUrlFieldsEncode="true" Target="_blank" />
-            <x:BoundField Width="800px" DataField="Desc" DataToolTipField="Desc" HeaderText="个人简介" />
+            <x:BoundField DataField="Desc" DataToolTipField="Desc" HeaderText="个人简介（ExpandUnusedSpace）" ExpandUnusedSpace="true" />
         </Columns>
     </x:Grid>
     <br />

@@ -11,8 +11,8 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" PageSize="5" ShowBorder="true" ShowHeader="true" AutoHeight="true"
-        AllowPaging="true" runat="server" EnableCheckBoxSelect="True" Width="800px" Height="350px" DataKeyNames="Id,Name"
-        OnPageIndexChange="Grid1_PageIndexChange" EnableRowNumber="True">
+        AllowPaging="true" runat="server" EnableCheckBoxSelect="True" Width="800px" Height="350px"
+        DataKeyNames="Id,Name" OnPageIndexChange="Grid1_PageIndexChange" EnableRowNumber="True">
         <Columns>
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
@@ -29,15 +29,18 @@
                 HeaderText="分组"></x:ImageField>
         </Columns>
         <PageItems>
+            <x:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
+            </x:ToolbarSeparator>
+            <x:Button Text="清空表格数据" runat="server" ID="btnClearData" OnClick="btnClearData_Click">
+            </x:Button>
+            <x:Button Text="重新绑定表格数据" runat="server" ID="btnRebind" IconUrl="res.axd?theme=default.grid.refresh.gif"
+                OnClick="btnRebindData_Click">
+            </x:Button>
             <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
             </x:ToolbarSeparator>
             <x:Button Text="选中所有行" runat="server" ID="btnSelectAll" OnClick="btnSelectAll_Click">
             </x:Button>
             <x:Button Text="清空选中行" runat="server" ID="btnClearSelect" OnClick="btnClearSelect_Click">
-            </x:Button>
-            <x:Button Text="清空表格数据" runat="server" ID="btnClearData" OnClick="btnClearData_Click">
-            </x:Button>
-            <x:Button Text="重新绑定表格数据" runat="server" ID="btnRebind" OnClick="btnRebindData_Click">
             </x:Button>
         </PageItems>
     </x:Grid>
