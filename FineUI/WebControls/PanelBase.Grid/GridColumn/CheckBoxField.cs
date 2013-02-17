@@ -71,11 +71,11 @@ namespace FineUI
         private bool _autoPostBack = false;
 
         /// <summary>
-        /// 是否自动回发
+        /// 是否自动回发（只在RenderAsStaticField=false时有效）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否自动回发")]
+        [Description("是否自动回发（只在RenderAsStaticField=false并且ShowHeaderCheckBox=false时有效）")]
         public bool AutoPostBack
         {
             get
@@ -109,9 +109,12 @@ namespace FineUI
 
         public bool _renderAsStaticField = true;
 
+        /// <summary>
+        /// 渲染为静态图片，否则渲染为可编辑的复选框
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
-        [Description("渲染为静态内容")]
+        [Description("渲染为静态图片，否则渲染为可编辑的复选框")]
         public bool RenderAsStaticField
         {
             get
@@ -121,6 +124,27 @@ namespace FineUI
             set
             {
                 _renderAsStaticField = value;
+            }
+        }
+
+
+        public bool _showHeaderCheckBox = false;
+
+        /// <summary>
+        /// 显示列头复选框（只在RenderAsStaticField=false时有效）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("显示列头复选框（只在RenderAsStaticField=false时有效）")]
+        public bool ShowHeaderCheckBox
+        {
+            get
+            {
+                return _showHeaderCheckBox;
+            }
+            set
+            {
+                _showHeaderCheckBox = value;
             }
         }
 
@@ -165,7 +189,39 @@ namespace FineUI
 
         #endregion
 
-        #region Methods
+        #region GetHeaderValue/GetColumnValue
+
+        internal override string GetHeaderValue()
+        {
+            if (!RenderAsStaticField && ShowHeaderCheckBox)
+            {
+                string result = String.Empty;
+
+                string textAlignClass = String.Empty;
+                if (TextAlign != TextAlign.Left)
+                {
+                    textAlignClass = "box-grid-checkbox-" + TextAlignName.GetName(TextAlign);
+                }
+
+                string onClickScript = "Ext.get(this).toggleClass('box-grid-checkbox-unchecked');";
+                onClickScript += "X.util.stopEventPropagation.apply(null, arguments);";
+
+                //string tooltip = String.Empty;
+                //if (!String.IsNullOrEmpty(HeaderText))
+                //{
+                //    tooltip = String.Format(" ext:qtip=\"{0}\" ", HeaderText);
+                //}
+
+                result = String.Format("<div class=\"box-grid-checkbox box-grid-checkbox-unchecked {0}\" onclick=\"{1}\">{2}</div>", textAlignClass, onClickScript, HeaderText);
+
+                return result;
+            }
+            else
+            {
+                return base.GetHeaderValue();
+            }
+        }
+
 
         internal override string GetColumnValue(GridRow row)
         {
@@ -221,7 +277,7 @@ namespace FineUI
 
                     // string onClickScript = String.Format("{0}_checkbox{1}(event,this,{2});", Grid.XID, ColumnIndex, row.RowIndex);
                     string onClickScript = "Ext.get(this).toggleClass('box-grid-checkbox-unchecked');";
-                    if (AutoPostBack)
+                    if (!ShowHeaderCheckBox && AutoPostBack)
                     {
                         onClickScript += postBackReference;
                     }
@@ -361,6 +417,7 @@ namespace FineUI
 
         #endregion
 
+        #region GetCheckedState
 
         /// <summary>
         /// 当前行的这个复选框是否处于选中状态
@@ -379,7 +436,9 @@ namespace FineUI
             GridRow row = this.Grid.Rows[rowIndex];
 
             row.States[ColumnIndex] = isChecked;
-        }
+        } 
+
+        #endregion
 
         #region old code
 

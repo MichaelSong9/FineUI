@@ -27,10 +27,10 @@
             </x:TemplateField>
             <x:BoundField Width="50px" DataField="EntranceYear" HeaderText="入学年份" />
             <x:CheckBoxField Width="50px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-            <x:HyperLinkField Width="200px" HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
+            <x:HyperLinkField Width="300px" HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                 DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                 DataNavigateUrlFieldsEncode="true" Target="_blank" />
-            <x:BoundField Width="800px" DataField="Desc" DataToolTipField="Desc" HeaderText="个人简介" />
+            <x:BoundField Width="600px" DataField="Desc" DataToolTipField="Desc" HeaderText="个人简介" />
         </Columns>
     </x:Grid>
     <br />

@@ -7,11 +7,13 @@
     background-repeat:no-repeat;
     background-color:transparent;
     background-image:url(./res.axd?img=tick.png);
+    padding-left: 18px;
 }
 
 .x-grid-panel .box-grid-static-checkbox.box-grid-checkbox-left
 {
     background-position:left center;
+    padding-left: 18px;
 }
 .x-grid-panel .box-grid-static-checkbox.box-grid-checkbox-center
 {
@@ -20,6 +22,7 @@
 .x-grid-panel .box-grid-static-checkbox.box-grid-checkbox-right
 {
     background-position:right center;
+    padding-right: 18px;
 }
 
 

@@ -371,10 +371,20 @@ namespace FineUI
 
         #endregion
 
-        #region virtual
+        #region virtual GetColumnValue/GetColumnState/PersistState
 
         /// <summary>
-        /// 取得列的计算值
+        /// 取得列头渲染后的HTML
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        internal virtual string GetHeaderValue()
+        {
+            return String.IsNullOrEmpty(HeaderText) ? "&nbsp;" : HeaderText;
+        }
+
+        /// <summary>
+        /// 取得列渲染后的HTML
         /// </summary>
         /// <param name="row"></param>
         /// <returns></returns>

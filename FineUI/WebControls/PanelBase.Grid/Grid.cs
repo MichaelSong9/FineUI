@@ -2321,7 +2321,8 @@ namespace FineUI
                 else
                 {
                     JsObjectBuilder columnBuilder = new JsObjectBuilder();
-                    columnBuilder.AddProperty("header", String.IsNullOrEmpty(column.HeaderText) ? "&nbsp;" : column.HeaderText);
+                    //columnBuilder.AddProperty("header", String.IsNullOrEmpty(column.HeaderText) ? "&nbsp;" : column.HeaderText);
+                    columnBuilder.AddProperty("header", column.GetHeaderValue());
                     if (column.Hidden)
                     {
                         columnBuilder.AddProperty("hidden", true);
