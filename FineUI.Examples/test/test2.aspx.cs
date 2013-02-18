@@ -79,8 +79,8 @@ namespace FineUI.Examples
         /// </summary>
         protected void butRefresh_Click(object sender, EventArgs e)
         {
-            DataTable table;
-            DataRow row;
+            //DataTable table;
+            //DataRow row;
             switch (TabStrip1.ActiveTabIndex)
             {
 

@@ -79,11 +79,13 @@
     <Content Include="autocomplete\remote_with_cache.aspx" />
     <Content Include="autocomplete\email.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
+    <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_width_forcefitalltime.aspx" />
     <Content Include="grid\grid_width_forcefitfirsttime.aspx" />
     <Content Include="grid\grid_width_expandunusedspace.aspx" />
     <Content Include="grid\grid_width.aspx" />
     <Content Include="grid\grid_checkboxfield_checkall.aspx" />
+    <Content Include="grid\grid_edit_autosave.aspx" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -211,7 +213,6 @@
     <Content Include="other\alert.aspx" />
     <Content Include="other\button_in_form.aspx" />
     <Content Include="test\start.aspx" />
-    <Content Include="test\WebForm3.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\formitemclass.aspx" />
     <Content Include="other\cssstyle.aspx" />
@@ -352,6 +353,13 @@
     <Compile Include="grid\grid_edit_compare.aspx.designer.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.cs">
+      <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.designer.cs">
+      <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_width_forcefitalltime.aspx.cs">
       <DependentUpon>grid_width_forcefitalltime.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +394,13 @@
     </Compile>
     <Compile Include="grid\grid_checkboxfield_checkall.aspx.designer.cs">
       <DependentUpon>grid_checkboxfield_checkall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_autosave.aspx.cs">
+      <DependentUpon>grid_edit_autosave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_autosave.aspx.designer.cs">
+      <DependentUpon>grid_edit_autosave.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>
@@ -1096,13 +1111,6 @@
     </Compile>
     <Compile Include="test\start.aspx.designer.cs">
       <DependentUpon>start.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="toolbar\toolbar_iframe.aspx.cs">
       <DependentUpon>toolbar_iframe.aspx</DependentUpon>
