@@ -54,6 +54,12 @@
 
         function registerSelectEvent() {
             var grid = X(gridClientID);
+            // 放置重复注册客户端事件
+            if (grid.el.getAttribute('data-event-click-registered')) {
+                return;
+            }
+            grid.el.set({ 'data-event-click-registered': true });
+
             grid.el.select('.x-grid-tpl input').on('click', function (evt, el) {
                 el.select();
             });

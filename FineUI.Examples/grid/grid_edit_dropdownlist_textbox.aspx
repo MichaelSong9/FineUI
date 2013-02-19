@@ -48,6 +48,12 @@
 
         function registerSyncEvent() {
             var grid = X(gridClientID);
+            // 放置重复注册客户端事件
+            if (grid.el.getAttribute('data-event-change-registered')) {
+                return;
+            }
+            grid.el.set({ 'data-event-change-registered': true });
+
             grid.el.select('.x-grid-tpl select.gender').on("change", function (evt, el) {
 
                 var row = Ext.get(el).parent('.x-grid3-row');

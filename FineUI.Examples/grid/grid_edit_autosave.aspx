@@ -29,7 +29,7 @@
         ShowHeader="false">
         <Items>
             <x:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" runat="server"
-                DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowClick="false" OnRowClick="Grid1_RowClick"
+                DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowClick="true" OnRowClick="Grid1_RowClick"
                 EnableTextSelection="true">
                 <Columns>
                     <x:TemplateField Width="60px">
@@ -52,14 +52,14 @@
                         DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                     <x:TemplateField HeaderText="语文成绩" Width="60px">
                         <ItemTemplate>
-                            <asp:TextBox runat="server" Width="100%" CssClass="ChineseScore" TabIndex='<%# Container.DataItemIndex + 10 %>'
-                                Text='<%# Eval("ChineseScore") %>'></asp:TextBox>
+                            <asp:TextBox runat="server" Width="100%" ID="tbxTableChineseScore" CssClass="ChineseScore"
+                                TabIndex='<%# Container.DataItemIndex + 10 %>' Text='<%# Eval("ChineseScore") %>'></asp:TextBox>
                         </ItemTemplate>
                     </x:TemplateField>
                     <x:TemplateField HeaderText="数学成绩" Width="60px">
                         <ItemTemplate>
-                            <asp:TextBox runat="server" Width="100%" CssClass="MathScore" TabIndex='<%# Container.DataItemIndex + 100 %>'
-                                Text='<%# Eval("MathScore") %>'></asp:TextBox>
+                            <asp:TextBox runat="server" Width="100%" ID="tbxTableMathScore" CssClass="MathScore"
+                                TabIndex='<%# Container.DataItemIndex + 100 %>' Text='<%# Eval("MathScore") %>'></asp:TextBox>
                         </ItemTemplate>
                     </x:TemplateField>
                     <x:TemplateField HeaderText="总成绩" Width="60px">
@@ -99,8 +99,14 @@
         var gridClientID = '<%= Grid1.ClientID %>';
 
 
-        function registerCompareEvent() {
+        function registerAutoSaveEvent() {
             var grid = X(gridClientID);
+            // 放置重复注册客户端事件
+            if (grid.el.getAttribute('data-event-keydown-registered')) {
+                return;
+            }
+            grid.el.set({ 'data-event-keydown-registered': true });
+
             grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
 
                 window.setTimeout(function () {
@@ -111,7 +117,9 @@
                     var resultNode = Ext.get(row.query('span.TotalScore'));
                     resultNode.update(parseInt(num1, 10) + parseInt(num2, 10));
 
-                    __doPostBack(gridClientID, 'specialkey');
+                    var rowIndex = row.parent().query('>div').indexOf(row.dom);
+
+                    __doPostBack(gridClientID, 'AutoSave$' + rowIndex);
 
                 }, 500);
             });
@@ -122,12 +130,12 @@
             var grid = X(gridClientID);
 
             grid.on('viewready', function () {
-                registerCompareEvent();
+                registerAutoSaveEvent();
             });
         }
 
         function onAjaxReady() {
-            registerCompareEvent();
+            registerAutoSaveEvent();
         }
     </script>
 </body>

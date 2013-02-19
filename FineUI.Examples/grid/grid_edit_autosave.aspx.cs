@@ -17,6 +17,36 @@ namespace FineUI.Examples.grid
             {
                 BindGrid();
             }
+            else
+            {
+                string eventTarget = Request.Form["__EVENTTARGET"];
+                string eventArgument = Request.Form["__EVENTARGUMENT"];
+                if (eventTarget == Grid1.ClientID && eventArgument.StartsWith("AutoSave$"))
+                {
+                    int rowIndex = Convert.ToInt32(eventArgument.Substring("AutoSave$".Length));
+                    System.Web.UI.WebControls.TextBox tbxTableChineseScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableChineseScore");
+                    System.Web.UI.WebControls.TextBox tbxTableMathScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableMathScore");
+
+                    int rowDataId = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
+
+                    int chineseSocre = 0;
+                    int mathScore = 0;
+                    try
+                    {
+
+                        chineseSocre = Convert.ToInt32(tbxTableChineseScore.Text);
+                        mathScore = Convert.ToInt32(tbxTableMathScore.Text);
+                    }
+                    catch (Exception)
+                    {
+                        // ...
+                    }
+
+                    SetDataRow(rowDataId, chineseSocre, mathScore);
+
+                    UpdateDetailForm(rowDataId);
+                }
+            }
         }
 
         #region BindGrid
@@ -38,6 +68,11 @@ namespace FineUI.Examples.grid
         protected void Grid1_RowClick(object sender, FineUI.GridRowClickEventArgs e)
         {
             int rowDataId = Convert.ToInt32(Grid1.DataKeys[e.RowIndex][0]);
+            UpdateDetailForm(rowDataId);
+        }
+
+        private void UpdateDetailForm(int rowDataId)
+        {
             DataRow row = FindDataRowById(rowDataId);
             if (row != null)
             {
@@ -85,6 +120,14 @@ namespace FineUI.Examples.grid
                 }
             }
             return null;
+        }
+
+        private void SetDataRow(int dataId, int chineseScore, int mathScore)
+        {
+            DataRow row = FindDataRowById(dataId);
+            row["ChineseScore"] = chineseScore;
+            row["MathScore"] = mathScore;
+            row["TotalScore"] = chineseScore + mathScore;
         }
 
         #endregion
