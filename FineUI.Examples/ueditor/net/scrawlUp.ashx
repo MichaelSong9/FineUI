@@ -1,4 +1,5 @@
-﻿<%@ WebHandler Language="C#" Class="scrawlImgUp" %>
+<%@ WebHandler Language="C#" Class="scrawlImgUp" %>
+<%@ Assembly Src="Uploader.cs" %>
 
 using System;
 using System.Web;

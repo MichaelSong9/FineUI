@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="getMovie" %>
+<%@ WebHandler Language="C#" Class="getMovie" %>
 /**
  * Created by visual studio 2010
  * User: xuheng

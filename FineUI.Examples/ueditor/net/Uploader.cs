@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.IO;
@@ -58,7 +58,7 @@ public  class Uploader
                 URL = pathbase + filename;
             }
         }
-        catch
+        catch (Exception e)
         {
             state = "未知错误";
             URL = "";
@@ -91,7 +91,7 @@ public  class Uploader
 
             URL = pathbase + filename;
         }
-        catch
+        catch (Exception e)
         {
             state = "未知错误";
             URL = "";
