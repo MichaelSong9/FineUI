@@ -14,9 +14,9 @@
     <x:PageManager ID="PageManager1" runat="server" />
     <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
         ShowBorder="true" ShowHeader="true" Title="内容面板">
-       <textarea name="UEditor1" id="UEditor1">
+        <textarea name="UEditor1" id="UEditor1">
             &lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ueditor.baidu.com/"&gt;UEditor&lt;/a&gt;.&lt;/p&gt;
-       </textarea> 
+       </textarea>
     </x:ContentPanel>
     <br />
     <x:Button ID="Button2" runat="server" CssClass="inline" Text="设置 CKEditor 的值" OnClick="Button2_Click">
@@ -24,14 +24,17 @@
     <x:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
     </x:Button>
     </form>
-    <script>
+    <script type="text/javascript">
         window.UEDITOR_HOME_URL = "<%= ResolveUrl("~/ueditor/") %>";
     </script>
     <script type="text/javascript" src="../ueditor/editor_config.js"></script>
     <script type="text/javascript" src="../ueditor/editor_all.js"></script>
     <script type="text/javascript">
         var editor = new UE.ui.Editor({
-            minFrameHeight: 150
+            minFrameHeight: 150,
+            initialFrameWidth: '100%',
+            initialFrameHeight: 350,
+            focus: true
         });
         editor.render("UEditor1");
 
@@ -42,7 +45,9 @@
 
         // 更新编辑器内容
         function updateUEditor(content) {
-            editor.setContent(content);
+            window.setTimeout(function () {
+                editor.setContent(content);
+            }, 100);
         }
     </script>
 </body>

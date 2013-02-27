@@ -14,7 +14,8 @@ namespace FineUI.Examples.aspnet
         {
             if (!IsPostBack)
             {
-               
+                //string content = "初始化内容";
+                //PageContext.RegisterStartupScript(String.Format("updateUEditor({0});", JsHelper.Enquote(content)));
 
             }
         }
