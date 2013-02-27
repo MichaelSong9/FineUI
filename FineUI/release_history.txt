@@ -31,7 +31,8 @@ Apache License 2.0 (Apache)
 		+增加自动保存表格模板数据的示例grid/grid_edit_autosave.aspx（angrySperm）。
 			-通过向表格元素添加属性来防止重复注册表格的客户端事件。
 			-修正其他示例中潜在的重复注册客户端事件的问题。
-		-增加EnableRowSelect属性和RowSelect事件，注意RowClick和RowSelect事件的区别。
+		+增加EnableRowSelect属性和RowSelect事件，注意RowClick和RowSelect事件的区别。
+			-增加示例grid/grid_rowselect.aspx，更新示例grid/grid_twogrid.aspx。
 		-居中显示图片
 		-
 		-
@@ -269,7 +270,7 @@ Apache License 2.0 (Apache)
 +2012-04-04 v3.1.2
 	-修正IE下出现错误提示时拒绝访问的BUG（错将"about:blank"写成"about:blank;"）。
 	-修正Grid中自动回发复选框的BUG。
-	-修正示例问题，grid/grid_doubleclick.aspx，config/ajax.aspx。
+	-修正示例问题，grid/grid_rowdoubleclick.aspx，config/ajax.aspx。
 	-增加如何绑定到二级属性的示例grid/grid_complex_property.aspx。
 	-修正form/triggerbox.aspx中在输入框中按回车出错的BUG。
 	-修正dropdownlist/dropdownlist.aspx选项中存在左右尖括号时出错的BUG。
@@ -557,7 +558,7 @@ Apache License 2.0 (Apache)
 	-加载s.gif图片在本机进行，不会请求extjs.com远程资源(efrigate43,abaocoole)。
 	-在AJAX回发后确保Asp.net的按钮控件仍然具有AJAX的特性。
 	-更新/basic/login.aspx示例，使用验证图片(kedee)。
-	-为Grid增加AutoPostBack属性和RowClick事件，示例在/data/grid_autopostback.aspx(chenguizhu2006)。
+	-为Grid增加AutoPostBack属性和RowClick事件，示例在/data/grid_rowclick.aspx(chenguizhu2006)。
 	-为所有的表单字段增加AJAX属性ReadOnly(skydb)。
 	-Grid中TemplateField生成到页面中控件具有唯一ID，例如Grid1_ct5_Label2,Grid1_ct6_Label2(geruger)。
 	

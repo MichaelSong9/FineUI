@@ -48,7 +48,7 @@
 
         function registerSyncEvent() {
             var grid = X(gridClientID);
-            // 放置重复注册客户端事件
+            // 防止重复注册客户端事件
             if (grid.el.getAttribute('data-event-change-registered')) {
                 return;
             }
