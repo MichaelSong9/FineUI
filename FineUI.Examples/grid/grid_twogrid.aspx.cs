@@ -73,7 +73,7 @@ namespace FineUI.Examples.grid
 
         #region Events
 
-        protected void Grid2_RowClick(object sender, FineUI.GridRowClickEventArgs e)
+        protected void Grid2_RowSelect(object sender, FineUI.GridRowSelectEventArgs e)
         {
             BindGrid1();
         }

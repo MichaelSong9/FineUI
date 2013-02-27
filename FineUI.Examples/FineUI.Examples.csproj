@@ -86,6 +86,9 @@
     <Content Include="grid\grid_width.aspx" />
     <Content Include="grid\grid_checkboxfield_checkall.aspx" />
     <Content Include="grid\grid_edit_autosave.aspx" />
+    <Content Include="grid\grid_rowclick.aspx" />
+    <Content Include="grid\grid_rowdoubleclick.aspx" />
+    <Content Include="grid\grid_rowselect.aspx" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -136,7 +139,6 @@
     <Content Include="form\fileupload_autopostback.aspx" />
     <Content Include="grid\grid.aspx" />
     <Content Include="grid\grid_aspnet.aspx" />
-    <Content Include="grid\grid_autopostback.aspx" />
     <Content Include="grid\grid_checkboxfield.aspx" />
     <Content Include="grid\grid_complex_property.aspx" />
     <Content Include="grid\grid_paging_database.aspx" />
@@ -154,7 +156,6 @@
     <Content Include="grid\grid_rowcommand.aspx" />
     <Content Include="grid\grid_centercolumn.aspx" />
     <Content Include="grid\grid_rowexpander.aspx" />
-    <Content Include="grid\grid_doubleclick.aspx" />
     <Content Include="grid\grid_rowcheckall.aspx" />
     <Content Include="grid\grid_paging_sorting.aspx" />
     <Content Include="grid\grid_edit.aspx" />
@@ -401,6 +402,27 @@
     </Compile>
     <Compile Include="grid\grid_edit_autosave.aspx.designer.cs">
       <DependentUpon>grid_edit_autosave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rowclick.aspx.cs">
+      <DependentUpon>grid_rowclick.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rowclick.aspx.designer.cs">
+      <DependentUpon>grid_rowclick.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rowdoubleclick.aspx.cs">
+      <DependentUpon>grid_rowdoubleclick.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rowdoubleclick.aspx.designer.cs">
+      <DependentUpon>grid_rowdoubleclick.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rowselect.aspx.cs">
+      <DependentUpon>grid_rowselect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rowselect.aspx.designer.cs">
+      <DependentUpon>grid_rowselect.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>
@@ -692,13 +714,6 @@
     <Compile Include="grid\grid_aspnet.aspx.designer.cs">
       <DependentUpon>grid_aspnet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_autopostback.aspx.cs">
-      <DependentUpon>grid_autopostback.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_autopostback.aspx.designer.cs">
-      <DependentUpon>grid_autopostback.aspx</DependentUpon>
-    </Compile>
     <Compile Include="grid\grid_checkboxfield.aspx.cs">
       <DependentUpon>grid_checkboxfield.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -817,13 +832,6 @@
     </Compile>
     <Compile Include="grid\grid_rowexpander.aspx.designer.cs">
       <DependentUpon>grid_rowexpander.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_doubleclick.aspx.cs">
-      <DependentUpon>grid_doubleclick.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_doubleclick.aspx.designer.cs">
-      <DependentUpon>grid_doubleclick.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_rowcheckall.aspx.cs">
       <DependentUpon>grid_rowcheckall.aspx</DependentUpon>

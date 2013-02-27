@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_autopostback {
+    public partial class grid_rowdoubleclick {
         
         /// <summary>
         /// form1 控件。

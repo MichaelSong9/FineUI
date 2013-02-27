@@ -433,6 +433,25 @@ namespace FineUI
         }
 
         /// <summary>
+        /// 选中行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("选中行是否自动回发")]
+        public bool EnableRowSelect
+        {
+            get
+            {
+                object obj = XState["EnableRowSelect"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableRowSelect"] = value;
+            }
+        }
+
+        /// <summary>
         /// 点击行是否自动回发
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -2526,6 +2545,16 @@ namespace FineUI
 
             //selectOB.AddProperty("listeners", "{beforerowselect:function(){return false;}}", true);
 
+            if (EnableRowSelect)
+            {
+                string validateScript = "var args='RowSelect$'+rowIndex;";
+                validateScript += GetPostBackEventReference("#RowSelect#").Replace("'#RowSelect#'", "args");
+
+                string rowSelectScript = String.Format("function(model,rowIndex){{{0}}}", validateScript);
+
+                selectOB.AddProperty("listeners", "{rowselect:" + rowSelectScript + "}", true);
+            }
+
             if (EnableCheckBoxSelect)
             {
                 return String.Format("var {0}=new Ext.grid.CheckboxSelectionModel({1});", Render_SelectModelID, selectOB);
@@ -3368,6 +3397,14 @@ namespace FineUI
                     OnRowDoubleClick(new GridRowClickEventArgs(Convert.ToInt32(commandArgs[1])));
                 }
             }
+            else if (eventArgument.StartsWith("RowSelect$"))
+            {
+                string[] commandArgs = eventArgument.Split('$');
+                if (commandArgs.Length == 2)
+                {
+                    OnRowSelect(new GridRowSelectEventArgs(Convert.ToInt32(commandArgs[1])));
+                }
+            }
         }
 
         /// <summary>
@@ -3641,6 +3678,38 @@ namespace FineUI
         protected virtual void OnRowDoubleClick(GridRowClickEventArgs e)
         {
             EventHandler<GridRowClickEventArgs> handler = Events[_rowDoubleClickHandlerKey] as EventHandler<GridRowClickEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
+        #region OnRowSelect
+
+        private static readonly object _rowSelectHandlerKey = new object();
+
+        /// <summary>
+        /// 行选中事件（需要启用EnableRowSelect）
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("行选中事件（需要启用EnableRowSelect）")]
+        public event EventHandler<GridRowSelectEventArgs> RowSelect
+        {
+            add
+            {
+                Events.AddHandler(_rowSelectHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_rowSelectHandlerKey, value);
+            }
+        }
+
+        protected virtual void OnRowSelect(GridRowSelectEventArgs e)
+        {
+            EventHandler<GridRowSelectEventArgs> handler = Events[_rowSelectHandlerKey] as EventHandler<GridRowSelectEventArgs>;
             if (handler != null)
             {
                 handler(this, e);

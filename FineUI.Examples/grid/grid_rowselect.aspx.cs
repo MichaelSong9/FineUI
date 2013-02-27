@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_doubleclick : PageBase
+    public partial class grid_rowselect : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,13 +31,12 @@ namespace FineUI.Examples.grid
 
         #endregion
 
-
         #region Events
 
 
-        protected void Grid1_RowClick(object sender, FineUI.GridRowClickEventArgs e)
+        protected void Grid1_RowSelect(object sender, FineUI.GridRowSelectEventArgs e)
         {
-            Alert.ShowInTop(String.Format("你点击了第 {0} 行（双击）", e.RowIndex + 1));
+            Alert.ShowInTop(String.Format("你选中了第 {0} 行", e.RowIndex + 1));
         }
 
         #endregion

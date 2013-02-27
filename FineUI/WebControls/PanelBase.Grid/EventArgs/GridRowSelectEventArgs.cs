@@ -4,8 +4,8 @@
 /*
  * Project：    FineUI
  * 
- * FileName:    GridRowClickEventArgs.cs
- * CreatedOn:   2008-06-25
+ * FileName:    GridRowSelectEventArgs.cs
+ * CreatedOn:   2013-02-27
  * CreatedBy:   30372245@qq.com
  * 
  * 
@@ -32,9 +32,9 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 表格行点击事件参数
+    /// 表格行选中事件参数
     /// </summary>
-    public class GridRowClickEventArgs : EventArgs
+    public class GridRowSelectEventArgs : EventArgs
     {
 
         private int _rowIndex;
@@ -52,7 +52,7 @@ namespace FineUI
         /// 构造函数
         /// </summary>
         /// <param name="rowIndex">行索引</param>
-        public GridRowClickEventArgs(int rowIndex)
+        public GridRowSelectEventArgs(int rowIndex)
         {
             _rowIndex = rowIndex;
         }

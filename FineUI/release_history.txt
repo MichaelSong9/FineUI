@@ -31,7 +31,7 @@ Apache License 2.0 (Apache)
 		+增加自动保存表格模板数据的示例grid/grid_edit_autosave.aspx（angrySperm）。
 			-通过向表格元素添加属性来防止重复注册表格的客户端事件。
 			-修正其他示例中潜在的重复注册客户端事件的问题。
-		-增加选中行改变事件，而不仅仅是点击行
+		-增加EnableRowSelect属性和RowSelect事件，注意RowClick和RowSelect事件的区别。
 		-居中显示图片
 		-
 		-

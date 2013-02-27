@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_doubleclick {
+    public partial class grid_rowclick {
         
         /// <summary>
         /// form1 控件。
