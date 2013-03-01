@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="selectprovince1_child.aspx.cs"
-    Inherits="FineUI.Examples.iframe.selectprovince1_child" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="selectprovince2_child.aspx.cs"
+    Inherits="FineUI.Examples.iframe.selectprovince2_child" %>
 
 <!DOCTYPE html>
 <html>
@@ -65,19 +65,12 @@
     </map>
     </form>
     <script>
-        function select(provinceName) {
-            X.wnd.getActiveWindow()[0].box_hide();
-            parent.selectProvince(provinceName);
-        }
-
         var imgClientID = '<%= imgChina.ClientID %>';
 
-        function onReady() {
-
-            // 设置图片的HTML标签属性
-            X(imgClientID).el.select('img').set({ 'usemap': '#ChinaMap' });
-
+        function select(provinceName) {
+            __doPostBack(imgClientID, 'SelectProvince$' + provinceName);
         }
+
     </script>
 </body>
 </html>

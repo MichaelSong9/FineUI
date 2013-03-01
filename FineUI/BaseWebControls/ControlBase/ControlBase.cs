@@ -373,6 +373,10 @@ namespace FineUI
                 }
                 return (JObject)obj;
             }
+            set
+            {
+                XState["Attributes"] = value;
+            }
         }
 
 

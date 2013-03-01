@@ -19,16 +19,5 @@ namespace FineUI.Examples.iframe
             }
         }
 
-       
-
-
-        protected void ddlSheng_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (ddlSheng.SelectedValue != "-1")
-            //{
-            //    PageContext.RegisterStartupScript(ActiveWindow.GetWriteBackValueReference(ddlSheng.SelectedValue) + ActiveWindow.GetHideReference());
-            //}
-        }
-
     }
 }

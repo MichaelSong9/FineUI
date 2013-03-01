@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.iframe
 {
-    public partial class selectprovince1 : PageBase
+    public partial class selectprovince2 : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,7 +16,7 @@ namespace FineUI.Examples.iframe
             {
                 BindSheng();
 
-                Button1.OnClientClick = Window1.GetShowReference("./selectprovince1_child.aspx");
+                Button1.OnClientClick = Window1.GetShowReference("./selectprovince2_child.aspx");
             }
 
         }

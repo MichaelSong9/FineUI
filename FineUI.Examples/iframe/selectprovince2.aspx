@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="selectprovince1.aspx.cs"
-    Inherits="FineUI.Examples.iframe.selectprovince1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="selectprovince2.aspx.cs"
+    Inherits="FineUI.Examples.iframe.selectprovince2" %>
 
 <!DOCTYPE html>
 <html>

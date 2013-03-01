@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.iframe
 {
-    public partial class selectprovince1 : PageBase
+    public partial class selectprovince3 : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,7 +16,7 @@ namespace FineUI.Examples.iframe
             {
                 BindSheng();
 
-                Button1.OnClientClick = Window1.GetShowReference("./selectprovince1_child.aspx");
+                Button1.OnClientClick = Window1.GetShowReference("./selectprovince3_child.aspx");
             }
 
         }
@@ -29,6 +29,17 @@ namespace FineUI.Examples.iframe
 
             ddlSheng.Items.Insert(0, new ListItem("选择省份", "-1"));
         }
+
+        protected void Window1_Close(object sender, WindowCloseEventArgs e)
+        {
+            if (e.CloseArgument.StartsWith("SelectProvince$"))
+            {
+                string provinceName = e.CloseArgument.Substring("SelectProvince$".Length);
+
+                ddlSheng.SelectedValue = provinceName;
+            }
+        }
+
 
     }
 }

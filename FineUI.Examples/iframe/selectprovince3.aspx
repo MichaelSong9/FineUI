@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="selectprovince1.aspx.cs"
-    Inherits="FineUI.Examples.iframe.selectprovince1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="selectprovince3.aspx.cs"
+    Inherits="FineUI.Examples.iframe.selectprovince3" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,18 +21,11 @@
     </x:SimpleForm>
     <x:Window ID="Window1" Title="编辑" Popup="false" EnableIFrame="true" runat="server"
         EnableMaximize="true" EnableResize="true" Target="Parent" IsModal="True" Width="580px"
-        Height="460px">
+        OnClose="Window1_Close" Height="460px">
     </x:Window>
     <x:Label ID="labResult" CssStyle="font-weight:bold;" runat="server">
     </x:Label>
     <br />
     </form>
-    <script>
-        var shengClientID = '<%= ddlSheng.ClientID %>';
-
-        function selectProvince(name) {
-            X(shengClientID).setValue(name);
-        }
-    </script>
 </body>
 </html>
