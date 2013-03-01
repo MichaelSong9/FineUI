@@ -356,6 +356,25 @@ namespace FineUI
 
         #region Properties
 
+        /// <summary>
+        /// HTML标签属性
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public JObject Attributes
+        {
+            get
+            {
+                object obj = XState["Attributes"];
+                if (obj == null)
+                {
+                    XState["Attributes"] = new JObject();
+                    obj = XState["Attributes"];
+                }
+                return (JObject)obj;
+            }
+        }
+
 
         /// <summary>
         /// 控件ID
@@ -1362,6 +1381,20 @@ namespace FineUI
             }
             return String.Format("{2}.X.util.setHiddenFieldValue('{0}','{1}');", id, value, windowObj);
         }
+
+        #endregion
+
+        #region ResolveAttribuites
+
+        protected void ResolveAttribuites(HtmlNodeBuilder htmlBuilder)
+        {
+            foreach (JProperty propertyObj in Attributes.Properties())
+            {
+                string propName = propertyObj.Name;
+                string propValue = Attributes.Value<string>(propName);
+                htmlBuilder.SetProperty(propName, propValue);
+            }
+        } 
 
         #endregion
 

@@ -216,7 +216,9 @@
             </TreeNode>
             <TreeNode Text="下拉列表同步到文本框" NavigateUrl="~/grid/grid_edit_dropdownlist_textbox.aspx" >
             </TreeNode>
-            <TreeNode Text="自动保存用户输入的值" NavigateUrl="~/grid/grid_edit_autosave.aspx" >
+            <TreeNode Text="自动保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_auto.aspx" >
+            </TreeNode>
+            <TreeNode Text="手动保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_manual.aspx" >
             </TreeNode>
         </TreeNode>
         <TreeNode Text="多表头" SingleClickExpand="true">
@@ -269,6 +271,8 @@
             <TreeNode Text="绑定到二级属性" NavigateUrl="~/grid/grid_complex_property.aspx" >
             </TreeNode>
             <TreeNode Text="允许选择表格内文字" NavigateUrl="~/grid/grid_textselection.aspx" >
+            </TreeNode>
+            <TreeNode Text="文字垂直居中" NavigateUrl="~/grid/grid_text_middle.aspx" >
             </TreeNode>
         </TreeNode>
     </TreeNode>
@@ -357,7 +361,13 @@
         </TreeNode>
         <TreeNode Text="表格与编辑窗体" NavigateUrl="~/iframe/grid_iframe.aspx" >
         </TreeNode>
-        <TreeNode Text="子窗体和父窗体传值" NavigateUrl="~/iframe/passvalue_iframe.aspx" >
+        <TreeNode Text="子窗口向父窗口传值" NavigateUrl="~/iframe/passvalue_iframe.aspx" >
+        </TreeNode>
+        <TreeNode Text="新窗口中选择省份一" NavigateUrl="~/iframe/selectprovince1.aspx" >
+        </TreeNode>
+		<TreeNode Text="新窗口中选择省份二" NavigateUrl="~/iframe/selectprovince2.aspx" >
+        </TreeNode>
+		<TreeNode Text="新窗口中选择省份三" NavigateUrl="~/iframe/selectprovince3.aspx" >
         </TreeNode>
         <TreeNode Text="触发器输入框（传值）" NavigateUrl="~/iframe/triggerbox_iframe.aspx" >
         </TreeNode>

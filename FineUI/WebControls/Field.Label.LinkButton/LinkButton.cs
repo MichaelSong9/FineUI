@@ -370,6 +370,8 @@ namespace FineUI
 
             ResolveTooltip(htmlBuilder);
 
+            ResolveAttribuites(htmlBuilder);
+
             htmlBuilder.InnerProperty = text;
 
             return htmlBuilder.ToString();

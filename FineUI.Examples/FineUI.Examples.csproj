@@ -85,10 +85,14 @@
     <Content Include="grid\grid_width_expandunusedspace.aspx" />
     <Content Include="grid\grid_width.aspx" />
     <Content Include="grid\grid_checkboxfield_checkall.aspx" />
-    <Content Include="grid\grid_edit_autosave.aspx" />
     <Content Include="grid\grid_rowclick.aspx" />
     <Content Include="grid\grid_rowdoubleclick.aspx" />
     <Content Include="grid\grid_rowselect.aspx" />
+    <Content Include="grid\grid_edit_save_auto.aspx" />
+    <Content Include="grid\grid_edit_save_manual.aspx" />
+    <Content Include="grid\grid_text_middle.aspx" />
+    <Content Include="iframe\selectprovince1.aspx" />
+    <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -396,13 +400,6 @@
     <Compile Include="grid\grid_checkboxfield_checkall.aspx.designer.cs">
       <DependentUpon>grid_checkboxfield_checkall.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_edit_autosave.aspx.cs">
-      <DependentUpon>grid_edit_autosave.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_edit_autosave.aspx.designer.cs">
-      <DependentUpon>grid_edit_autosave.aspx</DependentUpon>
-    </Compile>
     <Compile Include="grid\grid_rowclick.aspx.cs">
       <DependentUpon>grid_rowclick.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -423,6 +420,41 @@
     </Compile>
     <Compile Include="grid\grid_rowselect.aspx.designer.cs">
       <DependentUpon>grid_rowselect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_save_auto.aspx.cs">
+      <DependentUpon>grid_edit_save_auto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_save_auto.aspx.designer.cs">
+      <DependentUpon>grid_edit_save_auto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_save_manual.aspx.cs">
+      <DependentUpon>grid_edit_save_manual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_save_manual.aspx.designer.cs">
+      <DependentUpon>grid_edit_save_manual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_text_middle.aspx.cs">
+      <DependentUpon>grid_text_middle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_text_middle.aspx.designer.cs">
+      <DependentUpon>grid_text_middle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\selectprovince1.aspx.cs">
+      <DependentUpon>selectprovince1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\selectprovince1.aspx.designer.cs">
+      <DependentUpon>selectprovince1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\selectprovince1_child.aspx.cs">
+      <DependentUpon>selectprovince1_child.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\selectprovince1_child.aspx.designer.cs">
+      <DependentUpon>selectprovince1_child.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>

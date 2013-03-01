@@ -327,6 +327,7 @@ namespace FineUI
 
             ResolveTooltip(htmlBuilder);
 
+            ResolveAttribuites(htmlBuilder);
 
             return htmlBuilder.ToString();
         }

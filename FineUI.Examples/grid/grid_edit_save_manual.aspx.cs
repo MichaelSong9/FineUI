@@ -9,43 +9,13 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_edit_autosave : PageBase
+    public partial class grid_edit_save_manual : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 BindGrid();
-            }
-            else
-            {
-                string eventTarget = Request.Form["__EVENTTARGET"];
-                string eventArgument = Request.Form["__EVENTARGUMENT"];
-                if (eventTarget == Grid1.ClientID && eventArgument.StartsWith("AutoSave$"))
-                {
-                    int rowIndex = Convert.ToInt32(eventArgument.Substring("AutoSave$".Length));
-                    System.Web.UI.WebControls.TextBox tbxTableChineseScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableChineseScore");
-                    System.Web.UI.WebControls.TextBox tbxTableMathScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableMathScore");
-
-                    int rowDataId = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
-
-                    int chineseSocre = 0;
-                    int mathScore = 0;
-                    try
-                    {
-
-                        chineseSocre = Convert.ToInt32(tbxTableChineseScore.Text);
-                        mathScore = Convert.ToInt32(tbxTableMathScore.Text);
-                    }
-                    catch (Exception)
-                    {
-                        // ...
-                    }
-
-                    SetDataRow(rowDataId, chineseSocre, mathScore);
-
-                    UpdateDetailForm(rowDataId);
-                }
             }
         }
 
@@ -64,6 +34,42 @@ namespace FineUI.Examples.grid
         #endregion
 
         #region Events
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            // 更新所有行的用户输入数据
+            foreach (GridRow row in Grid1.Rows)
+            {
+                int rowIndex = row.RowIndex;
+                System.Web.UI.WebControls.TextBox tbxTableChineseScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableChineseScore");
+                System.Web.UI.WebControls.TextBox tbxTableMathScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableMathScore");
+
+                int rowDataId = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
+
+                int chineseSocre = 0;
+                int mathScore = 0;
+                try
+                {
+                    chineseSocre = Convert.ToInt32(tbxTableChineseScore.Text);
+                    mathScore = Convert.ToInt32(tbxTableMathScore.Text);
+                }
+                catch (Exception)
+                {
+                    // ...
+                }
+
+                SetDataRow(rowDataId, chineseSocre, mathScore);
+
+            }
+
+            // 更新当前选中行的详细信息
+            if (Grid1.SelectedRowIndexArray.Length == 1)
+            {
+                int rowDataId = Convert.ToInt32(Grid1.DataKeys[Grid1.SelectedRowIndex][0]);
+                UpdateDetailForm(rowDataId);
+            }
+
+        }
 
         protected void Grid1_RowSelect(object sender, FineUI.GridRowSelectEventArgs e)
         {

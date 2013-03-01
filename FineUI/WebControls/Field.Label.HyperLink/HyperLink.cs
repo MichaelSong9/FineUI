@@ -253,6 +253,8 @@ namespace FineUI
 
             ResolveTooltip(htmlBuilder);
 
+            ResolveAttribuites(htmlBuilder);
+
             string text = Text;
             if (EncodeText)
             {

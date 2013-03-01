@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_edit_autosave.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_edit_autosave" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_edit_save_auto.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_edit_save_auto" %>
 
 <!DOCTYPE html>
 <html>
@@ -108,7 +108,7 @@
             grid.el.set({ 'data-event-keydown-registered': true });
 
             grid.el.select('.x-grid-tpl input').on("keypress", function (evt, el) {
-                // 
+                
                 window.setTimeout(function () {
 
                     var row = Ext.get(el).parent('.x-grid3-row');

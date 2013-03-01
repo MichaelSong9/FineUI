@@ -190,6 +190,8 @@ namespace FineUI
                 ResolveTooltip(htmlBuilder);
             }
 
+            ResolveAttribuites(htmlBuilder);
+
             if (!Enabled)
             {
                 htmlBuilder.SetProperty("class", "x-item-disabled");
