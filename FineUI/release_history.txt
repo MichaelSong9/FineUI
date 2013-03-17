@@ -24,9 +24,9 @@ Apache License 2.0 (Apache)
 	-修正在表单字段中按回车键触发表单提交的问题（欧志辉）。
 	-修正RadioButtonList隐藏时客户端验证出错的问题（⑥阿太⑥）。
 	-为Image、LinkButton、HyperLink、Label增加Attributes属性，用来设置HTML标签属性。
-	+增加示例iframe/selectprovince1.aspx、iframe/selectprovince2.aspx、iframe/selectprovince3.aspx。
+	+增加示例iframe/selectprovince1.aspx、iframe/selectprovince2.aspx、iframe/selectprovince3.aspx（猪八戒）。
 		-演示如何使用Attributes属性（或者使用JS脚本来设置HTML标签属性）。
-		-演示如何调用父窗口的JS函数。
+		-演示如何调用父窗口的JS函数（如何找到原始窗口对象X.wnd.getActiveWindow()[1]）。
 		-演示如何自定义回发，如何使用ActiveWindow的GetHideReference和GetHidePostBackReference函数。
 	+表格增强。
 		-增加实时比较表格中两个文本输入框值的例子（Mr.Wu）。

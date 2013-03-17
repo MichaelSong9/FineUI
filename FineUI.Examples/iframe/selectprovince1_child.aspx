@@ -66,8 +66,10 @@
     </form>
     <script>
         function select(provinceName) {
-            X.wnd.getActiveWindow()[0].box_hide();
-            parent.selectProvince(provinceName);
+            // activeWindow = [当前活动的Ext-Window对象，当前活动的Ext-Window对象所在的window对象]
+            var activeWindow = X.wnd.getActiveWindow();
+            activeWindow[1].selectProvince(provinceName);
+            activeWindow[0].box_hide();
         }
 
         var imgClientID = '<%= imgChina.ClientID %>';
