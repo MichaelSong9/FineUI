@@ -2572,8 +2572,12 @@ if (Ext.grid.GridPanel) {
             var pagingBar = this.getBottomToolbar();
             if (pagingBar) {
                 var pagingDatas = [];
-                for (var i = pagingBar.x_startRowIndex; i <= pagingBar.x_endRowIndex; i++) {
-                    pagingDatas.push(datas[i]);
+                if (pagingBar.x_databasePaging) {
+                    pagingDatas = datas;
+                } else {
+                    for (var i = pagingBar.x_startRowIndex; i <= pagingBar.x_endRowIndex; i++) {
+                        pagingDatas.push(datas[i]);
+                    }
                 }
                 this.getStore().loadData(pagingDatas);
             }

@@ -2205,10 +2205,16 @@ namespace FineUI
 
             int startRowIndex, endRowIndex;
             ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
-            pagingBuilder.AddProperty("x_startRowIndex", startRowIndex);
-            pagingBuilder.AddProperty("x_endRowIndex", endRowIndex);
-
-
+            if (IsDatabasePaging)
+            {
+                pagingBuilder.AddProperty("x_databasePaging", true);
+            }
+            else
+            {
+                pagingBuilder.AddProperty("x_startRowIndex", startRowIndex);
+                pagingBuilder.AddProperty("x_endRowIndex", endRowIndex);
+            }
+            
             return pagingBuilder;
         }
 
