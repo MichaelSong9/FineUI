@@ -41,7 +41,8 @@ Apache License 2.0 (Apache)
 			-增加示例grid/grid_rowselect.aspx，更新示例grid/grid_twogrid.aspx。
 		-增加表格中文字居中显示的例子grid/grid_text_middle.aspx。
 		+数据库分页时支持每页显示的记录数不同（appletreegd）。
-			-增加示例
+			-增加示例grid/grid_simulate_tree_paging.aspx、grid/grid_simulate_tree_database_paging.aspx。
+			-增加示例grid/grid_simulate_tree_database_paging_dropdownlist.aspx。
 		-多个上传控件，上传文件，浏览，继续添加
 
 	

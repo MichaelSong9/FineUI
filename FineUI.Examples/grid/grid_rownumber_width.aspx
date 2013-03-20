@@ -13,7 +13,7 @@
     <x:Grid ID="Grid1" Title="表格" Width="800px" PageSize="10" ShowBorder="true" ShowHeader="true"
         AutoHeight="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
         DataKeyNames="Id" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-        EnableRowNumber="True" EnableRowNumberPaging="true" RowNumberWidth="30px">
+        EnableRowNumber="True" EnableRowNumberPaging="true" RowNumberWidth="24px">
         <Columns>
             <x:BoundField Width="150px" DataField="Id" HeaderText="ID" />
             <x:BoundField ExpandUnusedSpace="true" DataField="EntranceTime" HeaderText="时间" />

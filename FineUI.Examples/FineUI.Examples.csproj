@@ -80,6 +80,7 @@
     <Content Include="autocomplete\email.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
+    <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
     <Content Include="grid\grid_width_forcefitalltime.aspx" />
     <Content Include="grid\grid_width_forcefitfirsttime.aspx" />
     <Content Include="grid\grid_width_expandunusedspace.aspx" />
@@ -91,6 +92,8 @@
     <Content Include="grid\grid_edit_save_auto.aspx" />
     <Content Include="grid\grid_edit_save_manual.aspx" />
     <Content Include="grid\grid_text_middle.aspx" />
+    <Content Include="grid\grid_simulate_tree_paging.aspx" />
+    <Content Include="grid\grid_simulate_tree_database_paging_dropdownlist.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -369,6 +372,13 @@
     <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.designer.cs">
       <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_simulate_tree_database_paging.aspx.cs">
+      <DependentUpon>grid_simulate_tree_database_paging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_simulate_tree_database_paging.aspx.designer.cs">
+      <DependentUpon>grid_simulate_tree_database_paging.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_width_forcefitalltime.aspx.cs">
       <DependentUpon>grid_width_forcefitalltime.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -445,6 +455,20 @@
     </Compile>
     <Compile Include="grid\grid_text_middle.aspx.designer.cs">
       <DependentUpon>grid_text_middle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_simulate_tree_paging.aspx.cs">
+      <DependentUpon>grid_simulate_tree_paging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_simulate_tree_paging.aspx.designer.cs">
+      <DependentUpon>grid_simulate_tree_paging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_simulate_tree_database_paging_dropdownlist.aspx.cs">
+      <DependentUpon>grid_simulate_tree_database_paging_dropdownlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_simulate_tree_database_paging_dropdownlist.aspx.designer.cs">
+      <DependentUpon>grid_simulate_tree_database_paging_dropdownlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

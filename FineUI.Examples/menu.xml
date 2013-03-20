@@ -172,9 +172,15 @@
             </TreeNode>
             <TreeNode Text="行扩展列（ExpandAllRowExpanders）" NavigateUrl="~/grid/grid_rowexpander_expandall2.aspx" >
             </TreeNode>
+            <TreeNode Text="弹出窗体列" NavigateUrl="~/grid/grid_iframe.aspx" >
+            </TreeNode>
             <TreeNode Text="模拟树列" NavigateUrl="~/grid/grid_simulate_tree.aspx" >
             </TreeNode>
-            <TreeNode Text="弹出窗体列" NavigateUrl="~/grid/grid_iframe.aspx" >
+            <TreeNode Text="模拟树列(内存分页)" NavigateUrl="~/grid/grid_simulate_tree_paging.aspx" >
+            </TreeNode>
+            <TreeNode Text="模拟树列（数据库分页）" NavigateUrl="~/grid/grid_simulate_tree_database_paging.aspx" >
+            </TreeNode>
+            <TreeNode Text="模拟树列（数据库分页，下拉列表定位省份）" NavigateUrl="~/grid/grid_simulate_tree_database_paging_dropdownlist.aspx" >
             </TreeNode>
         </TreeNode>
         <TreeNode Text="事件" SingleClickExpand="true">

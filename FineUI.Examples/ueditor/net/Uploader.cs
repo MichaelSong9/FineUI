@@ -58,7 +58,7 @@ public  class Uploader
                 URL = pathbase + filename;
             }
         }
-        catch (Exception e)
+        catch (Exception)
         {
             state = "未知错误";
             URL = "";
@@ -91,7 +91,7 @@ public  class Uploader
 
             URL = pathbase + filename;
         }
-        catch (Exception e)
+        catch (Exception)
         {
             state = "未知错误";
             URL = "";
