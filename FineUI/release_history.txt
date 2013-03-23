@@ -19,7 +19,7 @@ Apache License 2.0 (Apache)
 
 发布历史
 
-+2013-03-* v3.2.4
++2013-03-23 v3.2.4
 	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。
 	-修正在表单字段中按回车键触发表单提交的问题（欧志辉）。
 	-修正RadioButtonList隐藏时客户端验证出错的问题（⑥阿太⑥、appletreegd）。
@@ -45,10 +45,9 @@ Apache License 2.0 (Apache)
 		+数据库分页时支持每页显示的记录数不同（appletreegd）。
 			-增加示例grid/grid_simulate_tree_paging.aspx、grid/grid_simulate_tree_database_paging.aspx。
 			-增加示例grid/grid_simulate_tree_database_paging_dropdownlist.aspx。
+	+更新内置JS函数X.util.initTreeTabStrip，切换选项卡时是否在top.location.hash记录当前页面的地址。
+		-在更新此版本后，你可能需要将此变量置为true，参考js/default.js。
 
-		-多个上传控件，上传文件，浏览，继续添加
-
-	
 
 
 +2013-01-09 v3.2.3

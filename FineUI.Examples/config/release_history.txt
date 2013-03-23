@@ -19,6 +19,37 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2013-03-23 v3.2.4
+	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。
+	-修正在表单字段中按回车键触发表单提交的问题（欧志辉）。
+	-修正RadioButtonList隐藏时客户端验证出错的问题（⑥阿太⑥、appletreegd）。
+	-为Image、LinkButton、HyperLink、Label增加Attributes属性，用来设置HTML标签属性。
+	+增加示例iframe/selectprovince1.aspx、iframe/selectprovince2.aspx、iframe/selectprovince3.aspx（猪八戒）。
+		-演示如何使用Attributes属性（或者使用JS脚本来设置HTML标签属性）。
+		-演示如何调用父窗口的JS函数（如何找到原始窗口对象X.wnd.getActiveWindow()[1]）。
+		-演示如何自定义回发，如何使用ActiveWindow的GetHideReference和GetHidePostBackReference函数。
+	+表格增强。
+		-增加实时比较表格中两个文本输入框值的例子grid/grid_edit_compare.aspx（Mr.Wu）。
+		-增加同步表格中下拉列表的选中值到文本输入框的例子grid/grid_edit_dropdownlist_textbox.aspx（老皮鞋）。
+		-更新示例grid/grid_pageitems.aspx，演示如何使用extjs内置的图片资源。
+		+增加调整表格宽度的四个示例。
+			-grid/grid_width_expandunusedspace.aspx（最常用，一列宽度自适应其他列宽度固定）。
+			-grid/grid_width.aspx、grid/grid_width_forcefitalltime.aspx、grid/grid_width_forcefitfirsttime.aspx。
+		+增加保存表格模板数据的示例grid/grid_edit_save_auto.aspx、grid/grid_edit_save_manual.aspx（angrySperm）。
+			-通过向表格元素添加HTML属性来防止重复注册表格的客户端事件。
+			-修正其他示例中潜在的重复注册客户端事件的问题。
+			-注意RowSelect事件在本示例中的运用。
+		+增加EnableRowSelect属性和RowSelect事件，注意RowClick和RowSelect事件的区别。
+			-增加示例grid/grid_rowselect.aspx，更新示例grid/grid_twogrid.aspx。
+		-增加表格中文字居中显示的例子grid/grid_text_middle.aspx。
+		+数据库分页时支持每页显示的记录数不同（appletreegd）。
+			-增加示例grid/grid_simulate_tree_paging.aspx、grid/grid_simulate_tree_database_paging.aspx。
+			-增加示例grid/grid_simulate_tree_database_paging_dropdownlist.aspx。
+	+更新内置JS函数X.util.initTreeTabStrip，切换选项卡时是否在top.location.hash记录当前页面的地址。
+		-在更新此版本后，你可能需要将此变量置为true，参考js/default.js。
+
+
+
 +2013-01-09 v3.2.3
 	-修正身份证和IP地址验证规则错误（Mr.Wu、轻雨湿意）。
 	-为正则表达式验证增加RegexIgnoreCase属性，默认是区分大小写的。
@@ -249,7 +280,7 @@ Apache License 2.0 (Apache)
 +2012-04-04 v3.1.2
 	-修正IE下出现错误提示时拒绝访问的BUG（错将"about:blank"写成"about:blank;"）。
 	-修正Grid中自动回发复选框的BUG。
-	-修正示例问题，grid/grid_doubleclick.aspx，config/ajax.aspx。
+	-修正示例问题，grid/grid_rowdoubleclick.aspx，config/ajax.aspx。
 	-增加如何绑定到二级属性的示例grid/grid_complex_property.aspx。
 	-修正form/triggerbox.aspx中在输入框中按回车出错的BUG。
 	-修正dropdownlist/dropdownlist.aspx选项中存在左右尖括号时出错的BUG。
@@ -537,7 +568,7 @@ Apache License 2.0 (Apache)
 	-加载s.gif图片在本机进行，不会请求extjs.com远程资源(efrigate43,abaocoole)。
 	-在AJAX回发后确保Asp.net的按钮控件仍然具有AJAX的特性。
 	-更新/basic/login.aspx示例，使用验证图片(kedee)。
-	-为Grid增加AutoPostBack属性和RowClick事件，示例在/data/grid_autopostback.aspx(chenguizhu2006)。
+	-为Grid增加AutoPostBack属性和RowClick事件，示例在/data/grid_rowclick.aspx(chenguizhu2006)。
 	-为所有的表单字段增加AJAX属性ReadOnly(skydb)。
 	-Grid中TemplateField生成到页面中控件具有唯一ID，例如Grid1_ct5_Label2,Grid1_ct6_Label2(geruger)。
 	

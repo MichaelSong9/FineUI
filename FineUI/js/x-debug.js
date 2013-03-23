@@ -1195,7 +1195,7 @@ X.ajaxReady = function () {
             }
         },
 
-        initTreeTabStrip: function (treeMenu, mainTabStrip, tbarCallback) {
+        initTreeTabStrip: function (treeMenu, mainTabStrip, tbarCallback, updateLocationHash) {
 
             // 注册树的节点点击事件
             function registerTreeClickEvent(treeInstance) {
@@ -1206,8 +1206,10 @@ X.ajaxReady = function () {
 
                         var href = node.attributes.href;
 
-                        // 修改地址栏
-                        window.location.hash = '#' + href;
+                        if (updateLocationHash) {
+                            // 修改地址栏
+                            window.location.hash = '#' + href;
+                        }
 
                         // 新增Tab节点
                         X.util.addMainTab(mainTabStrip, node, tbarCallback);
@@ -1228,58 +1230,62 @@ X.ajaxReady = function () {
             }
 
 
-            // 切换主窗口的Tab
-            mainTabStrip.on('tabchange', function (tabStrip, tab) {
-                if (tab.url) {
-                    //window.location.href = '#' + tab.url;
-                    window.location.hash = '#' + tab.url;
-                } else {
-                    window.location.hash = '#';
-                }
-            });
+            if (updateLocationHash) {
+                // 切换主窗口的Tab
+                mainTabStrip.on('tabchange', function (tabStrip, tab) {
+                    if (tab.url) {
+                        //window.location.href = '#' + tab.url;
+                        window.location.hash = '#' + tab.url;
+                    } else {
+                        window.location.hash = '#';
+                    }
+                });
+            }
 
 
             // 页面第一次加载时，根据URL地址在主窗口加载页面
             var HASH = window.location.hash.substr(1);
-            var FOUND = false;
+            if (HASH) {
+                var FOUND = false;
 
-            function initTreeMenu(treeInstance, node) {
-                var i, currentNode, nodes, node, path;
-                if (!FOUND && node.hasChildNodes()) {
-                    nodes = node.childNodes;
-                    for (i = 0; i < nodes.length; i++) {
-                        currentNode = nodes[i];
-                        if (currentNode.isLeaf()) {
-                            if (currentNode.attributes.href === HASH) {
-                                path = currentNode.getPath();
-                                treeInstance.expandPath(path); //node.expand();
-                                treeInstance.selectPath(path); // currentNode.select();
-                                X.util.addMainTab(mainTabStrip, currentNode, tbarCallback);
-                                FOUND = true;
-                                return;
+                function initTreeMenu(treeInstance, node) {
+                    var i, currentNode, nodes, node, path;
+                    if (!FOUND && node.hasChildNodes()) {
+                        nodes = node.childNodes;
+                        for (i = 0; i < nodes.length; i++) {
+                            currentNode = nodes[i];
+                            if (currentNode.isLeaf()) {
+                                if (currentNode.attributes.href === HASH) {
+                                    path = currentNode.getPath();
+                                    treeInstance.expandPath(path); //node.expand();
+                                    treeInstance.selectPath(path); // currentNode.select();
+                                    X.util.addMainTab(mainTabStrip, currentNode, tbarCallback);
+                                    FOUND = true;
+                                    return;
+                                }
+                            } else {
+                                arguments.callee(treeInstance, currentNode);
                             }
-                        } else {
-                            arguments.callee(treeInstance, currentNode);
                         }
                     }
                 }
-            }
 
-            if (treeMenu.getXType() === 'panel') {
-                treeMenu.items.each(function (item) {
-                    var tree = item.items.itemAt(0);
-                    if (tree && tree.getXType() === 'treepanel') {
-                        initTreeMenu(tree, tree.getRootNode());
+                if (treeMenu.getXType() === 'panel') {
+                    treeMenu.items.each(function (item) {
+                        var tree = item.items.itemAt(0);
+                        if (tree && tree.getXType() === 'treepanel') {
+                            initTreeMenu(tree, tree.getRootNode());
 
-                        // 找到树节点
-                        if (FOUND) {
-                            item.expand();
-                            return false;
+                            // 找到树节点
+                            if (FOUND) {
+                                item.expand();
+                                return false;
+                            }
                         }
-                    }
-                });
-            } else if (treeMenu.getXType() === 'treepanel') {
-                initTreeMenu(treeMenu, treeMenu.getRootNode());
+                    });
+                } else if (treeMenu.getXType() === 'treepanel') {
+                    initTreeMenu(treeMenu, treeMenu.getRootNode());
+                }
             }
 
         },
@@ -1330,7 +1336,7 @@ X.ajaxReady = function () {
             var checkName = groupName + '_lastupdatetime';
             var checkValue = X.util[checkName];
             X.util[checkName] = new Date();
-            if (typeof(checkValue) === 'undefined' ) {
+            if (typeof (checkValue) === 'undefined') {
                 return true;
             } else {
                 if ((new Date() - checkValue) < 100) {
