@@ -22,27 +22,30 @@ Apache License 2.0 (Apache)
 +2013-03-* v3.2.4
 	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。
 	-修正在表单字段中按回车键触发表单提交的问题（欧志辉）。
-	-修正RadioButtonList隐藏时客户端验证出错的问题（⑥阿太⑥）。
+	-修正RadioButtonList隐藏时客户端验证出错的问题（⑥阿太⑥、appletreegd）。
 	-为Image、LinkButton、HyperLink、Label增加Attributes属性，用来设置HTML标签属性。
 	+增加示例iframe/selectprovince1.aspx、iframe/selectprovince2.aspx、iframe/selectprovince3.aspx（猪八戒）。
 		-演示如何使用Attributes属性（或者使用JS脚本来设置HTML标签属性）。
 		-演示如何调用父窗口的JS函数（如何找到原始窗口对象X.wnd.getActiveWindow()[1]）。
 		-演示如何自定义回发，如何使用ActiveWindow的GetHideReference和GetHidePostBackReference函数。
 	+表格增强。
-		-增加实时比较表格中两个文本输入框值的例子（Mr.Wu）。
-		-增加同步表格中下拉列表的选中值到文本输入框的例子（老皮鞋）。
+		-增加实时比较表格中两个文本输入框值的例子grid/grid_edit_compare.aspx（Mr.Wu）。
+		-增加同步表格中下拉列表的选中值到文本输入框的例子grid/grid_edit_dropdownlist_textbox.aspx（老皮鞋）。
 		-更新示例grid/grid_pageitems.aspx，演示如何使用extjs内置的图片资源。
-		-增加关于如何调整表格宽度的四个示例。
-		+增加自动保存表格模板数据的示例grid/grid_edit_save_auto.aspx（angrySperm）。
-			-通过向表格元素添加属性来防止重复注册表格的客户端事件。
+		+增加调整表格宽度的四个示例。
+			-grid/grid_width_expandunusedspace.aspx（最常用，一列宽度自适应其他列宽度固定）。
+			-grid/grid_width.aspx、grid/grid_width_forcefitalltime.aspx、grid/grid_width_forcefitfirsttime.aspx。
+		+增加保存表格模板数据的示例grid/grid_edit_save_auto.aspx、grid/grid_edit_save_manual.aspx（angrySperm）。
+			-通过向表格元素添加HTML属性来防止重复注册表格的客户端事件。
 			-修正其他示例中潜在的重复注册客户端事件的问题。
-			-增加示例grid/grid_edit_save_manual.aspx。
+			-注意RowSelect事件在本示例中的运用。
 		+增加EnableRowSelect属性和RowSelect事件，注意RowClick和RowSelect事件的区别。
 			-增加示例grid/grid_rowselect.aspx，更新示例grid/grid_twogrid.aspx。
 		-增加表格中文字居中显示的例子grid/grid_text_middle.aspx。
 		+数据库分页时支持每页显示的记录数不同（appletreegd）。
 			-增加示例grid/grid_simulate_tree_paging.aspx、grid/grid_simulate_tree_database_paging.aspx。
 			-增加示例grid/grid_simulate_tree_database_paging_dropdownlist.aspx。
+
 		-多个上传控件，上传文件，浏览，继续添加
 
 	
