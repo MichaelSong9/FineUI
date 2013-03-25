@@ -20,7 +20,42 @@
             </x:FormRow>
         </Rows>
     </x:Form>
-    <x:Button ID="Button1" runat="server" OnClick="btn_Submit_Click"></x:Button>
+    <x:Tree runat="server" EnableArrows="true" OnNodeCommand="Tree1_NodeCommand" ShowBorder="false"
+        ShowHeader="false" AutoScroll="true" ID="tree2">
+        <Nodes>
+            <x:TreeNode Text="添加企业" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+            </x:TreeNode>
+            <x:TreeNode Text="企业查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+            </x:TreeNode>
+            <x:TreeNode Text="企业业务信息查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png"
+                EnablePostBack="true">
+            </x:TreeNode>
+        </Nodes>
+    </x:Tree>
+    <x:Accordion ID="Accordion1" runat="server" ShowBorder="false" ShowHeader="false"
+        ShowCollapseTool="true">
+        <Panes>
+            <x:AccordionPane ID="AccordionPane1" runat="server" Title="企业业务" IconUrl="~/images/16/1.png"
+                BodyPadding="2px 5px" Layout="Fit" ShowBorder="false">
+                <Items>
+                    <x:Tree runat="server" EnableArrows="true" OnNodeCommand="Tree1_NodeCommand" ShowBorder="false"
+                        ShowHeader="false" AutoScroll="true" ID="tree1">
+                        <Nodes>
+                            <x:TreeNode Text="添加企业" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+                            </x:TreeNode>
+                            <x:TreeNode Text="企业查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+                            </x:TreeNode>
+                            <x:TreeNode Text="企业业务信息查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png"
+                                EnablePostBack="true">
+                            </x:TreeNode>
+                        </Nodes>
+                    </x:Tree>
+                </Items>
+            </x:AccordionPane>
+        </Panes>
+    </x:Accordion>
+    <x:Button ID="Button1" runat="server" OnClick="btn_Submit_Click">
+    </x:Button>
     </form>
 </body>
 </html>

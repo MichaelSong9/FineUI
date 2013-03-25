@@ -58,6 +58,42 @@ namespace DotNetOA.Web.task {
         protected global::FineUI.CheckBoxList CheckBoxList1;
         
         /// <summary>
+        /// tree2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Tree tree2;
+        
+        /// <summary>
+        /// Accordion1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Accordion Accordion1;
+        
+        /// <summary>
+        /// AccordionPane1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.AccordionPane AccordionPane1;
+        
+        /// <summary>
+        /// tree1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Tree tree1;
+        
+        /// <summary>
         /// Button1 控件。
         /// </summary>
         /// <remarks>
