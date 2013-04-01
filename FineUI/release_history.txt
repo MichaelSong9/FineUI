@@ -19,6 +19,13 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2013-04-* v3.2.5
+	+删除PageManager的EnableAspnetSubmitButtonAjax属性（shiningrise、夏雨雪(joe) ）。
+		-原因是低版本IE浏览器不允许使用JS修改input标签的type属性。
+		-我们需要手工设置Asp.Net按钮的UseSubmitBehavior=false，更新示例aspnet/aspnet.aspx。
+
+
+
 +2013-03-23 v3.2.4
 	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。
 	-修正在表单字段中按回车键触发表单提交的问题（欧志辉）。

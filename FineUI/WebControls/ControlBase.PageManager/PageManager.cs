@@ -249,24 +249,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 启用Asp.Net提交按钮（type=submit）的AJAX功能
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("启用Asp.Net提交按钮（type=submit）的AJAX功能")]
-        public bool EnableAspnetSubmitButtonAjax
-        {
-            get
-            {
-                object obj = XState["EnableAspnetSubmitButtonAjax"];
-                return obj == null ? true : (bool)obj;
-            }
-            set
-            {
-                XState["EnableAspnetSubmitButtonAjax"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 启用Asp.Net提交按钮（type=submit）的AJAX功能
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(true)]
+        //[Description("启用Asp.Net提交按钮（type=submit）的AJAX功能")]
+        //public bool EnableAspnetSubmitButtonAjax
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableAspnetSubmitButtonAjax"];
+        //        return obj == null ? true : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableAspnetSubmitButtonAjax"] = value;
+        //    }
+        //}
 
 
         /// <summary>

@@ -31,30 +31,21 @@ namespace FineUI.Examples {
         protected global::FineUI.PageManager PageManager2;
         
         /// <summary>
-        /// SimpleForm1 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.SimpleForm SimpleForm1;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// tbxSfzhm 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox tbxSfzhm;
-        
-        /// <summary>
-        /// btnReset 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnReset;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

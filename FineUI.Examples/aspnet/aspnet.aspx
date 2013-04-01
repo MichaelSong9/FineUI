@@ -20,9 +20,11 @@
         <br />
         <x:Button ID="extButton" runat="server" CssClass="inline" Text="FineUI 按钮" OnClick="extButton_Click">
         </x:Button>
-        <asp:Button ID="aspButton" Text="ASP.NET 按钮" runat="server" OnClick="aspButton_Click" />
+        <asp:Button ID="aspButton" Text="ASP.NET 按钮" runat="server" UseSubmitBehavior="false"
+            OnClick="aspButton_Click" />
     </x:ContentPanel>
     <br />
+    注意：Asp.Net按钮必须设置UseSubmitBehavior=false，否则会被渲染为submit按钮，从而导致所有的页面事件都不能正确触发。
     </form>
 </body>
 </html>

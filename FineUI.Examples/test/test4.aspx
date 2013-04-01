@@ -9,17 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager2" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelWidth="180px"
-        runat="server" EnableBackgroundColor="true" ShowBorder="True" ShowHeader="True"
-        Title="简单表单">
-        <Items>
-            <x:TextBox ID="tbxSfzhm" runat="server" Label="身份证号码" RegexPattern="EMAIL"
-                RegexMessage="请输入有效的身份证号码！">
-            </x:TextBox>
-            <x:Button ID="btnReset" Text="重置表单" ValidateForms="SimpleForm1" runat="server">
-            </x:Button>
-        </Items>
-    </x:SimpleForm>
+    <asp:Button ID="Button2" Text="Button2" runat="server" UseSubmitBehavior="true"  OnClick="Button2_Click"/>
+    <asp:Button ID="Button1" Text="Button1" runat="server" UseSubmitBehavior="true" OnClick="Button1_Click"/>
     </form>
 </body>
 </html>

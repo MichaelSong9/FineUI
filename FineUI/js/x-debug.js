@@ -691,16 +691,16 @@ X.ajaxReady = function () {
         */
 
         init: function (msgTarget, labelWidth, labelSeparator, enableBigFont,
-            blankImageUrl, enableAspnetSubmitButtonAjax, enableAjaxLoading, ajaxLoadingType, enableAjax) {
+            blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax) {
             // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
             // 表现为iframe中的页面出现滚动条时，页面上的所有按钮都不能点击了。
             // 测试例子在：aspnet/test.aspx
             Ext.QuickTips.init(false);
 
             X.ajax.hookPostBack();
-            if (enableAspnetSubmitButtonAjax) {
-                X.util.makeAspnetSubmitButtonAjax();
-            }
+            //if (enableAspnetSubmitButtonAjax) {
+            //    X.util.makeAspnetSubmitButtonAjax();
+            //}
 
             X.global_enable_ajax = enableAjax;
 
@@ -1075,28 +1075,11 @@ X.ajaxReady = function () {
             hh1.appendChild(ss1);
         },
 
-
+        /*
         // 在启用AJAX的情况下，使所有的Asp.net的提交按钮（type="submit"）不要响应默认的submit行为，而是自定义的AJAX
         makeAspnetSubmitButtonAjax: function (buttonId) {
 
-            /*
-            function clickEvent(e, el) {
-            __doPostBack(el.getAttribute("name"), "");
-            e.stopEvent();
-            }
-            
-            if (typeof (buttonId) === "undefined") {
-            Ext.each(Ext.DomQuery.select("input[type=submit], input[type=images]"), function (item, index) {
-            Ext.get(item).addListener("click", clickEvent);
-            });
-            } else {
-            var button = Ext.get(buttonId);
-            if (button.getAttribute("type") === "submit") {
-            button.addListener("click", clickEvent);
-            }
-            }
-            */
-
+            // 低版本IE浏览器不允许使用JS修改input标签的type属性，导致此函数无效
             function resetButton(button) {
                 button.set({ "type": "button" });
                 button.addListener("click", function (event, el) {
@@ -1117,6 +1100,8 @@ X.ajaxReady = function () {
             }
 
         },
+
+        */
 
         // Whether a object is empty (With no property) or not.
         isObjectEmpty: function (obj) {

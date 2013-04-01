@@ -375,13 +375,13 @@ namespace FineUI
             //beforeBuilder.AppendFormat("fieldPro.msgTarget='{0}';", MsgTargetHelper.GetName(PageManager.Instance.FormMessageTarget));
             //beforeBuilder.AppendFormat("fieldPro.labelWidth={0};", PageManager.Instance.FormLabelWidth.Value);
             //beforeBuilder.AppendFormat("fieldPro.labelSeparator='{0}';", PageManager.Instance.FormLabelSeparator);
-            beforeBuilder.AppendFormat("X.util.init('{0}',{1},'{2}',{3},'{4}',{5},{6},'{7}',{8});",
+            beforeBuilder.AppendFormat("X.util.init('{0}',{1},'{2}',{3},'{4}',{5},'{6}',{7});",
                 MsgTargetHelper.GetName(PageManager.Instance.FormMessageTarget),
                 PageManager.Instance.FormLabelWidth.Value,
                 PageManager.Instance.FormLabelSeparator,
                 PageManager.Instance.EnableBigFont.ToString().ToLower(),
                 ResourceHelper.GetWebResourceUrlResAxd("FineUI.res.img.s.gif&v=1"),
-                PageManager.Instance.EnableAspnetSubmitButtonAjax.ToString().ToLower(),
+                //PageManager.Instance.EnableAspnetSubmitButtonAjax.ToString().ToLower(),
                 PageManager.Instance.EnableAjaxLoading.ToString().ToLower(),
                 AjaxLoadingTypeName.GetName(PageManager.Instance.AjaxLoadingType),
                 PageManager.Instance.EnableAjax.ToString().ToLower()
