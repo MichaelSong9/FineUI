@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>FineUI 发布周期（天）</title>
-	<style>
+    <title>FineUI版本发布周期（天）</title>
+    <style>
         #desc
         {
             font-weight: bold;
+            text-align: center;
+            margin: 20px 0 10px;
         }
     </style>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -16,32 +18,34 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var vs = preprocessVersions(), v, i = 0, count = vs.length, chart, data;
+            var vs = preprocessVersions(), v, count = vs.length, chart, data;
 
             data = new google.visualization.DataTable();
-            data.addColumn('string', '天数');
-            data.addColumn('number', '发布');
+            data.addColumn('string', '版本');
+            data.addColumn('number', '天数');
             data.addRows(count);
 
-            for (; i < count; i++) {
+            for (var i = count - 1, j = 0; i >= 0; i--, j++) {
                 v = vs[i];
-                data.setValue(i, 1, v[2]);
-                data.setValue(i, 0, v[1] + ' ' + v[0]);
+                data.setValue(j, 1, v[2]);
+                data.setValue(j, 0, v[1] + " (" + v[0] + ")");
             }
 
-            chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart = new google.visualization.BarChart(document.getElementById('chart_div'));
             chart.draw(data, {
-                width: 2000,
-                height: 500,
-                title: 'FineUI发布周期（天）',
-                hAxis: {
-                    title: 'FineUI发布时间',
-                    titleTextStyle: {
-                    }
+                height: 2600,
+                width: 1200,
+                title: 'FineUI版本发布周期（天）',
+                vAxis: {
+                    title: 'FineUI版本'
+                },
+                chartArea: {
+                    top: 20,
+                    left: 280
                 }
             });
-			
-			document.getElementById('desc').innerHTML = '总计 ' + vs.length + ' 个发布版本';
+
+            document.getElementById('desc').innerHTML = 'FineUI版本发布周期（总计发布了 ' + vs.length + ' 个版本）';
         }
 
         function preprocessVersions() {
@@ -143,7 +147,12 @@
             ["v3.1.6", "2012-05-20"],
             ["v3.1.7", "2012-06-03"],
             ["v3.1.8", "2012-06-24"],
-            ["v3.1.9", "2012-08-18"]
+            ["v3.1.9", "2012-08-18"],
+            ["v3.2.0", "2012-11-18"],
+            ["v3.2.1", "2012-11-25"],
+            ["v3.2.2", "2012-12-03"],
+            ["v3.2.3", "2013-01-09"],
+            ["v3.2.4", "2013-03-23"]
 		];
 
             // 初始化第一个数据
@@ -161,7 +170,7 @@
     </script>
 </head>
 <body>
-	<div id="desc">
+    <div id="desc">
     </div>
     <div id="chart_div">
     </div>
