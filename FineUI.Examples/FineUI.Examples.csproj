@@ -78,6 +78,11 @@
     <Content Include="autocomplete\multi_values.aspx" />
     <Content Include="autocomplete\remote_with_cache.aspx" />
     <Content Include="autocomplete\email.aspx" />
+    <Content Include="common\menu.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="common\source.aspx" />
+    <Content Include="common\source_file.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
@@ -100,6 +105,7 @@
     <Content Include="iframe\selectprovince2_child.aspx" />
     <Content Include="iframe\selectprovince3.aspx" />
     <Content Include="iframe\selectprovince3_child.aspx" />
+    <Content Include="images\toolbox.png" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -230,8 +236,6 @@
     <Content Include="other\cssstyle.aspx" />
     <Content Include="other\addtab.aspx" />
     <Content Include="other\ajax_loading.aspx" />
-    <Content Include="source.aspx" />
-    <Content Include="source_file.aspx" />
     <Content Include="test\textbox.aspx" />
     <Content Include="test\timer.aspx" />
     <Content Include="toolbar\menu.aspx" />
@@ -357,6 +361,20 @@
     </Compile>
     <Compile Include="autocomplete\email.aspx.designer.cs">
       <DependentUpon>email.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\source.aspx.cs">
+      <DependentUpon>source.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\source.aspx.designer.cs">
+      <DependentUpon>source.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\source_file.aspx.cs">
+      <DependentUpon>source_file.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\source_file.aspx.designer.cs">
+      <DependentUpon>source_file.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_edit_compare.aspx.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
@@ -1629,20 +1647,6 @@
       <DependentUpon>custom_postback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="source.aspx.cs">
-      <DependentUpon>source.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="source.aspx.designer.cs">
-      <DependentUpon>source.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="source_file.aspx.cs">
-      <DependentUpon>source_file.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="source_file.aspx.designer.cs">
-      <DependentUpon>source_file.aspx</DependentUpon>
-    </Compile>
     <Compile Include="tabstrip\tabstrip_enableclose.aspx.cs">
       <DependentUpon>tabstrip_enableclose.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1897,9 +1901,6 @@
     <Content Include="test\test4.aspx" />
     <Content Include="config\Web.config.txt" />
     <Content Include="config\Web.config.compress.txt" />
-    <Content Include="menu.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="tree\select\tree_multi_select.aspx" />
     <Content Include="grid\image.ashx" />
   </ItemGroup>

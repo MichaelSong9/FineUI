@@ -15,7 +15,7 @@
 </head>
 <body>
     <div>
-        修改 Web.config</div>
+        在开发项目之前一定要配置好 Web.config：</div>
     <ul>
         <li>打开 web.config，在 configuration 配置节:
             <br />
@@ -79,12 +79,13 @@
     </pre>
     <br />
     <div style="font-weight: bold; color: Red;">
-        特别注意引用的Newtonsoft.Json.dll版本</div>
+        注意引用的Newtonsoft.Json.dll版本</div>
     <br />
     FineUI.dll只有一个For Net2.0的版本，无论你的项目是2.0、3.5、4.0，都只需要引用同一个FineUI.dll即可。
     <br />
-    而Newtonsoft.Json.dll为在每个DotNet下都有自己的版本，比如你的项目是基于.Net 2.0的，就要引用json.net\Net20\Newtonsoft.Json.dll，如果你的项目是基于.Net
-    4.0的，就要引用json.net\Net40\Newtonsoft.Json.dl。
+    <br />
+    Newtonsoft.Json.dll为每个.Net版本创建不同的DLL，比如你的项目是基于.Net 2.0的，就要引用json.net\Net20\Newtonsoft.Json.dll，如果你的项目是基于.Net
+    4.0的，就要引用json.net\Net40\Newtonsoft.Json.dll。
     <br />
     <br />
     <br />

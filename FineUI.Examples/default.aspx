@@ -177,7 +177,7 @@
         runat="server" IsModal="true" Width="900px" Height="550px" EnableClose="true"
         EnableMaximize="true" EnableResize="true">
     </x:Window>
-    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/menu.xml"></asp:XmlDataSource>
+    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
     <img src="images/logo/logo3.png" alt="FineUI 图标" id="logo" />
     <script src="./js/default.js" type="text/javascript"></script>
