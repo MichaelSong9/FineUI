@@ -686,24 +686,24 @@ namespace FineUI
             }
         }
 
-        ///// <summary>
-        ///// 启用表头菜单
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue(true)]
-        //[Description("启用表头菜单")]
-        //public bool EnableHeaderMenu
-        //{
-        //    get
-        //    {
-        //        object obj = XState["EnableHeaderMenu"];
-        //        return obj == null ? true : (bool)obj;
-        //    }
-        //    set
-        //    {
-        //        XState["EnableHeaderMenu"] = value;
-        //    }
-        //}
+        /// <summary>
+        /// 启用表头菜单
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("启用表头菜单")]
+        public bool EnableHeaderMenu
+        {
+            get
+            {
+                object obj = XState["EnableHeaderMenu"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableHeaderMenu"] = value;
+            }
+        }
 
         ///// <summary>
         ///// 启用表头菜单中的隐藏列功能
@@ -1858,16 +1858,14 @@ namespace FineUI
 
             #region Properties
 
-            //if (!EnableHeaderMenu)
-            //{
-            //    OB.AddProperty("enableHdMenu", false);
-            //}
+            OB.AddProperty("enableHdMenu", EnableHeaderMenu);
+
             //if (!EnableColumnHide)
             //{
             //    OB.AddProperty("enableColumnHide", false);
             //}
 
-            OB.AddProperty("enableHdMenu", false);
+            
 
             if (EnableAlternateRowColor)
             {

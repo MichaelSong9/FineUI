@@ -10,22 +10,25 @@ namespace FineUI.Examples
     public partial class source : PageBase
     {
         private static Dictionary<string, string> SOURCE_FILES = new Dictionary<string, string>() { 
-            {"grid/grid_iframe.aspx", "grid/grid_iframe_window.aspx"},
-            {"tree/databind/tree_document.aspx", "tree/databind/website.xml"},
-            {"tree/databind/tree_datasource.aspx", "tree/databind/website.xml"},
-            {"tree/databind/tree_sitemap.aspx", "tree/databind/Web.sitemap"},
-            {"aspnet/fileupload.aspx", "aspnet/fileupload_iframe.aspx"},
-            {"iframe/button_iframe.aspx", "grid/grid_iframe_window.aspx"},
-            {"iframe/grid_iframe.aspx", "grid/grid_iframe_window.aspx"},
-            {"iframe/iframe_iframe.aspx", "iframe/iframe_iframe_window1.aspx;iframe/iframe_iframe_window2.aspx"},
-            {"iframe/parent_postback.aspx", "iframe/parent_postback2.aspx;iframe/parent_postback3.aspx"},
-            {"iframe/parent_postback_top.aspx", "iframe/parent_postback_top2.aspx;iframe/parent_postback_top3.aspx"},
-            {"iframe/triggerbox_iframe.aspx", "iframe/triggerbox_iframe_iframe.aspx"},
-            {"iframe/passvalue_iframe.aspx", "iframe/passvalue_iframe_iframe.aspx"},
-            {"other/accordion_links.aspx", "other/accordion_links_iframe.htm"},
-            {"usercontrol/userinfo.aspx", "usercontrol/UserInfoControl.ascx"},
-            {"usercontrol/userinfo2.aspx", "usercontrol/UserInfoControl.ascx"},
-            {"usercontrol/userinfo_dynamic.aspx", "usercontrol/UserInfoControl.ascx"}
+            {"grid/grid_iframe.aspx", "~/grid/grid_iframe_window.aspx"},
+            {"tree/databind/tree_document.aspx", "~/tree/databind/website.xml"},
+            {"tree/databind/tree_datasource.aspx", "~/tree/databind/website.xml"},
+            {"tree/databind/tree_sitemap.aspx", "~/tree/databind/Web.sitemap"},
+            {"aspnet/fileupload.aspx", "~/aspnet/fileupload_iframe.aspx"},
+            {"iframe/button_iframe.aspx", "~/grid/grid_iframe_window.aspx"},
+            {"iframe/grid_iframe.aspx", "~/grid/grid_iframe_window.aspx"},
+            {"iframe/iframe_iframe.aspx", "~/iframe/iframe_iframe_window1.aspx;~/iframe/iframe_iframe_window2.aspx"},
+            {"iframe/parent_postback.aspx", "~/iframe/parent_postback2.aspx;~/iframe/parent_postback3.aspx"},
+            {"iframe/parent_postback_top.aspx", "~/iframe/parent_postback_top2.aspx;~/iframe/parent_postback_top3.aspx"},
+            {"iframe/triggerbox_iframe.aspx", "~/iframe/triggerbox_iframe_iframe.aspx"},
+            {"iframe/passvalue_iframe.aspx", "~/iframe/passvalue_iframe_iframe.aspx"},
+            {"other/accordion_links.aspx", "~/other/accordion_links_iframe.htm"},
+            {"usercontrol/userinfo.aspx", "~/usercontrol/UserInfoControl.ascx"},
+            {"usercontrol/userinfo2.aspx", "~/usercontrol/UserInfoControl.ascx"},
+            {"usercontrol/userinfo_dynamic.aspx", "~/usercontrol/UserInfoControl.ascx"},
+            {"iframe/selectprovince1.aspx", "~/iframe/selectprovince1_child.aspx"},
+            {"iframe/selectprovince2.aspx", "~/iframe/selectprovince2_child.aspx"},
+            {"iframe/selectprovince3.aspx", "~/iframe/selectprovince3_child.aspx"}
         };
 
         protected void Page_Init(object sender, EventArgs e)
