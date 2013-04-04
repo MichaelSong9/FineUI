@@ -27,6 +27,7 @@ Apache License 2.0 (Apache)
 
 
 
+
 +2013-03-23 v3.2.4
 	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。
 	-修正在表单字段中按回车键触发表单提交的问题（欧志辉）。
