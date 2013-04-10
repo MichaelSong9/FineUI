@@ -23,6 +23,7 @@ Apache License 2.0 (Apache)
 	+更新extjs库到v3.4.1.1。
 		-解决IE9/IE10下的UI显示问题。
 		-解决表格控件在谷歌浏览器下，最后一列的标题栏没对齐的问题。
+		-解决IE7/Chrome下有时不能拖动窗体的问题。
 	+删除PageManager的EnableAspnetSubmitButtonAjax属性（shiningrise、夏雨雪(joe) ）。
 		-原因是低版本IE浏览器不允许使用JS修改input标签的type属性。
 		-我们需要手工设置Asp.Net按钮的UseSubmitBehavior=false，更新示例aspnet/aspnet.aspx。
