@@ -395,12 +395,14 @@ namespace FineUI
                 {
                     sb.Append(String.Format("X.util.replace('{0}', {1});", controlClientID, updateHtml));
 
+                    /*
                     // 如果是Asp.net按钮或者ImageButton，需要重新注册点击时AJAX回发页面，而不是调用Button(type=submit)的默认行为
                     if (control != null && (control is System.Web.UI.WebControls.Button
                         || control is System.Web.UI.WebControls.ImageButton))
                     {
                         sb.Append(String.Format("X.util.makeAspnetSubmitButtonAjax('{0}');", control.ClientID));
                     }
+                     * */
                 }
             }
 

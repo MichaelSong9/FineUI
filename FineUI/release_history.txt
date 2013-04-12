@@ -27,6 +27,8 @@ Apache License 2.0 (Apache)
 	+删除PageManager的EnableAspnetSubmitButtonAjax属性（shiningrise、夏雨雪(joe) ）。
 		-原因是低版本IE浏览器不允许使用JS修改input标签的type属性。
 		-我们需要手工设置Asp.Net按钮的UseSubmitBehavior=false，更新示例aspnet/aspnet.aspx。
+		-修正extjs的Ext.lib.Ajax.serializeForm函数，使其在序列化表单时不包含submit按钮，从而避免触发后台submit按钮的事件。
+		-更新示例aspnet/aspnet.aspx。
 	-更新示例config/release_time_chart.htm。
 	+表格增强。
 		-增加EnableHeaderMenu属性（默认为false），增加示例grid/grid_hdmenu_hidecolumn.aspx。

@@ -18,13 +18,18 @@
         <asp:TextBox runat="server" Width="300px" ID="aspBox"></asp:TextBox>
         <br />
         <br />
-        <x:Button ID="extButton" runat="server" CssClass="inline" Text="FineUI 按钮" OnClick="extButton_Click">
+        <x:Button ID="Button1" runat="server" CssClass="inline" Text="1. FineUI 按钮（AJAX）"
+            OnClick="Button1_Click">
         </x:Button>
-        <asp:Button ID="aspButton" Text="ASP.NET 按钮" runat="server" UseSubmitBehavior="false"
-            OnClick="aspButton_Click" />
+        <x:Button ID="Button2" runat="server" Text="2. FineUI 按钮" EnableAjax="false" OnClick="Button2_Click">
+        </x:Button>
+        <br />
+        <asp:Button ID="Button3" Text="3. ASP.NET 按钮（AJAX）" runat="server" OnClick="Button3_Click"
+            UseSubmitBehavior="false" />
+        <asp:Button ID="Button4" Text="4. ASP.NET 按钮" runat="server" OnClick="Button4_Click" />
     </x:ContentPanel>
     <br />
-    注意：Asp.Net按钮必须设置UseSubmitBehavior=false，否则会被渲染为submit按钮，从而导致所有的页面事件都不能正确触发。
+    注意：只有设置ASP.NET按钮的属性UseSubmitBehavior=false，点击事件才是AJAX；否则点击ASP.NET按钮会导致整个页面回发。
     </form>
 </body>
 </html>

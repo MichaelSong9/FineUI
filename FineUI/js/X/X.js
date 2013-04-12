@@ -825,6 +825,10 @@ X.ajaxReady = function () {
                     X.ajax.errorWindow.setTitle(String.format(X.ajax.errorMsg, data.statusText, data.status));
                     writeContentToIFrame(X.ajax.errorWindow.body.query('iframe')[0], data.responseText);
                     //writeContentToIFrame(Ext.DomQuery.selectNode('iframe', X.ajax.errorWindow.body), data.responseText);
+                },
+                callback: function (options, success, response) {
+                    // AJAX结束时需要清空此字段，否则下一次的type=submit提交（ASP.NET回发方式之一）会被误认为是AJAX提交
+                    X.util.setHiddenFieldValue('X_AJAX', 'false');
                 }
             });
         }
@@ -907,24 +911,23 @@ X.ajaxReady = function () {
     */
 
     // 序列化表单为 URL 编码字符串，除去 <input type="submit" /> 的按钮
-    /*
     var extjsSerializeForm = Ext.lib.Ajax.serializeForm;
     Ext.lib.Ajax.serializeForm = function (form) {
-    var el, originalStr = extjsSerializeForm(form);
-    for (var i = 0; i < form.elements.length; i++) {
-    el = form.elements[i];
-    if (el.type === 'submit') {
-    var submitStr = encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value);
-    if (originalStr.indexOf(submitStr) == 0) {
-    originalStr = originalStr.replace(submitStr, '');
-    } else {
-    originalStr = originalStr.replace('&' + submitStr, '');
-    }
-    }
-    }
-    return originalStr;
+        var el, originalStr = extjsSerializeForm(form);
+        for (var i = 0; i < form.elements.length; i++) {
+            el = form.elements[i];
+            if (el.type === 'submit') {
+                var submitStr = encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value);
+                if (originalStr.indexOf(submitStr) == 0) {
+                    originalStr = originalStr.replace(submitStr, '');
+                } else {
+                    originalStr = originalStr.replace('&' + submitStr, '');
+                }
+            }
+        }
+        return originalStr;
     };
-    */
+
 
     function getXState() {
         var state = {};
