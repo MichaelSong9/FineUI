@@ -265,6 +265,12 @@
             <TreeNode Text="列宽度自适应（仅第一次加载）" NavigateUrl="~/grid/grid_width_forcefitfirsttime.aspx" >
             </TreeNode>
         </TreeNode>
+        <TreeNode Text="标题栏菜单" SingleClickExpand="true">
+            <TreeNode Text="显示隐藏列" NavigateUrl="~/grid/grid_hdmenu_hidecolumn.aspx" >
+            </TreeNode>
+            <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
+            </TreeNode>
+        </TreeNode>
         <TreeNode Text="其他" SingleClickExpand="true">
             <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
             </TreeNode>

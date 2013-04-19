@@ -2357,7 +2357,7 @@ namespace FineUI
                         {
                             //// 自定义JavaScript变量
                             columnBuilder.AddProperty("x_serverSortable", true);
-                            //columnBuilder.AddProperty("sortable", true);
+                            columnBuilder.AddProperty("sortable", true);
                         }
                     }
 
@@ -2583,7 +2583,7 @@ namespace FineUI
 
         private string GetGridStore()
         {
-            JsObjectBuilder storeBuilder = new JsObjectBuilder();
+            OptionBuilder storeBuilder = new OptionBuilder();
 
             // store - fields
             JsArrayBuilder fieldsBuidler = new JsArrayBuilder();
@@ -2608,16 +2608,11 @@ namespace FineUI
                 }
             }
 
-            //// 如果Grid启用RowExpander，需要附加额外的数据
-            //if (!String.IsNullOrEmpty(RowExpander.DataFormatString))
-            //{
-            //    foreach (string field in RowExpander.DataFields)
-            //    {
-            //        fieldsBuidler.AddProperty(field);
-            //    }
-            //}
-
             storeBuilder.AddProperty("fields", fieldsBuidler, true);
+
+            storeBuilder.AddProperty("remoteSort", true);
+
+            storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction("var i=0;return false;", "store", "options"), true);
 
             return String.Format("var {0}=new Ext.data.ArrayStore({1});", Render_GridStoreID, storeBuilder.ToString());
 

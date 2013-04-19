@@ -2652,6 +2652,7 @@ if (Ext.grid.GridPanel) {
 
         // .x-grid3-hd-over
         x_setSortIcon: function (sortColumnIndex, sortDirection) {
+        
             var gridEl = Ext.get(this.id), columns = this.x_getColumns();
 
             function getHeaderNode(index) {
@@ -2676,6 +2677,7 @@ if (Ext.grid.GridPanel) {
             if (sortColumnIndex >= 0 && sortColumnIndex < columns.length) {
                 getHeaderNode(sortColumnIndex).addClass('sort-' + sortDirection.toLowerCase());
             }
+            
         },
 
         x_getColumns: function () {

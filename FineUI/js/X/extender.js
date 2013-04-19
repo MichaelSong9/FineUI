@@ -351,7 +351,7 @@ if (Ext.grid.RowNumberer) {
 
 if (Ext.grid.GridPanel) {
     Ext.override(Ext.grid.GridPanel, {
-
+        
         x_getData: function () {
             var data = this.x_state['X_Rows']['Values'];
 
@@ -452,7 +452,7 @@ if (Ext.grid.GridPanel) {
         },
 
         // http://evilcroco.name/2010/10/making-extjs-grid-content-selectable/
-        /* allow grid text selection in IE */
+        /* IE下允许选中表格中的文本 */
         x_enableTextSelection: function () {
             if (Ext.isIE) {
                 var elems = Ext.DomQuery.select("div[unselectable=on]", this.el.dom);
@@ -462,11 +462,13 @@ if (Ext.grid.GridPanel) {
             }
         },
 
+        // 选中某些行
         x_selectRows: function (rows) {
             rows = rows || this.x_state['SelectedRowIndexArray'] || [];
             this.getSelectionModel().selectRows(rows);
         },
 
+        // 获取选中的行
         x_getSelectedRows: function () {
             var selections = this.getSelectionModel().getSelections();
             var store = this.getStore();
@@ -503,7 +505,7 @@ if (Ext.grid.GridPanel) {
             });
         },
 
-        // .x-grid3-hd-over
+        // 设置表格标题栏的排序图标 .x-grid3-hd-over
         x_setSortIcon: function (sortColumnIndex, sortDirection) {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns();
 
@@ -529,8 +531,10 @@ if (Ext.grid.GridPanel) {
             if (sortColumnIndex >= 0 && sortColumnIndex < columns.length) {
                 getHeaderNode(sortColumnIndex).addClass('sort-' + sortDirection.toLowerCase());
             }
+            
         },
 
+        // 获取表格列
         x_getColumns: function () {
             var columns = [];
             // this.getColumnModel().config -> An Array of Column definition objects representing the configuration of this ColumnModel.
