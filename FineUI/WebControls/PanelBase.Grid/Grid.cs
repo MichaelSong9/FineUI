@@ -393,7 +393,7 @@ namespace FineUI
 
         #region Properties
 
-        
+
         /// <summary>
         /// 行中文字的垂直排列位置（默认为Middle）
         /// </summary>
@@ -1888,7 +1888,7 @@ namespace FineUI
             //    OB.AddProperty("enableColumnHide", false);
             //}
 
-            
+
 
             if (EnableAlternateRowColor)
             {
@@ -1911,7 +1911,7 @@ namespace FineUI
                 OB.AddProperty("deferRowRender", false);
             }
 
-            
+
 
             #endregion
 
@@ -2057,6 +2057,7 @@ namespace FineUI
 
             #region AllowSorting
 
+
             // 如果启用服务器端排序，则需要注册headerclick事件处理
             if (AllowSorting)
             {
@@ -2078,12 +2079,16 @@ namespace FineUI
                 //string validateScript = "var dataIndex=grid.getColumnModel().getDataIndex(columnIndex);if(dataIndex==''||dataIndex.indexOf('__')<0){return false;}";
                 #endregion
 
-                string headerClickScript = "if(!cmp.getColumnModel().config[columnIndex].x_serverSortable){return false;}";
+                string headerClickScript = "if(!cmp.getColumnModel().config[columnIndex].sortable){return false;}";
                 headerClickScript += "var args='Sort$'+columnIndex;";
                 headerClickScript += GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "args");
 
+                // 告诉 store 本次排序已经处理了，不要重复处理了
+                headerClickScript += "cmp.getStore().headerclickprocessed=true;";
+
                 //string headerClickScript = String.Format("function(grid,columnIndex){{{0}}}", validateScript);
                 OB.Listeners.AddProperty("headerclick", JsHelper.GetFunction(headerClickScript, "cmp", "columnIndex"), true);
+
 
                 #region old code
                 //string sortIconScript = GetSortIconScript();
@@ -2157,7 +2162,7 @@ namespace FineUI
                 viewreadySB.Append("cmp.x_enableTextSelection();");
             }
 
-            
+
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
 
@@ -2175,7 +2180,7 @@ namespace FineUI
             if (!String.IsNullOrEmpty(cls))
             {
                 OB.AddProperty("cls", cls);
-            } 
+            }
 
             #endregion
 
@@ -2251,7 +2256,7 @@ namespace FineUI
                 pagingBuilder.AddProperty("x_startRowIndex", startRowIndex);
                 pagingBuilder.AddProperty("x_endRowIndex", endRowIndex);
             }
-            
+
             return pagingBuilder;
         }
 
@@ -2395,7 +2400,7 @@ namespace FineUI
                         if (!String.IsNullOrEmpty(column.SortField))
                         {
                             //// 自定义JavaScript变量
-                            columnBuilder.AddProperty("x_serverSortable", true);
+                            //columnBuilder.AddProperty("x_serverSortable", true);
                             columnBuilder.AddProperty("sortable", true);
                         }
                     }
@@ -2651,7 +2656,11 @@ namespace FineUI
 
             storeBuilder.AddProperty("remoteSort", true);
 
-            storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction("var i=0;return false;", "store", "options"), true);
+
+            string postbackScript = GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "'Sort$'+options.params.sort+'$'+options.params.dir");
+            postbackScript = "if(!store.headerclickprocessed&&options.params.sort){" + postbackScript + "};store.headerclickprocessed=false;return false;";
+            
+            storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "options"), true);
 
             return String.Format("var {0}=new Ext.data.ArrayStore({1});", Render_GridStoreID, storeBuilder.ToString());
 
@@ -2812,7 +2821,7 @@ namespace FineUI
         #endregion
 
         /// <summary>
-        /// Get the start and end row index rendering in current request.
+        /// 当前分页的开始行和结束行
         /// </summary>
         /// <returns></returns>
         internal void ResolveStartEndRowIndex(out int startRowIndex, out int endRowIndex)
@@ -2925,7 +2934,7 @@ namespace FineUI
                     {
                         dataTable = ((DataTable)_dataSource);
                     }
-                    
+
                     recordCount = DataBindToDataTable(dataTable);
                 }
                 else if (_dataSource is IEnumerable)
@@ -3044,7 +3053,7 @@ namespace FineUI
                     Rows[rowIndex].Values[simulateTreeColumn.ColumnIndex] = silumateTree[rowIndex].Text;
                 }
             }
-        } 
+        }
         #endregion
 
         #region ClearRows
@@ -3071,7 +3080,7 @@ namespace FineUI
                     Controls.RemoveAt(i);
                 }
             }
-        } 
+        }
 
         #endregion
 
@@ -3337,7 +3346,7 @@ namespace FineUI
 
         #endregion
 
-        
+
 
         #endregion
 
@@ -3356,18 +3365,6 @@ namespace FineUI
                 string[] sortArgs = eventArgument.Split('$');
                 if (sortArgs.Length == 2)
                 {
-                    #region old code
-                    //// 格式为 "Sort$c0__Name"
-                    //string sortStr = sortArgs[1].Substring(1);
-                    //// 所在的列
-                    //int sortColumnIndex = Convert.ToInt32(sortStr.Substring(0, sortStr.IndexOf("__")));
-                    //string sortField = sortStr.Substring(sortStr.IndexOf("__") + 2);
-                    //// 当前排序
-                    //Columns[sortColumnIndex].SortDirection = Columns[sortColumnIndex].SortDirection == "ASC" ? "DESC" : "ASC";
-
-                    //OnSort(new GridSortEventArgs(sortField, Columns[sortColumnIndex].SortDirection));  
-                    #endregion
-
                     // 格式为 "Sort$2"，其中columnIndex = 2，这个是把前面的RowNumber，CheckBox列也算上去的，应该减掉
                     // 所在的列
                     int columnIndex = Convert.ToInt32(sortArgs[1]);
@@ -3386,6 +3383,41 @@ namespace FineUI
                         SortColumnIndex = columnIndex;
                         SortDirection = "ASC";
                     }
+
+                    OnSort(new GridSortEventArgs(sortField, SortDirection, SortColumnIndex));
+                }
+                else if (sortArgs.Length == 3)
+                {
+                    #region old code
+                    //// 格式为 "Sort$c0__Name"
+                    //string sortStr = sortArgs[1].Substring(1);
+                    //// 所在的列
+                    //int sortColumnIndex = Convert.ToInt32(sortStr.Substring(0, sortStr.IndexOf("__")));
+                    //string sortField = sortStr.Substring(sortStr.IndexOf("__") + 2);
+                    //// 当前排序
+                    //Columns[sortColumnIndex].SortDirection = Columns[sortColumnIndex].SortDirection == "ASC" ? "DESC" : "ASC";
+
+                    //OnSort(new GridSortEventArgs(sortField, Columns[sortColumnIndex].SortDirection));  
+                    #endregion
+
+                    
+                    string sortDir = sortArgs[2];
+                    string columnId = sortArgs[1];
+                    int columnIndex = 0;
+                    foreach (GridColumn column in AllColumns)
+                    {
+                        if (column.ColumnID == columnId)
+                        {
+                            break;
+                        }
+                        columnIndex++;
+                    }
+
+                    // 当前列的排序字段和排序方向
+                    string sortField = AllColumns[columnIndex].SortField;
+
+                    SortDirection = sortDir.ToUpper() == "ASC" ? "ASC" : "DESC";
+                    SortColumnIndex = columnIndex;
 
                     //// 服务器端排序后，清空选中的状态（一定会重新绑定数据的）
                     //SelectedRowIndexArray = null;

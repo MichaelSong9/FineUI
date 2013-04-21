@@ -522,7 +522,7 @@ if (Ext.grid.GridPanel) {
 
             // Add cursor to all server sortable column header.
             Ext.each(columns, function (item, index) {
-                if (item['x_serverSortable']) {
+                if (item['sortable']) {
                     getHeaderNode(index).addClass('cursor-pointer');
                 }
             });
