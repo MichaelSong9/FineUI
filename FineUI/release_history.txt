@@ -36,7 +36,8 @@ Apache License 2.0 (Apache)
 			-增加EnableColumnHide属性（默认为true），是否可以标题栏下拉菜单中显示隐藏列。
 			-增加示例grid/grid_hdmenu_hidecolumn.aspx。
 			-增加示例grid/grid_hdmenu_sorting.aspx。
-		-
+		+增加EmptyText属性，指定数据为空时显示在内容区域的文本，可以是HTML标签。
+			-增加示例
 
 
 

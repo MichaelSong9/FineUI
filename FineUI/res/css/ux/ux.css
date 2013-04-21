@@ -268,6 +268,19 @@ a:active
     display: none;
 }
 
+
+
+.x-grid-panel .x-grid-empty {
+    font-size: 13px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
 .x-grid-panel .x-grid3-row td, .x-grid-panel .x-grid3-summary-row td
 {
     vertical-align: middle;

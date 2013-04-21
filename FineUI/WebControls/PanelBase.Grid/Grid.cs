@@ -393,6 +393,25 @@ namespace FineUI
 
         #region Properties
 
+        /// <summary>
+        /// 数据为空时显示在内容区域的文本，可以是HTML标签
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("数据为空时显示在内容区域的文本，可以是HTML标签")]
+        public string EmptyText
+        {
+            get
+            {
+                object obj = XState["EmptyText"];
+                return obj == null ? String.Empty : (string)obj;
+            }
+            set
+            {
+                XState["EmptyText"] = value;
+            }
+        }
+
 
         /// <summary>
         /// 行中文字的垂直排列位置（默认为Middle）
@@ -1857,6 +1876,12 @@ namespace FineUI
             }
 
 
+            
+
+            #endregion
+
+            #region viewConfig
+
             JsObjectBuilder viewBuilder = new JsObjectBuilder();
             if (ForceFitAllTime)
             {
@@ -1872,10 +1897,17 @@ namespace FineUI
                 viewBuilder.AddProperty("scrollOffset", VerticalScrollWidth.Value);
             }
 
+            if (!String.IsNullOrEmpty(EmptyText))
+            {
+                viewBuilder.AddProperty("emptyText", EmptyText);
+            }
+
             if (viewBuilder.Count > 0)
             {
                 OB.AddProperty("viewConfig", viewBuilder);
             }
+
+            
 
             #endregion
 
@@ -2045,17 +2077,6 @@ namespace FineUI
             OB.AddProperty("draggable", false);
             OB.AddProperty("enableColumnMove", false);
             OB.AddProperty("enableDragDrop", false);
-
-            #endregion
-
-            #region old code
-
-            //JsObjectBuilder viewConfigBuilder = new JsObjectBuilder();
-            //viewConfigBuilder.AddProperty("autoFill", true);
-            //viewConfigBuilder.AddProperty("deferEmptyText", true);
-            //viewConfigBuilder.AddProperty("emptyText", "没有数据需要显示");
-
-            //OB.AddProperty("viewConfig", viewConfigBuilder);
 
             #endregion
 
