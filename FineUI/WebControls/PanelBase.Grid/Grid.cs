@@ -393,10 +393,31 @@ namespace FineUI
 
         #region Properties
 
+        
+        /// <summary>
+        /// 行中文字的垂直排列位置（默认为Middle）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(VerticalAlign.Middle)]
+        [Description("行中文字的垂直排列位置（默认为Middle）")]
+        public VerticalAlign RowVerticalAlign
+        {
+            get
+            {
+                object obj = XState["RowVerticalAlign"];
+                return obj == null ? VerticalAlign.Middle : (VerticalAlign)obj;
+            }
+            set
+            {
+                XState["RowVerticalAlign"] = value;
+            }
+        }
+
+
         /// <summary>
         /// 序号列的宽度（默认为23px）
         /// </summary>
-        [Category(CategoryName.LAYOUT)]
+        [Category(CategoryName.OPTIONS)]
         [DefaultValue(typeof(Unit), "")]
         [Description("序号列的宽度（默认为23px）")]
         public Unit RowNumberWidth
@@ -1577,7 +1598,7 @@ namespace FineUI
 
         #endregion
 
-        #region OnPreRender
+        #region OnFirstPreRender
 
         #region Render_IDS
 
@@ -1777,6 +1798,8 @@ namespace FineUI
 
             //OB.Listeners.AddProperty("rowmousedown", "function(){alert('ok');}", true);
 
+            string cls = CssClass;
+
             #region selectModel/gridStore/gridColumn
 
             #region old code
@@ -1888,7 +1911,7 @@ namespace FineUI
                 OB.AddProperty("deferRowRender", false);
             }
 
-
+            
 
             #endregion
 
@@ -2128,7 +2151,8 @@ namespace FineUI
 
             if (EnableTextSelection)
             {
-                OB.AddProperty("cls", CssClass + " x-grid-selectable");
+                //OB.AddProperty("cls", CssClass + " x-grid-selectable");
+                cls += " x-grid-selectable";
 
                 viewreadySB.Append("cmp.x_enableTextSelection();");
             }
@@ -2137,6 +2161,21 @@ namespace FineUI
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
 
+
+            #endregion
+
+            #region cls
+
+            if (RowVerticalAlign != VerticalAlign.Middle)
+            {
+                cls += String.Format("row-align-{0}", VerticalAlignName.GetName(RowVerticalAlign));
+            }
+
+            cls = cls.Trim();
+            if (!String.IsNullOrEmpty(cls))
+            {
+                OB.AddProperty("cls", cls);
+            } 
 
             #endregion
 

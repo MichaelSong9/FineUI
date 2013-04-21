@@ -1,4 +1,22 @@
 
+.x-grid-panel .x-grid3-row td, .x-grid-panel .x-grid3-summary-row td
+{
+    vertical-align: middle;
+}
+.x-grid-panel.row-align-top .x-grid3-row td, .x-grid-panel.row-align-top .x-grid3-summary-row td
+{
+    vertical-align: top;
+}
+.x-grid-panel.row-align-bottom .x-grid3-row td, .x-grid-panel.row-align-bottom .x-grid3-summary-row td
+{
+    vertical-align: bottom;
+}
+
+
+
+
+
+
 .x-grid-panel .box-grid-static-checkbox
 {
     width:100%;

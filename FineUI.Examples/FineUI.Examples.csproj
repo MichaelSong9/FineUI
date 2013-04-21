@@ -101,6 +101,7 @@
     <Content Include="grid\grid_simulate_tree_database_paging_dropdownlist.aspx" />
     <Content Include="grid\grid_hdmenu_hidecolumn.aspx" />
     <Content Include="grid\grid_hdmenu_sorting.aspx" />
+    <Content Include="grid\grid_text_top.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -503,6 +504,13 @@
     </Compile>
     <Compile Include="grid\grid_hdmenu_sorting.aspx.designer.cs">
       <DependentUpon>grid_hdmenu_sorting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_text_top.aspx.cs">
+      <DependentUpon>grid_text_top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_text_top.aspx.designer.cs">
+      <DependentUpon>grid_text_top.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

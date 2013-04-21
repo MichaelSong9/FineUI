@@ -284,7 +284,7 @@
             </TreeNode>
             <TreeNode Text="允许选择表格内文字" NavigateUrl="~/grid/grid_textselection.aspx" >
             </TreeNode>
-            <TreeNode Text="文字垂直居中" NavigateUrl="~/grid/grid_text_middle.aspx" >
+            <TreeNode Text="文字垂直靠上显示" NavigateUrl="~/grid/grid_text_top.aspx" >
             </TreeNode>
         </TreeNode>
     </TreeNode>

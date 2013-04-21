@@ -268,6 +268,24 @@ a:active
     display: none;
 }
 
+.x-grid-panel .x-grid3-row td, .x-grid-panel .x-grid3-summary-row td
+{
+    vertical-align: middle;
+}
+.x-grid-panel.row-align-top .x-grid3-row td, .x-grid-panel.row-align-top .x-grid3-summary-row td
+{
+    vertical-align: top;
+}
+.x-grid-panel.row-align-bottom .x-grid3-row td, .x-grid-panel.row-align-bottom .x-grid3-summary-row td
+{
+    vertical-align: bottom;
+}
+
+
+
+
+
+
 .x-grid-panel .box-grid-static-checkbox
 {
     width:100%;
@@ -373,28 +391,6 @@ a:active
 {
     margin-top: 3px;
 }
-
-/*
-.box-panel-big-header .x-accordion-hd
-{
-    color:#15428b;
-    font-weight:bold;
-    background:transparent url(<%=WebResource("FineUI.res.theme.default.panel.white-top-bottom.gif")%>) repeat-x  0px -1px;	
-}
-
-
-.box-panel-big-header .box-accordion-hd-hover
-{
-    background:transparent url(<%=WebResource("FineUI.res.img.accordion_hover.gif")%>) repeat-x 0px 0px;
-    border-bottom:1px solid #FEB145;
-}
-
-.box-panel-big-header .box-accordion-hd-select
-{
-    background:transparent url(<%=WebResource("FineUI.res.img.accordion_select.gif")%>) repeat-x 0px 0px;	
-    border-bottom:1px solid #FEB145;
-}
-*/
 
 .bigfont .x-btn-text
 {
