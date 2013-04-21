@@ -33,6 +33,7 @@ Apache License 2.0 (Apache)
 	+表格增强。
 		-增加RowVerticalAlign属性（默认为Middle），以后所有表格中的行文字默认都是垂直居中显示。
 		+增加EnableHeaderMenu属性（默认为false），支持在表格标题栏下拉菜单中显示隐藏列以及排序操作。
+			-增加EnableColumnHide属性（默认为true），是否可以标题栏下拉菜单中显示隐藏列。
 			-增加示例grid/grid_hdmenu_hidecolumn.aspx。
 			-增加示例grid/grid_hdmenu_sorting.aspx。
 		-

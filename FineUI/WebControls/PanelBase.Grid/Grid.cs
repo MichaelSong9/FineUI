@@ -726,24 +726,24 @@ namespace FineUI
             }
         }
 
-        ///// <summary>
-        ///// 启用表头菜单中的隐藏列功能
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue(true)]
-        //[Description("启用表头菜单中的隐藏列功能")]
-        //public bool EnableColumnHide
-        //{
-        //    get
-        //    {
-        //        object obj = XState["EnableColumnHide"];
-        //        return obj == null ? true : (bool)obj;
-        //    }
-        //    set
-        //    {
-        //        XState["EnableColumnHide"] = value;
-        //    }
-        //}
+        /// <summary>
+        /// 启用标题栏菜单中的隐藏列功能
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("启用标题栏菜单中的隐藏列功能")]
+        public bool EnableColumnHide
+        {
+            get
+            {
+                object obj = XState["EnableColumnHide"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                XState["EnableColumnHide"] = value;
+            }
+        }
 
         /// <summary>
         /// 启用交替行显示不同的颜色
@@ -1883,10 +1883,14 @@ namespace FineUI
 
             OB.AddProperty("enableHdMenu", EnableHeaderMenu);
 
-            //if (!EnableColumnHide)
-            //{
-            //    OB.AddProperty("enableColumnHide", false);
-            //}
+            if (EnableHeaderMenu)
+            {
+                // 启用标题栏菜单，但是不启用标题栏菜单中的隐藏列功能
+                if (!EnableColumnHide)
+                {
+                    OB.AddProperty("enableColumnHide", false);
+                }
+            }
 
 
 
