@@ -25,7 +25,7 @@
                             &nbsp;<a href="./default.aspx" style="color:#fff;">FineUI在线示例</a>
                         </div>
 						<div class="version">
-                            <a href="http://fineui.com/demo/en/" target="_blank" style="color:#fff;">English Version</a>
+                            <a href="http://fineui.com/demo_en/" target="_blank" style="color:#fff;">English Version</a>
                         </div>
                     </x:ContentPanel>
                 </Items>
