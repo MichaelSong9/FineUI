@@ -19,7 +19,7 @@ Apache License 2.0 (Apache)
 
 发布历史
 
-+2013-04-* v3.2.5
++2013-04-27 v3.2.5
 	+更新extjs库到v3.4.1.1。
 		-解决IE9/IE10下的UI显示问题。
 		-解决表格控件在谷歌浏览器下，最后一列的标题栏没对齐的问题。
@@ -37,7 +37,6 @@ Apache License 2.0 (Apache)
 			-增加示例grid/grid_hdmenu_hidecolumn.aspx。
 			-增加示例grid/grid_hdmenu_sorting.aspx。
 		+增加EmptyText属性，指定数据为空时显示在内容区域的文本，可以是HTML标签。
-			-增加示例
 
 
 
