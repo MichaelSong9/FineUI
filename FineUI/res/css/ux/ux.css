@@ -10,6 +10,7 @@ html, body
 }
 */
 
+
 html, body
 {
     margin: 0;
@@ -405,6 +406,11 @@ a:active
     margin-top: 3px;
 }
 
+.bigfont .x-form-item {
+    font-size:12px;
+}
+
+
 .bigfont .x-btn-text
 {
     font-size: 12px;
@@ -521,7 +527,4 @@ a:active
     left: 0;
     z-index: 3;
     color: #777;
-}
-td.ux-grid-hd-group-cell {
-    background: url(./res.axd?theme=default.grid.grid3-hrow.gif) repeat-x bottom;
 }

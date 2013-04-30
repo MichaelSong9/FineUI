@@ -19,6 +19,18 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2013-06-* v3.2.6
+	+恢复表格和树控件中链接光标的手型而非指针。
+		-删除ext-all-notheme中对x-unselectable的光标定义。
+	+表格增强。
+		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
+			-增加示例grid/grid_column_lines.aspx。
+		-修正Access和Gray主题下表格多表头的样式问题（bestwowo）。
+		
+
+
+
+
 +2013-04-27 v3.2.5
 	+更新extjs库到v3.4.1.1。
 		-解决IE9/IE10下的UI显示问题。

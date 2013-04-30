@@ -373,6 +373,7 @@
     <EmbeddedResource Include="res\css\gray.css" />
     <EmbeddedResource Include="res\css\notheme.css" />
     <EmbeddedResource Include="res\css\ux.css" />
+    <Content Include="res\css\ux\access_ux.css" />
     <Content Include="res\css\ux\BigFont.css" />
     <EmbeddedResource Include="res\img\accordion_hover.gif" />
     <EmbeddedResource Include="res\img\accordion_link_hover.gif" />
@@ -938,7 +939,7 @@
     <EmbeddedResource Include="res\theme\gray\window\right-corners.png" />
     <EmbeddedResource Include="res\theme\gray\window\top-bottom.png" />
     <EmbeddedResource Include="res\toolbox\FileUpload.bmp" />
-    <Content Include="res\css\ux\ColumnHeaderGroup.css" />
+    <Content Include="res\css\ux\blue_ux.css" />
     <Content Include="res\css\ux\FileUploadField.css" />
     <EmbeddedResource Include="res\img\bullet_cross.png" />
     <EmbeddedResource Include="res\img\checked.gif" />
@@ -949,6 +950,7 @@
     <Content Include="res\css\ux\FineUI.css" />
     <EmbeddedResource Include="res\toolbox\MenuCheckBox.bmp" />
     <EmbeddedResource Include="res\toolbox\TimePicker.bmp" />
+    <Content Include="res\css\ux\gray_ux.css" />
     <Content Include="Web.config.txt" />
     <None Include="StrongName.snk" />
   </ItemGroup>

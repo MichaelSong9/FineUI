@@ -6,14 +6,13 @@
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
-    
 </head>
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumn="year" SortDirection="ASC"
         Width="750px" AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
-        EnableRowNumber="True" OnSort="Grid1_Sort" EnableHeaderMenu="true">
+        EnableRowNumber="True" OnSort="Grid1_Sort" EnableHeaderMenu="true" EnableColumnHide="false">
         <Columns>
             <x:BoundField Width="100px" ColumnID="name" SortField="Name" DataField="Name" DataFormatString="{0}"
                 HeaderText="姓名" />

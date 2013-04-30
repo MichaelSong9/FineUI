@@ -746,11 +746,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 启用标题栏菜单中的隐藏列功能
+        /// 启用标题栏菜单中的隐藏列功能（默认为true，仅在EnableHeaderMenu=true时有效）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
-        [Description("启用标题栏菜单中的隐藏列功能")]
+        [Description("启用标题栏菜单中的隐藏列功能（默认为true，仅在EnableHeaderMenu=true时有效）")]
         public bool EnableColumnHide
         {
             get
@@ -763,6 +763,26 @@ namespace FineUI
                 XState["EnableColumnHide"] = value;
             }
         }
+
+        /// <summary>
+        /// 启用表格列分隔线（默认为false）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("启用表格列分隔线（默认为false）")]
+        public bool EnableColumnLines
+        {
+            get
+            {
+                object obj = XState["EnableColumnLines"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableColumnLines"] = value;
+            }
+        }
+
 
         /// <summary>
         /// 启用交替行显示不同的颜色
@@ -1875,7 +1895,6 @@ namespace FineUI
                 }
             }
 
-
             
 
             #endregion
@@ -1912,6 +1931,12 @@ namespace FineUI
             #endregion
 
             #region Properties
+
+            if (EnableColumnLines)
+            {
+                OB.AddProperty("columnLines", true);
+            }
+
 
             OB.AddProperty("enableHdMenu", EnableHeaderMenu);
 

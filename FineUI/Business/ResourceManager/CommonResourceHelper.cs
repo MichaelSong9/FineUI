@@ -69,8 +69,8 @@ namespace FineUI
 
             #endregion
 
-            // ExtJS CSS & JS 版本号，只有升级ExtJS时才需要更新。
-            string extjsCSSJSVersion = "2";
+            // ExtJS CSS & JS 版本号，只有升级更新CSS或者JS时才需要更新。
+            string extjsCSSJSVersion = "3";
             string fineuiVersion = GlobalConfig.ProductVersion;
 
             #region css
