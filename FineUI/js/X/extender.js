@@ -351,7 +351,7 @@ if (Ext.grid.RowNumberer) {
 
 if (Ext.grid.GridPanel) {
     Ext.override(Ext.grid.GridPanel, {
-        
+
         x_getData: function () {
             var data = this.x_state['X_Rows']['Values'];
 
@@ -426,11 +426,12 @@ if (Ext.grid.GridPanel) {
                         pagingDatas.push(datas[i]);
                     }
                 }
-                this.getStore().loadData(pagingDatas);
+                datas = pagingDatas;
             }
-            else {
-                this.getStore().loadData(datas);
-            }
+
+
+            this.getStore().loadData(datas);
+
         },
 
         // 展开所有的行扩展列
@@ -454,12 +455,12 @@ if (Ext.grid.GridPanel) {
         // http://evilcroco.name/2010/10/making-extjs-grid-content-selectable/
         /* IE下允许选中表格中的文本 */
         x_enableTextSelection: function () {
-            if (Ext.isIE) {
-                var elems = Ext.DomQuery.select("div[unselectable=on]", this.el.dom);
-                for (var i = 0, len = elems.length; i < len; i++) {
-                    Ext.get(elems[i]).set({ 'unselectable': 'off' });
-                }
+            //if (Ext.isIE) {
+            var elems = Ext.DomQuery.select("div[unselectable=on]", this.el.dom);
+            for (var i = 0, len = elems.length; i < len; i++) {
+                Ext.get(elems[i]).set({ 'unselectable': 'off' }).removeClass('x-unselectable');
             }
+            //}
         },
 
         // 选中某些行
@@ -531,7 +532,7 @@ if (Ext.grid.GridPanel) {
             if (sortColumnIndex >= 0 && sortColumnIndex < columns.length) {
                 getHeaderNode(sortColumnIndex).addClass('sort-' + sortDirection.toLowerCase());
             }
-            
+
         },
 
         // 获取表格列

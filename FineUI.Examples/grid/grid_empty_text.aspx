@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_column_lines.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_column_lines" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_empty_text.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_empty_text" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" Height="400px"
-        runat="server" DataKeyNames="Guid" EnableColumnLines="true">
+        runat="server" DataKeyNames="Guid">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
@@ -36,6 +36,9 @@
             <x:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yy-MM-dd}" HeaderText="注册日期" />
         </Columns>
     </x:Grid>
+    <br />
+    <x:Button ID="Button1" runat="server" Text="重新绑定表格" OnClick="Button1_Click">
+    </x:Button>
     <br />
     <br />
     </form>

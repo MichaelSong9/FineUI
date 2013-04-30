@@ -282,11 +282,13 @@
       </TreeNode>
       <TreeNode Text="绑定到二级属性" NavigateUrl="~/grid/grid_complex_property.aspx" >
       </TreeNode>
-      <TreeNode Text="允许选择表格内文字" NavigateUrl="~/grid/grid_textselection.aspx" >
+      <TreeNode Text="选择表格内文字" NavigateUrl="~/grid/grid_textselection.aspx" >
       </TreeNode>
       <TreeNode Text="文字垂直靠上显示" NavigateUrl="~/grid/grid_text_top.aspx" >
       </TreeNode>
       <TreeNode Text="列分割线" NavigateUrl="~/grid/grid_column_lines.aspx" >
+      </TreeNode>
+      <TreeNode Text="表格为空的提示" NavigateUrl="~/grid/grid_empty_text.aspx" >
       </TreeNode>
     </TreeNode>
   </TreeNode>

@@ -1918,8 +1918,10 @@ namespace FineUI
 
             if (!String.IsNullOrEmpty(EmptyText))
             {
+                viewBuilder.AddProperty("deferEmptyText", false);
                 viewBuilder.AddProperty("emptyText", EmptyText);
             }
+
 
             if (viewBuilder.Count > 0)
             {
@@ -2192,6 +2194,22 @@ namespace FineUI
             #region Listeners - render - viewready
 
             StringBuilder viewreadySB = new StringBuilder();
+
+            //// 加载表格数据
+            //viewreadySB.Append("cmp.x_loadData();");
+
+            //// 隐藏列
+            //if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
+            //{
+            //    viewreadySB.Append("cmp.x_updateColumnsHiddenStatus();");
+            //}
+
+            //// 展开所有的行扩展列
+            //if (ExpandAllRowExpanders)
+            //{
+            //    viewreadySB.Append("cmp.x_expandAllRows();");
+            //}
+
 
             // Note: this.x_state['X_Rows']['Values'] will always rendered to the client side.
             //viewreadySB.Append("cmp.x_updateTpls();");

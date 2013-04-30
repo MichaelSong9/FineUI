@@ -103,12 +103,14 @@
     <Content Include="grid\grid_hdmenu_sorting.aspx" />
     <Content Include="grid\grid_text_top.aspx" />
     <Content Include="grid\grid_column_lines.aspx" />
+    <Content Include="grid\grid_empty_text.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
     <Content Include="iframe\selectprovince2_child.aspx" />
     <Content Include="iframe\selectprovince3.aspx" />
     <Content Include="iframe\selectprovince3_child.aspx" />
+    <Content Include="images\no_data_found.jpg" />
     <Content Include="images\toolbox.png" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
@@ -519,6 +521,13 @@
     </Compile>
     <Compile Include="grid\grid_column_lines.aspx.designer.cs">
       <DependentUpon>grid_column_lines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_empty_text.aspx.cs">
+      <DependentUpon>grid_empty_text.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_empty_text.aspx.designer.cs">
+      <DependentUpon>grid_empty_text.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>
