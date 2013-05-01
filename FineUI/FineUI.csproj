@@ -82,6 +82,7 @@
     <Compile Include="BaseWebControls\BoxComponent.Container\Container.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field.TextField.RealTextField\RealTextField.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field.TextField\TextField.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\Editor\GridColumnEditorCollection.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field\Field.cs" />
     <Compile Include="BaseWebControls\ControlBase.Component.BoxComponent\BoxComponent.cs" />
     <Compile Include="BaseWebControls\ControlBase.Component\Component.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Business\Editor\ControlBaseItemsEditor.cs" />
     <Compile Include="Business\Editor\MenuItemsEditor.cs" />
     <Compile Include="Business\Editor\ToolbarItemsEditor.cs" />
+    <Compile Include="Business\Editor\GridColumnEditorEditor.cs" />
     <Compile Include="Business\Enums\CompareType.cs" />
     <Compile Include="Business\Enums\HideMode.cs" />
     <Compile Include="Business\Enums\Icon.cs">

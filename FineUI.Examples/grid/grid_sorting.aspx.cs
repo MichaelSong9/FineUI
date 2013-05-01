@@ -22,18 +22,9 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
-            //DataTable table = GetDataTable();
+            string sortField = Grid1.SortField;
+            string sortDirection = Grid1.SortDirection;
 
-            //Grid1.DataSource = table;
-            //Grid1.DataBind();
-
-            GridColumn column = Grid1.FindColumn(Grid1.SortColumn);
-            BindGridWithSort(column.SortField, Grid1.SortDirection);
-        }
-
-
-        private void BindGridWithSort(string sortField, string sortDirection)
-        {
             DataTable table = GetDataTable();
 
             DataView view1 = table.DefaultView;
@@ -52,11 +43,12 @@ namespace FineUI.Examples.grid
             labResult.Text = HowManyRowsAreSelected(Grid1);
         }
 
-
-
         protected void Grid1_Sort(object sender, FineUI.GridSortEventArgs e)
         {
-            BindGridWithSort(e.SortField, e.SortDirection);
+            Grid1.SortDirection = e.SortDirection;
+            Grid1.SortColumnIndex = e.ColumnIndex;
+
+            BindGrid();
         }
 
         #endregion

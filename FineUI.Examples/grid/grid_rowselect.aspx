@@ -30,6 +30,7 @@
         </Columns>
     </x:Grid>
     <br />
+    注意：观察行选中事件与行单击事件的区别。
     </form>
 </body>
 </html>

@@ -1622,7 +1622,7 @@ if (Ext.form.Field) {
         listeners: {
             specialkey: function (field, e) {
                 if (e.getKey() == e.ENTER) {
-                    e.stopEvent();
+                    //e.stopEvent();
                 }
             }
         },

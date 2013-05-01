@@ -83,7 +83,6 @@
     </Content>
     <Content Include="common\source.aspx" />
     <Content Include="common\source_file.aspx" />
-    <Content Include="grid\grid_edit2.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
@@ -105,7 +104,9 @@
     <Content Include="grid\grid_text_top.aspx" />
     <Content Include="grid\grid_column_lines.aspx" />
     <Content Include="grid\grid_empty_text.aspx" />
-    <Content Include="grid\副本 grid_edit.aspx" />
+    <Content Include="grid\grid_editor_cell.aspx" />
+    <Content Include="grid\grid_groupheader_sort_hdmenu.aspx" />
+    <Content Include="grid\grid_groupheader_sort.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -195,7 +196,6 @@
     <Content Include="grid\grid_rowexpander_expandall2.aspx" />
     <Content Include="grid\grid_textselection.aspx" />
     <Content Include="grid\grid_groupheader.aspx" />
-    <Content Include="grid\grid_groupheader2.aspx" />
     <Content Include="grid\grid_dynamic_columns2.aspx" />
     <Content Include="grid\grid_excel_aspnet.aspx" />
     <Content Include="grid\grid_edit_radiobuttonlist.aspx" />
@@ -384,12 +384,6 @@
     <Compile Include="common\source_file.aspx.designer.cs">
       <DependentUpon>source_file.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_edit2.aspx.cs">
-      <DependentUpon>grid_edit2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_edit2.aspx.designer.cs">
-      <DependentUpon>grid_edit2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="grid\grid_edit_compare.aspx.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -537,12 +531,26 @@
     <Compile Include="grid\grid_empty_text.aspx.designer.cs">
       <DependentUpon>grid_empty_text.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\副本 grid_edit.aspx.cs">
-      <DependentUpon>副本 grid_edit.aspx</DependentUpon>
+    <Compile Include="grid\grid_editor_cell.aspx.cs">
+      <DependentUpon>grid_editor_cell.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\副本 grid_edit.aspx.designer.cs">
-      <DependentUpon>副本 grid_edit.aspx</DependentUpon>
+    <Compile Include="grid\grid_editor_cell.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_groupheader_sort_hdmenu.aspx.cs">
+      <DependentUpon>grid_groupheader_sort_hdmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_groupheader_sort_hdmenu.aspx.designer.cs">
+      <DependentUpon>grid_groupheader_sort_hdmenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_groupheader_sort.aspx.cs">
+      <DependentUpon>grid_groupheader_sort.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_groupheader_sort.aspx.designer.cs">
+      <DependentUpon>grid_groupheader_sort.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>
@@ -1092,13 +1100,6 @@
     </Compile>
     <Compile Include="grid\grid_groupheader.aspx.designer.cs">
       <DependentUpon>grid_groupheader.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_groupheader2.aspx.cs">
-      <DependentUpon>grid_groupheader2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_groupheader2.aspx.designer.cs">
-      <DependentUpon>grid_groupheader2.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_dynamic_columns2.aspx.cs">
       <DependentUpon>grid_dynamic_columns2.aspx</DependentUpon>

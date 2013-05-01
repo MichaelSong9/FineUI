@@ -35,8 +35,19 @@ namespace FineUI
     /// <summary>
     /// 表格分组列集合，继承自Collection<GridGroupColumn>
     /// </summary>
-    public class GridGroupColumnCollection : Collection<GridGroupColumn>
+    public class GridGroupColumnCollection : BaseCollection<GridGroupColumn>
     {
+         /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="parent">父控件实例</param>
+        public GridGroupColumnCollection(ControlBase parent)
+            : base(parent)
+        {
+
+        }
+
+        /*
         private Grid _grid;
 
         /// <summary>
@@ -83,6 +94,8 @@ namespace FineUI
                 }
             }
         }
+
+        */
 
     }
 }

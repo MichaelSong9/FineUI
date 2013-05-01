@@ -36,8 +36,19 @@ namespace FineUI
     /// <summary>
     /// 表格列集合，继承自Collection<GridColumn>
     /// </summary>
-    public class GridColumnCollection : Collection<GridColumn>
+    public class GridColumnCollection : BaseCollection<GridColumn>
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="parent">父控件实例</param>
+        public GridColumnCollection(ControlBase parent)
+            : base(parent)
+        {
+
+        }
+
+        /*
         private Grid _grid;
         
         /// <summary>
@@ -62,49 +73,7 @@ namespace FineUI
 
             base.InsertItem(index, item);
         }
-
-        #region old code
-        
-
-        //protected Type[] GetKnownTypes()
-        //{
-        //    Type[] types = new Type[] { 
-        //        typeof(BoundField), 
-        //        typeof(CheckBoxField), 
-        //        typeof(HyperLinkField), 
-        //        typeof(TemplateField), 
-        //        typeof(ImageField),
-        //        typeof(WindowField),
-        //        typeof(LinkButtonField)
-        //    };
-
-        //    return types;
-        //}
-
-        //protected object CreateKnownType(int index)
-        //{
-        //    switch (index)
-        //    {
-        //        case 0:
-        //            return new BoundField();
-        //        case 1:
-        //            return new CheckBoxField();
-        //        case 2:
-        //            return new HyperLinkField();
-        //        case 3:
-        //            return new TemplateField();
-        //        case 4:
-        //            return new ImageField();
-        //        case 5:
-        //            return new WindowField();
-        //        case 6:
-        //            return new LinkButtonField();
-        //        default:
-        //            throw new ArgumentOutOfRangeException();
-        //    }
-        //}
-
-        #endregion
+        */
     }
 }
 

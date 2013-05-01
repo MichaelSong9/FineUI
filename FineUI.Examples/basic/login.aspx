@@ -13,7 +13,7 @@
     <br />
     密码：admin
     <br />
-    <br />
+    注意：在任意文本输入框内按回车键，都会触发按钮（Type="Submit"）的表单提交事件。
     <x:Window ID="Window1" runat="server" Title="登录表单" IsModal="false" EnableClose="false"
         WindowPosition="GoldenSection" Width="350px" FooterBarAlign="Right">
         <Items>

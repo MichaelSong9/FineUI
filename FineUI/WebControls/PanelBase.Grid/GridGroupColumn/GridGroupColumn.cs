@@ -46,29 +46,24 @@ namespace FineUI
     [ParseChildren(true)]
     [PersistChildren(false)]
     [DefaultProperty("HeaderText")]
-    public class GridGroupColumn
+    public class GridGroupColumn : ControlBase
     {
-        #region Grid
+        #region oldcode
 
-        private Grid _grid;
-
-        /// <summary>
-        /// 表格对象
-        /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Description("表格对象")]
-        public Grid Grid
-        {
-            get
-            {
-                return _grid;
-            }
-            set
-            {
-                _grid = value;
-            }
-        }
+        
+        ///// <summary>
+        ///// 表格对象
+        ///// </summary>
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //[Description("表格对象")]
+        //public Grid Grid
+        //{
+        //    get
+        //    {
+        //        return (Grid)this.Parent;
+        //    }
+        //}
 
 
         #endregion
@@ -136,7 +131,7 @@ namespace FineUI
             {
                 if (_groupColumns == null)
                 {
-                    _groupColumns = new GridGroupColumnCollection(_grid);
+                    _groupColumns = new GridGroupColumnCollection(this);
                 }
                 return _groupColumns;
             }
@@ -158,7 +153,7 @@ namespace FineUI
             {
                 if (_columns == null)
                 {
-                    _columns = new GridColumnCollection(_grid);
+                    _columns = new GridColumnCollection(this);
                 }
                 return _columns;
             }

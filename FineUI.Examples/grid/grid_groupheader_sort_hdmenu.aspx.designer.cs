@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_groupheader2 {
+    public partial class grid_groupheader_sort_hdmenu {
         
         /// <summary>
         /// form1 控件。

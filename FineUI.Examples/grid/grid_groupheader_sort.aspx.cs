@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_groupheader2 : PageBase
+    public partial class grid_groupheader_sort : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,12 +23,9 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
-            GridColumn column = Grid1.FindColumn(Grid1.SortColumn);
-            BindGridWithSort(column.SortField, Grid1.SortDirection);
-        }
+            string sortField = Grid1.SortField;
+            string sortDirection = Grid1.SortDirection;
 
-        private void BindGridWithSort(string sortField, string sortDirection)
-        {
             DataTable table = GetDataTable();
 
             DataView view1 = table.DefaultView;
@@ -42,6 +39,7 @@ namespace FineUI.Examples.grid
         protected new DataTable GetDataTable()
         {
             DataTable table = new DataTable();
+            table.Columns.Add(new DataColumn("Guid", typeof(Guid)));
             table.Columns.Add(new DataColumn("HZData1", typeof(int)));
             table.Columns.Add(new DataColumn("HZData2", typeof(int)));
             table.Columns.Add(new DataColumn("HLData1", typeof(int)));
@@ -57,7 +55,7 @@ namespace FineUI.Examples.grid
             for (int i = 0; i < 10; i++)
             {
                 row = table.NewRow();
-                row[0] = rd.Next(1000, 9999);
+                row[0] = Guid.NewGuid();
                 row[1] = rd.Next(1000, 9999);
                 row[2] = rd.Next(1000, 9999);
                 row[3] = rd.Next(1000, 9999);
@@ -65,6 +63,7 @@ namespace FineUI.Examples.grid
                 row[5] = rd.Next(1000, 9999);
                 row[6] = rd.Next(1000, 9999);
                 row[7] = rd.Next(1000, 9999);
+                row[8] = rd.Next(1000, 9999);
 
                 table.Rows.Add(row);
             }
@@ -75,17 +74,16 @@ namespace FineUI.Examples.grid
 
         #endregion
 
-
         #region Events
-
 
         protected void Grid1_Sort(object sender, FineUI.GridSortEventArgs e)
         {
-            BindGridWithSort(e.SortField, e.SortDirection);
+            Grid1.SortDirection = e.SortDirection;
+            Grid1.SortColumnIndex = e.ColumnIndex;
+            BindGrid();
         }
 
-
-
         #endregion
+
     }
 }

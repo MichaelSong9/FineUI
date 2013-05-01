@@ -56,7 +56,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
         [Description("是否可用（只在RenderAsStaticField=false时有效）")]
-        public virtual bool Enabled
+        public override bool Enabled
         {
             get
             {

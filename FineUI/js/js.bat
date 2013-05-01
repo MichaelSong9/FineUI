@@ -59,6 +59,9 @@ type ux\Ext.ux.form.FileUploadField.js >> .form
 
 
 type pkgs\pkg-grid-foundation.js > .grid
+type pkgs\pkg-grid-editor.js >> .grid
+type pkgs\pkg-grid-grouping.js >> .grid
+type pkgs\pkg-grid-property.js >> .grid
 type ux\Ext.ux.SimplePagingToolbar.js >> .grid
 type ux\Ext.ux.grid.RowExpander.js >> .grid
 type ux\Ext.ux.grid.ColumnHeaderGroup.js >> .grid

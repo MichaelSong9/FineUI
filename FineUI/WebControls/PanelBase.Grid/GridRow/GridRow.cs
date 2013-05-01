@@ -31,6 +31,7 @@ using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 
 using Newtonsoft.Json.Linq;
+using System.Collections.ObjectModel;
 
 namespace FineUI
 {
@@ -170,7 +171,7 @@ namespace FineUI
         internal object[] ToShortStates()
         {
             List<object> shortStates = new List<object>();
-            GridColumnCollection columns = _grid.AllColumns;
+            Collection<GridColumn> columns = _grid.AllColumns;
             for (int i = 0, count = columns.Count; i < count; i++)
             {
                 if (columns[i].PersistState)
@@ -183,7 +184,7 @@ namespace FineUI
 
         internal void FromShortStates(object[] shortStates)
         {
-            GridColumnCollection columns = _grid.AllColumns;
+            Collection<GridColumn> columns = _grid.AllColumns;
             States = new object[columns.Count];
             int shortStateIndex = 0;
             for (int i = 0, count = columns.Count; i < count; i++)
@@ -223,7 +224,7 @@ namespace FineUI
 
         public void InitTemplateContainers()
         {
-            GridColumnCollection columns = _grid.AllColumns;
+            Collection<GridColumn> columns = _grid.AllColumns;
             TemplateContainers = new GridRowControl[columns.Count];
 
             for (int i = 0, count = columns.Count; i < count; i++)
@@ -265,7 +266,7 @@ namespace FineUI
         /// </summary>
         internal void DataBindRow()
         {
-            GridColumnCollection columns = _grid.AllColumns;
+            Collection<GridColumn> columns = _grid.AllColumns;
 
             //int columnsCount = columns.Count;
             //// 如果Grid启用RowExpander，需要附加额外的数据

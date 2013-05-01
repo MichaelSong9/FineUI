@@ -189,7 +189,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
         [Description(" «∑Òø…”√")]
-        public virtual bool Enabled
+        public override bool Enabled
         {
             get
             {

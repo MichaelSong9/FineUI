@@ -230,7 +230,9 @@
     <TreeNode Text="多表头" SingleClickExpand="true">
       <TreeNode Text="多表头" NavigateUrl="~/grid/grid_groupheader.aspx" >
       </TreeNode>
-      <TreeNode Text="多表头与排序" NavigateUrl="~/grid/grid_groupheader2.aspx" >
+      <TreeNode Text="多表头与排序" NavigateUrl="~/grid/grid_groupheader_sort.aspx" >
+      </TreeNode>
+      <TreeNode Text="多表头与标题栏菜单排序" NavigateUrl="~/grid/grid_groupheader_sort_hdmenu.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="动态创建列" SingleClickExpand="true">
@@ -272,7 +274,7 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="可编辑表格" SingleClickExpand="true">
-      <TreeNode Text="可编辑表格" NavigateUrl="~/grid/grid_edit2.aspx" >
+      <TreeNode Text="可编辑表格" NavigateUrl="~/grid/grid_editor_cell.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="其他" SingleClickExpand="true">
