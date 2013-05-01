@@ -271,6 +271,10 @@
       <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
       </TreeNode>
     </TreeNode>
+    <TreeNode Text="可编辑表格" SingleClickExpand="true">
+      <TreeNode Text="可编辑表格" NavigateUrl="~/grid/grid_edit2.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="其他" SingleClickExpand="true">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>
