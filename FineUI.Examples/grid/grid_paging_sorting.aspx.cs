@@ -22,11 +22,16 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
+            string sortField = Grid1.SortField;
+            string sortDirection = Grid1.SortDirection;
+
             DataTable table = GetDataTable();
 
-            Grid1.DataSource = table;
-            Grid1.DataBind();
+            DataView view1 = table.DefaultView;
+            view1.Sort = String.Format("{0} {1}", sortField, sortDirection);
 
+            Grid1.DataSource = view1;
+            Grid1.DataBind();
         }
 
         #endregion
@@ -47,13 +52,10 @@ namespace FineUI.Examples.grid
 
         protected void Grid1_Sort(object sender, FineUI.GridSortEventArgs e)
         {
-            DataTable table = GetDataTable();
+            Grid1.SortDirection = e.SortDirection;
+            Grid1.SortColumnIndex = e.ColumnIndex;
 
-            DataView view1 = table.DefaultView;
-            view1.Sort = String.Format("{0} {1}", e.SortField, e.SortDirection);
-
-            Grid1.DataSource = view1;
-            Grid1.DataBind();
+            BindGrid();
         }
 
 
