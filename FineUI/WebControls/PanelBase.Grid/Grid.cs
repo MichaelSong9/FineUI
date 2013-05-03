@@ -165,12 +165,12 @@ namespace FineUI
                 XState["AllowCellEditing"] = value;
             }
         }
-        
+
         #endregion
 
         #region AllowPaging/IsDatabasePaging/PageSize/PageCount/PageIndex/RecordCount
 
-        
+
 
 
         /// <summary>
@@ -358,8 +358,9 @@ namespace FineUI
         /// <summary>
         /// [AJAX属性]当前按照第几列排序（从零算起）
         /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Category(CategoryName.OPTIONS)]
         [DefaultValue(-1)]
         [Description("[AJAX属性]当前按照第几列排序（从零算起）")]
         public int SortColumnIndex
@@ -372,22 +373,31 @@ namespace FineUI
                 }
                 else
                 {
-                    if (!String.IsNullOrEmpty(SortColumn))
+                    object obj = XState["SortColumnIndex"];
+                    if (obj == null)
                     {
-                        return FindColumn(SortColumn).ColumnIndex;
+                        if (!String.IsNullOrEmpty(SortColumn))
+                        {
+                            return FindColumn(SortColumn).ColumnIndex;
+                        }
+                        else
+                        {
+                            return -1;
+                        }
                     }
                     else
                     {
-                        return -1;
+                        return (int)obj;
                     }
                 }
             }
             set
             {
-                if (value != -1)
-                {
-                    SortColumn = AllColumns[value].ColumnID;
-                }
+                XState["SortColumnIndex"] = value;
+                //if (value != -1)
+                //{
+                //    SortColumn = AllColumns[value].ColumnID;
+                //}
             }
         }
 
@@ -406,7 +416,7 @@ namespace FineUI
                     return "";
                 }
 
-                if (SortColumnIndex != -1)
+                if (SortColumnIndex >= 0 && SortColumnIndex < AllColumns.Count)
                 {
                     return AllColumns[SortColumnIndex].SortField;
                 }
@@ -2534,7 +2544,7 @@ namespace FineUI
                 }
 
                 columnsBuilder.AddProperty(column.XID, true);
-                
+
 
                 #region oldcode
                 //if (column is TemplateField && (column as TemplateField).RenderAsRowExpander)

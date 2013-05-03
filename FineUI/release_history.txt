@@ -24,6 +24,7 @@ Apache License 2.0 (Apache)
 		+恢复表格和树控件中链接光标的手型而非指针。
 			-删除ext-all-notheme中对x-unselectable的光标定义。
 		-修正grid/grid_textselection.aspx无法选择文本的问题。
+		-修正Chrome下无法编辑表格模板列中的文本输入框（刘军）。
 	-修正在文本输入框中按回车键无法触发type=submit按钮的表单提交事件（jieking、luyj56、^老鼠^、消失的键盘）。
 	+表格增强。
 		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
@@ -31,10 +32,10 @@ Apache License 2.0 (Apache)
 		-修正Access和Gray主题下表格多表头的样式问题（bestwowo）。
 		-增加示例grid/grid_empty_text.aspx。
 		+增加只读属性SortField（从SortColumnIndex或者SortColumn计算得来）。
-			-对示例grid/grid_sorting.aspx、grid/grid_groupheader2.aspx进行重构。
-			-增加示例grid/grid_groupheader_sort_hdmenu.aspx。
+			-注意：这个地方和之前不兼容，需要在Sort事件中设置表格的SortDirection和SortColumnIndex。
+			-对示例grid/grid_sorting.aspx、grid/grid_paging_sorting.aspx、grid/grid_groupheader_sort.aspx进行重构。
+			-增加示例grid/grid_groupheader_sort_hdmenu.aspx、grid/grid_paging_database_sorting.aspx。
 		+对GridColumn进行重构（表格列也是一个控件），如果没有设置ColumnID，则ColumnID等于列的ClientID。
-			-可能影响
 		+增加AllowCellEditing属性（表格的单元格编辑功能）。
 			-
 

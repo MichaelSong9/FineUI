@@ -30,8 +30,8 @@
                     </x:GridGroupColumn>
                     <x:GridGroupColumn HeaderText="漯河市" TextAlign="Center">
                         <Columns>
-                            <x:BoundField Width="100px" DataField="HLData1" SortField="HLData1"
-                                HeaderText="数据一" TextAlign="Center" />
+                            <x:BoundField Width="100px" DataField="HLData1" SortField="HLData1" HeaderText="数据一"
+                                TextAlign="Center" />
                             <x:BoundField Width="100px" DataField="HLData2" SortField="HLData2" HeaderText="数据二"
                                 TextAlign="Center" />
                         </Columns>
@@ -42,14 +42,18 @@
                 <GroupColumns>
                     <x:GridGroupColumn HeaderText="合肥市" TextAlign="Center">
                         <Columns>
-                            <x:BoundField Width="100px" DataField="AHData1" SortField="AHData1" HeaderText="数据一" TextAlign="Center" />
-                            <x:BoundField Width="100px" DataField="AHData2" SortField="AHData2" HeaderText="数据二" TextAlign="Center" />
+                            <x:BoundField Width="100px" DataField="AHData1" SortField="AHData1" HeaderText="数据一"
+                                TextAlign="Center" />
+                            <x:BoundField Width="100px" DataField="AHData2" SortField="AHData2" HeaderText="数据二"
+                                TextAlign="Center" />
                         </Columns>
                     </x:GridGroupColumn>
                     <x:GridGroupColumn HeaderText="六安市" TextAlign="Center">
                         <Columns>
-                            <x:BoundField Width="100px" DataField="ALData1" SortField="ALData1" HeaderText="数据一" TextAlign="Center" />
-                            <x:BoundField Width="100px" DataField="ALData2" SortField="ALData2" HeaderText="数据二" TextAlign="Center" />
+                            <x:BoundField Width="100px" DataField="ALData1" SortField="ALData1" HeaderText="数据一"
+                                TextAlign="Center" />
+                            <x:BoundField Width="100px" DataField="ALData2" SortField="ALData2" HeaderText="数据二"
+                                TextAlign="Center" />
                         </Columns>
                     </x:GridGroupColumn>
                 </GroupColumns>

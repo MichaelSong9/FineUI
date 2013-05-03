@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px"
-        runat="server" DataKeyNames="Guid">
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"
+        DataKeyNames="Guid">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
@@ -31,9 +31,9 @@
                 DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                 DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
             <x:ImageField Width="60px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
-                HeaderText="分组"></x:ImageField>
-            <x:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yy-MM-dd}"
-                HeaderText="注册日期" />
+                HeaderText="分组">
+            </x:ImageField>
+            <x:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yy-MM-dd}" HeaderText="注册日期" />
         </Columns>
     </x:Grid>
     <br />

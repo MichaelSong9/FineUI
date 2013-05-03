@@ -10,6 +10,10 @@ html, body
 }
 */
 
+.x-unselectable, .x-unselectable * {
+    -webkit-user-select: auto;
+}
+
 
 html, body
 {
