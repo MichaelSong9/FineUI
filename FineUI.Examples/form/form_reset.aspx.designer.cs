@@ -10,7 +10,7 @@
 namespace FineUI.Examples.form {
     
     
-    public partial class form {
+    public partial class form_reset {
         
         /// <summary>
         /// _form1 控件。
@@ -92,6 +92,15 @@ namespace FineUI.Examples.form {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.Button btnSubmitForm1;
+        
+        /// <summary>
+        /// btnResetForm1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnResetForm1;
         
         /// <summary>
         /// Form2 控件。
@@ -184,6 +193,15 @@ namespace FineUI.Examples.form {
         protected global::FineUI.Button btnSubmitForm2;
         
         /// <summary>
+        /// btnResetForm2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnResetForm2;
+        
+        /// <summary>
         /// btnSubmitAll 控件。
         /// </summary>
         /// <remarks>
@@ -191,5 +209,14 @@ namespace FineUI.Examples.form {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.Button btnSubmitAll;
+        
+        /// <summary>
+        /// btnResetAll 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnResetAll;
     }
 }

@@ -83,6 +83,8 @@
     </Content>
     <Content Include="common\source.aspx" />
     <Content Include="common\source_file.aspx" />
+    <Content Include="form\form_reset.aspx" />
+    <Content Include="form\form_hide_field.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
@@ -384,6 +386,20 @@
     </Compile>
     <Compile Include="common\source_file.aspx.designer.cs">
       <DependentUpon>source_file.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\form_reset.aspx.cs">
+      <DependentUpon>form_reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\form_reset.aspx.designer.cs">
+      <DependentUpon>form_reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\form_hide_field.aspx.cs">
+      <DependentUpon>form_hide_field.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\form_hide_field.aspx.designer.cs">
+      <DependentUpon>form_hide_field.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_edit_compare.aspx.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>

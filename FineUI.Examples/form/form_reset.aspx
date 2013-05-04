@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="form.aspx.cs" Inherits="FineUI.Examples.form.form" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="form_reset.aspx.cs" Inherits="FineUI.Examples.form.form_reset" %>
 
 <!DOCTYPE html>
 <html>
@@ -43,6 +43,8 @@
                         <Items>
                             <x:Button runat="server" Text="验证此表单并提交" CssClass="inline" ValidateForms="Form1"
                                 ID="btnSubmitForm1" OnClick="btnSubmitForm1_Click">
+                            </x:Button>
+                            <x:Button ID="btnResetForm1" EnablePostBack="false" Text="重置表单1" runat="server">
                             </x:Button>
                         </Items>
                     </x:Panel>
@@ -98,6 +100,8 @@
                             <x:Button ID="btnSubmitForm2" Text="验证此表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitForm2_Click"
                                 ValidateForms="Form2">
                             </x:Button>
+                            <x:Button ID="btnResetForm2" EnablePostBack="false" Text="重置表单2" runat="server">
+                            </x:Button>
                         </Items>
                     </x:Panel>
                 </Items>
@@ -107,6 +111,8 @@
     <br />
     <x:Button ID="btnSubmitAll" Text="验证两个表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitAll_Click"
         ValidateForms="Form1,Form2">
+    </x:Button>
+    <x:Button ID="btnResetAll" EnablePostBack="false" Text="重置表单1和表单2" runat="server">
     </x:Button>
     </form>
 </body>

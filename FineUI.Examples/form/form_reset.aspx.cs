@@ -6,13 +6,15 @@ using System.Web.UI.WebControls;
 
 namespace FineUI.Examples.form
 {
-    public partial class form : PageBase
+    public partial class form_reset : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                
+                btnResetForm1.OnClientClick = Form1.GetResetReference();
+                btnResetForm2.OnClientClick = Form2.GetResetReference();
+                btnResetAll.OnClientClick = Form1.GetResetReference() + Form2.GetResetReference();
             }
         }
 

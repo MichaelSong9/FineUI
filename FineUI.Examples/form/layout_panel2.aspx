@@ -20,7 +20,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" FormMessageTarget="Qtip" />
-    <x:SimpleForm ID="SimpleForm1" Width="800px" BodyPadding="5px" Title="表单" runat="server">
+    <x:SimpleForm ID="SimpleForm1" Width="600px" BodyPadding="5px" Title="表单" runat="server">
         <Items>
             <x:Panel ID="Panel2" ShowHeader="false" CssClass="x-form-item" ShowBorder="false"
                 Layout="Column" runat="server">
@@ -83,7 +83,7 @@
         </Items>
     </x:SimpleForm>
     <br />
-    注意：本页面的表单验证失败的错误提示类型是qtip。
+    注意：本页面中表单验证失败的错误提示类型是Qtip，而不是默认的Side。
     </form>
 </body>
 </html>
