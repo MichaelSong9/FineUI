@@ -20,8 +20,8 @@
             <x:NumberBox ID="NumberBox4" runat="server" EmptyText="精度为 2，比如 1.35" Label="0 到 1 之间的小数"
                 MaxValue="1" MinValue="0" NoNegative="True" Required="True" ShowRedStar="True">
             </x:NumberBox>
-            <x:Button ID="btnSubmit" runat="server" ValidateForms="SimpleForm1" Text="提交表单"
-                OnClick="btnSubmit_Click">
+            <x:NumberBox Label="任意整数" ID="NumberBox5" NoDecimal="true" runat="server" />
+            <x:Button ID="btnSubmit" runat="server" ValidateForms="SimpleForm1" Text="提交表单" OnClick="btnSubmit_Click">
             </x:Button>
         </Items>
     </x:SimpleForm>

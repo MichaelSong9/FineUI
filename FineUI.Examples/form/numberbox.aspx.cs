@@ -10,6 +10,10 @@ namespace FineUI.Examples.form
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                NumberBox3.Text = "11111111111111111";
+            }
 
         }
 
