@@ -1,11 +1,4 @@
 
-:: DEBUG
-type ux\Ext.ux.FormViewport.js > ux\ux.js
-type ux\Ext.ux.layout.RowLayout.js >> ux\ux.js
-type ux\Ext.ux.TabCloseMenu.js >> ux\ux.js
-type ux\Ext.ux.SimplePagingToolbar.js >> ux\ux.js
-type ux\Ext.ux.grid.RowExpander.js >> ux\ux.js
-type ux\Ext.ux.form.FileUploadField.js >> ux\ux.js
 
 type X\X.util.js > X\X.js
 type X\X.ajax.js >> X\X.js
@@ -15,8 +8,6 @@ type X\X.simulateTree.js >> X\X.js
 
 
 
-
-:: RELEASE
 type lib\json2.js > x-debug.js
 type lib\Base64.js >> x-debug.js
 type X\X.js >> x-debug.js

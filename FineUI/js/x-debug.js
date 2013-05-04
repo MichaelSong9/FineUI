@@ -2240,14 +2240,17 @@ if (Ext.form.Field) {
             this.enableBubble('change');
         }),
 
+        /* 这会导致在文本输入框中按回车键，无法触发type=submit的表单回发事件
         listeners: {
             specialkey: function (field, e) {
                 if (e.getKey() == e.ENTER) {
-                    //e.stopEvent();
+                    e.stopEvent();
                 }
             }
         },
+        */
 
+        /*
         // When show or hide the field, also hide the label.
         hide: function () {
             Ext.form.Field.superclass.hide.call(this);
@@ -2280,6 +2283,7 @@ if (Ext.form.Field) {
                 labelAndField.show();
             }
         },
+        */
 
         x_setValue: function () {
             this.setValue(this.x_state['Text']);

@@ -103,6 +103,7 @@ if (Ext.form.Field) {
         },
         */
 
+        /*
         // When show or hide the field, also hide the label.
         hide: function () {
             Ext.form.Field.superclass.hide.call(this);
@@ -135,6 +136,7 @@ if (Ext.form.Field) {
                 labelAndField.show();
             }
         },
+        */
 
         x_setValue: function () {
             this.setValue(this.x_state['Text']);
