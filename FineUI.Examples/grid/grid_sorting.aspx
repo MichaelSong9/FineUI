@@ -9,19 +9,18 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumn="year" SortDirection="ASC"
+    <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumnIndex="2" SortDirection="ASC"
         Width="750px" AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
         EnableRowNumber="True" OnSort="Grid1_Sort">
         <Columns>
-            <x:BoundField Width="100px" ColumnID="name" SortField="Name" DataField="Name" DataFormatString="{0}"
+            <x:BoundField Width="100px" SortField="Name" DataField="Name" DataFormatString="{0}"
                 HeaderText="姓名" />
             <x:TemplateField Width="60px" SortField="Gender" HeaderText="性别">
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
-            <x:BoundField Width="100px" ColumnID="year" SortField="EntranceYear" DataField="EntranceYear"
-                HeaderText="入学年份" />
+            <x:BoundField Width="100px" SortField="EntranceYear" DataField="EntranceYear" HeaderText="入学年份" />
             <x:CheckBoxField Width="60px" SortField="AtSchool" RenderAsStaticField="true" DataField="AtSchool"
                 HeaderText="是否在校" />
             <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"

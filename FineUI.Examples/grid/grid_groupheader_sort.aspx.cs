@@ -80,6 +80,7 @@ namespace FineUI.Examples.grid
         {
             Grid1.SortDirection = e.SortDirection;
             Grid1.SortColumnIndex = e.ColumnIndex;
+
             BindGrid();
         }
 

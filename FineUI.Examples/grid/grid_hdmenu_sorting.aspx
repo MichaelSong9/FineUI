@@ -10,11 +10,11 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumn="year" SortDirection="ASC"
+    <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumnIndex="2" SortDirection="ASC"
         Width="750px" AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
         EnableRowNumber="True" OnSort="Grid1_Sort" EnableHeaderMenu="true" EnableColumnHide="false">
         <Columns>
-            <x:BoundField Width="100px" ColumnID="name" SortField="Name" DataField="Name" DataFormatString="{0}"
+            <x:BoundField Width="100px" SortField="Name" DataField="Name" DataFormatString="{0}"
                 HeaderText="姓名" />
             <x:TemplateField Width="60px" SortField="Gender" HeaderText="性别">
                 <ItemTemplate>

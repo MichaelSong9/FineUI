@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="900px" runat="server"
-        DataKeyNames="Guid" EnableRowNumber="true" AllowSorting="true" SortColumn="HZData1"
+        DataKeyNames="Guid" EnableRowNumber="true" AllowSorting="true" SortColumnIndex="0"
         SortDirection="ASC" OnSort="Grid1_Sort" ForceFitAllTime="true" EnableHeaderMenu="true">
         <GroupColumns>
             <x:GridGroupColumn HeaderText="">
@@ -22,8 +22,8 @@
                     </x:GridGroupColumn>
                     <x:GridGroupColumn HeaderText="驻马店市" TextAlign="Center">
                         <Columns>
-                            <x:BoundField Width="100px" DataField="HZData1" SortField="HZData1" ColumnID="HZData1"
-                                HeaderText="数据一" TextAlign="Center" />
+                            <x:BoundField Width="100px" DataField="HZData1" SortField="HZData1" HeaderText="数据一"
+                                TextAlign="Center" />
                             <x:BoundField Width="100px" DataField="HZData2" SortField="HZData2" HeaderText="数据二"
                                 TextAlign="Center" />
                         </Columns>
