@@ -600,15 +600,7 @@ namespace FineUI
 
         protected override void OnAjaxPreRender()
         {
-            base.OnAjaxPreRender();
-
-            StringBuilder sb = new StringBuilder();
-            //if (PropertyModified("Text"))
-            //{
-            //    sb.AppendFormat("{0}.setValue({1});", XID, JsHelper.Enquote(Text));
-            //}
-
-            AddAjaxScript(sb);
+            // 表格列控件不监视列属性的改变
         }
 
         protected override void OnFirstPreRender()
@@ -685,6 +677,8 @@ namespace FineUI
         }
 
         #endregion
+
+       
 
     }
 }

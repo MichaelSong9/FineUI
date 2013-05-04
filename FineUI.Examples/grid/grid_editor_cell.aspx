@@ -11,12 +11,16 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"
-        DataKeyNames="Id,Name" AllowCellEditing="true">
+        DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
+                <Editor>
+                    <x:TextBox ID="TextBox5" runat="server">
+                    </x:TextBox>
+                </Editor>
             </x:TemplateField>
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名">
                 <Editor>
@@ -30,18 +34,31 @@
                     <%--<asp:Label ID="Label2" runat="server" Text='<%# GetGender(DataBinder.Eval(Container.DataItem, "Gender")) %>'></asp:Label>--%>
                     <asp:Label ID="Label3" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                 </ItemTemplate>
+                <Editor>
+                    <x:TextBox ID="TextBox1" runat="server">
+                    </x:TextBox>
+                </Editor>
             </x:TemplateField>
-            <x:BoundField Width="60px" DataField="EntranceYear" HeaderText="入学年份" />
-            <x:CheckBoxField Width="60px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
+            <x:BoundField Width="60px" DataField="EntranceYear" HeaderText="入学年份">
+                <Editor>
+                    <x:TextBox ID="TextBox2" runat="server">
+                    </x:TextBox>
+                </Editor>
+            </x:BoundField>
+            <x:CheckBoxField Width="60px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校">
+                <Editor>
+                    <x:TextBox ID="TextBox3" runat="server">
+                    </x:TextBox>
+                </Editor>
+            </x:CheckBoxField>
             <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                 DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-            <x:TemplateField HeaderText="分组" Width="100px">
-                <ItemTemplate>
-                    <asp:TextBox ID="tbxGroupName" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'
-                        Text='<%# Eval("Group") %>'></asp:TextBox>
-                </ItemTemplate>
-            </x:TemplateField>
+                DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True">
+                <Editor>
+                    <x:TextBox ID="TextBox4" runat="server">
+                    </x:TextBox>
+                </Editor>
+            </x:HyperLinkField>
         </Columns>
     </x:Grid>
     <br />
@@ -58,55 +75,5 @@
     </x:Label>
     <br />
     </form>
-    <script type="text/javascript">
-        var gridClientID = '<%= Grid1.ClientID %>';
-
-        function registerSelectEvent() {
-            var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-click-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-click-registered': true });
-
-            grid.el.select('.x-grid-tpl input').on('click', function (evt, el) {
-                el.select();
-            });
-        }
-
-        function registerEnterEvent() {
-            var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-keydown-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-keydown-registered': true });
-
-            grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
-                if (evt.getKey() == evt.ENTER) {
-                    var nextRow = Ext.get(el).parent('.x-grid3-row').next();
-                    if (nextRow) {
-                        nextRow.query('.x-grid-tpl input')[0].select();
-                    }
-                }
-            });
-        }
-
-        function onReady() {
-            var grid = X(gridClientID);
-
-            grid.on('viewready', function () {
-                registerSelectEvent();
-
-                registerEnterEvent();
-            });
-        }
-
-        function onAjaxReady() {
-            registerSelectEvent();
-
-            registerEnterEvent();
-        }
-    </script>
 </body>
 </html>

@@ -108,7 +108,7 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="复杂布局" SingleClickExpand="true">
-      <TreeNode Text="Form中嵌入Panel" NavigateUrl="~/form/layout_panel.aspx" >
+      <TreeNode Text="按钮与表单" NavigateUrl="~/form/layout_panel.aspx" >
       </TreeNode>
       <TreeNode Text="自定义SimpleForm布局" NavigateUrl="~/form/layout_panel2.aspx" >
       </TreeNode>
@@ -464,8 +464,6 @@
     <TreeNode Text="CssStyle与CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
     </TreeNode>
     <TreeNode Text="FormItemClass属性" NavigateUrl="~/other/formitemclass.aspx">
-    </TreeNode>
-    <TreeNode Text="表单中的按钮" NavigateUrl="~/other/button_in_form.aspx">
     </TreeNode>
     <TreeNode Text="向父页面添加Tab" NavigateUrl="~/other/addtab.aspx">
     </TreeNode>

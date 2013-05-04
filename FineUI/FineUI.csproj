@@ -982,7 +982,6 @@
     <Content Include="js\ux\Ext.ux.FormViewport.js" />
     <Content Include="js\ux\Ext.ux.layout.RowLayout.js" />
     <Content Include="js\ux\Ext.ux.SimplePagingToolbar.js" />
-    <EmbeddedResource Include="js\ux\ux.js" />
     <Content Include="js\ux\Ext.ux.TabCloseMenu.js" />
     <Content Include="js\ux\Ext.ux.AspNetProxy.js" />
     <Content Include="js\X\X.simulateTree.js" />

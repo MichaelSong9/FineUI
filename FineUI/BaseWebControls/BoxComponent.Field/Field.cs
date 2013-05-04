@@ -354,19 +354,6 @@ namespace FineUI
 
             if (Width == Unit.Empty)
             {
-                //if (this is CheckBox || this is RadioButton)
-                //{
-                //    // Don't add anchor layout.
-                //}
-                //else
-                //{
-                //    OB.AddProperty("anchor", String.Format("-{0}", OffsetRight));
-                //}
-                //if (this is CheckBox || this is RadioButton)
-                //{
-                //    // Don't add anchor layout.
-                //}
-
                 if (OffsetRight.Value != 0)
                 {
                     OB.AddProperty("anchor", "-" + OffsetRight.Value + "px");

@@ -43,9 +43,10 @@ namespace FineUI
     /// 表单行控件
     /// </summary>
     [Designer("FineUI.Design.FormRowDesigner, FineUI.Design")]
-    [ToolboxData("<{0}:FormRow runat=\"server\"></{0}:FormRow>")]
-    [ToolboxBitmap(typeof(FormRow), "res.toolbox.FormRow.bmp")]
-    [Description("表单行控件")]
+    //[ToolboxData("<{0}:FormRow runat=\"server\"></{0}:FormRow>")]
+    //[ToolboxBitmap(typeof(FormRow), "res.toolbox.FormRow.bmp")]
+    //[Description("表单行控件")]
+    [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

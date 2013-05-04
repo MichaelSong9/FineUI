@@ -166,11 +166,29 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 编辑单元格时点击单元格的次数（默认为2次）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(2)]
+        [Description("编辑单元格时点击单元格的次数（默认为2次）")]
+        public int ClicksToEdit
+        {
+            get
+            {
+                object obj = XState["ClicksToEdit"];
+                return obj == null ? 2 : (int)obj;
+            }
+            set
+            {
+                XState["ClicksToEdit"] = value;
+            }
+        }
+
         #endregion
 
         #region AllowPaging/IsDatabasePaging/PageSize/PageCount/PageIndex/RecordCount
-
-
 
 
         /// <summary>
@@ -2056,8 +2074,6 @@ namespace FineUI
                 }
             }
 
-
-
             if (EnableAlternateRowColor)
             {
                 OB.AddProperty("stripeRows", true);
@@ -2366,6 +2382,23 @@ namespace FineUI
 
             OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderSB.ToString(), "cmp"), true);
 
+
+            #endregion
+
+            #region AllowCellEditing
+
+            if (AllowCellEditing)
+            {
+                if (ClicksToEdit != 2)
+                {
+                    OB.AddProperty("clicksToEdit", ClicksToEdit);
+                }
+
+                OB.Listeners.AddProperty("beforeedit", JsHelper.GetFunction("console.log(e);", "e"), true);
+
+                OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
+
+            }
 
             #endregion
 

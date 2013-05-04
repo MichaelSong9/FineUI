@@ -279,6 +279,8 @@ namespace FineUI
             //    OB.AddProperty("fieldDefaults", fieldDefaults);
             //}
 
+            //OB.AddProperty("msgTarget", "qtip");
+
             #region old code
 
             //// 如果存在Fields集合

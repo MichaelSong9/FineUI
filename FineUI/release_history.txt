@@ -25,7 +25,10 @@ Apache License 2.0 (Apache)
 			-删除ext-all-notheme中对x-unselectable的光标定义。
 		-修正grid/grid_textselection.aspx无法选择文本的问题。
 		-修正Chrome下无法编辑表格模板列中的文本输入框（刘军）。
-	-修正在文本输入框中按回车键无法触发type=submit按钮的表单提交事件（jieking、luyj56、^老鼠^、消失的键盘）。
+	+表单相关。
+		-修正在文本输入框中按回车键无法触发type=submit按钮的表单提交事件（jieking、luyj56、^老鼠^、消失的键盘）。
+		-更新示例form/layout_panel2.aspx，增加表单验证。
+		-
 	+表格增强。
 		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
 			-增加示例grid/grid_column_lines.aspx。

@@ -451,7 +451,7 @@ namespace FineUI
 
             #endregion
 
-            OB.AddProperty("enableKeyEvents", true);
+            //OB.AddProperty("enableKeyEvents", true);
 
             #region NextFocusControl
 

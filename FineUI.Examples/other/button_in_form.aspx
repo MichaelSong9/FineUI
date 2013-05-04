@@ -16,10 +16,10 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Form ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelAlign="Left" LabelWidth="80px" EnableBackgroundColor="true"
-        Title="表单" runat="server">
+    <x:Form ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelAlign="Left" LabelWidth="80px"
+        EnableBackgroundColor="true" Title="表单" runat="server">
         <Rows>
-            <x:FormRow ID="FormRow5" runat="server">
+            <x:FormRow ID="FormRow5">
                 <Items>
                     <x:TextBox ID="TextBox1" runat="server" Label="文本一">
                     </x:TextBox>

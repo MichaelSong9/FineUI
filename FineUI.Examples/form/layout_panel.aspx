@@ -5,19 +5,48 @@
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <style>
+        .btn-in-form
+        {
+            margin-bottom: 4px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Form ID="Form2" Width="600px" BodyPadding="5px" Title="表单" runat="server">
+    <x:Form ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelAlign="Left" LabelWidth="80px"
+        EnableBackgroundColor="true" Title="表单" runat="server">
         <Rows>
-            <x:FormRow ColumnWidths="50% 60px 60px">
+            <x:FormRow ID="FormRow5">
                 <Items>
-                    <x:TextBox ID="TextBox1" Label="用户名" runat="server">
+                    <x:TextBox ID="TextBox1" runat="server" Label="文本一">
                     </x:TextBox>
-                    <x:Button ID="Button1" Text="按钮一" CssClass="inline" runat="server">
+                    <x:Button ID="Button4" CssClass="btn-in-form" runat="server" Text="按钮一">
                     </x:Button>
-                    <x:Button ID="Button2" Text="按钮二" runat="server">
+                </Items>
+            </x:FormRow>
+            <x:FormRow ID="FormRow6" runat="server">
+                <Items>
+                    <x:TextBox ID="TextBox2" runat="server" Label="文本二">
+                    </x:TextBox>
+                    <x:Button ID="Button3" CssClass="btn-in-form" runat="server" Text="按钮二">
+                    </x:Button>
+                </Items>
+            </x:FormRow>
+            <x:FormRow ID="FormRow7" runat="server">
+                <Items>
+                    <x:TextBox ID="TextBox3" runat="server" Label="文本三">
+                    </x:TextBox>
+                    <x:Button ID="Button1" CssClass="btn-in-form" runat="server" Text="按钮三">
+                    </x:Button>
+                </Items>
+            </x:FormRow>
+            <x:FormRow ID="FormRow8" runat="server">
+                <Items>
+                    <x:TextBox ID="TextBox4" runat="server" Label="文本四">
+                    </x:TextBox>
+                    <x:Button ID="Button2" CssClass="btn-in-form" runat="server" Text="按钮四">
                     </x:Button>
                 </Items>
             </x:FormRow>
