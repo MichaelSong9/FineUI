@@ -44,7 +44,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class HyperLinkField : GridColumn
+    public class HyperLinkField : CommonColumn
     {
 
         #region Properties

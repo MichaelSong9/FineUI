@@ -56,7 +56,7 @@
                 DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
             <x:ImageField Width="60px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
                 HeaderText="分组"></x:ImageField>
-            <x:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yy-MM-dd}"
+            <x:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yyyy-MM-dd}"
                 HeaderText="注册日期" />
         </Columns>
     </x:Grid>

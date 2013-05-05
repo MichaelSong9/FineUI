@@ -17,48 +17,44 @@
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
-                <Editor>
-                    <x:TextBox ID="TextBox5" runat="server">
-                    </x:TextBox>
-                </Editor>
             </x:TemplateField>
-            <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名">
+            <x:EditField Width="100px" DataField="Name" HeaderText="姓名">
                 <Editor>
                     <x:TextBox ID="tbxEditorName" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:BoundField>
-            <x:TemplateField Width="60px" HeaderText="性别">
-                <ItemTemplate>
-                    <%-- Container.DataItem 的类型是 System.Data.DataRowView 或者用户自定义类型 --%>
-                    <%--<asp:Label ID="Label2" runat="server" Text='<%# GetGender(DataBinder.Eval(Container.DataItem, "Gender")) %>'></asp:Label>--%>
-                    <asp:Label ID="Label3" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
-                </ItemTemplate>
+            </x:EditField>
+            <x:EditField Width="100px" DataField="Gender" HeaderText="性别">
+                <Editor>
+                    <x:TextBox ID="tbxEditorGender" runat="server">
+                    </x:TextBox>
+                </Editor>
+            </x:EditField>
+            <x:EditField Width="100px" DataField="EntranceYear" HeaderText="入学年份">
+                <Editor>
+                    <x:TextBox ID="tbxEditorEntranceYear" runat="server">
+                    </x:TextBox>
+                </Editor>
+            </x:EditField>
+            <x:EditField Width="100px" DataField="AtSchool" HeaderText="是否在校">
+                <Editor>
+                    <x:TextBox ID="tbxEditorAtSchool" runat="server">
+                    </x:TextBox>
+                </Editor>
+            </x:EditField>
+            <x:EditField Width="100px" DataField="LogTime" FieldType="Date" 
+                HeaderText="登记时间">
                 <Editor>
                     <x:TextBox ID="TextBox1" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:TemplateField>
-            <x:BoundField Width="60px" DataField="EntranceYear" HeaderText="入学年份">
+            </x:EditField>
+            <x:EditField Width="100px" DataField="Major" ExpandUnusedSpace="true" HeaderText="所学专业">
                 <Editor>
-                    <x:TextBox ID="TextBox2" runat="server">
+                    <x:TextBox ID="tbxEditorMajor" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:BoundField>
-            <x:CheckBoxField Width="60px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校">
-                <Editor>
-                    <x:TextBox ID="TextBox3" runat="server">
-                    </x:TextBox>
-                </Editor>
-            </x:CheckBoxField>
-            <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
-                DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True">
-                <Editor>
-                    <x:TextBox ID="TextBox4" runat="server">
-                    </x:TextBox>
-                </Editor>
-            </x:HyperLinkField>
+            </x:EditField>
         </Columns>
     </x:Grid>
     <br />

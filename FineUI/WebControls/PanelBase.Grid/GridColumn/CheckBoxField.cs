@@ -43,7 +43,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class CheckBoxField : GridColumn
+    public class CheckBoxField : CommonColumn
     {
 
         #region Properties

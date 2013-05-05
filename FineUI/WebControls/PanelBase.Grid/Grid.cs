@@ -2566,131 +2566,23 @@ namespace FineUI
 
             string groupColumnScript = GetGroupColumnScript();
 
-            string expanderScript = String.Empty;
+
             string expanderXID = String.Empty;
             foreach (GridColumn column in AllColumns)
             {
                 if (column is TemplateField && (column as TemplateField).RenderAsRowExpander)
                 {
-                    expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", column.XID, column.ColumnID);
                     expanderXID = column.XID;
                 }
 
                 columnsBuilder.AddProperty(column.XID, true);
 
-
-                #region oldcode
-                //if (column is TemplateField && (column as TemplateField).RenderAsRowExpander)
-                //{
-                //    //string tplStr = String.Format(RowExpander.DataFormatString.Replace("{", "{{{").Replace("}", "}}}"), RowExpander.DataFields);
-                //    //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template({1})}});", Render_GridRowExpanderID, JsHelper.Enquote(tplStr));
-                //    expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", Render_GridRowExpanderID, Render_GridRowExpanderID);
-
-                //    columnsBuilder.AddProperty(Render_GridRowExpanderID, true);
-
-                //}
-                //else
-                //{
-                //    JsObjectBuilder columnBuilder = new JsObjectBuilder();
-                //    //columnBuilder.AddProperty("header", String.IsNullOrEmpty(column.HeaderText) ? "&nbsp;" : column.HeaderText);
-                //    columnBuilder.AddProperty("header", column.GetHeaderValue());
-                //    if (column.Hidden)
-                //    {
-                //        columnBuilder.AddProperty("hidden", true);
-                //    }
-
-                //    if (AllowSorting)
-                //    {
-                //        if (!String.IsNullOrEmpty(column.SortField))
-                //        {
-                //            //// 自定义JavaScript变量
-                //            //columnBuilder.AddProperty("x_serverSortable", true);
-                //            columnBuilder.AddProperty("sortable", true);
-                //        }
-                //    }
-
-                //    if (column.PersistState)
-                //    {
-                //        columnBuilder.AddProperty("x_persistState", true);
-                //        columnBuilder.AddProperty("x_persistStateType", "checkbox");
-                //    }
-
-                //    #region old code
-
-                //    // The following config will be in defaults
-                //    //columnBuilder.AddProperty(OptionName.Sortable, false);
-                //    //columnBuilder.AddProperty("menuDisabled", true);
-                //    //columnBuilder.AddProperty("hideable", false);
-
-                //    //// 如果启用服务器端排序，则禁用客户端排序
-                //    //if (EnableServerSort)
-                //    //{
-                //    //    columnBuilder.AddProperty(OptionName.Sortable, false);
-                //    //}
-                //    //else if (EnableClientSort)
-                //    //{
-                //    //    columnBuilder.AddProperty(OptionName.Sortable, true);
-                //    //}
-                //    //else
-                //    //{
-                //    //    columnBuilder.AddProperty(OptionName.Sortable, false);
-                //    //}
-                //    //    // 客户端排序，如果没有定义SortField，则不启用服务器端排序
-                //    //    if (!String.IsNullOrEmpty(column.SortField))
-                //    //    {
-                //    //        columnBuilder.AddProperty(OptionName.Sortable, true);
-                //    //    }
-                //    //    else
-                //    //    {
-                //    //        columnBuilder.AddProperty(OptionName.Sortable, false);
-                //    //    }
-                //    //}
-                //    //if (!String.IsNullOrEmpty(column.SortField))
-                //    //{
-                //    //    columnBuilder.AddProperty(OptionName.Sortable, true);
-                //    //}
-                //    //else
-                //    //{
-                //    //    columnBuilder.AddProperty(OptionName.Sortable, false);
-                //    //}
-
-                //    #endregion
-
-                //    ////If not specified, the column's index is used as an index into the Record's data Array.
-                //    //columnBuilder.AddProperty(OptionName.DataIndex, field.DataField);
-                //    columnBuilder.AddProperty("dataIndex", column.ColumnID);
-                //    columnBuilder.AddProperty("id", column.ColumnID);
-
-                //    if (column.TextAlign != TextAlign.Left)
-                //    {
-                //        columnBuilder.AddProperty("align", TextAlignName.GetName(column.TextAlign));
-                //    }
-
-                //    if (column.Width != Unit.Empty)
-                //    {
-                //        columnBuilder.AddProperty("width", column.Width.Value);
-                //    }
-
-                //    if (AllowCellEditing)
-                //    {
-                //        if (column.Editor.Count > 0)
-                //        {
-                //            columnBuilder.AddProperty("editor", column.Editor[0].XID, true);
-                //        }
-                //    }
-
-
-                //    columnsBuilder.AddProperty(columnBuilder);
-                //}
-
-                //columnIndex++; 
-                #endregion
             }
 
             // 为Grid添加plugin属性
             JsArrayBuilder pluginBuilder = new JsArrayBuilder();
 
-            if (!String.IsNullOrEmpty(expanderScript))
+            if (!String.IsNullOrEmpty(expanderXID))
             {
                 pluginBuilder.AddProperty(expanderXID, true);
             }
@@ -2716,7 +2608,7 @@ namespace FineUI
 
             string columnModelScript = String.Format("var {0}=new Ext.grid.ColumnModel({{columns:{1},defaults:{2}}});", gridColumnID, columnsBuilder, defaultsBuilder);
 
-            return expanderScript + groupColumnScript + columnModelScript;
+            return groupColumnScript + columnModelScript;
         }
 
         #endregion
@@ -2848,26 +2740,30 @@ namespace FineUI
             JsArrayBuilder fieldsBuidler = new JsArrayBuilder();
             foreach (GridColumn column in AllColumns)
             {
-                #region old code
-                //JsObjectBuilder fieldBuilder = new JsObjectBuilder();
-                //fieldBuilder.AddProperty("name", column.ColumnID);
-                ////fieldBuilder.AddProperty(OptionName.Mapping, columnIndex);
-                ////fieldBuilder.AddProperty(OptionName.Type, column.GetFieldType());
+                if (AllowCellEditing)
+                {
+                    JsObjectBuilder fieldBuilder = new JsObjectBuilder();
+                    fieldBuilder.AddProperty("name", column.ColumnID);
 
-                //fieldsBuidler.AddProperty(fieldBuilder);
-                //columnIndex++; 
-                #endregion
+                    EditField field = column as EditField;
+                    if (field != null)
+                    {
+                        if (field.FieldType != FieldType.Auto)
+                        {
+                            fieldBuilder.AddProperty("type", FieldTypeName.GetName(field.FieldType));
 
-                //if (column is TemplateField && (column as TemplateField).RenderAsRowExpander)
-                //{
-                //    fieldsBuidler.AddProperty(Render_GridRowExpanderID);
-                //}
-                //else
-                //{
-                //    fieldsBuidler.AddProperty(column.ColumnID);
-                //}
-
-                fieldsBuidler.AddProperty(column.ColumnID);
+                            //if (field.FieldType == FieldType.Date && !String.IsNullOrEmpty(field.DateFormat))
+                            //{
+                            //    fieldBuilder.AddProperty("dateFormat", ExtDateTimeConvertor.ConvertToExtDateFormat(field.DateFormat));
+                            //}
+                        }
+                    }
+                    fieldsBuidler.AddProperty(fieldBuilder);
+                }
+                else
+                {
+                    fieldsBuidler.AddProperty(column.ColumnID);
+                }
             }
 
             storeBuilder.AddProperty("fields", fieldsBuidler, true);
@@ -3231,10 +3127,11 @@ namespace FineUI
 
             // 在所有行都绑定结束后，需要检查模拟树显示的列，并重新计算当前列的内容（在列内容前加上树分隔符）
             // 1.查找需要模拟树显示的列
-            GridColumn simulateTreeColumn = null;
-            foreach (GridColumn column in AllColumns)
+            CommonColumn simulateTreeColumn = null;
+            foreach (GridColumn gridColumn in AllColumns)
             {
-                if (!String.IsNullOrEmpty(column.DataSimulateTreeLevelField))
+                CommonColumn column = gridColumn as CommonColumn;
+                if (column != null && !String.IsNullOrEmpty(column.DataSimulateTreeLevelField))
                 {
                     simulateTreeColumn = column;
                     break;
@@ -3271,6 +3168,7 @@ namespace FineUI
                     Rows[rowIndex].Values[simulateTreeColumn.ColumnIndex] = silumateTree[rowIndex].Text;
                 }
             }
+
         }
         #endregion
 

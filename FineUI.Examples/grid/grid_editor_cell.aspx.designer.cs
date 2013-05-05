@@ -49,15 +49,6 @@ namespace FineUI.Examples.grid {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// TextBox5 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox TextBox5;
-        
-        /// <summary>
         /// tbxEditorName 控件。
         /// </summary>
         /// <remarks>
@@ -67,13 +58,31 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.TextBox tbxEditorName;
         
         /// <summary>
-        /// Label3 控件。
+        /// tbxEditorGender 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::FineUI.TextBox tbxEditorGender;
+        
+        /// <summary>
+        /// tbxEditorEntranceYear 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox tbxEditorEntranceYear;
+        
+        /// <summary>
+        /// tbxEditorAtSchool 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox tbxEditorAtSchool;
         
         /// <summary>
         /// TextBox1 控件。
@@ -85,31 +94,13 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.TextBox TextBox1;
         
         /// <summary>
-        /// TextBox2 控件。
+        /// tbxEditorMajor 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox TextBox2;
-        
-        /// <summary>
-        /// TextBox3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox TextBox3;
-        
-        /// <summary>
-        /// TextBox4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox TextBox4;
+        protected global::FineUI.TextBox tbxEditorMajor;
         
         /// <summary>
         /// Button2 控件。

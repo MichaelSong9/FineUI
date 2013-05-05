@@ -10,6 +10,14 @@ html, body
 }
 */
 
+
+/* Let expander icon at the top of the cell */
+.x-grid3-body .x-grid3-td-expander
+{
+    vertical-align: top !important;
+}
+
+/* Let input box editable in Grid template column under Chorme */
 .x-unselectable, .x-unselectable * {
     -webkit-user-select: auto;
 }

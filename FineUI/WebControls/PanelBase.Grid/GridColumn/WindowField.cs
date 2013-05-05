@@ -45,7 +45,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class WindowField : GridColumn
+    public class WindowField : CommonColumn
     {
         #region Properties
 

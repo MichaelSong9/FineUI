@@ -174,38 +174,6 @@ namespace FineUI
 
         #region Properties
 
-
-        #region Menu
-
-        private GridColumnEditorCollection _editor;
-
-        /// <summary>
-        /// 单元格编辑控件
-        /// </summary>
-        [Browsable(false)]
-        [Category(CategoryName.OPTIONS)]
-        [NotifyParentProperty(true)]
-        [PersistenceMode(PersistenceMode.InnerProperty)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        [Description("单元格编辑控件")]
-        [Editor(typeof(GridColumnEditorEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public virtual GridColumnEditorCollection Editor
-        {
-            get
-            {
-                if (_editor == null)
-                {
-                    _editor = new GridColumnEditorCollection(this);
-                }
-                return _editor;
-            }
-        }
-
-
-        #endregion
-
-
-
         private bool _hidden = false;
 
         /// <summary>
@@ -226,26 +194,6 @@ namespace FineUI
             }
         }
 
-
-        private string _dataSimulateTreeLevelField = String.Empty;
-
-        /// <summary>
-        /// 此列模拟树显示时的层次字段
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("此列模拟树显示时的层次字段")]
-        public string DataSimulateTreeLevelField
-        {
-            get
-            {
-                return _dataSimulateTreeLevelField;
-            }
-            set
-            {
-                _dataSimulateTreeLevelField = value;
-            }
-        }
 
 
         //private string _columnID = String.Empty;
@@ -383,72 +331,6 @@ namespace FineUI
 
         #endregion
 
-        #region DataTooltipField/DataTooltipFormatString
-
-        private string _tooltip = String.Empty;
-
-        /// <summary>
-        /// 提示文本
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("提示文本")]
-        public string ToolTip
-        {
-            get
-            {
-                return _tooltip;
-            }
-            set
-            {
-                _tooltip = value;
-            }
-        }
-
-
-
-        private string _dataToolTipField = String.Empty;
-
-        /// <summary>
-        /// 提示字段名称
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("提示字段名称")]
-        public string DataToolTipField
-        {
-            get
-            {
-                return _dataToolTipField;
-            }
-            set
-            {
-                _dataToolTipField = value;
-            }
-        }
-
-        private string _dataToolTipFormatString = String.Empty;
-
-        /// <summary>
-        /// 提示字段格式化字符串
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("提示字段格式化字符串")]
-        public string DataToolTipFormatString
-        {
-            get
-            {
-                return _dataToolTipFormatString;
-            }
-            set
-            {
-                _dataToolTipFormatString = value;
-            }
-        }
-
-        #endregion
-
         #region virtual GetColumnValue/GetColumnState/PersistState
 
         /// <summary>
@@ -486,114 +368,6 @@ namespace FineUI
             return null;
         }
 
-        ///// <summary>
-        ///// 用在生成的JS脚本中，指定此列的类型
-        ///// </summary>
-        ///// <returns></returns>
-        //public virtual string GetFieldType()
-        //{
-        //    return "string";
-        //}
-
-        ///// <summary>
-        ///// 将列的状态保存到
-        ///// </summary>
-        ///// <returns></returns>
-        //public virtual string SaveColumnState()
-        //{
-        //    return String.Empty;
-        //}
-
-        ///// <summary>
-        ///// 加载列的状态
-        ///// </summary>
-        ///// <returns></returns>
-        //public virtual void LoadColumnState(string state)
-        //{
-
-        //}
-
-        #endregion
-
-        #region GetTooltipString
-
-        #region old code
-        //public string GetSimulateTreeString(string originalStr)
-        //{
-        //    string result = originalStr;
-
-        //    if (!String.IsNullOrEmpty(DataSimulateTreeLevelField))
-        //    {
-
-        //    }
-
-        //    return result;
-        //}
-
-
-        //public string GetColumnID()
-        //{
-        //    //if (!String.IsNullOrEmpty(SortField))
-        //    //{
-        //    //    return String.Format(COLUMN_ID_TEMPLATE, ColumnIndex, SortField);
-        //    //}
-        //    //else
-        //    //{
-        //    //    return String.Format("ct{0}", ColumnIndex);
-        //    //}
-
-        //    return String.Format("ct{0}", ColumnIndex);
-        //}
-
-        ///// <summary>
-        ///// 本列是第几列
-        ///// </summary>
-        ///// <param name="columns"></param>
-        ///// <returns></returns>
-        //public int GetColumnIndex(Grid grid)
-        //{
-        //    for (int i = 0, count = grid.Columns.Count; i < count; i++)
-        //    {
-        //        if (grid.Columns[i] == this)
-        //        {
-        //            return i;
-        //        }
-        //    }
-        //    return -1;
-        //} 
-        #endregion
-
-        /// <summary>
-        /// 取得提示字符串
-        /// </summary>
-        /// <param name="row"></param>
-        /// <returns></returns>
-        protected string GetTooltipString(GridRow row)
-        {
-            string result = null;
-
-            if (!String.IsNullOrEmpty(DataToolTipField))
-            {
-                object value = row.GetPropertyValue(DataToolTipField);
-
-                if (!String.IsNullOrEmpty(DataToolTipFormatString))
-                {
-                    result = String.Format(DataToolTipFormatString, value);
-                }
-                else
-                {
-                    result = value.ToString();
-                }
-            }
-            else if(!String.IsNullOrEmpty(ToolTip))
-            {
-                result = ToolTip;
-            }
-
-            return result == null ? "" : String.Format(" ext:qtip=\"{0}\" ", result);
-            //return String.IsNullOrEmpty(result) ? String.Empty : result;
-        }
-
         #endregion
 
         #region OnPreRender
@@ -607,15 +381,16 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            //string expanderScript = String.Empty;
+            // 行扩展列需要特殊处理
             if (this is TemplateField && (this as TemplateField).RenderAsRowExpander)
             {
                 //string tplStr = String.Format(RowExpander.DataFormatString.Replace("{", "{{{").Replace("}", "}}}"), RowExpander.DataFields);
                 //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template({1})}});", Render_GridRowExpanderID, JsHelper.Enquote(tplStr));
                 //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", Grid.Render_GridRowExpanderID, Grid.Render_GridRowExpanderID);
 
-                //OB.AddProperty(Render_GridRowExpanderID, true);
 
+                string jsContent = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", XID, ColumnID);
+                AddStartupScript(jsContent);
             }
             else
             {
@@ -661,19 +436,9 @@ namespace FineUI
                     OB.AddProperty("width", Width.Value);
                 }
 
-                if (Grid.AllowCellEditing)
-                {
-                    if (Editor.Count > 0)
-                    {
-                        OB.AddProperty("editor", Editor[0].XID, true);
-                    }
-                }
-
-                string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
-                AddStartupScript(jsContent);
-
             }
 
+            
         }
 
         #endregion

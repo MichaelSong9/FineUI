@@ -12,7 +12,8 @@ namespace FineUI.Examples.form
         {
             if (!IsPostBack)
             {
-                NumberBox3.Text = "11111111111111111";
+                // 显示为“11111111111111112”，参考：http://fineui.com/bbs/forum.php?mod=viewthread&tid=2911
+                // NumberBox3.Text = "11111111111111111";
             }
 
         }

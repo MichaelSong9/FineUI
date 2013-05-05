@@ -44,7 +44,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class TemplateField : GridColumn
+    public class TemplateField : CommonColumn
     {
         #region Properties
 

@@ -230,7 +230,7 @@ namespace FineUI
 
         #endregion
 
-        #region OnPreRender
+        #region OnAjaxPreRender/OnFirstPreRender
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
