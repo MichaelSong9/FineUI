@@ -18,43 +18,43 @@
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
-            <x:EditField Width="100px" DataField="Name" HeaderText="姓名">
+            <x:RenderField Width="100px" DataField="Name" HeaderText="姓名">
                 <Editor>
                     <x:TextBox ID="tbxEditorName" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:EditField>
-            <x:EditField Width="100px" DataField="Gender" HeaderText="性别">
+            </x:RenderField>
+            <x:RenderField Width="100px" DataField="Gender" HeaderText="性别">
                 <Editor>
                     <x:TextBox ID="tbxEditorGender" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:EditField>
-            <x:EditField Width="100px" DataField="EntranceYear" HeaderText="入学年份">
+            </x:RenderField>
+            <x:RenderField Width="100px" DataField="EntranceYear" HeaderText="入学年份">
                 <Editor>
                     <x:TextBox ID="tbxEditorEntranceYear" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:EditField>
-            <x:EditField Width="100px" DataField="AtSchool" HeaderText="是否在校">
+            </x:RenderField>
+            <x:RenderField Width="100px" DataField="AtSchool" HeaderText="是否在校">
                 <Editor>
                     <x:TextBox ID="tbxEditorAtSchool" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:EditField>
-            <x:EditField Width="100px" DataField="LogTime" FieldType="Date" 
-                HeaderText="登记时间">
+            </x:RenderField>
+            <x:RenderField Width="100px" DataField="LogTime" FieldType="Date" Renderer="Date"
+                RendererArgument="yyyy-MM-dd" HeaderText="登记时间">
                 <Editor>
                     <x:TextBox ID="TextBox1" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:EditField>
-            <x:EditField Width="100px" DataField="Major" ExpandUnusedSpace="true" HeaderText="所学专业">
+            </x:RenderField>
+            <x:RenderField Width="100px" DataField="Major" ExpandUnusedSpace="true" HeaderText="所学专业">
                 <Editor>
                     <x:TextBox ID="tbxEditorMajor" runat="server">
                     </x:TextBox>
                 </Editor>
-            </x:EditField>
+            </x:RenderField>
         </Columns>
     </x:Grid>
     <br />

@@ -44,7 +44,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class EditField : GridColumn
+    public class RenderField : GridColumn
     {
         #region Editor
 
@@ -267,9 +267,9 @@ namespace FineUI
 
         #endregion
 
+        #region GetColumnValue
 
-
-        #region Methods
+        
 
         internal override string GetColumnValue(GridRow row)
         {
@@ -298,9 +298,18 @@ namespace FineUI
 
         #endregion
 
+        #region OnFirstPreRender
+
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
+
+            string renderer = GetRenderer();
+            if (!String.IsNullOrEmpty(renderer))
+            {
+                OB.AddProperty("renderer", renderer, true);
+            }
+
 
             if (Grid.AllowCellEditing)
             {
@@ -314,6 +323,56 @@ namespace FineUI
             AddStartupScript(jsContent);
 
         }
+
+
+        private string GetRenderer()
+        {
+            if (!String.IsNullOrEmpty(RendererFunction))
+            {
+                return RendererFunction;
+            }
+
+            if (Renderer == Renderer.None)
+            {
+                return String.Empty;
+            }
+
+            if (Renderer == Renderer.Date)
+            {
+                string argument = "yyyy-MM-dd";
+                if (!String.IsNullOrEmpty(RendererArgument))
+                {
+                    argument = RendererArgument;
+                }
+                return String.Format("X.format.date('{0}')", ExtDateTimeConvertor.ConvertToExtDateFormat(argument));
+            }
+            else if (Renderer == Renderer.Ellipsis)
+            {
+                string argument = "10";
+                if (!String.IsNullOrEmpty(RendererArgument))
+                {
+                    argument = RendererArgument;
+                }
+                return String.Format("X.format.ellipsis({0})", argument);
+            }
+            else if (Renderer == Renderer.Number)
+            {
+                string argument = "0.00";
+                if (!String.IsNullOrEmpty(RendererArgument))
+                {
+                    argument = RendererArgument;
+                }
+                return String.Format("X.format.number('{0}')", argument);
+            }
+            else
+            {
+                return String.Format("X.format.{0}", RendererName.GetName(Renderer));
+            }
+
+        }
+
+        #endregion
+
     }
 }
 

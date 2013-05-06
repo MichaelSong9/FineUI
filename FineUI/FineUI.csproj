@@ -211,7 +211,7 @@
     <Compile Include="Business\Editor\GridColumnsEditor.cs" />
     <Compile Include="WebControls\PanelBase.Grid\EventArgs\GridRowSelectEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\CommonColumn.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridColumn\EditField.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumn.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumnCollection.cs" />
     <Compile Include="WebControls\PanelBase.RegionPanel\RegionPanel.cs" />
@@ -356,6 +356,7 @@
     <Content Include="js\ux\Ext.ux.grid.RowExpander.js" />
     <EmbeddedResource Include="js\x.js" />
     <EmbeddedResource Include="js\x-debug.js" />
+    <Content Include="js\X\X.format.js" />
     <Content Include="lib\json.net\Net20\Newtonsoft.Json.dll" />
     <Content Include="lib\json.net\Net20\Newtonsoft.Json.xml" />
     <Content Include="lib\json.net\Net35\Newtonsoft.Json.dll" />

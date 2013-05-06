@@ -2745,17 +2745,19 @@ namespace FineUI
                     JsObjectBuilder fieldBuilder = new JsObjectBuilder();
                     fieldBuilder.AddProperty("name", column.ColumnID);
 
-                    EditField field = column as EditField;
+                    RenderField field = column as RenderField;
                     if (field != null)
                     {
                         if (field.FieldType != FieldType.Auto)
                         {
                             fieldBuilder.AddProperty("type", FieldTypeName.GetName(field.FieldType));
 
+                            
                             //if (field.FieldType == FieldType.Date && !String.IsNullOrEmpty(field.DateFormat))
                             //{
                             //    fieldBuilder.AddProperty("dateFormat", ExtDateTimeConvertor.ConvertToExtDateFormat(field.DateFormat));
                             //}
+                            
                         }
                     }
                     fieldsBuidler.AddProperty(fieldBuilder);

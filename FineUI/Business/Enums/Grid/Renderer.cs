@@ -19,6 +19,18 @@ namespace FineUI
         Capitalize,
         /// <summary>
         /// 日期（RendererArgument来指定日期格式化字符串）
+        /// RendererArgument:
+        /// d 月中的某一天。一位数的日期没有前导零。
+        /// dd 月中的某一天。一位数的日期有一个前导零。
+        /// ddd 周中某天的缩写名称，在 AbbreviatedDayNames 中定义。
+        /// dddd 周中某天的完整名称，在 DayNames 中定义。
+        /// M 月份数字。一位数的月份没有前导零。
+        /// MM 月份数字。一位数的月份有一个前导零。
+        /// MMM 月份的缩写名称，在 AbbreviatedMonthNames 中定义。
+        /// MMMM 月份的完整名称，在 MonthNames 中定义。
+        /// y 不包含纪元的年份。如果不包含纪元的年份小于 10，则显示不具有前导零的年份。
+        /// yy 不包含纪元的年份。如果不包含纪元的年份小于 10，则显示具有前导零的年份。
+        /// yyyy 包括纪元的四位数的年份。
         /// </summary>
         Date,
         /// <summary>

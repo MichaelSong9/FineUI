@@ -5,6 +5,7 @@ type X\X.ajax.js >> X\X.js
 type X\X.wnd.js >> X\X.js
 type X\extender.js >> X\X.js
 type X\X.simulateTree.js >> X\X.js
+type X\X.format.js >> X\X.js
 
 
 
