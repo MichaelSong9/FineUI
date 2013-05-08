@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell2.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell2" %>
 
 <!DOCTYPE html>
 <html>
@@ -20,14 +20,13 @@
             </x:TemplateField>
             <x:RenderField Width="100px" DataField="Name" HeaderText="姓名">
                 <Editor>
-                    <x:TextBox ID="tbxEditorName" Required="true" runat="server">
+                    <x:TextBox ID="tbxEditorName" runat="server">
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="Gender" FieldType="Int" RendererFunction="renderGender"
-                HeaderText="性别">
+            <x:RenderField Width="100px" DataField="Gender" FieldType="Int" RendererFunction="renderGender" HeaderText="性别">
                 <Editor>
-                    <x:DropDownList Required="true" runat="server">
+                    <x:DropDownList runat="server">
                         <x:ListItem Text="男" Value="1" />
                         <x:ListItem Text="女" Value="0" />
                     </x:DropDownList>
@@ -40,16 +39,21 @@
                     </x:NumberBox>
                 </Editor>
             </x:RenderField>
+            <x:RenderField Width="100px" DataField="AtSchool" HeaderText="是否在校">
+                <Editor>
+                    <x:CheckBox runat="server"></x:CheckBox>
+                </Editor>
+            </x:RenderField>
             <x:RenderField Width="100px" DataField="LogTime" FieldType="Date" Renderer="Date"
                 RendererArgument="yyyy-MM-dd" HeaderText="登记时间">
                 <Editor>
-                    <x:DatePicker Required="true" runat="server">
+                    <x:DatePicker runat="server">
                     </x:DatePicker>
                 </Editor>
             </x:RenderField>
             <x:RenderField Width="100px" DataField="Major" ExpandUnusedSpace="true" HeaderText="所学专业">
                 <Editor>
-                    <x:TextBox ID="tbxEditorMajor" Required="true" runat="server">
+                    <x:TextBox ID="tbxEditorMajor" runat="server">
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
@@ -74,7 +78,6 @@
         function renderGender(value, metadata, record, rowIndex, colIndex) {
             return value == 1 ? '男' : '女';
         }
-
 
     </script>
 </body>
