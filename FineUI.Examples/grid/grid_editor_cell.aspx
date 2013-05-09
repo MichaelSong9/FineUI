@@ -10,15 +10,15 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"
-        DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1">
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="450px"
+        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
-            <x:RenderField Width="100px" DataField="Name" HeaderText="姓名">
+            <x:RenderField Width="100px" DataField="Name" FieldType="String" HeaderText="姓名">
                 <Editor>
                     <x:TextBox ID="tbxEditorName" Required="true" runat="server">
                     </x:TextBox>
@@ -33,21 +33,29 @@
                     </x:DropDownList>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="EntranceYear" HeaderText="入学年份">
+            <x:RenderField Width="100px" DataField="EntranceYear" FieldType="Int" HeaderText="入学年份">
                 <Editor>
                     <x:NumberBox ID="tbxEditorEntranceYear" NoDecimal="true" NoNegative="true" MinValue="2000"
                         MaxValue="2010" runat="server">
                     </x:NumberBox>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="LogTime" FieldType="Date" Renderer="Date"
-                RendererArgument="yyyy-MM-dd" HeaderText="登记时间">
+            <x:RenderField Width="100px" DataField="EntranceDate" FieldType="Date" Renderer="Date"
+                RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
                 <Editor>
-                    <x:DatePicker Required="true" runat="server">
+                    <x:DatePicker ID="DatePicker1" Required="true" runat="server">
                     </x:DatePicker>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="Major" ExpandUnusedSpace="true" HeaderText="所学专业">
+            <x:RenderField Width="100px" DataField="AtSchool" FieldType="Boolean" RendererFunction="renderAtSchool"
+                HeaderText="是否在校">
+                <Editor>
+                    <x:CheckBox runat="server">
+                    </x:CheckBox>
+                </Editor>
+            </x:RenderField>
+            <x:RenderField Width="100px" DataField="Major" FieldType="String" ExpandUnusedSpace="true"
+                HeaderText="所学专业">
                 <Editor>
                     <x:TextBox ID="tbxEditorMajor" Required="true" runat="server">
                     </x:TextBox>
@@ -73,6 +81,10 @@
 
         function renderGender(value, metadata, record, rowIndex, colIndex) {
             return value == 1 ? '男' : '女';
+        }
+
+        function renderAtSchool(value, metadata, record, rowIndex, colIndex) {
+            return value ? '<img src="./res.axd?img=tick.png" alt="YES"/>' : '<img src="./res.axd?img=bullet_cross.png" alt="NO"/>';
         }
 
 

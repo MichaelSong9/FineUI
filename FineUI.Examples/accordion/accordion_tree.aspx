@@ -41,7 +41,7 @@
             </x:Region>
         </Regions>
     </x:RegionPanel>
-    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/menu.xml"></asp:XmlDataSource>
+    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
 </body>
 </html>

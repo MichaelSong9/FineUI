@@ -286,6 +286,11 @@ namespace FineUI
                 else
                 {
                     text = value.ToString();
+                    if (value.GetType() == typeof(Boolean))
+                    {
+                        text = text.ToLower();
+                    }
+
                     if (HtmlEncode)
                     {
                         text = HttpUtility.HtmlEncode(text);
@@ -317,6 +322,11 @@ namespace FineUI
                 {
                     OB.AddProperty("editor", Editor[0].XID, true);
                 }
+
+                //if (FieldType == FieldType.Boolean)
+                //{
+                //    OB.AddProperty("xtype", "booleancolumn");
+                //}
             }
 
             string jsContent = String.Format("var {0}={1};", XID, OB.ToString());

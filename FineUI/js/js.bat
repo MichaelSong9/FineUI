@@ -57,6 +57,8 @@ type pkgs\pkg-grid-property.js >> .grid
 type ux\Ext.ux.SimplePagingToolbar.js >> .grid
 type ux\Ext.ux.grid.RowExpander.js >> .grid
 type ux\Ext.ux.grid.ColumnHeaderGroup.js >> .grid
+type ux\Ext.ux.grid.CheckColumn.js >> .grid
+
 
 
 

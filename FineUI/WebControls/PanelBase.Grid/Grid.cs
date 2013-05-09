@@ -63,8 +63,8 @@ namespace FineUI
         {
             // 严格的说，PageIndex、SortColumnIndex、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
-            AddServerAjaxProperties("X_Rows", "PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
-            AddClientAjaxProperties("X_States", "HiddenColumnIndexArray", "SelectedRowIndexArray", "ExpandAllRowExpanders");
+            AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
+            AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "ExpandAllRowExpanders");
         }
 
         // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
@@ -1473,16 +1473,16 @@ namespace FineUI
 
                 JArray valuesJA = new JArray();
                 JArray datakeysJA = new JArray();
-                //JArray statesJA = new JArray();
+                JArray statesJA = new JArray();
                 foreach (GridRow row in Rows)
                 {
                     valuesJA.Add(new JArray(row.Values));
                     datakeysJA.Add(new JArray(row.DataKeys));
-                    //statesJA.Add(new JArray(row.ToShortStates()));
+                    statesJA.Add(new JArray(row.ToShortStates()));
                 }
                 jo.Add("Values", valuesJA);
                 jo.Add("DataKeys", datakeysJA);
-                //jo.Add("States", statesJA);
+                jo.Add("States", statesJA);
 
                 return jo;
             }
@@ -1492,7 +1492,7 @@ namespace FineUI
 
                 JArray valuesArray = value.Value<JArray>("Values"); // value.getJArray("Values");
                 JArray dataKeysArray = value.Value<JArray>("DataKeys"); //value.getJArray("DataKeys");
-                //JArray statesArray = value.Value<JArray>("States");  //value.getJArray("States");
+                JArray statesArray = value.Value<JArray>("States");  //value.getJArray("States");
                 for (int i = 0, length = valuesArray.Count; i < length; i++)
                 {
                     GridRow row = new GridRow(this, null, i);
@@ -1503,46 +1503,45 @@ namespace FineUI
                     // row.DataKeys
                     row.DataKeys = JSONUtil.ObjectArrayFromJArray(dataKeysArray[i].Value<JArray>()); //.getJArray(i));
 
-                    //// row.States
-                    //row.FromShortStates(JSONUtil.ObjectArrayFromJArray(statesArray[i].Value<JArray>()));
+                    // row.States
+                    row.FromShortStates(JSONUtil.ObjectArrayFromJArray(statesArray[i].Value<JArray>()));
 
                     Rows.Add(row);
                     Controls.Add(row);
-
 
                     row.InitTemplateContainers();
                 }
             }
         }
 
-        /// <summary>
-        /// 保存的行状态（内部使用）
-        /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public JArray X_States
-        {
-            get
-            {
-                JArray statesJA = new JArray();
-                foreach (GridRow row in Rows)
-                {
-                    statesJA.Add(new JArray(row.ToShortStates()));
-                }
+        ///// <summary>
+        ///// 保存的行状态（内部使用）
+        ///// </summary>
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public JArray X_States
+        //{
+        //    get
+        //    {
+        //        JArray statesJA = new JArray();
+        //        foreach (GridRow row in Rows)
+        //        {
+        //            statesJA.Add(new JArray(row.ToShortStates()));
+        //        }
 
-                return statesJA;
-            }
-            set
-            {
-                for (int i = 0, length = value.Count; i < length; i++)
-                {
-                    GridRow row = Rows[i];
+        //        return statesJA;
+        //    }
+        //    set
+        //    {
+        //        for (int i = 0, length = value.Count; i < length; i++)
+        //        {
+        //            GridRow row = Rows[i];
 
-                    // row.States
-                    row.FromShortStates(JSONUtil.ObjectArrayFromJArray(value[i].Value<JArray>()));
-                }
-            }
-        }
+        //            // row.States
+        //            row.FromShortStates(JSONUtil.ObjectArrayFromJArray(value[i].Value<JArray>()));
+        //        }
+        //    }
+        //}
 
         #endregion
 
@@ -1852,10 +1851,10 @@ namespace FineUI
                 PageManager.Instance.AjaxGridReloadedClientIDs.Add(ClientID);
             }
 
-            if (PropertyModified("X_States"))
-            {
-                sb.AppendFormat("{0}.x_setRowStates();", XID);
-            }
+            //if (PropertyModified("X_States"))
+            //{
+            //    sb.AppendFormat("{0}.x_setRowStates();", XID);
+            //}
 
             if (PropertyModified("SortColumnIndex", "SortDirection"))
             {
@@ -2752,12 +2751,8 @@ namespace FineUI
                         {
                             fieldBuilder.AddProperty("type", FieldTypeName.GetName(field.FieldType));
 
-                            
-                            //if (field.FieldType == FieldType.Date && !String.IsNullOrEmpty(field.DateFormat))
-                            //{
-                            //    fieldBuilder.AddProperty("dateFormat", ExtDateTimeConvertor.ConvertToExtDateFormat(field.DateFormat));
-                            //}
-                            
+
+
                         }
                     }
                     fieldsBuidler.AddProperty(fieldBuilder);
@@ -3174,10 +3169,11 @@ namespace FineUI
         }
         #endregion
 
+
         #region ClearRows
 
         /// <summary>
-        /// 清空Rows，同时清除Controls中的GridRow控件
+        /// 清空Rows，同时清除所有子控件中的GridRow控件
         /// </summary>
         private void ClearRows()
         {
@@ -3202,6 +3198,8 @@ namespace FineUI
 
         #endregion
 
+        #endregion
+
         #region IPostBackDataHandler Members
 
         /// <summary>
@@ -3214,7 +3212,6 @@ namespace FineUI
         {
             base.LoadPostData(postDataKey, postCollection);
 
-            // How many lines are selected.
             int[] selectedRowIndexArray = StringUtil.GetIntListFromString(postCollection[SelectedRowIndexArrayHiddenFieldID]).ToArray();
             if (!StringUtil.CompareIntArray(SelectedRowIndexArray, selectedRowIndexArray))
             {
@@ -3245,7 +3242,7 @@ namespace FineUI
                 }
                 Rows[i].FromShortStates(shortStates.ToArray());
             }
-            XState.BackupPostDataProperty("X_States");
+            XState.BackupPostDataProperty("X_Rows");
 
 
             //// 需要恢复哪一列的数据
@@ -3256,18 +3253,6 @@ namespace FineUI
             //        Columns[columnIndex].LoadColumnState(postCollection[GetNeedPersistStateColumnIndexID(columnIndex)]);
             //    }
             //}
-
-            #region old code
-            //// 开始行的序号
-            //if (EnableClientPaging)
-            //{
-            //    int postStartRowIndex = Convert.ToInt32(postCollection[EnableClientPagingStartRowIndexID]);
-            //    if (EnableClientPagingStartRowIndex != postStartRowIndex)
-            //    {
-            //        EnableClientPagingStartRowIndex = postStartRowIndex;
-            //    }
-            //} 
-            #endregion
 
 
             return false;
@@ -3461,10 +3446,6 @@ namespace FineUI
             ExpandAllRowExpanders = false;
             //PageContext.RegisterStartupScript(String.Format("{0}.x_collapseAllRows();", ScriptID));
         }
-
-        #endregion
-
-
 
         #endregion
 

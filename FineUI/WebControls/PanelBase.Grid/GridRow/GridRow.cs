@@ -193,7 +193,6 @@ namespace FineUI
                 if (column.PersistState)
                 {
                     object state = shortStates[shortStateIndex++];
-                    //Values[i] = column.GetColumnValue(this);
                     if (state is JValue)
                     {
                         States[i] = (state as JValue).Value;
@@ -202,6 +201,8 @@ namespace FineUI
                     {
                         States[i] = state;
                     }
+
+                    Values[i] = RemoveNewLine(column.GetColumnValue(this));
                 }
             }
         }
@@ -268,37 +269,20 @@ namespace FineUI
         {
             Collection<GridColumn> columns = _grid.AllColumns;
 
-            //int columnsCount = columns.Count;
-            //// 如果Grid启用RowExpander，需要附加额外的数据
-            //if (!String.IsNullOrEmpty(Grid.RowExpander.DataFormatString))
-            //{
-            //    columnsCount += Grid.RowExpander.DataFields.Length;
-            //}
-
             // 计算每列的值
             Values = new string[columns.Count];
-            //ExtraValues = new object[columns.Count];
             States = new object[columns.Count];
-            int i = 0;
-            for (int count = columns.Count; i < count; i++)
+            
+            for (int i = 0, count = columns.Count; i < count; i++)
             {
                 GridColumn column = columns[i];
-                Values[i] = StrimColumnValue(column.GetColumnValue(this));
+                Values[i] = RemoveNewLine(column.GetColumnValue(this));
 
                 if (column.PersistState)
                 {
                     States[i] = column.GetColumnState(this);
                 }
             }
-            //// 如果Grid启用RowExpander，需要附加额外的数据
-            //if (!String.IsNullOrEmpty(Grid.RowExpander.DataFormatString))
-            //{
-            //    foreach (string field in Grid.RowExpander.DataFields)
-            //    {
-            //        Values[i++] = GetPropertyValue(field).ToString();
-            //    }
-            //}
-
 
             // 计算DataKeys的值
             if (_grid.DataKeyNames != null)
@@ -312,19 +296,16 @@ namespace FineUI
             }
         }
 
-        public object GetPropertyValue(string propertyName)
+        
+        internal object GetPropertyValue(string propertyName)
         {
             return ObjectUtil.GetPropertyValue(DataItem, propertyName);
         }
 
-        #endregion
-
-        #region StrimColumnValue
-
-        private string StrimColumnValue(string columnValue)
+        private string RemoveNewLine(string columnValue)
         {
             // 删除生成HTML中的 "\r\n     "
-            return Regex.Replace(columnValue, "\r\n\\s*", "");
+            return Regex.Replace(columnValue, "\r?\n\\s*", "");
         }
 
         #endregion

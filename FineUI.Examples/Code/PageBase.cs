@@ -193,6 +193,7 @@ namespace FineUI.Examples
             table.Columns.Add(new DataColumn("Desc", typeof(string)));
             table.Columns.Add(new DataColumn("Guid", typeof(Guid)));
             table.Columns.Add(new DataColumn("Hobby", typeof(String)));
+            table.Columns.Add(new DataColumn("EntranceDate", typeof(String)));
             // Hobby：reading,basketball,travel,movie,music
             // 爱好：读书, 篮球, 旅游, 电影, 音乐 
 
@@ -210,8 +211,9 @@ namespace FineUI.Examples
             row[8] = "陈萍萍，女，20岁，出生于中国南方的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,travel";
+            row[11] = "2000-09-01";
             table.Rows.Add(row);
-
+            
             row = table.NewRow();
             row[0] = 102;
             row[1] = "胡飞";
@@ -224,6 +226,7 @@ namespace FineUI.Examples
             row[8] = "胡飞，男，20岁，出生于中国北方的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball";
+            row[11] = "2008-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -238,6 +241,7 @@ namespace FineUI.Examples
             row[8] = "金婷婷，女，28岁，出生于中国海南岛的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,music";
+            row[11] = "2001-09-01";
             table.Rows.Add(row);
 
 
@@ -253,6 +257,7 @@ namespace FineUI.Examples
             row[8] = "潘国，男，22岁，出生于中国澳门的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,music";
+            row[11] = "2008-09-01";
             table.Rows.Add(row);
 
 
@@ -268,6 +273,7 @@ namespace FineUI.Examples
             row[8] = "吴颖颖，女，26岁，出生于中国福建的一个小山村，毕业于香港科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music";
+            row[11] = "2002-09-01";
             table.Rows.Add(row);
 
 
@@ -283,6 +289,7 @@ namespace FineUI.Examples
             row[8] = "张博，男，28岁，出生于中国浙江的一个小山村，毕业于电子科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "movie,music";
+            row[11] = "2003-09-01";
             table.Rows.Add(row);
 
 
@@ -298,6 +305,7 @@ namespace FineUI.Examples
             row[8] = "杨倩倩，女，25岁，出生于中国北方的一个小山村，毕业于北京科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "travel,movie,music";
+            row[11] = "2000-09-01";
             table.Rows.Add(row);
 
 
@@ -313,6 +321,7 @@ namespace FineUI.Examples
             row[8] = "董超，男，26岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "basketball,movie,music";
+            row[11] = "2004-09-01";
             table.Rows.Add(row);
 
 
@@ -328,6 +337,7 @@ namespace FineUI.Examples
             row[8] = "张娟娟，女，25岁，出生于中国广西的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,movie,music";
+            row[11] = "2003-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -342,6 +352,7 @@ namespace FineUI.Examples
             row[8] = "叶鹏，男，23岁，出生于中国安徽的一个小山村，毕业于国防科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music";
+            row[11] = "2006-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -356,6 +367,7 @@ namespace FineUI.Examples
             row[8] = "李玲玲，女，22岁，出生于中国台湾的一个小山村，毕业于台湾科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,music";
+            row[11] = "2002-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -370,6 +382,7 @@ namespace FineUI.Examples
             row[8] = "张萍萍，女，20岁，出生于中国南方的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,travel";
+            row[11] = "2000-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -384,6 +397,7 @@ namespace FineUI.Examples
             row[8] = "曹飞，男，20岁，出生于中国北方的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball";
+            row[11] = "2008-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -398,6 +412,7 @@ namespace FineUI.Examples
             row[8] = "孙婷婷，女，28岁，出生于中国海南岛的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,music";
+            row[11] = "2001-09-01";
             table.Rows.Add(row);
 
 
@@ -413,6 +428,7 @@ namespace FineUI.Examples
             row[8] = "董国，男，22岁，出生于中国澳门的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,music";
+            row[11] = "2008-09-01";
             table.Rows.Add(row);
 
 
@@ -428,6 +444,7 @@ namespace FineUI.Examples
             row[8] = "习颖颖，女，26岁，出生于中国福建的一个小山村，毕业于香港科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music";
+            row[11] = "2002-09-01";
             table.Rows.Add(row);
 
 
@@ -443,6 +460,7 @@ namespace FineUI.Examples
             row[8] = "李博，男，28岁，出生于中国浙江的一个小山村，毕业于电子科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "movie,music";
+            row[11] = "2003-09-01";
             table.Rows.Add(row);
 
 
@@ -458,6 +476,7 @@ namespace FineUI.Examples
             row[8] = "黄倩倩，女，25岁，出生于中国北方的一个小山村，毕业于北京科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "travel,movie,music";
+            row[11] = "2000-09-01";
             table.Rows.Add(row);
 
 
@@ -473,6 +492,7 @@ namespace FineUI.Examples
             row[8] = "韩超，男，26岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "basketball,movie,music";
+            row[11] = "2004-09-01";
             table.Rows.Add(row);
 
 
@@ -488,6 +508,7 @@ namespace FineUI.Examples
             row[8] = "王娟娟，女，25岁，出生于中国广西的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,movie,music";
+            row[11] = "2003-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -502,6 +523,7 @@ namespace FineUI.Examples
             row[8] = "周鹏，男，23岁，出生于中国安徽的一个小山村，毕业于国防科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music";
+            row[11] = "2006-09-01";
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -516,6 +538,7 @@ namespace FineUI.Examples
             row[8] = "吴玲玲，女，22岁，出生于中国台湾的一个小山村，毕业于台湾科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,music";
+            row[11] = "2002-09-01";
             table.Rows.Add(row);
 
 
@@ -540,6 +563,7 @@ namespace FineUI.Examples
             table.Columns.Add(new DataColumn("Desc", typeof(string)));
             table.Columns.Add(new DataColumn("Guid", typeof(Guid)));
             table.Columns.Add(new DataColumn("Hobby", typeof(String)));
+            table.Columns.Add(new DataColumn("EntranceDate", typeof(String)));
             // Hobby：reading,basketball,travel,movie,music
             // 爱好：读书, 篮球, 旅游, 电影, 音乐 
             table.Columns.Add(new DataColumn("ChineseScore", typeof(Int32)));
@@ -559,9 +583,10 @@ namespace FineUI.Examples
             row[8] = "张萍萍，女，20岁，出生于中国南方的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,music";
-            row[11] = 0;
+            row[11] = "2000-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -576,9 +601,10 @@ namespace FineUI.Examples
             row[8] = "陈飞，男，20岁，出生于中国北方的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "basketball,travel,movie";
-            row[11] = 0;
+            row[11] = "2001-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -593,9 +619,10 @@ namespace FineUI.Examples
             row[8] = "董婷婷，女，28岁，出生于中国海南岛的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "basketball,movie,music";
-            row[11] = 0;
+            row[11] = "2008-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 
@@ -611,9 +638,10 @@ namespace FineUI.Examples
             row[8] = "刘国，男，22岁，出生于中国澳门的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,movie";
-            row[11] = 0;
+            row[11] = "2002-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 
@@ -629,9 +657,10 @@ namespace FineUI.Examples
             row[8] = "康颖颖，女，26岁，出生于中国福建的一个小山村，毕业于香港科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,movie";
-            row[11] = 0;
+            row[11] = "2008-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 
@@ -647,9 +676,10 @@ namespace FineUI.Examples
             row[8] = "彭博，男，28岁，出生于中国浙江的一个小山村，毕业于电子科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "basketball,travel,music";
-            row[11] = 0;
+            row[11] = "2003-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 
@@ -665,9 +695,10 @@ namespace FineUI.Examples
             row[8] = "黄倩倩，女，25岁，出生于中国北方的一个小山村，毕业于北京科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "travel,movie,music";
-            row[11] = 0;
+            row[11] = "2000-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 
@@ -683,9 +714,10 @@ namespace FineUI.Examples
             row[8] = "唐超，男，26岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music";
-            row[11] = 0;
+            row[11] = "2004-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 
@@ -701,9 +733,10 @@ namespace FineUI.Examples
             row[8] = "杨娟娟，女，25岁，出生于中国广西的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,movie";
-            row[11] = 0;
+            row[11] = "2003-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -718,9 +751,10 @@ namespace FineUI.Examples
             row[8] = "徐鹏，男，23岁，出生于中国安徽的一个小山村，毕业于国防科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,travel";
-            row[11] = 0;
+            row[11] = "2002-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -735,9 +769,10 @@ namespace FineUI.Examples
             row[8] = "纪玲玲，女，22岁，出生于中国台湾的一个小山村，毕业于台湾科学技术大学。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music";
-            row[11] = 0;
+            row[11] = "2006-09-01";
             row[12] = 0;
             row[13] = 0;
+            row[14] = 0;
             table.Rows.Add(row);
 
 

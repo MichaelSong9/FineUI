@@ -39,6 +39,11 @@ Apache License 2.0 (Apache)
 			-对示例grid/grid_sorting.aspx、grid/grid_paging_sorting.aspx、grid/grid_groupheader_sort.aspx进行重构。
 			-增加示例grid/grid_groupheader_sort_hdmenu.aspx、grid/grid_paging_database_sorting.aspx。
 		+对GridColumn进行重构（表格列也是一个控件），如果没有设置ColumnID，则ColumnID等于列的ClientID。
+		+对CheckBoxField进行重构（内部实现）。
+			-删除生成X_Rows.Values中的换行符。
+			-将X_States放在X_Rows.State中，因为客户端对States的更改会同时影响到X_Rows.Values和X_Rows.DataKeys。
+			-
+
 		+增加AllowCellEditing属性（表格的单元格编辑功能）。
 			-
 
