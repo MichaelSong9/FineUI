@@ -136,7 +136,7 @@ namespace FineUI
         }
 
         private object[] _states = null;
-        public object[] States
+        internal object[] States
         {
             get
             {
@@ -202,9 +202,15 @@ namespace FineUI
                         States[i] = state;
                     }
 
-                    Values[i] = RemoveNewLine(column.GetColumnValue(this));
+
+                    UpdateValuesAt(i);
                 }
             }
+        }
+
+        internal void UpdateValuesAt(int columnIndex)
+        {
+            Values[columnIndex] = RemoveNewLine(_grid.AllColumns[columnIndex].GetColumnValue(this));
         }
         #endregion
 

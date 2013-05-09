@@ -42,8 +42,8 @@ Apache License 2.0 (Apache)
 		+对CheckBoxField进行重构（内部实现）。
 			-删除生成X_Rows.Values中的换行符。
 			-将X_States放在X_Rows.State中，因为客户端对States的更改会同时影响到X_Rows.Values和X_Rows.DataKeys。
-			-
-
+			-服务器端对States的改变，会同时更新Values，进而促使表格重新加载。
+			-注意：表格行的States属性对外部不可见（internal），可以通过CheckBoxField的GetCheckedState和SetCheckedState来访问此属性。
 		+增加AllowCellEditing属性（表格的单元格编辑功能）。
 			-
 

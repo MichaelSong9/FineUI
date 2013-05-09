@@ -2518,7 +2518,7 @@ if (Ext.grid.GridPanel) {
             var e = document.createElement('div');
             e.innerHTML = tpls;
             Ext.each(e.childNodes, function (item, index) {
-                tplsHash[item.id] = item.outerHTML;
+                tplsHash[item.id] = item.outerHTML.replace(/\r?\n\s*/ig, '');
             });
 
             // INPUT:  /(<div id="(.+)_container">)<\/div>/ig.exec("<div id=\"Grid1_ctl37_container\"></div>")

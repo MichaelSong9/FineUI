@@ -3411,6 +3411,16 @@ namespace FineUI
             return null;
         }
 
+        /// <summary>
+        /// 通过列索引获取列实例
+        /// </summary>
+        /// <param name="columnIndex">列索引</param>
+        /// <returns>列实例</returns>
+        public GridColumn FindColumn(int columnIndex)
+        {
+            return AllColumns[columnIndex];
+        }
+
 
         /// <summary>
         /// 选中所有行（设置SelectedRowIndexArray属性）

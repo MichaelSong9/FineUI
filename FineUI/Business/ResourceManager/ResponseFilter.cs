@@ -296,7 +296,7 @@ namespace FineUI
         private string GetGridTpls(HtmlDocument doc, string controlId)
         {
             string tpls = GetHtmlNodeInnerHTML(controlId + "_tpls", doc);
-            tpls = Regex.Replace(tpls, "\r\n\\s*", "");
+            tpls = Regex.Replace(tpls, "\r?\n\\s*", "");
 
             // 删除生成HTML中的 "\r\n     "
             return JsHelper.Enquote(tpls);

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_checkboxfield_autopostback : PageBase
+    public partial class grid_checkboxfield_rowcheckall : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,27 +31,35 @@ namespace FineUI.Examples.grid
 
         #endregion
 
+
         #region Events
 
-
-        protected void Grid1_RowCommand(object sender, FineUI.GridCommandEventArgs e)
+        protected void Grid1_RowClick(object sender, FineUI.GridRowClickEventArgs e)
         {
-            if (e.CommandName == "CheckBox1")
+            //Alert.ShowInTop(String.Format("你点击了第 {0} 行（单击）", e.RowIndex + 1));
+
+            bool checkedState = false;
+            if (new List<int>(Grid1.SelectedRowIndexArray).Contains(e.RowIndex))
             {
-                CheckBoxField checkField = (CheckBoxField)Grid1.FindColumn(e.ColumnIndex);
-                bool checkState = checkField.GetCheckedState(e.RowIndex);
-                Alert.ShowInTop(String.Format("你点击了第 {0} 行，第 {1} 列，选中状态：{2}", e.RowIndex + 1, e.ColumnIndex + 1, checkState));
+                checkedState = true;
             }
-            else if (e.CommandName == "Action1" || e.CommandName == "Action2")
-            {
-                Alert.ShowInTop(String.Format("你点击了第 {0} 行，第 {1} 列，行命令是 {2}", e.RowIndex + 1, e.ColumnIndex + 1, e.CommandName));
-            }
+
+            CheckBoxField field1 = (CheckBoxField)Grid1.FindColumn("CheckBoxField1");
+            CheckBoxField field2 = (CheckBoxField)Grid1.FindColumn("CheckBoxField2"); 
+            CheckBoxField field3 = (CheckBoxField)Grid1.FindColumn("CheckBoxField3");
+            
+            // Grid1.Rows[e.RowIndex].States[field1.ColumnIndex] = true;
+            field1.SetCheckedState(e.RowIndex, checkedState);
+            field2.SetCheckedState(e.RowIndex, checkedState);
+            field3.SetCheckedState(e.RowIndex, checkedState);
         }
 
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            CheckBoxField field1 = (CheckBoxField)Grid1.FindColumn("CheckBoxField1");
             CheckBoxField field2 = (CheckBoxField)Grid1.FindColumn("CheckBoxField2");
+            CheckBoxField field3 = (CheckBoxField)Grid1.FindColumn("CheckBoxField3");
 
             StringBuilder sb = new StringBuilder();
             int selectedCount = Grid1.SelectedRowIndexArray.Length;
@@ -63,11 +71,13 @@ namespace FineUI.Examples.grid
                 {
                     int rowIndex = Grid1.SelectedRowIndexArray[i];
                     sb.Append("<li><ul>");
-                    
+
                     sb.AppendFormat("<li>行号：{0}</li>", rowIndex + 1);
                     // Grid1.Rows[rowIndex].States[field1.ColumnIndex] 和 field1.GetCheckedState(rowIndex) 的结果相同
-                    sb.AppendFormat("<li>是否在校（自动会发）：{0}</li>", field2.GetCheckedState(rowIndex));
-                    
+                    sb.AppendFormat("<li>是否在校1：{0}</li>", field1.GetCheckedState(rowIndex));
+                    sb.AppendFormat("<li>是否在校2：{0}</li>", field2.GetCheckedState(rowIndex));
+                    sb.AppendFormat("<li>是否在校3：{0}</li>", field3.GetCheckedState(rowIndex));
+
                     sb.Append("</ul></li>");
                 }
                 sb.Append("</ol>");

@@ -371,7 +371,7 @@ if (Ext.grid.GridPanel) {
             var e = document.createElement('div');
             e.innerHTML = tpls;
             Ext.each(e.childNodes, function (item, index) {
-                tplsHash[item.id] = item.outerHTML;
+                tplsHash[item.id] = item.outerHTML.replace(/\r?\n\s*/ig, '');
             });
 
             // INPUT:  /(<div id="(.+)_container">)<\/div>/ig.exec("<div id=\"Grid1_ctl37_container\"></div>")
@@ -553,6 +553,7 @@ if (Ext.grid.GridPanel) {
             return columns;
         },
 
+        // 这个方法用不到了，现在对States的更新会导致Values的改变，进而促使表格的重新加载
         x_setRowStates: function (states) {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.x_state['X_States'] || [];
 

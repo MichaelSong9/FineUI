@@ -348,7 +348,7 @@ namespace FineUI
 
         #endregion
 
-        #region GetCheckedState
+        #region GetCheckedState/SetCheckedState
 
         /// <summary>
         /// 当前行的这个复选框是否处于选中状态
@@ -367,6 +367,8 @@ namespace FineUI
             GridRow row = this.Grid.Rows[rowIndex];
 
             row.States[ColumnIndex] = isChecked;
+
+            row.UpdateValuesAt(ColumnIndex);
         } 
 
         #endregion

@@ -210,7 +210,7 @@
       </TreeNode>
       <TreeNode Text="复选框列（自动回发）" NavigateUrl="~/grid/grid_checkboxfield_autopostback.aspx" >
       </TreeNode>
-      <TreeNode Text="全选行复选框" NavigateUrl="~/grid/grid_rowcheckall.aspx" >
+      <TreeNode Text="全选行复选框" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="模板列" SingleClickExpand="true">
