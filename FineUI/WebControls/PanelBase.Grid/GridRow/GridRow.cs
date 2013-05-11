@@ -168,6 +168,10 @@ namespace FineUI
 
         #region ToShortStates/FromShortStates
 
+        /// <summary>
+        /// 当前行列状态列表
+        /// </summary>
+        /// <returns></returns>
         internal object[] ToShortStates()
         {
             List<object> shortStates = new List<object>();
@@ -182,6 +186,10 @@ namespace FineUI
             return shortStates.ToArray();
         }
 
+        /// <summary>
+        /// 恢复当前行列状态列表（同时更新相应的Values值）
+        /// </summary>
+        /// <param name="shortStates"></param>
         internal void FromShortStates(object[] shortStates)
         {
             Collection<GridColumn> columns = _grid.AllColumns;
@@ -208,10 +216,16 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 更新当前行某列的渲染后的HTML
+        /// </summary>
+        /// <param name="columnIndex"></param>
         internal void UpdateValuesAt(int columnIndex)
         {
             Values[columnIndex] = RemoveNewLine(_grid.AllColumns[columnIndex].GetColumnValue(this));
         }
+
         #endregion
 
         #region TemplateContainers

@@ -351,10 +351,10 @@ namespace FineUI
         #region GetCheckedState/SetCheckedState
 
         /// <summary>
-        /// 当前行的这个复选框是否处于选中状态
+        /// 本行的复选框是否处于选中状态
         /// </summary>
-        /// <param name="rowIndex"></param>
-        /// <returns></returns>
+        /// <param name="rowIndex">行索引</param>
+        /// <returns>选中状态</returns>
         public bool GetCheckedState(int rowIndex)
         {
             GridRow row = this.Grid.Rows[rowIndex];
@@ -362,12 +362,18 @@ namespace FineUI
             return Convert.ToBoolean(row.States[ColumnIndex]);
         }
 
+        /// <summary>
+        /// 设置本列复选框的选中状态
+        /// </summary>
+        /// <param name="rowIndex">行索引</param>
+        /// <param name="isChecked">是否选中</param>
         public void SetCheckedState(int rowIndex, bool isChecked)
         {
             GridRow row = this.Grid.Rows[rowIndex];
 
             row.States[ColumnIndex] = isChecked;
 
+            // 更新列状态的同时，要记着更新列渲染后的HTML
             row.UpdateValuesAt(ColumnIndex);
         } 
 

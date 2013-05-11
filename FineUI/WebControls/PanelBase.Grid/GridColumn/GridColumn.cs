@@ -354,6 +354,9 @@ namespace FineUI
         }
 
 
+        /// <summary>
+        /// 本列是否需要保存状态（目前只有CheckBoxField实现了这个定义）
+        /// </summary>
         internal virtual bool PersistState
         {
             get
@@ -362,7 +365,11 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 获取列的状态
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
         internal virtual object GetColumnState(GridRow row)
         {
             return null;
