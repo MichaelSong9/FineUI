@@ -47,6 +47,13 @@
                     </x:DatePicker>
                 </Editor>
             </x:RenderField>
+            <x:RenderField Width="100px" DataField="LogTime" FieldType="Date" Renderer="Date"
+                RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
+                <Editor>
+                    <x:DatePicker ID="DatePicker2" Required="true" runat="server">
+                    </x:DatePicker>
+                </Editor>
+            </x:RenderField>
             <x:RenderField Width="100px" DataField="AtSchool" FieldType="Boolean" RendererFunction="renderAtSchool"
                 HeaderText="是否在校">
                 <Editor>
@@ -64,14 +71,9 @@
         </Columns>
     </x:Grid>
     <br />
-    <br />
-    <br />
-    <br />
-    <x:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
+    <x:Button ID="Button2" runat="server" Text="保存数据" OnClick="Button2_Click">
     </x:Button>
     <br />
-    <x:Button runat="server" ID="Button1" OnClick="Button1_Click" Text="获取用户输入的分组值">
-    </x:Button>
     <br />
     <x:Label ID="labResult" EncodeText="false" runat="server">
     </x:Label>

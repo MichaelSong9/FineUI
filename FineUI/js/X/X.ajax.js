@@ -264,7 +264,17 @@
         if (cmp.isXType('grid')) {
             saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
             saveInHiddenField('HiddenColumnIndexArray', cmp.x_getHiddenColumns().join(','));
-            saveInHiddenField('RowStates', Ext.encode(cmp.x_getRowStates()));
+
+            var gridStates = cmp.x_getStates();
+            if (gridStates.length > 0) {
+                saveInHiddenField('States', Ext.encode(gridStates));
+            }
+
+            var gridEditorData = cmp.x_getEditorData();
+            if (gridEditorData.length > 0) {
+                saveInHiddenField('EditorData', Ext.encode(gridEditorData));
+            }
+
         }
 
         if (cmp.isXType('treepanel')) {

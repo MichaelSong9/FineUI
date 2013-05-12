@@ -269,8 +269,6 @@ namespace FineUI
 
         #region GetColumnValue
 
-        
-
         internal override string GetColumnValue(GridRow row)
         {
             string text = String.Empty;
@@ -285,10 +283,34 @@ namespace FineUI
                 }
                 else
                 {
-                    text = value.ToString();
-                    if (value.GetType() == typeof(Boolean))
+                    if (FieldType == FieldType.Boolean)
                     {
-                        text = text.ToLower();
+                        text = value.ToString().ToLower();
+                    }
+                    else if (FieldType == FieldType.Date)
+                    {
+                        // http://www.dotnetperls.com/datetime-format
+                        DateTime date = DateTime.Now;
+                        if (value.GetType() == typeof(DateTime))
+                        {
+                            date = (DateTime)value;
+                        }
+                        else
+                        {
+                            date = DateTime.Parse(value.ToString());
+                        }
+
+                        // 2009-02-27T12:12:22
+                        text = date.ToString("s");
+                        int tIndex = text.IndexOf("T");
+                        if (tIndex >= 0)
+                        {
+                            text = text.Substring(0, tIndex) + "T00:00:00";
+                        }
+                    }
+                    else
+                    {
+                        text = value.ToString();
                     }
 
                     if (HtmlEncode)

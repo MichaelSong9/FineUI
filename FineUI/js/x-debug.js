@@ -1604,7 +1604,17 @@ X.ajaxReady = function () {
         if (cmp.isXType('grid')) {
             saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
             saveInHiddenField('HiddenColumnIndexArray', cmp.x_getHiddenColumns().join(','));
-            saveInHiddenField('RowStates', Ext.encode(cmp.x_getRowStates()));
+
+            var gridStates = cmp.x_getStates();
+            if (gridStates.length > 0) {
+                saveInHiddenField('States', Ext.encode(gridStates));
+            }
+
+            var gridEditorData = cmp.x_getEditorData();
+            if (gridEditorData.length > 0) {
+                saveInHiddenField('EditorData', Ext.encode(gridEditorData));
+            }
+
         }
 
         if (cmp.isXType('treepanel')) {
@@ -2242,46 +2252,46 @@ if (Ext.form.Field) {
 
         /* 这会导致在文本输入框中按回车键，无法触发type=submit的表单回发事件
         listeners: {
-            specialkey: function (field, e) {
-                if (e.getKey() == e.ENTER) {
-                    e.stopEvent();
-                }
-            }
+        specialkey: function (field, e) {
+        if (e.getKey() == e.ENTER) {
+        e.stopEvent();
+        }
+        }
         },
         */
 
         /*
         // When show or hide the field, also hide the label.
         hide: function () {
-            Ext.form.Field.superclass.hide.call(this);
-            //this.callOverridden();
+        Ext.form.Field.superclass.hide.call(this);
+        //this.callOverridden();
 
-            //var label = Ext.get(this.el.findParent('div[class=x-form-item]')).first('label[for=' + this.id + ']');
-            var labelAndField = this.el.findParentNode('div[class*=x-form-item]', 10, true);
-            if (labelAndField) {
-                if (this.hideMode == 'display') {
-                    labelAndField.setVisibilityMode(Ext.Element.DISPLAY);
-                } else {
-                    labelAndField.setVisibilityMode(Ext.Element.VISIBILITY);
-                }
-                labelAndField.hide();
-            }
+        //var label = Ext.get(this.el.findParent('div[class=x-form-item]')).first('label[for=' + this.id + ']');
+        var labelAndField = this.el.findParentNode('div[class*=x-form-item]', 10, true);
+        if (labelAndField) {
+        if (this.hideMode == 'display') {
+        labelAndField.setVisibilityMode(Ext.Element.DISPLAY);
+        } else {
+        labelAndField.setVisibilityMode(Ext.Element.VISIBILITY);
+        }
+        labelAndField.hide();
+        }
         },
 
         show: function () {
-            Ext.form.Field.superclass.show.call(this);
-            //this.callOverridden();
+        Ext.form.Field.superclass.show.call(this);
+        //this.callOverridden();
 
-            //var label = Ext.get(this.el.findParent('div[class=x-form-item]')).first('label[for=' + this.id + ']');
-            var labelAndField = this.el.findParentNode('div[class*=x-form-item]', 10, true);
-            if (labelAndField) {
-                if (this.hideMode == 'display') {
-                    labelAndField.setVisibilityMode(Ext.Element.DISPLAY);
-                } else {
-                    labelAndField.setVisibilityMode(Ext.Element.VISIBILITY);
-                }
-                labelAndField.show();
-            }
+        //var label = Ext.get(this.el.findParent('div[class=x-form-item]')).first('label[for=' + this.id + ']');
+        var labelAndField = this.el.findParentNode('div[class*=x-form-item]', 10, true);
+        if (labelAndField) {
+        if (this.hideMode == 'display') {
+        labelAndField.setVisibilityMode(Ext.Element.DISPLAY);
+        } else {
+        labelAndField.setVisibilityMode(Ext.Element.VISIBILITY);
+        }
+        labelAndField.show();
+        }
         },
         */
 
@@ -2617,18 +2627,24 @@ if (Ext.grid.GridPanel) {
         // 选中某些行
         x_selectRows: function (rows) {
             rows = rows || this.x_state['SelectedRowIndexArray'] || [];
-            this.getSelectionModel().selectRows(rows);
+            var sm = this.getSelectionModel();
+            if (sm.selectRows) {
+                sm.selectRows(rows);
+            }
         },
 
         // 获取选中的行
         x_getSelectedRows: function () {
-            var selections = this.getSelectionModel().getSelections();
-            var store = this.getStore();
-
             var selectRows = [];
-            Ext.each(selections, function (record, index) {
-                selectRows.push(store.indexOfId(record.id));
-            });
+            var sm = this.getSelectionModel();
+            if (sm.getSelections) {
+                var selections = sm.getSelections();
+                var store = this.getStore();
+
+                Ext.each(selections, function (record, index) {
+                    selectRows.push(store.indexOfId(record.id));
+                });
+            }
 
             return selectRows;
         },
@@ -2700,53 +2716,57 @@ if (Ext.grid.GridPanel) {
             return columns;
         },
 
+        // 这个方法用不到了，现在对States的更新会导致Values的改变，进而促使表格的重新加载
+        /*
         x_setRowStates: function (states) {
-            var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.x_state['X_States'] || [];
+        var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.x_state['X_States'] || [];
 
-            function setCheckBoxStates(columnIndex, stateColumnIndex) {
-                var checkboxRows = gridEl.select('.x-grid3-body .x-grid3-row .x-grid3-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
-                checkboxRows.each(function (row, rows, index) {
-                    if (states[index][stateColumnIndex]) {
-                        if (row.hasClass('box-grid-checkbox-unchecked-disabled')) {
-                            row.removeClass('box-grid-checkbox-unchecked-disabled');
-                        } else {
-                            row.removeClass('box-grid-checkbox-unchecked');
-                        }
-                    } else {
-                        if (row.hasClass('box-grid-checkbox-disabled')) {
-                            row.addClass('box-grid-checkbox-unchecked-disabled')
-                        } else {
-                            row.addClass('box-grid-checkbox-unchecked')
-                        }
-                    }
-                });
-            }
+        function setCheckBoxStates(columnIndex, stateColumnIndex) {
+        var checkboxRows = gridEl.select('.x-grid3-body .x-grid3-row .x-grid3-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
+        checkboxRows.each(function (row, rows, index) {
+        if (states[index][stateColumnIndex]) {
+        if (row.hasClass('box-grid-checkbox-unchecked-disabled')) {
+        row.removeClass('box-grid-checkbox-unchecked-disabled');
+        } else {
+        row.removeClass('box-grid-checkbox-unchecked');
+        }
+        } else {
+        if (row.hasClass('box-grid-checkbox-disabled')) {
+        row.addClass('box-grid-checkbox-unchecked-disabled')
+        } else {
+        row.addClass('box-grid-checkbox-unchecked')
+        }
+        }
+        });
+        }
 
-            var stateColumnIndex = 0;
-            Ext.each(columns, function (column, index) {
-                if (column['x_persistState']) {
-                    if (column['x_persistStateType'] === 'checkbox') {
-                        setCheckBoxStates(index, stateColumnIndex);
-                        stateColumnIndex++;
-                    }
-                }
-            });
+        var stateColumnIndex = 0;
+        Ext.each(columns, function (column, index) {
+        if (column['x_persistState']) {
+        if (column['x_persistStateType'] === 'checkbox') {
+        setCheckBoxStates(index, stateColumnIndex);
+        stateColumnIndex++;
+        }
+        }
+        });
         },
+        */
 
-        x_getRowStates: function () {
+        // 获取列状态（目前只有CheckBoxField）
+        x_getStates: function () {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = [];
 
             function getCheckBoxStates(columnIndex) {
-                var checkboxRows = gridEl.select('.x-grid3-body .x-grid3-row .x-grid3-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
-                var states = [];
+                var checkboxRows = gridEl.select('.x-grid3-row .x-grid3-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
+                var columnStates = [];
                 checkboxRows.each(function (row, index) {
                     if (row.hasClass('box-grid-checkbox-unchecked') || row.hasClass('box-grid-checkbox-unchecked-disabled')) {
-                        states.push(false);
+                        columnStates.push(false);
                     } else {
-                        states.push(true);
+                        columnStates.push(true);
                     }
                 });
-                return states;
+                return columnStates;
             }
 
             Ext.each(columns, function (column, index) {
@@ -2756,7 +2776,51 @@ if (Ext.grid.GridPanel) {
                     }
                 }
             });
-            return states;
+
+            // 把列状态列表转换为行状态列表，与后台数据保持一致
+            var i, resolvedStates = [], rowState, rowCount;
+            if (states.length > 0) {
+                rowCount = states[0].length;
+                for (i = 0; i < rowCount; i++) {
+                    rowState = [];
+                    Ext.each(states, function (state, index) {
+                        rowState.push(state[i]);
+                    });
+                    resolvedStates.push(rowState);
+                }
+            }
+
+            return resolvedStates;
+        },
+
+
+        // 获取用户改变的单元格值
+        x_getEditorData: function () {
+            var i, j, count, columnMap = {}, columns = this.x_getColumns();
+            for (i = 0, count = columns.length; i < count; i++) {
+                columnMap[columns[i].dataIndex] = i;
+            }
+
+            var modifiedCells = [];
+            var store = this.getStore();
+            var rowIndex, columnIndex, rowData, newData, oldData, modifiedRecord, modifiedRecords = store.getModifiedRecords();
+            for (i = 0, count = modifiedRecords.length; i < count; i++) {
+                modifiedRecord = modifiedRecords[i];
+                rowIndex = store.indexOf(modifiedRecord);
+                rowData = modifiedRecord.data;
+
+                for (var modifiedKey in modifiedRecord.modified) {
+                    columnIndex = columnMap[modifiedKey];
+
+                    newData = rowData[modifiedKey];
+                    oldData = modifiedRecord.modified[modifiedKey];
+
+                    modifiedCells.push([rowIndex, columnIndex, newData]);
+                }
+
+            }
+
+            return modifiedCells;
         }
 
     });

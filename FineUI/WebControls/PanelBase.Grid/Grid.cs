@@ -1688,11 +1688,21 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        private string RowStatesHiddenFieldID
+        private string StatesHiddenFieldID
         {
             get
             {
-                return String.Format("{0}_RowStates", ClientID);
+                return String.Format("{0}_States", ClientID);
+            }
+        }
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        private string EditorDataHiddenFieldID
+        {
+            get
+            {
+                return String.Format("{0}_EditorData", ClientID);
             }
         }
 
@@ -3228,7 +3238,7 @@ namespace FineUI
             }
 
 
-
+            /*
             JArray rowStates = JArray.Parse(postCollection[RowStatesHiddenFieldID]);
             int startRowIndex, endRowIndex;
             ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
@@ -3243,8 +3253,55 @@ namespace FineUI
                 Rows[i].FromShortStates(shortStates.ToArray());
             }
             XState.BackupPostDataProperty("X_Rows");
+            */
 
+            String statesStr = postCollection[StatesHiddenFieldID];
+            if (!String.IsNullOrEmpty(statesStr))
+            {
+                JArray states = JArray.Parse(statesStr);
+                if (states.Count > 0)
+                {
+                    int startRowIndex, endRowIndex;
+                    ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
+                    for (int i = startRowIndex; i <= endRowIndex; i++)
+                    {
+                        int index = i - startRowIndex;
 
+                        Rows[i].FromShortStates(states[index].ToObject<List<object>>().ToArray());
+                    }
+                    XState.BackupPostDataProperty("X_Rows");
+                }
+            }
+
+            _modifiedCells = new List<ModifiedCell>();
+            String editorDataStr = postCollection[EditorDataHiddenFieldID];
+            if (!String.IsNullOrEmpty(editorDataStr))
+            {
+                JArray editorData = JArray.Parse(editorDataStr);
+                if (editorData.Count > 0)
+                {
+                    foreach (JArray modifiedItem in editorData)
+                    {
+                        int rowIndex = modifiedItem[0].ToObject<int>();
+                        int columnIndex = modifiedItem[1].ToObject<int>();
+                        object cellValue = modifiedItem[2].ToObject<object>();
+
+                        RenderField field = FindColumn(columnIndex) as RenderField;
+                        if(field != null)
+                        {
+                            Rows[rowIndex].Values[columnIndex] = cellValue.ToString();
+                        }
+
+                        ModifiedCell cell = new ModifiedCell();
+                        cell.RowIndex = rowIndex;
+                        cell.ColumnIndex = columnIndex;
+                        cell.CellValue = cellValue;
+                        _modifiedCells.Add(cell);
+                    }
+
+                    XState.BackupPostDataProperty("X_Rows");
+                }
+            }
             //// 需要恢复哪一列的数据
             //if (NeedPersistStateColumnIndexArray != null && NeedPersistStateColumnIndexArray.Length > 0)
             //{
@@ -3264,6 +3321,21 @@ namespace FineUI
         //{
         //    //OnCollapsedChanged(EventArgs.Empty);
         //}
+
+        #endregion
+
+        #region GetModifiedCells
+        
+        private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
+
+        /// <summary>
+        /// 获取用户修改的单元格
+        /// </summary>
+        /// <returns></returns>
+        public List<ModifiedCell> GetModifiedCells()
+        {
+            return _modifiedCells;
+        } 
 
         #endregion
 

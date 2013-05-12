@@ -23,13 +23,10 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
-            ViewState["UseDataSource1"] = true;
-
-            DataTable table = GetDataTable();
+            DataTable table = GetSourceData();
 
             Grid1.DataSource = table;
             Grid1.DataBind();
-
         }
 
 
@@ -40,48 +37,52 @@ namespace FineUI.Examples.grid
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            DataTable table;
-            if (Convert.ToBoolean(ViewState["UseDataSource1"]))
-            {
-                ViewState["UseDataSource1"] = false;
-                table = GetDataTable2();
-            }
-            else
-            {
-                ViewState["UseDataSource1"] = true;
-                table = GetDataTable();
-            }
-
-            Grid1.DataSource = table;
-            Grid1.DataBind();
-        }
-
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<table style=\"width:350px;\"><tr><th>编号</th><th>姓名</th><th>用户输入的分组号</th></tr>");
-            for (int i = 0, count = Grid1.Rows.Count; i < count; i++)
-            {
-                sb.Append("<tr>");
-                object[] rowDataKeys = Grid1.DataKeys[i];
-                sb.AppendFormat("<td>{0}</td>", rowDataKeys[0]);
-                sb.AppendFormat("<td>{0}</td>", rowDataKeys[1]);
-                
-                GridRow row = Grid1.Rows[i];
-                System.Web.UI.WebControls.TextBox tbxGroupName = (System.Web.UI.WebControls.TextBox)row.FindControl("tbxGroupName");
-                sb.AppendFormat("<td>{0}</td>", tbxGroupName.Text);
-
-                sb.Append("<tr>");
-            }
-
-            sb.Append("</table>");
-
-            labResult.Text = sb.ToString();
+            
 
         }
+
+
+        
 
         #endregion
 
+        #region Data
+
+        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell";
+
+        // 模拟在服务器端保存数据
+        // 特别注意：在真实的开发环境中，不要在Session放置大量数据，否则会严重影响服务器性能
+        private DataTable GetSourceData()
+        {
+            if (Session[KEY_FOR_DATASOURCE_SESSION] == null)
+            {
+                Session[KEY_FOR_DATASOURCE_SESSION] = GetDataTable();
+            }
+            return (DataTable)Session[KEY_FOR_DATASOURCE_SESSION];
+        }
+
+        private DataRow FindDataRowById(int dataId)
+        {
+            DataTable table = GetSourceData();
+
+            foreach (DataRow row in table.Rows)
+            {
+                if (Convert.ToInt32(row["Id"]) == dataId)
+                {
+                    return row;
+                }
+            }
+            return null;
+        }
+
+        private void SetDataRow(int dataId, int chineseScore, int mathScore)
+        {
+            DataRow row = FindDataRowById(dataId);
+            row["ChineseScore"] = chineseScore;
+            row["MathScore"] = mathScore;
+            row["TotalScore"] = chineseScore + mathScore;
+        }
+
+        #endregion
     }
 }
