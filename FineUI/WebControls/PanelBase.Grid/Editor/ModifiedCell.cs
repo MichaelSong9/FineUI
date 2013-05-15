@@ -24,14 +24,22 @@ namespace FineUI
         }
 
 
-        private object cellValue;
+        private string cellValue;
 
-        public object CellValue
+        public string CellValue
         {
             get { return cellValue; }
             set { cellValue = value; }
         }
 
+
+        private string oldCellValue;
+
+        public string OldCellValue
+        {
+            get { return oldCellValue; }
+            set { oldCellValue = value; }
+        }
 
     }
 }

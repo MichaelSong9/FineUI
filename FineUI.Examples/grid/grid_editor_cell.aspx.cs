@@ -37,12 +37,57 @@ namespace FineUI.Examples.grid
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            
+            Dictionary<int, Dictionary<int, string>> modifiedDic = Grid1.GetModifiedCellDic();
 
+            for (int i = 0, count = Grid1.Rows.Count; i < count; i++)
+            {
+                if (modifiedDic.ContainsKey(i))
+                {
+                    Dictionary<int, string> rowDic = modifiedDic[i];
+
+                    // 更新数据源
+                    DataRow rowData = FindDataRowByIndex(i);
+                    // 姓名
+                    if (rowDic.ContainsKey(1))
+                    {
+                        rowData["Name"] = rowDic[1];
+                    }
+                    // 性别
+                    if (rowDic.ContainsKey(2))
+                    {
+                        rowData["Gender"] = Convert.ToInt32(rowDic[2]);
+                    }
+                    // 入学年份
+                    if (rowDic.ContainsKey(3))
+                    {
+                        rowData["EntranceYear"] = rowDic[3];
+                    }
+                    // 入学日期
+                    if (rowDic.ContainsKey(4))
+                    {
+                        rowData["EntranceDate"] = DateTime.Parse(rowDic[4]).ToString("yyyy-MM-dd");
+                    }
+                    // 是否在校
+                    if (rowDic.ContainsKey(5))
+                    {
+                        rowData["AtSchool"] = Convert.ToBoolean(rowDic[5]);
+                    }
+                    // 所学专业
+                    if (rowDic.ContainsKey(6))
+                    {
+                        rowData["Major"] = rowDic[6];
+                    }
+
+                }
+            }
+
+            Grid1.CommitChanges();
+
+            Alert.Show("数据保存成功！现在可以刷新页面观察更改后的数据");
         }
 
 
-        
+
 
         #endregion
 
@@ -61,28 +106,14 @@ namespace FineUI.Examples.grid
             return (DataTable)Session[KEY_FOR_DATASOURCE_SESSION];
         }
 
-        private DataRow FindDataRowById(int dataId)
+        private DataRow FindDataRowByIndex(int rowIndex)
         {
             DataTable table = GetSourceData();
 
-            foreach (DataRow row in table.Rows)
-            {
-                if (Convert.ToInt32(row["Id"]) == dataId)
-                {
-                    return row;
-                }
-            }
-            return null;
+            return table.Rows[rowIndex];
         }
 
-        private void SetDataRow(int dataId, int chineseScore, int mathScore)
-        {
-            DataRow row = FindDataRowById(dataId);
-            row["ChineseScore"] = chineseScore;
-            row["MathScore"] = mathScore;
-            row["TotalScore"] = chineseScore + mathScore;
-        }
-
+        
         #endregion
     }
 }

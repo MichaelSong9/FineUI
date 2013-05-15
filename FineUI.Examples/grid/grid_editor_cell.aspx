@@ -47,13 +47,6 @@
                     </x:DatePicker>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="LogTime" FieldType="Date" Renderer="Date"
-                RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
-                <Editor>
-                    <x:DatePicker ID="DatePicker2" Required="true" runat="server">
-                    </x:DatePicker>
-                </Editor>
-            </x:RenderField>
             <x:RenderField Width="100px" DataField="AtSchool" FieldType="Boolean" RendererFunction="renderAtSchool"
                 HeaderText="是否在校">
                 <Editor>

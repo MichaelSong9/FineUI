@@ -3273,6 +3273,8 @@ namespace FineUI
                 }
             }
 
+
+            _modifiedCellDic = null;
             _modifiedCells = new List<ModifiedCell>();
             String editorDataStr = postCollection[EditorDataHiddenFieldID];
             if (!String.IsNullOrEmpty(editorDataStr))
@@ -3287,16 +3289,21 @@ namespace FineUI
                         object cellValue = modifiedItem[2].ToObject<object>();
 
                         RenderField field = FindColumn(columnIndex) as RenderField;
-                        if(field != null)
+                        if (field != null)
                         {
-                            Rows[rowIndex].Values[columnIndex] = cellValue.ToString();
+                            string newCellValue = cellValue.ToString();
+
+                            ModifiedCell cell = new ModifiedCell();
+                            cell.RowIndex = rowIndex;
+                            cell.ColumnIndex = columnIndex;
+                            cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
+                            cell.CellValue = newCellValue;
+                            _modifiedCells.Add(cell);
+
+                            Rows[rowIndex].Values[columnIndex] = newCellValue;
                         }
 
-                        ModifiedCell cell = new ModifiedCell();
-                        cell.RowIndex = rowIndex;
-                        cell.ColumnIndex = columnIndex;
-                        cell.CellValue = cellValue;
-                        _modifiedCells.Add(cell);
+
                     }
 
                     XState.BackupPostDataProperty("X_Rows");
@@ -3325,7 +3332,7 @@ namespace FineUI
         #endregion
 
         #region GetModifiedCells
-        
+
         private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
 
         /// <summary>
@@ -3335,7 +3342,53 @@ namespace FineUI
         public List<ModifiedCell> GetModifiedCells()
         {
             return _modifiedCells;
-        } 
+        }
+
+
+        private Dictionary<int, Dictionary<int, string>> _modifiedCellDic;
+
+        /// <summary>
+        /// 获取用户修改的单元格
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<int, Dictionary<int, string>> GetModifiedCellDic()
+        {
+            if (_modifiedCellDic == null)
+            {
+                _modifiedCellDic = new Dictionary<int, Dictionary<int, string>>();
+                foreach (ModifiedCell cell in _modifiedCells)
+                {
+                    int rowIndex = cell.RowIndex;
+                    if (!_modifiedCellDic.ContainsKey(rowIndex))
+                    {
+                        _modifiedCellDic.Add(rowIndex, new Dictionary<int, string>());
+                    }
+                    Dictionary<int, string> rowDic = _modifiedCellDic[rowIndex];
+                    rowDic.Add(cell.ColumnIndex, cell.CellValue);
+                }
+            }
+            return _modifiedCellDic;
+        }
+
+        #endregion
+
+        #region CommitChanges
+
+        /// <summary>
+        /// 接受用户编辑单元格（也即是消除编辑单元格左上方的红色提示图标）
+        /// </summary>
+        public void CommitChanges()
+        {
+            PageContext.RegisterStartupScript(GetCommitChangesReference());
+        }
+
+        /// <summary>
+        /// 获取接受用户编辑单元格的客户端脚本（也即是消除编辑单元格左上方的红色提示图标）
+        /// </summary>
+        public string GetCommitChangesReference()
+        {
+            return String.Format("{0}.getStore().commitChanges();", ScriptID);
+        }
 
         #endregion
 
