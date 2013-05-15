@@ -50,6 +50,25 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 是否允许编辑
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否允许编辑")]
+        public bool EnableEdit
+        {
+            get
+            {
+                object obj = XState["EnableEdit"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                XState["EnableEdit"] = value;
+            }
+        }
+
+        /// <summary>
         /// 选择的时间
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -335,6 +354,11 @@ namespace FineUI
             else if (!String.IsNullOrEmpty(MinTimeText))
             {
                 OB.AddProperty("minValue", MinTimeText);
+            }
+
+            if (!EnableEdit)
+            {
+                OB.AddProperty("editable", false);
             }
 
 

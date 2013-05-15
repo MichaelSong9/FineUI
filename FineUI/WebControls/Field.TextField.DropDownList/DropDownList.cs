@@ -233,11 +233,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 是否启用可编辑，以便在录入时自动过滤下拉框中的值
+        /// 是否可编辑，以便在录入时自动过滤下拉框中的值
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否启用可编辑，以便在录入时自动过滤下拉框中的值")]
+        [Description("是否可编辑，以便在录入时自动过滤下拉框中的值")]
         public bool EnableEdit
         {
             get

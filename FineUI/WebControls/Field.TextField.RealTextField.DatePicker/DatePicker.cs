@@ -51,6 +51,24 @@ namespace FineUI
 
         #region Properties
 
+        /// <summary>
+        /// 是否允许编辑
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否允许编辑")]
+        public bool EnableEdit
+        {
+            get
+            {
+                object obj = XState["EnableEdit"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                XState["EnableEdit"] = value;
+            }
+        }
 
         /// <summary>
         /// 选择的日期
@@ -232,6 +250,8 @@ namespace FineUI
             }
         }
 
+        
+
         #endregion
 
         #region OnPreRender
@@ -286,6 +306,11 @@ namespace FineUI
             if (MinDate != null)
             {
                 OB.AddProperty("minValue", MinDate.Value.ToString(DateFormatString));
+            }
+
+            if (!EnableEdit)
+            {
+                OB.AddProperty("editable", false);
             }
 
 
