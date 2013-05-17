@@ -86,6 +86,7 @@
     <Content Include="form\form_reset.aspx" />
     <Content Include="form\form_hide_field.aspx" />
     <Content Include="form\form_center_button.aspx" />
+    <Content Include="form\fileupload_toolbar.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
@@ -410,6 +411,13 @@
     </Compile>
     <Compile Include="form\form_center_button.aspx.designer.cs">
       <DependentUpon>form_center_button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\fileupload_toolbar.aspx.cs">
+      <DependentUpon>fileupload_toolbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\fileupload_toolbar.aspx.designer.cs">
+      <DependentUpon>fileupload_toolbar.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_edit_compare.aspx.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
