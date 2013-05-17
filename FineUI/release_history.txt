@@ -30,6 +30,7 @@ Apache License 2.0 (Apache)
 		-更新示例form/layout_panel2.aspx，增加表单验证功能。
 		-增加示例form/form_reset.aspx、form/form_hide_field.aspx（注意控件HideMode属性的使用）。
 		-为DatePicker和TimePicker增加EnableEdit属性（默认为true），更新form/timepicker.aspx（DT♂杰杰 ）。
+		-增加示例form/form_center_button.aspx，使两个按钮水平居中显示（夜冰）。
 	+表格增强。
 		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
 			-增加示例grid/grid_column_lines.aspx。
