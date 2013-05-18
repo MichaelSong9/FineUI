@@ -12,7 +12,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
+    <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px" EnableBackgroundColor="true"
         ShowBorder="true" ShowHeader="true" Title="内容面板">
         <textarea name="UEditor1" id="UEditor1">
             &lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ueditor.baidu.com/"&gt;UEditor&lt;/a&gt;.&lt;/p&gt;

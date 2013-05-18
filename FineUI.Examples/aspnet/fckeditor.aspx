@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px"
-        EnableBackgroundColor="true" ShowBorder="true" ShowHeader="true" Title="内容面板">
+        EnableBackgroundColor="true" ShowBorder="true" ShowHeader="true" Width="850px" Title="内容面板">
         <FCKeditorV2:FCKeditor ID="FCKeditor1" BasePath="~/fckeditor/" Value="" runat="server">
         </FCKeditorV2:FCKeditor>
     </x:ContentPanel>
