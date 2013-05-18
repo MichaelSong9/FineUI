@@ -4332,7 +4332,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          *     return false //编辑器没有内容 ，getContent直接返回空
          * })
          */
-        getContent:function ( cmd, fn, isPreview ) {
+        getContent:function ( cmd, fn, isPreview ,notSetCursor) {
             var me = this;
             if ( cmd && utils.isFunction( cmd ) ) {
                 fn = cmd;
@@ -4349,7 +4349,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     html = me.body.innerHTML.replace( reg, '' ).replace( />[\t\r\n]*?</g, '><' );
             me.fireEvent( 'aftergetcontent', cmd );
             try{
-                range.moveToAddress(address).select(true);
+                !notSetCursor && range.moveToAddress(address).select(true);
             }catch(e){}
             if ( me.serialize ) {
                 var node = me.serialize.parseHTML( html );
@@ -4935,7 +4935,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * editor.getLang(true)
          */
         getContentLength : function(ingoneHtml,tagNames){
-            var count = this.getContent().length;
+            var count = this.getContent(false,false,false,true).length;
             if(ingoneHtml){
                 tagNames = (tagNames||[]).concat([ 'hr','img','iframe']);
                 count = this.getContentTxt().replace(/[\t\r\n]+/g,'').length;
@@ -7664,7 +7664,7 @@ UE.plugins['undo'] = function () {
             me.fireEvent('reset', true);
         };
 
-        this.getScene = function () {
+        this.getScene = function (notSetCursor) {
             var rng = me.selection.getRange(),
                 restoreAddress = rng.createAddress(),
                 rngAddress = rng.createAddress(false,true);
@@ -7674,15 +7674,15 @@ UE.plugins['undo'] = function () {
             browser.ie && (cont = cont.replace(/>&nbsp;</g, '><').replace(/\s*</g, '<').replace(/>\s*/g, '>'));
             me.fireEvent('aftergetscene');
             try{
-                rng.moveToAddress(restoreAddress).select(true);
+                !notSetCursor && rng.moveToAddress(restoreAddress).select(true);
             }catch(e){}
             return {
                 address:rngAddress,
                 content:cont
             }
         };
-        this.save = function (notCompareRange) {
-            var currentScene = this.getScene(),
+        this.save = function (notCompareRange,notSetCursor) {
+            var currentScene = this.getScene(notSetCursor),
                 lastScene = this.list[this.index];
             //内容相同位置相同不存
             if (lastScene && lastScene.content == currentScene.content &&
@@ -7778,7 +7778,7 @@ UE.plugins['undo'] = function () {
 
                 me.fireEvent('contentchange');
 
-                me.undoManger.save(true);
+                me.undoManger.save(true,true);
                 lastKeyCode = keyCode;
                 return;
             }
@@ -7793,7 +7793,7 @@ UE.plugins['undo'] = function () {
             if (keycont >= maxInputCount || me.undoManger.mousedown) {
                 if (me.selection.getRange().collapsed)
                     me.fireEvent('contentchange');
-                me.undoManger.save();
+                me.undoManger.save(false,true);
                 me.undoManger.mousedown = false;
             }
         }
@@ -7906,7 +7906,7 @@ UE.plugins['undo'] = function () {
                         var pN = bi.parentNode;
                         if(pN.tagName == 'DIV' && pN.childNodes.length ==1){
                             pN.innerHTML = '<p><br/></p>';
-w
+
                             domUtils.remove(pN);
                         }
                     }
