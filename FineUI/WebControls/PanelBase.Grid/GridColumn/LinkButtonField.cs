@@ -46,7 +46,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class LinkButtonField : CommonColumn
+    public class LinkButtonField : BaseField
     {
 
         #region Properties

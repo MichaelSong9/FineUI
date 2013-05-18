@@ -2403,9 +2403,9 @@ namespace FineUI
                     OB.AddProperty("clicksToEdit", ClicksToEdit);
                 }
 
-                OB.Listeners.AddProperty("beforeedit", JsHelper.GetFunction("console.log(e);", "e"), true);
+                //OB.Listeners.AddProperty("beforeedit", JsHelper.GetFunction("console.log(e);", "e"), true);
 
-                OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
+                //OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
 
             }
 
@@ -2754,15 +2754,20 @@ namespace FineUI
                     JsObjectBuilder fieldBuilder = new JsObjectBuilder();
                     fieldBuilder.AddProperty("name", column.ColumnID);
 
-                    RenderField field = column as RenderField;
+                    RenderBaseField field = column as RenderBaseField;
                     if (field != null)
                     {
-                        if (field.FieldType != FieldType.Auto)
+                        if (field is RenderField)
                         {
-                            fieldBuilder.AddProperty("type", FieldTypeName.GetName(field.FieldType));
-
-
-
+                            RenderField renderFiled = field as RenderField;
+                            if (renderFiled.FieldType != FieldType.Auto)
+                            {
+                                fieldBuilder.AddProperty("type", FieldTypeName.GetName(renderFiled.FieldType));
+                            }
+                        }
+                        else if (field is RenderCheckField)
+                        {
+                            fieldBuilder.AddProperty("type", "boolean");
                         }
                     }
                     fieldsBuidler.AddProperty(fieldBuilder);
@@ -3134,10 +3139,10 @@ namespace FineUI
 
             // 在所有行都绑定结束后，需要检查模拟树显示的列，并重新计算当前列的内容（在列内容前加上树分隔符）
             // 1.查找需要模拟树显示的列
-            CommonColumn simulateTreeColumn = null;
+            BaseField simulateTreeColumn = null;
             foreach (GridColumn gridColumn in AllColumns)
             {
-                CommonColumn column = gridColumn as CommonColumn;
+                BaseField column = gridColumn as BaseField;
                 if (column != null && !String.IsNullOrEmpty(column.DataSimulateTreeLevelField))
                 {
                     simulateTreeColumn = column;
@@ -3274,35 +3279,32 @@ namespace FineUI
             }
 
 
-            _modifiedCellDic = null;
+            _modifiedDict = null;
+            _modifiedData = new JArray();
             _modifiedCells = new List<ModifiedCell>();
             String editorDataStr = postCollection[EditorDataHiddenFieldID];
             if (!String.IsNullOrEmpty(editorDataStr))
             {
-                JArray editorData = JArray.Parse(editorDataStr);
-                if (editorData.Count > 0)
+                _modifiedData = JArray.Parse(editorDataStr);
+                if (_modifiedData.Count > 0)
                 {
-                    foreach (JArray modifiedItem in editorData)
+                    foreach (JArray modifiedItem in _modifiedData)
                     {
                         int rowIndex = modifiedItem[0].ToObject<int>();
                         int columnIndex = modifiedItem[1].ToObject<int>();
                         object cellValue = modifiedItem[2].ToObject<object>();
 
-                        RenderField field = FindColumn(columnIndex) as RenderField;
-                        if (field != null)
-                        {
-                            string newCellValue = cellValue.ToString();
 
-                            ModifiedCell cell = new ModifiedCell();
-                            cell.RowIndex = rowIndex;
-                            cell.ColumnIndex = columnIndex;
-                            cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
-                            cell.CellValue = newCellValue;
-                            _modifiedCells.Add(cell);
+                        string newCellValue = cellValue.ToString();
 
-                            Rows[rowIndex].Values[columnIndex] = newCellValue;
-                        }
+                        ModifiedCell cell = new ModifiedCell();
+                        cell.RowIndex = rowIndex;
+                        cell.ColumnIndex = columnIndex;
+                        cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
+                        cell.CellValue = newCellValue;
+                        _modifiedCells.Add(cell);
 
+                        Rows[rowIndex].Values[columnIndex] = newCellValue;
 
                     }
 
@@ -3333,6 +3335,18 @@ namespace FineUI
 
         #region GetModifiedCells
 
+        private JArray _modifiedData = new JArray();
+
+        /// <summary>
+        /// 获取用户修改的数据
+        /// </summary>
+        /// <returns></returns>
+        public JArray GetModifiedData()
+        {
+            return _modifiedData;
+        }
+
+
         private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
 
         /// <summary>
@@ -3345,29 +3359,29 @@ namespace FineUI
         }
 
 
-        private Dictionary<int, Dictionary<int, string>> _modifiedCellDic;
+        private Dictionary<int, Dictionary<int, string>> _modifiedDict;
 
         /// <summary>
         /// 获取用户修改的单元格
         /// </summary>
         /// <returns></returns>
-        public Dictionary<int, Dictionary<int, string>> GetModifiedCellDic()
+        public Dictionary<int, Dictionary<int, string>> GetModifiedDict()
         {
-            if (_modifiedCellDic == null)
+            if (_modifiedDict == null)
             {
-                _modifiedCellDic = new Dictionary<int, Dictionary<int, string>>();
+                _modifiedDict = new Dictionary<int, Dictionary<int, string>>();
                 foreach (ModifiedCell cell in _modifiedCells)
                 {
                     int rowIndex = cell.RowIndex;
-                    if (!_modifiedCellDic.ContainsKey(rowIndex))
+                    if (!_modifiedDict.ContainsKey(rowIndex))
                     {
-                        _modifiedCellDic.Add(rowIndex, new Dictionary<int, string>());
+                        _modifiedDict.Add(rowIndex, new Dictionary<int, string>());
                     }
-                    Dictionary<int, string> rowDic = _modifiedCellDic[rowIndex];
+                    Dictionary<int, string> rowDic = _modifiedDict[rowIndex];
                     rowDic.Add(cell.ColumnIndex, cell.CellValue);
                 }
             }
-            return _modifiedCellDic;
+            return _modifiedDict;
         }
 
         #endregion

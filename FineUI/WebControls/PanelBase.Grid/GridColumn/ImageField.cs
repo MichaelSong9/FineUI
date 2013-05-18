@@ -43,7 +43,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class ImageField : CommonColumn
+    public class ImageField : BaseField
     {
 
         #region Properties

@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="450px"
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="350px"
         runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1">
         <Columns>
             <x:TemplateField Width="60px">
@@ -47,13 +47,7 @@
                     </x:DatePicker>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="AtSchool" FieldType="Boolean" RendererFunction="renderAtSchool"
-                HeaderText="是否在校">
-                <Editor>
-                    <x:CheckBox runat="server">
-                    </x:CheckBox>
-                </Editor>
-            </x:RenderField>
+            <x:RenderCheckField Width="100px" DataField="AtSchool" HeaderText="是否在校" />
             <x:RenderField Width="100px" DataField="Major" FieldType="String" ExpandUnusedSpace="true"
                 HeaderText="所学专业">
                 <Editor>
@@ -77,6 +71,7 @@
         function renderGender(value, metadata, record, rowIndex, colIndex) {
             return value == 1 ? '男' : '女';
         }
+
 
         function renderAtSchool(value, metadata, record, rowIndex, colIndex) {
             return value ? '<img src="./res.axd?img=tick.png" alt="YES"/>' : '<img src="./res.axd?img=bullet_cross.png" alt="NO"/>';

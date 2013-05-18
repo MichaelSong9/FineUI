@@ -4,7 +4,7 @@
 /*
  * Project：    FineUI
  * 
- * FileName:    EditField.cs
+ * FileName:    RenderField.cs
  * CreatedOn:   2013-05-05
  * CreatedBy:   30372245@qq.com
  * 
@@ -44,7 +44,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class RenderField : GridColumn
+    public class RenderField : RenderBaseField
     {
         #region Editor
 
@@ -76,48 +76,6 @@ namespace FineUI
         #endregion
 
         #region Properties
-
-        //private bool _enabled = true;
-
-        ///// <summary>
-        ///// 是否可用
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue(true)]
-        //[Description("是否可用")]
-        //public override bool Enabled
-        //{
-        //    get
-        //    {
-        //        return _enabled;
-        //    }
-        //    set
-        //    {
-        //        _enabled = value;
-        //    }
-        //}
-
-
-        private string _dataField = String.Empty;
-
-        /// <summary>
-        /// 字段名称
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("字段名称")]
-        public string DataField
-        {
-            get
-            {
-                return _dataField;
-            }
-            set
-            {
-                _dataField = value;
-            }
-        }
-
 
         private FieldType _fieldType = FieldType.Auto;
 

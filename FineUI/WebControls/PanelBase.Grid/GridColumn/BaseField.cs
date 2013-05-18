@@ -4,7 +4,7 @@
 /*
  * Project£º    FineUI
  * 
- * FileName:    CommonColumn.cs
+ * FileName:    BaseField.cs
  * CreatedOn:   2013-05-05
  * CreatedBy:   30372245@qq.com
  * 
@@ -44,7 +44,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public abstract class CommonColumn : GridColumn
+    public abstract class BaseField : GridColumn
     {
 
 

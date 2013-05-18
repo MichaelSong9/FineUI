@@ -211,8 +211,10 @@
     <Compile Include="Business\Editor\GridColumnsEditor.cs" />
     <Compile Include="WebControls\PanelBase.Grid\Editor\ModifiedCell.cs" />
     <Compile Include="WebControls\PanelBase.Grid\EventArgs\GridRowSelectEventArgs.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridColumn\CommonColumn.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\BaseField.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField\RenderField.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField\RenderCheckField.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField\RenderBaseField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumn.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumnCollection.cs" />
     <Compile Include="WebControls\PanelBase.RegionPanel\RegionPanel.cs" />
@@ -271,8 +273,8 @@
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\ImageField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\TemplateField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\HyperLinkField.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumn.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumnCollection.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumn\GridColumn.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumn\GridColumnCollection.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridRow\GridRowControl.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridRow\GridRow.cs">
       <SubType>Code</SubType>

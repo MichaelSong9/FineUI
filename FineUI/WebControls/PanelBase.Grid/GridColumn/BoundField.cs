@@ -42,7 +42,7 @@ namespace FineUI
     [ToolboxItem(false)]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class BoundField : CommonColumn
+    public class BoundField : BaseField
     {
         #region Properties
 
