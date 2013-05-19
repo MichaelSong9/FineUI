@@ -31,14 +31,15 @@ Apache License 2.0 (Apache)
 		-增加示例form/form_reset.aspx、form/form_hide_field.aspx（注意控件HideMode属性的使用）。
 		-为DatePicker和TimePicker增加EnableEdit属性（默认为true），更新form/timepicker.aspx（DT♂杰杰 ）。
 		-增加示例form/form_center_button.aspx，使两个按钮水平居中显示（夜冰）。
-		-UEditor升级为v1.2.5.1。
+	-UEditor升级为v1.2.5.1。
+	-增加两个UEditor的示例aspnet/ueditor_two.aspx（Apollo）。
 	+表格增强。
 		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
 			-增加示例grid/grid_column_lines.aspx。
 		-修正Access和Gray主题下表格多表头的样式问题（bestwowo）。
 		-增加示例grid/grid_empty_text.aspx。
 		+增加只读属性SortField（从SortColumnIndex或者SortColumn计算得来）。
-			-注意：这个地方和之前不兼容，需要在Sort事件中设置表格的SortDirection和SortColumnIndex。
+			-最好在Sort事件中设置表格的SortDirection和SortColumnIndex，不过为了和之前的兼容，在触发事件之前已经设置好了。
 			-对示例grid/grid_sorting.aspx、grid/grid_paging_sorting.aspx、grid/grid_groupheader_sort.aspx进行重构。
 			-增加示例grid/grid_groupheader_sort_hdmenu.aspx、grid/grid_paging_database_sorting.aspx。
 		+对GridColumn进行重构（表格列也是一个控件），如果没有设置ColumnID，则ColumnID等于列的ClientID。

@@ -31,9 +31,10 @@
     <script type="text/javascript" src="../ueditor/editor_all.js"></script>
     <script type="text/javascript">
         var editor = new UE.ui.Editor({
-            minFrameHeight: 150,
             initialFrameWidth: '100%',
             initialFrameHeight: 350,
+            minFrameHeight: 350,
+            autoFloatEnabled: false,
             focus: true
         });
         editor.render("UEditor1");
