@@ -670,7 +670,14 @@ namespace FineUI
                 Items.Clear();
 
                 // 2. 绑定到数据源
-                if (_dataSource is DataView || _dataSource is DataSet || _dataSource is DataTable)
+                if (_dataSource is IDataReader)
+                {
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(_dataSource as IDataReader);
+
+                    DataBindToDataTable(dataTable);
+                }
+                else if (_dataSource is DataView || _dataSource is DataSet || _dataSource is DataTable)
                 {
                     DataTable dataTable = null;
                     if (_dataSource is DataView)
@@ -685,6 +692,7 @@ namespace FineUI
                     {
                         dataTable = ((DataTable)_dataSource);
                     }
+
                     DataBindToDataTable(dataTable);
                 }
                 else if (_dataSource is IEnumerable)

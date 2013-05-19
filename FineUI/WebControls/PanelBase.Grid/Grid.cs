@@ -3044,7 +3044,14 @@ namespace FineUI
 
             if (_dataSource != null)
             {
-                if (_dataSource is DataView || _dataSource is DataSet || _dataSource is DataTable)
+                if (_dataSource is IDataReader)
+                {
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(_dataSource as IDataReader);
+
+                    recordCount = DataBindToDataTable(dataTable);
+                }
+                else if (_dataSource is DataView || _dataSource is DataSet || _dataSource is DataTable)
                 {
                     DataTable dataTable = null;
 
@@ -3629,6 +3636,10 @@ namespace FineUI
                         sortDirection = SortDirection == "ASC" ? "DESC" : "ASC";
                     }
 
+                    // 为了和之前的兼容，还是先把表格的这两个属性设置好
+                    SortDirection = sortDirection;
+                    SortColumnIndex = columnIndex;
+
                     OnSort(new GridSortEventArgs(sortField, sortDirection, columnIndex));
                 }
                 else if (sortArgs.Length == 3)
@@ -3662,6 +3673,9 @@ namespace FineUI
                     string sortField = AllColumns[columnIndex].SortField;
                     string sortDirection = sortDir.ToUpper() == "ASC" ? "ASC" : "DESC";
 
+                    // 为了和之前的兼容，还是先把表格的这两个属性设置好
+                    SortDirection = sortDirection;
+                    SortColumnIndex = columnIndex;
 
                     OnSort(new GridSortEventArgs(sortField, sortDirection, columnIndex));
                 }

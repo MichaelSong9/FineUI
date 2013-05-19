@@ -34,6 +34,7 @@ Apache License 2.0 (Apache)
 	-UEditor升级为v1.2.5.1。
 	-增加两个UEditor的示例aspnet/ueditor_two.aspx（Apollo）。
 	+表格增强。
+		-表格，下拉列表、复选框列表以及单选框列表的数据源支持IDataReader（路过秋天、周星星）。
 		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
 			-增加示例grid/grid_column_lines.aspx。
 		-修正Access和Gray主题下表格多表头的样式问题（bestwowo）。
