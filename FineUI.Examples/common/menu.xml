@@ -106,6 +106,8 @@
             </TreeNode>
             <TreeNode Text="上传控件（自动回发）" NavigateUrl="~/form/fileupload_autopostback.aspx" >
             </TreeNode>
+            <TreeNode Text="工具栏中的上传控件" NavigateUrl="~/form/fileupload_toolbar.aspx" >
+            </TreeNode>
         </TreeNode>
         <TreeNode Text="表单布局" SingleClickExpand="true">
             <TreeNode Text="按钮与表单" NavigateUrl="~/form/layout_panel.aspx" >
@@ -426,8 +428,8 @@
         <TreeNode Text="UEditor控件" SingleClickExpand="true">
             <TreeNode Text="UEditor控件" NavigateUrl="~/aspnet/ueditor.aspx" >
             </TreeNode>
-          <TreeNode Text="多个UEditor控件" NavigateUrl="~/aspnet/ueditor_two.aspx" >
-          </TreeNode>
+            <TreeNode Text="多个UEditor控件" NavigateUrl="~/aspnet/ueditor_two.aspx" >
+            </TreeNode>
         </TreeNode>
     </TreeNode>
     <TreeNode Text="用户控件" SingleClickExpand="true">

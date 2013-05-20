@@ -18,6 +18,23 @@
             width: 200px;
             vertical-align: middle;
         }
+        
+        
+        
+        .mytoolbar td
+        {
+            vertical-align: top;
+        }
+        .mytoolbar .x-form-field-wrap
+        {
+            /* Only fileupload in toolbar */
+            height: 23px;
+        }
+        .mytoolbar .x-form-field
+        {
+            /* fix for IE */
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -35,14 +52,14 @@
             </x:TextBox>
         </Items>
         <Toolbars>
-            <x:Toolbar Position="Bottom" runat="server">
+            <x:Toolbar Position="Bottom" CssClass="mytoolbar" runat="server">
                 <Items>
                     <x:FileUpload runat="server" ID="filePhoto" ButtonText="上传个人头像" ButtonOnly="true"
                         AutoPostBack="true" OnFileSelected="filePhoto_FileSelected">
                     </x:FileUpload>
-                    <x:ToolbarFill runat="server">
+                    <x:ToolbarFill ID="ToolbarFill1" runat="server">
                     </x:ToolbarFill>
-                    <x:Button runat="server" Icon="SystemSave" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click"
+                    <x:Button runat="server" Icon="SystemSave" ID="btnSubmit" OnClick="btnSubmit_Click"
                         ValidateForms="SimpleForm1" Text="提交表单">
                     </x:Button>
                 </Items>

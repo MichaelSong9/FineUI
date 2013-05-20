@@ -31,6 +31,7 @@ Apache License 2.0 (Apache)
 		-增加示例form/form_reset.aspx、form/form_hide_field.aspx（注意控件HideMode属性的使用）。
 		-为DatePicker和TimePicker增加EnableEdit属性（默认为true），更新form/timepicker.aspx（DT♂杰杰 ）。
 		-增加示例form/form_center_button.aspx，使两个按钮水平居中显示（夜冰）。
+		-增加示例form/fileupload_toolbar.aspx，在工具栏中放置FileUpload控件（asp.net）。
 	-UEditor升级为v1.2.5.1。
 	-增加两个UEditor的示例aspnet/ueditor_two.aspx（Apollo）。
 	+表格增强。
