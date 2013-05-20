@@ -19,7 +19,7 @@ Apache License 2.0 (Apache)
 
 发布历史
 
-+2013-06-* v3.2.6
++2013-05-21 v3.2.6
 	+修正extjs v3.4.1.1引入的问题。
 		+恢复表格和树控件中链接光标的手型而非指针。
 			-删除ext-all-notheme中对x-unselectable的光标定义。
@@ -54,7 +54,6 @@ Apache License 2.0 (Apache)
 			-增加AllowCellEditing、ClicksToEdit属性；CommitChanges、GetModifiedCells、GetModifiedDict几个方法。
 			-增加RenderField和RenderCheckField两个列类型。
 			-增加示例grid/grid_editor_cell.aspx。
-
 
 
 
