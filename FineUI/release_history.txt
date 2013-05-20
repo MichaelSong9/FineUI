@@ -1,5 +1,5 @@
 ﻿关于FineUI
-基于 ExtJS 的专业 ASP.NET 2.0 控件库。
+基于 ExtJS 的专业 ASP.NET 控件库。
 
 FineUI的使命
 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
