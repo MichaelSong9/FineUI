@@ -7,7 +7,19 @@
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        
+        .mypanel
+        {
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: solid 1px #ccc;
+        }
+        .mypanel .mybutton
+        {
+            display: inline-block;
+            *display: inline;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -38,14 +50,13 @@
             <x:FormRow>
                 <Items>
                     <x:Panel ID="Panel1" runat="server" EnableBackgroundColor="true" ShowBorder="false"
-                        BodyStyle="text-align:center;padding-top:10px;margin-top:10px;border-top:solid 1px #ccc;"
-                        ShowHeader="false">
+                        CssClass="mypanel" ShowHeader="false">
                         <Items>
-                            <x:Button runat="server" Text="验证此表单并提交" CssStyle="display:inline-block;margin-right:10px;"
-                                ValidateForms="Form1" ID="btnSubmitForm1" OnClick="btnSubmitForm1_Click">
+                            <x:Button runat="server" Text="验证此表单并提交" CssClass="mybutton" ValidateForms="Form1"
+                                ID="btnSubmitForm1" OnClick="btnSubmitForm1_Click">
                             </x:Button>
-                            <x:Button ID="btnResetForm1" EnablePostBack="false" CssStyle="display:inline-block;"
-                                Text="重置表单" runat="server">
+                            <x:Button ID="btnResetForm1" EnablePostBack="false" CssClass="mybutton" Text="重置表单"
+                                runat="server">
                             </x:Button>
                         </Items>
                     </x:Panel>

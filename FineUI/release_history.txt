@@ -19,6 +19,10 @@ Apache License 2.0 (Apache)
 
 发布历史
 
++2013-06-* v3.2.7
+	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu ）。
+
+
 +2013-05-21 v3.2.6
 	+修正extjs v3.4.1.1引入的问题。
 		+恢复表格和树控件中链接光标的手型而非指针。
