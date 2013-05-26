@@ -1940,7 +1940,7 @@ X.ajaxReady = function () {
                 X.wnd.fixMaximize(panel);
 
 
-                // 窗体控件最大化时改变浏览器大小可以自动调整窗体控件的大小
+                // 改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）
                 target.Ext.EventManager.onWindowResize(function () {
                     X.wnd.fixMaximize(panel);
                 });
@@ -3112,15 +3112,16 @@ if (Ext.TabPanel) {
 }
 
 
-
-// 修正IE7下，窗口出现滚动条时，点击Window控件标题栏有时node为null的问题
-X.originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
-Ext.dd.DragDrop.prototype.isValidHandleChild = function (node) {
-    if (!node || !node.nodeName) {
-        return false;
-    }
-    return X.originalIsValidHandleChild.apply(this, [node]);
-};
+if (Ext.dd.DragDrop) {
+    // 修正IE7下，窗口出现滚动条时，点击Window控件标题栏有时node为null的问题
+    X.originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
+    Ext.dd.DragDrop.prototype.isValidHandleChild = function (node) {
+        if (!node || !node.nodeName) {
+            return false;
+        }
+        return X.originalIsValidHandleChild.apply(this, [node]);
+    };
+}
 
 if (Ext.grid.GridPanel) {
     // 修正在IE下，Grid的模版列中出现文本输入框或者下拉列表时，第一次不能选中的问题
@@ -3135,6 +3136,29 @@ if (Ext.grid.GridPanel) {
 
         focusEl.focus();
     };
+}
+
+
+if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
+    // 修正Chrome下多表头样式错位
+    // http://forums.ext.net/showthread.php?19808-FIXED-1-6-Header-Group-Column-layout-bug
+    Ext.ux.grid.ColumnHeaderGroup.prototype.getGroupStyle = function (group, gcol) {
+        var width = 0, hidden = true;
+        for (var i = gcol, len = gcol + group.colspan; i < len; i++) {
+            if (!this.cm.isHidden(i)) {
+                var cw = this.cm.getColumnWidth(i);
+                if (typeof cw == 'number') {
+                    width += cw;
+                }
+                hidden = false;
+            }
+        }
+        return {
+            width: (Ext.isBorderBox || (Ext.isWebKit && !Ext.isSafari2 && !Ext.isChrome) ? width : Math.max(width - this.borderWidth, 0)) + 'px',
+            hidden: hidden
+        };
+    };
+
 }﻿
 (function() {
 
