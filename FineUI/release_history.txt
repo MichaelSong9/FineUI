@@ -22,6 +22,7 @@ Apache License 2.0 (Apache)
 +2013-06-* v3.2.7
 	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu ）。
 	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。
+	-改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）（grass_root、蓝色天空）。
 
 
 +2013-05-21 v3.2.6

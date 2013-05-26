@@ -1315,8 +1315,16 @@ X.ajaxReady = function () {
                 panel.setPosition(leftTop.left, leftTop.top);
             }
 
+            if (panel.maximizable) {
+                X.wnd.fixMaximize(panel);
 
-            X.wnd.fixMaximize(panel);
+
+                // 窗体控件最大化时改变浏览器大小可以自动调整窗体控件的大小
+                target.Ext.EventManager.onWindowResize(function () {
+                    X.wnd.fixMaximize(panel);
+                });
+
+            }
         },
 
         // 隐藏Ext-Window（比如用户点击了关闭按钮）
@@ -1334,10 +1342,6 @@ X.ajaxReady = function () {
                 panel['x_iframe_url'] = 'about:blank';
             }
             panel.hide();
-
-            //            // 关闭窗体的时候，记着隐藏外部的容器
-            //            var wrapperNode = _getWrapperNode(panel);
-            //            wrapperNode.hide();
         },
 
         // 这是 Extjs 的一个 bug，如果 Window 控件不是渲染在 document.body 中，则 maximize 函数并不能真正的最大化

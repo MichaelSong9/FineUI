@@ -1231,7 +1231,7 @@ namespace FineUI
                 // 这个事件可以处理两种情况，一是点击最大化按钮，二是双击Window标题栏最大化
                 OB.Listeners.AddProperty("maximize", "function(win){X.wnd.fixMaximize(win);}", true);
 
-
+                //OB.Listeners.AddProperty("resize", "function(win,width,height){console.log(width + ' - ' +height);}", true);
                 //JsObjectBuilder maxObj = new JsObjectBuilder();
                 //maxObj.AddProperty("type", "maximize");
                 //maxObj.AddProperty("handler", String.Format("function(event,toolEl,win){{{0}}}", "win.maximize();"), true);
@@ -1317,8 +1317,17 @@ namespace FineUI
                 string closeFunction = JsHelper.GetFunction(closeScript);
                 OB.AddProperty("onEsc", closeFunction, true);
 
-                string closeButtonScript = String.Format("comp.tools.close.addListener('click', function(){{{0}}})", closeScript);
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "comp"), true);
+                string closeButtonScript = String.Format("win.tools.close.addListener('click', function(){{{0}}});", closeScript);
+
+                //string windowResizeScript = String.Empty;
+
+                //// 窗体控件最大化时改变浏览器大小可以自动调整窗体控件的大小
+                //if (EnableMaximize)
+                //{
+                //    windowResizeScript = "Ext.EventManager.onWindowResize(function(){X.wnd.fixMaximize(win);});";
+                //}
+
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "win"), true);
 
                 // X('Window1').tools.close.addListener('click', function() {alert('ss');})
 
