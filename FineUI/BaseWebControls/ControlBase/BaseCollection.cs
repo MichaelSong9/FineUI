@@ -102,9 +102,9 @@ namespace FineUI
         {
             int startIndex = 0;
 
-            foreach (ControlBase control in _parent.Controls)
+            foreach (Control control in _parent.Controls)
             {
-                if (control.CollectionGroupName == _groupName)
+                if (control is ControlBase && (control as ControlBase).CollectionGroupName == _groupName)
                 {
                     break;
                 }
