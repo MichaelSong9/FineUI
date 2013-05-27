@@ -17,7 +17,7 @@
                 <Items>
                     <x:Button ID="btnNew" Text="新增数据" Icon="Add" EnablePostBack="false" runat="server">
                     </x:Button>
-                    <x:Button ID="btnDelete" Text="删除选中项" Icon="Delete" OnClick="btnDelete_Click" runat="server">
+                    <x:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
                     </x:Button>
                 </Items>
             </x:Toolbar>

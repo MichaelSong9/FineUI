@@ -53,7 +53,7 @@ namespace FineUI.Examples.grid
                 sb.Append(Grid1.DataKeys[row][1].ToString());
                 sb.Append(",");
             }
-            Alert.ShowInTop("你选择了删除项：" + sb.ToString().TrimEnd(','));
+            Alert.ShowInTop("你选择了删除行：" + sb.ToString().TrimEnd(','));
         }
 
 

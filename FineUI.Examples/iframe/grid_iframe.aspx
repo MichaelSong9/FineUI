@@ -45,7 +45,7 @@
                             </x:Button>
                             <x:ToolbarSeparator runat="server">
                             </x:ToolbarSeparator>
-                            <x:Button ID="btnConfirmButton" Text="删除选中项" runat="server">
+                            <x:Button ID="btnConfirmButton" Text="删除选中行" runat="server">
                             </x:Button>
                         </Items>
                     </x:Toolbar>

@@ -115,6 +115,7 @@
     <Content Include="grid\grid_paging_database_sorting.aspx" />
     <Content Include="grid\grid_editor_cell2.aspx" />
     <Content Include="grid\grid_checkboxfield_rowcheckall.aspx" />
+    <Content Include="grid\grid_editor_cell_new.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -615,6 +616,13 @@
     </Compile>
     <Compile Include="grid\grid_checkboxfield_rowcheckall.aspx.designer.cs">
       <DependentUpon>grid_checkboxfield_rowcheckall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_new.aspx.cs">
+      <DependentUpon>grid_editor_cell_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_new.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_new.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

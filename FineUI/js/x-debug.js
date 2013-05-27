@@ -860,7 +860,7 @@ X.ajaxReady = function () {
         // 向页面添加一个隐藏字段，如果已经存在则更新值
         setHiddenFieldValue: function (fieldId, fieldValue) {
             var itemNode = Ext.get(fieldId);
-            if (itemNode == null) {
+            if (!itemNode) {
                 // Ext.DomHelper.append 有问题，例如下面这个例子得到的结果是错的；变通一下，先插入节点，在设置节点的值。
                 // Ext.DomHelper.append(document.forms[0], { tag: "input", type: "hidden", value: '{"X_Items":[["Value1","选项 1",1],["Value2","选项 2（不可选择）",0],["Value3","选项 3（不可选择）",0],["Value4","选项 4",1],["Value5","选项 5",1],["Value6","选项 6",1],["Value7","选项 7",1],["Value8","选项 8",1],["Value9","选项 9",1]],"SelectedValue":"Value1"}'});
                 // 上面的这个字符串，在IETest的IE8模式下会变成：
@@ -871,6 +871,14 @@ X.ajaxReady = function () {
             }
             else {
                 itemNode.dom.value = fieldValue;
+            }
+        },
+
+        // 从表单中删除隐藏字段
+        removeHiddenField: function (fieldId) {
+            var itemNode = Ext.get(fieldId);
+            if (itemNode) {
+                itemNode.remove();
             }
         },
 
@@ -1007,7 +1015,7 @@ X.ajaxReady = function () {
         // 取得隐藏字段的值
         getHiddenFieldValue: function (fieldId) {
             var itemNode = Ext.get(fieldId);
-            if (itemNode == null) {
+            if (!itemNode) {
                 return "";
             }
             else {
@@ -1579,7 +1587,9 @@ X.ajaxReady = function () {
             // Save this client-changed property in a form hidden field. 
             X.util.setHiddenFieldValue(cmp.id + '_' + property, currentValue);
         }
-
+        function removeHiddenField(property) {
+            X.util.removeHiddenField(cmp.id + '_' + property);
+        }
 
 
         // 有些属性可以在客户端改变，因此需要在每个请求之前计算
@@ -1608,11 +1618,15 @@ X.ajaxReady = function () {
             var gridStates = cmp.x_getStates();
             if (gridStates.length > 0) {
                 saveInHiddenField('States', Ext.encode(gridStates));
+            } else {
+                removeHiddenField('States');
             }
 
             var gridEditorData = cmp.x_getEditorData();
             if (gridEditorData.length > 0) {
                 saveInHiddenField('EditorData', Ext.encode(gridEditorData));
+            } else {
+                removeHiddenField('EditorData');
             }
 
         }
@@ -1638,61 +1652,6 @@ X.ajaxReady = function () {
         //        }
 
         return state;
-
-        //        function clientChangableProperty(property, currentValue, saveInHiddenField) {
-        //            if (saveInHiddenField) {
-        //                // Save this client-changed property in a form hidden field. 
-        //                X.util.setHiddenFieldValue(cmp.id + '_' + property, currentValue);
-        //            }
-
-        //            // xstate is changed in server-side.
-        //            //            var lastValue = xstate[property];
-        //            //            // If lastValue is not exist or it has been changed, then save the new value.
-        //            //            if (!lastValue || lastValue.toString() !== currentValue.toString()) {
-        //            //                xstate[property] = currentValue;
-        //            //            }
-        //        }
-
-        //        var xType = cmp.getXType();
-        //        switch (xType) {
-        //            case 'button':
-        //                // The EnablePress property has been enabled for this button.
-        //                if (cmp.initialConfig.enableToggle) {
-        //                    saveInHiddenField('Pressed', cmp.pressed);
-        //                }
-        //                break;
-        //            case 'checkbox':
-        //            case 'radio':
-        //                // Although the 'Checked' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form (input type="checkbox").
-        //                clientChangableProperty('Checked', cmp.getValue());
-        //                break;
-        //            case 'radiogroup':
-        //                // Although the 'Checked' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form (input type="checkbox").
-        //                clientChangableProperty('SelectedValue', cmp.getValue());
-        //                break;
-        //            case 'combo':
-        //                clientChangableProperty('X_SelectedValue', cmp.getValue());
-        //                break;
-        //            case 'textfield':
-        //                // Although the 'Text' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form.
-        //                clientChangableProperty('Text', cmp.getValue());
-        //                break;
-        //            case 'window':
-        //                // Although the 'Hidden' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form - HiddenHiddenFieldID.
-        //                clientChangableProperty("Hidden", X.util.getHiddenFieldValue(cmp.id + '_Hidden') === 'true' ? true : false);
-        //                break;
-        //            case 'grid':
-        //                // X('Grid1').getStore().indexOfId(X('Grid1').getSelectionModel().getSelections()[0].id)
-        //                clientChangableProperty('SelectedRowIndexArray', cmp.x_getSelectedRows(), true);
-        //                break;
-        //            case 'tabpanel':
-        //                clientChangableProperty('ActiveTabIndex', cmp.items.indexOf(cmp.getActiveTab()), true);
-        //                break;
-        //        }
     }
 
 
@@ -3141,6 +3100,7 @@ if (Ext.grid.GridPanel) {
 
 if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
     // 修正Chrome下多表头样式错位
+    // 增加 !Ext.isChrome 的判断，在Chrome下DIV的宽度不包括边框的宽度
     // http://forums.ext.net/showthread.php?19808-FIXED-1-6-Header-Group-Column-layout-bug
     Ext.ux.grid.ColumnHeaderGroup.prototype.getGroupStyle = function (group, gcol) {
         var width = 0, hidden = true;

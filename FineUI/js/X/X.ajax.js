@@ -239,7 +239,9 @@
             // Save this client-changed property in a form hidden field. 
             X.util.setHiddenFieldValue(cmp.id + '_' + property, currentValue);
         }
-
+        function removeHiddenField(property) {
+            X.util.removeHiddenField(cmp.id + '_' + property);
+        }
 
 
         // 有些属性可以在客户端改变，因此需要在每个请求之前计算
@@ -268,11 +270,15 @@
             var gridStates = cmp.x_getStates();
             if (gridStates.length > 0) {
                 saveInHiddenField('States', Ext.encode(gridStates));
+            } else {
+                removeHiddenField('States');
             }
 
             var gridEditorData = cmp.x_getEditorData();
             if (gridEditorData.length > 0) {
                 saveInHiddenField('EditorData', Ext.encode(gridEditorData));
+            } else {
+                removeHiddenField('EditorData');
             }
 
         }
@@ -298,61 +304,6 @@
         //        }
 
         return state;
-
-        //        function clientChangableProperty(property, currentValue, saveInHiddenField) {
-        //            if (saveInHiddenField) {
-        //                // Save this client-changed property in a form hidden field. 
-        //                X.util.setHiddenFieldValue(cmp.id + '_' + property, currentValue);
-        //            }
-
-        //            // xstate is changed in server-side.
-        //            //            var lastValue = xstate[property];
-        //            //            // If lastValue is not exist or it has been changed, then save the new value.
-        //            //            if (!lastValue || lastValue.toString() !== currentValue.toString()) {
-        //            //                xstate[property] = currentValue;
-        //            //            }
-        //        }
-
-        //        var xType = cmp.getXType();
-        //        switch (xType) {
-        //            case 'button':
-        //                // The EnablePress property has been enabled for this button.
-        //                if (cmp.initialConfig.enableToggle) {
-        //                    saveInHiddenField('Pressed', cmp.pressed);
-        //                }
-        //                break;
-        //            case 'checkbox':
-        //            case 'radio':
-        //                // Although the 'Checked' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form (input type="checkbox").
-        //                clientChangableProperty('Checked', cmp.getValue());
-        //                break;
-        //            case 'radiogroup':
-        //                // Although the 'Checked' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form (input type="checkbox").
-        //                clientChangableProperty('SelectedValue', cmp.getValue());
-        //                break;
-        //            case 'combo':
-        //                clientChangableProperty('X_SelectedValue', cmp.getValue());
-        //                break;
-        //            case 'textfield':
-        //                // Although the 'Text' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form.
-        //                clientChangableProperty('Text', cmp.getValue());
-        //                break;
-        //            case 'window':
-        //                // Although the 'Hidden' property can be changed in client-side.
-        //                // But we don't save it in X_STATE, because it will be exist in form - HiddenHiddenFieldID.
-        //                clientChangableProperty("Hidden", X.util.getHiddenFieldValue(cmp.id + '_Hidden') === 'true' ? true : false);
-        //                break;
-        //            case 'grid':
-        //                // X('Grid1').getStore().indexOfId(X('Grid1').getSelectionModel().getSelections()[0].id)
-        //                clientChangableProperty('SelectedRowIndexArray', cmp.x_getSelectedRows(), true);
-        //                break;
-        //            case 'tabpanel':
-        //                clientChangableProperty('ActiveTabIndex', cmp.items.indexOf(cmp.getActiveTab()), true);
-        //                break;
-        //        }
     }
 
 

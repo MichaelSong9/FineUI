@@ -239,7 +239,7 @@ X.ajaxReady = function () {
         // 向页面添加一个隐藏字段，如果已经存在则更新值
         setHiddenFieldValue: function (fieldId, fieldValue) {
             var itemNode = Ext.get(fieldId);
-            if (itemNode == null) {
+            if (!itemNode) {
                 // Ext.DomHelper.append 有问题，例如下面这个例子得到的结果是错的；变通一下，先插入节点，在设置节点的值。
                 // Ext.DomHelper.append(document.forms[0], { tag: "input", type: "hidden", value: '{"X_Items":[["Value1","选项 1",1],["Value2","选项 2（不可选择）",0],["Value3","选项 3（不可选择）",0],["Value4","选项 4",1],["Value5","选项 5",1],["Value6","选项 6",1],["Value7","选项 7",1],["Value8","选项 8",1],["Value9","选项 9",1]],"SelectedValue":"Value1"}'});
                 // 上面的这个字符串，在IETest的IE8模式下会变成：
@@ -250,6 +250,14 @@ X.ajaxReady = function () {
             }
             else {
                 itemNode.dom.value = fieldValue;
+            }
+        },
+
+        // 从表单中删除隐藏字段
+        removeHiddenField: function (fieldId) {
+            var itemNode = Ext.get(fieldId);
+            if (itemNode) {
+                itemNode.remove();
             }
         },
 
@@ -386,7 +394,7 @@ X.ajaxReady = function () {
         // 取得隐藏字段的值
         getHiddenFieldValue: function (fieldId) {
             var itemNode = Ext.get(fieldId);
-            if (itemNode == null) {
+            if (!itemNode) {
                 return "";
             }
             else {
