@@ -64,7 +64,7 @@ namespace FineUI
             // 严格的说，PageIndex、SortColumnIndex、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
             AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
-            AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "ExpandAllRowExpanders");
+            AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
         }
 
         // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
@@ -906,7 +906,7 @@ namespace FineUI
             }
         }
 
-        
+
         /// <summary>
         /// 点击行是否自动回发
         /// </summary>
@@ -926,7 +926,7 @@ namespace FineUI
             }
         }
 
-        
+
         /// <summary>
         /// 双击行是否自动回发
         /// </summary>
@@ -944,7 +944,7 @@ namespace FineUI
             {
                 XState["EnableRowDoubleClickEvent"] = value;
             }
-        } 
+        }
         #endregion
 
         #region ForceFitAllTime
@@ -1168,6 +1168,31 @@ namespace FineUI
             set
             {
                 SelectedRowIndexArray = new int[] { value };
+            }
+        }
+
+        /// <summary>
+        /// [AJAX属性]选中的单元格（[行索引,列索引]）
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int[] SelectedCell
+        {
+            get
+            {
+                object obj = XState["SelectedCell"];
+                return obj == null ? null : (int[])obj;
+            }
+            set
+            {
+                if (value == null || value.Length != 2)
+                {
+                    XState["SelectedCell"] = null;
+                }
+                else
+                {
+                    XState["SelectedCell"] = value;
+                }
             }
         }
 
@@ -1714,6 +1739,16 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        private string SelectedCellHiddenFieldID
+        {
+            get
+            {
+                return String.Format("{0}_SelectedCell", ClientID);
+            }
+        }
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private string SelectedRowIndexArrayHiddenFieldID
         {
             get
@@ -1919,7 +1954,14 @@ namespace FineUI
 
 
             bool selectRowsScriptRegistered = false;
-            if (!AllowCellEditing)
+            if (AllowCellEditing)
+            {
+                if (PropertyModified("SelectedCell"))
+                {
+                    sb.AppendFormat("{0}.x_selectCell();", XID);
+                }
+            }
+            else
             {
                 if (PropertyModified("SelectedRowIndexArray"))
                 {
@@ -1954,7 +1996,7 @@ namespace FineUI
             {
                 if (!rowExpandersScriptRegistered)
                 {
-                    // 判断是否需要展开所有的行扩展列
+                    // 数据重新加载了，如果没有注册行扩展列的脚本，需要注册展开所有行扩展列的脚本
                     if (ExpandAllRowExpanders)
                     {
                         sb.AppendFormat("{0}.x_expandAllRows();", XID);
@@ -1965,7 +2007,7 @@ namespace FineUI
                     }
                 }
 
-                // 是否启用文本选择
+                // 数据重新加载了，检查是否启用文本选择
                 if (EnableTextSelection)
                 {
                     sb.AppendFormat("{0}.x_enableTextSelection();", XID);
@@ -1973,14 +2015,14 @@ namespace FineUI
 
                 if (!AllowCellEditing)
                 {
-                    // 不管选择的行是否有变化，都要重新选中行
+                    // 数据重新加载了，如果没有注册选中行的脚本，需要注册重新选中行的脚本
                     if (!selectRowsScriptRegistered)
                     {
                         sb.AppendFormat("{0}.x_selectRows();", XID);
                     }
                 }
 
-                // 需要更新模版列的内容，因为HTML重新渲染了
+                // 数据重新加载了，需要同步更新模版列的内容，因为表格HTML重新渲染了
                 PageManager.Instance.AjaxGridClientIDs.Add(ClientID);
             }
 
@@ -2614,7 +2656,8 @@ namespace FineUI
                 columnsBuilder.AddProperty(String.Format("new Ext.grid.RowNumberer({0})", rowNumberBuilder.ToString()), true);
             }
             // 如果启用CheckBox，则放在第二列
-            if (EnableCheckBoxSelect)
+            // 如果启用单元格编辑，则EnableCheckBoxSelect属性失效
+            if (EnableCheckBoxSelect && !AllowCellEditing)
             {
                 columnsBuilder.AddProperty(selectModelID, true);
             }
@@ -3250,6 +3293,7 @@ namespace FineUI
 
             // 重新绑定数据前清空选中的值
             SelectedRowIndexArray = null;
+            SelectedCell = null;
 
             // 清空现有的行
             Rows.Clear();
@@ -3280,12 +3324,6 @@ namespace FineUI
         {
             base.LoadPostData(postDataKey, postCollection);
 
-            int[] selectedRowIndexArray = StringUtil.GetIntListFromString(postCollection[SelectedRowIndexArrayHiddenFieldID]).ToArray();
-            if (!StringUtil.CompareIntArray(SelectedRowIndexArray, selectedRowIndexArray))
-            {
-                SelectedRowIndexArray = selectedRowIndexArray;
-                XState.BackupPostDataProperty("SelectedRowIndexArray");
-            }
 
 
             int[] hiddenColumnIndexArray = StringUtil.GetIntListFromString(postCollection[HiddenColumnIndexArrayHiddenFieldID]).ToArray();
@@ -3313,6 +3351,7 @@ namespace FineUI
             XState.BackupPostDataProperty("X_Rows");
             */
 
+            // 列状态（目前只有CheckBoxField用到）
             String statesStr = postCollection[StatesHiddenFieldID];
             if (!String.IsNullOrEmpty(statesStr))
             {
@@ -3331,38 +3370,61 @@ namespace FineUI
                 }
             }
 
-
-            _modifiedDict = null;
-            _modifiedData = new JArray();
-            _modifiedCells = new List<ModifiedCell>();
-            String editorDataStr = postCollection[EditorDataHiddenFieldID];
-            if (!String.IsNullOrEmpty(editorDataStr))
+            if (AllowCellEditing)
             {
-                _modifiedData = JArray.Parse(editorDataStr);
-                if (_modifiedData.Count > 0)
+                _modifiedDict = null;
+                _modifiedData = new JArray();
+                _modifiedCells = new List<ModifiedCell>();
+                String editorDataStr = postCollection[EditorDataHiddenFieldID];
+                if (!String.IsNullOrEmpty(editorDataStr))
                 {
-                    foreach (JArray modifiedItem in _modifiedData)
+                    _modifiedData = JArray.Parse(editorDataStr);
+                    if (_modifiedData.Count > 0)
                     {
-                        int rowIndex = modifiedItem[0].ToObject<int>();
-                        int columnIndex = modifiedItem[1].ToObject<int>();
-                        object cellValue = modifiedItem[2].ToObject<object>();
+                        foreach (JArray modifiedItem in _modifiedData)
+                        {
+                            int rowIndex = modifiedItem[0].ToObject<int>();
+                            int columnIndex = modifiedItem[1].ToObject<int>();
+                            object cellValue = modifiedItem[2].ToObject<object>();
 
 
-                        string newCellValue = cellValue.ToString();
+                            string newCellValue = cellValue.ToString();
 
-                        ModifiedCell cell = new ModifiedCell();
-                        cell.RowIndex = rowIndex;
-                        cell.ColumnIndex = columnIndex;
-                        cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
-                        cell.CellValue = newCellValue;
-                        _modifiedCells.Add(cell);
+                            ModifiedCell cell = new ModifiedCell();
+                            cell.RowIndex = rowIndex;
+                            cell.ColumnIndex = columnIndex;
+                            cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
+                            cell.CellValue = newCellValue;
+                            _modifiedCells.Add(cell);
 
-                        Rows[rowIndex].Values[columnIndex] = newCellValue;
+                            Rows[rowIndex].Values[columnIndex] = newCellValue;
 
+                        }
+
+                        XState.BackupPostDataProperty("X_Rows");
                     }
-
-                    XState.BackupPostDataProperty("X_Rows");
                 }
+
+                // 选中的单元格
+                int[] selectedCell = StringUtil.GetIntListFromString(postCollection[SelectedCellHiddenFieldID]).ToArray();
+                if (!StringUtil.CompareIntArray(SelectedCell, selectedCell))
+                {
+                    SelectedCell = selectedCell;
+                    XState.BackupPostDataProperty("SelectedCell");
+                }
+
+            }
+            else
+            {
+
+                // 选中的行
+                int[] selectedRowIndexArray = StringUtil.GetIntListFromString(postCollection[SelectedRowIndexArrayHiddenFieldID]).ToArray();
+                if (!StringUtil.CompareIntArray(SelectedRowIndexArray, selectedRowIndexArray))
+                {
+                    SelectedRowIndexArray = selectedRowIndexArray;
+                    XState.BackupPostDataProperty("SelectedRowIndexArray");
+                }
+
             }
             //// 需要恢复哪一列的数据
             //if (NeedPersistStateColumnIndexArray != null && NeedPersistStateColumnIndexArray.Length > 0)
@@ -3750,6 +3812,7 @@ namespace FineUI
                         // 所以需要一个设置，在分页结束后自动清空选中的行
                         SelectedRowIndexArray = null;
                     }
+                    SelectedCell = null;
                 }
             }
             else if (eventArgument.StartsWith("RowClick$"))
@@ -3789,7 +3852,7 @@ namespace FineUI
             {
                 prefix++;
             }
-            if (EnableCheckBoxSelect)
+            if (EnableCheckBoxSelect && !AllowCellEditing)
             {
                 prefix++;
             }

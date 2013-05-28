@@ -38,12 +38,21 @@ namespace FineUI.Examples.grid
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (int row in Grid1.SelectedRowIndexArray)
+            if (Grid1.SelectedCell != null)
             {
-                sb.Append(Grid1.DataKeys[row][1].ToString());
-                sb.Append(",");
+                int rowIndex = Grid1.SelectedCell[0];
+
+                GetSourceData().Rows.RemoveAt(rowIndex);
+
+                BindGrid();
+
+                Alert.ShowInTop("删除数据成功!（表格数据已重新绑定）");
             }
-            Alert.ShowInTop("你选择了删除项：" + sb.ToString().TrimEnd(','));
+            else
+            {
+                Alert.ShowInTop("没有选中任何单元格！");
+            }
+            
         }
 
 
@@ -93,11 +102,11 @@ namespace FineUI.Examples.grid
                 }
             }
 
-            Grid1.CommitChanges();
-
             labResult.Text = "用户修改的数据：" + Grid1.GetModifiedData().ToString();
 
-            Alert.Show("数据保存成功！现在可以刷新页面观察更改后的数据");
+            BindGrid();
+
+            Alert.Show("数据保存成功！（表格数据已重新绑定）");
         }
 
 

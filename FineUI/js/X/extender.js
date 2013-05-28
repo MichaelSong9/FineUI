@@ -478,18 +478,42 @@ if (Ext.grid.GridPanel) {
 
         // 获取选中的行
         x_getSelectedRows: function () {
-            var selectRows = [];
+            var selectedRows = [];
             var sm = this.getSelectionModel();
             if (sm.getSelections) {
                 var selections = sm.getSelections();
                 var store = this.getStore();
 
                 Ext.each(selections, function (record, index) {
-                    selectRows.push(store.indexOfId(record.id));
+                    selectedRows.push(store.indexOfId(record.id));
                 });
             }
 
-            return selectRows;
+            return selectedRows;
+        },
+
+
+        // 选中单元格（AllowCellEditing）
+        x_selectCell: function (cell) {
+            cell = cell || this.x_state['SelectedCell'] || [];
+            var sm = this.getSelectionModel();
+            if (sm.select) {
+                if (cell.length === 2) {
+                    sm.select(cell[0], cell[1]);
+                } else {
+                    sm.clearSelections();
+                }
+            }
+        },
+
+        // 获取选中的单元格（AllowCellEditing）
+        x_getSelectedCell: function () {
+            var selectedCell = [];
+            var sm = this.getSelectionModel();
+            if (sm.getSelectedCell) {
+                selectedCell = sm.getSelectedCell();
+            }
+            return selectedCell;
         },
 
         // 获取隐藏列的索引列表
@@ -595,7 +619,7 @@ if (Ext.grid.GridPanel) {
         },
         */
 
-        // 获取列状态（目前只有CheckBoxField）
+        // 获取列状态（目前只有CheckBoxField用到）
         x_getStates: function () {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = [];
 

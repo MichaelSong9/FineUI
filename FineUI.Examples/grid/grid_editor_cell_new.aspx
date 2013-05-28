@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="350px"
-        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" EnableRowNumber="true" EnableCheckBoxSelect="true">
+        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2">
         <Toolbars>
             <x:Toolbar ID="Toolbar1" runat="server">
                 <Items>

@@ -264,7 +264,20 @@
         }
 
         if (cmp.isXType('grid')) {
-            saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
+            if (cmp.isXType('editorgrid')) {
+                saveInHiddenField('SelectedCell', cmp.x_getSelectedCell().join(','));
+
+                var gridEditorData = cmp.x_getEditorData();
+                if (gridEditorData.length > 0) {
+                    saveInHiddenField('EditorData', Ext.encode(gridEditorData));
+                } else {
+                    removeHiddenField('EditorData');
+                }
+
+            } else {
+                saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
+            }
+
             saveInHiddenField('HiddenColumnIndexArray', cmp.x_getHiddenColumns().join(','));
 
             var gridStates = cmp.x_getStates();
@@ -272,13 +285,6 @@
                 saveInHiddenField('States', Ext.encode(gridStates));
             } else {
                 removeHiddenField('States');
-            }
-
-            var gridEditorData = cmp.x_getEditorData();
-            if (gridEditorData.length > 0) {
-                saveInHiddenField('EditorData', Ext.encode(gridEditorData));
-            } else {
-                removeHiddenField('EditorData');
             }
 
         }
