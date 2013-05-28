@@ -24,8 +24,15 @@ Apache License 2.0 (Apache)
 	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。
 	-改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）（grass_root、蓝色天空）。
 	-修正Chrome下多表头样式错位（风笑痴）。
+	+对允许自动回发事件的属性名字进行重构。
+		-在原来的名字后面添加Event，比如EnableRowClick改为EnableRowClickEvent。出于兼容性考虑，之前的属性依然有效。
+		-表格相关：EnableRowSelectEvent、EnableRowClickEvent、EnableRowDoubleClickEvent
+		-表单相关：
+		-
 	+表格增强。
 		-修正下次提交依然提交上次修改数据的问题。
+		-不能同时设置EnableCheckBoxSelect和AllowCellEditing，否则会报错。
+		-AllowCellEditing时如何获取选中的单元格
 
 
 +2013-05-21 v3.2.6
@@ -50,7 +57,7 @@ Apache License 2.0 (Apache)
 		-修正Access和Gray主题下表格多表头的样式问题（bestwowo）。
 		-增加示例grid/grid_empty_text.aspx。
 		+增加只读属性SortField（从SortColumnIndex或者SortColumn计算得来）。
-			-最好在Sort事件中设置表格的SortDirection和SortColumnIndex，不过为了和之前的兼容，在触发事件之前已经设置好了。
+			-最好在Sort事件中设置表格的SortDirection和SortColumnIndex。出于兼容性考虑，在触发事件之前已经设置好了。
 			-对示例grid/grid_sorting.aspx、grid/grid_paging_sorting.aspx、grid/grid_groupheader_sort.aspx进行重构。
 			-增加示例grid/grid_groupheader_sort_hdmenu.aspx、grid/grid_paging_database_sorting.aspx。
 		+对GridColumn进行重构（表格列也是一个控件），如果没有设置ColumnID，则ColumnID等于列的ClientID。

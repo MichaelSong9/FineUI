@@ -49,7 +49,7 @@ namespace FineUI
     /// 表格控件
     /// </summary>
     [Designer("FineUI.Design.GridDesigner, FineUI.Design")]
-    [ToolboxData("<{0}:Grid Title=\"Grid\" EnableRowNumber=\"true\" EnableCheckBoxSelect=\"true\" runat=\"server\"><Columns></Columns></{0}:Grid>")]
+    [ToolboxData("<{0}:Grid Title=\"Grid\" runat=\"server\"><Columns></Columns></{0}:Grid>")]
     [ToolboxBitmap(typeof(Grid), "res.toolbox.Grid.bmp")]
     [Description("表格控件")]
     [ParseChildren(true)]
@@ -531,101 +531,6 @@ namespace FineUI
 
 
         /// <summary>
-        /// 点击行是否自动回发（请使用EnableRowClick属性）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("点击行是否自动回发（请使用EnableRowClick属性）")]
-        public bool AutoPostBack
-        {
-            get
-            {
-                object obj = XState["AutoPostBack"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["AutoPostBack"] = value;
-            }
-        }
-
-        /// <summary>
-        /// 选中行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("选中行是否自动回发")]
-        public bool EnableRowSelect
-        {
-            get
-            {
-                object obj = XState["EnableRowSelect"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableRowSelect"] = value;
-            }
-        }
-
-        /// <summary>
-        /// 点击行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("点击行是否自动回发")]
-        public bool EnableRowClick
-        {
-            get
-            {
-                object obj = XState["EnableRowClick"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableRowClick"] = value;
-            }
-        }
-
-        /// <summary>
-        /// 双击行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("双击行是否自动回发")]
-        public bool EnableRowDoubleClick
-        {
-            get
-            {
-                object obj = XState["EnableRowDoubleClick"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableRowDoubleClick"] = value;
-            }
-        }
-
-        ///// <summary>
-        ///// 自动回发的触发行为（默认：单击行）
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue(AutoPostBackTrigger.SingleClick)]
-        //[Description("自动回发的触发行为（默认：单击行）")]
-        //public virtual AutoPostBackTrigger AutoPostBackTrigger
-        //{
-        //    get
-        //    {
-        //        object obj = XState["AutoPostBackTrigger"];
-        //        return obj == null ? AutoPostBackTrigger.SingleClick : (AutoPostBackTrigger)obj;
-        //    }
-        //    set
-        //    {
-        //        XState["AutoPostBackTrigger"] = value;
-        //    }
-        //}
-
-        /// <summary>
         /// 是否延迟渲染
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -899,6 +804,142 @@ namespace FineUI
             }
         }
 
+        #endregion
+
+        #region EnableXXEvent
+
+        /// <summary>
+        /// 点击行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("点击行是否自动回发")]
+        [Obsolete("此属性已废除，请使用EnableRowClickEvent属性")]
+        public bool AutoPostBack
+        {
+            get
+            {
+                return EnableRowClickEvent;
+            }
+            set
+            {
+                EnableRowClickEvent = value;
+            }
+        }
+
+        /// <summary>
+        /// 选中行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("选中行是否自动回发")]
+        [Obsolete("此属性已废除，请使用EnableRowSelectEvent属性")]
+        public bool EnableRowSelect
+        {
+            get
+            {
+                return EnableRowSelectEvent;
+            }
+            set
+            {
+                EnableRowSelectEvent = value;
+            }
+        }
+
+        /// <summary>
+        /// 选中行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("选中行是否自动回发")]
+        public bool EnableRowSelectEvent
+        {
+            get
+            {
+                object obj = XState["EnableRowSelectEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableRowSelectEvent"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 点击行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("点击行是否自动回发")]
+        [Obsolete("此属性已废除，请使用EnableRowClickEvent属性")]
+        public bool EnableRowClick
+        {
+            get
+            {
+                return EnableRowClickEvent;
+            }
+            set
+            {
+                EnableRowClickEvent = value;
+            }
+        }
+
+        /// <summary>
+        /// 点击行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("点击行是否自动回发")]
+        public bool EnableRowClickEvent
+        {
+            get
+            {
+                object obj = XState["EnableRowClickEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableRowClickEvent"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 双击行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("双击行是否自动回发")]
+        [Obsolete("此属性已废除，请使用EnableRowDoubleClickEvent属性")]
+        public bool EnableRowDoubleClick
+        {
+            get
+            {
+                return EnableRowDoubleClickEvent;
+            }
+            set
+            {
+                EnableRowDoubleClickEvent = value;
+            }
+        }
+
+        /// <summary>
+        /// 双击行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("双击行是否自动回发")]
+        public bool EnableRowDoubleClickEvent
+        {
+            get
+            {
+                object obj = XState["EnableRowDoubleClickEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableRowDoubleClickEvent"] = value;
+            }
+        } 
         #endregion
 
         #region ForceFitAllTime
