@@ -237,20 +237,37 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
         [Description("选择日期是否自动回发")]
+        [Obsolete("此属性已废除，请使用EnableTimeSelectEvent属性")]
         public bool EnableDateSelect
         {
             get
             {
-                object obj = XState["EnableDateSelect"];
+                return EnableDateSelectEvent;
+            }
+            set
+            {
+                EnableDateSelectEvent = value;
+            }
+        }
+
+        /// <summary>
+        /// 选择日期是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("选择日期是否自动回发")]
+        public bool EnableDateSelectEvent
+        {
+            get
+            {
+                object obj = XState["EnableDateSelectEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableDateSelect"] = value;
+                XState["EnableDateSelectEvent"] = value;
             }
         }
-
-        
 
         #endregion
 
@@ -314,7 +331,7 @@ namespace FineUI
             }
 
 
-            if (EnableDateSelect)
+            if (EnableDateSelectEvent)
             {
                 OB.Listeners.AddProperty("select", JsHelper.GetFunction(GetPostBackEventReference("Select")), true);
             }

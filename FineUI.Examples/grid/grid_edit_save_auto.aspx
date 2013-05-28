@@ -29,7 +29,7 @@
         ShowHeader="false">
         <Items>
             <x:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" runat="server"
-                DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelect="true" OnRowSelect="Grid1_RowSelect"
+                DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid1_RowSelect"
                 EnableTextSelection="true">
                 <Columns>
                     <x:TemplateField Width="60px">

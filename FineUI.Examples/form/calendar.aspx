@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Calendar runat="server" EnableDateSelect="true" DateFormatString="yyyy-MM-dd"
+    <x:Calendar runat="server" EnableDateSelectEvent="true" DateFormatString="yyyy-MM-dd"
         OnDateSelect="Calendar1_DateSelect" ID="Calendar1">
     </x:Calendar>
     <br />

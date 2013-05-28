@@ -27,8 +27,7 @@ Apache License 2.0 (Apache)
 	+对允许自动回发事件的属性名字进行重构。
 		-在原来的名字后面添加Event，比如EnableRowClick改为EnableRowClickEvent。出于兼容性考虑，之前的属性依然有效。
 		-表格相关：EnableRowSelectEvent、EnableRowClickEvent、EnableRowDoubleClickEvent
-		-表单相关：
-		-
+		-表单相关：EnableTimeSelectEvent(TimePicker)、EnableDateSelect（DatePicker、Calendar）
 	+表格增强。
 		-修正下次提交依然提交上次修改数据的问题。
 		-不能同时设置EnableCheckBoxSelect和AllowCellEditing，否则会报错。

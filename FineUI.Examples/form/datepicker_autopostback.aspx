@@ -29,9 +29,9 @@
     </x:SimpleForm>
     <br />
     <x:SimpleForm ID="SimpleForm2" BodyPadding="5px" Width="350px" EnableBackgroundColor="true"
-        Title="简单表单（DatePicker-EnableDateSelect）" runat="server">
+        Title="简单表单（DatePicker-EnableDateSelectEvent）" runat="server">
         <Items>
-            <x:DatePicker runat="server" Required="true" EnableDateSelect="true" OnDateSelect="DatePicker3_DateSelect"
+            <x:DatePicker runat="server" Required="true" EnableDateSelectEvent="true" OnDateSelect="DatePicker3_DateSelect"
                 Label="开始日期" EmptyText="请选择开始日期" ID="DatePicker3" ShowRedStar="True">
             </x:DatePicker>
             <x:DatePicker ID="DatePicker4" Required="true" Readonly="false" CompareControl="DatePicker3"

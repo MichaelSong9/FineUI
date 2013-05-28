@@ -847,23 +847,24 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 选中行是否自动回发
+        /// 双击行是否自动回发
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("选中行是否自动回发")]
-        public bool EnableRowSelectEvent
+        [Description("双击行是否自动回发")]
+        [Obsolete("此属性已废除，请使用EnableRowDoubleClickEvent属性")]
+        public bool EnableRowDoubleClick
         {
             get
             {
-                object obj = XState["EnableRowSelectEvent"];
-                return obj == null ? false : (bool)obj;
+                return EnableRowDoubleClickEvent;
             }
             set
             {
-                XState["EnableRowSelectEvent"] = value;
+                EnableRowDoubleClickEvent = value;
             }
         }
+
 
         /// <summary>
         /// 点击行是否自动回发
@@ -884,6 +885,28 @@ namespace FineUI
             }
         }
 
+
+
+        /// <summary>
+        /// 选中行是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("选中行是否自动回发")]
+        public bool EnableRowSelectEvent
+        {
+            get
+            {
+                object obj = XState["EnableRowSelectEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableRowSelectEvent"] = value;
+            }
+        }
+
+        
         /// <summary>
         /// 点击行是否自动回发
         /// </summary>
@@ -903,25 +926,7 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 双击行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("双击行是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableRowDoubleClickEvent属性")]
-        public bool EnableRowDoubleClick
-        {
-            get
-            {
-                return EnableRowDoubleClickEvent;
-            }
-            set
-            {
-                EnableRowDoubleClickEvent = value;
-            }
-        }
-
+        
         /// <summary>
         /// 双击行是否自动回发
         /// </summary>
@@ -2149,9 +2154,9 @@ namespace FineUI
 
             #endregion
 
-            #region AutoPostBack
+            #region EnableRowClickEvent
 
-            if (AutoPostBack || EnableRowClick)
+            if (EnableRowClickEvent)
             {
                 string validateScript = "var args='RowClick$'+rowIndex;";
                 validateScript += GetPostBackEventReference("#RowClick#").Replace("'#RowClick#'", "args");
@@ -2162,7 +2167,7 @@ namespace FineUI
                 OB.Listeners.AddProperty("rowclick", rowClickScript, true);
             }
 
-            if (EnableRowDoubleClick)
+            if (EnableRowDoubleClickEvent)
             {
                 string validateScript = "var args='RowDoubleClick$'+rowIndex;";
                 validateScript += GetPostBackEventReference("#RowDoubleClick#").Replace("'#RowDoubleClick#'", "args");
@@ -2758,7 +2763,7 @@ namespace FineUI
 
                 //selectOB.AddProperty("listeners", "{beforerowselect:function(){return false;}}", true);
 
-                if (EnableRowSelect)
+                if (EnableRowSelectEvent)
                 {
                     string validateScript = "var args='RowSelect$'+rowIndex;";
                     validateScript += GetPostBackEventReference("#RowSelect#").Replace("'#RowSelect#'", "args");

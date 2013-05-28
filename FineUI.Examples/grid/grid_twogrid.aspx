@@ -16,7 +16,7 @@
                 runat="server">
                 <Items>
                     <x:Grid ID="Grid2" ShowBorder="true" ShowHeader="true" Title="表格（班级）" runat="server"
-                        DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelect="true" OnRowSelect="Grid2_RowSelect">
+                        DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid2_RowSelect">
                         <Columns>
                             <x:TemplateField Width="60px">
                                 <ItemTemplate>
