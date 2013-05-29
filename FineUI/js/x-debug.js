@@ -2558,9 +2558,14 @@ if (Ext.grid.GridPanel) {
                 }
                 datas = pagingDatas;
             }
-
-
-            this.getStore().loadData(datas);
+			
+			
+			var store = this.getStore();
+			
+			// First reject previous all changes.
+			store.rejectChanges();
+			// Then load new data.
+            store.loadData(datas);
 
         },
 
@@ -2638,6 +2643,9 @@ if (Ext.grid.GridPanel) {
             var sm = this.getSelectionModel();
             if (sm.getSelectedCell) {
                 selectedCell = sm.getSelectedCell();
+                if (!selectedCell) {
+                    selectedCell = [];
+                }
             }
             return selectedCell;
         },
@@ -2801,9 +2809,15 @@ if (Ext.grid.GridPanel) {
                 modifiedRecord = modifiedRecords[i];
                 rowIndex = store.indexOf(modifiedRecord);
                 rowData = modifiedRecord.data;
-
+				if(rowIndex < 0) {
+					continue;
+				}
+				
                 for (var modifiedKey in modifiedRecord.modified) {
                     columnIndex = columnMap[modifiedKey];
+					if(typeof(columnIndex) === 'undefined') {
+						continue;
+					}
 
                     newData = rowData[modifiedKey];
                     oldData = modifiedRecord.modified[modifiedKey];

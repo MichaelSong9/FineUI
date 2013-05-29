@@ -71,6 +71,17 @@ namespace FineUI
         /// <returns></returns>
         public static List<int> GetIntListFromString(string postValue)
         {
+            return GetIntListFromString(postValue, true);
+        }
+
+        /// <summary>
+        /// 由字符串"1,2,3"转化为整形列表[1,2,3]
+        /// </summary>
+        /// <param name="postValue"></param>
+        /// <param name="sortBeforeReturn">返回之前是否对数组进行排序（由小到大）</param>
+        /// <returns></returns>
+        public static List<int> GetIntListFromString(string postValue, bool sortBeforeReturn)
+        {
             if (String.IsNullOrEmpty(postValue))
             {
                 return new List<int>();
@@ -86,10 +97,15 @@ namespace FineUI
                 }
             }
 
-            intList.Sort();
+            if (sortBeforeReturn)
+            {
+                // 按照从小到大排序 
+                intList.Sort();
+            }
 
             return intList;
         }
+
 
         /// <summary>
         /// 由字符串"ssdd,2,ok"转化为字符串列表["ssdd","2","ok"]
@@ -97,6 +113,17 @@ namespace FineUI
         /// <param name="postValue"></param>
         /// <returns></returns>
         public static List<string> GetStringListFromString(string postValue)
+        {
+            return GetStringListFromString(postValue);
+        }
+
+        /// <summary>
+        /// 由字符串"ssdd,2,ok"转化为字符串列表["ssdd","2","ok"]
+        /// </summary>
+        /// <param name="postValue"></param>
+        /// <param name="sortBeforeReturn">返回之前是否对数组进行排序（由小到大）</param>
+        /// <returns></returns>
+        public static List<string> GetStringListFromString(string postValue, bool sortBeforeReturn)
         {
             if (String.IsNullOrEmpty(postValue))
             {
@@ -113,8 +140,11 @@ namespace FineUI
                 }
             }
 
-            // 按照从小到大排序 
-            strList.Sort();
+            if (sortBeforeReturn)
+            {
+                // 按照从小到大排序 
+                strList.Sort();
+            }
 
             return strList;
         }

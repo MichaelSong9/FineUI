@@ -3326,7 +3326,7 @@ namespace FineUI
 
 
 
-            int[] hiddenColumnIndexArray = StringUtil.GetIntListFromString(postCollection[HiddenColumnIndexArrayHiddenFieldID]).ToArray();
+            int[] hiddenColumnIndexArray = StringUtil.GetIntListFromString(postCollection[HiddenColumnIndexArrayHiddenFieldID], true).ToArray();
             if (!StringUtil.CompareIntArray(HiddenColumnIndexArray, hiddenColumnIndexArray))
             {
                 HiddenColumnIndexArray = hiddenColumnIndexArray;
@@ -3405,8 +3405,8 @@ namespace FineUI
                     }
                 }
 
-                // 选中的单元格
-                int[] selectedCell = StringUtil.GetIntListFromString(postCollection[SelectedCellHiddenFieldID]).ToArray();
+                // 选中的单元格（数组中元素的顺序是固定的，不能排序）
+                int[] selectedCell = StringUtil.GetIntListFromString(postCollection[SelectedCellHiddenFieldID], false).ToArray();
                 if (!StringUtil.CompareIntArray(SelectedCell, selectedCell))
                 {
                     SelectedCell = selectedCell;
@@ -3418,7 +3418,7 @@ namespace FineUI
             {
 
                 // 选中的行
-                int[] selectedRowIndexArray = StringUtil.GetIntListFromString(postCollection[SelectedRowIndexArrayHiddenFieldID]).ToArray();
+                int[] selectedRowIndexArray = StringUtil.GetIntListFromString(postCollection[SelectedRowIndexArrayHiddenFieldID], true).ToArray();
                 if (!StringUtil.CompareIntArray(SelectedRowIndexArray, selectedRowIndexArray))
                 {
                     SelectedRowIndexArray = selectedRowIndexArray;
@@ -3504,7 +3504,7 @@ namespace FineUI
         #region CommitChanges
 
         /// <summary>
-        /// 接受用户编辑单元格（也即是消除编辑单元格左上方的红色提示图标）
+        /// 接受用户编辑单元格（同时消除编辑单元格左上方的红色提示图标）
         /// </summary>
         public void CommitChanges()
         {
@@ -3512,12 +3512,30 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取接受用户编辑单元格的客户端脚本（也即是消除编辑单元格左上方的红色提示图标）
+        /// 获取接受用户编辑单元格的客户端脚本（同时消除编辑单元格左上方的红色提示图标）
         /// </summary>
         public string GetCommitChangesReference()
         {
             return String.Format("{0}.getStore().commitChanges();", ScriptID);
         }
+		
+		
+		/// <summary>
+        /// 拒绝用户编辑单元格（同时消除编辑单元格左上方的红色提示图标）
+        /// </summary>
+        public void RejectChanges()
+        {
+            PageContext.RegisterStartupScript(GetRejectChangesReference());
+        }
+
+        /// <summary>
+        /// 获取拒绝用户编辑单元格的客户端脚本（同时消除编辑单元格左上方的红色提示图标）
+        /// </summary>
+        public string GetRejectChangesReference()
+        {
+            return String.Format("{0}.getStore().rejectChanges();", ScriptID);
+        }
+		
 
         #endregion
 

@@ -1549,7 +1549,7 @@ namespace FineUI
             base.LoadPostData(postDataKey, postCollection);
 
             // 选中的行
-            string[] selectedNodeIDArray = StringUtil.GetStringListFromString(postCollection[SelectedNodeIDArrayHiddenFieldID]).ToArray();
+            string[] selectedNodeIDArray = StringUtil.GetStringListFromString(postCollection[SelectedNodeIDArrayHiddenFieldID], true).ToArray();
             if (!StringUtil.CompareStringArray(SelectedNodeIDArray, selectedNodeIDArray))
             {
                 SelectedNodeIDArray = selectedNodeIDArray;
@@ -1559,7 +1559,7 @@ namespace FineUI
 
             // Expanded Nodes
             string expandedNodesPostValue = postCollection[ExpandedNodesHiddenFieldID];
-            List<string> expandedNodeListPostValue = StringUtil.GetStringListFromString(expandedNodesPostValue);
+            List<string> expandedNodeListPostValue = StringUtil.GetStringListFromString(expandedNodesPostValue, true);
             // 1. Collapse some nodes that have been expanded.
             TreeNode[] originalExpandedNodes = GetExpandedNodes();
             foreach (TreeNode node in originalExpandedNodes)
@@ -1578,7 +1578,7 @@ namespace FineUI
 
             // Checked Nodes
             string checkedNodesPostValue = postCollection[CheckedNodesHiddenFieldID];
-            List<string> checkedNodeListPostValue = StringUtil.GetStringListFromString(checkedNodesPostValue);
+            List<string> checkedNodeListPostValue = StringUtil.GetStringListFromString(checkedNodesPostValue, true);
             // 1. Uncheck some nodes that have been checked.
             TreeNode[] originalCheckedNodes = GetCheckedNodes();
             foreach (TreeNode node in originalCheckedNodes)

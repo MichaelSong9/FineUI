@@ -432,9 +432,14 @@ if (Ext.grid.GridPanel) {
                 }
                 datas = pagingDatas;
             }
-
-
-            this.getStore().loadData(datas);
+			
+			
+			var store = this.getStore();
+			
+			// 拒绝之前对表格的编辑，因为接下来就要重新加载数据
+			store.rejectChanges();
+			
+            store.loadData(datas);
 
         },
 
@@ -512,6 +517,9 @@ if (Ext.grid.GridPanel) {
             var sm = this.getSelectionModel();
             if (sm.getSelectedCell) {
                 selectedCell = sm.getSelectedCell();
+                if (!selectedCell) {
+                    selectedCell = [];
+                }
             }
             return selectedCell;
         },
@@ -675,9 +683,15 @@ if (Ext.grid.GridPanel) {
                 modifiedRecord = modifiedRecords[i];
                 rowIndex = store.indexOf(modifiedRecord);
                 rowData = modifiedRecord.data;
-
+				if(rowIndex < 0) {
+					continue;
+				}
+				
                 for (var modifiedKey in modifiedRecord.modified) {
                     columnIndex = columnMap[modifiedKey];
+					if(typeof(columnIndex) === 'undefined') {
+						continue;
+					}
 
                     newData = rowData[modifiedKey];
                     oldData = modifiedRecord.modified[modifiedKey];

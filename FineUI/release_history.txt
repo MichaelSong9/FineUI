@@ -30,8 +30,12 @@ Apache License 2.0 (Apache)
 		-表单相关：EnableTimeSelectEvent(TimePicker)、EnableDateSelect（DatePicker、Calendar）
 	+表格增强。
 		-修正下次提交依然提交上次修改数据的问题。
-		-不能同时设置EnableCheckBoxSelect和AllowCellEditing，否则会报错。
-		-AllowCellEditing时如何获取选中的单元格
+		-如果同时启用EnableCheckBoxSelect和AllowCellEditing，则忽略EnableCheckBoxSelect属性。
+		-增加SelectedCell属性，用来获取AllowCellEditing模式下选中的单元格。
+		-增加示例grid/grid_editor_cell_new.aspx。
+		-增加方法RejectChanges。
+		
+		
 
 
 +2013-05-21 v3.2.6
