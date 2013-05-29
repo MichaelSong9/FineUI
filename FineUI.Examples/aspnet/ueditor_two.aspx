@@ -1,13 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ueditor_two.aspx.cs" ValidateRequest="false"
     Inherits="FineUI.Examples.aspnet.ueditor_two" %>
 
-<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../ueditor/themes/default/ueditor.css">
+    <link rel="stylesheet" href="../ueditor/themes/default/ueditor.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -63,27 +62,29 @@
     <script type="text/javascript" src="../ueditor/editor_config.js"></script>
     <script type="text/javascript" src="../ueditor/editor_all.js"></script>
     <script type="text/javascript">
-        var editor1 = new UE.ui.Editor({
-            initialFrameWidth: '100%',
-            initialFrameHeight: 200,
-            minFrameHeight: 200,
-            autoFloatEnabled: false
-        });
-        editor1.render("UEditor1");
+        var editor1, editor2;
+        function onReady() {
+            editor1 = new UE.ui.Editor({
+                initialFrameWidth: '100%',
+                initialFrameHeight: 200,
+                minFrameHeight: 200,
+                autoFloatEnabled: false
+            });
+            editor1.render("UEditor1");
 
-        var editor2 = new UE.ui.Editor({
-            initialFrameWidth: '100%',
-            initialFrameHeight: 80,
-            minFrameHeight: 80,
-            autoFloatEnabled: false,
-            initialContent: '',
-            toolbars: [
+            editor2 = new UE.ui.Editor({
+                initialFrameWidth: '100%',
+                initialFrameHeight: 80,
+                minFrameHeight: 80,
+                autoFloatEnabled: false,
+                initialContent: '',
+                toolbars: [
             ['fullscreen', 'source', '|', 'undo', 'redo', '|',
                 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript',
                 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain']]
-        });
-        editor2.render("UEditor2");
-
+            });
+            editor2.render("UEditor2");
+        }
 
         // 提交数据之前同步到表单隐藏字段
         X.util.beforeAjaxPostBackScript = function () {

@@ -1,19 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ueditor.aspx.cs" ValidateRequest="false"
     Inherits="FineUI.Examples.aspnet.ueditor" %>
 
-<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../ueditor/themes/default/ueditor.css">
+    <link rel="stylesheet" href="../ueditor/themes/default/ueditor.css" />
 </head>
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px" EnableBackgroundColor="true"
-        ShowBorder="true" ShowHeader="true" Title="内容面板">
+    <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px"
+        EnableBackgroundColor="true" ShowBorder="true" ShowHeader="true" Title="内容面板">
         <textarea name="UEditor1" id="UEditor1">
             &lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ueditor.baidu.com/"&gt;UEditor&lt;/a&gt;.&lt;/p&gt;
        </textarea>
@@ -25,19 +24,23 @@
     </x:Button>
     </form>
     <script type="text/javascript">
-        window.UEDITOR_HOME_URL = "<%= ResolveUrl("~/ueditor/") %>";
+        window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/ueditor/") %>';
     </script>
     <script type="text/javascript" src="../ueditor/editor_config.js"></script>
     <script type="text/javascript" src="../ueditor/editor_all.js"></script>
     <script type="text/javascript">
-        var editor = new UE.ui.Editor({
-            initialFrameWidth: '100%',
-            initialFrameHeight: 350,
-            minFrameHeight: 350,
-            autoFloatEnabled: false,
-            focus: true
-        });
-        editor.render("UEditor1");
+        var editor;
+        function onReady() {
+            editor = new UE.ui.Editor({
+                initialFrameWidth: '100%',
+                initialFrameHeight: 350,
+                minFrameHeight: 350,
+                autoFloatEnabled: false,
+                focus: true
+            });
+            editor.render("UEditor1");
+        }
+
 
         // 提交数据之前同步到表单隐藏字段
         X.util.beforeAjaxPostBackScript = function () {
