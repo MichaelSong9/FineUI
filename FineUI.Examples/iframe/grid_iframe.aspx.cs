@@ -20,7 +20,7 @@ namespace FineUI.Examples.iframe
                 btnPopupWindow.OnClientClick = Window1.GetShowReference("../grid/grid_iframe_window.aspx") + "return false;";
 
                 btnConfirmButton.OnClientClick = Grid2.GetNoSelectionAlertReference("请至少选择一项！");
-                btnConfirmButton.ConfirmText = String.Format("你确定要删除选中的&nbsp;<b><script>{0}</script></b>&nbsp;项吗？", Grid2.GetSelectCountReference());
+                btnConfirmButton.ConfirmText = String.Format("你确定要删除选中的&nbsp;<b><script>{0}</script></b>&nbsp;项吗？", Grid2.GetSelectedCountReference());
 
                 //string confirmScript = FineUI.Confirm.GetShowReference("页面数据发生变化，是否先保存？", "确认关闭", FineUI.MessageBoxIcon.Question, "alert('需要先保存数据。');", "alert('不保存数据。');");
                 //btnSimulateClose.OnClientClick = String.Format("if({0}){{{1}}}else{{alert('页面数据，没有变化');}}", FineUI.PageContext.GetPageStateChangedReference(), confirmScript);

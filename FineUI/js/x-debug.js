@@ -2562,9 +2562,9 @@ if (Ext.grid.GridPanel) {
 			
 			var store = this.getStore();
 			
-			// First reject previous all changes.
+			// 拒绝之前对表格的编辑，因为接下来就要重新加载数据
 			store.rejectChanges();
-			// Then load new data.
+			
             store.loadData(datas);
 
         },
@@ -2597,6 +2597,22 @@ if (Ext.grid.GridPanel) {
             }
             //}
         },
+		
+		
+		// 获取选中的行数，或者单元格数（单元格编辑模式）
+		x_getSelectedCount: function () {
+			var selectedCount = 0;
+			var sm = this.getSelectionModel();
+			if(sm.hasSelection()) {
+				if(sm.getCount) {
+					selectedCount = sm.getCount();
+				} else {
+					// 单元格编辑模式，只可能选中一个单元格
+					selectedCount = 1;
+				}
+			}
+			return selectedCount;
+		},
 
         // 选中某些行
         x_selectRows: function (rows) {

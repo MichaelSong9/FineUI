@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_editor_cell_new : PageBase
+    public partial class grid_editor_cell_delete : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

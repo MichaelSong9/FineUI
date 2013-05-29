@@ -3549,15 +3549,36 @@ namespace FineUI
         {
             return String.Format("{0}.getSelectionModel().hasSelection()", ScriptID);
         }
+		
+		 /// <summary>
+        /// 获取表格选中项数的客户端脚本
+        /// </summary>
+        /// <returns>客户端脚本</returns>
+		[Obsolete("此方法已废除，请使用GetSelectCountReference方法")]
+        public string GetSelectCountReference()
+        {
+			return GetSelectedCountReference();
+		}
 
         /// <summary>
         /// 获取表格选中项数的客户端脚本
         /// </summary>
         /// <returns>客户端脚本</returns>
-        public string GetSelectCountReference()
+        public string GetSelectedCountReference()
         {
-            return String.Format("{0}.getSelectionModel().getCount()", ScriptID);
+            return String.Format("{0}.x_getSelectedCount()", ScriptID);
         }
+		
+		/// <summary>
+        /// 获取表格选中单元格的客户端脚本（仅用于AllowCellEditing模式）
+        /// </summary>
+        /// <returns>客户端脚本</returns>
+        public string GetSelectedCellReference()
+        {
+            return String.Format("{0}.x_getSelectedCell()", ScriptID);
+        }
+		
+		
 
         #endregion
 

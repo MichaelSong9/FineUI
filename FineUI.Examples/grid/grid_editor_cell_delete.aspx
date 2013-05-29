@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_new.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell_new" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_delete.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_delete" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,8 +16,6 @@
         <Toolbars>
             <x:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <x:Button ID="btnNew" Text="新增数据" Icon="Add" EnablePostBack="false" runat="server">
-                    </x:Button>
                     <x:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
                     </x:Button>
                     <x:ToolbarFill runat="server">
