@@ -73,7 +73,6 @@
     <Content Include="aspnet\ckeditor.aspx" />
     <Content Include="aspnet\ueditor.aspx" />
     <Content Include="aspnet\ueditor_two.aspx" />
-    <Content Include="aspnet\ueditor_original.aspx" />
     <Content Include="autocomplete\inline.aspx" />
     <Content Include="autocomplete\custom_display.aspx" />
     <Content Include="autocomplete\multi_values_remote.aspx" />
@@ -342,13 +341,6 @@
     </Compile>
     <Compile Include="aspnet\ueditor_two.aspx.designer.cs">
       <DependentUpon>ueditor_two.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet\ueditor_original.aspx.cs">
-      <DependentUpon>ueditor_original.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="aspnet\ueditor_original.aspx.designer.cs">
-      <DependentUpon>ueditor_original.aspx</DependentUpon>
     </Compile>
     <Compile Include="autocomplete\inline.aspx.cs">
       <DependentUpon>inline.aspx</DependentUpon>
