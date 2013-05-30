@@ -34,9 +34,10 @@ Apache License 2.0 (Apache)
 		-修正下次提交依然提交上次修改数据的问题。
 		-如果同时启用EnableCheckBoxSelect和AllowCellEditing，则忽略EnableCheckBoxSelect属性。
 		-增加SelectedCell属性，用来获取AllowCellEditing模式下选中的单元格。
-		-增加方法RejectChanges，增加示例grid/grid_editor_cell_delete.aspx。
+		-增加示例grid/grid_editor_cell_delete.aspx。
 		-优化GetSelectCountReference方法使其在AllowCellEditing模式下也不出错，并改名为GetSelectedCountReference。
 		-增加方法GetSelectedCellReference，用来获取选中的单元格，仅在AllowCellEditing模式下有效。
+		-增加方法RejectChanges、GetRejectChangesReference、ClearSelections、GetClearSelectionsReference。
 		-
 		
 

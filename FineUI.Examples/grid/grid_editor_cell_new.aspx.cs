@@ -15,6 +15,8 @@ namespace FineUI.Examples.grid
         {
             if (!IsPostBack)
             {
+                btnNew.OnClientClick = Grid1.GetAddNewRecordReference();
+
                 btnDelete.OnClientClick = Grid1.GetNoSelectionAlertReference("请至少选择一项！");
                 btnDelete.ConfirmText = String.Format("你确定要删除第&nbsp;<b><script>({0}[0]+1)</script></b>&nbsp;行数据吗？", Grid1.GetSelectedCellReference());
 

@@ -3536,10 +3536,49 @@ namespace FineUI
             return String.Format("{0}.getStore().rejectChanges();", ScriptID);
         }
 		
+		
+		/// <summary>
+        /// 清空表格选中项
+        /// </summary>
+        public void ClearSelections()
+        {
+            PageContext.RegisterStartupScript(GetClearSelectionsReference());
+        }
+		
+		/// <summary>
+        /// 获取清空表格选中项的客户端脚本
+        /// </summary>
+        /// <returns>客户端脚本</returns>
+		public string GetClearSelectionsReference()
+        {
+            return String.Format("{0}.getSelectionModel().clearSelections();", ScriptID);
+        }
+		
+		/// <summary>
+        /// 添加一条新纪录
+        /// </summary>
+		public void AddNewRecord()
+        {
+            PageContext.RegisterStartupScript(GetAddNewRecordReference());
+        }
+		
+		
+		public string GetAddNewRecordReference()
+		{
+			return GetAddNewRecordReference(false);
+		}
+		
+		public string GetAddNewRecordReference(bool appendToEnd)
+		{
+			return String.Format("{0}.x_addNewRecord({1});", ScriptID, appendToEnd.ToString().ToLower());
+		}
+		
 
         #endregion
 
         #region GetHasSelectionReference GetSelectCountReference
+		
+		
 
         /// <summary>
         /// 获取表格是否有选中项的客户端脚本

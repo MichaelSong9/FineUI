@@ -2558,13 +2558,13 @@ if (Ext.grid.GridPanel) {
                 }
                 datas = pagingDatas;
             }
-			
-			
-			var store = this.getStore();
-			
-			// 拒绝之前对表格的编辑，因为接下来就要重新加载数据
-			store.rejectChanges();
-			
+
+
+            var store = this.getStore();
+
+            // 拒绝之前对表格的编辑，因为接下来就要重新加载数据
+            store.rejectChanges();
+
             store.loadData(datas);
 
         },
@@ -2597,22 +2597,22 @@ if (Ext.grid.GridPanel) {
             }
             //}
         },
-		
-		
-		// 获取选中的行数，或者单元格数（单元格编辑模式）
-		x_getSelectedCount: function () {
-			var selectedCount = 0;
-			var sm = this.getSelectionModel();
-			if(sm.hasSelection()) {
-				if(sm.getCount) {
-					selectedCount = sm.getCount();
-				} else {
-					// 单元格编辑模式，只可能选中一个单元格
-					selectedCount = 1;
-				}
-			}
-			return selectedCount;
-		},
+
+
+        // 获取选中的行数，或者单元格数（单元格编辑模式）
+        x_getSelectedCount: function () {
+            var selectedCount = 0;
+            var sm = this.getSelectionModel();
+            if (sm.hasSelection()) {
+                if (sm.getCount) {
+                    selectedCount = sm.getCount();
+                } else {
+                    // 单元格编辑模式，只可能选中一个单元格
+                    selectedCount = 1;
+                }
+            }
+            return selectedCount;
+        },
 
         // 选中某些行
         x_selectRows: function (rows) {
@@ -2664,6 +2664,21 @@ if (Ext.grid.GridPanel) {
                 }
             }
             return selectedCell;
+        },
+
+        // 添加一条新纪录
+        x_addNewRecord: function (appendToEnd) {
+            var store = this.getStore();
+            var recordType = store.recordType;
+            var newRecord = new recordType();
+
+            this.stopEditing();
+            if (appendToEnd) {
+                store.add(newRecord);
+            } else {
+                store.insert(0, newRecord);
+            }
+            this.startEditing(0, 0);
         },
 
         // 获取隐藏列的索引列表
@@ -2825,15 +2840,15 @@ if (Ext.grid.GridPanel) {
                 modifiedRecord = modifiedRecords[i];
                 rowIndex = store.indexOf(modifiedRecord);
                 rowData = modifiedRecord.data;
-				if(rowIndex < 0) {
-					continue;
-				}
-				
+                if (rowIndex < 0) {
+                    continue;
+                }
+
                 for (var modifiedKey in modifiedRecord.modified) {
                     columnIndex = columnMap[modifiedKey];
-					if(typeof(columnIndex) === 'undefined') {
-						continue;
-					}
+                    if (typeof (columnIndex) === 'undefined') {
+                        continue;
+                    }
 
                     newData = rowData[modifiedKey];
                     oldData = modifiedRecord.modified[modifiedKey];
