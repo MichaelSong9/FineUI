@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_summary" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_serverside.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_summary_serverside" %>
 
 <!DOCTYPE html>
 <html>
@@ -53,6 +53,7 @@
             <x:BoundField Width="100px" DataField="Donate" ColumnID="donate" HeaderText="捐赠金额" />
         </Columns>
     </x:Grid>
+    <x:HiddenField runat="server" ID="hfGrid1Summary"></x:HiddenField>
     <br />
     <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
     </x:Button>
@@ -63,6 +64,7 @@
     <script>
 
         var gridClientID = '<%= Grid1.ClientID %>';
+        var gridSummaryID = '<%= hfGrid1Summary.ClientID %>';
 
         function calcGridSummary(grid) {
             var donateTotal = 0, store = grid.getStore(), view = grid.getView(), storeCount = store.getCount();
@@ -72,22 +74,18 @@
                 return;
             }
 
-            // 遍历每一行数据，计算汇总数据
-            store.each(function (record) {
-                // 注：donate是列的ColumnID属性
-                donateTotal += parseInt(record.data["donate"]);
-            });
-            var donateAvg = donateTotal / storeCount;
+            // 从隐藏字段获取全部数据的汇总
+            var summaryJSON = JSON.parse(Ext.getCmp(gridSummaryID).getValue());
 
 
             store.add(new Ext.data.Record({
-                'major': '合计：',
-                'donate': donateTotal.toFixed(2)
+                'major': '全部捐赠合计：',
+                'donate': summaryJSON['donateTotal'].toFixed(2)
             }));
 
             store.add(new Ext.data.Record({
-                'major': '平均：',
-                'donate': donateAvg.toFixed(2)
+                'major': '全部捐赠平均：',
+                'donate': summaryJSON['donateAvg'].toFixed(2)
             }));
 
 
