@@ -178,6 +178,8 @@
         <TreeNode Text="扩展列" SingleClickExpand="true">
             <TreeNode Text="复选列" NavigateUrl="~/grid/grid_checkall.aspx" >
             </TreeNode>
+            <TreeNode Text="复选列（只能通过复选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
+            </TreeNode>
             <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
             </TreeNode>
             <TreeNode Text="行扩展列（展开全部扩展列）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >

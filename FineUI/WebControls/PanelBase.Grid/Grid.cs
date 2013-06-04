@@ -1127,6 +1127,25 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 只能通过多选框选中行（仅在启用EnableCheckBoxSelect属性时有效）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("只能通过多选框选中行（仅在启用EnableCheckBoxSelect属性时有效）")]
+        public bool CheckBoxSelectOnly
+        {
+            get
+            {
+                object obj = XState["CheckBoxSelectOnly"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["CheckBoxSelectOnly"] = value;
+            }
+        }
+
 
         /// <summary>
         /// 启用多行选择
@@ -2802,7 +2821,11 @@ namespace FineUI
             else
             {
                 selectOB.AddProperty("singleSelect", !EnableMultiSelect);
-                //selectOB.AddProperty("checkOnly", true);
+
+                if (EnableCheckBoxSelect && CheckBoxSelectOnly)
+                {
+                    selectOB.AddProperty("checkOnly", true);
+                }
 
                 //selectOB.AddProperty("listeners", "{beforerowselect:function(){return false;}}", true);
 
