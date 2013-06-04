@@ -8,7 +8,9 @@ FineUI的使命
 IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
 
 授权协议
-Apache License 2.0 (Apache)
+Apache License v2.0
+注：FineUI 使用的 ExtJS 库在 GPL v3 协议下发布(http://www.sencha.com/license)。
+    
 
 相关链接
 论坛：http://fineui.com/bbs/
@@ -31,6 +33,7 @@ Apache License 2.0 (Apache)
 	+更新aspnet/ueditor.aspx、aspnet/ueditor_two.aspx.
 		-修正IE9下编辑框无法获取焦点的问题，将UEditor的初始化代码放在onReady函数中（消失的键盘 ）。
 	+表格增强。
+		-增加合计行示例grid/grid_summary.aspx（◇辉◆:）。
 		-修正下次提交依然提交上次修改数据的问题。
 		-如果同时启用EnableCheckBoxSelect和AllowCellEditing，则忽略EnableCheckBoxSelect属性。
 		-增加SelectedCell属性，用来获取AllowCellEditing模式下选中的单元格。

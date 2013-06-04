@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>FineUI 在线示例 - 基于 ExtJS 的专业 ASP.NET 2.0 控件库</title>
+    <title>FineUI 在线示例 - 基于 ExtJS 的专业 ASP.NET 控件库</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="Title" content="基于 ExtJS 的专业 ASP.NET 2.0 控件库，拥有原生的 AJAX 支持和华丽的UI效果 (ExtJS based ASP.NET 2.0 Controls with native AJAX Support and rich UI effects)" />
+    <meta name="Title" content="基于 ExtJS 的专业 ASP.NET 控件库，拥有原生的 AJAX 支持和华丽的UI效果 (ExtJS based ASP.NET Controls with native AJAX Support and rich UI effects)" />
     <meta name="Description" content="FineUI 的使命是创建没有 JavaScript，没有 CSS，没有 UpdatePanel，没有 ViewState，没有 WebServices 的网站应用程序" />
     <meta name="Keywords" content="extjs,ext,asp.net,control,asp.net 2.0,ajax,web2.0" />
     <link href="css/default.css" rel="stylesheet" type="text/css" />
@@ -138,7 +138,7 @@
                                     <x:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                         CssClass="intro" runat="server">
                                         <h2>关于FineUI</h2>
-                                            基于 ExtJS 的专业 ASP.NET 2.0 控件库。
+                                            基于 ExtJS 的专业 ASP.NET 控件库。
                                         <br />
                                         <br />
                                         <h2>FineUI的使命</h2>
@@ -150,7 +150,10 @@
                                         <br />
                                         <br />
                                         <h2>授权协议</h2>
-                                            Apache License 2.0 (Apache)
+                                            Apache License v2.0
+                                            <br />
+                                            注：FineUI 使用的 ExtJS 库在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
+                                            
                                         <br />
                                         <br />
                                         <h2>相关链接</h2>

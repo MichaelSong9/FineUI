@@ -285,6 +285,10 @@
             <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
             </TreeNode>
         </TreeNode>
+        <TreeNode Text="合计行" SingleClickExpand="true">
+            <TreeNode Text="合计行（客户端计算）" NavigateUrl="~/grid/grid_summary.aspx" >
+            </TreeNode>
+        </TreeNode>
         <TreeNode Text="可编辑表格" SingleClickExpand="true">
             <TreeNode Text="可编辑表格" NavigateUrl="~/grid/grid_editor_cell.aspx" >
             </TreeNode>
