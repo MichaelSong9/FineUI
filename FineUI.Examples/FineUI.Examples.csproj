@@ -131,7 +131,6 @@
     <Content Include="iframe\topmenu\data\menuSMS.xml" />
     <Content Include="iframe\topmenu\data\menuSYS.xml" />
     <Content Include="iframe\topmenu\default.aspx" />
-    <Content Include="iframe\topmenu\html\mail-1.aspx" />
     <Content Include="iframe\topmenu\html\mail-1.html" />
     <Content Include="iframe\topmenu\html\mail-2.html" />
     <Content Include="iframe\topmenu\html\mail-3.html" />
@@ -737,10 +736,6 @@
     </Compile>
     <Compile Include="iframe\topmenu\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iframe\topmenu\html\mail-1.aspx.cs">
-      <DependentUpon>mail-1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>

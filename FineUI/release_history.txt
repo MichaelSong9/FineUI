@@ -47,7 +47,7 @@ Apache License v2.0
 		-增加方法RejectChanges、GetRejectChangesReference、ClearSelections、GetClearSelectionsReference。
 		-
 	+综合示例。
-		-增加顶部菜单框架（一）综合示例（未来(sun)）。
+		-增加顶部菜单框架（一）综合示例iframe/topmenu/default.aspx（未来(sun)）。
 
 
 +2013-05-21 v3.2.6
