@@ -421,6 +421,8 @@
         </TreeNode>
         <TreeNode Text="回发父页面2" NavigateUrl="~/iframe/parent_postback.aspx" >
         </TreeNode>
+		<TreeNode Text="顶部菜单框架（一）" NavigateUrl="~/iframe/topmenu/default.aspx" >
+        </TreeNode>
     </TreeNode>
     <TreeNode Text="ASP.NET控件" SingleClickExpand="true">
         <TreeNode Text="ASP.NET 控件" NavigateUrl="~/aspnet/aspnet.aspx" >

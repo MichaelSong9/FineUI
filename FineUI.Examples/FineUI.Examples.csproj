@@ -127,6 +127,31 @@
     <Content Include="iframe\selectprovince2_child.aspx" />
     <Content Include="iframe\selectprovince3.aspx" />
     <Content Include="iframe\selectprovince3_child.aspx" />
+    <Content Include="iframe\topmenu\data\menuMail.xml" />
+    <Content Include="iframe\topmenu\data\menuSMS.xml" />
+    <Content Include="iframe\topmenu\data\menuSYS.xml" />
+    <Content Include="iframe\topmenu\default.aspx" />
+    <Content Include="iframe\topmenu\html\mail-1.aspx" />
+    <Content Include="iframe\topmenu\html\mail-1.html" />
+    <Content Include="iframe\topmenu\html\mail-2.html" />
+    <Content Include="iframe\topmenu\html\mail-3.html" />
+    <Content Include="iframe\topmenu\html\mail-4.html" />
+    <Content Include="iframe\topmenu\html\mail-5.html" />
+    <Content Include="iframe\topmenu\html\sms-1.html" />
+    <Content Include="iframe\topmenu\html\sms-2.html" />
+    <Content Include="iframe\topmenu\html\sms-3.html" />
+    <Content Include="iframe\topmenu\html\sms-4.html" />
+    <Content Include="iframe\topmenu\html\sms-5.html" />
+    <Content Include="iframe\topmenu\html\sys-1.html" />
+    <Content Include="iframe\topmenu\html\sys-2.html" />
+    <Content Include="iframe\topmenu\html\sys-3.html" />
+    <Content Include="iframe\topmenu\html\sys-4.html" />
+    <Content Include="iframe\topmenu\html\sys-5.html" />
+    <Content Include="iframe\topmenu\res\images\admin_tbg.png" />
+    <Content Include="iframe\topmenu\res\images\menu.png" />
+    <Content Include="iframe\topmenu\res\images\p.png" />
+    <Content Include="iframe\topmenu\res\images\t.png" />
+    <Content Include="iframe\topmenu\res\main.css" />
     <Content Include="images\no_data_found.jpg" />
     <Content Include="images\toolbox.png" />
     <Content Include="other\keydown.aspx" />
@@ -705,6 +730,17 @@
     </Compile>
     <Compile Include="iframe\selectprovince3_child.aspx.designer.cs">
       <DependentUpon>selectprovince3_child.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu\html\mail-1.aspx.cs">
+      <DependentUpon>mail-1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>
