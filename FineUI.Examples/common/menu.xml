@@ -423,6 +423,10 @@
         </TreeNode>
 		<TreeNode Text="顶部菜单框架（一）" NavigateUrl="~/iframe/topmenu/default.aspx" >
         </TreeNode>
+        <TreeNode Text="顶部菜单框架（二）" NavigateUrl="~/iframe/topmenu2/default.aspx" >
+        </TreeNode>
+        <TreeNode Text="顶部菜单框架（三）" NavigateUrl="~/iframe/topmenu3/default.aspx" >
+        </TreeNode>
     </TreeNode>
     <TreeNode Text="ASP.NET控件" SingleClickExpand="true">
         <TreeNode Text="ASP.NET 控件" NavigateUrl="~/aspnet/aspnet.aspx" >

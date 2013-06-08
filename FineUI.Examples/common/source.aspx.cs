@@ -28,7 +28,8 @@ namespace FineUI.Examples
             {"usercontrol/userinfo_dynamic.aspx", "~/usercontrol/UserInfoControl.ascx"},
             {"iframe/selectprovince1.aspx", "~/iframe/selectprovince1_child.aspx"},
             {"iframe/selectprovince2.aspx", "~/iframe/selectprovince2_child.aspx"},
-            {"iframe/selectprovince3.aspx", "~/iframe/selectprovince3_child.aspx"}
+            {"iframe/selectprovince3.aspx", "~/iframe/selectprovince3_child.aspx"},
+            {"iframe/topmenu2/default.aspx", "~/iframe/topmenu2/default.aspx;~/iframe/topmenu2/leftmenu.aspx"}
         };
 
         protected void Page_Init(object sender, EventArgs e)

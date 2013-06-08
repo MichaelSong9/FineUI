@@ -127,25 +127,20 @@
     <Content Include="iframe\selectprovince2_child.aspx" />
     <Content Include="iframe\selectprovince3.aspx" />
     <Content Include="iframe\selectprovince3_child.aspx" />
+    <Content Include="iframe\topmenu2\data\menuMail.xml" />
+    <Content Include="iframe\topmenu2\data\menuSMS.xml" />
+    <Content Include="iframe\topmenu2\data\menuSYS.xml" />
+    <Content Include="iframe\topmenu2\default.aspx" />
+    <Content Include="iframe\topmenu2\leftmenu.aspx" />
+    <Content Include="iframe\topmenu2\res\images\admin_tbg.png" />
+    <Content Include="iframe\topmenu2\res\images\menu.png" />
+    <Content Include="iframe\topmenu2\res\images\p.png" />
+    <Content Include="iframe\topmenu2\res\images\t.png" />
+    <Content Include="iframe\topmenu2\res\main.css" />
     <Content Include="iframe\topmenu\data\menuMail.xml" />
     <Content Include="iframe\topmenu\data\menuSMS.xml" />
     <Content Include="iframe\topmenu\data\menuSYS.xml" />
     <Content Include="iframe\topmenu\default.aspx" />
-    <Content Include="iframe\topmenu\html\mail-1.html" />
-    <Content Include="iframe\topmenu\html\mail-2.html" />
-    <Content Include="iframe\topmenu\html\mail-3.html" />
-    <Content Include="iframe\topmenu\html\mail-4.html" />
-    <Content Include="iframe\topmenu\html\mail-5.html" />
-    <Content Include="iframe\topmenu\html\sms-1.html" />
-    <Content Include="iframe\topmenu\html\sms-2.html" />
-    <Content Include="iframe\topmenu\html\sms-3.html" />
-    <Content Include="iframe\topmenu\html\sms-4.html" />
-    <Content Include="iframe\topmenu\html\sms-5.html" />
-    <Content Include="iframe\topmenu\html\sys-1.html" />
-    <Content Include="iframe\topmenu\html\sys-2.html" />
-    <Content Include="iframe\topmenu\html\sys-3.html" />
-    <Content Include="iframe\topmenu\html\sys-4.html" />
-    <Content Include="iframe\topmenu\html\sys-5.html" />
     <Content Include="iframe\topmenu\res\images\admin_tbg.png" />
     <Content Include="iframe\topmenu\res\images\menu.png" />
     <Content Include="iframe\topmenu\res\images\p.png" />
@@ -272,8 +267,6 @@
     <Content Include="layout\table.aspx" />
     <Content Include="layout\hbox.aspx" />
     <Content Include="layout\vbox.aspx" />
-    <Content Include="library\CKEditor.NET.dll" />
-    <Content Include="library\FredCK.FCKeditorV2.dll" />
     <Content Include="other\alert.aspx" />
     <Content Include="other\button_in_form.aspx" />
     <Content Include="test\start.aspx" />
@@ -729,6 +722,20 @@
     </Compile>
     <Compile Include="iframe\selectprovince3_child.aspx.designer.cs">
       <DependentUpon>selectprovince3_child.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu2\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu2\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu2\leftmenu.aspx.cs">
+      <DependentUpon>leftmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu2\leftmenu.aspx.designer.cs">
+      <DependentUpon>leftmenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\topmenu\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -2027,7 +2034,6 @@
     <Content Include="layout\row.aspx" />
     <Content Include="tabstrip\tabstrip_iframe.aspx" />
     <Content Include="tabstrip\tabstrip.aspx" />
-    <Content Include="library\Wilco.SyntaxHighlighter.dll" />
     <Content Include="other\toolbar.aspx" />
     <Content Include="config\release_history.txt" />
     <Content Include="test\test.aspx" />
@@ -2108,7 +2114,6 @@
     <Content Include="images\logo\logo.gif" />
     <Content Include="images\logo\logo2.gif" />
     <Content Include="images\logo\logo3.gif" />
-    <Content Include="library\Wilco.SyntaxHighlighter readme.txt" />
     <Content Include="other\custom_postback.aspx" />
     <Content Include="tabstrip\tabstrip_enableclose.aspx" />
     <Content Include="tabstrip\tabstrip_addtab.aspx" />

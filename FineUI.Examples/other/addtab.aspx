@@ -22,13 +22,21 @@
             //window.parent.addExampleTab(node);
             parent.addExampleTab.apply(parent, [node]);
         }
+
+        function closeActiveTab() {
+            parent.removeActiveTab();
+        }
     </script>
 </head>
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Button ID="Button1" runat="server" EnablePostBack="false" OnClientClick="openHelloFineUI();"
-        Text="打开示例《你好 FineUI》">
+        Text="在新TAB中打开示例">
+    </x:Button>
+    <br />
+    <x:Button ID="Button2" runat="server" EnablePostBack="false" OnClientClick="closeActiveTab();"
+        Text="关闭当前TAB">
     </x:Button>
     </form>
 </body>

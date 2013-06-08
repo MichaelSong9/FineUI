@@ -107,4 +107,9 @@ function onReady() {
         X.util.addMainTab(mainTabStrip, id, url, text, icon);
     };
 
+    window.removeActiveTab = function () {
+        var activeTab = mainTabStrip.getActiveTab();
+        mainTabStrip.removeTab(activeTab.id);
+    };
+
 }

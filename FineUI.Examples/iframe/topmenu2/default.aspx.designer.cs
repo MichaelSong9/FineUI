@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.other {
+namespace FineUI.Examples.iframe.topmenu2 {
     
     
-    public partial class addtab {
+    public partial class _default {
         
         /// <summary>
         /// form1 控件。
@@ -31,21 +31,39 @@ namespace FineUI.Examples.other {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Button1 控件。
+        /// RegionPanel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button Button1;
+        protected global::FineUI.RegionPanel RegionPanel1;
         
         /// <summary>
-        /// Button2 控件。
+        /// Region1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button Button2;
+        protected global::FineUI.Region Region1;
+        
+        /// <summary>
+        /// Region2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Region Region2;
+        
+        /// <summary>
+        /// mainRegion 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Region mainRegion;
     }
 }
