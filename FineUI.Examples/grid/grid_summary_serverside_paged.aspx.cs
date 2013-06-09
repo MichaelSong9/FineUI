@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_summary_serverside : PageBase
+    public partial class grid_summary_serverside_paged : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,16 +18,13 @@ namespace FineUI.Examples.grid
             {
                 BindGrid();
 
-                OutputSummaryData();
             }
         }
 
         #region BindGrid
 
-        private void OutputSummaryData()
+        private void OutputPageSummaryData(DataTable source)
         {
-            DataTable source = GetDataTable2();
-
             float donateTotal = 0.0f;
             float feeTotal = 0.0f;
             foreach (DataRow row in source.Rows)
@@ -55,6 +52,9 @@ namespace FineUI.Examples.grid
             // 3.绑定到Grid
             Grid1.DataSource = table;
             Grid1.DataBind();
+
+            // 输出分页合计结果
+            OutputPageSummaryData(table);
         }
 
         

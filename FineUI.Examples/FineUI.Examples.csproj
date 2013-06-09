@@ -122,6 +122,7 @@
     <Content Include="grid\grid_summary_serverside.aspx" />
     <Content Include="grid\grid_summary_absolute.aspx" />
     <Content Include="grid\grid_line_wrap.aspx" />
+    <Content Include="grid\grid_summary_serverside_paged.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -698,6 +699,13 @@
     </Compile>
     <Compile Include="grid\grid_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_line_wrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_summary_serverside_paged.aspx.cs">
+      <DependentUpon>grid_summary_serverside_paged.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_summary_serverside_paged.aspx.designer.cs">
+      <DependentUpon>grid_summary_serverside_paged.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

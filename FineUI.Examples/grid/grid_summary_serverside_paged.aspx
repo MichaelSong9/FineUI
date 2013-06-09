@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_serverside.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_summary_serverside" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_serverside_paged.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_summary_serverside_paged" %>
 
 <!DOCTYPE html>
 <html>
@@ -80,7 +80,7 @@
 
 
             store.add(new Ext.data.Record({
-                'major': '全部合计：',
+                'major': '分页合计：',
                 'donate': summaryJSON['donateTotal'].toFixed(2),
                 'fee': summaryJSON['feeTotal'].toFixed(2)
             }));
