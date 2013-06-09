@@ -50,7 +50,7 @@ Apache License v2.0
 	+综合示例。
 		-增加顶部菜单框架（一）综合示例iframe/topmenu/default.aspx（未来(sun)）。
 		-增加顶部菜单框架（二）综合示例iframe/topmenu2/default.aspx，左侧菜单也是放在单独的IFrame中，灵活度更高。
-		-增加顶部菜单框架（三）综合示例iframe/topmenu3/default.aspx，左侧是手风琴和菜单组合，演示如何动态创建控件。
+		-增加顶部菜单框架（三）综合示例iframe/topmenu3/default.aspx，左侧是手风琴和树控件的组合。
 
 
 

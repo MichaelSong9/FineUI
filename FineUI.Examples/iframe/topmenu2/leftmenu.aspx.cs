@@ -21,6 +21,11 @@ namespace FineUI.Examples.iframe.topmenu2
 
         private void BindLeftTree(string menuType)
         {
+            if (String.IsNullOrEmpty(menuType))
+            {
+                menuType = "mail";
+            }
+
             if (menuType == "mail")
             {
                 XmlDataSource1.DataFile = "./data/menuMail.xml";

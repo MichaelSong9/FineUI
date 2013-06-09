@@ -137,6 +137,16 @@
     <Content Include="iframe\topmenu2\res\images\p.png" />
     <Content Include="iframe\topmenu2\res\images\t.png" />
     <Content Include="iframe\topmenu2\res\main.css" />
+    <Content Include="iframe\topmenu3\data\menuMail.xml" />
+    <Content Include="iframe\topmenu3\data\menuSMS.xml" />
+    <Content Include="iframe\topmenu3\data\menuSYS.xml" />
+    <Content Include="iframe\topmenu3\default.aspx" />
+    <Content Include="iframe\topmenu3\leftmenu.aspx" />
+    <Content Include="iframe\topmenu3\res\images\admin_tbg.png" />
+    <Content Include="iframe\topmenu3\res\images\menu.png" />
+    <Content Include="iframe\topmenu3\res\images\p.png" />
+    <Content Include="iframe\topmenu3\res\images\t.png" />
+    <Content Include="iframe\topmenu3\res\main.css" />
     <Content Include="iframe\topmenu\data\menuMail.xml" />
     <Content Include="iframe\topmenu\data\menuSMS.xml" />
     <Content Include="iframe\topmenu\data\menuSYS.xml" />
@@ -735,6 +745,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="iframe\topmenu2\leftmenu.aspx.designer.cs">
+      <DependentUpon>leftmenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu3\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu3\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu3\leftmenu.aspx.cs">
+      <DependentUpon>leftmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu3\leftmenu.aspx.designer.cs">
       <DependentUpon>leftmenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\topmenu\default.aspx.cs">
