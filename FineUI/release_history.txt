@@ -34,7 +34,8 @@ Apache License v2.0
 		-修正IE9下编辑框无法获取焦点的问题，将UEditor的初始化代码放在onReady函数中（消失的键盘 ）。
 	-更新other/addtab.aspx示例，增加关闭当前TAB的实现。
 	+窗体控件优化。
-		-
+		-将JS函数box_show/box_hide等改名为x_show/x_hide。出于兼容性考虑，之前的函数依然有效。
+		-减少窗体控件生成的JS代码量。
 	+表格增强。
 		+合计行示例。
 			-增加客户端合计行示例grid/grid_summary.aspx（◇辉◆:）。

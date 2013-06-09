@@ -15,9 +15,9 @@ namespace FineUI.Examples.iframe
             if (!IsPostBack)
             {
                 Button1.OnClientClick = Window1.GetShowReference("../grid/grid_iframe_window.aspx", "弹出窗口一");
-                //Button2.OnClientClick = Window2.GetShowReference("../grid/grid_iframe_window.aspx", "弹出窗口二");
+                Button2.OnClientClick = Window2.GetShowReference("../grid/grid_iframe_window.aspx", "弹出窗口二");
 
-                Button2.OnClientClick = Window2.GetShowReference("~/aspnet/ueditor.aspx", "弹出窗口二");
+                //Button2.OnClientClick = Window2.GetShowReference("~/aspnet/ueditor.aspx", "弹出窗口二");
 
 
                 // EnableConfirmOnClose="true" and CloseAction="HidePostBack"

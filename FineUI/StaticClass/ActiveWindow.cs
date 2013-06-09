@@ -101,7 +101,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetHideReference()
         {
-            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].box_hide();}})();";
+            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].x_hide();}})();";
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace FineUI
         {
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){eval('aw[1].X.'+aw[0].id+'_hide_refresh();');}";
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_refresh();}";
-            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].box_hide_refresh();}})();";
+            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].x_hide_refresh();}})();";
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace FineUI
         {
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){eval('aw[1].X.'+aw[0].id+'_hide_postback();');}";
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_postback();}";
-            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].box_hide_postback();}})();";
+            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].x_hide_postback();}})();";
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace FineUI
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_postback('" + argument + "');}";
 
             //return "(function(){var aw=X.wnd.getActiveWindow(); if(aw){ aw[0].box_hide_postback('" + argument + "'); }})();";
-            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].box_hide_postback(" + JsHelper.GetJsString(argument) + ");}})();";
+            return "(function(){var aw=X.wnd.getActiveWindow();if(aw){aw[0].x_hide_postback(" + JsHelper.GetJsString(argument) + ");}})();";
         }
 
         #endregion

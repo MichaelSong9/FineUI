@@ -877,8 +877,11 @@ namespace FineUI
 
             // 此Window显示的位置
             //OB.AddProperty("box_property_show_in_parent", ShowInParent);
-            OB.AddProperty("box_property_target", TargetHelper.GetName(Target));
-            OB.AddProperty("box_property_guid", GUID);
+            OB.AddProperty("x_property_target", TargetHelper.GetName(Target));
+            OB.AddProperty("x_property_guid", GUID);
+            OB.AddProperty("x_property_left", Left != Unit.Empty ? Convert.ToInt32(Left.Value).ToString() : "");
+            OB.AddProperty("x_property_top", Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "");
+            OB.AddProperty("x_property_position", WindowPosition == WindowPosition.GoldenSection ? "true" : "false", true);
 
             //if (Constrain)
             //{
@@ -981,6 +984,9 @@ namespace FineUI
 
             #endregion
 
+            /*
+             * 隐藏窗体的JS代码在 extender.js 中定义
+             * 
             string hideFunctionScript = String.Format("function(){{X.wnd.hide(this, '{0}', {1}, '{2}', '{3}');}}",
                 TargetHelper.GetName(Target),
                 EnableIFrame.ToString().ToLower(),
@@ -988,17 +994,11 @@ namespace FineUI
                 GUID);
             OB.AddProperty("box_hide", hideFunctionScript, true);
 
-            //string boxHideScript = String.Format("{0}={1};", hideFunctionId, JsHelper.GetFunctionWrapper(boxHideSB.ToString()));
-
-            // 2.关闭后刷新
-            //boxHideScript += String.Format("{0}_hide_refresh={1};", ClientJavascriptID, JsHelper.GetFunctionWrapper(hideFunctionId + "();window.location=window.location;"));
-
+           
             OB.AddProperty("box_hide_refresh", JsHelper.GetFunction("this.box_hide();window.location.reload();"), true);
 
-            // 3.关闭后回发
-            //boxHideScript += String.Format("{0}_hide_postback={1};", ClientJavascriptID, String.Format("function(argument){{{0}();{1}}}", hideFunctionId, GetPostBackEventReference("$ARG$").Replace("'$ARG$'", "argument")));
-            //boxHideScript += "\r\n";
             OB.AddProperty("box_hide_postback", String.Format("function(argument){{this.box_hide();{0}}}", GetPostBackEventReference("$ARG$").Replace("'$ARG$'", "argument")), true);
+            */
 
             #endregion
 
@@ -1168,12 +1168,14 @@ namespace FineUI
 
             #endregion
 
+            /*
             string showFunctionScript = String.Format("function(iframeUrl, windowTitle){{X.wnd.show(this, iframeUrl, windowTitle, '{0}', '{1}', {2}, '{3}');}}",
                 Left != Unit.Empty ? Convert.ToInt32(Left.Value).ToString() : "",
                 Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "",
                 WindowPosition == WindowPosition.GoldenSection ? "true" : "false",
                 HiddenHiddenFieldID);
-            OB.AddProperty("box_show", showFunctionScript, true);
+            OB.AddProperty("x_show", showFunctionScript, true);
+            */
 
             #endregion
 
@@ -1468,7 +1470,7 @@ namespace FineUI
 
             string valuesJS = JsHelper.GetJsStringArray(values);
 
-            return String.Format("{0}.box_property_save_state_control_client_ids={1};", ScriptID, valuesJS);
+            return String.Format("{0}.x_property_save_state_control_client_ids={1};", ScriptID, valuesJS);
         }
 
         ///// <summary>
@@ -1522,7 +1524,7 @@ namespace FineUI
                 iframeUrl = ResolveIFrameUrl(iframeUrl);
             }
 
-            return String.Format("{0}.box_show({1},{2});", ScriptID, JsHelper.GetJsStringWithScriptTag(iframeUrl), JsHelper.GetJsString(windowTitle));
+            return String.Format("{0}.x_show({1},{2});", ScriptID, JsHelper.GetJsStringWithScriptTag(iframeUrl), JsHelper.GetJsString(windowTitle));
         }
 
         /// <summary>
@@ -1563,7 +1565,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetHideReference()
         {
-            return String.Format("{0}.box_hide();", ScriptID);
+            return String.Format("{0}.x_hide();", ScriptID);
         }
 
         /// <summary>
@@ -1572,7 +1574,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetHideRefreshReference()
         {
-            return String.Format("{0}.box_hide_refresh();", ScriptID);
+            return String.Format("{0}.x_hide_refresh();", ScriptID);
         }
 
         /// <summary>
@@ -1581,7 +1583,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetHidePostBackReference()
         {
-            return String.Format("{0}.box_hide_postback();", ScriptID);
+            return String.Format("{0}.x_hide_postback();", ScriptID);
         }
 
         /// <summary>
@@ -1591,7 +1593,7 @@ namespace FineUI
         public string GetHidePostBackReference(string argument)
         {
             //return String.Format("{0}.box_hide_postback('{1}');", ScriptID, argument.Replace("'", "\""));
-            return String.Format("{0}.box_hide_postback({1});", ScriptID, JsHelper.GetJsString(argument));
+            return String.Format("{0}.x_hide_postback({1});", ScriptID, JsHelper.GetJsString(argument));
         }
 
         #endregion

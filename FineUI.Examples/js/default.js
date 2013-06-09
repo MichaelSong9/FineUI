@@ -56,7 +56,7 @@ function onReady() {
             icon: "./res.axd?icon=PageWhiteCode",
             listeners: {
                 click: function (button, e) {
-                    windowSourceCode.box_show('./common/source.aspx?files=' + getCurrentIframeNode(button).attributes['src'].value, '源代码');
+                    windowSourceCode.x_show('./common/source.aspx?files=' + getCurrentIframeNode(button).attributes['src'].value, '源代码');
                     e.stopEvent();
                 }
             }

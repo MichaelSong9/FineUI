@@ -1020,6 +1020,46 @@ if (Ext.TabPanel) {
 }
 
 
+
+
+if (Ext.Window) {
+
+    Ext.override(Ext.Window, {
+        
+        // 此函数为了兼容考虑，请使用 x_hide 函数
+        box_hide: function () {
+            this.x_hide();
+        },
+        box_hide_refresh: function () {
+            this.x_hide_refresh();
+        },
+        box_hide_postback: function (argument) {
+            this.x_hide_postback(argument);
+        },
+        box_show: function (iframeUrl, windowTitle) {
+            this.x_show(iframeUrl, windowTitle);
+        },
+
+        
+        x_hide: function () {
+            X.wnd.hide(this, this.x_property_target, this.x_iframe, this.id + '_Hidden', this.x_property_guid);
+        },
+        x_hide_refresh: function () {
+            this.x_hide();
+            window.location.reload();
+        },
+        x_hide_postback: function (argument) {
+            this.x_hide();
+            __doPostBack(this.id, argument);
+        },
+        x_show: function (iframeUrl, windowTitle) {
+            X.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
+        }
+
+    });
+}
+
+
 if (Ext.dd.DragDrop) {
     // 修正IE7下，窗口出现滚动条时，点击Window控件标题栏有时node为null的问题
     X.originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
