@@ -292,7 +292,7 @@
             </TreeNode>
             <TreeNode Text="合计行（服务器端计算）" NavigateUrl="~/grid/grid_summary_serverside.aspx" >
             </TreeNode>
-			<TreeNode Text="合计行（绝对定位）" NavigateUrl="~/grid/grid_summary_absolute.aspx" >
+            <TreeNode Text="合计行（绝对定位）" NavigateUrl="~/grid/grid_summary_absolute.aspx" >
             </TreeNode>
         </TreeNode>
         <TreeNode Text="可编辑表格" SingleClickExpand="true">
@@ -317,6 +317,8 @@
             <TreeNode Text="列分割线" NavigateUrl="~/grid/grid_column_lines.aspx" >
             </TreeNode>
             <TreeNode Text="表格为空的提示" NavigateUrl="~/grid/grid_empty_text.aspx" >
+            </TreeNode>
+            <TreeNode Text="自动换行" NavigateUrl="~/grid/grid_line_wrap.aspx" >
             </TreeNode>
         </TreeNode>
     </TreeNode>
@@ -421,7 +423,7 @@
         </TreeNode>
         <TreeNode Text="回发父页面2" NavigateUrl="~/iframe/parent_postback.aspx" >
         </TreeNode>
-		<TreeNode Text="顶部菜单框架（一）" NavigateUrl="~/iframe/topmenu/default.aspx" >
+        <TreeNode Text="顶部菜单框架（一）" NavigateUrl="~/iframe/topmenu/default.aspx" >
         </TreeNode>
         <TreeNode Text="顶部菜单框架（二）" NavigateUrl="~/iframe/topmenu2/default.aspx" >
         </TreeNode>

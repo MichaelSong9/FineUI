@@ -38,6 +38,7 @@ Apache License v2.0
 			-增加客户端合计行示例grid/grid_summary.aspx（◇辉◆:）。
 			-增加服务器端合计行示例grid/grid_summary_serverside.aspx（◆◇提拉米苏℡）。
 			-增加合计行绝对定位到分页条上方的示例grid/grid_summary_absolute.aspx。
+		-增加自动换行的示例grid/grid_line_wrap.aspx（水中月 ）。
 		-增加CheckBoxSelectOnly属性，满足只能通过多选框选中行的需求，增加示例grid/grid_checkall_only.aspx（隨风.NET）。
 		-修正下次提交依然提交上次修改数据的问题。
 		-如果同时启用EnableCheckBoxSelect和AllowCellEditing，则忽略EnableCheckBoxSelect属性。
