@@ -26,8 +26,8 @@
     <script type="text/javascript">
         window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/ueditor/") %>';
     </script>
-    <script type="text/javascript" src="../ueditor/editor_config.js"></script>
-    <script type="text/javascript" src="../ueditor/editor_all.js"></script>
+    <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="../ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
         var editor;
         function onReady() {
