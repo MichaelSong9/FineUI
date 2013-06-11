@@ -9,7 +9,7 @@ IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
 
 授权协议
 Apache License v2.0
-注：FineUI 使用的 ExtJS 库在 GPL v3 协议下发布(http://www.sencha.com/license)。
+注：ExtJS 库是在 GPL v3 协议下发布(http://www.sencha.com/license)。
     
 
 相关链接
@@ -21,7 +21,7 @@ Apache License v2.0
 
 发布历史
 
-+2013-06-* v3.2.7
++2013-06-* v3.3.0
 	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu ）。
 	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。
 	-改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）（grass_root、蓝色天空）。
@@ -62,6 +62,11 @@ Apache License v2.0
 		-增加顶部菜单框架（一）综合示例iframe/topmenu/default.aspx（未来(sun)）。
 		-增加顶部菜单框架（二）综合示例iframe/topmenu2/default.aspx，左侧菜单也是放在单独的IFrame中，灵活度更高。
 		-增加顶部菜单框架（三）综合示例iframe/topmenu3/default.aspx，左侧是手风琴和树控件的组合。
+	-【TODO】对关键上传数据进行GZIP压缩，减少AJAX请求时上传的数据量。
+	-【TODO】移除对HtmlAgilityPack的依赖。
+	-【TODO】文档更新。
+	-【TODO】右下角TIP窗口。
+
 
 
 

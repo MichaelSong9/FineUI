@@ -152,7 +152,7 @@
                                         <h2>授权协议</h2>
                                             Apache License v2.0
                                             <br />
-                                            注：FineUI 使用的 ExtJS 库在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
+                                            注：ExtJS 库是在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
                                             
                                         <br />
                                         <br />
