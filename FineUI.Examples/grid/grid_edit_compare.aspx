@@ -43,13 +43,13 @@
                 DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
             <x:TemplateField HeaderText="分组一" Width="100px">
                 <ItemTemplate>
-                    <asp:TextBox ID="tbxGroupName" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'
+                    <asp:TextBox ID="tbxGroupName" CssClass="group1" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'
                         Text='<%# Eval("Group") %>'></asp:TextBox>
                 </ItemTemplate>
             </x:TemplateField>
             <x:TemplateField HeaderText="分组二" Width="100px">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 100 %>'></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 100 %>'></asp:TextBox>
                 </ItemTemplate>
             </x:TemplateField>
             <x:TemplateField HeaderText="比较结果" Width="100px">
@@ -104,14 +104,16 @@
             grid.el.set({ 'data-event-keydown-registered': true });
 
             grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
-                var colNum = 1, idPattern = /^Grid1_c(\d+)r\d+_.+$/.exec(el.id);
+                /*
+                var colNum = 1, idPattern = /^[^_]+_c(\d+)r\d+_[^_]+$/.exec(el.id);
                 if (idPattern && idPattern.length == 2) {
                     colNum = idPattern[1];
                 }
+                */
                 if (evt.getKey() == evt.ENTER) {
                     var nextRow = Ext.get(el).parent('.x-grid3-row').next();
                     if (nextRow) {
-                        nextRow.query('.x-grid3-col-ct' + colNum + ' .x-grid-tpl input')[0].select();
+                        nextRow.query('.x-grid-tpl input.group1')[0].select();
                     }
                 }
             });
@@ -130,9 +132,9 @@
                 window.setTimeout(function () {
 
                     var row = Ext.get(el).parent('.x-grid3-row');
-                    var num1 = row.query('.x-grid3-col-ct6 input')[0].value;
-                    var num2 = row.query('.x-grid3-col-ct7 input')[0].value;
-                    var resultNode = Ext.get(row.query('.x-grid3-col-ct8 span.result'));
+                    var num1 = row.query('.x-grid-tpl input.group1')[0].value;
+                    var num2 = row.query('.x-grid-tpl input.group2')[0].value;
+                    var resultNode = Ext.get(row.query('.x-grid-tpl span.result'));
                     resultNode.removeClass(['success', 'error']);
                     if (num1 == num2) {
                         resultNode.addClass('success');
