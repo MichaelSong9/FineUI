@@ -240,6 +240,14 @@ namespace FineUI
         }
 
         /// <summary>
+        /// Extjs库的根路径
+        /// </summary>
+        public static string GetExtjsBasePath()
+        {
+            return section.ExtjsBasePath;
+        }
+
+        /// <summary>
         /// 自定义样式的根路径
         /// </summary>
         public static string GetCustomThemeBasePath()

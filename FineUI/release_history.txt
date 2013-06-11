@@ -32,15 +32,22 @@ Apache License v2.0
 		-表单相关：EnableTimeSelectEvent(TimePicker)、EnableDateSelect（DatePicker、Calendar）
 	+更新aspnet/ueditor.aspx、aspnet/ueditor_two.aspx.
 		-修正IE9下编辑框无法获取焦点的问题，将UEditor的初始化代码放在onReady函数中（消失的键盘 ）。
+	-UEditor更新为1.2.6.0，FineUI与百度的UEditor将携手促进国内开源软件的发展。
 	-更新other/addtab.aspx示例，增加关闭当前TAB的实现。
 	+窗体控件优化。
 		-将JS函数box_show/box_hide等改名为x_show/x_hide。出于兼容性考虑，之前的函数依然有效。
 		-减少窗体控件生成的JS代码量。
+	+遵守ExtJS对开源软件的限制，将ExtJS相关JavaScript、CSS以及图片资源从FineUI库中移除。
+		-增加Web.config中的配置项ExtjsBasePath，默认为~/extjs。
+		-FineUI.dll从原来的2.4M减少为600K。
+		-FineUI.Examples增加extjs_builder文件夹，用来生成FineUI所需的extjs目录。
 	+表格增强。
 		+合计行示例。
 			-增加客户端合计行示例grid/grid_summary.aspx（◇辉◆:）。
 			-增加服务器端合计行示例grid/grid_summary_serverside.aspx（◆◇提拉米苏℡）。
 			-增加合计行绝对定位到分页条上方的示例grid/grid_summary_absolute.aspx。
+		-修正Chrome下表格EnableTextSelection属性失效问题（D大调）。
+		+优化模板列示例grid/grid_edit_compare.aspx。
 		-增加自动换行的示例grid/grid_line_wrap.aspx（水中月 ）。
 		-增加CheckBoxSelectOnly属性，满足只能通过多选框选中行的需求，增加示例grid/grid_checkall_only.aspx（隨风.NET）。
 		-修正下次提交依然提交上次修改数据的问题。

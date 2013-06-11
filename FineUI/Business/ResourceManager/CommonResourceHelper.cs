@@ -61,31 +61,39 @@ namespace FineUI
 
         internal static void RegisterCommonResource(Page page)
         {
-            #region comment
+            #region powered-by
 
             string metaName = "powered-by";
-            string metaContent = String.Format("FineUI v{0} - 基于 ExtJS 的专业 ASP.NET 2.0 控件库 - http://fineui.com/", GlobalConfig.ProductVersion);
+            string metaContent = String.Format("FineUI v{0} - 基于 ExtJS 的专业 ASP.NET 控件库 - http://fineui.com/", GlobalConfig.ProductVersion);
             AddContentToHead(page, CONTROL_ID_PREFIX + "comments", String.Format(META_TEMPLATE, metaName, metaContent));
 
             #endregion
 
             // ExtJS CSS & JS 版本号，只有升级更新CSS或者JS时才需要更新。
-            string extjsCSSJSVersion = "3";
-            string fineuiVersion = GlobalConfig.ProductVersion;
+            //string extjsCSSJSVersion = "3";
+            //string fineuiVersion = GlobalConfig.ProductVersion;
+            string extjsBasePath = page.ResolveUrl(GlobalConfig.GetExtjsBasePath());
 
             #region css
 
-            //if (GlobalConfig.GetDebugMode())
-            //{
-            //    var themeName = ThemeHelper.GetName(PageManager.Instance.Theme);
-            //    AddStylesheetIncludeToHead(page, CONTROL_ID_PREFIX + "css-" + themeName, "FineUI.res.css." + themeName + ".css");
-            //}
-            //else
-            //{
-            //    var themeName = ThemeHelper.GetName(PageManager.Instance.Theme);
-            //    AddStylesheetIncludeToHead(page, CONTROL_ID_PREFIX + "css-" + themeName + "-min", "FineUI.res.css." + themeName + ".min.css");
-            //}
+            if (!String.IsNullOrEmpty(PageManager.Instance.CustomTheme))
+            {
+                AddCssPathToHead(page, CONTROL_ID_PREFIX + "notheme.css", String.Format("{0}/res/css/notheme.css", extjsBasePath));
 
+                string themePath = String.Format("{0}/css/xtheme-{1}.css", page.ResolveUrl(PageManager.Instance.CustomThemeBasePath), PageManager.Instance.CustomTheme);
+                AddCssPathToHead(page, CONTROL_ID_PREFIX + "custom-theme.css", themePath);
+
+                AddCssPathToHead(page, CONTROL_ID_PREFIX + "ux.css", String.Format("{0}/res/css/ux.css", extjsBasePath));
+
+            }
+            else
+            {
+                string themeName = ThemeHelper.GetName(PageManager.Instance.Theme);
+                AddCssPathToHead(page, CONTROL_ID_PREFIX + themeName + ".css", String.Format("{0}/res/css/{1}.css", extjsBasePath, themeName));
+            }
+
+
+            /*
             AddCssResourceToHead(page, CONTROL_ID_PREFIX + "notheme.css", "FineUI.res.css.notheme.css&v=" + extjsCSSJSVersion);
 
             if (!String.IsNullOrEmpty(PageManager.Instance.CustomTheme))
@@ -107,6 +115,7 @@ namespace FineUI
             {
                 AddCssResourceToHead(page, CONTROL_ID_PREFIX + "ux.css", "FineUI.res.css.ux.css&v=" + fineuiVersion);
             }
+             * */
 
             
 
@@ -114,6 +123,14 @@ namespace FineUI
 
             #region javascript
 
+            AddJavascriptPathToPageBottom(page, "ext.js", String.Format("{0}/ext.js", extjsBasePath));
+
+            // 语言资源应该放在最后，其中包含对 X.js 的语言定义
+            string langName = LanguageHelper.GetName(PageManager.Instance.Language);
+            AddJavascriptPathToPageBottom(page, langName + ".js", String.Format("{0}/lang/{1}.js", extjsBasePath, langName));
+
+
+            /*
             AddJavascriptIncludeToPageBottom(page, "ext-core.js", "FineUI.js.ext-core.js&v=" + extjsCSSJSVersion);
             AddJavascriptIncludeToPageBottom(page, "ext-foundation.js", "FineUI.js.ext-foundation.js&v=" + extjsCSSJSVersion);
 
@@ -126,18 +143,7 @@ namespace FineUI
             {
                 AddJavascriptIncludeToPageBottom(page, "ext-grid.js", "FineUI.js.ext-grid.js&v=" + extjsCSSJSVersion);
             }
-            //if (components.Contains("menu") || components.Contains("tab") || components.Contains("tree"))
-            //{
-            //    AddJavascriptIncludeToPageBottom(page, "ext-menutabtree.js", "FineUI.js.ext-menutabtree.js&v=" + extjsCSSJSVersion);
-            //}
-
-            //foreach (string comname in new string[] { "form", "grid", "menu", "tab", "tree" })
-            //{
-            //    if (ResourceManager.Instance.JavaScriptComponentList.Contains(comname))
-            //    {
-            //        AddJavascriptIncludeToPageBottom(page, "ext-" + comname + ".js", "FineUI.js.ext-" + comname + ".js");
-            //    }
-            //}
+            
 
             if (GlobalConfig.GetDebugMode())
             {
@@ -148,9 +154,10 @@ namespace FineUI
                 AddJavascriptIncludeToPageBottom(page, "x.js", "FineUI.js.x.js&v=" + fineuiVersion);
             }
 
-            // 语言资源包括扩展JavaScript，所以要放在 FineUI.js.x.js 之后
+            // 语言资源应该放在最后，其中包含对 X.js 的语言定义
             string languageName = LanguageHelper.GetName(PageManager.Instance.Language);
             AddJavascriptIncludeToPageBottom(page, languageName + ".js", "FineUI.js.lang.ext-lang-" + languageName + ".js&v=" + extjsCSSJSVersion);
+            */
 
             #region release old code
 
@@ -262,6 +269,14 @@ namespace FineUI
         #endregion
 
         #region AddJavascriptIncludeToPageBottom
+
+        public static void AddJavascriptPathToPageBottom(Page page, string controlId, string jsPath)
+        {
+            if (!page.ClientScript.IsClientScriptIncludeRegistered(controlId))
+            {
+                page.ClientScript.RegisterStartupScript(page.GetType(), controlId, String.Format(SCRIPT_INCLUDE_TEMPLATE, jsPath), false);
+            }
+        }
 
         /// <summary>
         /// 添加JS文件到页面的底部

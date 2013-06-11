@@ -189,6 +189,19 @@ namespace FineUI
         }
 
 
+        [ConfigurationProperty(ConfigPropertyName.EXTJSBASEPATH, DefaultValue = ConfigPropertyValue.EXTJS_BASE_PATH_DEFAULT)]
+        public string ExtjsBasePath
+        {
+            get
+            {
+                return (string)base[ConfigPropertyName.EXTJSBASEPATH];
+            }
+            set
+            {
+                base[ConfigPropertyName.EXTJSBASEPATH] = value;
+            }
+        }
+
         [ConfigurationProperty(ConfigPropertyName.ICONBASEPATH, DefaultValue = ConfigPropertyValue.ICON_BASE_PATH_DEFAULT)]
         public string IconBasePath
         {
