@@ -41,7 +41,7 @@ namespace FineUI
 {
     [Designer("FineUI.Design.RegionDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Region Position=\"Center\" runat=\"server\"></{0}:Region>")]
-    [ToolboxBitmap(typeof(Region), "res.toolbox.Region.bmp")]
+    [ToolboxBitmap(typeof(Region), "toolbox.Region.bmp")]
     [Description("页面布局子控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

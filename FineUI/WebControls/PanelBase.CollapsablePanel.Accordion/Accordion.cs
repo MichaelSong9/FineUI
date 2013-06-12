@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.AccordionDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Accordion Title=\"Accordion\" ShowCollapseTool=\"false\" ShowBorder=\"false\" ShowHeader=\"false\" runat=\"server\"><Panes><{0}:AccordionPane runat=\"server\" Title=\"AccordionPane1\" BodyPadding=\"5px\" ShowBorder=\"false\"></{0}:AccordionPane><{0}:AccordionPane runat=\"server\" Title=\"AccordionPane2\" BodyPadding=\"5px\" ShowBorder=\"false\"></{0}:AccordionPane></Panes></{0}:Accordion>")]
-    [ToolboxBitmap(typeof(Accordion), "res.toolbox.Accordion.bmp")]
+    [ToolboxBitmap(typeof(Accordion), "toolbox.Accordion.bmp")]
     [Description("手风琴控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

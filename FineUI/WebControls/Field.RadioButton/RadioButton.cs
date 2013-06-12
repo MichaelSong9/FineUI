@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.RadioButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:RadioButton Label=\"Label\" Text=\"RadioButton\" runat=server></{0}:RadioButton>")]
-    [ToolboxBitmap(typeof(RadioButton), "res.toolbox.RadioButton.bmp")]
+    [ToolboxBitmap(typeof(RadioButton), "toolbox.RadioButton.bmp")]
     [Description("单选框控件")]
     public class RadioButton : Field, IPostBackDataHandler
     {

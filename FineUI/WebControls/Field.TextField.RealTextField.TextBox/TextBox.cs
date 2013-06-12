@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.TextBoxDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:TextBox Label=\"Label\" Text=\"\" runat=\"server\"></{0}:TextBox>")]
-    [ToolboxBitmap(typeof(TextBox), "res.toolbox.TextBox.bmp")]
+    [ToolboxBitmap(typeof(TextBox), "toolbox.TextBox.bmp")]
     [Description("文本框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class TextBox : RealTextField

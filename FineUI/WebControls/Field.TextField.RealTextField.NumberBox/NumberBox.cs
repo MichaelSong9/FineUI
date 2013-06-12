@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.NumberBoxDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:NumberBox Label=\"Label\" runat=\"server\"></{0}:NumberBox>")]
-    [ToolboxBitmap(typeof(NumberBox), "res.toolbox.NumberBox.bmp")]
+    [ToolboxBitmap(typeof(NumberBox), "toolbox.NumberBox.bmp")]
     [Description("数字输入框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class NumberBox : RealTextField

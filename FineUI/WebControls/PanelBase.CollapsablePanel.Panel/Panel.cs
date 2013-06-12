@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.PanelDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Panel Title=\"Panel\" BodyPadding=\"5px\" ShowHeader=\"true\" ShowBorder=\"true\" runat=\"server\"><Items></Items></{0}:Panel>")]
-    [ToolboxBitmap(typeof(Panel), "res.toolbox.Panel.bmp")]
+    [ToolboxBitmap(typeof(Panel), "toolbox.Panel.bmp")]
     [Description("面板控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

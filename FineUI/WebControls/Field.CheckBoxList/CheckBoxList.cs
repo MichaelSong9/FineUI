@@ -47,7 +47,7 @@ namespace FineUI
     [Designer("FineUI.Design.CheckBoxListDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:CheckBoxList runat=server></{0}:CheckBoxList>")]
-    [ToolboxBitmap(typeof(CheckBoxList), "res.toolbox.CheckBoxList.bmp")]
+    [ToolboxBitmap(typeof(CheckBoxList), "toolbox.CheckBoxList.bmp")]
     [Description("复选框列表控件")]
     [ParseChildren(true, DefaultProperty = "Items")]
     [PersistChildren(false)]

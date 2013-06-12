@@ -42,7 +42,7 @@ namespace FineUI
     [DefaultProperty("Text")]
     [DefaultEvent("TriggerClick")]
     [ToolboxData("<{0}:TriggerBox Label=\"Label\" TriggerIcon=\"Search\" runat=\"server\"></{0}:TriggerBox>")]
-    [ToolboxBitmap(typeof(TriggerBox), "res.toolbox.TriggerBox.bmp")]
+    [ToolboxBitmap(typeof(TriggerBox), "toolbox.TriggerBox.bmp")]
     [Description("扩展文本框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class TriggerBox : RealTextField, IPostBackEventHandler

@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.HyperLinkDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:HyperLink Text=\"HyperLink\" Label=\"Label\" NavigateUrl=\"\" Target=\"_blank\" runat=server></{0}:HyperLink>")]
-    [ToolboxBitmap(typeof(HyperLink), "res.toolbox.HyperLink.bmp")]
+    [ToolboxBitmap(typeof(HyperLink), "toolbox.HyperLink.bmp")]
     [Description("链接控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class HyperLink : TooltipField

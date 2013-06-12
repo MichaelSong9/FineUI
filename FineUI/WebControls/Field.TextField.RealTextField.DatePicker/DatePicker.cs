@@ -42,7 +42,7 @@ namespace FineUI
     [Designer("FineUI.Design.DatePickerDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:DatePicker Label=\"Label\" runat=\"server\"></{0}:DatePicker>")]
-    [ToolboxBitmap(typeof(DatePicker), "res.toolbox.DatePicker.bmp")]
+    [ToolboxBitmap(typeof(DatePicker), "toolbox.DatePicker.bmp")]
     [DefaultEvent("DateSelect")]
     [Description("日期选择框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.MenuDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Menu runat=\"server\"></{0}:Menu>")]
-    [ToolboxBitmap(typeof(Menu), "res.toolbox.Menu.bmp")]
+    [ToolboxBitmap(typeof(Menu), "toolbox.Menu.bmp")]
     [Description("菜单控件")]
     [ParseChildren(true, "Items")]
     [PersistChildren(false)]

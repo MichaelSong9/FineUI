@@ -46,7 +46,7 @@ namespace FineUI
     [Designer("FineUI.Design.RadioButtonListDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:RadioButtonList runat=server></{0}:RadioButtonList>")]
-    [ToolboxBitmap(typeof(RadioButtonList), "res.toolbox.RadioButtonList.bmp")]
+    [ToolboxBitmap(typeof(RadioButtonList), "toolbox.RadioButtonList.bmp")]
     [Description("单选框列表控件")]
     [ParseChildren(true, DefaultProperty = "Items")]
     [PersistChildren(false)]

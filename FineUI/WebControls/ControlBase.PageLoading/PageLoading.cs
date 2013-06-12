@@ -35,7 +35,7 @@ namespace FineUI
 {
     [Designer("FineUI.Design.PageLoadingDesigner, FineUI.Design")]
     [ToolboxData("<{0}:PageLoading runat=server></{0}:PageLoading>")]
-    [ToolboxBitmap(typeof(PageLoading), "res.toolbox.PageLoading.bmp")]
+    [ToolboxBitmap(typeof(PageLoading), "toolbox.PageLoading.bmp")]
     [Description("")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class PageLoading : ControlBase
@@ -44,13 +44,13 @@ namespace FineUI
 
         internal static readonly string LOADING_TEMLATE = "<div id='loading-mask'></div><div id='loading'><div class='loading-indicator'><img align='absmiddle' src='#LOADING_IMAGE_SRC#'/></div></div>";
 
-        internal static readonly string LOADING_IMAGE_NAME = "FineUI.res.img.loading_32.gif&v=1";
+        internal static readonly string LOADING_IMAGE_PATH = "/res/images/loading_32.gif";
 
         #endregion
 
         #region Properties
 
-        
+
         /// <summary>
         /// 自定义的加载图片
         /// </summary>
@@ -72,7 +72,7 @@ namespace FineUI
         }
 
 
-        
+
         /// <summary>
         /// 回发时是否显示
         /// </summary>
@@ -128,11 +128,11 @@ namespace FineUI
                 string imageUrl = String.Empty;
                 if (String.IsNullOrEmpty(ImageUrl))
                 {
-                    imageUrl = ResourceHelper.GetWebResourceUrl(Page, LOADING_IMAGE_NAME);
+                    imageUrl = ResolveUrl(GlobalConfig.GetExtjsBasePath() + LOADING_IMAGE_PATH); //ResourceHelper.GetWebResourceUrl(Page, LOADING_IMAGE_NAME);
                 }
                 else
                 {
-                    imageUrl = this.ResolveUrl(ImageUrl);
+                    imageUrl = ResolveUrl(ImageUrl);
                 }
 
                 content = content.Replace("#LOADING_IMAGE_SRC#", imageUrl);
@@ -141,7 +141,7 @@ namespace FineUI
 
             }
 
-            
+
         }
 
         protected override void RenderEndTag(HtmlTextWriter writer)

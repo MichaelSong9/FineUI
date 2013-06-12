@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.MenuHyperLinkDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuHyperLink runat=\"server\"></{0}:MenuHyperLink>")]
-    [ToolboxBitmap(typeof(MenuHyperLink), "res.toolbox.MenuHyperLink.bmp")]
+    [ToolboxBitmap(typeof(MenuHyperLink), "toolbox.MenuHyperLink.bmp")]
     [Description("菜单项超链接控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class MenuHyperLink : MenuItem

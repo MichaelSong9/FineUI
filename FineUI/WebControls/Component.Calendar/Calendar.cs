@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.CalendarDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Calendar runat=server></{0}:Calendar>")]
-    [ToolboxBitmap(typeof(Calendar), "res.toolbox.Calendar.bmp")]
+    [ToolboxBitmap(typeof(Calendar), "toolbox.Calendar.bmp")]
     [DefaultEvent("DateSelect")]
     [Description("日期控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

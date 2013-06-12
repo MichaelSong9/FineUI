@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.MenuButtonDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuButton runat=\"server\"></{0}:MenuButton>")]
-    [ToolboxBitmap(typeof(MenuButton), "res.toolbox.MenuButton.bmp")]
+    [ToolboxBitmap(typeof(MenuButton), "toolbox.MenuButton.bmp")]
     [Description("菜单项按钮控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     [DefaultEvent("Click")]

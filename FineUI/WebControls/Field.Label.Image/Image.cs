@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.ImageDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Image Label=\"Label\" ImageUrl=\"\" runat=server></{0}:Image>")]
-    [ToolboxBitmap(typeof(Image), "res.toolbox.Image.bmp")]
+    [ToolboxBitmap(typeof(Image), "toolbox.Image.bmp")]
     [Description("图片控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class Image : TooltipField

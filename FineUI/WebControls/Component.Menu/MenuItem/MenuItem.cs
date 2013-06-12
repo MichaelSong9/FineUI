@@ -43,7 +43,7 @@ namespace FineUI
     /// 菜单项控件基类（抽象类）
     /// </summary>
     [ToolboxData("<{0}:MenuItem runat=\"server\"></{0}:MenuItem>")]
-    [ToolboxBitmap(typeof(MenuItem), "res.toolbox.MenuItem.bmp")]
+    [ToolboxBitmap(typeof(MenuItem), "toolbox.MenuItem.bmp")]
     [Description("菜单项控件基类")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     [ParseChildren(true)]

@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.TextAreaDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:TextArea Label=\"Label\" Text=\"\" Height=\"50px\" runat=\"server\"></{0}:TextArea>")]
-    [ToolboxBitmap(typeof(TextArea), "res.toolbox.TextArea.bmp")]
+    [ToolboxBitmap(typeof(TextArea), "toolbox.TextArea.bmp")]
     [Description("多行文本框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class TextArea : RealTextField

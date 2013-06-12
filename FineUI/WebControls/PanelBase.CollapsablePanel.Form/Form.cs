@@ -44,7 +44,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.FormDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Form Title=\"Form\" BodyPadding=\"5px\" runat=\"server\"><Rows><{0}:FormRow runat=\"server\"></{0}:FormRow><{0}:FormRow runat=\"server\"></{0}:FormRow></Rows></{0}:Form>")]
-    [ToolboxBitmap(typeof(Form), "res.toolbox.Form.bmp")]
+    [ToolboxBitmap(typeof(Form), "toolbox.Form.bmp")]
     [Description("表单面板控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

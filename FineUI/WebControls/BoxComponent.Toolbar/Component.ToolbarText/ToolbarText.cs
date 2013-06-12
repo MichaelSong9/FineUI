@@ -39,7 +39,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.ToolbarTextDesigner, FineUI.Design")]
     [ToolboxData("<{0}:ToolbarText runat=server></{0}:ToolbarText>")]
-    [ToolboxBitmap(typeof(ToolbarText), "res.toolbox.ToolbarText.bmp")]
+    [ToolboxBitmap(typeof(ToolbarText), "toolbox.ToolbarText.bmp")]
     [Description("工具栏文本控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class ToolbarText : Component

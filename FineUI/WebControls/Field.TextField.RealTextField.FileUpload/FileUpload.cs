@@ -42,7 +42,7 @@ namespace FineUI
     [Designer("FineUI.Design.FileUploadDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:FileUpload Label=\"Label\" runat=\"server\"></{0}:FileUpload>")]
-    [ToolboxBitmap(typeof(FileUpload), "res.toolbox.FileUpload.bmp")]
+    [ToolboxBitmap(typeof(FileUpload), "toolbox.FileUpload.bmp")]
     [Description("文件上传控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class FileUpload : RealTextField, IPostBackEventHandler

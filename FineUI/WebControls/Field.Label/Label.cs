@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.LabelDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Label Text=\"Label\" Label=\"Label\" runat=server></{0}:Label>")]
-    [ToolboxBitmap(typeof(Label), "res.toolbox.Label.bmp")]
+    [ToolboxBitmap(typeof(Label), "toolbox.Label.bmp")]
     [Description("文本控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class Label : TooltipField

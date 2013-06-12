@@ -38,7 +38,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.TimerDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Timer Interval=\"30\" runat=\"server\"></{0}:Timer>")]
-    [ToolboxBitmap(typeof(Timer), "res.toolbox.Timer.bmp")]
+    [ToolboxBitmap(typeof(Timer), "toolbox.Timer.bmp")]
     [Description("定时器")]
     [DefaultEvent("Tick")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

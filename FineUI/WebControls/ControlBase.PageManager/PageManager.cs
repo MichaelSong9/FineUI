@@ -38,7 +38,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.PageManagerDesigner, FineUI.Design")]
     [ToolboxData("<{0}:PageManager runat=\"server\"></{0}:PageManager>")]
-    [ToolboxBitmap(typeof(PageManager), "res.toolbox.PageManager.bmp")]
+    [ToolboxBitmap(typeof(PageManager), "toolbox.PageManager.bmp")]
     [Description("页面配置管理器（每个页面必须包含一个 PageManager 控件）")]
     [ParseChildren(true)]
     [PersistChildren(false)]
@@ -794,7 +794,7 @@ namespace FineUI
                 if (EnablePageLoading)
                 {
                     string content = PageLoading.LOADING_TEMLATE;
-                    content = content.Replace("#LOADING_IMAGE_SRC#", ResourceHelper.GetWebResourceUrlResAxd(Page, PageLoading.LOADING_IMAGE_NAME));
+                    content = content.Replace("#LOADING_IMAGE_SRC#", ResolveUrl(GlobalConfig.GetExtjsBasePath() + PageLoading.LOADING_IMAGE_PATH)); // ResourceHelper.GetWebResourceUrlResAxd(Page, PageLoading.LOADING_IMAGE_NAME));
 
                     writer.Write(content);
                 }

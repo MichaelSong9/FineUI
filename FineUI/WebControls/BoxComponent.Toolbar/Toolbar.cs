@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.ToolbarDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Toolbar runat=\"server\"><Items></Items></{0}:Toolbar>")]
-    [ToolboxBitmap(typeof(Toolbar), "res.toolbox.Toolbar.bmp")]
+    [ToolboxBitmap(typeof(Toolbar), "toolbox.Toolbar.bmp")]
     [Description("工具条控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

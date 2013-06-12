@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.ButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:Button Text=\"Button\" runat=\"server\"></{0}:Button>")]
-    [ToolboxBitmap(typeof(Button), "res.toolbox.Button.bmp")]
+    [ToolboxBitmap(typeof(Button), "toolbox.Button.bmp")]
     [Description("按钮控件")]
     [DefaultEvent("Click")]
     [ParseChildren(true)]

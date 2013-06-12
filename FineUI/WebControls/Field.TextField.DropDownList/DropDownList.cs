@@ -46,7 +46,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.DropDownListDesigner, FineUI.Design")]
     [ToolboxData("<{0}:DropDownList Label=\"Label\" runat=\"server\"></{0}:DropDownList>")]
-    [ToolboxBitmap(typeof(DropDownList), "res.toolbox.DropDownList.bmp")]
+    [ToolboxBitmap(typeof(DropDownList), "toolbox.DropDownList.bmp")]
     [Description("下拉列表控件")]
     [ParseChildren(true, DefaultProperty = "Items")]
     [PersistChildren(false)]

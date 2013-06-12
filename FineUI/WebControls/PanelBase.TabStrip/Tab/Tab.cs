@@ -44,7 +44,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.TabDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Tab Title=\"Tab\" BodyPadding=\"5px\" runat=\"server\"></{0}:Tab>")]
-    [ToolboxBitmap(typeof(Tab), "res.toolbox.Tab.bmp")]
+    [ToolboxBitmap(typeof(Tab), "toolbox.Tab.bmp")]
     [Description("选项卡控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

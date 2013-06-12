@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.MenuSeparatorDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuSeparator runat=\"server\"></{0}:MenuSeparator>")]
-    [ToolboxBitmap(typeof(MenuSeparator), "res.toolbox.MenuSeparator.bmp")]
+    [ToolboxBitmap(typeof(MenuSeparator), "toolbox.MenuSeparator.bmp")]
     [Description("菜单项分隔符控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class MenuSeparator : BaseMenuItem

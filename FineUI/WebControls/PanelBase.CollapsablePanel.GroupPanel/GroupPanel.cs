@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.GroupPanelDesigner, FineUI.Design")]
     [ToolboxData("<{0}:GroupPanel Title=\"GroupPanel\" EnableCollapse=\"True\" runat=server><Items></Items></{0}:GroupPanel>")]
-    [ToolboxBitmap(typeof(GroupPanel), "res.toolbox.GroupPanel.bmp")]
+    [ToolboxBitmap(typeof(GroupPanel), "toolbox.GroupPanel.bmp")]
     [Description("分组面板控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

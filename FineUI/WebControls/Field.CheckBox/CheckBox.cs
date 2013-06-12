@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.CheckBoxDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:CheckBox Label=\"Label\" Text=\"CheckBox\" runat=\"server\"></{0}:CheckBox>")]
-    [ToolboxBitmap(typeof(CheckBox), "res.toolbox.CheckBox.bmp")]
+    [ToolboxBitmap(typeof(CheckBox), "toolbox.CheckBox.bmp")]
     [DefaultEvent("CheckedChanged")]
     [Description("复选框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

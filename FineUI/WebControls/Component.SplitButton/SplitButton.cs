@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.SplitButtonDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:SplitButton runat=\"server\"></{0}:SplitButton>")]
-    [ToolboxBitmap(typeof(SplitButton), "res.toolbox.SplitButton.bmp")]
+    [ToolboxBitmap(typeof(SplitButton), "toolbox.SplitButton.bmp")]
     [Description("按钮控件")]
     [DefaultEvent("Click")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]

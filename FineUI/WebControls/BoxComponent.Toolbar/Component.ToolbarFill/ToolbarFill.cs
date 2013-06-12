@@ -39,7 +39,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.ToolbarFillDesigner, FineUI.Design")]
     [ToolboxData("<{0}:ToolbarFill runat=server></{0}:ToolbarFill>")]
-    [ToolboxBitmap(typeof(ToolbarFill), "res.toolbox.ToolbarFill.bmp")]
+    [ToolboxBitmap(typeof(ToolbarFill), "toolbox.ToolbarFill.bmp")]
     [Description("工具栏左右分隔符控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class ToolbarFill : Component

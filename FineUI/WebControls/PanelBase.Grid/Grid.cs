@@ -50,7 +50,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.GridDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Grid Title=\"Grid\" runat=\"server\"><Columns></Columns></{0}:Grid>")]
-    [ToolboxBitmap(typeof(Grid), "res.toolbox.Grid.bmp")]
+    [ToolboxBitmap(typeof(Grid), "toolbox.Grid.bmp")]
     [Description("表格控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]

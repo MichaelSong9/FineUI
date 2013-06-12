@@ -42,7 +42,7 @@ namespace FineUI
     [DefaultProperty("Text")]
     [DefaultEvent("TriggerClick")]
     [ToolboxData("<{0}:TwinTriggerBox Label=\"Label\" Trigger1Icon=\"Clear\" Trigger2Icon=\"Search\" runat=\"server\"></{0}:TwinTriggerBox>")]
-    [ToolboxBitmap(typeof(TwinTriggerBox), "res.toolbox.TwinTriggerBox.bmp")]
+    [ToolboxBitmap(typeof(TwinTriggerBox), "toolbox.TwinTriggerBox.bmp")]
     [Description("扩展文本框控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class TwinTriggerBox : RealTextField, IPostBackEventHandler, IPostBackDataHandler

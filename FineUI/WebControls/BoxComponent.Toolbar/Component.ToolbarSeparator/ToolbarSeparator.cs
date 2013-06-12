@@ -39,7 +39,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.ToolbarSeparatorDesigner, FineUI.Design")]
     [ToolboxData("<{0}:ToolbarSeparator runat=server></{0}:ToolbarSeparator>")]
-    [ToolboxBitmap(typeof(ToolbarSeparator), "res.toolbox.ToolbarSeparator.bmp")]
+    [ToolboxBitmap(typeof(ToolbarSeparator), "toolbox.ToolbarSeparator.bmp")]
     [Description("工具栏分隔符控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class ToolbarSeparator : Component

@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.MenuTextDesigner, FineUI.Design")]
     [ToolboxData("<{0}:MenuText runat=\"server\"></{0}:MenuText>")]
-    [ToolboxBitmap(typeof(MenuText), "res.toolbox.MenuText.bmp")]
+    [ToolboxBitmap(typeof(MenuText), "toolbox.MenuText.bmp")]
     [Description("菜单项文本控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class MenuText : BaseMenuItem

@@ -44,7 +44,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.FormRowDesigner, FineUI.Design")]
     //[ToolboxData("<{0}:FormRow runat=\"server\"></{0}:FormRow>")]
-    //[ToolboxBitmap(typeof(FormRow), "res.toolbox.FormRow.bmp")]
+    //[ToolboxBitmap(typeof(FormRow), "toolbox.FormRow.bmp")]
     //[Description("表单行控件")]
     [ToolboxItem(false)]
     [ParseChildren(true)]

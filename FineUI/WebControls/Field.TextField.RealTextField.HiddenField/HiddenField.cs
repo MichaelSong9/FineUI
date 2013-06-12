@@ -41,7 +41,7 @@ namespace FineUI
     [Designer("FineUI.Design.HiddenFieldDesigner, FineUI.Design")]
     [DefaultProperty("Text")]
     [ToolboxData("<{0}:HiddenField runat=\"server\"></{0}:HiddenField>")]
-    [ToolboxBitmap(typeof(HiddenField), "res.toolbox.HiddenField.bmp")]
+    [ToolboxBitmap(typeof(HiddenField), "toolbox.HiddenField.bmp")]
     [Description("隐藏表单控件")]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class HiddenField : RealTextField

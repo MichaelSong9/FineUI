@@ -43,7 +43,7 @@ namespace FineUI
     /// </summary>
     [Designer("FineUI.Design.AccordionPaneDesigner, FineUI.Design")]
     [ToolboxData("<{0}:AccordionPane Title=\"AccordionPane\" runat=\"server\"></{0}:AccordionPane>")]
-    [ToolboxBitmap(typeof(AccordionPane), "res.toolbox.AccordionPane.bmp")]
+    [ToolboxBitmap(typeof(AccordionPane), "toolbox.AccordionPane.bmp")]
     [Description("手风琴面板控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]
