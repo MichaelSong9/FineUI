@@ -66,7 +66,7 @@
     <script type="text/javascript">
 
         function alertSelectedValue() {
-            var list2 = Ext.getCmp('<%= CheckBoxList1.ClientID %>');
+            var list2 = X('<%= CheckBoxList1.ClientID %>');
             var selectedCheckboxs = list2.getValue(), selectedValues, i;
 
             if (selectedCheckboxs.length) {

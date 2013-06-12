@@ -21,7 +21,7 @@
         function onReady() {
 
             // 首先获取手风琴控件第一个面板中的树控件
-            var tree = Ext.getCmp(leftAccordionID).items.get(0).items.get(0);
+            var tree = X(leftAccordionID).items.get(0).items.get(0);
             var treeFirstChild = tree.getRootNode().firstChild;
 
             // 选中第一个链接节点，并在右侧IFrame中打开此链接

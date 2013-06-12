@@ -27,7 +27,7 @@
             <x:RenderField Width="100px" DataField="Gender" FieldType="Int" RendererFunction="renderGender"
                 HeaderText="性别">
                 <Editor>
-                    <x:DropDownList Required="true" runat="server">
+                    <x:DropDownList ID="ddlGender" Required="true" runat="server">
                         <x:ListItem Text="男" Value="1" />
                         <x:ListItem Text="女" Value="0" />
                     </x:DropDownList>

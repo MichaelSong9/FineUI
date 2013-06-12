@@ -19,42 +19,49 @@ namespace FineUI
         /// <param name="context">Http请求上下文</param>
         public void ProcessRequest(HttpContext context)
         {
-            string type = String.Empty, 
-                typeValue = String.Empty,
-                resName = "FineUI.";
-                
+            string type = String.Empty;
+            string typeValue = String.Empty;
+            string extjsBasePath = GlobalConfig.GetExtjsBasePath();
+            //resName = "FineUI.";
+
 
             if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["icon"]))
             {
                 type = "icon";
             }
-            else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["js"]))
-            {
-                type = "js";
-                resName += "js." + typeValue;
-            }
-            else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["lang"]))
-            {
-                type = "lang";
-                resName += "js.lang." + typeValue;
-            }
+            //else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["js"]))
+            //{
+            //    type = "js";
+            //    //resName += "js." + typeValue;
+            //}
+            //else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["lang"]))
+            //{
+            //    type = "lang";
+            //    //resName += "js.lang." + typeValue;
+            //}
             else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["theme"]))
             {
+                // res.axd?theme=default.grid.refresh.gif
                 type = "theme";
-                resName += "res.theme." + typeValue;
+                //resName += "res.theme." + typeValue;
             }
-            else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["css"]))
-            {
-                type = "css";
-                resName += "res.css." + typeValue;
-            }
+            //else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["css"]))
+            //{
+            //    type = "css";
+            //    //resName += "res.css." + typeValue;
+            //}
             else if (!String.IsNullOrEmpty(typeValue = context.Request.QueryString["img"]))
             {
                 type = "img";
-                resName += "res.img." + typeValue;
+                //resName += "res.img." + typeValue;
+            }
+            else
+            {
+                context.Response.Write("Not supported!");
+                return;
             }
 
-            byte[] binary;
+            //byte[] binary;
             switch (type)
             {
                 case "icon":
@@ -68,25 +75,44 @@ namespace FineUI
 
                     context.Response.ContentType = "image/" + GetImageFormat(typeValue);
                     break;
-                case "js":
-                case "lang":
-                    context.Response.Write(ResourceHelper.GetResourceContent(resName));
-                    context.Response.ContentType = "text/javascript";
-                    break;
-                case "css":
-                    context.Response.Write(ResourceHelper.GetResourceContent(resName));
-                    context.Response.ContentType = "text/css";
-                    break;
+                //case "js":
+                //    context.Response.Write(ResourceHelper.GetResourceContent(resName));
+                //    context.Response.ContentType = "text/javascript";
+                //case "lang":
+                //    context.Response.Write(ResourceHelper.GetResourceContent(resName));
+                //    context.Response.ContentType = "text/javascript";
+                //    break;
+                //case "css":
+                //    context.Response.Write(ResourceHelper.GetResourceContent(resName));
+                //    context.Response.ContentType = "text/css";
+                //    break;
                 case "theme":
+                    string themePath = "";
+                    string themeImageFormat = "";
+                    int lastDotIndex = typeValue.LastIndexOf(".");
+                    if (lastDotIndex >= 0)
+                    {
+                        themePath = typeValue.Substring(0, lastDotIndex).Replace('.', '/');
+                        themeImageFormat = typeValue.Substring(lastDotIndex + 1);
+                    }
+
+                    context.Response.WriteFile(context.Server.MapPath(String.Format("{0}/res/images/{1}.{2}", extjsBasePath, themePath, themeImageFormat)));
+
+                    context.Response.ContentType = "image/" + GetImageFormat(typeValue);
+                    break;
                 case "img":
-                    binary = ResourceHelper.GetResourceContentAsBinary(resName);
-                    context.Response.OutputStream.Write(binary, 0, binary.Length);
-                    //context.Response.Write(ResourceHelper.GetResourceContent(resName));
-                    context.Response.ContentType = "image/" + GetImageFormat(resName);
+                    //binary = ResourceHelper.GetResourceContentAsBinary(resName);
+                    //context.Response.OutputStream.Write(binary, 0, binary.Length);
+                    //context.Response.ContentType = "image/" + GetImageFormat(resName);
+                    
+
+                    context.Response.WriteFile(context.Server.MapPath(String.Format("{0}/res/images/{1}", extjsBasePath, typeValue)));
+
+                    context.Response.ContentType = "image/" + GetImageFormat(typeValue);
                     break;
             }
 
-            
+
             // 缓存一年，只能通过改变 URL 来强制更新缓存
             context.Response.Cache.SetExpires(DateTime.Now.AddYears(1));
             context.Response.Cache.SetCacheability(HttpCacheability.Public);

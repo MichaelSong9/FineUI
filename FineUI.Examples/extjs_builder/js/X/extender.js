@@ -306,6 +306,19 @@ if (Ext.form.ComboBox) {
             if (data) {
                 this.store.loadData(X.simulateTree.transform(data));
             }
+        },
+
+
+        x_getTextByValue: function (value, data) {
+            data = data || this.x_state['X_Items'];
+            value += ''; // 把Value转换为字符串
+            for (var i = 0, count = data.length; i < count; i++) {
+                var item = data[i];
+                if (item[0] === value) {
+                    return item[1];
+                }
+            }
+            return '';
         }
 
     });
@@ -1025,7 +1038,7 @@ if (Ext.TabPanel) {
 if (Ext.Window) {
 
     Ext.override(Ext.Window, {
-        
+
         // 此函数为了兼容考虑，请使用 x_hide 函数
         box_hide: function () {
             this.x_hide();
@@ -1040,7 +1053,7 @@ if (Ext.Window) {
             this.x_show(iframeUrl, windowTitle);
         },
 
-        
+
         x_hide: function () {
             X.wnd.hide(this, this.x_property_target, this.x_iframe, this.id + '_Hidden', this.x_property_guid);
         },

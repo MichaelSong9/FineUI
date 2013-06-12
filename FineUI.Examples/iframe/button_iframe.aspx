@@ -34,7 +34,7 @@
     </form>
     <script type="text/javascript">
         function onReady() {
-            var window1 = Ext.getCmp('<%= Window1.ClientID %>');
+            var window1 = X('<%= Window1.ClientID %>');
             window1.getTool("close").dom.qtip = "这个关闭按钮提示是通过JavaScript设置的！";
         }
     </script>

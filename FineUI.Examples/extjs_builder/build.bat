@@ -31,6 +31,7 @@ type res\box-panel-big-header.css >> _x
 type res\BigFont.css >> _x
 type extjs_source_all\examples\ux\fileuploadfield\css\fileuploadfield.css >> _x
 type extjs_source_all\examples\ux\css\RowEditor.css >> _x
+type res\ColumnHeaderGroup_blue.css >> _x
 java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\ux.css _x
 
 
@@ -39,20 +40,20 @@ java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\ext
 
 type extjs_source_all\resources\css\ext-all-notheme.css > _x
 type extjs_source_all\resources\css\xtheme-blue.css >> _x
-type res\ColumnHeaderGroup_blue.css >> _x
 type ..\extjs\res\css\ux.css >> _x
+type res\ColumnHeaderGroup_blue.css >> _x
 java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\blue.css _x
 
 type extjs_source_all\resources\css\ext-all-notheme.css > _x
 type extjs_source_all\resources\css\xtheme-gray.css >> _x
-type res\ColumnHeaderGroup_gray.css >> _x
 type ..\extjs\res\css\ux.css >> _x
+type res\ColumnHeaderGroup_gray.css >> _x
 java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\gray.css _x
 
 type extjs_source_all\resources\css\ext-all-notheme.css > _x
 type extjs_source_all\resources\css\xtheme-access.css >> _x
-type res\ColumnHeaderGroup_access.css >> _x
 type ..\extjs\res\css\ux.css >> _x
+type res\ColumnHeaderGroup_access.css >> _x
 java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\access.css _x
 
 

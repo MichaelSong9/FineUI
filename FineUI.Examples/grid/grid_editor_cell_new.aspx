@@ -90,10 +90,6 @@
         }
 
 
-        function renderAtSchool(value, metadata, record, rowIndex, colIndex) {
-            return value ? '<img src="./res.axd?img=tick.png" alt="YES"/>' : '<img src="./res.axd?img=bullet_cross.png" alt="NO"/>';
-        }
-
 
     </script>
 </body>

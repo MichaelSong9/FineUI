@@ -66,7 +66,7 @@
     <script type="text/javascript">
 
         function alertSelectedValue() {
-            var list2 = Ext.getCmp('<%= RadioButtonList1.ClientID %>');
+            var list2 = X('<%= RadioButtonList1.ClientID %>');
             var selectedRadio = list2.getValue();
             if (selectedRadio) {
                 top.X.util.alert("列表一选中项的值：" + selectedRadio.getRawValue());

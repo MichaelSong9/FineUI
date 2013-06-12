@@ -24,7 +24,7 @@
 
         function onReady() {
             var textbox1ID = '<%= TextBox1.ClientID %>';
-            var textbox1 = Ext.getCmp(textbox1ID);
+            var textbox1 = X(textbox1ID);
             textbox1.on("specialkey", function (box, e) {
                 if (e.getKey() == e.ENTER) {
                     __doPostBack(textbox1ID, 'specialkey');

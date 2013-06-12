@@ -20,7 +20,7 @@
         function onReady() {
 
             // 展开树的第一个节点，并选中第一个节点下的第一个子节点（在右侧IFrame中打开）
-            var tree = Ext.getCmp(leftTreeID);
+            var tree = X(leftTreeID);
             var treeFirstChild = tree.getRootNode().firstChild;
             // 展开第一个节点（如果想要展开全部节点，调用 tree.expandAll();）
             treeFirstChild.expand();

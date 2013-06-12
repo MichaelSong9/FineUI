@@ -78,7 +78,7 @@
             }
 
             // 从隐藏字段获取全部数据的汇总
-            var summaryJSON = JSON.parse(Ext.getCmp(gridSummaryID).getValue());
+            var summaryJSON = JSON.parse(X(gridSummaryID).getValue());
 
 
             store.add(new Ext.data.Record({

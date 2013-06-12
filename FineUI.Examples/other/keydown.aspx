@@ -22,8 +22,8 @@
     <script type="text/javascript">
 
         function onReady() {
-            var textbox1 = Ext.getCmp('<%= TextBox1.ClientID %>');
-            var textbox2 = Ext.getCmp('<%= TextBox2.ClientID %>');
+            var textbox1 = X('<%= TextBox1.ClientID %>');
+            var textbox2 = X('<%= TextBox2.ClientID %>');
 
             
             function updateTextbox2() {

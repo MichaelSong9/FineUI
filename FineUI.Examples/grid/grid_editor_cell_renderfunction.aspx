@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_delete.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell_delete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_renderfunction.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_renderfunction" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,21 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="400px"
-        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2"
-        OnRowCommand="Grid1_RowCommand">
-        <Toolbars>
-            <x:Toolbar ID="Toolbar1" runat="server">
-                <Items>
-                    <x:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
-                    </x:Button>
-                    <x:ToolbarFill runat="server">
-                    </x:ToolbarFill>
-                    <x:Button ID="btnReset" Text="重置表格数据" EnablePostBack="false" runat="server">
-                    </x:Button>
-                </Items>
-            </x:Toolbar>
-        </Toolbars>
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="350px"
+        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
@@ -40,7 +27,7 @@
             <x:RenderField Width="100px" DataField="Gender" FieldType="Int" RendererFunction="renderGender"
                 HeaderText="性别">
                 <Editor>
-                    <x:DropDownList Required="true" runat="server">
+                    <x:DropDownList ID="ddlGender" Required="true" runat="server">
                         <x:ListItem Text="男" Value="1" />
                         <x:ListItem Text="女" Value="0" />
                     </x:DropDownList>
@@ -68,8 +55,6 @@
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:LinkButtonField HeaderText="&nbsp;" Width="60px" ConfirmText="你确定要这么做么？" ConfirmTarget="Top"
-                CommandName="Delete" Icon="Delete" />
         </Columns>
     </x:Grid>
     <br />
@@ -83,15 +68,11 @@
     </form>
     <script>
 
+        var ddlGenderID = '<%= ddlGender.ClientID %>';
+
         function renderGender(value, metadata, record, rowIndex, colIndex) {
-            return value == 1 ? '男' : '女';
+            return X(ddlGenderID).x_getTextByValue(value);
         }
-
-
-//        function renderAtSchool(value, metadata, record, rowIndex, colIndex) {
-//            return value ? '<img src="./res.axd?img=tick.png" alt="YES"/>' : '<img src="./res.axd?img=bullet_cross.png" alt="NO"/>';
-//        }
-
 
     </script>
 </body>
