@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px"
-        runat="server" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"
+        DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
         <Columns>
             <x:TemplateField Width="80px">
                 <ItemTemplate>

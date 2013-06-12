@@ -17,7 +17,6 @@ namespace FineUI.Examples.grid
             {
                 BindGrid();
 
-                BindGenderEditor();
             }
         }
 
@@ -31,24 +30,7 @@ namespace FineUI.Examples.grid
             Grid1.DataBind();
         }
 
-        private void BindGenderEditor()
-        {
-            ListItem item = new ListItem();
-            item.Text = "男";
-            item.Value = "1";
-
-            ddlGender.Items.Add(item);
-
-            item = new ListItem();
-            item.Text = "女";
-            item.Value = "0";
-
-            ddlGender.Items.Add(item);
-
-        }
-
-
-
+        
         #endregion
 
         #region Events

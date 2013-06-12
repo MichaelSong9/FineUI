@@ -48,11 +48,15 @@
                 </Editor>
             </x:RenderField>
             <x:RenderCheckField Width="100px" DataField="AtSchool" HeaderText="是否在校" />
-            <x:RenderField Width="100px" DataField="Major" FieldType="String" ExpandUnusedSpace="true"
-                HeaderText="所学专业">
+            <x:RenderField ExpandUnusedSpace="true" DataField="Major" FieldType="String" HeaderText="所学专业">
                 <Editor>
-                    <x:TextBox ID="tbxEditorMajor" Required="true" runat="server">
-                    </x:TextBox>
+                    <x:DropDownList ID="ddlMajor" Required="true" runat="server">
+                        <x:ListItem Text="材料科学与工程系" Value="材料科学与工程系"></x:ListItem>
+                        <x:ListItem Text="化学系" Value="化学系"></x:ListItem>
+                        <x:ListItem Text="数学系" Value="数学系"></x:ListItem>
+                        <x:ListItem Text="物理系" Value="物理系"></x:ListItem>
+                        <x:ListItem Text="自动化系" Value="自动化系"></x:ListItem>
+                    </x:DropDownList>
                 </Editor>
             </x:RenderField>
         </Columns>
@@ -73,6 +77,7 @@
         function renderGender(value, metadata, record, rowIndex, colIndex) {
             return X(ddlGenderID).x_getTextByValue(value);
         }
+
 
     </script>
 </body>

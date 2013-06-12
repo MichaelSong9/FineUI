@@ -16,6 +16,7 @@ namespace FineUI.Examples.grid
             if (!IsPostBack)
             {
                 BindGrid();
+
             }
         }
 
@@ -30,7 +31,7 @@ namespace FineUI.Examples.grid
 
         }
 
-
+        
 
         #endregion
 

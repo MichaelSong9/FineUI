@@ -640,7 +640,7 @@ namespace FineUI.Examples
             row[1] = "陈飞";
             row[2] = "2001";
             row[3] = false;
-            row[4] = "化学物理系";
+            row[4] = "化学系";
             row[5] = 1;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-90);
@@ -677,7 +677,7 @@ namespace FineUI.Examples
             row[1] = "刘国";
             row[2] = "2002";
             row[3] = false;
-            row[4] = "高分子科学与工程系";
+            row[4] = "化学系";
             row[5] = 2;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-70);
@@ -715,7 +715,7 @@ namespace FineUI.Examples
             row[1] = "彭博";
             row[2] = "2003";
             row[3] = false;
-            row[4] = "计算与应用数学系";
+            row[4] = "数学系";
             row[5] = 3;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-50);
@@ -734,7 +734,7 @@ namespace FineUI.Examples
             row[1] = "黄倩倩";
             row[2] = "2000";
             row[3] = true;
-            row[4] = "物理系";
+            row[4] = "数学系";
             row[5] = 4;
             row[6] = 0;
             row[7] = DateTime.Now.AddDays(-40);
@@ -753,7 +753,7 @@ namespace FineUI.Examples
             row[1] = "唐超";
             row[2] = "2004";
             row[3] = false;
-            row[4] = "近代物理系";
+            row[4] = "物理系";
             row[5] = 4;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-30);
@@ -772,7 +772,7 @@ namespace FineUI.Examples
             row[1] = "杨娟娟";
             row[2] = "2003";
             row[3] = true;
-            row[4] = "天文物理系";
+            row[4] = "物理系";
             row[5] = 5;
             row[6] = 0;
             row[7] = DateTime.Now.AddDays(-20);
@@ -790,7 +790,7 @@ namespace FineUI.Examples
             row[1] = "徐鹏";
             row[2] = "2002";
             row[3] = false;
-            row[4] = "天文学系";
+            row[4] = "物理系";
             row[5] = 5;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-10);
