@@ -9,7 +9,7 @@ IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
 
 授权协议
 Apache License v2.0
-注：ExtJS 库是在 GPL v3 协议下发布(http://www.sencha.com/license)。
+注：ExtJS 库在 GPL v3 协议下发布(http://www.sencha.com/license)。
     
 
 相关链接
