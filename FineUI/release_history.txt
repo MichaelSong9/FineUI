@@ -22,7 +22,7 @@ Apache License v2.0
 发布历史
 
 +2013-06-* v3.3.0
-	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu ）。
+	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu）。
 	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。
 	-改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）（grass_root、蓝色天空）。
 	-修正Chrome下多表头样式错位（风笑痴）。
@@ -34,6 +34,7 @@ Apache License v2.0
 		-修正IE9下编辑框无法获取焦点的问题，将UEditor的初始化代码放在onReady函数中（消失的键盘 ）。
 	-UEditor更新为1.2.6.0，FineUI与百度的UEditor将携手促进国内开源软件的发展。
 	-更新other/addtab.aspx示例，增加关闭当前TAB的实现。
+	-增加示例tabstrip/tabstrip_iframe_disabled.aspx，在IFrame内部启用外部TabStrip的标签（◆◇_提拉米苏℡）。
 	+窗体控件优化。
 		-将JS函数box_show/box_hide等改名为x_show/x_hide。出于兼容性考虑，之前的函数依然有效。
 		-减少窗体控件生成的JS代码量。

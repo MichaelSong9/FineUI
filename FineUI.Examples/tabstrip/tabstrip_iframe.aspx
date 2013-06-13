@@ -23,10 +23,10 @@
                     </x:ContentPanel>
                 </Items>
             </x:Tab>
-            <x:Tab ID="Tab2" EnableIFrame="true" BodyPadding="5px" IFrameUrl="../layout/window.aspx"
+            <x:Tab ID="Tab2" EnableIFrame="true" BodyPadding="5px" IFrameUrl="../window/group_panel.aspx"
                 Title="标签二 - IFrame - 延迟加载" runat="server">
             </x:Tab>
-            <x:Tab ID="Tab3" EnableIFrame="true" BodyPadding="5px" IFrameUrl="../layout/panel.aspx"
+            <x:Tab ID="Tab3" EnableIFrame="true" BodyPadding="5px" IFrameUrl="../window/panel.aspx"
                 Title="标签三 - IFrame - 延迟加载" runat="server">
             </x:Tab>
         </Tabs>

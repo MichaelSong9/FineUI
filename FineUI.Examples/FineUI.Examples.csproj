@@ -342,6 +342,8 @@
     <Content Include="layout\vbox.aspx" />
     <Content Include="other\alert.aspx" />
     <Content Include="other\button_in_form.aspx" />
+    <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
+    <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
     <Content Include="test\start.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\formitemclass.aspx" />
@@ -1533,6 +1535,20 @@
     </Compile>
     <Compile Include="other\button_in_form.aspx.designer.cs">
       <DependentUpon>button_in_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tabstrip\tabstrip_iframe_disabled.aspx.cs">
+      <DependentUpon>tabstrip_iframe_disabled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tabstrip\tabstrip_iframe_disabled.aspx.designer.cs">
+      <DependentUpon>tabstrip_iframe_disabled.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx.cs">
+      <DependentUpon>tabstrip_iframe_disabled_tab1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx.designer.cs">
+      <DependentUpon>tabstrip_iframe_disabled_tab1.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\start.aspx.cs">
       <DependentUpon>start.aspx</DependentUpon>

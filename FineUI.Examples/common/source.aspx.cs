@@ -30,7 +30,9 @@ namespace FineUI.Examples
             {"iframe/selectprovince2.aspx", "~/iframe/selectprovince2_child.aspx"},
             {"iframe/selectprovince3.aspx", "~/iframe/selectprovince3_child.aspx"},
             {"iframe/topmenu2/default.aspx", "~/iframe/topmenu2/default.aspx;~/iframe/topmenu2/leftmenu.aspx"},
-			{"iframe/topmenu3/default.aspx", "~/iframe/topmenu3/default.aspx;~/iframe/topmenu3/leftmenu.aspx"}
+			{"iframe/topmenu3/default.aspx", "~/iframe/topmenu3/default.aspx;~/iframe/topmenu3/leftmenu.aspx"},
+            {"tabstrip/tabstrip_iframe_disabled.aspx", "~/tabstrip/tabstrip_iframe_disabled_tab1.aspx"}
+            
         };
 
         protected void Page_Init(object sender, EventArgs e)

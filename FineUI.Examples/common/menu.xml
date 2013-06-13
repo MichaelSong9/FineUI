@@ -365,11 +365,13 @@
     </TreeNode>
     <TreeNode Text="自动回发" NavigateUrl="~/tabstrip/tabstrip_autopostback.aspx" >
     </TreeNode>
-    <TreeNode Text="内嵌 IFrame" NavigateUrl="~/tabstrip/tabstrip_iframe.aspx" >
-    </TreeNode>
     <TreeNode Text="关闭按钮" NavigateUrl="~/tabstrip/tabstrip_enableclose.aspx"  >
     </TreeNode>
     <TreeNode Text="动态添加标签" NavigateUrl="~/tabstrip/tabstrip_addtab.aspx"  >
+    </TreeNode>
+    <TreeNode Text="内嵌 IFrame" NavigateUrl="~/tabstrip/tabstrip_iframe.aspx" >
+    </TreeNode>
+    <TreeNode Text="内嵌 IFrame（在IFrame内启用标签）" NavigateUrl="~/tabstrip/tabstrip_iframe_disabled.aspx" >
     </TreeNode>
   </TreeNode>
   <TreeNode Text="手风琴控件" SingleClickExpand="true">
