@@ -123,7 +123,15 @@ namespace FineUI
 
             #region javascript
 
-            AddJavascriptPathToPageBottom(page, "ext.js", String.Format("{0}/ext.js", extjsBasePath));
+            if (GlobalConfig.GetDebugMode())
+            {
+                AddJavascriptPathToPageBottom(page, "ext-debug.js", String.Format("{0}/ext-debug.js", extjsBasePath));
+                AddJavascriptPathToPageBottom(page, "x-debug.js", String.Format("{0}/x-debug.js", extjsBasePath));
+            }
+            else
+            {
+                AddJavascriptPathToPageBottom(page, "ext.js", String.Format("{0}/ext.js", extjsBasePath));
+            }
 
             // 语言资源应该放在最后，其中包含对 X.js 的语言定义
             string langName = LanguageHelper.GetName(PageManager.Instance.Language);

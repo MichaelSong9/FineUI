@@ -716,9 +716,11 @@ if (Ext.grid.GridPanel) {
         // 获取用户改变的单元格值
         x_getEditorData: function () {
             var i, j, count, columnMap = {}, columns = this.x_getColumns();
+            /*
             for (i = 0, count = columns.length; i < count; i++) {
                 columnMap[columns[i].dataIndex] = i;
             }
+            */
 
             var modifiedCells = [];
             var store = this.getStore();
@@ -731,16 +733,17 @@ if (Ext.grid.GridPanel) {
                     continue;
                 }
 
-                for (var modifiedKey in modifiedRecord.modified) {
+                for (var columnid in modifiedRecord.modified) {
+                    /*
                     columnIndex = columnMap[modifiedKey];
                     if (typeof (columnIndex) === 'undefined') {
                         continue;
-                    }
+                    }*/
 
-                    newData = rowData[modifiedKey];
-                    oldData = modifiedRecord.modified[modifiedKey];
+                    newData = rowData[columnid];
+                    oldData = modifiedRecord.modified[columnid];
 
-                    modifiedCells.push([rowIndex, columnIndex, newData]);
+                    modifiedCells.push([rowIndex, columnid, newData]);
                 }
 
             }
@@ -1103,7 +1106,6 @@ if (Ext.grid.GridPanel) {
 if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
     // 修正Chrome下多表头样式错位
     // 增加 !Ext.isChrome 的判断，在Chrome下DIV的宽度不包括边框的宽度
-    // http://forums.ext.net/showthread.php?19808-FIXED-1-6-Header-Group-Column-layout-bug
     Ext.ux.grid.ColumnHeaderGroup.prototype.getGroupStyle = function (group, gcol) {
         var width = 0, hidden = true;
         for (var i = gcol, len = gcol + group.colspan; i < len; i++) {

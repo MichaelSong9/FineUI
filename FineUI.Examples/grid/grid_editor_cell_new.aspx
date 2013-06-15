@@ -33,14 +33,15 @@
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
-            <x:RenderField Width="100px" DataField="Name" FieldType="String" HeaderText="姓名">
+            <x:RenderField Width="100px" ColumnID="Name" DataField="Name" FieldType="String"
+                HeaderText="姓名">
                 <Editor>
                     <x:TextBox ID="tbxEditorName" Required="true" runat="server">
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="Gender" FieldType="Int" RendererFunction="renderGender"
-                HeaderText="性别">
+            <x:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="Int"
+                RendererFunction="renderGender" HeaderText="性别">
                 <Editor>
                     <x:DropDownList Required="true" runat="server">
                         <x:ListItem Text="男" Value="1" />
@@ -48,23 +49,24 @@
                     </x:DropDownList>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="EntranceYear" FieldType="Int" HeaderText="入学年份">
+            <x:RenderField Width="100px" ColumnID="EntranceYear" DataField="EntranceYear" FieldType="Int"
+                HeaderText="入学年份">
                 <Editor>
                     <x:NumberBox ID="tbxEditorEntranceYear" NoDecimal="true" NoNegative="true" MinValue="2000"
                         MaxValue="2010" runat="server">
                     </x:NumberBox>
                 </Editor>
             </x:RenderField>
-            <x:RenderField Width="100px" DataField="EntranceDate" FieldType="Date" Renderer="Date"
-                RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
+            <x:RenderField Width="100px" ColumnID="EntranceDate" DataField="EntranceDate" FieldType="Date"
+                Renderer="Date" RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
                 <Editor>
                     <x:DatePicker ID="DatePicker1" Required="true" runat="server">
                     </x:DatePicker>
                 </Editor>
             </x:RenderField>
-            <x:RenderCheckField Width="100px" DataField="AtSchool" HeaderText="是否在校" />
-            <x:RenderField Width="100px" DataField="Major" FieldType="String" ExpandUnusedSpace="true"
-                HeaderText="所学专业">
+            <x:RenderCheckField Width="100px" ColumnID="AtSchool" DataField="AtSchool" HeaderText="是否在校" />
+            <x:RenderField Width="100px" ColumnID="Major" DataField="Major" FieldType="String"
+                ExpandUnusedSpace="true" HeaderText="所学专业">
                 <Editor>
                     <x:TextBox ID="tbxEditorMajor" Required="true" runat="server">
                     </x:TextBox>

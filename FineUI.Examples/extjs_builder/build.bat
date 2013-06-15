@@ -105,8 +105,10 @@ type extjs_source_all\examples\ux\CheckColumn.js >> _x
 type js\ux\FormViewport.js >> _x
 type js\ux\SimplePagingToolbar.js >> _x
 
+type _x > ..\extjs\ext-debug.js
 
-type js\lib\json2.js >> _x
+
+type js\lib\json2.js > _x
 type js\lib\Base64.js >> _x
 type js\X\X.util.js >> _x
 type js\X\X.ajax.js >> _x
@@ -115,6 +117,11 @@ type js\X\extender.js >> _x
 type js\X\X.simulateTree.js >> _x
 type js\X\X.format.js >> _x
 
+type _x > ..\extjs\x-debug.js
+
+
+type ..\extjs\extjs-debug.js > _x
+type ..\extjs\x-debug.js >> _x
 
 
 java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\ext.js _x

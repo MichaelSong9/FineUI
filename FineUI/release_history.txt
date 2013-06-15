@@ -21,7 +21,7 @@ Apache License v2.0
 
 发布历史
 
-+2013-06-* v3.3.0
++2013-06-17 v3.3.0
 	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu）。
 	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。
 	-改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）（grass_root、蓝色天空）。
@@ -53,6 +53,9 @@ Apache License v2.0
 		-增加CheckBoxSelectOnly属性，满足只能通过多选框选中行的需求，增加示例grid/grid_checkall_only.aspx（隨风.NET）。
 		-修正下次提交依然提交上次修改数据的问题。
 	+可编辑表格增强。
+		+修改GetModifiedDict函数的返回结果，这个和上个版本不兼容，需要特别注意。
+			-之前返回的结构是Dictionary<int, Dictionary<int, string>>，现在返回的结构是Dictionary<int, Dictionary<string, string>>。
+			-之前是通过RowIndex + ColumnIndex获得修改的值，现在通过RowIndex + ColumnID获得修改的值，更简单直观。
 		-如果同时启用EnableCheckBoxSelect和AllowCellEditing，则忽略EnableCheckBoxSelect属性。
 		-增加SelectedCell属性，用来获取AllowCellEditing模式下选中的单元格。
 		-增加示例grid/grid_editor_cell_delete.aspx。

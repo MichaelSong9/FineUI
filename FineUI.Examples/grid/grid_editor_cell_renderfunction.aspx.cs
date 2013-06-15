@@ -37,45 +37,45 @@ namespace FineUI.Examples.grid
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Dictionary<int, Dictionary<int, string>> modifiedDict = Grid1.GetModifiedDict();
+            Dictionary<int, Dictionary<string, string>> modifiedDict = Grid1.GetModifiedDict();
 
             for (int i = 0, count = Grid1.Rows.Count; i < count; i++)
             {
                 if (modifiedDict.ContainsKey(i))
                 {
-                    Dictionary<int, string> rowDict = modifiedDict[i];
+                    Dictionary<string, string> rowDict = modifiedDict[i];
 
                     // 更新数据源
                     DataRow rowData = FindDataRowByIndex(i);
                     // 姓名
-                    if (rowDict.ContainsKey(1))
+                    if (rowDict.ContainsKey("Name"))
                     {
-                        rowData["Name"] = rowDict[1];
+                        rowData["Name"] = rowDict["Name"];
                     }
                     // 性别
-                    if (rowDict.ContainsKey(2))
+                    if (rowDict.ContainsKey("Gender"))
                     {
-                        rowData["Gender"] = Convert.ToInt32(rowDict[2]);
+                        rowData["Gender"] = Convert.ToInt32(rowDict["Gender"]);
                     }
                     // 入学年份
-                    if (rowDict.ContainsKey(3))
+                    if (rowDict.ContainsKey("EntranceYear"))
                     {
-                        rowData["EntranceYear"] = rowDict[3];
+                        rowData["EntranceYear"] = rowDict["EntranceYear"];
                     }
                     // 入学日期
-                    if (rowDict.ContainsKey(4))
+                    if (rowDict.ContainsKey("EntranceDate"))
                     {
-                        rowData["EntranceDate"] = DateTime.Parse(rowDict[4]).ToString("yyyy-MM-dd");
+                        rowData["EntranceDate"] = DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd");
                     }
                     // 是否在校
-                    if (rowDict.ContainsKey(5))
+                    if (rowDict.ContainsKey("AtSchool"))
                     {
-                        rowData["AtSchool"] = Convert.ToBoolean(rowDict[5]);
+                        rowData["AtSchool"] = Convert.ToBoolean(rowDict["AtSchool"]);
                     }
                     // 所学专业
-                    if (rowDict.ContainsKey(6))
+                    if (rowDict.ContainsKey("Major"))
                     {
-                        rowData["Major"] = rowDict[6];
+                        rowData["Major"] = rowDict["Major"];
                     }
 
                 }

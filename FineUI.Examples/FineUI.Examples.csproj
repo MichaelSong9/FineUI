@@ -69,7 +69,6 @@
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="aspnet\test.aspx" />
     <Content Include="aspnet\TestWindow.aspx" />
-    <Content Include="aspnet\testwindow.htm" />
     <Content Include="aspnet\ckeditor.aspx" />
     <Content Include="aspnet\ueditor.aspx" />
     <Content Include="aspnet\ueditor_two.aspx" />

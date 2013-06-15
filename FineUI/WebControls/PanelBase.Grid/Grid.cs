@@ -3335,6 +3335,59 @@ namespace FineUI
 
         #endregion
 
+        #region GetModifiedCells
+
+        private JArray _modifiedData = new JArray();
+
+        /// <summary>
+        /// 获取用户修改的数据
+        /// </summary>
+        /// <returns></returns>
+        public JArray GetModifiedData()
+        {
+            return _modifiedData;
+        }
+
+
+        private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
+
+        /// <summary>
+        /// 获取用户修改的单元格
+        /// </summary>
+        /// <returns></returns>
+        public List<ModifiedCell> GetModifiedCells()
+        {
+            return _modifiedCells;
+        }
+
+
+        private Dictionary<int, Dictionary<string, string>> _modifiedDict;
+
+        /// <summary>
+        /// 获取用户修改的单元格
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<int, Dictionary<string, string>> GetModifiedDict()
+        {
+            if (_modifiedDict == null)
+            {
+                _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
+                foreach (ModifiedCell cell in _modifiedCells)
+                {
+                    int rowIndex = cell.RowIndex;
+                    if (!_modifiedDict.ContainsKey(rowIndex))
+                    {
+                        _modifiedDict.Add(rowIndex, new Dictionary<string, string>());
+                    }
+                    Dictionary<string, string> rowDic = _modifiedDict[rowIndex];
+                    rowDic.Add(cell.ColumnID, cell.CellValue);
+                }
+            }
+            return _modifiedDict;
+        }
+
+        #endregion
+
         #region IPostBackDataHandler Members
 
         /// <summary>
@@ -3393,8 +3446,11 @@ namespace FineUI
                 }
             }
 
+
+            // 启用单元格编辑
             if (AllowCellEditing)
             {
+                // 根据用户的输入修改每个单元格的Values
                 _modifiedDict = null;
                 _modifiedData = new JArray();
                 _modifiedCells = new List<ModifiedCell>();
@@ -3407,14 +3463,15 @@ namespace FineUI
                         foreach (JArray modifiedItem in _modifiedData)
                         {
                             int rowIndex = modifiedItem[0].ToObject<int>();
-                            int columnIndex = modifiedItem[1].ToObject<int>();
+                            string columnID = modifiedItem[1].ToObject<string>();
                             object cellValue = modifiedItem[2].ToObject<object>();
-
+                            int columnIndex = FindColumn(columnID).ColumnIndex;
 
                             string newCellValue = cellValue.ToString();
 
                             ModifiedCell cell = new ModifiedCell();
                             cell.RowIndex = rowIndex;
+                            cell.ColumnID = columnID;
                             cell.ColumnIndex = columnIndex;
                             cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
                             cell.CellValue = newCellValue;
@@ -3468,59 +3525,6 @@ namespace FineUI
         //{
         //    //OnCollapsedChanged(EventArgs.Empty);
         //}
-
-        #endregion
-
-        #region GetModifiedCells
-
-        private JArray _modifiedData = new JArray();
-
-        /// <summary>
-        /// 获取用户修改的数据
-        /// </summary>
-        /// <returns></returns>
-        public JArray GetModifiedData()
-        {
-            return _modifiedData;
-        }
-
-
-        private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
-
-        /// <summary>
-        /// 获取用户修改的单元格
-        /// </summary>
-        /// <returns></returns>
-        public List<ModifiedCell> GetModifiedCells()
-        {
-            return _modifiedCells;
-        }
-
-
-        private Dictionary<int, Dictionary<int, string>> _modifiedDict;
-
-        /// <summary>
-        /// 获取用户修改的单元格
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<int, Dictionary<int, string>> GetModifiedDict()
-        {
-            if (_modifiedDict == null)
-            {
-                _modifiedDict = new Dictionary<int, Dictionary<int, string>>();
-                foreach (ModifiedCell cell in _modifiedCells)
-                {
-                    int rowIndex = cell.RowIndex;
-                    if (!_modifiedDict.ContainsKey(rowIndex))
-                    {
-                        _modifiedDict.Add(rowIndex, new Dictionary<int, string>());
-                    }
-                    Dictionary<int, string> rowDic = _modifiedDict[rowIndex];
-                    rowDic.Add(cell.ColumnIndex, cell.CellValue);
-                }
-            }
-            return _modifiedDict;
-        }
 
         #endregion
 

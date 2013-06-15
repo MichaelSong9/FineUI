@@ -23,6 +23,14 @@ namespace FineUI
             set { columnIndex = value; }
         }
 
+        private string columnID;
+
+        public string ColumnID
+        {
+            get { return columnID; }
+            set { columnID = value; }
+        }
+
 
         private string cellValue;
 
