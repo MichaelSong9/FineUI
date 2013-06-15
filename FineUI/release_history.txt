@@ -65,11 +65,8 @@ Apache License v2.0
 		-增加顶部菜单框架（一）综合示例iframe/topmenu/default.aspx（未来(sun)）。
 		-增加顶部菜单框架（二）综合示例iframe/topmenu2/default.aspx，左侧菜单也是放在单独的IFrame中，灵活度更高。
 		-增加顶部菜单框架（三）综合示例iframe/topmenu3/default.aspx，左侧是手风琴和树控件的组合。
-	-【TODO】对关键上传数据进行GZIP压缩，减少AJAX请求时上传的数据量。
-	-【TODO】移除对HtmlAgilityPack的依赖。
-	-【TODO】文档更新。
-	-【TODO】右下角TIP窗口。
-
+	+去AXD化并更新整个示例工程，所有对res.axd的引用都换成直接的网址，这也有效地减少了服务器部署的麻烦。
+		-出于兼容性考虑，之前对res.axd调用依然有效，比如res.axd?icon=World。
 
 
 

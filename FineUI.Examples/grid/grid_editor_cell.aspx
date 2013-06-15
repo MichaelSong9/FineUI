@@ -74,7 +74,7 @@
 
 
         function renderAtSchool(value, metadata, record, rowIndex, colIndex) {
-            return value ? '<img src="./res.axd?img=tick.png" alt="YES"/>' : '<img src="./res.axd?img=bullet_cross.png" alt="NO"/>';
+            return value ? '<img src="../extjs/res/images/tick.png" alt="YES"/>' : '<img src="../extjs/res/images/bullet_cross.png" alt="NO"/>';
         }
 
 

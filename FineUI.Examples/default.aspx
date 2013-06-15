@@ -6,7 +6,7 @@
     <title>FineUI 在线示例 - 基于 ExtJS 的专业 ASP.NET 控件库</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <meta name="Title" content="基于 ExtJS 的专业 ASP.NET 控件库，拥有原生的 AJAX 支持和华丽的UI效果 (ExtJS based ASP.NET Controls with native AJAX Support and rich UI effects)" />
-    <meta name="Description" content="FineUI 的使命是创建没有 JavaScript，没有 CSS，没有 UpdatePanel，没有 ViewState，没有 WebServices 的网站应用程序" />
+    <meta name="Description" content="FineUI 的使命是创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序" />
     <meta name="Keywords" content="extjs,ext,asp.net,control,asp.net 2.0,ajax,web2.0" />
     <link href="css/default.css" rel="stylesheet" type="text/css" />
 </head>
@@ -152,7 +152,7 @@
                                         <h2>授权协议</h2>
                                             Apache License v2.0
                                             <br />
-                                            注：ExtJS 库是在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
+                                            注：ExtJS 库在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
                                             
                                         <br />
                                         <br />

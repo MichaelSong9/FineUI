@@ -33,7 +33,7 @@
             </x:ToolbarSeparator>
             <x:Button Text="清空表格数据" runat="server" ID="btnClearData" OnClick="btnClearData_Click">
             </x:Button>
-            <x:Button Text="重新绑定表格数据" runat="server" ID="btnRebind" IconUrl="res.axd?theme=default.grid.refresh.gif"
+            <x:Button Text="重新绑定表格数据" runat="server" ID="btnRebind" IconUrl="~/extjs/res/images/default/grid/refresh.gif"
                 OnClick="btnRebindData_Click">
             </x:Button>
             <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">

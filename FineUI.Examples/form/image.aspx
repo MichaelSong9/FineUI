@@ -13,8 +13,8 @@
     <x:Image ID="Image1" runat="server" Icon="World">
     </x:Image>
     <br />
-    ImageUrl="res.axd?icon=World"：
-    <x:Image ID="Image2" runat="server" ImageUrl="res.axd?icon=World">
+    ImageUrl="../icon/world.png"：
+    <x:Image ID="Image2" runat="server" ImageUrl="../icon/world.png">
     </x:Image>
     <br />
     ImageUrl="../images/logo/favicon.gif" ImageCssStyle="border:solid 1px #ccc;padding:5px;"：

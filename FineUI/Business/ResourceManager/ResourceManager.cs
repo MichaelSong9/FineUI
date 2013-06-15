@@ -107,7 +107,7 @@ namespace FineUI
             set { _javascriptComponentList = value; }
         }
 
-        
+
 
         private List<string> _ajaxScriptList = new List<string>();
         /// <summary>
@@ -380,7 +380,7 @@ namespace FineUI
                 PageManager.Instance.FormLabelWidth.Value,
                 PageManager.Instance.FormLabelSeparator,
                 PageManager.Instance.EnableBigFont.ToString().ToLower(),
-                ResourceHelper.GetWebResourceUrlResAxd("FineUI.res.img.s.gif&v=1"),
+                Page.ResolveUrl(String.Format("{0}/res/images/s.gif", GlobalConfig.GetExtjsBasePath())), //ResourceHelper.GetWebResourceUrlResAxd("FineUI.res.img.s.gif&v=1"),
                 //PageManager.Instance.EnableAspnetSubmitButtonAjax.ToString().ToLower(),
                 PageManager.Instance.EnableAjaxLoading.ToString().ToLower(),
                 AjaxLoadingTypeName.GetName(PageManager.Instance.AjaxLoadingType),

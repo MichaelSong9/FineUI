@@ -53,7 +53,7 @@ function onReady() {
             text: "源代码",
             type: "button",
             cls: "x-btn-text-icon",
-            icon: "./res.axd?icon=PageWhiteCode",
+            icon: "./icon/page_white_code.png",
             listeners: {
                 click: function (button, e) {
                     windowSourceCode.x_show('./common/source.aspx?files=' + getCurrentIframeNode(button).attributes['src'].value, '源代码');
@@ -66,7 +66,7 @@ function onReady() {
             text: '新标签页中打开',
             type: "button",
             cls: "x-btn-text-icon",
-            icon: "./res.axd?icon=TabGo",
+            icon: "./icon/tab_go.png",
             listeners: {
                 click: function (button, e) {
                     window.open(getCurrentIframeNode(button).src, "_blank");
@@ -79,7 +79,7 @@ function onReady() {
             text: '刷新',
             type: "button",
             cls: "x-btn-text-icon",
-            icon: "./res.axd?icon=Reload",
+            icon: "./icon/reload.png",
             listeners: {
                 click: function (button, e) {
                     getCurrentIframeNode(button).contentWindow.location.reload(); //.replace(href);
