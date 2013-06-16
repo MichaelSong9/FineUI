@@ -3,9 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>FineUI Online Examples - ExtJS based ASP.NET 2.0 Controls with native AJAX support and rich UI effects</title>
+    <title>FineUI Online Examples - ExtJS based ASP.NET Controls with native AJAX support and rich UI effects</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="Title" content="ExtJS based ASP.NET 2.0 Controls with native AJAX Support and rich UI effects" />
+    <meta name="Title" content="ExtJS based ASP.NET Controls with native AJAX Support and rich UI effects" />
     <meta name="Description" content="FineUI Mission: Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application." />
     <meta name="Keywords" content="extjs,ext,asp.net,control,asp.net 2.0,ajax,web2.0" />
     <link href="css/default.css" rel="stylesheet" type="text/css" />
@@ -101,7 +101,7 @@
                                     <x:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                         CssClass="intro" runat="server">
                                         <h2>About FineUI</h2>
-                                        ExtJS based ASP.NET 2.0 Controls with native AJAX support and rich UI effects.
+                                        ExtJS based ASP.NET Controls with native AJAX support and rich UI effects.
                                         <br />
                                         <br />
                                         <h2>FineUI Mission</h2>
@@ -114,6 +114,8 @@
                                         <br />
                                         <h2>License</h2>
                                             Apache License 2.0 (Apache)
+                                        <br />
+                                            Note: ExtJS is released under GPL v3 license (http://www.sencha.com/license).
                                         <br />
                                         <br />
                                         <h2>Links</h2>

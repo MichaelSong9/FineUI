@@ -20,7 +20,7 @@ namespace FineUI.Examples.iframe
                 btnPopupWindow.OnClientClick = Window1.GetShowReference("../grid/grid_iframe_window.aspx") + "return false;";
 
                 btnConfirmButton.OnClientClick = Grid2.GetNoSelectionAlertReference("At least select one row!");
-                btnConfirmButton.ConfirmText = String.Format("Are you sure to delete selected&nbsp;<b><script>{0}</script></b>&nbsp;items?", Grid2.GetSelectCountReference());
+                btnConfirmButton.ConfirmText = String.Format("Are you sure to delete selected&nbsp;<b><script>{0}</script></b>&nbsp;items?", Grid2.GetSelectedCountReference());
 
 
             }

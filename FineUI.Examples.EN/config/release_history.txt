@@ -1,5 +1,5 @@
 ﻿关于FineUI
-基于 ExtJS 的专业 ASP.NET 2.0 控件库。
+基于 ExtJS 的专业 ASP.NET 控件库。
 
 FineUI的使命
 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
@@ -8,7 +8,9 @@ FineUI的使命
 IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
 
 授权协议
-Apache License 2.0 (Apache)
+Apache License v2.0
+注：ExtJS 库在 GPL v3 协议下发布(http://www.sencha.com/license)。
+    
 
 相关链接
 论坛：http://fineui.com/bbs/
@@ -18,6 +20,117 @@ Apache License 2.0 (Apache)
 
 
 发布历史
+
++2013-06-17 v3.3.0
+	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu）。
+	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。
+	-改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）（grass_root、蓝色天空）。
+	-修正Chrome下多表头样式错位（风笑痴）。
+	+对允许自动回发事件的属性名字进行重构。
+		-在原来的名字后面添加Event，比如EnableRowClick改为EnableRowClickEvent。出于兼容性考虑，之前的属性依然有效。
+		-表格相关：EnableRowSelectEvent、EnableRowClickEvent、EnableRowDoubleClickEvent
+		-表单相关：EnableTimeSelectEvent(TimePicker)、EnableDateSelect（DatePicker、Calendar）
+	+更新aspnet/ueditor.aspx、aspnet/ueditor_two.aspx.
+		-修正IE9下编辑框无法获取焦点的问题，将UEditor的初始化代码放在onReady函数中（消失的键盘 ）。
+	-UEditor更新为1.2.6.0，FineUI与百度的UEditor将携手促进国内开源软件的发展。
+	-更新other/addtab.aspx示例，增加关闭当前TAB的实现。
+	-增加示例tabstrip/tabstrip_iframe_disabled.aspx，在IFrame内部启用外部TabStrip的标签（◆◇_提拉米苏℡）。
+	+窗体控件优化。
+		-将JS函数box_show/box_hide等改名为x_show/x_hide。出于兼容性考虑，之前的函数依然有效。
+		-减少窗体控件生成的JS代码量。
+	+遵守ExtJS对开源软件的限制，将ExtJS相关JavaScript、CSS以及图片资源从FineUI库中移除。
+		-增加Web.config中的配置项ExtjsBasePath，默认为~/extjs。
+		-FineUI.dll从原来的2.4M减少为600K。
+		-FineUI.Examples增加extjs_builder文件夹，用来生成FineUI所需的extjs目录。
+	+表格增强。
+		+合计行示例。
+			-增加客户端合计行示例grid/grid_summary.aspx（◇辉◆:）。
+			-增加服务器端合计行示例grid/grid_summary_serverside.aspx（◆◇提拉米苏℡）。
+			-增加合计行绝对定位到分页条上方的示例grid/grid_summary_absolute.aspx。
+		-修正Chrome下表格EnableTextSelection属性失效问题（D大调）。
+		+优化模板列示例grid/grid_edit_compare.aspx。
+		-增加自动换行的示例grid/grid_line_wrap.aspx（水中月 ）。
+		-增加CheckBoxSelectOnly属性，满足只能通过多选框选中行的需求，增加示例grid/grid_checkall_only.aspx（隨风.NET）。
+		-修正下次提交依然提交上次修改数据的问题。
+	+可编辑表格增强。
+		+修改GetModifiedDict函数的返回结果，这个和上个版本不兼容，需要特别注意。
+			-之前返回的结构是Dictionary<int, Dictionary<int, string>>，现在返回的结构是Dictionary<int, Dictionary<string, string>>。
+			-之前是通过RowIndex + ColumnIndex获得修改的值，现在通过RowIndex + ColumnID获得修改的值，更简单直观。
+		-如果同时启用EnableCheckBoxSelect和AllowCellEditing，则忽略EnableCheckBoxSelect属性。
+		-增加SelectedCell属性，用来获取AllowCellEditing模式下选中的单元格。
+		-增加示例grid/grid_editor_cell_delete.aspx。
+		-优化GetSelectCountReference方法使其在AllowCellEditing模式下也不出错，并改名为GetSelectedCountReference。
+		-增加方法GetSelectedCellReference，用来获取选中的单元格，仅在AllowCellEditing模式下有效。
+		-增加方法RejectChanges、GetRejectChangesReference、ClearSelections、GetClearSelectionsReference。
+		-增加示例grid/grid_editor_cell_renderfunction.aspx，在RendererFunction通过客户端脚本获得下拉列表的值（舞柯庶）。
+		-增加函数GetNewAddedList，返回新增数据行，增加示例grid/grid_editor_cell_new.aspx。
+	+综合示例。
+		-增加顶部菜单框架（一）综合示例iframe/topmenu/default.aspx（未来(sun)）。
+		-增加顶部菜单框架（二）综合示例iframe/topmenu2/default.aspx，左侧菜单也是放在单独的IFrame中，灵活度更高。
+		-增加顶部菜单框架（三）综合示例iframe/topmenu3/default.aspx，左侧是手风琴和树控件的组合。
+	+去AXD化并更新整个示例工程，所有对res.axd的引用都换成直接的网址，这也有效地减少了服务器部署的麻烦。
+		-出于兼容性考虑，之前对res.axd调用依然有效，比如res.axd?icon=World。
+
+
+
++2013-05-21 v3.2.6
+	+修正extjs v3.4.1.1引入的问题。
+		+恢复表格和树控件中链接光标的手型而非指针。
+			-删除ext-all-notheme中对x-unselectable的光标定义。
+		-修正grid/grid_textselection.aspx无法选择文本的问题。
+		-修正Chrome下无法编辑表格模板列中的文本输入框（刘军）。
+	+表单相关。
+		-修正在文本输入框中按回车键无法触发type=submit按钮的表单提交事件（jieking、luyj56、^老鼠^、消失的键盘）。
+		-更新示例form/layout_panel2.aspx，增加表单验证功能。
+		-增加示例form/form_reset.aspx、form/form_hide_field.aspx（注意控件HideMode属性的使用）。
+		-为DatePicker和TimePicker增加EnableEdit属性（默认为true），更新form/timepicker.aspx（DT♂杰杰 ）。
+		-增加示例form/form_center_button.aspx，使两个按钮水平居中显示（夜冰）。
+		-增加示例form/fileupload_toolbar.aspx，在工具栏中放置FileUpload控件（asp.net）。
+	-UEditor升级为v1.2.5.1。
+	-增加两个UEditor的示例aspnet/ueditor_two.aspx（Apollo）。
+	+表格增强。
+		-表格，下拉列表、复选框列表以及单选框列表的数据源支持IDataReader（路过秋天、周星星）。
+		+增加EnableColumnLines属性，是否启用列分隔线（默认为false）。
+			-增加示例grid/grid_column_lines.aspx。
+		-修正Access和Gray主题下表格多表头的样式问题（bestwowo）。
+		-增加示例grid/grid_empty_text.aspx。
+		+增加只读属性SortField（从SortColumnIndex或者SortColumn计算得来）。
+			-最好在Sort事件中设置表格的SortDirection和SortColumnIndex。出于兼容性考虑，在触发事件之前已经设置好了。
+			-对示例grid/grid_sorting.aspx、grid/grid_paging_sorting.aspx、grid/grid_groupheader_sort.aspx进行重构。
+			-增加示例grid/grid_groupheader_sort_hdmenu.aspx、grid/grid_paging_database_sorting.aspx。
+		+对GridColumn进行重构（表格列也是一个控件），如果没有设置ColumnID，则ColumnID等于列的ClientID。
+		+对CheckBoxField进行重构（内部实现）。
+			-删除生成X_Rows.Values中的换行符。
+			-将X_States放在X_Rows.State中，因为客户端对States的更改会同时影响到X_Rows.Values和X_Rows.DataKeys。
+			-服务器端对States的改变，会同时更新Values，进而促使表格重新加载。
+			-注意：表格行的States属性对外部不可见（internal），可以通过CheckBoxField的GetCheckedState和SetCheckedState来访问此属性。
+		+增加表格的单元格编辑功能。
+			-增加AllowCellEditing、ClicksToEdit属性；CommitChanges、GetModifiedCells、GetModifiedDict几个方法。
+			-增加RenderField和RenderCheckField两个列类型。
+			-增加示例grid/grid_editor_cell.aspx。
+
+
+
++2013-04-27 v3.2.5
+	+更新extjs库到v3.4.1.1。
+		-解决IE9/IE10下的UI显示问题。
+		-解决表格控件在谷歌浏览器下，最后一列的标题栏没对齐的问题。
+		-解决IE7/Chrome下有时不能拖动窗体的问题。
+	+删除PageManager的EnableAspnetSubmitButtonAjax属性（shiningrise、夏雨雪(joe) ）。
+		-原因是低版本IE浏览器不允许使用JS修改input标签的type属性。
+		-我们需要手工设置Asp.Net按钮的UseSubmitBehavior=false，更新示例aspnet/aspnet.aspx。
+		-修正extjs的Ext.lib.Ajax.serializeForm函数，使其在序列化表单时不包含submit按钮，从而避免触发后台submit按钮的事件。
+		-更新示例aspnet/aspnet.aspx。
+	-更新示例config/release_time_chart.htm。
+	+表格增强。
+		-增加RowVerticalAlign属性（默认为Middle），以后所有表格中的行文字默认都是垂直居中显示。
+		+增加EnableHeaderMenu属性（默认为false），支持在表格标题栏下拉菜单中显示隐藏列以及排序操作。
+			-增加EnableColumnHide属性（默认为true），是否可以标题栏下拉菜单中显示隐藏列。
+			-增加示例grid/grid_hdmenu_hidecolumn.aspx。
+			-增加示例grid/grid_hdmenu_sorting.aspx。
+		+增加EmptyText属性，指定数据为空时显示在内容区域的文本，可以是HTML标签。
+
+
 
 +2013-03-23 v3.2.4
 	-修正FineUI按钮和Asp.Net按钮共存时，点击FineUI按钮会触发Asp.Net按钮事件的问题（shiningrise）。

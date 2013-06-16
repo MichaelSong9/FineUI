@@ -38,7 +38,9 @@ namespace FineUI.Examples.grid
         {
             if (e.CommandName == "CheckBox1")
             {
-                bool checkState = Convert.ToBoolean(Grid1.Rows[e.RowIndex].States[e.ColumnIndex]);
+                CheckBoxField field2 = (CheckBoxField)Grid1.FindColumn("CheckBoxField2");
+
+                bool checkState = field2.GetCheckedState(e.RowIndex); // Convert.ToBoolean(Grid1.Rows[e.RowIndex].States[e.ColumnIndex]);
                 Alert.ShowInTop(String.Format("You click row {0}, column {1}, checked status: {2}", e.RowIndex + 1, e.ColumnIndex + 1, checkState));
             }
             else if (e.CommandName == "Action1" || e.CommandName == "Action2")

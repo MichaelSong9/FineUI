@@ -3722,7 +3722,7 @@ namespace FineUI
         /// 获取表格选中项数的客户端脚本
         /// </summary>
         /// <returns>客户端脚本</returns>
-        [Obsolete("此方法已废除，请使用GetSelectCountReference方法")]
+        [Obsolete("此方法已废除，请使用GetSelectedCountReference方法")]
         public string GetSelectCountReference()
         {
             return GetSelectedCountReference();
