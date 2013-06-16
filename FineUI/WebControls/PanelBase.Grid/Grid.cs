@@ -1806,6 +1806,18 @@ namespace FineUI
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        private string NewAddedRowsHiddenFieldID
+        {
+            get
+            {
+                return String.Format("{0}_NewAddedRows", ClientID);
+            }
+        }
+
+
+
         ///// <summary>
         ///// 实际绑定到页面上的值
         ///// </summary>
@@ -2514,6 +2526,7 @@ namespace FineUI
 
                 //OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
 
+                OB.AddProperty("x_newAddedRows", "[]", true);
             }
 
             #endregion
@@ -3349,40 +3362,39 @@ namespace FineUI
         }
 
 
-        private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
+        //private List<ModifiedCell> _modifiedCells = new List<ModifiedCell>();
+
+        ///// <summary>
+        ///// 获取用户修改的单元格，包含新增的数据
+        ///// </summary>
+        ///// <returns></returns>
+        //internal List<ModifiedCell> GetModifiedCells()
+        //{
+        //    return _modifiedCells;
+        //}
+
+
+
+        private List<Dictionary<string, string>> _newAddedList;
 
         /// <summary>
-        /// 获取用户修改的单元格
+        /// 获取新增的行数据
         /// </summary>
         /// <returns></returns>
-        public List<ModifiedCell> GetModifiedCells()
+        public List<Dictionary<string, string>> GetNewAddedList()
         {
-            return _modifiedCells;
+            return _newAddedList;
         }
 
 
         private Dictionary<int, Dictionary<string, string>> _modifiedDict;
 
         /// <summary>
-        /// 获取用户修改的单元格
+        /// 获取用户修改的行数据
         /// </summary>
         /// <returns></returns>
         public Dictionary<int, Dictionary<string, string>> GetModifiedDict()
         {
-            if (_modifiedDict == null)
-            {
-                _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
-                foreach (ModifiedCell cell in _modifiedCells)
-                {
-                    int rowIndex = cell.RowIndex;
-                    if (!_modifiedDict.ContainsKey(rowIndex))
-                    {
-                        _modifiedDict.Add(rowIndex, new Dictionary<string, string>());
-                    }
-                    Dictionary<string, string> rowDic = _modifiedDict[rowIndex];
-                    rowDic.Add(cell.ColumnID, cell.CellValue);
-                }
-            }
             return _modifiedDict;
         }
 
@@ -3401,8 +3413,13 @@ namespace FineUI
             base.LoadPostData(postDataKey, postCollection);
 
 
-
-            int[] hiddenColumnIndexArray = StringUtil.GetIntListFromString(postCollection[HiddenColumnIndexArrayHiddenFieldID], true).ToArray();
+            string paramHiddenColumnIndexArray = postCollection[HiddenColumnIndexArrayHiddenFieldID];
+            List<int> hiddenColumnIndexList = new List<int>();
+            if (!String.IsNullOrEmpty(paramHiddenColumnIndexArray))
+            {
+                hiddenColumnIndexList = StringUtil.GetIntListFromString(paramHiddenColumnIndexArray, true);
+            }
+            int[] hiddenColumnIndexArray = hiddenColumnIndexList.ToArray();
             if (!StringUtil.CompareIntArray(HiddenColumnIndexArray, hiddenColumnIndexArray))
             {
                 HiddenColumnIndexArray = hiddenColumnIndexArray;
@@ -3450,34 +3467,96 @@ namespace FineUI
             // 启用单元格编辑
             if (AllowCellEditing)
             {
+                string paramNewAddedRows = postCollection[NewAddedRowsHiddenFieldID];
+                List<int> newAddedRows = new List<int>();
+                if (!String.IsNullOrEmpty(paramNewAddedRows))
+                {
+                    newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
+
+                }
+
+                // 应该从客户端的RowIndex中减去这个数字，这个数字是客户端新增的行数
+                int addedRowNumbers = 0;
+                if (newAddedRows.Contains(0))
+                {
+                    addedRowNumbers = newAddedRows.Count;
+                }
+
+
                 // 根据用户的输入修改每个单元格的Values
-                _modifiedDict = null;
+                _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
+                _newAddedList = new List<Dictionary<string, string>>();
                 _modifiedData = new JArray();
-                _modifiedCells = new List<ModifiedCell>();
+                //_modifiedCells = new List<ModifiedCell>();
                 String editorDataStr = postCollection[EditorDataHiddenFieldID];
                 if (!String.IsNullOrEmpty(editorDataStr))
                 {
                     _modifiedData = JArray.Parse(editorDataStr);
                     if (_modifiedData.Count > 0)
                     {
+                        int lastNewAddedRowIndex = -1;
                         foreach (JArray modifiedItem in _modifiedData)
                         {
                             int rowIndex = modifiedItem[0].ToObject<int>();
-                            string columnID = modifiedItem[1].ToObject<string>();
-                            object cellValue = modifiedItem[2].ToObject<object>();
-                            int columnIndex = FindColumn(columnID).ColumnIndex;
 
-                            string newCellValue = cellValue.ToString();
+                            bool thisRowIsNewAdded = false;
+                            if (newAddedRows.Count > 0 && newAddedRows.Contains(rowIndex))
+                            {
+                                thisRowIsNewAdded = true;
+                            }
+                            else
+                            {
+                                thisRowIsNewAdded = false;
+                                rowIndex -= addedRowNumbers;
+                            }
 
-                            ModifiedCell cell = new ModifiedCell();
-                            cell.RowIndex = rowIndex;
-                            cell.ColumnID = columnID;
-                            cell.ColumnIndex = columnIndex;
-                            cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
-                            cell.CellValue = newCellValue;
-                            _modifiedCells.Add(cell);
 
-                            Rows[rowIndex].Values[columnIndex] = newCellValue;
+                            Dictionary<string, string> rowModifiedDic = new Dictionary<string, string>();
+
+                            JObject rowModifiedData = modifiedItem[1].ToObject<JObject>();
+                            foreach (JProperty propertyObj in rowModifiedData.Properties())
+                            {
+                                string columnID = propertyObj.Name;
+                                object cellValue = rowModifiedData.Value<object>(columnID);
+                                int columnIndex = FindColumn(columnID).ColumnIndex;
+
+                                string newCellValue = cellValue.ToString();
+
+                                rowModifiedDic.Add(columnID, newCellValue);
+
+                                //ModifiedCell cell = new ModifiedCell();
+                                //cell.RowIndex = rowIndex;
+                                //cell.ColumnID = columnID;
+                                //cell.ColumnIndex = columnIndex;
+                                //cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
+                                //cell.CellValue = newCellValue;
+                                //_modifiedCells.Add(cell);
+
+                                // 如果本行不是新增的，还需要更新行的Values属性
+                                if (!thisRowIsNewAdded)
+                                {
+                                    Rows[rowIndex].Values[columnIndex] = newCellValue;
+                                }
+                            }
+
+                            if (thisRowIsNewAdded)
+                            {
+                                // 通过 lastNewAddedRowIndex 来简单地保证新增数据行的顺序
+                                if (rowIndex > lastNewAddedRowIndex)
+                                {
+                                    _newAddedList.Add(rowModifiedDic);
+                                }
+                                else
+                                {
+                                    _newAddedList.Insert(0, rowModifiedDic);
+                                }
+
+                                lastNewAddedRowIndex = rowIndex;
+                            }
+                            else
+                            {
+                                _modifiedDict.Add(rowIndex, rowModifiedDic);
+                            }
 
                         }
 
@@ -3543,11 +3622,11 @@ namespace FineUI
         /// </summary>
         public string GetCommitChangesReference()
         {
-            return String.Format("{0}.getStore().commitChanges();", ScriptID);
+            return String.Format("{0}.x_commitChanges();", ScriptID);
         }
-		
-		
-		/// <summary>
+
+
+        /// <summary>
         /// 拒绝用户编辑单元格（同时消除编辑单元格左上方的红色提示图标）
         /// </summary>
         public void RejectChanges()
@@ -3562,50 +3641,73 @@ namespace FineUI
         {
             return String.Format("{0}.getStore().rejectChanges();", ScriptID);
         }
-		
-		
-		/// <summary>
+
+
+        /// <summary>
         /// 清空表格选中项
         /// </summary>
         public void ClearSelections()
         {
             PageContext.RegisterStartupScript(GetClearSelectionsReference());
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// 获取清空表格选中项的客户端脚本
         /// </summary>
         /// <returns>客户端脚本</returns>
-		public string GetClearSelectionsReference()
+        public string GetClearSelectionsReference()
         {
             return String.Format("{0}.getSelectionModel().clearSelections();", ScriptID);
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// 添加一条新纪录
         /// </summary>
-		public void AddNewRecord()
+        /// <param name="defaultObject">缺省值</param>
+        public void AddNewRecord(JObject defaultObject)
         {
-            PageContext.RegisterStartupScript(GetAddNewRecordReference());
+            PageContext.RegisterStartupScript(GetAddNewRecordReference(defaultObject));
         }
-		
-		
-		public string GetAddNewRecordReference()
-		{
-			return GetAddNewRecordReference(false);
-		}
-		
-		public string GetAddNewRecordReference(bool appendToEnd)
-		{
-			return String.Format("{0}.x_addNewRecord({1});", ScriptID, appendToEnd.ToString().ToLower());
-		}
-		
+
+        /// <summary>
+        /// 添加一条新纪录
+        /// </summary>
+        /// <param name="defaultObject">缺省值</param>
+        /// <param name="appendToEnd">是否添加到末尾</param>
+        public void AddNewRecord(JObject defaultObject, bool appendToEnd)
+        {
+            PageContext.RegisterStartupScript(GetAddNewRecordReference(defaultObject, appendToEnd));
+        }
+
+
+        /// <summary>
+        /// 获取添加一条新纪录的客户端脚本
+        /// </summary>
+        /// <param name="defaultObject">缺省值</param>
+        /// <returns>客户端脚本</returns>
+        public string GetAddNewRecordReference(JObject defaultObject)
+        {
+            return GetAddNewRecordReference(defaultObject, false);
+        }
+
+
+        /// <summary>
+        /// 获取添加一条新纪录的客户端脚本
+        /// </summary>
+        /// <param name="defaultObject">缺省值</param>
+        /// <param name="appendToEnd">是否添加到末尾</param>
+        /// <returns>客户端脚本</returns>
+        public string GetAddNewRecordReference(JObject defaultObject, bool appendToEnd)
+        {
+            return String.Format("{0}.x_addNewRecord({1},{2});", ScriptID, defaultObject.ToString(Formatting.None), appendToEnd.ToString().ToLower());
+        }
+
 
         #endregion
 
         #region GetHasSelectionReference GetSelectCountReference
-		
-		
+
+
 
         /// <summary>
         /// 获取表格是否有选中项的客户端脚本
@@ -3615,16 +3717,16 @@ namespace FineUI
         {
             return String.Format("{0}.getSelectionModel().hasSelection()", ScriptID);
         }
-		
-		 /// <summary>
+
+        /// <summary>
         /// 获取表格选中项数的客户端脚本
         /// </summary>
         /// <returns>客户端脚本</returns>
-		[Obsolete("此方法已废除，请使用GetSelectCountReference方法")]
+        [Obsolete("此方法已废除，请使用GetSelectCountReference方法")]
         public string GetSelectCountReference()
         {
-			return GetSelectedCountReference();
-		}
+            return GetSelectedCountReference();
+        }
 
         /// <summary>
         /// 获取表格选中项数的客户端脚本
@@ -3634,8 +3736,8 @@ namespace FineUI
         {
             return String.Format("{0}.x_getSelectedCount()", ScriptID);
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// 获取表格选中单元格的客户端脚本（仅用于AllowCellEditing模式）
         /// </summary>
         /// <returns>客户端脚本</returns>
@@ -3643,8 +3745,8 @@ namespace FineUI
         {
             return String.Format("{0}.x_getSelectedCell()", ScriptID);
         }
-		
-		
+
+
 
         #endregion
 

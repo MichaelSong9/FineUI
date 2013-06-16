@@ -267,6 +267,12 @@
             if (cmp.isXType('editorgrid')) {
                 saveInHiddenField('SelectedCell', cmp.x_getSelectedCell().join(','));
 
+                if (cmp.x_newAddedRows.length > 0) {
+                    saveInHiddenField('NewAddedRows', cmp.x_newAddedRows.join(','));
+                } else {
+                    removeHiddenField('NewAddedRows');
+                }
+
                 var gridEditorData = cmp.x_getEditorData();
                 if (gridEditorData.length > 0) {
                     saveInHiddenField('EditorData', Ext.encode(gridEditorData));
@@ -278,7 +284,14 @@
                 saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
             }
 
-            saveInHiddenField('HiddenColumnIndexArray', cmp.x_getHiddenColumns().join(','));
+
+            var gridHiddenColumns = cmp.x_getHiddenColumns();
+            if (gridHiddenColumns.length > 0) {
+                saveInHiddenField('HiddenColumnIndexArray', gridHiddenColumns.join(','));
+            } else {
+                removeHiddenField('HiddenColumnIndexArray');
+            }
+
 
             var gridStates = cmp.x_getStates();
             if (gridStates.length > 0) {

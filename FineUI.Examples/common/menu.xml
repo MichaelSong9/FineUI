@@ -304,6 +304,8 @@
       </TreeNode>
       <TreeNode Text="可编辑单元格（客户端获取下拉列表的值）" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
       </TreeNode>
+      <TreeNode Text="可编辑单元格（新增行）" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="其他" SingleClickExpand="true">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >

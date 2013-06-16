@@ -452,6 +452,9 @@ if (Ext.grid.GridPanel) {
             // 拒绝之前对表格的编辑，因为接下来就要重新加载数据
             store.rejectChanges();
 
+            // 重新加载数据前清空之前的改变
+            this.x_newAddedRows = [];
+
             store.loadData(datas);
 
         },
@@ -553,20 +556,7 @@ if (Ext.grid.GridPanel) {
             return selectedCell;
         },
 
-        // 添加一条新纪录
-        x_addNewRecord: function (appendToEnd) {
-            var store = this.getStore();
-            var recordType = store.recordType;
-            var newRecord = new recordType();
 
-            this.stopEditing();
-            if (appendToEnd) {
-                store.add(newRecord);
-            } else {
-                store.insert(0, newRecord);
-            }
-            this.startEditing(0, 0);
-        },
 
         // 获取隐藏列的索引列表
         x_getHiddenColumns: function () {
@@ -712,19 +702,56 @@ if (Ext.grid.GridPanel) {
             return resolvedStates;
         },
 
+        // 提交客户端改变
+        x_commitChanges: function () {
+
+            this.getStore().commitChanges();
+
+            this.x_newAddedRows = [];
+        },
+
+        // 添加一条新纪录
+        x_addNewRecord: function (defaultObj, appendToEnd) {
+            var i, count, store = this.getStore();
+            var recordType = store.recordType;
+            var newRecord = new recordType(defaultObj);
+
+            // 记录客户端新增的行索引，this.x_newAddedRows
+
+            this.stopEditing();
+            if (appendToEnd) {
+                store.add(newRecord);
+
+                // 新增客户端改变的行索引
+                this.x_newAddedRows.push(store.getCount() - 1);
+
+            } else {
+                store.insert(0, newRecord);
+
+                // 新增客户端改变的行索引
+                for (i = 0, count = this.x_newAddedRows.length; i < count; i++) {
+                    this.x_newAddedRows[i]++;
+                }
+                this.x_newAddedRows.push(0);
+                
+            }
+            this.startEditing(0, 0);
+        },
+
 
         // 获取用户改变的单元格值
         x_getEditorData: function () {
-            var i, j, count, columnMap = {}, columns = this.x_getColumns();
+            var i, j, count, columns = this.x_getColumns();
             /*
             for (i = 0, count = columns.length; i < count; i++) {
-                columnMap[columns[i].dataIndex] = i;
+            columnMap[columns[i].dataIndex] = i;
             }
             */
 
-            var modifiedCells = [];
+            var modifiedRows = [];
             var store = this.getStore();
-            var rowIndex, columnIndex, rowData, newData, oldData, modifiedRecord, modifiedRecords = store.getModifiedRecords();
+            var modifiedRecords = store.getModifiedRecords();
+            var rowIndex, rowData, newData, modifiedRecord;
             for (i = 0, count = modifiedRecords.length; i < count; i++) {
                 modifiedRecord = modifiedRecords[i];
                 rowIndex = store.indexOf(modifiedRecord);
@@ -733,22 +760,35 @@ if (Ext.grid.GridPanel) {
                     continue;
                 }
 
-                for (var columnid in modifiedRecord.modified) {
-                    /*
-                    columnIndex = columnMap[modifiedKey];
-                    if (typeof (columnIndex) === 'undefined') {
+                if (this.x_newAddedRows.indexOf(rowIndex) >= 0) {
+
+                    // 新增数据行
+                    modifiedRows.push([rowIndex, rowData]);
+
+                } else {
+
+                    // 修改现有数据行
+                    var rowModifiedObj = {};
+                    for (var columnid in modifiedRecord.modified) {
+                        /*
+                        columnIndex = columnMap[modifiedKey];
+                        if (typeof (columnIndex) === 'undefined') {
                         continue;
-                    }*/
+                        }*/
 
-                    newData = rowData[columnid];
-                    oldData = modifiedRecord.modified[columnid];
+                        newData = rowData[columnid];
+                        //oldData = modifiedRecord.modified[columnid];
 
-                    modifiedCells.push([rowIndex, columnid, newData]);
+                        rowModifiedObj[columnid] = newData;
+
+                    }
+
+                    modifiedRows.push([rowIndex, rowModifiedObj]);
                 }
 
             }
 
-            return modifiedCells;
+            return modifiedRows;
         }
 
     });

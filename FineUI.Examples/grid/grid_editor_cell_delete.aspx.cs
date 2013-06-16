@@ -84,7 +84,10 @@ namespace FineUI.Examples.grid
                     Dictionary<string, string> rowDict = modifiedDict[i];
 
                     // 更新数据源
-                    DataRow rowData = FindDataRowByIndex(i);
+                    DataTable table = GetSourceData();
+
+                    DataRow rowData = table.Rows[i];
+
                     // 姓名
                     if (rowDict.ContainsKey("Name"))
                     {
@@ -119,7 +122,7 @@ namespace FineUI.Examples.grid
                 }
             }
 
-            labResult.Text = "用户修改的数据：" + Grid1.GetModifiedData().ToString();
+            labResult.Text = "用户修改的数据：" + Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.None);
 
             BindGrid();
 
@@ -133,7 +136,7 @@ namespace FineUI.Examples.grid
 
         #region Data
 
-        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell";
+        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_delete";
 
         // 模拟在服务器端保存数据
         // 特别注意：在真实的开发环境中，不要在Session放置大量数据，否则会严重影响服务器性能
@@ -144,13 +147,6 @@ namespace FineUI.Examples.grid
                 Session[KEY_FOR_DATASOURCE_SESSION] = GetDataTable();
             }
             return (DataTable)Session[KEY_FOR_DATASOURCE_SESSION];
-        }
-
-        private DataRow FindDataRowByIndex(int rowIndex)
-        {
-            DataTable table = GetSourceData();
-
-            return table.Rows[rowIndex];
         }
 
         

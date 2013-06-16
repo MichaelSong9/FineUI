@@ -120,7 +120,7 @@ type js\X\X.format.js >> _x
 type _x > ..\extjs\x-debug.js
 
 
-type ..\extjs\extjs-debug.js > _x
+type ..\extjs\ext-debug.js > _x
 type ..\extjs\x-debug.js >> _x
 
 

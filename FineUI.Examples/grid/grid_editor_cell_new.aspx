@@ -11,14 +11,11 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="400px"
-        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2"
-        OnRowCommand="Grid1_RowCommand">
+        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2">
         <Toolbars>
             <x:Toolbar ID="Toolbar1" runat="server">
                 <Items>
                     <x:Button ID="btnNew" Text="新增数据" Icon="Add" EnablePostBack="false" runat="server">
-                    </x:Button>
-                    <x:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
                     </x:Button>
                     <x:ToolbarFill runat="server">
                     </x:ToolbarFill>
@@ -72,8 +69,6 @@
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:LinkButtonField HeaderText="&nbsp;" Width="60px" ConfirmText="你确定要这么做么？" ConfirmTarget="Top"
-                CommandName="Delete" Icon="Delete" />
         </Columns>
     </x:Grid>
     <br />
