@@ -1,9 +1,9 @@
-<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="default.aspx.cs" Inherits="FineUI.Examples.iframe.topmenu._default" %>
+ï»¿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="default.aspx.cs" Inherits="FineUI.Examples.iframe.topmenu._default" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>¶¥²¿²Ëµ¥¿ò¼Ü£¨Ò»£©</title>
+    <title>é¡¶éƒ¨èœå•æ¡†æ¶ï¼ˆä¸€ï¼‰</title>
     <link type="text/css" rel="stylesheet" href="./res/main.css" />
 </head>
 <body>
@@ -17,36 +17,36 @@
                     <x:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" runat="server">
                         <div class="wrap">
                             <div class="logos">
-                                XXX ¹ÜÀíÏµÍ³
+                                XXX ç®¡ç†ç³»ç»Ÿ
                             </div>
                             <div class="menu">
                                 <ul>
                                     <li class="selected menu-mail">
                                         <asp:LinkButton ID="lbtnMail" runat="server" OnClick="lbtnMail_Click">
-                                            <span>ÓÊ¼şÊÕ·¢</span></asp:LinkButton>
+                                            <span>é‚®ä»¶æ”¶å‘</span></asp:LinkButton>
                                     </li>
                                     <li class="menu-sms">
                                         <asp:LinkButton ID="lbtnSMS" runat="server" OnClick="lbtnSMS_Click">
-                                            <span>¶ÌĞÅÊÕ·¢</span></asp:LinkButton>
+                                            <span>çŸ­ä¿¡æ”¶å‘</span></asp:LinkButton>
                                     </li>
                                     <li class="menu-sys">
                                         <asp:LinkButton ID="lbtnSYS" runat="server" OnClick="lbtnSYS_Click">
-                                            <span>ÏµÍ³¹ÜÀí</span></asp:LinkButton>
+                                            <span>ç³»ç»Ÿç®¡ç†</span></asp:LinkButton>
                                     </li>
                                 </ul>
                             </div>
                             <div class="member">
-                                ÁìÏÈµÄ XXX ¹ÜÀíÏµÍ³»¶Ó­Äú£¡
+                                é¢†å…ˆçš„ XXX ç®¡ç†ç³»ç»Ÿæ¬¢è¿æ‚¨ï¼
                             </div>
                             <div class="exit">
-                                <a href="javascript:;">ÍË³ö¹ÜÀí</a>
+                                <a href="javascript:;">é€€å‡ºç®¡ç†</a>
                             </div>
                         </div>
                     </x:ContentPanel>
                 </Items>
             </x:Region>
             <x:Region ID="Region2" Split="true" EnableSplitTip="true" CollapseMode="Mini" Width="200px"
-                Margins="0 0 0 0" ShowHeader="false" Title="Ê¾Àı²Ëµ¥" EnableLargeHeader="false" Icon="Outline"
+                Margins="0 0 0 0" ShowHeader="false" Title="ç¤ºä¾‹èœå•" EnableLargeHeader="false" Icon="Outline"
                 EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                 <Items>
                     <x:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
@@ -66,18 +66,18 @@
         var leftTreeID = '<%= leftTree.ClientID %>';
 
         function selectMenu(menuClassName) {
-            // Ñ¡ÖĞµ±Ç°²Ëµ¥
+            // é€‰ä¸­å½“å‰èœå•
             Ext.select('.menu ul li').removeClass('selected');
             Ext.select('.menu ul li.' + menuClassName).addClass('selected');
 
-            // Õ¹¿ªÊ÷µÄµÚÒ»¸ö½Úµã£¬²¢Ñ¡ÖĞµÚÒ»¸ö½ÚµãÏÂµÄµÚÒ»¸ö×Ó½Úµã£¨ÔÚÓÒ²àIFrameÖĞ´ò¿ª£©
+            // å±•å¼€æ ‘çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ï¼Œå¹¶é€‰ä¸­ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ä¸‹çš„ç¬¬ä¸€ä¸ªå­èŠ‚ç‚¹ï¼ˆåœ¨å³ä¾§IFrameä¸­æ‰“å¼€ï¼‰
             var tree = X(leftTreeID);
             var treeFirstChild = tree.getRootNode().firstChild;
-            // Õ¹¿ªµÚÒ»¸ö½Úµã£¨Èç¹ûÏëÒªÕ¹¿ªÈ«²¿½Úµã£¬µ÷ÓÃ tree.expandAll();£©
+            // å±•å¼€ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ï¼ˆå¦‚æœæƒ³è¦å±•å¼€å…¨éƒ¨èŠ‚ç‚¹ï¼Œè°ƒç”¨ tree.expandAll();ï¼‰
             treeFirstChild.expand();
 
 
-            // Ñ¡ÖĞµÚÒ»¸öÁ´½Ó½Úµã£¬²¢ÔÚÓÒ²àIFrameÖĞ´ò¿ª´ËÁ´½Ó
+            // é€‰ä¸­ç¬¬ä¸€ä¸ªé“¾æ¥èŠ‚ç‚¹ï¼Œå¹¶åœ¨å³ä¾§IFrameä¸­æ‰“å¼€æ­¤é“¾æ¥
             var treeFirstLink = treeFirstChild.firstChild;
             treeFirstLink.select();
             window.frames['mainframe'].location.href = treeFirstLink.attributes['href'];
