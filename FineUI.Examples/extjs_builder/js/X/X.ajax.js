@@ -300,6 +300,10 @@
                 removeHiddenField('States');
             }
 
+            // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
+            if (state['X_Rows_GZ']) {
+                delete state['X_Rows'];
+            }
         }
 
         if (cmp.isXType('treepanel')) {

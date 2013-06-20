@@ -29,6 +29,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Web;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.IO.Compression;
 
 namespace FineUI
 {
@@ -297,5 +299,70 @@ namespace FineUI
         }
 
         #endregion
+
+        public static string DecodeFrom64(byte[] encodedDataAsBytes)
+        {
+            return System.Text.UTF8Encoding.UTF8.GetString(encodedDataAsBytes);
+        }
+
+        public static string DecodeFrom64(string encodedData)
+        {
+            byte[] encodedDataAsBytes = System.Convert.FromBase64String(encodedData);
+            return System.Text.UTF8Encoding.UTF8.GetString(encodedDataAsBytes);
+        }
+
+        public static string EncodeTo64(byte[] toEncodeAsBytes)
+        {
+            return System.Convert.ToBase64String(toEncodeAsBytes);
+        }
+
+        public static string EncodeTo64(string toEncode)
+        {
+            byte[] toEncodeAsBytes = System.Text.UTF8Encoding.UTF8.GetBytes(toEncode);
+            return System.Convert.ToBase64String(toEncodeAsBytes);
+        }
+
+
+        public static string Gzipped(string source)
+        {
+            using (var outStream = new MemoryStream())
+            {
+                using (var gzipStream = new GZipStream(outStream, CompressionMode.Compress))
+                {
+                    using (var mStream = new MemoryStream(Encoding.UTF8.GetBytes(source)))
+                    {
+                        mStream.WriteTo(gzipStream);
+                    }
+                }
+
+                return StringUtil.EncodeTo64(outStream.ToArray());
+            }
+        }
+
+        public static string Ungzipped(string source)
+        {
+            byte[] bytes = Convert.FromBase64String(source);
+
+            using (GZipStream stream = new GZipStream(new MemoryStream(bytes), CompressionMode.Decompress))
+            {
+                const int size = 512;
+                byte[] buffer = new byte[size];
+                using (MemoryStream memory = new MemoryStream())
+                {
+                    int count = 0;
+                    do
+                    {
+                        count = stream.Read(buffer, 0, size);
+                        if (count > 0)
+                        {
+                            memory.Write(buffer, 0, count);
+                        }
+                    } while (count > 0);
+
+                    return System.Text.Encoding.UTF8.GetString(memory.ToArray());
+                }
+            }
+        }
+
     }
 }

@@ -65,6 +65,8 @@ namespace FineUI
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
             AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
             AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
+
+            //AddGzippedAjaxProperties("X_Rows");
         }
 
         // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本

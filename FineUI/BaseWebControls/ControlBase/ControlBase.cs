@@ -40,6 +40,7 @@ using System.Collections;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO.Compression;
 
 
 namespace FineUI
@@ -101,7 +102,6 @@ namespace FineUI
 
         protected void AddClientAjaxProperties(params string[] props)
         {
-
             foreach (string prop in props)
             {
                 if (!_clientAjaxProperties.Contains(prop))
@@ -114,6 +114,17 @@ namespace FineUI
                 }
             }
 
+        }
+
+        protected void AddGzippedAjaxProperties(params string[] props)
+        {
+            foreach (string prop in props)
+            {
+                if (!_gzippedAjaxProperties.Contains(prop))
+                {
+                    _gzippedAjaxProperties.Add(prop);
+                }
+            }
         }
 
 
@@ -145,6 +156,16 @@ namespace FineUI
         {
             get { return _clientAjaxProperties; }
             set { _clientAjaxProperties = value; }
+        }
+
+        private List<string> _gzippedAjaxProperties = new List<string>();
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        internal List<string> GzippedAjaxProperties
+        {
+            get { return _gzippedAjaxProperties; }
+            set { _gzippedAjaxProperties = value; }
         }
 
         /// <summary>
@@ -248,15 +269,15 @@ namespace FineUI
                     {
                         _postBackState = new JObject();
                     }
-                    //JProperty clientIDProperty = states.Property(ClientID);
-                    //if (clientIDProperty != null)
-                    //{
-                    //    _postBackState = clientIDProperty.Value<JObject>(ClientID); //.getJObject(ClientID);
-                    //}
-                    //else
-                    //{
-                    //    _postBackState = new JObject();
-                    //}
+
+                    foreach (string property in _gzippedAjaxProperties)
+                    {
+                        if (_postBackState[property] == null)
+                        {
+                            _postBackState[property] = JObject.Parse(StringUtil.Ungzipped(_postBackState.Value<string>(property + "_GZ")));
+                        }
+                    }
+
                 }
                 return _postBackState;
             }
@@ -1059,12 +1080,21 @@ namespace FineUI
             JObject jo = new JObject();
             foreach (string property in propertyList)
             {
+                bool propertyGzippped = _gzippedAjaxProperties.Contains(property);
+                string propertyGzippedValue = String.Empty;
+
                 object propertyValue = GetPropertyJSONValue(property);
-                //jo.Add(property, propertyValue == null ? "" : propertyValue);
+
 
                 if (propertyValue is JToken)
                 {
-                    jo.Add(property, (JToken)propertyValue);
+                    JToken tokenValue = propertyValue as JToken;
+                    jo.Add(property, tokenValue);
+
+                    if (propertyGzippped)
+                    {
+                        propertyGzippedValue = tokenValue.ToString(Newtonsoft.Json.Formatting.None);
+                    }
                 }
                 else
                 {
@@ -1075,15 +1105,40 @@ namespace FineUI
                         // http://stackoverflow.com/questions/1659749/script-tag-in-javascript-string
                         string propertyValueStr = propertyValue.ToString().Replace("</script>", @"<\/script>");
                         jo.Add(property, propertyValueStr);
+
+                        if (propertyGzippped)
+                        {
+                            propertyGzippedValue = propertyValueStr;
+                        }
                     }
                     else if (propertyValue is Unit)
                     {
-                        jo.Add(property, (Int32)((Unit)propertyValue).Value);
+                        int intValue = (Int32)((Unit)propertyValue).Value;
+                        jo.Add(property, intValue);
                     }
                     else
                     {
                         jo.Add(property, new JValue(propertyValue));
                     }
+                }
+
+
+                using (var outStream = new MemoryStream())
+                {
+                    using (var tinyStream = new GZipStream(outStream, CompressionMode.Compress))
+                    {
+                        using (var mStream = new MemoryStream(Encoding.UTF8.GetBytes(propertyGzippedValue)))
+                        {
+                            mStream.WriteTo(tinyStream);
+                        }
+                    }
+
+                    propertyGzippedValue = StringUtil.EncodeTo64(outStream.ToArray());
+                }
+
+                if (propertyGzippped && !String.IsNullOrEmpty(propertyGzippedValue))
+                {
+                    jo.Add(property + "_GZ", propertyGzippedValue);
                 }
 
             }
@@ -1398,7 +1453,7 @@ namespace FineUI
                 string propValue = Attributes.Value<string>(propName);
                 htmlBuilder.SetProperty(propName, propValue);
             }
-        } 
+        }
 
         #endregion
 
