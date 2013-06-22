@@ -64,6 +64,31 @@ namespace FineUI.Examples
         protected readonly static JObject SHI_JSON = JObject.Parse("{\"Beijing\":[\"Beijing City\"]}");
         protected readonly static JObject XIAN_JSON = JObject.Parse("{\"Beijing City\":[\"Dongcheng Area\",\"Xicheng Area\",\"Congwen Area\",\"Xuanwu Area\",\"Chaoyang Area\",\"Fengtai Area\",\"Shijingshan Area\",\"Haidian Area\",\"Mentougou Area\",\"Fangshan Area\",\"Tongzhou Area\",\"Shunyi Area\",\"Changping Area\",\"Daxing Area\",\"Huairou Area\",\"Pinggu Area\",\"Miyun County\",\"Yanqing County\"]}");
 
+        #region ValidateFileType
+
+        protected readonly static List<string> VALID_FILE_TYPES = new List<string> { "jpg", "bmp", "gif", "jpeg", "png" };
+
+        protected static bool ValidateFileType(string fileName)
+        {
+            string fileType = String.Empty;
+            int lastDotIndex = fileName.LastIndexOf(".");
+            if (lastDotIndex >= 0)
+            {
+                fileType = fileName.Substring(lastDotIndex + 1).ToLower();
+            }
+
+            if (VALID_FILE_TYPES.Contains(fileType))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        #endregion
 
         #region Grid Related
 

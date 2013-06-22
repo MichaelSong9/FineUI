@@ -1123,22 +1123,9 @@ namespace FineUI
                 }
 
 
-                using (var outStream = new MemoryStream())
-                {
-                    using (var tinyStream = new GZipStream(outStream, CompressionMode.Compress))
-                    {
-                        using (var mStream = new MemoryStream(Encoding.UTF8.GetBytes(propertyGzippedValue)))
-                        {
-                            mStream.WriteTo(tinyStream);
-                        }
-                    }
-
-                    propertyGzippedValue = StringUtil.EncodeTo64(outStream.ToArray());
-                }
-
                 if (propertyGzippped && !String.IsNullOrEmpty(propertyGzippedValue))
                 {
-                    jo.Add(property + "_GZ", propertyGzippedValue);
+                    jo.Add(property + "_GZ", StringUtil.Gzipped( propertyGzippedValue));
                 }
 
             }

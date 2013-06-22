@@ -14,12 +14,20 @@ namespace FineUI.Examples.form
 
         }
 
-
+        
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (filePhoto.HasFile)
             {
                 string fileName = filePhoto.ShortFileName;
+
+                if (!ValidateFileType(fileName))
+                {
+                    Alert.Show("无效的文件类型！");
+                    return;
+                }
+
+
                 fileName = fileName.Replace(":", "_").Replace(" ", "_").Replace("\\", "_").Replace("/", "_");
                 fileName = DateTime.Now.Ticks.ToString() + "_" + fileName;
 
