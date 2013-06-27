@@ -298,15 +298,6 @@ namespace FineUI
             {
                 page.ClientScript.RegisterStartupScript(page.GetType(), controlId, String.Format(SCRIPT_INCLUDE_TEMPLATE, GetResourceUrlFromName(page, resourceName)), false);
             }
-
-            //if (!IsHeaderContains(page, controlId))
-            //{
-            //    LiteralControl control = new LiteralControl();
-            //    control.ID = controlId;
-            //    control.Text = String.Format(SCRIPT_INCLUDE_TEMPLATE, ResourceHelper.GetWebResourceUrl(page, resourceName));
-
-            //    page.Header.Controls.AddAt(GetNextControlIndex(page), control);
-            //}
         }
 
         public static void AddCssPathToHead(Page page, string controlId, string cssPath)
@@ -358,7 +349,6 @@ namespace FineUI
                 control.Text = msg;
 
                 page.Header.Controls.AddAt(GetNextControlIndex(page), control);
-                //page.Header.Controls.Add(control);
             }
         }
 
@@ -388,19 +378,19 @@ namespace FineUI
         {
             int index = 0;
 
-            // 如果存在自定义（以HeaderControlIdPrefix开头）的控件，则返回最后一个自定义控件的下一个位置
+            // 如果存在自定义（以CONTROL_ID_PREFIX开头）的控件，则返回最后一个自定义控件的下一个位置
             // 如果不存在自定义的控件，则返回<title>的下一个位置
             bool startControlBlock = false;
             int titleIndex = 0;
             foreach (Control c in page.Header.Controls)
             {
+                if (c is HtmlTitle)
+                {
+                    titleIndex = index;
+                }
+
                 if (c.ID != null && c.ID.StartsWith(CONTROL_ID_PREFIX))
                 {
-                    if (c is HtmlTitle)
-                    {
-                        titleIndex = index;
-                    }
-
                     startControlBlock = true;
                 }
                 else
@@ -414,7 +404,17 @@ namespace FineUI
                 index++;
             }
 
-            return startControlBlock ? index : titleIndex + 1;
+            int retIndex = startControlBlock ? index : titleIndex + 1;
+            if (retIndex < 0)
+            {
+                retIndex = 0;
+            }
+            else if (retIndex >= page.Header.Controls.Count)
+            {
+                retIndex = page.Header.Controls.Count - 1;
+            }
+
+            return retIndex;
         }
 
         ///// <summary>

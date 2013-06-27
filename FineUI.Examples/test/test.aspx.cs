@@ -9,30 +9,19 @@ using System.Text;
 
 namespace FineUI.Examples.test
 {
-    public partial class test : System.Web.UI.Page
+    public partial class test : PageBase
     {
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //cblone.Items.Add("1", "1");
-                //cblone.Items.Add("2", "2");
+                LiteralControl control = new LiteralControl();
+                control.ID = "my_control";
+                control.Text = "<script>alert('ok');</script>";
+                Page.Header.Controls.Add(control);
             }
 
-        }
-
-        protected void btnHello_Click(object sender, EventArgs e)
-        {
-            if (cblone.Items.Count == 0)
-            {
-                cblone.Items.Add("1", "1");
-                cblone.Items.Add("2", "2");
-            }
-            else
-            {
-                cblone.Items.Clear();
-            }
         }
 
 
