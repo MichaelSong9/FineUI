@@ -66,7 +66,7 @@ namespace FineUI
             AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
             AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
 
-            //AddGzippedAjaxProperties("X_Rows");
+            AddGzippedAjaxProperties("X_Rows");
         }
 
         // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
