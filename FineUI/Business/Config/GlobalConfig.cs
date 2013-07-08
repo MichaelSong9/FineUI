@@ -36,12 +36,25 @@ namespace FineUI
     public static class GlobalConfig
     {
 
-        #region Runtime Section and Designtime Section
+        /// <summary>
+        /// 初始化section对象，如果在Web.config中没有定义，则初始化为空对象
+        /// </summary>
+        static GlobalConfig()
+        {
+            section = ConfigurationManager.GetSection(ConfigSectionName.FineUI) as ConfigSection;
+
+            if (section == null)
+            {
+                section = new ConfigSection();
+            }
+        }
+
+        #region Section
 
         /// <summary>
         /// Runtime Section
         /// </summary>
-        private static ConfigSection section = ConfigurationManager.GetSection(ConfigSectionName.FineUI) as ConfigSection;
+        private static ConfigSection section; // = ConfigurationManager.GetSection(ConfigSectionName.FineUI) as ConfigSection;
 
 
         /// <summary>
