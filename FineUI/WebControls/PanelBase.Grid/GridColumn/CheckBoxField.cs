@@ -272,7 +272,8 @@ namespace FineUI
                 else
                 {
                     string paramStr = String.Format("Command${0}${1}${2}${3}", row.RowIndex, ColumnIndex, CommandName.Replace("'", "\""), CommandArgument.Replace("'", "\""));
-                    // 延迟执行
+                    
+                    // 延迟执行，确保当前复选框的状态已经改变
                     string postBackReference = JsHelper.GetDeferScript(Grid.GetPostBackEventReference(paramStr), 0);
 
                     // string onClickScript = String.Format("{0}_checkbox{1}(event,this,{2});", Grid.XID, ColumnIndex, row.RowIndex);

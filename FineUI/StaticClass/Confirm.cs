@@ -165,13 +165,13 @@ namespace FineUI
 				scriptIconName = String.Format("'{0}'", MessageBoxIconHelper.GetShortName(icon));
 			}
 			
-			string scriptTargetName = String.Empty;
+			string scriptTargetName = "''";
             if (target != Target.Self)
             {
-                scriptTargetName = TargetHelper.GetScriptName(target);
+                scriptTargetName = String.Format("'{0}'", TargetHelper.GetName(target));
             }
 			
-			return String.Format("X.confirm('{0}',{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptIconName, JsHelper.GetJsString(cancelScript), JsHelper.GetJsString(okScript));
+			return String.Format("X.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptIconName, JsHelper.GetJsString(cancelScript), JsHelper.GetJsString(okScript));
         }
 
         #endregion

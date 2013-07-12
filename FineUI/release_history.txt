@@ -27,6 +27,7 @@ FineUI严格遵守 ExtJS 关于开源软件的规则，不再内置 ExtJS 库。
 发布历史
 
 +2013-07-* v3.3.1
+	-将工具YUICompressor替换为Microsoft Ajax Minifier。
 	+为表格/树/下拉列表/单选框复选框列表控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
 		-会稍微增加下载数据量，从整体上提升用户体验。
 	+表格增强。

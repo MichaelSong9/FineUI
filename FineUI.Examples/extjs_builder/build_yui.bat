@@ -23,13 +23,6 @@ copy extjs_source_all\examples\ux\images\row-editor-bg.gif ..\extjs\res\images /
 
 
 
-
-
-
-
-
-
-
 type res\FineUI.css > _x
 type res\PageLoading.css >> _x
 type res\CheckBoxField.css >> _x
@@ -39,37 +32,29 @@ type res\BigFont.css >> _x
 type extjs_source_all\examples\ux\fileuploadfield\css\fileuploadfield.css >> _x
 type extjs_source_all\examples\ux\css\RowEditor.css >> _x
 type res\ColumnHeaderGroup_blue.css >> _x
-ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\ux.css 
+java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\ux.css _x
 
 
+java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\notheme.css extjs_source_all\resources\css\ext-all-notheme.css
 
-
-
-
-
-ajaxminifier\ajaxminifier -css extjs_source_all\resources\css\ext-all-notheme.css -o ..\extjs\res\css\notheme.css 
 
 type extjs_source_all\resources\css\ext-all-notheme.css > _x
 type extjs_source_all\resources\css\xtheme-blue.css >> _x
 type ..\extjs\res\css\ux.css >> _x
 type res\ColumnHeaderGroup_blue.css >> _x
-ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\blue.css
+java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\blue.css _x
 
 type extjs_source_all\resources\css\ext-all-notheme.css > _x
 type extjs_source_all\resources\css\xtheme-gray.css >> _x
 type ..\extjs\res\css\ux.css >> _x
 type res\ColumnHeaderGroup_gray.css >> _x
-ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\gray.css
+java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\gray.css _x
 
 type extjs_source_all\resources\css\ext-all-notheme.css > _x
 type extjs_source_all\resources\css\xtheme-access.css >> _x
 type ..\extjs\res\css\ux.css >> _x
 type res\ColumnHeaderGroup_access.css >> _x
-ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\access.css
-
-
-
-
+java -jar yui\build\yuicompressor-2.4.7.jar --type css --charset utf-8 -o ..\extjs\res\css\access.css _x
 
 
 
@@ -78,32 +63,27 @@ ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\access.css
 
 type extjs_source_all\src\locale\ext-lang-en.js > _x
 type js\lang\fineui-lang-en.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\en.js
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\lang\en.js _x
 
 type extjs_source_all\src\locale\ext-lang-pt_BR.js > _x
 type js\lang\fineui-lang-pt_BR.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\pt_BR.js
-
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\lang\pt_BR.js _x
 
 type extjs_source_all\src\locale\ext-lang-tr.js > _x
 type js\lang\fineui-lang-tr.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\tr.js
-
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\lang\tr.js _x
 
 type extjs_source_all\src\locale\ext-lang-zh_CN.js > _x
 type js\lang\fineui-lang-zh_CN.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\zh_CN.js
-
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\lang\zh_CN.js _x
 
 type extjs_source_all\src\locale\ext-lang-zh_TW.js > _x
 type js\lang\fineui-lang-zh_TW.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\zh_TW.js
-
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\lang\zh_TW.js _x
 
 type extjs_source_all\src\locale\ext-lang-ru.js > _x
 type js\lang\fineui-lang-ru.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\ru.js
-
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\lang\ru.js _x
 
 
 
@@ -143,7 +123,8 @@ type _x > ..\extjs\x-debug.js
 type ..\extjs\ext-debug.js > _x
 type ..\extjs\x-debug.js >> _x
 
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\ext.js
+
+java -jar yui\build\yuicompressor-2.4.7.jar --type js --charset utf-8 -o ..\extjs\ext.js _x
 
 
 del _x /Q
