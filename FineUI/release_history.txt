@@ -26,6 +26,14 @@ FineUI严格遵守 ExtJS 关于开源软件的规则，不再内置 ExtJS 库。
 
 发布历史
 
++2013-07-* v3.3.1
+	+为表格/树/下拉列表/单选框复选框列表控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
+		-会稍微增加下载数据量，从整体上提升用户体验。
+	+表格增强。
+		-优化CheckBoxField/HyperLinkField/LinkButtonField，减少生成的HTML代码片段大小。
+
+
+
 +2013-06-17 v3.3.0
 	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu）。
 	-修正动态添加列在页面回发时的错误（舞柯庶、落寞一声笑、路人甲）。

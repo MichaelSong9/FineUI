@@ -60,6 +60,8 @@ namespace FineUI
         {
             AddServerAjaxProperties();
             AddClientAjaxProperties("X_Nodes", "SelectedNodeIDArray");
+
+            AddGzippedAjaxProperties("X_Nodes");
         }
 
         //internal int NodeIDIncrement = 0;

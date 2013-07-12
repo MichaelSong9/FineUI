@@ -772,27 +772,10 @@ namespace FineUI
         internal static string ResolveClientScript(string[] validateForms, Target validateTarget, bool validateMessageBox, bool enablePostBack, string postBackEventReference,
             string confirmText, string confirmTitle, MessageBoxIcon confirmIcon, Target confirmTarget, string onClientClick, string disableControlJavascriptID)
         {
-            // 1. validateScript
+            // 1. 表单验证
             string validateScript = String.Empty;
             if (validateForms != null && validateForms.Length > 0)
             {
-                #region old code
-
-                //StringBuilder sb = new StringBuilder();
-                //sb.Append("var forms=[];");
-                //foreach (string formId in validateForms)
-                //{
-                //    Control control = ControlUtil.FindControl(formId);
-                //    if (control != null && control is ControlBase)
-                //    {
-                //        sb.AppendFormat("forms.push(X.{0});", (control as ControlBase).ClientJavascriptID);
-                //    }
-                //}
-                ////sb.Append("if(!box_validForms(forms,'表单不完整','请为 “{0}” 提供有效值！')){return false;}");
-                //sb.AppendFormat("var validResult=X.util.validForms(forms);if(!validResult[0]){{{0}return false;}}",
-                //    Alert.GetShowReference("请为 “'+validResult[1].fieldLabel+'” 提供有效值！", "表单不完整"));
-
-                #endregion
                 JsArrayBuilder array = new JsArrayBuilder();
                 foreach (string formID in validateForms)
                 {
@@ -821,42 +804,15 @@ namespace FineUI
                 if (!String.IsNullOrEmpty(disableControlJavascriptID))
                 {
                     postBackScript += String.Format("X.disable('{0}');", disableControlJavascriptID);
-                    //postBackScript += String.Format("X.util.setHiddenFieldValue('{0}','{1}');", ResourceManager.DISABLED_CONTROL_BEFORE_POSTBACK, disableControlClientId);
-                    //postBackScript += String.Format("X.util.setDisabledControlBeforePostBack('{0}');", disableControlJavascriptID);
                 }
                 postBackScript += postBackEventReference;
             }
 
-
-
+			// 确认对话框
             if (!String.IsNullOrEmpty(confirmText))
             {
-                #region old code
-
-                // 对confirm进行处理，对<script></script>包含的内容做js代码处理
-                //string confirmText = ConfirmText.Replace("'", "\"");
-                //if (confirmText.Contains("<script>"))
-                //{
-                //    confirmText = confirmText.Replace("<script>", "'+");
-                //    confirmText = confirmText.Replace("</script>", "+'");
-                //}
-                //confirmText = String.Format("'{0}'", confirmText);
-
-                //JsObjectBuilder ob = new JsObjectBuilder();
-                //ob.AddProperty(OptionName.Title, String.Format("'{0}'", confirmTitle), true);
-                //ob.AddProperty(OptionName.Msg, String.Format("'{0}'", JsHelper.GetStringWithJsBlock(confirmText)), true);
-                //ob.AddProperty(OptionName.Buttons, "Ext.MessageBox.OKCANCEL", true);
-                //ob.AddProperty(OptionName.Icon, String.Format("'{0}'", MessageBoxIconName.GetName(confirmIcon)), true);
-                //ob.AddProperty(OptionName.Fn, String.Format("function(btn){{if(btn=='cancel'){{return false;}}else{{{0}}}}}", postBackScript), true);
-
-                //postBackScript = String.Format("Ext.MessageBox.show({0});", ob.ToString()); 
-
-                #endregion
-                postBackScript = Confirm.GetShowReference(confirmText, confirmTitle, confirmIcon, postBackScript, "return false;", confirmTarget);
+                postBackScript = Confirm.GetShowReference(confirmText, confirmTitle, confirmIcon, postBackScript, "", confirmTarget);
             }
-
-
-
 
             return validateScript + clientClickScript + postBackScript;
         }

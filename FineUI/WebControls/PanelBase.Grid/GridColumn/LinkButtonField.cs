@@ -511,7 +511,7 @@ namespace FineUI
                 string clientScript = Button.ResolveClientScript(ValidateForms, ValidateTarget, ValidateMessageBox, EnablePostBack, postBackReference,
                   ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, OnClientClick, String.Empty);
 
-                clientScript = JsHelper.GetDeferScript(clientScript, 0) + "X.util.stopEventPropagation.apply(null, arguments);";
+                clientScript = JsHelper.GetDeferScript(clientScript, 0) + "X.stopEvent();";
 
                 nb.SetProperty("onclick", clientScript);
 

@@ -60,6 +60,8 @@ namespace FineUI
         {
             AddServerAjaxProperties("X_Items");
             AddClientAjaxProperties("SelectedValueArray");
+
+            AddGzippedAjaxProperties("X_Items");
         }
 
         #endregion

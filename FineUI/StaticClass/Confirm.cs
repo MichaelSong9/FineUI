@@ -121,14 +121,13 @@ namespace FineUI
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
         /// <param name="icon">对话框图标</param>
-        /// <param name="okScriptstring">点击确定按钮执行的客户端脚本</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
         /// <param name="target">弹出对话框的目标页面</param>
         /// <returns>客户端脚本</returns>
-        public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScriptstring, string cancelScript, Target target)
+        public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript, Target target)
         {
-            //string msgBoxScript = "var msgBox=Ext.MessageBox;";
-            //msgBoxScript += "if(parent!=window){msgBox=parent.window.Ext.MessageBox;}";
+		/*
             if (String.IsNullOrEmpty(title))
             {
                 title = "X.util.confirmTitle";
@@ -153,6 +152,26 @@ namespace FineUI
                 targetName = TargetHelper.GetScriptName(target);
             }
             return String.Format("{0}.Ext.MessageBox.show({1});", targetName, ob.ToString());
+			*/
+			string scriptTitle = "''";
+			if (!String.IsNullOrEmpty(title))
+            {
+                title = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+            }
+            string scriptMessage = JsHelper.GetJsStringWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+
+			string scriptIconName = "''";
+			if(icon != MessageBoxIcon.Warning) {
+				scriptIconName = String.Format("'{0}'", MessageBoxIconHelper.GetShortName(icon));
+			}
+			
+			string scriptTargetName = String.Empty;
+            if (target != Target.Self)
+            {
+                scriptTargetName = TargetHelper.GetScriptName(target);
+            }
+			
+			return String.Format("X.confirm('{0}',{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptIconName, JsHelper.GetJsString(cancelScript), JsHelper.GetJsString(okScript));
         }
 
         #endregion

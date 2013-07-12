@@ -82,5 +82,29 @@ namespace FineUI
 
             return result;
         }
+		
+		
+		public static string GetShortName(MessageBoxIcon type)
+        {
+            string result = String.Empty;
+
+            switch (type)
+            {
+                case MessageBoxIcon.Information:
+                    result = "info";
+                    break;
+                case MessageBoxIcon.Warning:
+                    result = "warning";
+                    break;
+                case MessageBoxIcon.Question:
+                    result = "question";
+                    break;
+                case MessageBoxIcon.Error:
+                    result = "error";
+                    break;
+            }
+
+            return result;
+        }
     }
 }

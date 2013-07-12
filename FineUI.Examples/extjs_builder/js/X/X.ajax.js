@@ -303,13 +303,32 @@
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
             if (state['X_Rows_GZ']) {
                 delete state['X_Rows'];
-            }
+            } else {
+				delete state['X_Rows_GZ'];
+			}
+        }
+
+        if (cmp.isXType('combo') || cmp.isXType('checkboxgroup') || cmp.isXType('radiogroup')) {
+
+            // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
+            if (state['X_Items_GZ']) {
+                delete state['X_Items'];
+            } else {
+				delete state['X_Items_GZ'];
+			}
         }
 
         if (cmp.isXType('treepanel')) {
             saveInHiddenField('ExpandedNodes', cmp.x_getExpandedNodes(cmp.getRootNode().childNodes).join(','));
             saveInHiddenField('CheckedNodes', cmp.x_getCheckedNodes().join(','));
             saveInHiddenField('SelectedNodeIDArray', cmp.x_getSelectedNodes().join(','));
+
+            // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
+            if (state['X_Nodes_GZ']) {
+                delete state['X_Nodes'];
+            } else {
+				delete state['X_Nodes_GZ'];
+			}
         }
 
         if (cmp.isXType('tabpanel')) {

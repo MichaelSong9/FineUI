@@ -204,7 +204,7 @@ namespace FineUI
                 }
 
                 string onClickScript = "Ext.get(this).toggleClass('box-grid-checkbox-unchecked');";
-                onClickScript += "X.util.stopEventPropagation.apply(null, arguments);";
+                onClickScript += "X.stopEvent();";
 
                 //string tooltip = String.Empty;
                 //if (!String.IsNullOrEmpty(HeaderText))
@@ -282,7 +282,7 @@ namespace FineUI
                         onClickScript += postBackReference;
                     }
 
-                    onClickScript += "X.util.stopEventPropagation.apply(null, arguments);";
+                    onClickScript += "X.stopEvent();";
 
                     if (checkState)
                     {

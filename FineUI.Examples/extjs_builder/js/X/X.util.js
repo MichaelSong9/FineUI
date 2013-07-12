@@ -42,6 +42,15 @@ X.ajaxReady = function () {
     }
 };
 
+X.stopEvent = function () {
+    var event = arguments.callee.caller.arguments[0] || window.event;
+    X.util.stopEventPropagation(event);
+};
+
+X.confirm = function () {
+	X.util.confirm.apply(null, arguments);
+};
+
 (function () {
 
 
@@ -57,18 +66,7 @@ X.ajaxReady = function () {
         // 下拉列表的模板
         ddlTPL: '<tpl for="."><div class="x-combo-list-item <tpl if="!enabled">x-combo-list-item-disable</tpl>">{prefix}{text}</div></tpl>',
 
-
-        // 生成加载过程中的时间信息
-        /*
-        getTimeInfo: function () {
-        var str = String.format("Total time:\t\t{0}\r\n", x_render_end_time - x_start_time);
-        str += String.format("-Download time:\t\t{0} [ExtJS:{1}]\r\n", x_end_time - x_start_time, x_end_javascript_time - x_start_javascript_time);
-        str += String.format("-Wait time:\t\t{0}\r\n", x_render_start_time - x_end_time);
-        str += String.format("-Render time:\t\t{0}", x_render_end_time - x_render_start_time);
-        return str;
-        },
-        */
-
+		// 初始化
         init: function (msgTarget, labelWidth, labelSeparator, enableBigFont,
             blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax) {
             // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
@@ -415,7 +413,7 @@ X.ajaxReady = function () {
 
         // 由target获取window对象
         getTargetWindow: function (target) {
-            var wnd = null;
+            var wnd = window;
             if (target === '_self') {
                 wnd = window;
             } else if (target === '_parent') {
@@ -466,25 +464,25 @@ X.ajaxReady = function () {
         // 在启用AJAX的情况下，使所有的Asp.net的提交按钮（type="submit"）不要响应默认的submit行为，而是自定义的AJAX
         makeAspnetSubmitButtonAjax: function (buttonId) {
 
-            // 低版本IE浏览器不允许使用JS修改input标签的type属性，导致此函数无效
-            function resetButton(button) {
-                button.set({ "type": "button" });
-                button.addListener("click", function (event, el) {
-                    __doPostBack(el.getAttribute("name"), "");
-                    event.stopEvent();
-                });
-            }
+        // 低版本IE浏览器不允许使用JS修改input标签的type属性，导致此函数无效
+        function resetButton(button) {
+        button.set({ "type": "button" });
+        button.addListener("click", function (event, el) {
+        __doPostBack(el.getAttribute("name"), "");
+        event.stopEvent();
+        });
+        }
 
-            if (typeof (buttonId) === "undefined") {
-                Ext.each(Ext.DomQuery.select("input[type=submit]"), function (item, index) {
-                    resetButton(Ext.get(item));
-                });
-            } else {
-                var button = Ext.get(buttonId);
-                if (button.getAttribute("type") === "submit") {
-                    resetButton(button);
-                }
-            }
+        if (typeof (buttonId) === "undefined") {
+        Ext.each(Ext.DomQuery.select("input[type=submit]"), function (item, index) {
+        resetButton(Ext.get(item));
+        });
+        } else {
+        var button = Ext.get(buttonId);
+        if (button.getAttribute("type") === "submit") {
+        resetButton(button);
+        }
+        }
 
         },
 
@@ -567,6 +565,7 @@ X.ajaxReady = function () {
             }
         },
 
+		// 初始化左侧树（或者手风琴+树）与右侧选项卡控件的交互
         initTreeTabStrip: function (treeMenu, mainTabStrip, tbarCallback, updateLocationHash) {
 
             // 注册树的节点点击事件
@@ -662,7 +661,7 @@ X.ajaxReady = function () {
 
         },
 
-
+		// 复选框分组处理
         resolveCheckBoxGroup: function (name, xstateContainer, isradiogroup) {
             var items = [], i, count, xitem, xitemvalue, xitems, xselectedarray, xselected, xchecked, xitemname;
 
@@ -717,7 +716,49 @@ X.ajaxReady = function () {
                     return true;
                 }
             }
-        }
+        },
+		
+		// 对话框图标
+		getMessageBoxIcon: function(iconShortName) {
+			var icon = Ext.MessageBox.WARNING;
+			if(iconShortName === 'info') {
+				icon = Ext.MessageBox.INFO;
+			} else if(iconShortName === 'warning') {
+				icon = Ext.MessageBox.WARNING;
+			}  else if(iconShortName === 'question') {
+				icon = Ext.MessageBox.QUESTION;
+			}  else if(iconShortName === 'error') {
+				icon = Ext.MessageBox.ERROR;
+			} 
+			return icon;
+		},
+		
+		// 确认对话框
+		confirm: function(targetName, title, msg, iconShortName, cancelScript, okScript) {
+			var wnd = X.util.getTargetWindow(targetName);
+			var icon = X.util.getMessageBoxIcon(iconShortName);
+			wnd.Ext.MessageBox.show({
+				title: title || X.util.confirmTitle,
+				msg: msg,
+				buttons: Ext.MessageBox.OKCANCEL,
+				icon: icon,
+				fn: function (btn) {
+					if (btn == 'cancel') {
+						if(cancelScript) {
+							new Function(cancelScript)();
+						} else {
+							return false;
+						}
+					} else {
+						if(okScript) {
+							new Function(okScript)();
+						} else {
+							return false;
+						}
+					}
+				}
+			});
+		}
 
 
     };

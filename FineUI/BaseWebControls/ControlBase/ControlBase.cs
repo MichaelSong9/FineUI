@@ -160,6 +160,9 @@ namespace FineUI
 
         private List<string> _gzippedAjaxProperties = new List<string>();
 
+        /// <summary>
+        /// 目前Gzippped的属性只支持JObject和JArray两种类型（也即是JToken）
+        /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal List<string> GzippedAjaxProperties
@@ -272,9 +275,10 @@ namespace FineUI
 
                     foreach (string property in _gzippedAjaxProperties)
                     {
-                        if (_postBackState[property] == null)
+                        string gzippedString = _postBackState.Value<string>(property + "_GZ");
+                        if (!String.IsNullOrEmpty(gzippedString))
                         {
-                            _postBackState[property] = JObject.Parse(StringUtil.Ungzipped(_postBackState.Value<string>(property + "_GZ")));
+                            _postBackState[property] = JToken.Parse(StringUtil.Ungzipped(gzippedString));
                         }
                     }
 
@@ -300,7 +304,7 @@ namespace FineUI
         #region ReadOnly Properties
 
         /// <summary>
-        /// 不支持此属性（已禁用 Asp.Net 默认的 ViewState）
+        /// 不支持此属性（禁用控件默认的ViewState）
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -1081,10 +1085,8 @@ namespace FineUI
             foreach (string property in propertyList)
             {
                 bool propertyGzippped = _gzippedAjaxProperties.Contains(property);
-                string propertyGzippedValue = String.Empty;
 
                 object propertyValue = GetPropertyJSONValue(property);
-
 
                 if (propertyValue is JToken)
                 {
@@ -1093,8 +1095,25 @@ namespace FineUI
 
                     if (propertyGzippped)
                     {
-                        propertyGzippedValue = tokenValue.ToString(Newtonsoft.Json.Formatting.None);
+                        string propertyStringValue = tokenValue.ToString(Newtonsoft.Json.Formatting.None);
+                        string propertyGzippedValue = String.Empty;
+
+                        // 1. 小于500个字符，不启用Gzipped压缩
+                        if (propertyStringValue.Length > 500)
+                        {
+                            propertyGzippedValue = StringUtil.Gzipped(propertyStringValue);
+
+                            // 2. 压缩效果太差（不到原始大小的50%），则不启用Gzipped压缩
+                            if (propertyGzippedValue.Length > (propertyStringValue.Length / 2))
+                            {
+                                propertyGzippedValue = String.Empty;
+                            }
+                        }
+
+                        jo.Add(property + "_GZ", propertyGzippedValue);
                     }
+
+
                 }
                 else
                 {
@@ -1105,11 +1124,6 @@ namespace FineUI
                         // http://stackoverflow.com/questions/1659749/script-tag-in-javascript-string
                         string propertyValueStr = propertyValue.ToString().Replace("</script>", @"<\/script>");
                         jo.Add(property, propertyValueStr);
-
-                        if (propertyGzippped)
-                        {
-                            propertyGzippedValue = propertyValueStr;
-                        }
                     }
                     else if (propertyValue is Unit)
                     {
@@ -1121,13 +1135,6 @@ namespace FineUI
                         jo.Add(property, new JValue(propertyValue));
                     }
                 }
-
-
-                if (propertyGzippped && !String.IsNullOrEmpty(propertyGzippedValue))
-                {
-                    jo.Add(property + "_GZ", StringUtil.Gzipped( propertyGzippedValue));
-                }
-
             }
             return jo; //.ToString(Formatting.None);
         }
