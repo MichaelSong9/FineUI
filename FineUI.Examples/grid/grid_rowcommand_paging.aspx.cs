@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_rowcommand_test : PageBase
+    public partial class grid_rowcommand_paging : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,6 +52,11 @@ namespace FineUI.Examples.grid
                        "<br />" +
                        String.Format("当前行数据 - 编号：{0}，姓名：{1}", keys[0], keys[1]);
             }
+        }
+
+        protected void Grid1_PageIndexChange(object sender, FineUI.GridPageEventArgs e)
+        {
+            Grid1.PageIndex = e.NewPageIndex;
         }
 
         #endregion

@@ -36,6 +36,20 @@ namespace FineUI
 {
     public class StringUtil
     {
+        #region GZIPPED_VIEWSTATE
+
+        /// <summary>
+        /// GZIP压缩的ViewState隐藏字段的ID
+        /// </summary>
+        public static readonly string VIEWSTATE_ID = "__VIEWSTATE";
+
+        /// <summary>
+        /// GZIP压缩的ViewState隐藏字段的ID
+        /// </summary>
+        public static readonly string GZIPPED_VIEWSTATE_ID = "__VIEWSTATE_GZ"; 
+
+        #endregion
+
         #region EnumFromName EnumToName
 
         public static object EnumFromName(Type enumType, string enumName)
@@ -300,6 +314,8 @@ namespace FineUI
 
         #endregion
 
+        #region DecodeFrom64/EncodeTo64
+
         public static string DecodeFrom64(byte[] encodedDataAsBytes)
         {
             return System.Text.UTF8Encoding.UTF8.GetString(encodedDataAsBytes);
@@ -320,10 +336,12 @@ namespace FineUI
         {
             byte[] toEncodeAsBytes = System.Text.UTF8Encoding.UTF8.GetBytes(toEncode);
             return System.Convert.ToBase64String(toEncodeAsBytes);
-        }
+        } 
+        #endregion
 
+        #region Gzip/Ungzip
 
-        public static string Gzipped(string source)
+        public static string Gzip(string source)
         {
             using (var outStream = new MemoryStream())
             {
@@ -339,7 +357,7 @@ namespace FineUI
             }
         }
 
-        public static string Ungzipped(string source)
+        public static string Ungzip(string source)
         {
             byte[] bytes = Convert.FromBase64String(source);
 
@@ -362,7 +380,37 @@ namespace FineUI
                     return System.Text.Encoding.UTF8.GetString(memory.ToArray());
                 }
             }
+        } 
+        #endregion
+
+        #region LoadGzippedViewState
+        /// <summary>
+        /// 加载Gzipped的ViewState
+        /// </summary>
+        /// <param name="gzippedState"></param>
+        /// <returns></returns>
+        public static object LoadGzippedViewState(string gzippedState)
+        {
+            string ungzippedState = StringUtil.Ungzip(gzippedState);
+            LosFormatter formatter = new LosFormatter();
+            return formatter.Deserialize(ungzippedState);
         }
+
+        /// <summary>
+        /// 生成Gzipped的ViewState
+        /// </summary>
+        /// <param name="viewState"></param>
+        /// <returns></returns>
+        public static string GenerateGzippedViewState(object viewState)
+        {
+            LosFormatter formatter = new LosFormatter();
+            using (StringWriter writer = new StringWriter())
+            {
+                formatter.Serialize(writer, viewState);
+                return StringUtil.Gzip(writer.ToString());
+            }
+        } 
+        #endregion
 
     }
 }

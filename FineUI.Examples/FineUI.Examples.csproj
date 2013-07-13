@@ -183,7 +183,8 @@
     <Content Include="grid\grid_line_wrap.aspx" />
     <Content Include="grid\grid_summary_serverside_paged.aspx" />
     <Content Include="grid\grid_editor_cell_renderfunction.aspx" />
-    <Content Include="grid\grid_rowcommand_test.aspx" />
+    <Content Include="grid\grid_rowcommand_paging.aspx" />
+    <Content Include="grid\grid_rowcommand_paging_database.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -777,12 +778,19 @@
     <Compile Include="grid\grid_editor_cell_renderfunction.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_renderfunction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_rowcommand_test.aspx.cs">
-      <DependentUpon>grid_rowcommand_test.aspx</DependentUpon>
+    <Compile Include="grid\grid_rowcommand_paging.aspx.cs">
+      <DependentUpon>grid_rowcommand_paging.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_rowcommand_test.aspx.designer.cs">
-      <DependentUpon>grid_rowcommand_test.aspx</DependentUpon>
+    <Compile Include="grid\grid_rowcommand_paging.aspx.designer.cs">
+      <DependentUpon>grid_rowcommand_paging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rowcommand_paging_database.aspx.cs">
+      <DependentUpon>grid_rowcommand_paging_database.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rowcommand_paging_database.aspx.designer.cs">
+      <DependentUpon>grid_rowcommand_paging_database.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

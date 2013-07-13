@@ -184,15 +184,14 @@ namespace FineUI
 
 
                     /////////////////////////
-                    // 本次请求会重新加载表格数据（也就是存在对x_loadData函数的调用），因此短名称的JS变量已经存在
-                    if (PageManager.Instance.AjaxGridClientIDs.Count != 0 && PageManager.Instance.AjaxGridClientIDs.Contains(clientId))
+                    // 重新加载表格数据（也就是存在对x_loadData函数的调用）
+                    if (PageManager.Instance.AjaxGridReloadedClientIDs.Contains(clientId) &&
+                        (PageManager.Instance.AjaxGridClientIDs.Count != 0 && PageManager.Instance.AjaxGridClientIDs.Contains(clientId)))
                     {
-                        if (PageManager.Instance.AjaxGridReloadedClientIDs.Contains(clientId))
-                        {
-                            PageManager.Instance.AjaxGridClientIDs.Remove(clientId);
+                        PageManager.Instance.AjaxGridClientIDs.Remove(clientId);
 
-                            gridTplsBuilder.AppendFormat("{0}.x_tpls={1};", xid, GetGridTpls(doc, clientId));
-                        }
+                        gridTplsBuilder.AppendFormat("{0}.x_tpls={1};", xid, GetGridTpls(doc, clientId));
+
                     }
 
                     index++;
@@ -223,7 +222,10 @@ namespace FineUI
             UpdateASPNETControls(sb, doc);
 
             // 更新ViewState
-            UpdateViewState(sb, doc);
+            UpdateViewState(sb, doc, false);
+
+            // 更新压缩后的ViewState
+            UpdateViewState(sb, doc, true);
 
             // 更新EventValidation（如果存在则更新）
             UpdateEventValidation(sb, doc);
@@ -329,11 +331,16 @@ namespace FineUI
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="completeHtml"></param>
-        private void UpdateViewState(StringBuilder sb, HtmlDocument doc)
+        private void UpdateViewState(StringBuilder sb, HtmlDocument doc, bool gzipped)
         {
-            string oldViewState = HttpContext.Current.Request.Form["__VIEWSTATE"];
-            //string newViewState = GetHtmlNodeValue("<input type=\"hidden\" name=\"__VIEWSTATE\" id=\"__VIEWSTATE\" value=\"", completeHtml);
-            string newViewState = GetHtmlNodeValue("__VIEWSTATE", doc);
+            string viewStateHiddenFieldID = StringUtil.VIEWSTATE_ID;
+            if (gzipped)
+            {
+                viewStateHiddenFieldID = StringUtil.GZIPPED_VIEWSTATE_ID;
+            }
+
+            string oldViewState = HttpContext.Current.Request.Form[viewStateHiddenFieldID];
+            string newViewState = GetHtmlNodeValue(viewStateHiddenFieldID, doc);
 
             if (!String.IsNullOrEmpty(newViewState) && (oldViewState != newViewState))
             {
@@ -350,7 +357,7 @@ namespace FineUI
 
                 if (changeIndex == 0)
                 {
-                    sb.Append(String.Format("X.util.updateViewState('{0}');", newViewState));
+                    sb.Append(String.Format("X.util.updateViewState('{0}',{1});", newViewState, gzipped.ToString().ToLower()));
                 }
                 else
                 {
@@ -360,7 +367,7 @@ namespace FineUI
                         changedStr = newViewState.Substring(changeIndex);
                     }
 
-                    sb.Append(String.Format("X.util.updateViewState('{0}',{1});", changedStr, changeIndex));
+                    sb.Append(String.Format("X.util.updateViewState('{0}',{1},{2});", changedStr, changeIndex, gzipped.ToString().ToLower()));
                 }
             }
         }

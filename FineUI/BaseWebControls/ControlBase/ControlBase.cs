@@ -273,15 +273,17 @@ namespace FineUI
                         _postBackState = new JObject();
                     }
 
-                    foreach (string property in _gzippedAjaxProperties)
+                    if (PageManager.Instance.EnableXStateCompress)
                     {
-                        string gzippedString = _postBackState.Value<string>(property + "_GZ");
-                        if (!String.IsNullOrEmpty(gzippedString))
+                        foreach (string property in _gzippedAjaxProperties)
                         {
-                            _postBackState[property] = JToken.Parse(StringUtil.Ungzipped(gzippedString));
+                            string gzippedString = _postBackState.Value<string>(property + "_GZ");
+                            if (!String.IsNullOrEmpty(gzippedString))
+                            {
+                                _postBackState[property] = JToken.Parse(StringUtil.Ungzip(gzippedString));
+                            }
                         }
                     }
-
                 }
                 return _postBackState;
             }
@@ -1084,7 +1086,11 @@ namespace FineUI
             JObject jo = new JObject();
             foreach (string property in propertyList)
             {
-                bool propertyGzippped = _gzippedAjaxProperties.Contains(property);
+                bool propertyGzippped = false;
+                if (PageManager.Instance.EnableXStateCompress)
+                {
+                    propertyGzippped = _gzippedAjaxProperties.Contains(property);
+                }
 
                 object propertyValue = GetPropertyJSONValue(property);
 
@@ -1101,7 +1107,7 @@ namespace FineUI
                         // 1. 小于500个字符，不启用Gzipped压缩
                         if (propertyStringValue.Length > 500)
                         {
-                            propertyGzippedValue = StringUtil.Gzipped(propertyStringValue);
+                            propertyGzippedValue = StringUtil.Gzip(propertyStringValue);
 
                             // 2. 压缩效果太差（不到原始大小的50%），则不启用Gzipped压缩
                             if (propertyGzippedValue.Length > (propertyStringValue.Length / 2))

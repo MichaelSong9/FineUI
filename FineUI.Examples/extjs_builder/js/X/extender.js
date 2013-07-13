@@ -389,30 +389,41 @@ if (Ext.grid.GridPanel) {
 
             // INPUT:  /(<div id="(.+)_container">)<\/div>/ig.exec("<div id=\"Grid1_ctl37_container\"></div>")
             // OUTPUT: ["<div id="Grid1_ctl37_container"></div>", "<div id="Grid1_ctl37_container">", "Grid1_ctl37"]
+            /*
             Ext.each(data, function (row, rowIndex) {
                 Ext.each(row, function (item, index) {
-                    /*
-                    var regTpl = /(<div id=\"(.+)_container\">)<\/div>/ig.exec(item);
-                    if (regTpl) {
-                    row[index] = regTpl[1] + tplsHash[regTpl[2]] + '</div>';
-                    }
-                    */
                     if (item.substr(0, 7) === "#@TPL@#") {
                         var clientId = item.substr(7);
                         row[index] = '<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>';
                     }
                 });
             });
+            */
+
+            // 不要改变 X_Rows -> Values 的原始数据，因为这个值会被POST到后台
+            var newdata = [], newdataitem;
+            Ext.each(data, function (row, rowIndex) {
+                newdataitem = [];
+                Ext.each(row, function (item, index) {
+                    if (item.substr(0, 7) === "#@TPL@#") {
+                        var clientId = item.substr(7);
+                        newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
+                    } else {
+                        newdataitem.push(item);
+                    }
+                });
+                newdata.push(newdataitem);
+            });
             //////////////////////////////////////////////////
 
-            return data;
+            return newdata;
         },
 
         x_getTpls: function () {
             //var tplsNode = this.el.parent().down('.x-grid-tpls');
             var tplsNode = Ext.get(this.id + '_tpls');
             tpls = tplsNode.dom.innerHTML;
-            tplsNode.remove();
+            //tplsNode.remove();
             return tpls;
         },
 
@@ -733,7 +744,7 @@ if (Ext.grid.GridPanel) {
                     this.x_newAddedRows[i]++;
                 }
                 this.x_newAddedRows.push(0);
-                
+
             }
             this.startEditing(0, 0);
         },

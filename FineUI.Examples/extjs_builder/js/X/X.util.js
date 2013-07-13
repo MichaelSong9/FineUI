@@ -281,9 +281,20 @@ X.confirm = function () {
         },
 
         // 更新ViewState的值
-        updateViewState: function (newValue, startIndex) {
-            var oldValue = X.util.getHiddenFieldValue("__VIEWSTATE");
-            if (Ext.type(startIndex) == "number") {
+        updateViewState: function (newValue, startIndex, gzipped) {
+            if(typeof(startIndex) === 'boolean') {
+                gzipped = startIndex;
+                startIndex = -1;
+            }
+
+            var viewStateHiddenFiledID = "__VIEWSTATE";
+            if(gzipped)
+            {
+                viewStateHiddenFiledID = "__VIEWSTATE_GZ";
+            }
+
+            var oldValue = X.util.getHiddenFieldValue(viewStateHiddenFiledID);
+            if (Ext.type(startIndex) == "number" && startIndex > 0) {
                 if (startIndex < oldValue.length) {
                     oldValue = oldValue.substr(0, startIndex);
                 }
@@ -291,7 +302,7 @@ X.confirm = function () {
                 // Added on 2011-5-2, this is a horrible mistake.
                 oldValue = '';
             }
-            X.util.setHiddenFieldValue("__VIEWSTATE", oldValue + newValue);
+            X.util.setHiddenFieldValue(viewStateHiddenFiledID, oldValue + newValue);
         },
 
         // 更新EventValidation的值
@@ -734,7 +745,7 @@ X.confirm = function () {
 		},
 		
 		// 确认对话框
-		confirm: function(targetName, title, msg, iconShortName, cancelScript, okScript) {
+		confirm: function(targetName, title, msg, okScript, cancelScript, iconShortName) {
 			var wnd = X.util.getTargetWindow(targetName);
 			var icon = X.util.getMessageBoxIcon(iconShortName);
 			wnd.Ext.MessageBox.show({

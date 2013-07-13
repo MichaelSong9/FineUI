@@ -127,51 +127,69 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript, Target target)
         {
-		/*
-            if (String.IsNullOrEmpty(title))
-            {
-                title = "X.util.confirmTitle";
-            }
-            else
-            {
-                title = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
-            }
-            message = message.Replace("\r\n", "\n").Replace("\n", "<br/>");
+            /*
+                if (String.IsNullOrEmpty(title))
+                {
+                    title = "X.util.confirmTitle";
+                }
+                else
+                {
+                    title = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+                }
+                message = message.Replace("\r\n", "\n").Replace("\n", "<br/>");
 
 
-            JsObjectBuilder ob = new JsObjectBuilder();
-            ob.AddProperty("title", title, true);
-            ob.AddProperty("msg", JsHelper.GetJsStringWithScriptTag(message), true);
-            ob.AddProperty("buttons", "Ext.MessageBox.OKCANCEL", true);
-            ob.AddProperty("icon", String.Format("{0}", MessageBoxIconHelper.GetName(icon)), true);
-            ob.AddProperty("fn", String.Format("function(btn){{if(btn=='cancel'){{{0}}}else{{{1}}}}}", cancelScript, okScriptstring), true);
+                JsObjectBuilder ob = new JsObjectBuilder();
+                ob.AddProperty("title", title, true);
+                ob.AddProperty("msg", JsHelper.GetJsStringWithScriptTag(message), true);
+                ob.AddProperty("buttons", "Ext.MessageBox.OKCANCEL", true);
+                ob.AddProperty("icon", String.Format("{0}", MessageBoxIconHelper.GetName(icon)), true);
+                ob.AddProperty("fn", String.Format("function(btn){{if(btn=='cancel'){{{0}}}else{{{1}}}}}", cancelScript, okScriptstring), true);
 
-            string targetName = "window";
-            if (target != Target.Self)
-            {
-                targetName = TargetHelper.GetScriptName(target);
-            }
-            return String.Format("{0}.Ext.MessageBox.show({1});", targetName, ob.ToString());
-			*/
-			string scriptTitle = "''";
-			if (!String.IsNullOrEmpty(title))
+                string targetName = "window";
+                if (target != Target.Self)
+                {
+                    targetName = TargetHelper.GetScriptName(target);
+                }
+                return String.Format("{0}.Ext.MessageBox.show({1});", targetName, ob.ToString());
+                */
+            string scriptTitle = "''";
+            if (!String.IsNullOrEmpty(title))
             {
                 title = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
             }
             string scriptMessage = JsHelper.GetJsStringWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
 
-			string scriptIconName = "''";
-			if(icon != MessageBoxIcon.Warning) {
-				scriptIconName = String.Format("'{0}'", MessageBoxIconHelper.GetShortName(icon));
-			}
-			
-			string scriptTargetName = "''";
+            string scriptIconName = "''";
+            if (icon != MessageBoxIcon.Warning)
+            {
+                scriptIconName = String.Format("'{0}'", MessageBoxIconHelper.GetShortName(icon));
+            }
+
+            string scriptTargetName = "''";
             if (target != Target.Self)
             {
                 scriptTargetName = String.Format("'{0}'", TargetHelper.GetName(target));
             }
-			
-			return String.Format("X.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptIconName, JsHelper.GetJsString(cancelScript), JsHelper.GetJsString(okScript));
+            string scriptCancel = JsHelper.GetJsString(cancelScript);
+            string scriptOK = JsHelper.GetJsString(okScript);
+
+            if (scriptIconName == "''")
+            {
+                if (scriptCancel == "''")
+                {
+                    return String.Format("X.confirm({0},{1},{2},{3});", scriptTargetName, scriptTitle, scriptMessage, scriptOK);
+                }
+                else
+                {
+                    return String.Format("X.confirm({0},{1},{2},{3},{4});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel);
+                }
+            }
+            else
+            {
+                return String.Format("X.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel, scriptIconName);
+            }
+
         }
 
         #endregion

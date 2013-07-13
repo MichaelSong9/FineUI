@@ -19,19 +19,22 @@ Apache License v2.0
 下载：http://fineui.codeplex.com/
 
 
-FineUI严格遵守 ExtJS 关于开源软件的规则，不再内置 ExtJS 库。
-获取适用于 FineUI 的 ExtJS 库：http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218 
-基于 FineUI 的空项目（Net2.0 和 Net4.0 两个版本）：http://fineui.com/bbs/forum.php?mod=viewthread&tid=2123
+FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，请通过如下两个途径获取ExtJS库：
+1. 获取适用于 FineUI 的 ExtJS 库：http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218 
+2. 基于 FineUI 的空项目（Net2.0 和 Net4.0 两个版本）：http://fineui.com/bbs/forum.php?mod=viewthread&tid=2123
 
 
 发布历史
 
 +2013-07-* v3.3.1
 	-将工具YUICompressor替换为Microsoft Ajax Minifier。
+	-为官方示例增加压缩ViewState的方法，在页面基类PageBase中实现。
 	+为表格/树/下拉列表/单选框复选框列表控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
 		-会稍微增加下载数据量，从整体上提升用户体验。
+		-可以通过PageManager或者Web.config的配置属性EnableXStateCompress来关闭XState的Gzip压缩（默认启用）。
 	+表格增强。
 		-优化CheckBoxField/HyperLinkField/LinkButtonField，减少生成的HTML代码片段大小。
+		-优化模板列存在时POST数据大小，优化内存分页时响应数据大小。
 
 
 

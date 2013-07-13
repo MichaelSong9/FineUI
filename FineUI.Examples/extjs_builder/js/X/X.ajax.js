@@ -243,6 +243,17 @@
             X.util.removeHiddenField(cmp.id + '_' + property);
         }
 
+        // 如果存在Gzip压缩的属性，就删除原来的属性
+        function resolveGZProperty(property) {
+            var gzProperty = property + '_GZ';
+            if (state[gzProperty]) {
+                delete state[property];
+            } else {
+                delete state[gzProperty];
+            }
+        }
+
+
 
         // 有些属性可以在客户端改变，因此需要在每个请求之前计算
         if (cmp.isXType('menucheckitem')) {
@@ -301,21 +312,13 @@
             }
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
-            if (state['X_Rows_GZ']) {
-                delete state['X_Rows'];
-            } else {
-				delete state['X_Rows_GZ'];
-			}
+            resolveGZProperty('X_Rows');
         }
 
         if (cmp.isXType('combo') || cmp.isXType('checkboxgroup') || cmp.isXType('radiogroup')) {
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
-            if (state['X_Items_GZ']) {
-                delete state['X_Items'];
-            } else {
-				delete state['X_Items_GZ'];
-			}
+            resolveGZProperty('X_Items');
         }
 
         if (cmp.isXType('treepanel')) {
@@ -324,11 +327,7 @@
             saveInHiddenField('SelectedNodeIDArray', cmp.x_getSelectedNodes().join(','));
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
-            if (state['X_Nodes_GZ']) {
-                delete state['X_Nodes'];
-            } else {
-				delete state['X_Nodes_GZ'];
-			}
+            resolveGZProperty('X_Nodes');
         }
 
         if (cmp.isXType('tabpanel')) {

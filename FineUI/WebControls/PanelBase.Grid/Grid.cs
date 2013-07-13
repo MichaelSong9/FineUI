@@ -1967,12 +1967,16 @@ namespace FineUI
 
                     dataReloaded = true;
                 }
+
+                // 如果X_Rows改变了，则每行的模版列内容应该也要变化
+                PageManager.Instance.AjaxGridClientIDs.Add(ClientID);
             }
 
             // 本次AJAX请求重新加载的表格
             if (dataReloaded)
             {
                 PageManager.Instance.AjaxGridReloadedClientIDs.Add(ClientID);
+
             }
 
             //if (PropertyModified("X_States"))
@@ -2055,8 +2059,6 @@ namespace FineUI
                     }
                 }
 
-                // 数据重新加载了，需要同步更新模版列的内容，因为表格HTML重新渲染了
-                PageManager.Instance.AjaxGridClientIDs.Add(ClientID);
             }
 
             AddAjaxScript(sb);

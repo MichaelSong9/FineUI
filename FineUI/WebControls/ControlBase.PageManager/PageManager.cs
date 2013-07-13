@@ -309,9 +309,12 @@ namespace FineUI
         }
 
 
+        /// <summary>
+        /// 需要在AJAX回发时更新的Asp.net控件列表（逗号分隔）
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(null)]
-        [Description("需要在AJAX回发时更新的Asp.net控件列表，逗号分隔")]
+        [Description("需要在AJAX回发时更新的Asp.net控件列表（逗号分隔）")]
         [TypeConverter(typeof(StringArrayConverter))]
         public string[] AjaxAspnetControls
         {
@@ -364,7 +367,7 @@ namespace FineUI
 
         #endregion
 
-        #region Theme
+        #region 配置参数
 
         /// <summary>
         /// 样式
@@ -764,6 +767,37 @@ namespace FineUI
             set
             {
                 XState["AjaxTimeout"] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 是否启用XState压缩（默认为true）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否启用XState压缩（默认为true）")]
+        public bool EnableXStateCompress
+        {
+            get
+            {
+                object obj = XState["EnableXStateCompress"];
+                if (obj == null)
+                {
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return GlobalConfig.GetEnableXStateCompress();
+                    }
+                }
+                return (bool)obj;
+            }
+            set
+            {
+                XState["EnableXStateCompress"] = value;
             }
         }
 

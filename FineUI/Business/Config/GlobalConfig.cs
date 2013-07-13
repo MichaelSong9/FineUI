@@ -35,6 +35,7 @@ namespace FineUI
 {
     public static class GlobalConfig
     {
+        #region 静态构造函数
 
         /// <summary>
         /// 初始化section对象，如果在Web.config中没有定义，则初始化为空对象
@@ -48,6 +49,8 @@ namespace FineUI
                 section = new ConfigSection();
             }
         }
+        
+        #endregion
 
         #region Section
 
@@ -193,7 +196,7 @@ namespace FineUI
         //}
 
         /// <summary>
-        /// Ajax超时时间（单位：秒，默认：60s）
+        /// AJAX超时时间（单位：秒，默认：60s）
         /// </summary>
         public static int GetAjaxTimeout()
         {
@@ -211,7 +214,7 @@ namespace FineUI
 
 
         /// <summary>
-        /// 是否启用Ajax提示
+        /// 是否启用AJAX提示
         /// </summary>
         public static bool GetEnableAjaxLoading()
         {
@@ -219,7 +222,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Ajax提示的类型
+        /// AJAX提示的类型
         /// </summary>
         public static AjaxLoadingType GetAjaxLoadingType()
         {
@@ -275,6 +278,16 @@ namespace FineUI
         {
             return section.CustomTheme;
         }
+
+
+        /// <summary>
+        /// 是否启用XState压缩
+        /// </summary>
+        public static bool GetEnableXStateCompress()
+        {
+            return Convert.ToBoolean(section.EnableXStateCompress);
+        }
+
 
         ///// <summary>
         ///// 是否启用Ajax

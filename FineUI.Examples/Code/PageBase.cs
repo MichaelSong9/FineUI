@@ -7,6 +7,7 @@ using System.Text;
 using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO;
 
 
 namespace FineUI.Examples
@@ -65,8 +66,7 @@ namespace FineUI.Examples
 
         #endregion
 
-
-        #region ValidateFileType
+        #region 上传文件类型判断
 
         protected readonly static List<string> VALID_FILE_TYPES = new List<string> { "jpg", "bmp", "gif", "jpeg", "png" };
 
@@ -873,6 +873,22 @@ namespace FineUI.Examples
 
 
         #endregion
+
+        #region 压缩ViewState
+
+        //protected override object LoadPageStateFromPersistenceMedium()
+        //{
+        //    string gzippedState = Request.Form[StringUtil.GZIPPED_VIEWSTATE_ID];
+        //    return StringUtil.LoadGzippedViewState(gzippedState);
+        //}
+
+        //protected override void SavePageStateToPersistenceMedium(object viewState)
+        //{
+        //    ClientScript.RegisterHiddenField(StringUtil.GZIPPED_VIEWSTATE_ID, StringUtil.GenerateGzippedViewState(viewState));
+        //} 
+
+        #endregion
+
     }
 
 }

@@ -58,6 +58,7 @@ namespace FineUI
         public const string EXTJSBASEPATH = "ExtjsBasePath";
         public const string CUSTOMTHEMEBASEPATH = "CustomThemeBasePath";
         public const string CUSTOMTHEME = "CustomTheme";
+        public const string ENABLEXSTATECOMPRESS = "EnableXStateCompress";
     }
 
     /// <summary>
@@ -86,6 +87,10 @@ namespace FineUI
         public const string LANGUAGE_EN = "en";
         public const string LANGUAGE_ZH_CN = "zh_CN";
         public const string LANGUAGE_ZH_TW = "zh_TW";
+        public const string LANGUAGE_PT_BR = "pt_BR";
+        public const string LANGUAGE_TR = "tr";
+        public const string LANGUAGE_RU = "ru";
+
 
         // Ajax 超时时间（单位：秒）
         public const int AJAX_TIMEOUT_DEFAULT = 60;
@@ -109,6 +114,9 @@ namespace FineUI
         public const string CUSTOM_THEME_BASE_PATH_DEFAULT = "~/theme";
 
         public const string CUSTOM_THEME_DEFAULT = "";
+
+
+        public const bool ENABLE_XSTATE_COMPRESS = true;
     }
 
 
