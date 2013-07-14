@@ -48,18 +48,13 @@
 
         function registerSyncEvent() {
             var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-change-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-change-registered': true });
 
-            grid.el.select('.x-grid-tpl select.gender').on("change", function (evt, el) {
+            grid.el.on("change", function (evt, el) {
 
                 var row = Ext.get(el).parent('.x-grid3-row');
                 row.query('input.gender')[0].value = el.value;
 
-            });
+            }, { delegate: '.x-grid-tpl select.gender' });
 
         }
 
@@ -71,9 +66,6 @@
             });
         }
 
-        function onAjaxReady() {
-            registerSyncEvent();
-        }
     </script>
 </body>
 </html>

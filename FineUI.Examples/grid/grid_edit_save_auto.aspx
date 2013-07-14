@@ -101,14 +101,9 @@
 
         function registerAutoSaveEvent() {
             var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-keydown-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-keydown-registered': true });
 
-            grid.el.select('.x-grid-tpl input').on("keypress", function (evt, el) {
-                
+            grid.el.on("keypress", function (evt, el) {
+
                 window.setTimeout(function () {
 
                     var row = Ext.get(el).parent('.x-grid3-row');
@@ -122,7 +117,7 @@
                     __doPostBack(gridClientID, 'AutoSave$' + rowIndex);
 
                 }, 500);
-            });
+            }, { delegate: '.x-grid-tpl input' });
 
         }
 
@@ -135,10 +130,6 @@
             });
         }
 
-        // Ajax完成后调用的函数
-        function onAjaxReady() {
-            registerAutoSaveEvent();
-        }
     </script>
 </body>
 </html>

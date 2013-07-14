@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px"
-        runat="server" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"
+        DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
         <Columns>
             <x:TemplateField Width="80px">
                 <ItemTemplate>
@@ -39,10 +39,9 @@
         </Columns>
     </x:Grid>
     <br />
-    <x:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
+    <x:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="将分组值全部加一">
     </x:Button>
-    <br />
-    <x:Button runat="server" ID="Button1" OnClick="Button1_Click" Text="将分组值全部加一">
+    <x:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
     </x:Button>
     <br />
     <x:Label ID="labResult" EncodeText="false" runat="server">
@@ -54,15 +53,10 @@
 
         function registerSelectEvent() {
             var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-click-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-click-registered': true });
 
-            grid.el.select('.x-grid-tpl input').on('click', function (evt, el) {
+            grid.el.on('click', function (evt, el) {
                 el.select();
-            });
+            }, { delegate: '.x-grid-tpl input' });
         }
 
         function onReady() {
@@ -73,9 +67,6 @@
             });
         }
 
-        function onAjaxReady() {
-            registerSelectEvent();
-        }
     </script>
 </body>
 </html>

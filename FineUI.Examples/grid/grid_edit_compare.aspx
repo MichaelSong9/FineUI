@@ -67,12 +67,9 @@
         <li>点击输入框即可选中全部文本（JavaScript函数registerSelectEvent）</li>
     </ul>
     <br />
-    <br />
-    <br />
-    <x:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
+    <x:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="获取用户输入的分组值">
     </x:Button>
-    <br />
-    <x:Button runat="server" ID="Button1" OnClick="Button1_Click" Text="获取用户输入的分组值">
+    <x:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
     </x:Button>
     <br />
     <x:Label ID="labResult" EncodeText="false" runat="server">
@@ -84,30 +81,20 @@
 
         function registerSelectEvent() {
             var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-click-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-click-registered': true });
 
-            grid.el.select('.x-grid-tpl input').on('click', function (evt, el) {
+            grid.el.on('click', function (evt, el) {
                 el.select();
-            });
+            }, { delegate: '.x-grid-tpl input' });
         }
 
         function registerEnterEvent() {
             var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-keydown-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-keydown-registered': true });
 
-            grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
+            grid.el.on("keydown", function (evt, el) {
                 /*
                 var colNum = 1, idPattern = /^[^_]+_c(\d+)r\d+_[^_]+$/.exec(el.id);
                 if (idPattern && idPattern.length == 2) {
-                    colNum = idPattern[1];
+                colNum = idPattern[1];
                 }
                 */
                 if (evt.getKey() == evt.ENTER) {
@@ -116,18 +103,13 @@
                         nextRow.query('.x-grid-tpl input.group1')[0].select();
                     }
                 }
-            });
+            }, { delegate: '.x-grid-tpl input' });
         }
 
         function registerCompareEvent() {
             var grid = X(gridClientID);
-            // 防止重复注册客户端事件
-            if (grid.el.getAttribute('data-event-keydown2-registered')) {
-                return;
-            }
-            grid.el.set({ 'data-event-keydown2-registered': true });
 
-            grid.el.select('.x-grid-tpl input').on("keydown", function (evt, el) {
+            grid.el.on("keydown", function (evt, el) {
 
                 window.setTimeout(function () {
 
@@ -145,8 +127,8 @@
                     }
 
                 }, 500);
-            });
-            
+            }, { delegate: '.x-grid-tpl input' });
+
         }
 
         function onReady() {
@@ -155,17 +137,10 @@
             grid.on('viewready', function () {
                 registerSelectEvent();
                 registerEnterEvent();
-
                 registerCompareEvent();
             });
         }
 
-        function onAjaxReady() {
-            registerSelectEvent();
-            registerEnterEvent();
-
-            registerCompareEvent();
-        }
     </script>
 </body>
 </html>
