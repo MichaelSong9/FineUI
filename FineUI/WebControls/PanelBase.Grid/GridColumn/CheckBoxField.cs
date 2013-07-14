@@ -200,11 +200,11 @@ namespace FineUI
                 string textAlignClass = String.Empty;
                 if (TextAlign != TextAlign.Left)
                 {
-                    textAlignClass = "box-grid-checkbox-" + TextAlignName.GetName(TextAlign);
+                    textAlignClass = "align-" + TextAlignName.GetName(TextAlign);
                 }
 
-                string onClickScript = "Ext.get(this).toggleClass('box-grid-checkbox-unchecked');";
-                onClickScript += "X.stopEvent();";
+                string onClickScript = "X.toggle(this,'unchecked');";
+                onClickScript += "X.stop();";
 
                 //string tooltip = String.Empty;
                 //if (!String.IsNullOrEmpty(HeaderText))
@@ -212,7 +212,7 @@ namespace FineUI
                 //    tooltip = String.Format(" ext:qtip=\"{0}\" ", HeaderText);
                 //}
 
-                result = String.Format("<div class=\"box-grid-checkbox box-grid-checkbox-unchecked {0}\" onclick=\"{1}\">{2}</div>", textAlignClass, onClickScript, HeaderText);
+                result = String.Format("<div class=\"box-grid-checkbox unchecked {0}\" onclick=\"{1}\">{2}</div>", textAlignClass, onClickScript, HeaderText);
 
                 return result;
             }
@@ -255,7 +255,7 @@ namespace FineUI
                 string textAlignClass = String.Empty;
                 if (TextAlign != TextAlign.Left)
                 {
-                    textAlignClass = "box-grid-checkbox-" + TextAlignName.GetName(TextAlign);
+                    textAlignClass = "align-" + TextAlignName.GetName(TextAlign);
                 }
 
                 if (RenderAsStaticField)
@@ -266,7 +266,7 @@ namespace FineUI
                     }
                     else
                     {
-                        result = "<div class=\"box-grid-static-checkbox box-grid-static-checkbox-unchecked " + textAlignClass + "\"></div>";
+                        result = "<div class=\"box-grid-static-checkbox unchecked " + textAlignClass + "\"></div>";
                     }
                 }
                 else
@@ -277,13 +277,14 @@ namespace FineUI
                     string postBackReference = JsHelper.GetDeferScript(Grid.GetPostBackEventReference(paramStr), 0);
 
                     // string onClickScript = String.Format("{0}_checkbox{1}(event,this,{2});", Grid.XID, ColumnIndex, row.RowIndex);
-                    string onClickScript = "Ext.get(this).toggleClass('box-grid-checkbox-unchecked');";
+                    //string onClickScript = "Ext.get(this).toggleClass('unchecked');";
+                    string onClickScript = "X.toggle(this,'unchecked');";
                     if (!ShowHeaderCheckBox && AutoPostBack)
                     {
                         onClickScript += postBackReference;
                     }
 
-                    onClickScript += "X.stopEvent();";
+                    onClickScript += "X.stop();";
 
                     if (checkState)
                     {
@@ -293,18 +294,18 @@ namespace FineUI
                         }
                         else
                         {
-                            result = String.Format("<div class=\"box-grid-checkbox box-grid-checkbox-disabled {0}\"></div>", textAlignClass);
+                            result = String.Format("<div class=\"box-grid-checkbox disabled {0}\"></div>", textAlignClass);
                         }
                     }
                     else
                     {
                         if (Enabled)
                         {
-                            result = String.Format("<div class=\"box-grid-checkbox box-grid-checkbox-unchecked {0}\" onclick=\"{1}\"></div>", textAlignClass, onClickScript);
+                            result = String.Format("<div class=\"box-grid-checkbox unchecked {0}\" onclick=\"{1}\"></div>", textAlignClass, onClickScript);
                         }
                         else
                         {
-                            result = String.Format("<div class=\"box-grid-checkbox box-grid-checkbox-disabled box-grid-checkbox-unchecked-disabled {0}\"></div>", textAlignClass);
+                            result = String.Format("<div class=\"box-grid-checkbox unchecked disabled {0}\"></div>", textAlignClass);
                         }
                     }
                 }

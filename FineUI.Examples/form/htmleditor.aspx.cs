@@ -12,7 +12,7 @@ namespace FineUI.Examples.form
         {
             if (!IsPostBack)
             {
-                HtmlEditor1.Text = "<br /><strong>产品：</strong>&nbsp;<font color=#ff0000><strong>FineUI</strong></font><br /><br /><strong>描述：</strong> FineUI 是基于 ExtJS 的专业 ASP.NET 2.0 控件库，拥有完善的 AJAX 支持和丰富的界面效果。<br />";
+                HtmlEditor1.Text = "关于FineUI<br>基于 ExtJS 的专业 ASP.NET 控件库。<br><br>FineUI的使命<br>创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。<br><br>支持的浏览器<br>IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+<br><br>授权协议<br>Apache License v2.0<br>注：ExtJS 库在 GPL v3 协议下发布(http://www.sencha.com/license)。<br><br>相关链接<br>论坛：<a href=\"http://fineui.com/bbs/\">http://fineui.com/bbs/</a><br>示例：<a href=\"http://fineui.com/demo/\">http://fineui.com/demo/</a><br>文档：<a href=\"http://fineui.com/doc/\">http://fineui.com/doc/</a><br>下载：<a href=\"http://fineui.codeplex.com/\">http://fineui.codeplex.com/</a><br><br>";
             }
         }
 

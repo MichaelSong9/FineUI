@@ -30,6 +30,8 @@
 
 
 
+
+
 .x-grid-panel .box-grid-static-checkbox
 {
     width:100%;
@@ -41,24 +43,21 @@
     padding-left: 18px;
 }
 
-.x-grid-panel .box-grid-static-checkbox.box-grid-checkbox-left
+.x-grid-panel .box-grid-static-checkbox.align-left
 {
     background-position:left center;
     padding-left: 18px;
 }
-.x-grid-panel .box-grid-static-checkbox.box-grid-checkbox-center
+.x-grid-panel .box-grid-static-checkbox.align-center
 {
     background-position:center center;
 }
-.x-grid-panel .box-grid-static-checkbox.box-grid-checkbox-right
+.x-grid-panel .box-grid-static-checkbox.align-right
 {
     background-position:right center;
     padding-right: 18px;
 }
-
-
-
-.x-grid-panel .box-grid-static-checkbox-unchecked
+.x-grid-panel .box-grid-static-checkbox.unchecked
 {
     background-image:url(../images/bullet_cross.png);
 }
@@ -76,30 +75,30 @@
     background-image:url(../images/checked.gif);
 }
 
-.x-grid-panel .box-grid-checkbox.box-grid-checkbox-left
+.x-grid-panel .box-grid-checkbox.align-left
 {
     background-position:left center;
 }
-.x-grid-panel .box-grid-checkbox.box-grid-checkbox-center
+.x-grid-panel .box-grid-checkbox.align-center
 {
     background-position:center center;
 }
-.x-grid-panel .box-grid-checkbox.box-grid-checkbox-right
+.x-grid-panel .box-grid-checkbox.align-right
 {
     background-position:right center;
 }
 
-.x-grid-panel .box-grid-checkbox-disabled
+.x-grid-panel .box-grid-checkbox.disabled
 {
     background-image:url(../images/checked_disabled.gif);
 }
 
-.x-grid-panel .box-grid-checkbox-unchecked
+.x-grid-panel .box-grid-checkbox.unchecked
 {
     background-image:url(../images/unchecked.gif);
 }
 
-.x-grid-panel .box-grid-checkbox-unchecked-disabled
+.x-grid-panel .box-grid-checkbox.unchecked.disabled
 {
     background-image:url(../images/unchecked_disabled.gif);
 }

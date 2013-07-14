@@ -180,6 +180,14 @@ namespace FineUI
             }
 
 
+            // 如果Text属性存在于XState中，则不要重复设置value属性，而是在render事件中使用XState的值
+            if (XState.ModifiedProperties.Contains("Text"))
+            {
+                OB.RemoveProperty("value");
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
+            }
+
+
             //// 自动增长的最小高度要么等于高度，要么等于50（最小值）
             //if (AutoGrowHeight)
             //{

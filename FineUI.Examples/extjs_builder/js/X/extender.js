@@ -138,8 +138,9 @@ if (Ext.form.Field) {
         },
         */
 
-        x_setValue: function () {
-            this.setValue(this.x_state['Text']);
+        x_setValue: function (text) {
+            text = text || this.x_state['Text'];
+            this.setValue(text);
         },
 
         x_setLabel: function (text) {
@@ -391,12 +392,12 @@ if (Ext.grid.GridPanel) {
             // OUTPUT: ["<div id="Grid1_ctl37_container"></div>", "<div id="Grid1_ctl37_container">", "Grid1_ctl37"]
             /*
             Ext.each(data, function (row, rowIndex) {
-                Ext.each(row, function (item, index) {
-                    if (item.substr(0, 7) === "#@TPL@#") {
-                        var clientId = item.substr(7);
-                        row[index] = '<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>';
-                    }
-                });
+            Ext.each(row, function (item, index) {
+            if (item.substr(0, 7) === "#@TPL@#") {
+            var clientId = item.substr(7);
+            row[index] = '<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>';
+            }
+            });
             });
             */
 
@@ -407,7 +408,7 @@ if (Ext.grid.GridPanel) {
                 Ext.each(row, function (item, index) {
                     if (item.substr(0, 7) === "#@TPL@#") {
                         var clientId = item.substr(7);
-                        newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
+                        newdataitem.push('<div id="' + clientId + '_ct">' + tplsHash[clientId] + '</div>');
                     } else {
                         newdataitem.push(item);
                     }
@@ -420,10 +421,21 @@ if (Ext.grid.GridPanel) {
         },
 
         x_getTpls: function () {
-            //var tplsNode = this.el.parent().down('.x-grid-tpls');
-            var tplsNode = Ext.get(this.id + '_tpls');
-            tpls = tplsNode.dom.innerHTML;
-            //tplsNode.remove();
+            var tpls, tplsNode = Ext.get(this.id + '_tpls');
+            if (tplsNode) {
+                tpls = tplsNode.dom.innerHTML;
+
+                // 获取模板列的内容之后，必须要删除原有的节点，因为会在表格中创建完全相同的新节点
+                tplsNode.remove();
+
+                // 将模板列内容保存到表格实例中
+                this['data-last-tpls'] = tpls;
+
+            } else {
+                
+                tpls = this['data-last-tpls'];
+            }
+
             return tpls;
         },
 
@@ -437,7 +449,7 @@ if (Ext.grid.GridPanel) {
             e.innerHTML = tpls;
             Ext.each(e.childNodes, function (item, index) {
                 var nodeId = item.id;
-                Ext.get(nodeId + '_container').dom.innerHTML = item.outerHTML;
+                Ext.get(nodeId + '_ct').dom.innerHTML = item.outerHTML;
             });
         },
 

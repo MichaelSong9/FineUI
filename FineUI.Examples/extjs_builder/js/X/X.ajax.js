@@ -321,6 +321,12 @@
             resolveGZProperty('X_Items');
         }
 
+        if (cmp.isXType('field')) {
+
+            // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
+            resolveGZProperty('Text');
+        }
+
         if (cmp.isXType('treepanel')) {
             saveInHiddenField('ExpandedNodes', cmp.x_getExpandedNodes(cmp.getRootNode().childNodes).join(','));
             saveInHiddenField('CheckedNodes', cmp.x_getCheckedNodes().join(','));

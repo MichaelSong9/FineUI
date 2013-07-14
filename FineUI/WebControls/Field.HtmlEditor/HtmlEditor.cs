@@ -52,6 +52,8 @@ namespace FineUI
         {
             AddServerAjaxProperties();
             AddClientAjaxProperties("Text");
+
+            AddGzippedAjaxProperties("Text");
         }
 
         #endregion
@@ -373,6 +375,15 @@ namespace FineUI
             {
                 OB.AddProperty("value", Text);
             }
+
+
+            // 如果Text属性存在于XState中，则不要重复设置value属性，而是在render事件中使用XState的值
+            if (XState.ModifiedProperties.Contains("Text"))
+            {
+                OB.RemoveProperty("value");
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
+            }
+
 
             string jsContent = String.Format("var {0}=new Ext.form.HtmlEditor({1});", XID, OB.ToString());
             AddStartupScript(jsContent);

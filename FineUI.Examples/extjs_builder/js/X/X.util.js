@@ -42,7 +42,7 @@ X.ajaxReady = function () {
     }
 };
 
-X.stopEvent = function () {
+X.stop = function () {
     var event = arguments.callee.caller.arguments[0] || window.event;
     X.util.stopEventPropagation(event);
 };
@@ -50,6 +50,11 @@ X.stopEvent = function () {
 X.confirm = function () {
 	X.util.confirm.apply(null, arguments);
 };
+
+X.toggle = function (el, className) {
+    Ext.get(el).toggleClass(className);
+};
+
 
 (function () {
 

@@ -777,7 +777,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
         [Description("是否启用XState压缩（默认为true）")]
-        public bool EnableXStateCompress
+        public new bool EnableXStateCompress
         {
             get
             {

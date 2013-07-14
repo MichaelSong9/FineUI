@@ -161,7 +161,7 @@ namespace FineUI
         private List<string> _gzippedAjaxProperties = new List<string>();
 
         /// <summary>
-        /// 目前Gzippped的属性只支持JObject和JArray两种类型（也即是JToken）
+        /// 目前Gzippped的属性支持JObject/JArray/String类型
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -273,14 +273,33 @@ namespace FineUI
                         _postBackState = new JObject();
                     }
 
-                    if (PageManager.Instance.EnableXStateCompress)
+                    // 启用XState压缩
+                    if (EnableXStateCompress)
                     {
                         foreach (string property in _gzippedAjaxProperties)
                         {
                             string gzippedString = _postBackState.Value<string>(property + "_GZ");
                             if (!String.IsNullOrEmpty(gzippedString))
                             {
-                                _postBackState[property] = JToken.Parse(StringUtil.Ungzip(gzippedString));
+                                // 从压缩后的Gzip字符串恢复属性的值（可能为JObject/JArray/String）
+                                PropertyInfo info = this.GetType().GetProperty(property);
+                                if (info != null)
+                                {
+                                    string ungzippedString = StringUtil.Ungzip(gzippedString);
+                                    if (info.PropertyType == typeof(String))
+                                    {
+                                        _postBackState[property] = ungzippedString;
+                                    }
+                                    else if (info.PropertyType == typeof(JObject))
+                                    {
+                                        _postBackState[property] = JObject.Parse(ungzippedString);
+                                    }
+                                    else if (info.PropertyType == typeof(JArray))
+                                    {
+                                        _postBackState[property] = JArray.Parse(ungzippedString);
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -530,6 +549,37 @@ namespace FineUI
             set
             {
                 XState["EnableAjax"] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 是否启用XState压缩（默认为true）
+        /// </summary>
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否启用XState压缩（默认为true）")]
+        public virtual bool EnableXStateCompress
+        {
+            get
+            {
+                object obj = XState["EnableXStateCompress"];
+                if (obj == null)
+                {
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return PageManager.Instance.EnableXStateCompress;
+                    }
+                }
+                return (bool)obj;
+            }
+            set
+            {
+                XState["EnableXStateCompress"] = value;
             }
         }
 
@@ -1087,38 +1137,26 @@ namespace FineUI
             foreach (string property in propertyList)
             {
                 bool propertyGzippped = false;
-                if (PageManager.Instance.EnableXStateCompress)
+                if (EnableXStateCompress)
                 {
                     propertyGzippped = _gzippedAjaxProperties.Contains(property);
                 }
 
                 object propertyValue = GetPropertyJSONValue(property);
 
+                string propertyStringValueUsedInGzipped = String.Empty;
+
                 if (propertyValue is JToken)
                 {
                     JToken tokenValue = propertyValue as JToken;
                     jo.Add(property, tokenValue);
 
+
+                    // 此属性启用Gzip压缩，则先计算字符串值
                     if (propertyGzippped)
                     {
-                        string propertyStringValue = tokenValue.ToString(Newtonsoft.Json.Formatting.None);
-                        string propertyGzippedValue = String.Empty;
-
-                        // 1. 小于500个字符，不启用Gzipped压缩
-                        if (propertyStringValue.Length > 500)
-                        {
-                            propertyGzippedValue = StringUtil.Gzip(propertyStringValue);
-
-                            // 2. 压缩效果太差（不到原始大小的50%），则不启用Gzipped压缩
-                            if (propertyGzippedValue.Length > (propertyStringValue.Length / 2))
-                            {
-                                propertyGzippedValue = String.Empty;
-                            }
-                        }
-
-                        jo.Add(property + "_GZ", propertyGzippedValue);
+                        propertyStringValueUsedInGzipped = tokenValue.ToString(Newtonsoft.Json.Formatting.None);
                     }
-
 
                 }
                 else
@@ -1130,6 +1168,13 @@ namespace FineUI
                         // http://stackoverflow.com/questions/1659749/script-tag-in-javascript-string
                         string propertyValueStr = propertyValue.ToString().Replace("</script>", @"<\/script>");
                         jo.Add(property, propertyValueStr);
+
+                        // 此属性启用Gzip压缩，则先计算字符串值
+                        if (propertyGzippped)
+                        {
+                            propertyStringValueUsedInGzipped = propertyValueStr;
+                        }
+
                     }
                     else if (propertyValue is Unit)
                     {
@@ -1141,6 +1186,32 @@ namespace FineUI
                         jo.Add(property, new JValue(propertyValue));
                     }
                 }
+
+
+
+                if (propertyGzippped && !String.IsNullOrEmpty(propertyStringValueUsedInGzipped))
+                {
+                    string propertyGzippedValue = String.Empty;
+
+                    // 1. 小于500个字符，不启用Gzipped压缩
+                    if (propertyStringValueUsedInGzipped.Length > 500)
+                    {
+                        propertyGzippedValue = StringUtil.Gzip(propertyStringValueUsedInGzipped);
+
+                        // 2. 压缩效果太差（不到原始大小的50%），则不启用Gzipped压缩
+                        if (propertyGzippedValue.Length > (propertyStringValueUsedInGzipped.Length / 2))
+                        {
+                            propertyGzippedValue = String.Empty;
+                        }
+                    }
+
+
+                    // 无论 propertyGzippedValue 是否为空字符串，都要输出来覆盖上次的结果（因为并非每一次的GZipped都有值）
+                    jo.Add(property + "_GZ", propertyGzippedValue);
+                    
+                }
+
+
             }
             return jo; //.ToString(Formatting.None);
         }

@@ -15,7 +15,7 @@
         <Items>
             <x:HtmlEditor runat="server" Label="文本编辑器" ID="HtmlEditor1" Height="250px">
             </x:HtmlEditor>
-            <x:TextArea ID="TextArea1" Label="多行文本框" runat="server" Height="150px">
+            <x:TextArea ID="TextArea1" Label="多行文本框" runat="server" Height="150px" Text="FineUI的使命是创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。">
             </x:TextArea>
             <x:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="获取 HTML 编辑器的内容"
                 CssClass="inline">

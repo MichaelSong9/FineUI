@@ -44,6 +44,8 @@ namespace FineUI
         {
             AddServerAjaxProperties();
             AddClientAjaxProperties("Text");
+
+            AddGzippedAjaxProperties("Text");
         }
 
         #endregion
@@ -138,8 +140,6 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("Text"))
             {
-                //if (ClientPropertyModifiedInServer("Text"))
-
                 sb.AppendFormat("{0}.x_setValue();", XID);
             }
 

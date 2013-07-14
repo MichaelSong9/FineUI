@@ -28,13 +28,20 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 +2013-07-* v3.3.1
 	-将工具YUICompressor替换为Microsoft Ajax Minifier。
-	-为官方示例增加压缩ViewState的方法，在页面基类PageBase中实现。
-	+为表格/树/下拉列表/单选框复选框列表控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
-		-会稍微增加下载数据量，从整体上提升用户体验。
-		-可以通过PageManager或者Web.config的配置属性EnableXStateCompress来关闭XState的Gzip压缩（默认启用）。
+	+性能优化。
+		-为官方示例增加压缩ViewState的方法，在页面基类PageBase中实现。
+		+为表格/树/下拉列表/单选框复选框列表/表单字段控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
+			-会稍微增加下载数据量，从整体上提升用户体验。
+			-可以通过设置控件、PageManager或者Web.config的EnableXStateCompress属性来关闭XState压缩（默认启用）。
+		+表格性能优化
+			-优化CheckBoxField/HyperLinkField/LinkButtonField，减少生成的HTML代码片段大小。
+			-优化模板列存在时POST数据大小，优化内存分页时响应数据大小。
+			-优化CheckBoxField生产的CSS类名，将.box-grid-checkbox-unchecked-disabled更改为.unchecked.disabled。
+		-优化TextArea/HtmlEditor在页面第一次加载和AJAX回发时产生的数据大小，防止生成重复数据。
+		-
 	+表格增强。
-		-优化CheckBoxField/HyperLinkField/LinkButtonField，减少生成的HTML代码片段大小。
-		-优化模板列存在时POST数据大小，优化内存分页时响应数据大小。
+		
+		-更新导出Excel的示例。
 
 
 
