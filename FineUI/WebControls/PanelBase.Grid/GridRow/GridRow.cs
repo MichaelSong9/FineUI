@@ -256,12 +256,16 @@ namespace FineUI
                     TemplateField field = column as TemplateField;
                     GridRowControl control = new GridRowControl(DataItem, RowIndex);
                     //control.ID = String.Format("{0}_{1}_{2}", Grid.ID, RowIndex, column.ColumnIndex);
+                    // 不用指定ID，会自动生成类似 ct123 的唯一ID
                     control.ID = String.Format("c{0}r{1}", column.ColumnIndex, RowIndex);
 
+                    
                     field.ItemTemplate.InstantiateIn(control);
 
                     Controls.Add(control);
                     TemplateContainers[column.ColumnIndex] = control;
+
+                    
 
                 }
 
@@ -350,13 +354,27 @@ namespace FineUI
 
         #region FindControl
 
+        /// <summary>
+        /// 查找表格行内的控件
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public override Control FindControl(string id)
         {
             foreach (GridRowControl control in TemplateContainers)
             {
                 if (control != null)
                 {
-                    Control found = control.FindControl(id);
+                    Control found;
+                    if (control.ID == id)
+                    {
+                        found = control;
+                    }
+                    else
+                    {
+                        found = control.FindControl(id);
+                    }
+
                     if (found != null)
                     {
                         return found;

@@ -61,24 +61,34 @@ namespace FineUI.Examples.data
                 foreach (object value in row.Values)
                 {
                     string html = value.ToString();
-                    // 处理CheckBox
-                    if (html.Contains("box-grid-static-checkbox"))
+                    if (html.StartsWith("#@TPL@#" + Grid1.ID))
                     {
-                        if (html.Contains("box-grid-static-checkbox-uncheck"))
-                        {
-                            html = "×";
-                        }
-                        else
-                        {
-                            html = "√";
-                        }
+                        // 模板列
+                        string templateID = html.Substring(("#@TPL@#" + Grid1.ID + "_").Length);
+                        Control templateCtrl = row.FindControl(templateID);
+                        html = GetRenderedHtmlSource(templateCtrl);
                     }
-
-                    // 处理图片
-                    if (html.Contains("<img"))
+                    else
                     {
-                        string prefix = Request.Url.AbsoluteUri.Replace(Request.Url.AbsolutePath, "");
-                        html = html.Replace("src=\"", "src=\"" + prefix);
+                        // 处理CheckBox
+                        if (html.Contains("box-grid-static-checkbox"))
+                        {
+                            if (html.Contains("uncheck"))
+                            {
+                                html = "×";
+                            }
+                            else
+                            {
+                                html = "√";
+                            }
+                        }
+
+                        // 处理图片
+                        if (html.Contains("<img"))
+                        {
+                            string prefix = Request.Url.AbsoluteUri.Replace(Request.Url.AbsolutePath, "");
+                            html = html.Replace("src=\"", "src=\"" + prefix);
+                        }
                     }
 
                     sb.AppendFormat("<td>{0}</td>", html);
@@ -89,6 +99,28 @@ namespace FineUI.Examples.data
             sb.Append("</table>");
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// 获取控件渲染后的HTML源代码
+        /// </summary>
+        /// <param name="ctrl"></param>
+        /// <returns></returns>
+        private string GetRenderedHtmlSource(Control ctrl)
+        {
+            if (ctrl != null)
+            {
+                using (StringWriter sw = new StringWriter())
+                {
+                    using (HtmlTextWriter htw = new HtmlTextWriter(sw))
+                    {
+                        ctrl.RenderControl(htw);
+
+                        return sw.ToString();
+                    }
+                }
+            }
+            return String.Empty;
         }
 
     }

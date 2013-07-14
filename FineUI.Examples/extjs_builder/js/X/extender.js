@@ -408,7 +408,7 @@ if (Ext.grid.GridPanel) {
                 Ext.each(row, function (item, index) {
                     if (item.substr(0, 7) === "#@TPL@#") {
                         var clientId = item.substr(7);
-                        newdataitem.push('<div id="' + clientId + '_ct">' + tplsHash[clientId] + '</div>');
+                        newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
                     } else {
                         newdataitem.push(item);
                     }
@@ -449,7 +449,7 @@ if (Ext.grid.GridPanel) {
             e.innerHTML = tpls;
             Ext.each(e.childNodes, function (item, index) {
                 var nodeId = item.id;
-                Ext.get(nodeId + '_ct').dom.innerHTML = item.outerHTML;
+                Ext.get(nodeId + '_container').dom.innerHTML = item.outerHTML;
             });
         },
 
