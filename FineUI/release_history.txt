@@ -46,7 +46,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 			-更新全部模板列示例grid\grid_edit.aspx、grid_edit_compare.aspx等，请仔细阅读源代码。
 		+修正SelectedRowIndexArray的一个BUG。
 			-在grid/grid_checkboxfield_rowcheckall.aspx中，点击第一个复选框选中行，然后再次点击第一个复选框不能取消行的选中状态。
-		+模板列优化。
+		+模板列重构（内部实现）。
 			-模板列的ClientID由原来的Grid1_r1c5调整为Grid1_ctl09，现在ID由系统自动生成。
 			-GridRow不再继承自WebControl，重新优化Grid内部的数据绑定逻辑（减少一个控件层次结构）。
 			-模板列控件GridRowControl实例直接添加到Grid.Controls中（之前添加为行控件的子控件）。
