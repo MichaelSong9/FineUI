@@ -57,6 +57,15 @@ namespace FineUI
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class Grid : CollapsablePanel, IPostBackDataHandler, IPostBackEventHandler
     {
+		#region static readonly
+		
+		/// <summary>
+		/// 模板列占位符前缀
+		/// </summary>
+        public static readonly string TEMPLATE_PLACEHOLDER_PREFIX = "#@TPL@#";
+
+		#endregion
+		
         #region Constructor
 
         public Grid()
@@ -1601,10 +1610,13 @@ namespace FineUI
                     row.FromShortStates(JSONUtil.ObjectArrayFromJArray(statesArray[i].Value<JArray>()));
 
                     Rows.Add(row);
-                    Controls.Add(row);
+                    //Controls.Add(row);
 
                     row.InitTemplateContainers();
+
+                    
                 }
+
             }
         }
 
@@ -3254,13 +3266,13 @@ namespace FineUI
         {
             GridRow row = new GridRow(this, rowObj, rowIndex);
             Rows.Add(row);
-            Controls.Add(row);
+            //Controls.Add(row);
             row.InitTemplateContainers();
 
             OnPreRowDataBound(new GridPreRowEventArgs(rowObj, rowIndex));
 
             //row.DataBindRow();
-            row.DataBind();
+            row.DataBindRow();
 
             OnRowDataBound(new GridRowEventArgs(rowObj, rowIndex, row.Values));
         }
@@ -3340,10 +3352,13 @@ namespace FineUI
             // 清空现有的行
             Rows.Clear();
 
-            // 会重新创建这些控件，所以要先删除之前存在的GridRow
+            // Grid.Controls 下面包含全部列控件（列控件里面又包含Editor）和全部模板列控件
+            // 注意：Editor控件是属于列控件的，而模板列中的控件是输入每一行的模板列控件的！
+
+            // 会重新创建这些控件，所以要先删除之前存在的GridRowControl
             for (int i = Controls.Count - 1; i >= 0; i--)
             {
-                if (Controls[i] is GridRow)
+                if (Controls[i] is GridRowControl)
                 {
                     Controls.RemoveAt(i);
                 }

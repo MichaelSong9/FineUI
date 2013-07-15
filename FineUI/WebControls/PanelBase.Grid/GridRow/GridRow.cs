@@ -35,9 +35,8 @@ using System.Collections.ObjectModel;
 
 namespace FineUI
 {
-    // 去除 GridRow 的 INamingContainer，即不参与层次命名，从而减少ClientID的长度
     [ToolboxItem(false)]
-    public class GridRow : WebControl
+    public class GridRow //: WebControl
     {
         #region Constructor
 
@@ -249,6 +248,7 @@ namespace FineUI
 
         public void InitTemplateContainers()
         {
+
             Collection<GridColumn> columns = _grid.AllColumns;
             TemplateContainers = new GridRowControl[columns.Count];
 
@@ -259,16 +259,23 @@ namespace FineUI
                 {
                     TemplateField field = column as TemplateField;
                     GridRowControl control = new GridRowControl(DataItem, RowIndex);
-                    //control.ID = String.Format("{0}_{1}_{2}", Grid.ID, RowIndex, column.ColumnIndex);
                     // 不用指定ID，会自动生成类似 ct123 的唯一ID
-                    control.ID = String.Format("c{0}r{1}", column.ColumnIndex, RowIndex);
+                    //control.ID = String.Format("c{0}r{1}", column.ColumnIndex, RowIndex);
+
+                    if (DataItem == null)
+                    {
+                        // 回发时恢复XState阶段（非数据绑定阶段），从Values中读取模板列的服务器ID（在第一次加载时自动生成的）
+                        string fieldValue = Values[i];
+                        if (fieldValue.StartsWith(Grid.TEMPLATE_PLACEHOLDER_PREFIX))
+                        {
+                            control.ID = fieldValue.Substring(Grid.TEMPLATE_PLACEHOLDER_PREFIX.Length);
+                        }
+                    }
 
                     field.ItemTemplate.InstantiateIn(control);
 
-                    Controls.Add(control);
+                    _grid.Controls.Add(control);
                     TemplateContainers[column.ColumnIndex] = control;
-
-                    
 
                 }
 
@@ -279,27 +286,36 @@ namespace FineUI
 
         #region DataBindRow
 
-        /// <summary>
-        /// 绑定子控件
-        /// </summary>
-        protected override void DataBindChildren()
-        {
-            base.DataBindChildren();
+        ///// <summary>
+        ///// 绑定子控件
+        ///// </summary>
+        //protected override void DataBindChildren()
+        //{
+        //    base.DataBindChildren();
 
-            DataBindRow();
-        }
+        //    DataBindRow();
+        //}
 
         /// <summary>
         /// 绑定行的值
         /// </summary>
         internal void DataBindRow()
         {
+            foreach (GridRowControl tplCtrl in TemplateContainers)
+            {
+                if (tplCtrl != null)
+                {
+                    tplCtrl.DataBind();
+                }
+            }
+
+
             Collection<GridColumn> columns = _grid.AllColumns;
 
             // 计算每列的值
             Values = new string[columns.Count];
             States = new object[columns.Count];
-            
+
             for (int i = 0, count = columns.Count; i < count; i++)
             {
                 GridColumn column = columns[i];
@@ -323,7 +339,7 @@ namespace FineUI
             }
         }
 
-        
+
         internal object GetPropertyValue(string propertyName)
         {
             return ObjectUtil.GetPropertyValue(DataItem, propertyName);
@@ -337,24 +353,6 @@ namespace FineUI
 
         #endregion
 
-        #region RenderBeginTag
-
-        public override void RenderBeginTag(HtmlTextWriter writer)
-        {
-            //base.RenderBeginTag(writer);
-
-            //writer.Write("<div id=\"ok\">");
-        }
-
-        public override void RenderEndTag(HtmlTextWriter writer)
-        {
-            //base.RenderEndTag(writer);
-
-            //writer.Write("</div>");
-        }
-
-        #endregion
-
         #region FindControl
 
         /// <summary>
@@ -362,7 +360,7 @@ namespace FineUI
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public override Control FindControl(string id)
+        public Control FindControl(string id)
         {
             foreach (GridRowControl control in TemplateContainers)
             {

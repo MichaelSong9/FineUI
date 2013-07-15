@@ -92,40 +92,7 @@ namespace FineUI
         {
             GridRowControl control = row.TemplateContainers[ColumnIndex];
             
-
-            return String.Format("#@TPL@#{0}", control.ClientID);
-            //return String.Format("<div id=\"{0}_container\"></div>", control.ClientID);
-            //string result = String.Empty;
-
-            //if (_itemTemplate != null)
-            //{
-            //    StringBuilder output = new StringBuilder();
-            //    using (StringWriter sw = new StringWriter(output, CultureInfo.CurrentCulture))
-            //    {
-            //        using (HtmlTextWriter htw = new HtmlTextWriter(sw))
-            //        {
-            //            //using (GridRowControl control = new GridRowControl(row.DataItem, row.RowIndex))
-            //            //{
-            //            //    _itemTemplate.InstantiateIn(control);
-            //            //    control.ID = String.Format("{0}_{1}", Grid.ID, row.RowIndex);
-            //            //    control.DataBind();
-
-            //            //    control.RenderControl(htw);
-
-            //            //}
-            //            //GridRowControl control = row.TemplateContainers[ColumnIndex];
-            //            //if (control != null)
-            //            //{
-            //            //    control.DataBind();
-            //            //    //control.RenderControl(htw);
-            //            //}
-            //        }
-            //    }
-
-            //    result = output.ToString();
-            //}
-
-            //return result;
+            return String.Format("{0}{1}", Grid.TEMPLATE_PLACEHOLDER_PREFIX, control.ID);
         }
 
         //public override string GetFieldType()

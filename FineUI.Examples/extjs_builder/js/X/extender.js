@@ -371,7 +371,7 @@ if (Ext.grid.GridPanel) {
     Ext.override(Ext.grid.GridPanel, {
 
         x_getData: function () {
-            var data = this.x_state['X_Rows']['Values'];
+            var $this = this, data = this.x_state['X_Rows']['Values'];
 
             //////////////////////////////////////////////////
             var tpls = this.x_tpls;
@@ -407,7 +407,7 @@ if (Ext.grid.GridPanel) {
                 newdataitem = [];
                 Ext.each(row, function (item, index) {
                     if (item.substr(0, 7) === "#@TPL@#") {
-                        var clientId = item.substr(7);
+                        var clientId = $this.id + '_' + item.substr(7);
                         newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
                     } else {
                         newdataitem.push(item);

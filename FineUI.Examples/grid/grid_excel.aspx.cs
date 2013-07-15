@@ -61,10 +61,10 @@ namespace FineUI.Examples.data
                 foreach (object value in row.Values)
                 {
                     string html = value.ToString();
-                    if (html.StartsWith("#@TPL@#" + Grid1.ID))
+                    if (html.StartsWith(Grid.TEMPLATE_PLACEHOLDER_PREFIX))
                     {
                         // 模板列
-                        string templateID = html.Substring(("#@TPL@#" + Grid1.ID + "_").Length);
+                        string templateID = html.Substring(Grid.TEMPLATE_PLACEHOLDER_PREFIX.Length);
                         Control templateCtrl = row.FindControl(templateID);
                         html = GetRenderedHtmlSource(templateCtrl);
                     }

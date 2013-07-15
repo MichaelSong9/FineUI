@@ -16,8 +16,8 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" Height="400px" runat="server"
-        DataKeyNames="Guid">
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" Height="400px"
+        runat="server" DataKeyNames="Guid" EnableRowNumber="true" EnableCheckBoxSelect="true">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>
