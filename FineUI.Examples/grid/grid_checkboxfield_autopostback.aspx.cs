@@ -65,7 +65,6 @@ namespace FineUI.Examples.grid
                     sb.Append("<li><ul>");
                     
                     sb.AppendFormat("<li>行号：{0}</li>", rowIndex + 1);
-                    // Grid1.Rows[rowIndex].States[field1.ColumnIndex] 和 field1.GetCheckedState(rowIndex) 的结果相同
                     sb.AppendFormat("<li>是否在校（自动会发）：{0}</li>", field2.GetCheckedState(rowIndex));
                     
                     sb.Append("</ul></li>");

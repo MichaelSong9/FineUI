@@ -10,11 +10,12 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" Width="800px" ShowBorder="true" ShowHeader="true"
-        AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name"
+    <x:Grid ID="Grid1" Title="表格" Width="800px" ShowBorder="true" ShowHeader="true" AutoHeight="true"
+        runat="server" EnableCheckBoxSelect="True" CheckBoxSelectOnly="true" DataKeyNames="Id,Name"
         EnableRowNumber="True" EnableRowClickEvent="true" OnRowClick="Grid1_RowClick">
         <Columns>
-            <x:BoundField Width="100px" ExpandUnusedSpace="true" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
+            <x:BoundField Width="100px" ExpandUnusedSpace="true" DataField="Name" DataFormatString="{0}"
+                HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
@@ -30,6 +31,9 @@
                 DataField="AtSchool" HeaderText="是否在校3" />
         </Columns>
     </x:Grid>
+    <br />
+    注：只能通过第一个复选框来选中行和取消选中行。
+    <br />
     <br />
     <x:Button ID="Button1" runat="server" Text="选中行复选框的状态" OnClick="Button1_Click">
     </x:Button>

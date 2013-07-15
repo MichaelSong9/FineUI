@@ -52,6 +52,21 @@ namespace FineUI
             
         }
 
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+
+            if (!DesignMode)
+            {
+                // 确保所有子控件都已经被创建
+                EnsureChildControls();
+
+                // 如果控件没有设置 ID，则自动创建一个（比如：ct100）
+                base.EnsureID();
+            }
+
+        }
+
         #region RenderBeginTag
 
         /// <summary>

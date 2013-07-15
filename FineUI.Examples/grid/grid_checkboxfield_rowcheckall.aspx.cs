@@ -36,8 +36,6 @@ namespace FineUI.Examples.grid
 
         protected void Grid1_RowClick(object sender, FineUI.GridRowClickEventArgs e)
         {
-            //Alert.ShowInTop(String.Format("你点击了第 {0} 行（单击）", e.RowIndex + 1));
-
             bool checkedState = false;
             if (new List<int>(Grid1.SelectedRowIndexArray).Contains(e.RowIndex))
             {
@@ -48,7 +46,6 @@ namespace FineUI.Examples.grid
             CheckBoxField field2 = (CheckBoxField)Grid1.FindColumn("CheckBoxField2"); 
             CheckBoxField field3 = (CheckBoxField)Grid1.FindColumn("CheckBoxField3");
             
-            // Grid1.Rows[e.RowIndex].States[field1.ColumnIndex] = true;
             field1.SetCheckedState(e.RowIndex, checkedState);
             field2.SetCheckedState(e.RowIndex, checkedState);
             field3.SetCheckedState(e.RowIndex, checkedState);
@@ -73,7 +70,6 @@ namespace FineUI.Examples.grid
                     sb.Append("<li><ul>");
 
                     sb.AppendFormat("<li>行号：{0}</li>", rowIndex + 1);
-                    // Grid1.Rows[rowIndex].States[field1.ColumnIndex] 和 field1.GetCheckedState(rowIndex) 的结果相同
                     sb.AppendFormat("<li>是否在校1：{0}</li>", field1.GetCheckedState(rowIndex));
                     sb.AppendFormat("<li>是否在校2：{0}</li>", field2.GetCheckedState(rowIndex));
                     sb.AppendFormat("<li>是否在校3：{0}</li>", field3.GetCheckedState(rowIndex));

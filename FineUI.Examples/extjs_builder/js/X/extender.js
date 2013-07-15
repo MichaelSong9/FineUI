@@ -692,7 +692,7 @@ if (Ext.grid.GridPanel) {
                 var checkboxRows = gridEl.select('.x-grid3-row .x-grid3-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
                 var columnStates = [];
                 checkboxRows.each(function (row, index) {
-                    if (row.hasClass('box-grid-checkbox-unchecked') || row.hasClass('box-grid-checkbox-unchecked-disabled')) {
+                    if (row.hasClass('unchecked')) {
                         columnStates.push(false);
                     } else {
                         columnStates.push(true);

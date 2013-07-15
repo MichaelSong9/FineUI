@@ -136,6 +136,10 @@ namespace FineUI
         }
 
         private object[] _states = null;
+
+        /// <summary>
+        /// 非公开属性，对于CheckBoxField可以通过GetCheckedState访问
+        /// </summary>
         internal object[] States
         {
             get
@@ -259,7 +263,6 @@ namespace FineUI
                     // 不用指定ID，会自动生成类似 ct123 的唯一ID
                     control.ID = String.Format("c{0}r{1}", column.ColumnIndex, RowIndex);
 
-                    
                     field.ItemTemplate.InstantiateIn(control);
 
                     Controls.Add(control);

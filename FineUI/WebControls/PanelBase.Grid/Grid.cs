@@ -1580,6 +1580,8 @@ namespace FineUI
             }
             set
             {
+                // 注意，此时不能清空 SelectedRowIndexArray 
+                // 现在只是从XState中恢复数据，如果清空 SelectedRowIndexArray ，可能会导致 SelectedRowIndexArray 状态不对
                 ClearRows();
 
                 JArray valuesArray = value.Value<JArray>("Values"); // value.getJArray("Values");
@@ -3166,7 +3168,14 @@ namespace FineUI
         {
             //base.DataBind();
 
-            // 数据绑定之前要先清空现有的数据，以及选中行，DataKeys
+            // 数据绑定之前要先清空 _dataKeys
+            _dataKeys = null;
+
+            // 重新绑定数据前清空选中的值
+            SelectedRowIndexArray = null;
+            SelectedCell = null;
+
+            // 数据绑定之前要先清空现有的数据
             ClearRows();
 
             int recordCount = 0;
@@ -3328,13 +3337,6 @@ namespace FineUI
         /// </summary>
         private void ClearRows()
         {
-            // 数据绑定之前要先清空 _dataKeys
-            _dataKeys = null;
-
-            // 重新绑定数据前清空选中的值
-            SelectedRowIndexArray = null;
-            SelectedCell = null;
-
             // 清空现有的行
             Rows.Clear();
 
