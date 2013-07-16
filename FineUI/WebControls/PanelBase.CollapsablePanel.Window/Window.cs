@@ -904,9 +904,9 @@ namespace FineUI
                 // Modified by sanshi.ustc@gamil.com at 2009-8-1
 
                 // 首先删除已经添加的CSS样式
-                RemoveStartupCSS(String.Format("fineui_{0}_panelbase_icon", XID));
+                RemoveStartupCSS(String.Format("box-{0}-panelbase-icon", XID));
 
-                string className = String.Format("fineui_{0}_window_icon", GUID);
+                string className = String.Format("box-{0}-window-icon", GUID);
 
                 var addCSSPrefix = String.Empty;
                 if (Target == Target.Parent)

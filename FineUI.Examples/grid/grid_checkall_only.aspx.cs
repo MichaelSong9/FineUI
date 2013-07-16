@@ -44,7 +44,7 @@ namespace FineUI.Examples.grid
             int[] selections = Grid1.SelectedRowIndexArray;
             foreach (int rowIndex in selections)
             {
-               sb.AppendFormat("行索引:{0} 用户名:{1}<br />", rowIndex, Grid1.DataKeys[rowIndex][1]);
+               sb.AppendFormat("行号:{0} 用户名:{1}<br />", rowIndex + 1, Grid1.DataKeys[rowIndex][1]);
             }
             labResult.Text = sb.ToString();
 

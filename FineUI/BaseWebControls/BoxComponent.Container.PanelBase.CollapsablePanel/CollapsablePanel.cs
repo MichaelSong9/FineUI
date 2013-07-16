@@ -323,7 +323,7 @@ namespace FineUI
             {
                 // Window控件的特殊处理在Window控件中
                 // 添加CSS样式
-                string className = String.Format("fineui_{0}_panelbase_icon", XID);
+                string className = String.Format("box-{0}-panelbase-icon", XID);
                 AddStartupCSS(className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
 
                 OB.AddProperty("iconCls", className);
