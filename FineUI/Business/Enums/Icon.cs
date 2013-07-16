@@ -35,1725 +35,8604 @@ namespace FineUI
     /// </summary>
     public enum Icon
     {
+        /// <summary>
+        /// None
+        /// </summary>
         None,
+
+        /// <summary>
+        /// Accept
+        /// </summary>
         Accept,
+
+        /// <summary>
+        /// Add
+        /// </summary>
         Add,
+
+        /// <summary>
+        /// Anchor
+        /// </summary>
         Anchor,
+
+        /// <summary>
+        /// Application
+        /// </summary>
         Application,
+
+        /// <summary>
+        /// ApplicationAdd
+        /// </summary>
         ApplicationAdd,
+
+        /// <summary>
+        /// ApplicationCascade
+        /// </summary>
         ApplicationCascade,
+
+        /// <summary>
+        /// ApplicationDelete
+        /// </summary>
         ApplicationDelete,
+
+        /// <summary>
+        /// ApplicationDouble
+        /// </summary>
         ApplicationDouble,
+
+        /// <summary>
+        /// ApplicationEdit
+        /// </summary>
         ApplicationEdit,
+
+        /// <summary>
+        /// ApplicationError
+        /// </summary>
         ApplicationError,
+
+        /// <summary>
+        /// ApplicationForm
+        /// </summary>
         ApplicationForm,
+
+        /// <summary>
+        /// ApplicationFormAdd
+        /// </summary>
         ApplicationFormAdd,
+
+        /// <summary>
+        /// ApplicationFormDelete
+        /// </summary>
         ApplicationFormDelete,
+
+        /// <summary>
+        /// ApplicationFormEdit
+        /// </summary>
         ApplicationFormEdit,
+
+        /// <summary>
+        /// ApplicationFormMagnify
+        /// </summary>
         ApplicationFormMagnify,
+
+        /// <summary>
+        /// ApplicationGet
+        /// </summary>
         ApplicationGet,
+
+        /// <summary>
+        /// ApplicationGo
+        /// </summary>
         ApplicationGo,
+
+        /// <summary>
+        /// ApplicationHome
+        /// </summary>
         ApplicationHome,
+
+        /// <summary>
+        /// ApplicationKey
+        /// </summary>
         ApplicationKey,
+
+        /// <summary>
+        /// ApplicationLightning
+        /// </summary>
         ApplicationLightning,
+
+        /// <summary>
+        /// ApplicationLink
+        /// </summary>
         ApplicationLink,
+
+        /// <summary>
+        /// ApplicationOsx
+        /// </summary>
         ApplicationOsx,
+
+        /// <summary>
+        /// ApplicationOsxAdd
+        /// </summary>
         ApplicationOsxAdd,
+
+        /// <summary>
+        /// ApplicationOsxCascade
+        /// </summary>
         ApplicationOsxCascade,
+
+        /// <summary>
+        /// ApplicationOsxDelete
+        /// </summary>
         ApplicationOsxDelete,
+
+        /// <summary>
+        /// ApplicationOsxDouble
+        /// </summary>
         ApplicationOsxDouble,
+
+        /// <summary>
+        /// ApplicationOsxError
+        /// </summary>
         ApplicationOsxError,
+
+        /// <summary>
+        /// ApplicationOsxGet
+        /// </summary>
         ApplicationOsxGet,
+
+        /// <summary>
+        /// ApplicationOsxGo
+        /// </summary>
         ApplicationOsxGo,
+
+        /// <summary>
+        /// ApplicationOsxHome
+        /// </summary>
         ApplicationOsxHome,
+
+        /// <summary>
+        /// ApplicationOsxKey
+        /// </summary>
         ApplicationOsxKey,
+
+        /// <summary>
+        /// ApplicationOsxLightning
+        /// </summary>
         ApplicationOsxLightning,
+
+        /// <summary>
+        /// ApplicationOsxLink
+        /// </summary>
         ApplicationOsxLink,
+
+        /// <summary>
+        /// ApplicationOsxSplit
+        /// </summary>
         ApplicationOsxSplit,
+
+        /// <summary>
+        /// ApplicationOsxStart
+        /// </summary>
         ApplicationOsxStart,
+
+        /// <summary>
+        /// ApplicationOsxStop
+        /// </summary>
         ApplicationOsxStop,
+
+        /// <summary>
+        /// ApplicationOsxTerminal
+        /// </summary>
         ApplicationOsxTerminal,
+
+        /// <summary>
+        /// ApplicationPut
+        /// </summary>
         ApplicationPut,
+
+        /// <summary>
+        /// ApplicationSideBoxes
+        /// </summary>
         ApplicationSideBoxes,
+
+        /// <summary>
+        /// ApplicationSideContract
+        /// </summary>
         ApplicationSideContract,
+
+        /// <summary>
+        /// ApplicationSideExpand
+        /// </summary>
         ApplicationSideExpand,
+
+        /// <summary>
+        /// ApplicationSideList
+        /// </summary>
         ApplicationSideList,
+
+        /// <summary>
+        /// ApplicationSideTree
+        /// </summary>
         ApplicationSideTree,
+
+        /// <summary>
+        /// ApplicationSplit
+        /// </summary>
         ApplicationSplit,
+
+        /// <summary>
+        /// ApplicationStart
+        /// </summary>
         ApplicationStart,
+
+        /// <summary>
+        /// ApplicationStop
+        /// </summary>
         ApplicationStop,
+
+        /// <summary>
+        /// ApplicationTileHorizontal
+        /// </summary>
         ApplicationTileHorizontal,
+
+        /// <summary>
+        /// ApplicationTileVertical
+        /// </summary>
         ApplicationTileVertical,
+
+        /// <summary>
+        /// ApplicationViewColumns
+        /// </summary>
         ApplicationViewColumns,
+
+        /// <summary>
+        /// ApplicationViewDetail
+        /// </summary>
         ApplicationViewDetail,
+
+        /// <summary>
+        /// ApplicationViewGallery
+        /// </summary>
         ApplicationViewGallery,
+
+        /// <summary>
+        /// ApplicationViewIcons
+        /// </summary>
         ApplicationViewIcons,
+
+        /// <summary>
+        /// ApplicationViewList
+        /// </summary>
         ApplicationViewList,
+
+        /// <summary>
+        /// ApplicationViewTile
+        /// </summary>
         ApplicationViewTile,
+
+        /// <summary>
+        /// ApplicationXp
+        /// </summary>
         ApplicationXp,
+
+        /// <summary>
+        /// ApplicationXpTerminal
+        /// </summary>
         ApplicationXpTerminal,
+
+        /// <summary>
+        /// ArrowBranch
+        /// </summary>
         ArrowBranch,
+
+        /// <summary>
+        /// ArrowDivide
+        /// </summary>
         ArrowDivide,
+
+        /// <summary>
+        /// ArrowDown
+        /// </summary>
         ArrowDown,
+
+        /// <summary>
+        /// ArrowEw
+        /// </summary>
         ArrowEw,
+
+        /// <summary>
+        /// ArrowIn
+        /// </summary>
         ArrowIn,
+
+        /// <summary>
+        /// ArrowInout
+        /// </summary>
         ArrowInout,
+
+        /// <summary>
+        /// ArrowInLonger
+        /// </summary>
         ArrowInLonger,
+
+        /// <summary>
+        /// ArrowJoin
+        /// </summary>
         ArrowJoin,
+
+        /// <summary>
+        /// ArrowLeft
+        /// </summary>
         ArrowLeft,
+
+        /// <summary>
+        /// ArrowMerge
+        /// </summary>
         ArrowMerge,
+
+        /// <summary>
+        /// ArrowNe
+        /// </summary>
         ArrowNe,
+
+        /// <summary>
+        /// ArrowNs
+        /// </summary>
         ArrowNs,
+
+        /// <summary>
+        /// ArrowNsew
+        /// </summary>
         ArrowNsew,
+
+        /// <summary>
+        /// ArrowNw
+        /// </summary>
         ArrowNw,
+
+        /// <summary>
+        /// ArrowNwNeSwSe
+        /// </summary>
         ArrowNwNeSwSe,
+
+        /// <summary>
+        /// ArrowNwSe
+        /// </summary>
         ArrowNwSe,
+
+        /// <summary>
+        /// ArrowOut
+        /// </summary>
         ArrowOut,
+
+        /// <summary>
+        /// ArrowOutLonger
+        /// </summary>
         ArrowOutLonger,
+
+        /// <summary>
+        /// ArrowRedo
+        /// </summary>
         ArrowRedo,
+
+        /// <summary>
+        /// ArrowRefresh
+        /// </summary>
         ArrowRefresh,
+
+        /// <summary>
+        /// ArrowRefreshSmall
+        /// </summary>
         ArrowRefreshSmall,
+
+        /// <summary>
+        /// ArrowRight
+        /// </summary>
         ArrowRight,
+
+        /// <summary>
+        /// ArrowRotateAnticlockwise
+        /// </summary>
         ArrowRotateAnticlockwise,
+
+        /// <summary>
+        /// ArrowRotateClockwise
+        /// </summary>
         ArrowRotateClockwise,
+
+        /// <summary>
+        /// ArrowSe
+        /// </summary>
         ArrowSe,
+
+        /// <summary>
+        /// ArrowSw
+        /// </summary>
         ArrowSw,
+
+        /// <summary>
+        /// ArrowSwitch
+        /// </summary>
         ArrowSwitch,
+
+        /// <summary>
+        /// ArrowSwitchBluegreen
+        /// </summary>
         ArrowSwitchBluegreen,
+
+        /// <summary>
+        /// ArrowSwNe
+        /// </summary>
         ArrowSwNe,
+
+        /// <summary>
+        /// ArrowTurnLeft
+        /// </summary>
         ArrowTurnLeft,
+
+        /// <summary>
+        /// ArrowTurnRight
+        /// </summary>
         ArrowTurnRight,
+
+        /// <summary>
+        /// ArrowUndo
+        /// </summary>
         ArrowUndo,
+
+        /// <summary>
+        /// ArrowUp
+        /// </summary>
         ArrowUp,
+
+        /// <summary>
+        /// AsteriskOrange
+        /// </summary>
         AsteriskOrange,
+
+        /// <summary>
+        /// AsteriskRed
+        /// </summary>
         AsteriskRed,
+
+        /// <summary>
+        /// AsteriskYellow
+        /// </summary>
         AsteriskYellow,
+
+        /// <summary>
+        /// Attach
+        /// </summary>
         Attach,
+
+        /// <summary>
+        /// AwardStarAdd
+        /// </summary>
         AwardStarAdd,
+
+        /// <summary>
+        /// AwardStarBronze1
+        /// </summary>
         AwardStarBronze1,
+
+        /// <summary>
+        /// AwardStarBronze2
+        /// </summary>
         AwardStarBronze2,
+
+        /// <summary>
+        /// AwardStarBronze3
+        /// </summary>
         AwardStarBronze3,
+
+        /// <summary>
+        /// AwardStarDelete
+        /// </summary>
         AwardStarDelete,
+
+        /// <summary>
+        /// AwardStarGold1
+        /// </summary>
         AwardStarGold1,
+
+        /// <summary>
+        /// AwardStarGold2
+        /// </summary>
         AwardStarGold2,
+
+        /// <summary>
+        /// AwardStarGold3
+        /// </summary>
         AwardStarGold3,
+
+        /// <summary>
+        /// AwardStarSilver1
+        /// </summary>
         AwardStarSilver1,
+
+        /// <summary>
+        /// AwardStarSilver2
+        /// </summary>
         AwardStarSilver2,
+
+        /// <summary>
+        /// AwardStarSilver3
+        /// </summary>
         AwardStarSilver3,
+
+        /// <summary>
+        /// Basket
+        /// </summary>
         Basket,
+
+        /// <summary>
+        /// BasketAdd
+        /// </summary>
         BasketAdd,
+
+        /// <summary>
+        /// BasketDelete
+        /// </summary>
         BasketDelete,
+
+        /// <summary>
+        /// BasketEdit
+        /// </summary>
         BasketEdit,
+
+        /// <summary>
+        /// BasketError
+        /// </summary>
         BasketError,
+
+        /// <summary>
+        /// BasketGo
+        /// </summary>
         BasketGo,
+
+        /// <summary>
+        /// BasketPut
+        /// </summary>
         BasketPut,
+
+        /// <summary>
+        /// BasketRemove
+        /// </summary>
         BasketRemove,
+
+        /// <summary>
+        /// Bell
+        /// </summary>
         Bell,
+
+        /// <summary>
+        /// BellAdd
+        /// </summary>
         BellAdd,
+
+        /// <summary>
+        /// BellDelete
+        /// </summary>
         BellDelete,
+
+        /// <summary>
+        /// BellError
+        /// </summary>
         BellError,
+
+        /// <summary>
+        /// BellGo
+        /// </summary>
         BellGo,
+
+        /// <summary>
+        /// BellLink
+        /// </summary>
         BellLink,
+
+        /// <summary>
+        /// BellSilver
+        /// </summary>
         BellSilver,
+
+        /// <summary>
+        /// BellSilverStart
+        /// </summary>
         BellSilverStart,
+
+        /// <summary>
+        /// BellSilverStop
+        /// </summary>
         BellSilverStop,
+
+        /// <summary>
+        /// BellStart
+        /// </summary>
         BellStart,
+
+        /// <summary>
+        /// BellStop
+        /// </summary>
         BellStop,
+
+        /// <summary>
+        /// Bin
+        /// </summary>
         Bin,
+
+        /// <summary>
+        /// BinClosed
+        /// </summary>
         BinClosed,
+
+        /// <summary>
+        /// BinEmpty
+        /// </summary>
         BinEmpty,
+
+        /// <summary>
+        /// Blank
+        /// </summary>
         Blank,
+
+        /// <summary>
+        /// Bomb
+        /// </summary>
         Bomb,
+
+        /// <summary>
+        /// Book
+        /// </summary>
         Book,
+
+        /// <summary>
+        /// Bookmark
+        /// </summary>
         Bookmark,
+
+        /// <summary>
+        /// BookmarkAdd
+        /// </summary>
         BookmarkAdd,
+
+        /// <summary>
+        /// BookmarkDelete
+        /// </summary>
         BookmarkDelete,
+
+        /// <summary>
+        /// BookmarkEdit
+        /// </summary>
         BookmarkEdit,
+
+        /// <summary>
+        /// BookmarkError
+        /// </summary>
         BookmarkError,
+
+        /// <summary>
+        /// BookmarkGo
+        /// </summary>
         BookmarkGo,
+
+        /// <summary>
+        /// BookAdd
+        /// </summary>
         BookAdd,
+
+        /// <summary>
+        /// BookAddresses
+        /// </summary>
         BookAddresses,
+
+        /// <summary>
+        /// BookAddressesAdd
+        /// </summary>
         BookAddressesAdd,
+
+        /// <summary>
+        /// BookAddressesDelete
+        /// </summary>
         BookAddressesDelete,
+
+        /// <summary>
+        /// BookAddressesEdit
+        /// </summary>
         BookAddressesEdit,
+
+        /// <summary>
+        /// BookAddressesError
+        /// </summary>
         BookAddressesError,
+
+        /// <summary>
+        /// BookAddressesKey
+        /// </summary>
         BookAddressesKey,
+
+        /// <summary>
+        /// BookDelete
+        /// </summary>
         BookDelete,
+
+        /// <summary>
+        /// BookEdit
+        /// </summary>
         BookEdit,
+
+        /// <summary>
+        /// BookError
+        /// </summary>
         BookError,
+
+        /// <summary>
+        /// BookGo
+        /// </summary>
         BookGo,
+
+        /// <summary>
+        /// BookKey
+        /// </summary>
         BookKey,
+
+        /// <summary>
+        /// BookLink
+        /// </summary>
         BookLink,
+
+        /// <summary>
+        /// BookMagnify
+        /// </summary>
         BookMagnify,
+
+        /// <summary>
+        /// BookNext
+        /// </summary>
         BookNext,
+
+        /// <summary>
+        /// BookOpen
+        /// </summary>
         BookOpen,
+
+        /// <summary>
+        /// BookOpenMark
+        /// </summary>
         BookOpenMark,
+
+        /// <summary>
+        /// BookPrevious
+        /// </summary>
         BookPrevious,
+
+        /// <summary>
+        /// BookRed
+        /// </summary>
         BookRed,
+
+        /// <summary>
+        /// BookTabs
+        /// </summary>
         BookTabs,
+
+        /// <summary>
+        /// BorderAll
+        /// </summary>
         BorderAll,
+
+        /// <summary>
+        /// BorderBottom
+        /// </summary>
         BorderBottom,
+
+        /// <summary>
+        /// BorderDraw
+        /// </summary>
         BorderDraw,
+
+        /// <summary>
+        /// BorderInner
+        /// </summary>
         BorderInner,
+
+        /// <summary>
+        /// BorderInnerHorizontal
+        /// </summary>
         BorderInnerHorizontal,
+
+        /// <summary>
+        /// BorderInnerVertical
+        /// </summary>
         BorderInnerVertical,
+
+        /// <summary>
+        /// BorderLeft
+        /// </summary>
         BorderLeft,
+
+        /// <summary>
+        /// BorderNone
+        /// </summary>
         BorderNone,
+
+        /// <summary>
+        /// BorderOuter
+        /// </summary>
         BorderOuter,
+
+        /// <summary>
+        /// BorderRight
+        /// </summary>
         BorderRight,
+
+        /// <summary>
+        /// BorderTop
+        /// </summary>
         BorderTop,
+
+        /// <summary>
+        /// Box
+        /// </summary>
         Box,
+
+        /// <summary>
+        /// BoxError
+        /// </summary>
         BoxError,
+
+        /// <summary>
+        /// BoxPicture
+        /// </summary>
         BoxPicture,
+
+        /// <summary>
+        /// BoxWorld
+        /// </summary>
         BoxWorld,
+
+        /// <summary>
+        /// Brick
+        /// </summary>
         Brick,
+
+        /// <summary>
+        /// Bricks
+        /// </summary>
         Bricks,
+
+        /// <summary>
+        /// BrickAdd
+        /// </summary>
         BrickAdd,
+
+        /// <summary>
+        /// BrickDelete
+        /// </summary>
         BrickDelete,
+
+        /// <summary>
+        /// BrickEdit
+        /// </summary>
         BrickEdit,
+
+        /// <summary>
+        /// BrickError
+        /// </summary>
         BrickError,
+
+        /// <summary>
+        /// BrickGo
+        /// </summary>
         BrickGo,
+
+        /// <summary>
+        /// BrickLink
+        /// </summary>
         BrickLink,
+
+        /// <summary>
+        /// BrickMagnify
+        /// </summary>
         BrickMagnify,
+
+        /// <summary>
+        /// Briefcase
+        /// </summary>
         Briefcase,
+
+        /// <summary>
+        /// Bug
+        /// </summary>
         Bug,
+
+        /// <summary>
+        /// BugAdd
+        /// </summary>
         BugAdd,
+
+        /// <summary>
+        /// BugDelete
+        /// </summary>
         BugDelete,
+
+        /// <summary>
+        /// BugEdit
+        /// </summary>
         BugEdit,
+
+        /// <summary>
+        /// BugError
+        /// </summary>
         BugError,
+
+        /// <summary>
+        /// BugFix
+        /// </summary>
         BugFix,
+
+        /// <summary>
+        /// BugGo
+        /// </summary>
         BugGo,
+
+        /// <summary>
+        /// BugLink
+        /// </summary>
         BugLink,
+
+        /// <summary>
+        /// BugMagnify
+        /// </summary>
         BugMagnify,
+
+        /// <summary>
+        /// Build
+        /// </summary>
         Build,
+
+        /// <summary>
+        /// Building
+        /// </summary>
         Building,
+
+        /// <summary>
+        /// BuildingAdd
+        /// </summary>
         BuildingAdd,
+
+        /// <summary>
+        /// BuildingDelete
+        /// </summary>
         BuildingDelete,
+
+        /// <summary>
+        /// BuildingEdit
+        /// </summary>
         BuildingEdit,
+
+        /// <summary>
+        /// BuildingError
+        /// </summary>
         BuildingError,
+
+        /// <summary>
+        /// BuildingGo
+        /// </summary>
         BuildingGo,
+
+        /// <summary>
+        /// BuildingKey
+        /// </summary>
         BuildingKey,
+
+        /// <summary>
+        /// BuildingLink
+        /// </summary>
         BuildingLink,
+
+        /// <summary>
+        /// BuildCancel
+        /// </summary>
         BuildCancel,
+
+        /// <summary>
+        /// BulletAdd
+        /// </summary>
         BulletAdd,
+
+        /// <summary>
+        /// BulletArrowBottom
+        /// </summary>
         BulletArrowBottom,
+
+        /// <summary>
+        /// BulletArrowDown
+        /// </summary>
         BulletArrowDown,
+
+        /// <summary>
+        /// BulletArrowTop
+        /// </summary>
         BulletArrowTop,
+
+        /// <summary>
+        /// BulletArrowUp
+        /// </summary>
         BulletArrowUp,
+
+        /// <summary>
+        /// BulletBlack
+        /// </summary>
         BulletBlack,
+
+        /// <summary>
+        /// BulletBlue
+        /// </summary>
         BulletBlue,
+
+        /// <summary>
+        /// BulletConnect
+        /// </summary>
         BulletConnect,
+
+        /// <summary>
+        /// BulletCross
+        /// </summary>
         BulletCross,
+
+        /// <summary>
+        /// BulletDatabase
+        /// </summary>
         BulletDatabase,
+
+        /// <summary>
+        /// BulletDatabaseYellow
+        /// </summary>
         BulletDatabaseYellow,
+
+        /// <summary>
+        /// BulletDelete
+        /// </summary>
         BulletDelete,
+
+        /// <summary>
+        /// BulletDisk
+        /// </summary>
         BulletDisk,
+
+        /// <summary>
+        /// BulletEarth
+        /// </summary>
         BulletEarth,
+
+        /// <summary>
+        /// BulletEdit
+        /// </summary>
         BulletEdit,
+
+        /// <summary>
+        /// BulletEject
+        /// </summary>
         BulletEject,
+
+        /// <summary>
+        /// BulletError
+        /// </summary>
         BulletError,
+
+        /// <summary>
+        /// BulletFeed
+        /// </summary>
         BulletFeed,
+
+        /// <summary>
+        /// BulletGet
+        /// </summary>
         BulletGet,
+
+        /// <summary>
+        /// BulletGo
+        /// </summary>
         BulletGo,
+
+        /// <summary>
+        /// BulletGreen
+        /// </summary>
         BulletGreen,
+
+        /// <summary>
+        /// BulletHome
+        /// </summary>
         BulletHome,
+
+        /// <summary>
+        /// BulletKey
+        /// </summary>
         BulletKey,
+
+        /// <summary>
+        /// BulletLeft
+        /// </summary>
         BulletLeft,
+
+        /// <summary>
+        /// BulletLightning
+        /// </summary>
         BulletLightning,
+
+        /// <summary>
+        /// BulletMagnify
+        /// </summary>
         BulletMagnify,
+
+        /// <summary>
+        /// BulletMinus
+        /// </summary>
         BulletMinus,
+
+        /// <summary>
+        /// BulletOrange
+        /// </summary>
         BulletOrange,
+
+        /// <summary>
+        /// BulletPageWhite
+        /// </summary>
         BulletPageWhite,
+
+        /// <summary>
+        /// BulletPicture
+        /// </summary>
         BulletPicture,
+
+        /// <summary>
+        /// BulletPink
+        /// </summary>
         BulletPink,
+
+        /// <summary>
+        /// BulletPlus
+        /// </summary>
         BulletPlus,
+
+        /// <summary>
+        /// BulletPurple
+        /// </summary>
         BulletPurple,
+
+        /// <summary>
+        /// BulletRed
+        /// </summary>
         BulletRed,
+
+        /// <summary>
+        /// BulletRight
+        /// </summary>
         BulletRight,
+
+        /// <summary>
+        /// BulletShape
+        /// </summary>
         BulletShape,
+
+        /// <summary>
+        /// BulletSparkle
+        /// </summary>
         BulletSparkle,
+
+        /// <summary>
+        /// BulletStar
+        /// </summary>
         BulletStar,
+
+        /// <summary>
+        /// BulletStart
+        /// </summary>
         BulletStart,
+
+        /// <summary>
+        /// BulletStop
+        /// </summary>
         BulletStop,
+
+        /// <summary>
+        /// BulletStopAlt
+        /// </summary>
         BulletStopAlt,
+
+        /// <summary>
+        /// BulletTick
+        /// </summary>
         BulletTick,
+
+        /// <summary>
+        /// BulletToggleMinus
+        /// </summary>
         BulletToggleMinus,
+
+        /// <summary>
+        /// BulletTogglePlus
+        /// </summary>
         BulletTogglePlus,
+
+        /// <summary>
+        /// BulletWhite
+        /// </summary>
         BulletWhite,
+
+        /// <summary>
+        /// BulletWrench
+        /// </summary>
         BulletWrench,
+
+        /// <summary>
+        /// BulletWrenchRed
+        /// </summary>
         BulletWrenchRed,
+
+        /// <summary>
+        /// BulletYellow
+        /// </summary>
         BulletYellow,
+
+        /// <summary>
+        /// Button
+        /// </summary>
         Button,
+
+        /// <summary>
+        /// Cake
+        /// </summary>
         Cake,
+
+        /// <summary>
+        /// CakeOut
+        /// </summary>
         CakeOut,
+
+        /// <summary>
+        /// CakeSliced
+        /// </summary>
         CakeSliced,
+
+        /// <summary>
+        /// Calculator
+        /// </summary>
         Calculator,
+
+        /// <summary>
+        /// CalculatorAdd
+        /// </summary>
         CalculatorAdd,
+
+        /// <summary>
+        /// CalculatorDelete
+        /// </summary>
         CalculatorDelete,
+
+        /// <summary>
+        /// CalculatorEdit
+        /// </summary>
         CalculatorEdit,
+
+        /// <summary>
+        /// CalculatorError
+        /// </summary>
         CalculatorError,
+
+        /// <summary>
+        /// CalculatorLink
+        /// </summary>
         CalculatorLink,
+
+        /// <summary>
+        /// Calendar
+        /// </summary>
         Calendar,
+
+        /// <summary>
+        /// CalendarAdd
+        /// </summary>
         CalendarAdd,
+
+        /// <summary>
+        /// CalendarDelete
+        /// </summary>
         CalendarDelete,
+
+        /// <summary>
+        /// CalendarEdit
+        /// </summary>
         CalendarEdit,
+
+        /// <summary>
+        /// CalendarLink
+        /// </summary>
         CalendarLink,
+
+        /// <summary>
+        /// CalendarSelectDay
+        /// </summary>
         CalendarSelectDay,
+
+        /// <summary>
+        /// CalendarSelectNone
+        /// </summary>
         CalendarSelectNone,
+
+        /// <summary>
+        /// CalendarSelectWeek
+        /// </summary>
         CalendarSelectWeek,
+
+        /// <summary>
+        /// CalendarStar
+        /// </summary>
         CalendarStar,
+
+        /// <summary>
+        /// CalendarViewDay
+        /// </summary>
         CalendarViewDay,
+
+        /// <summary>
+        /// CalendarViewMonth
+        /// </summary>
         CalendarViewMonth,
+
+        /// <summary>
+        /// CalendarViewWeek
+        /// </summary>
         CalendarViewWeek,
+
+        /// <summary>
+        /// Camera
+        /// </summary>
         Camera,
+
+        /// <summary>
+        /// CameraAdd
+        /// </summary>
         CameraAdd,
+
+        /// <summary>
+        /// CameraConnect
+        /// </summary>
         CameraConnect,
+
+        /// <summary>
+        /// CameraDelete
+        /// </summary>
         CameraDelete,
+
+        /// <summary>
+        /// CameraEdit
+        /// </summary>
         CameraEdit,
+
+        /// <summary>
+        /// CameraError
+        /// </summary>
         CameraError,
+
+        /// <summary>
+        /// CameraGo
+        /// </summary>
         CameraGo,
+
+        /// <summary>
+        /// CameraLink
+        /// </summary>
         CameraLink,
+
+        /// <summary>
+        /// CameraMagnify
+        /// </summary>
         CameraMagnify,
+
+        /// <summary>
+        /// CameraPicture
+        /// </summary>
         CameraPicture,
+
+        /// <summary>
+        /// CameraSmall
+        /// </summary>
         CameraSmall,
+
+        /// <summary>
+        /// CameraStart
+        /// </summary>
         CameraStart,
+
+        /// <summary>
+        /// CameraStop
+        /// </summary>
         CameraStop,
+
+        /// <summary>
+        /// Cancel
+        /// </summary>
         Cancel,
+
+        /// <summary>
+        /// Car
+        /// </summary>
         Car,
+
+        /// <summary>
+        /// Cart
+        /// </summary>
         Cart,
+
+        /// <summary>
+        /// CartAdd
+        /// </summary>
         CartAdd,
+
+        /// <summary>
+        /// CartDelete
+        /// </summary>
         CartDelete,
+
+        /// <summary>
+        /// CartEdit
+        /// </summary>
         CartEdit,
+
+        /// <summary>
+        /// CartError
+        /// </summary>
         CartError,
+
+        /// <summary>
+        /// CartFull
+        /// </summary>
         CartFull,
+
+        /// <summary>
+        /// CartGo
+        /// </summary>
         CartGo,
+
+        /// <summary>
+        /// CartMagnify
+        /// </summary>
         CartMagnify,
+
+        /// <summary>
+        /// CartPut
+        /// </summary>
         CartPut,
+
+        /// <summary>
+        /// CartRemove
+        /// </summary>
         CartRemove,
+
+        /// <summary>
+        /// CarAdd
+        /// </summary>
         CarAdd,
+
+        /// <summary>
+        /// CarDelete
+        /// </summary>
         CarDelete,
+
+        /// <summary>
+        /// CarError
+        /// </summary>
         CarError,
+
+        /// <summary>
+        /// CarRed
+        /// </summary>
         CarRed,
+
+        /// <summary>
+        /// CarStart
+        /// </summary>
         CarStart,
+
+        /// <summary>
+        /// CarStop
+        /// </summary>
         CarStop,
+
+        /// <summary>
+        /// Cd
+        /// </summary>
         Cd,
+
+        /// <summary>
+        /// Cdr
+        /// </summary>
         Cdr,
+
+        /// <summary>
+        /// CdrAdd
+        /// </summary>
         CdrAdd,
+
+        /// <summary>
+        /// CdrBurn
+        /// </summary>
         CdrBurn,
+
+        /// <summary>
+        /// CdrCross
+        /// </summary>
         CdrCross,
+
+        /// <summary>
+        /// CdrDelete
+        /// </summary>
         CdrDelete,
+
+        /// <summary>
+        /// CdrEdit
+        /// </summary>
         CdrEdit,
+
+        /// <summary>
+        /// CdrEject
+        /// </summary>
         CdrEject,
+
+        /// <summary>
+        /// CdrError
+        /// </summary>
         CdrError,
+
+        /// <summary>
+        /// CdrGo
+        /// </summary>
         CdrGo,
+
+        /// <summary>
+        /// CdrMagnify
+        /// </summary>
         CdrMagnify,
+
+        /// <summary>
+        /// CdrPlay
+        /// </summary>
         CdrPlay,
+
+        /// <summary>
+        /// CdrStart
+        /// </summary>
         CdrStart,
+
+        /// <summary>
+        /// CdrStop
+        /// </summary>
         CdrStop,
+
+        /// <summary>
+        /// CdrStopAlt
+        /// </summary>
         CdrStopAlt,
+
+        /// <summary>
+        /// CdrTick
+        /// </summary>
         CdrTick,
+
+        /// <summary>
+        /// CdAdd
+        /// </summary>
         CdAdd,
+
+        /// <summary>
+        /// CdBurn
+        /// </summary>
         CdBurn,
+
+        /// <summary>
+        /// CdDelete
+        /// </summary>
         CdDelete,
+
+        /// <summary>
+        /// CdEdit
+        /// </summary>
         CdEdit,
+
+        /// <summary>
+        /// CdEject
+        /// </summary>
         CdEject,
+
+        /// <summary>
+        /// CdGo
+        /// </summary>
         CdGo,
+
+        /// <summary>
+        /// CdMagnify
+        /// </summary>
         CdMagnify,
+
+        /// <summary>
+        /// CdPlay
+        /// </summary>
         CdPlay,
+
+        /// <summary>
+        /// CdStop
+        /// </summary>
         CdStop,
+
+        /// <summary>
+        /// CdStopAlt
+        /// </summary>
         CdStopAlt,
+
+        /// <summary>
+        /// CdTick
+        /// </summary>
         CdTick,
+
+        /// <summary>
+        /// ChartBar
+        /// </summary>
         ChartBar,
+
+        /// <summary>
+        /// ChartBarAdd
+        /// </summary>
         ChartBarAdd,
+
+        /// <summary>
+        /// ChartBarDelete
+        /// </summary>
         ChartBarDelete,
+
+        /// <summary>
+        /// ChartBarEdit
+        /// </summary>
         ChartBarEdit,
+
+        /// <summary>
+        /// ChartBarError
+        /// </summary>
         ChartBarError,
+
+        /// <summary>
+        /// ChartBarLink
+        /// </summary>
         ChartBarLink,
+
+        /// <summary>
+        /// ChartCurve
+        /// </summary>
         ChartCurve,
+
+        /// <summary>
+        /// ChartCurveAdd
+        /// </summary>
         ChartCurveAdd,
+
+        /// <summary>
+        /// ChartCurveDelete
+        /// </summary>
         ChartCurveDelete,
+
+        /// <summary>
+        /// ChartCurveEdit
+        /// </summary>
         ChartCurveEdit,
+
+        /// <summary>
+        /// ChartCurveError
+        /// </summary>
         ChartCurveError,
+
+        /// <summary>
+        /// ChartCurveGo
+        /// </summary>
         ChartCurveGo,
+
+        /// <summary>
+        /// ChartCurveLink
+        /// </summary>
         ChartCurveLink,
+
+        /// <summary>
+        /// ChartLine
+        /// </summary>
         ChartLine,
+
+        /// <summary>
+        /// ChartLineAdd
+        /// </summary>
         ChartLineAdd,
+
+        /// <summary>
+        /// ChartLineDelete
+        /// </summary>
         ChartLineDelete,
+
+        /// <summary>
+        /// ChartLineEdit
+        /// </summary>
         ChartLineEdit,
+
+        /// <summary>
+        /// ChartLineError
+        /// </summary>
         ChartLineError,
+
+        /// <summary>
+        /// ChartLineLink
+        /// </summary>
         ChartLineLink,
+
+        /// <summary>
+        /// ChartOrganisation
+        /// </summary>
         ChartOrganisation,
+
+        /// <summary>
+        /// ChartOrganisationAdd
+        /// </summary>
         ChartOrganisationAdd,
+
+        /// <summary>
+        /// ChartOrganisationDelete
+        /// </summary>
         ChartOrganisationDelete,
+
+        /// <summary>
+        /// ChartOrgInverted
+        /// </summary>
         ChartOrgInverted,
+
+        /// <summary>
+        /// ChartPie
+        /// </summary>
         ChartPie,
+
+        /// <summary>
+        /// ChartPieAdd
+        /// </summary>
         ChartPieAdd,
+
+        /// <summary>
+        /// ChartPieDelete
+        /// </summary>
         ChartPieDelete,
+
+        /// <summary>
+        /// ChartPieEdit
+        /// </summary>
         ChartPieEdit,
+
+        /// <summary>
+        /// ChartPieError
+        /// </summary>
         ChartPieError,
+
+        /// <summary>
+        /// ChartPieLightning
+        /// </summary>
         ChartPieLightning,
+
+        /// <summary>
+        /// ChartPieLink
+        /// </summary>
         ChartPieLink,
+
+        /// <summary>
+        /// CheckError
+        /// </summary>
         CheckError,
+
+        /// <summary>
+        /// Clipboard
+        /// </summary>
         Clipboard,
+
+        /// <summary>
+        /// Clock
+        /// </summary>
         Clock,
+
+        /// <summary>
+        /// ClockAdd
+        /// </summary>
         ClockAdd,
+
+        /// <summary>
+        /// ClockDelete
+        /// </summary>
         ClockDelete,
+
+        /// <summary>
+        /// ClockEdit
+        /// </summary>
         ClockEdit,
+
+        /// <summary>
+        /// ClockError
+        /// </summary>
         ClockError,
+
+        /// <summary>
+        /// ClockGo
+        /// </summary>
         ClockGo,
+
+        /// <summary>
+        /// ClockLink
+        /// </summary>
         ClockLink,
+
+        /// <summary>
+        /// ClockPause
+        /// </summary>
         ClockPause,
+
+        /// <summary>
+        /// ClockPlay
+        /// </summary>
         ClockPlay,
+
+        /// <summary>
+        /// ClockRed
+        /// </summary>
         ClockRed,
+
+        /// <summary>
+        /// ClockStart
+        /// </summary>
         ClockStart,
+
+        /// <summary>
+        /// ClockStop
+        /// </summary>
         ClockStop,
+
+        /// <summary>
+        /// ClockStop2
+        /// </summary>
         ClockStop2,
+
+        /// <summary>
+        /// Cmy
+        /// </summary>
         Cmy,
+
+        /// <summary>
+        /// Cog
+        /// </summary>
         Cog,
+
+        /// <summary>
+        /// CogAdd
+        /// </summary>
         CogAdd,
+
+        /// <summary>
+        /// CogDelete
+        /// </summary>
         CogDelete,
+
+        /// <summary>
+        /// CogEdit
+        /// </summary>
         CogEdit,
+
+        /// <summary>
+        /// CogError
+        /// </summary>
         CogError,
+
+        /// <summary>
+        /// CogGo
+        /// </summary>
         CogGo,
+
+        /// <summary>
+        /// CogStart
+        /// </summary>
         CogStart,
+
+        /// <summary>
+        /// CogStop
+        /// </summary>
         CogStop,
+
+        /// <summary>
+        /// Coins
+        /// </summary>
         Coins,
+
+        /// <summary>
+        /// CoinsAdd
+        /// </summary>
         CoinsAdd,
+
+        /// <summary>
+        /// CoinsDelete
+        /// </summary>
         CoinsDelete,
+
+        /// <summary>
+        /// Color
+        /// </summary>
         Color,
+
+        /// <summary>
+        /// ColorSwatch
+        /// </summary>
         ColorSwatch,
+
+        /// <summary>
+        /// ColorWheel
+        /// </summary>
         ColorWheel,
+
+        /// <summary>
+        /// Comment
+        /// </summary>
         Comment,
+
+        /// <summary>
+        /// Comments
+        /// </summary>
         Comments,
+
+        /// <summary>
+        /// CommentsAdd
+        /// </summary>
         CommentsAdd,
+
+        /// <summary>
+        /// CommentsDelete
+        /// </summary>
         CommentsDelete,
+
+        /// <summary>
+        /// CommentAdd
+        /// </summary>
         CommentAdd,
+
+        /// <summary>
+        /// CommentDelete
+        /// </summary>
         CommentDelete,
+
+        /// <summary>
+        /// CommentDull
+        /// </summary>
         CommentDull,
+
+        /// <summary>
+        /// CommentEdit
+        /// </summary>
         CommentEdit,
+
+        /// <summary>
+        /// CommentPlay
+        /// </summary>
         CommentPlay,
+
+        /// <summary>
+        /// CommentRecord
+        /// </summary>
         CommentRecord,
+
+        /// <summary>
+        /// Compass
+        /// </summary>
         Compass,
+
+        /// <summary>
+        /// Compress
+        /// </summary>
         Compress,
+
+        /// <summary>
+        /// Computer
+        /// </summary>
         Computer,
+
+        /// <summary>
+        /// ComputerAdd
+        /// </summary>
         ComputerAdd,
+
+        /// <summary>
+        /// ComputerConnect
+        /// </summary>
         ComputerConnect,
+
+        /// <summary>
+        /// ComputerDelete
+        /// </summary>
         ComputerDelete,
+
+        /// <summary>
+        /// ComputerEdit
+        /// </summary>
         ComputerEdit,
+
+        /// <summary>
+        /// ComputerError
+        /// </summary>
         ComputerError,
+
+        /// <summary>
+        /// ComputerGo
+        /// </summary>
         ComputerGo,
+
+        /// <summary>
+        /// ComputerKey
+        /// </summary>
         ComputerKey,
+
+        /// <summary>
+        /// ComputerLink
+        /// </summary>
         ComputerLink,
+
+        /// <summary>
+        /// ComputerMagnify
+        /// </summary>
         ComputerMagnify,
+
+        /// <summary>
+        /// ComputerOff
+        /// </summary>
         ComputerOff,
+
+        /// <summary>
+        /// ComputerStart
+        /// </summary>
         ComputerStart,
+
+        /// <summary>
+        /// ComputerStop
+        /// </summary>
         ComputerStop,
+
+        /// <summary>
+        /// ComputerWrench
+        /// </summary>
         ComputerWrench,
+
+        /// <summary>
+        /// Connect
+        /// </summary>
         Connect,
+
+        /// <summary>
+        /// Contrast
+        /// </summary>
         Contrast,
+
+        /// <summary>
+        /// ContrastDecrease
+        /// </summary>
         ContrastDecrease,
+
+        /// <summary>
+        /// ContrastHigh
+        /// </summary>
         ContrastHigh,
+
+        /// <summary>
+        /// ContrastIncrease
+        /// </summary>
         ContrastIncrease,
+
+        /// <summary>
+        /// ContrastLow
+        /// </summary>
         ContrastLow,
+
+        /// <summary>
+        /// Controller
+        /// </summary>
         Controller,
+
+        /// <summary>
+        /// ControllerAdd
+        /// </summary>
         ControllerAdd,
+
+        /// <summary>
+        /// ControllerDelete
+        /// </summary>
         ControllerDelete,
+
+        /// <summary>
+        /// ControllerError
+        /// </summary>
         ControllerError,
+
+        /// <summary>
+        /// ControlAdd
+        /// </summary>
         ControlAdd,
+
+        /// <summary>
+        /// ControlAddBlue
+        /// </summary>
         ControlAddBlue,
+
+        /// <summary>
+        /// ControlBlank
+        /// </summary>
         ControlBlank,
+
+        /// <summary>
+        /// ControlBlankBlue
+        /// </summary>
         ControlBlankBlue,
+
+        /// <summary>
+        /// ControlEject
+        /// </summary>
         ControlEject,
+
+        /// <summary>
+        /// ControlEjectBlue
+        /// </summary>
         ControlEjectBlue,
+
+        /// <summary>
+        /// ControlEnd
+        /// </summary>
         ControlEnd,
+
+        /// <summary>
+        /// ControlEndBlue
+        /// </summary>
         ControlEndBlue,
+
+        /// <summary>
+        /// ControlEqualizer
+        /// </summary>
         ControlEqualizer,
+
+        /// <summary>
+        /// ControlEqualizerBlue
+        /// </summary>
         ControlEqualizerBlue,
+
+        /// <summary>
+        /// ControlFastforward
+        /// </summary>
         ControlFastforward,
+
+        /// <summary>
+        /// ControlFastforwardBlue
+        /// </summary>
         ControlFastforwardBlue,
+
+        /// <summary>
+        /// ControlPause
+        /// </summary>
         ControlPause,
+
+        /// <summary>
+        /// ControlPauseBlue
+        /// </summary>
         ControlPauseBlue,
+
+        /// <summary>
+        /// ControlPlay
+        /// </summary>
         ControlPlay,
+
+        /// <summary>
+        /// ControlPlayBlue
+        /// </summary>
         ControlPlayBlue,
+
+        /// <summary>
+        /// ControlPower
+        /// </summary>
         ControlPower,
+
+        /// <summary>
+        /// ControlPowerBlue
+        /// </summary>
         ControlPowerBlue,
+
+        /// <summary>
+        /// ControlRecord
+        /// </summary>
         ControlRecord,
+
+        /// <summary>
+        /// ControlRecordBlue
+        /// </summary>
         ControlRecordBlue,
+
+        /// <summary>
+        /// ControlRemove
+        /// </summary>
         ControlRemove,
+
+        /// <summary>
+        /// ControlRemoveBlue
+        /// </summary>
         ControlRemoveBlue,
+
+        /// <summary>
+        /// ControlRepeat
+        /// </summary>
         ControlRepeat,
+
+        /// <summary>
+        /// ControlRepeatBlue
+        /// </summary>
         ControlRepeatBlue,
+
+        /// <summary>
+        /// ControlRewind
+        /// </summary>
         ControlRewind,
+
+        /// <summary>
+        /// ControlRewindBlue
+        /// </summary>
         ControlRewindBlue,
+
+        /// <summary>
+        /// ControlStart
+        /// </summary>
         ControlStart,
+
+        /// <summary>
+        /// ControlStartBlue
+        /// </summary>
         ControlStartBlue,
+
+        /// <summary>
+        /// ControlStop
+        /// </summary>
         ControlStop,
+
+        /// <summary>
+        /// ControlStopBlue
+        /// </summary>
         ControlStopBlue,
+
+        /// <summary>
+        /// Creditcards
+        /// </summary>
         Creditcards,
+
+        /// <summary>
+        /// Cross
+        /// </summary>
         Cross,
+
+        /// <summary>
+        /// Css
+        /// </summary>
         Css,
+
+        /// <summary>
+        /// CssAdd
+        /// </summary>
         CssAdd,
+
+        /// <summary>
+        /// CssDelete
+        /// </summary>
         CssDelete,
+
+        /// <summary>
+        /// CssError
+        /// </summary>
         CssError,
+
+        /// <summary>
+        /// CssGo
+        /// </summary>
         CssGo,
+
+        /// <summary>
+        /// CssValid
+        /// </summary>
         CssValid,
+
+        /// <summary>
+        /// Cup
+        /// </summary>
         Cup,
+
+        /// <summary>
+        /// CupAdd
+        /// </summary>
         CupAdd,
+
+        /// <summary>
+        /// CupBlack
+        /// </summary>
         CupBlack,
+
+        /// <summary>
+        /// CupDelete
+        /// </summary>
         CupDelete,
+
+        /// <summary>
+        /// CupEdit
+        /// </summary>
         CupEdit,
+
+        /// <summary>
+        /// CupError
+        /// </summary>
         CupError,
+
+        /// <summary>
+        /// CupGo
+        /// </summary>
         CupGo,
+
+        /// <summary>
+        /// CupGreen
+        /// </summary>
         CupGreen,
+
+        /// <summary>
+        /// CupKey
+        /// </summary>
         CupKey,
+
+        /// <summary>
+        /// CupLink
+        /// </summary>
         CupLink,
+
+        /// <summary>
+        /// CupTea
+        /// </summary>
         CupTea,
+
+        /// <summary>
+        /// Cursor
+        /// </summary>
         Cursor,
+
+        /// <summary>
+        /// CursorSmall
+        /// </summary>
         CursorSmall,
+
+        /// <summary>
+        /// Cut
+        /// </summary>
         Cut,
+
+        /// <summary>
+        /// CutRed
+        /// </summary>
         CutRed,
+
+        /// <summary>
+        /// Database
+        /// </summary>
         Database,
+
+        /// <summary>
+        /// DatabaseAdd
+        /// </summary>
         DatabaseAdd,
+
+        /// <summary>
+        /// DatabaseConnect
+        /// </summary>
         DatabaseConnect,
+
+        /// <summary>
+        /// DatabaseCopy
+        /// </summary>
         DatabaseCopy,
+
+        /// <summary>
+        /// DatabaseDelete
+        /// </summary>
         DatabaseDelete,
+
+        /// <summary>
+        /// DatabaseEdit
+        /// </summary>
         DatabaseEdit,
+
+        /// <summary>
+        /// DatabaseError
+        /// </summary>
         DatabaseError,
+
+        /// <summary>
+        /// DatabaseGear
+        /// </summary>
         DatabaseGear,
+
+        /// <summary>
+        /// DatabaseGo
+        /// </summary>
         DatabaseGo,
+
+        /// <summary>
+        /// DatabaseKey
+        /// </summary>
         DatabaseKey,
+
+        /// <summary>
+        /// DatabaseLightning
+        /// </summary>
         DatabaseLightning,
+
+        /// <summary>
+        /// DatabaseLink
+        /// </summary>
         DatabaseLink,
+
+        /// <summary>
+        /// DatabaseRefresh
+        /// </summary>
         DatabaseRefresh,
+
+        /// <summary>
+        /// DatabaseSave
+        /// </summary>
         DatabaseSave,
+
+        /// <summary>
+        /// DatabaseStart
+        /// </summary>
         DatabaseStart,
+
+        /// <summary>
+        /// DatabaseStop
+        /// </summary>
         DatabaseStop,
+
+        /// <summary>
+        /// DatabaseTable
+        /// </summary>
         DatabaseTable,
+
+        /// <summary>
+        /// DatabaseWrench
+        /// </summary>
         DatabaseWrench,
+
+        /// <summary>
+        /// DatabaseYellow
+        /// </summary>
         DatabaseYellow,
+
+        /// <summary>
+        /// DatabaseYellowStart
+        /// </summary>
         DatabaseYellowStart,
+
+        /// <summary>
+        /// DatabaseYellowStop
+        /// </summary>
         DatabaseYellowStop,
+
+        /// <summary>
+        /// Date
+        /// </summary>
         Date,
+
+        /// <summary>
+        /// DateAdd
+        /// </summary>
         DateAdd,
+
+        /// <summary>
+        /// DateDelete
+        /// </summary>
         DateDelete,
+
+        /// <summary>
+        /// DateEdit
+        /// </summary>
         DateEdit,
+
+        /// <summary>
+        /// DateError
+        /// </summary>
         DateError,
+
+        /// <summary>
+        /// DateGo
+        /// </summary>
         DateGo,
+
+        /// <summary>
+        /// DateLink
+        /// </summary>
         DateLink,
+
+        /// <summary>
+        /// DateMagnify
+        /// </summary>
         DateMagnify,
+
+        /// <summary>
+        /// DateNext
+        /// </summary>
         DateNext,
+
+        /// <summary>
+        /// DatePrevious
+        /// </summary>
         DatePrevious,
+
+        /// <summary>
+        /// Decline
+        /// </summary>
         Decline,
+
+        /// <summary>
+        /// Delete
+        /// </summary>
         Delete,
+
+        /// <summary>
+        /// DeviceStylus
+        /// </summary>
         DeviceStylus,
+
+        /// <summary>
+        /// Disconnect
+        /// </summary>
         Disconnect,
+
+        /// <summary>
+        /// Disk
+        /// </summary>
         Disk,
+
+        /// <summary>
+        /// DiskBlack
+        /// </summary>
         DiskBlack,
+
+        /// <summary>
+        /// DiskBlackError
+        /// </summary>
         DiskBlackError,
+
+        /// <summary>
+        /// DiskBlackMagnify
+        /// </summary>
         DiskBlackMagnify,
+
+        /// <summary>
+        /// DiskDownload
+        /// </summary>
         DiskDownload,
+
+        /// <summary>
+        /// DiskEdit
+        /// </summary>
         DiskEdit,
+
+        /// <summary>
+        /// DiskError
+        /// </summary>
         DiskError,
+
+        /// <summary>
+        /// DiskMagnify
+        /// </summary>
         DiskMagnify,
+
+        /// <summary>
+        /// DiskMultiple
+        /// </summary>
         DiskMultiple,
+
+        /// <summary>
+        /// DiskUpload
+        /// </summary>
         DiskUpload,
+
+        /// <summary>
+        /// Door
+        /// </summary>
         Door,
+
+        /// <summary>
+        /// DoorError
+        /// </summary>
         DoorError,
+
+        /// <summary>
+        /// DoorIn
+        /// </summary>
         DoorIn,
+
+        /// <summary>
+        /// DoorOpen
+        /// </summary>
         DoorOpen,
+
+        /// <summary>
+        /// DoorOut
+        /// </summary>
         DoorOut,
+
+        /// <summary>
+        /// Drink
+        /// </summary>
         Drink,
+
+        /// <summary>
+        /// DrinkEmpty
+        /// </summary>
         DrinkEmpty,
+
+        /// <summary>
+        /// DrinkRed
+        /// </summary>
         DrinkRed,
+
+        /// <summary>
+        /// Drive
+        /// </summary>
         Drive,
+
+        /// <summary>
+        /// DriveAdd
+        /// </summary>
         DriveAdd,
+
+        /// <summary>
+        /// DriveBurn
+        /// </summary>
         DriveBurn,
+
+        /// <summary>
+        /// DriveCd
+        /// </summary>
         DriveCd,
+
+        /// <summary>
+        /// DriveCdr
+        /// </summary>
         DriveCdr,
+
+        /// <summary>
+        /// DriveCdEmpty
+        /// </summary>
         DriveCdEmpty,
+
+        /// <summary>
+        /// DriveDelete
+        /// </summary>
         DriveDelete,
+
+        /// <summary>
+        /// DriveDisk
+        /// </summary>
         DriveDisk,
+
+        /// <summary>
+        /// DriveEdit
+        /// </summary>
         DriveEdit,
+
+        /// <summary>
+        /// DriveError
+        /// </summary>
         DriveError,
+
+        /// <summary>
+        /// DriveGo
+        /// </summary>
         DriveGo,
+
+        /// <summary>
+        /// DriveKey
+        /// </summary>
         DriveKey,
+
+        /// <summary>
+        /// DriveLink
+        /// </summary>
         DriveLink,
+
+        /// <summary>
+        /// DriveMagnify
+        /// </summary>
         DriveMagnify,
+
+        /// <summary>
+        /// DriveNetwork
+        /// </summary>
         DriveNetwork,
+
+        /// <summary>
+        /// DriveNetworkError
+        /// </summary>
         DriveNetworkError,
+
+        /// <summary>
+        /// DriveNetworkStop
+        /// </summary>
         DriveNetworkStop,
+
+        /// <summary>
+        /// DriveRename
+        /// </summary>
         DriveRename,
+
+        /// <summary>
+        /// DriveUser
+        /// </summary>
         DriveUser,
+
+        /// <summary>
+        /// DriveWeb
+        /// </summary>
         DriveWeb,
+
+        /// <summary>
+        /// Dvd
+        /// </summary>
         Dvd,
+
+        /// <summary>
+        /// DvdAdd
+        /// </summary>
         DvdAdd,
+
+        /// <summary>
+        /// DvdDelete
+        /// </summary>
         DvdDelete,
+
+        /// <summary>
+        /// DvdEdit
+        /// </summary>
         DvdEdit,
+
+        /// <summary>
+        /// DvdError
+        /// </summary>
         DvdError,
+
+        /// <summary>
+        /// DvdGo
+        /// </summary>
         DvdGo,
+
+        /// <summary>
+        /// DvdKey
+        /// </summary>
         DvdKey,
+
+        /// <summary>
+        /// DvdLink
+        /// </summary>
         DvdLink,
+
+        /// <summary>
+        /// DvdStart
+        /// </summary>
         DvdStart,
+
+        /// <summary>
+        /// DvdStop
+        /// </summary>
         DvdStop,
+
+        /// <summary>
+        /// EjectBlue
+        /// </summary>
         EjectBlue,
+
+        /// <summary>
+        /// EjectGreen
+        /// </summary>
         EjectGreen,
+
+        /// <summary>
+        /// Email
+        /// </summary>
         Email,
+
+        /// <summary>
+        /// EmailAdd
+        /// </summary>
         EmailAdd,
+
+        /// <summary>
+        /// EmailAttach
+        /// </summary>
         EmailAttach,
+
+        /// <summary>
+        /// EmailDelete
+        /// </summary>
         EmailDelete,
+
+        /// <summary>
+        /// EmailEdit
+        /// </summary>
         EmailEdit,
+
+        /// <summary>
+        /// EmailError
+        /// </summary>
         EmailError,
+
+        /// <summary>
+        /// EmailGo
+        /// </summary>
         EmailGo,
+
+        /// <summary>
+        /// EmailLink
+        /// </summary>
         EmailLink,
+
+        /// <summary>
+        /// EmailMagnify
+        /// </summary>
         EmailMagnify,
+
+        /// <summary>
+        /// EmailOpen
+        /// </summary>
         EmailOpen,
+
+        /// <summary>
+        /// EmailOpenImage
+        /// </summary>
         EmailOpenImage,
+
+        /// <summary>
+        /// EmailStar
+        /// </summary>
         EmailStar,
+
+        /// <summary>
+        /// EmailStart
+        /// </summary>
         EmailStart,
+
+        /// <summary>
+        /// EmailStop
+        /// </summary>
         EmailStop,
+
+        /// <summary>
+        /// EmailTransfer
+        /// </summary>
         EmailTransfer,
+
+        /// <summary>
+        /// EmoticonEvilgrin
+        /// </summary>
         EmoticonEvilgrin,
+
+        /// <summary>
+        /// EmoticonGrin
+        /// </summary>
         EmoticonGrin,
+
+        /// <summary>
+        /// EmoticonHappy
+        /// </summary>
         EmoticonHappy,
+
+        /// <summary>
+        /// EmoticonSmile
+        /// </summary>
         EmoticonSmile,
+
+        /// <summary>
+        /// EmoticonSurprised
+        /// </summary>
         EmoticonSurprised,
+
+        /// <summary>
+        /// EmoticonTongue
+        /// </summary>
         EmoticonTongue,
+
+        /// <summary>
+        /// EmoticonUnhappy
+        /// </summary>
         EmoticonUnhappy,
+
+        /// <summary>
+        /// EmoticonWaii
+        /// </summary>
         EmoticonWaii,
+
+        /// <summary>
+        /// EmoticonWink
+        /// </summary>
         EmoticonWink,
+
+        /// <summary>
+        /// Erase
+        /// </summary>
         Erase,
+
+        /// <summary>
+        /// Error
+        /// </summary>
         Error,
+
+        /// <summary>
+        /// ErrorAdd
+        /// </summary>
         ErrorAdd,
+
+        /// <summary>
+        /// ErrorDelete
+        /// </summary>
         ErrorDelete,
+
+        /// <summary>
+        /// ErrorGo
+        /// </summary>
         ErrorGo,
+
+        /// <summary>
+        /// Exclamation
+        /// </summary>
         Exclamation,
+
+        /// <summary>
+        /// Eye
+        /// </summary>
         Eye,
+
+        /// <summary>
+        /// Eyes
+        /// </summary>
         Eyes,
+
+        /// <summary>
+        /// Feed
+        /// </summary>
         Feed,
+
+        /// <summary>
+        /// FeedAdd
+        /// </summary>
         FeedAdd,
+
+        /// <summary>
+        /// FeedDelete
+        /// </summary>
         FeedDelete,
+
+        /// <summary>
+        /// FeedDisk
+        /// </summary>
         FeedDisk,
+
+        /// <summary>
+        /// FeedEdit
+        /// </summary>
         FeedEdit,
+
+        /// <summary>
+        /// FeedError
+        /// </summary>
         FeedError,
+
+        /// <summary>
+        /// FeedGo
+        /// </summary>
         FeedGo,
+
+        /// <summary>
+        /// FeedKey
+        /// </summary>
         FeedKey,
+
+        /// <summary>
+        /// FeedLink
+        /// </summary>
         FeedLink,
+
+        /// <summary>
+        /// FeedMagnify
+        /// </summary>
         FeedMagnify,
+
+        /// <summary>
+        /// FeedStar
+        /// </summary>
         FeedStar,
+
+        /// <summary>
+        /// Female
+        /// </summary>
         Female,
+
+        /// <summary>
+        /// Film
+        /// </summary>
         Film,
+
+        /// <summary>
+        /// FilmAdd
+        /// </summary>
         FilmAdd,
+
+        /// <summary>
+        /// FilmDelete
+        /// </summary>
         FilmDelete,
+
+        /// <summary>
+        /// FilmEdit
+        /// </summary>
         FilmEdit,
+
+        /// <summary>
+        /// FilmEject
+        /// </summary>
         FilmEject,
+
+        /// <summary>
+        /// FilmError
+        /// </summary>
         FilmError,
+
+        /// <summary>
+        /// FilmGo
+        /// </summary>
         FilmGo,
+
+        /// <summary>
+        /// FilmKey
+        /// </summary>
         FilmKey,
+
+        /// <summary>
+        /// FilmLink
+        /// </summary>
         FilmLink,
+
+        /// <summary>
+        /// FilmMagnify
+        /// </summary>
         FilmMagnify,
+
+        /// <summary>
+        /// FilmSave
+        /// </summary>
         FilmSave,
+
+        /// <summary>
+        /// FilmStar
+        /// </summary>
         FilmStar,
+
+        /// <summary>
+        /// FilmStart
+        /// </summary>
         FilmStart,
+
+        /// <summary>
+        /// FilmStop
+        /// </summary>
         FilmStop,
+
+        /// <summary>
+        /// Find
+        /// </summary>
         Find,
+
+        /// <summary>
+        /// FingerPoint
+        /// </summary>
         FingerPoint,
+
+        /// <summary>
+        /// FlagAd
+        /// </summary>
         FlagAd,
+
+        /// <summary>
+        /// FlagAe
+        /// </summary>
         FlagAe,
+
+        /// <summary>
+        /// FlagAf
+        /// </summary>
         FlagAf,
+
+        /// <summary>
+        /// FlagAg
+        /// </summary>
         FlagAg,
+
+        /// <summary>
+        /// FlagAi
+        /// </summary>
         FlagAi,
+
+        /// <summary>
+        /// FlagAl
+        /// </summary>
         FlagAl,
+
+        /// <summary>
+        /// FlagAm
+        /// </summary>
         FlagAm,
+
+        /// <summary>
+        /// FlagAn
+        /// </summary>
         FlagAn,
+
+        /// <summary>
+        /// FlagAo
+        /// </summary>
         FlagAo,
+
+        /// <summary>
+        /// FlagAr
+        /// </summary>
         FlagAr,
+
+        /// <summary>
+        /// FlagAs
+        /// </summary>
         FlagAs,
+
+        /// <summary>
+        /// FlagAt
+        /// </summary>
         FlagAt,
+
+        /// <summary>
+        /// FlagAu
+        /// </summary>
         FlagAu,
+
+        /// <summary>
+        /// FlagAw
+        /// </summary>
         FlagAw,
+
+        /// <summary>
+        /// FlagAx
+        /// </summary>
         FlagAx,
+
+        /// <summary>
+        /// FlagAz
+        /// </summary>
         FlagAz,
+
+        /// <summary>
+        /// FlagBa
+        /// </summary>
         FlagBa,
+
+        /// <summary>
+        /// FlagBb
+        /// </summary>
         FlagBb,
+
+        /// <summary>
+        /// FlagBd
+        /// </summary>
         FlagBd,
+
+        /// <summary>
+        /// FlagBe
+        /// </summary>
         FlagBe,
+
+        /// <summary>
+        /// FlagBf
+        /// </summary>
         FlagBf,
+
+        /// <summary>
+        /// FlagBg
+        /// </summary>
         FlagBg,
+
+        /// <summary>
+        /// FlagBh
+        /// </summary>
         FlagBh,
+
+        /// <summary>
+        /// FlagBi
+        /// </summary>
         FlagBi,
+
+        /// <summary>
+        /// FlagBj
+        /// </summary>
         FlagBj,
+
+        /// <summary>
+        /// FlagBlack
+        /// </summary>
         FlagBlack,
+
+        /// <summary>
+        /// FlagBlue
+        /// </summary>
         FlagBlue,
+
+        /// <summary>
+        /// FlagBm
+        /// </summary>
         FlagBm,
+
+        /// <summary>
+        /// FlagBn
+        /// </summary>
         FlagBn,
+
+        /// <summary>
+        /// FlagBo
+        /// </summary>
         FlagBo,
+
+        /// <summary>
+        /// FlagBr
+        /// </summary>
         FlagBr,
+
+        /// <summary>
+        /// FlagBs
+        /// </summary>
         FlagBs,
+
+        /// <summary>
+        /// FlagBt
+        /// </summary>
         FlagBt,
+
+        /// <summary>
+        /// FlagBv
+        /// </summary>
         FlagBv,
+
+        /// <summary>
+        /// FlagBw
+        /// </summary>
         FlagBw,
+
+        /// <summary>
+        /// FlagBy
+        /// </summary>
         FlagBy,
+
+        /// <summary>
+        /// FlagBz
+        /// </summary>
         FlagBz,
+
+        /// <summary>
+        /// FlagCa
+        /// </summary>
         FlagCa,
+
+        /// <summary>
+        /// FlagCatalonia
+        /// </summary>
         FlagCatalonia,
+
+        /// <summary>
+        /// FlagCc
+        /// </summary>
         FlagCc,
+
+        /// <summary>
+        /// FlagCd
+        /// </summary>
         FlagCd,
+
+        /// <summary>
+        /// FlagCf
+        /// </summary>
         FlagCf,
+
+        /// <summary>
+        /// FlagCg
+        /// </summary>
         FlagCg,
+
+        /// <summary>
+        /// FlagCh
+        /// </summary>
         FlagCh,
+
+        /// <summary>
+        /// FlagChecked
+        /// </summary>
         FlagChecked,
+
+        /// <summary>
+        /// FlagCi
+        /// </summary>
         FlagCi,
+
+        /// <summary>
+        /// FlagCk
+        /// </summary>
         FlagCk,
+
+        /// <summary>
+        /// FlagCl
+        /// </summary>
         FlagCl,
+
+        /// <summary>
+        /// FlagCm
+        /// </summary>
         FlagCm,
+
+        /// <summary>
+        /// FlagCn
+        /// </summary>
         FlagCn,
+
+        /// <summary>
+        /// FlagCo
+        /// </summary>
         FlagCo,
+
+        /// <summary>
+        /// FlagCr
+        /// </summary>
         FlagCr,
+
+        /// <summary>
+        /// FlagCs
+        /// </summary>
         FlagCs,
+
+        /// <summary>
+        /// FlagCu
+        /// </summary>
         FlagCu,
+
+        /// <summary>
+        /// FlagCv
+        /// </summary>
         FlagCv,
+
+        /// <summary>
+        /// FlagCx
+        /// </summary>
         FlagCx,
+
+        /// <summary>
+        /// FlagCy
+        /// </summary>
         FlagCy,
+
+        /// <summary>
+        /// FlagCz
+        /// </summary>
         FlagCz,
+
+        /// <summary>
+        /// FlagDe
+        /// </summary>
         FlagDe,
+
+        /// <summary>
+        /// FlagDj
+        /// </summary>
         FlagDj,
+
+        /// <summary>
+        /// FlagDk
+        /// </summary>
         FlagDk,
+
+        /// <summary>
+        /// FlagDm
+        /// </summary>
         FlagDm,
+
+        /// <summary>
+        /// FlagDo
+        /// </summary>
         FlagDo,
+
+        /// <summary>
+        /// FlagDz
+        /// </summary>
         FlagDz,
+
+        /// <summary>
+        /// FlagEc
+        /// </summary>
         FlagEc,
+
+        /// <summary>
+        /// FlagEe
+        /// </summary>
         FlagEe,
+
+        /// <summary>
+        /// FlagEg
+        /// </summary>
         FlagEg,
+
+        /// <summary>
+        /// FlagEh
+        /// </summary>
         FlagEh,
+
+        /// <summary>
+        /// FlagEngland
+        /// </summary>
         FlagEngland,
+
+        /// <summary>
+        /// FlagEr
+        /// </summary>
         FlagEr,
+
+        /// <summary>
+        /// FlagEs
+        /// </summary>
         FlagEs,
+
+        /// <summary>
+        /// FlagEt
+        /// </summary>
         FlagEt,
+
+        /// <summary>
+        /// FlagEuropeanunion
+        /// </summary>
         FlagEuropeanunion,
+
+        /// <summary>
+        /// FlagFam
+        /// </summary>
         FlagFam,
+
+        /// <summary>
+        /// FlagFi
+        /// </summary>
         FlagFi,
+
+        /// <summary>
+        /// FlagFj
+        /// </summary>
         FlagFj,
+
+        /// <summary>
+        /// FlagFk
+        /// </summary>
         FlagFk,
+
+        /// <summary>
+        /// FlagFm
+        /// </summary>
         FlagFm,
+
+        /// <summary>
+        /// FlagFo
+        /// </summary>
         FlagFo,
+
+        /// <summary>
+        /// FlagFr
+        /// </summary>
         FlagFr,
+
+        /// <summary>
+        /// FlagFrance
+        /// </summary>
         FlagFrance,
+
+        /// <summary>
+        /// FlagGa
+        /// </summary>
         FlagGa,
+
+        /// <summary>
+        /// FlagGb
+        /// </summary>
         FlagGb,
+
+        /// <summary>
+        /// FlagGd
+        /// </summary>
         FlagGd,
+
+        /// <summary>
+        /// FlagGe
+        /// </summary>
         FlagGe,
+
+        /// <summary>
+        /// FlagGf
+        /// </summary>
         FlagGf,
+
+        /// <summary>
+        /// FlagGg
+        /// </summary>
         FlagGg,
+
+        /// <summary>
+        /// FlagGh
+        /// </summary>
         FlagGh,
+
+        /// <summary>
+        /// FlagGi
+        /// </summary>
         FlagGi,
+
+        /// <summary>
+        /// FlagGl
+        /// </summary>
         FlagGl,
+
+        /// <summary>
+        /// FlagGm
+        /// </summary>
         FlagGm,
+
+        /// <summary>
+        /// FlagGn
+        /// </summary>
         FlagGn,
+
+        /// <summary>
+        /// FlagGp
+        /// </summary>
         FlagGp,
+
+        /// <summary>
+        /// FlagGq
+        /// </summary>
         FlagGq,
+
+        /// <summary>
+        /// FlagGr
+        /// </summary>
         FlagGr,
+
+        /// <summary>
+        /// FlagGreen
+        /// </summary>
         FlagGreen,
+
+        /// <summary>
+        /// FlagGrey
+        /// </summary>
         FlagGrey,
+
+        /// <summary>
+        /// FlagGs
+        /// </summary>
         FlagGs,
+
+        /// <summary>
+        /// FlagGt
+        /// </summary>
         FlagGt,
+
+        /// <summary>
+        /// FlagGu
+        /// </summary>
         FlagGu,
+
+        /// <summary>
+        /// FlagGw
+        /// </summary>
         FlagGw,
+
+        /// <summary>
+        /// FlagGy
+        /// </summary>
         FlagGy,
+
+        /// <summary>
+        /// FlagHk
+        /// </summary>
         FlagHk,
+
+        /// <summary>
+        /// FlagHm
+        /// </summary>
         FlagHm,
+
+        /// <summary>
+        /// FlagHn
+        /// </summary>
         FlagHn,
+
+        /// <summary>
+        /// FlagHr
+        /// </summary>
         FlagHr,
+
+        /// <summary>
+        /// FlagHt
+        /// </summary>
         FlagHt,
+
+        /// <summary>
+        /// FlagHu
+        /// </summary>
         FlagHu,
+
+        /// <summary>
+        /// FlagId
+        /// </summary>
         FlagId,
+
+        /// <summary>
+        /// FlagIe
+        /// </summary>
         FlagIe,
+
+        /// <summary>
+        /// FlagIl
+        /// </summary>
         FlagIl,
+
+        /// <summary>
+        /// FlagIn
+        /// </summary>
         FlagIn,
+
+        /// <summary>
+        /// FlagIo
+        /// </summary>
         FlagIo,
+
+        /// <summary>
+        /// FlagIq
+        /// </summary>
         FlagIq,
+
+        /// <summary>
+        /// FlagIr
+        /// </summary>
         FlagIr,
+
+        /// <summary>
+        /// FlagIs
+        /// </summary>
         FlagIs,
+
+        /// <summary>
+        /// FlagIt
+        /// </summary>
         FlagIt,
+
+        /// <summary>
+        /// FlagJm
+        /// </summary>
         FlagJm,
+
+        /// <summary>
+        /// FlagJo
+        /// </summary>
         FlagJo,
+
+        /// <summary>
+        /// FlagJp
+        /// </summary>
         FlagJp,
+
+        /// <summary>
+        /// FlagKe
+        /// </summary>
         FlagKe,
+
+        /// <summary>
+        /// FlagKg
+        /// </summary>
         FlagKg,
+
+        /// <summary>
+        /// FlagKh
+        /// </summary>
         FlagKh,
+
+        /// <summary>
+        /// FlagKi
+        /// </summary>
         FlagKi,
+
+        /// <summary>
+        /// FlagKm
+        /// </summary>
         FlagKm,
+
+        /// <summary>
+        /// FlagKn
+        /// </summary>
         FlagKn,
+
+        /// <summary>
+        /// FlagKp
+        /// </summary>
         FlagKp,
+
+        /// <summary>
+        /// FlagKr
+        /// </summary>
         FlagKr,
+
+        /// <summary>
+        /// FlagKw
+        /// </summary>
         FlagKw,
+
+        /// <summary>
+        /// FlagKy
+        /// </summary>
         FlagKy,
+
+        /// <summary>
+        /// FlagKz
+        /// </summary>
         FlagKz,
+
+        /// <summary>
+        /// FlagLa
+        /// </summary>
         FlagLa,
+
+        /// <summary>
+        /// FlagLb
+        /// </summary>
         FlagLb,
+
+        /// <summary>
+        /// FlagLc
+        /// </summary>
         FlagLc,
+
+        /// <summary>
+        /// FlagLi
+        /// </summary>
         FlagLi,
+
+        /// <summary>
+        /// FlagLk
+        /// </summary>
         FlagLk,
+
+        /// <summary>
+        /// FlagLr
+        /// </summary>
         FlagLr,
+
+        /// <summary>
+        /// FlagLs
+        /// </summary>
         FlagLs,
+
+        /// <summary>
+        /// FlagLt
+        /// </summary>
         FlagLt,
+
+        /// <summary>
+        /// FlagLu
+        /// </summary>
         FlagLu,
+
+        /// <summary>
+        /// FlagLv
+        /// </summary>
         FlagLv,
+
+        /// <summary>
+        /// FlagLy
+        /// </summary>
         FlagLy,
+
+        /// <summary>
+        /// FlagMa
+        /// </summary>
         FlagMa,
+
+        /// <summary>
+        /// FlagMc
+        /// </summary>
         FlagMc,
+
+        /// <summary>
+        /// FlagMd
+        /// </summary>
         FlagMd,
+
+        /// <summary>
+        /// FlagMe
+        /// </summary>
         FlagMe,
+
+        /// <summary>
+        /// FlagMg
+        /// </summary>
         FlagMg,
+
+        /// <summary>
+        /// FlagMh
+        /// </summary>
         FlagMh,
+
+        /// <summary>
+        /// FlagMk
+        /// </summary>
         FlagMk,
+
+        /// <summary>
+        /// FlagMl
+        /// </summary>
         FlagMl,
+
+        /// <summary>
+        /// FlagMm
+        /// </summary>
         FlagMm,
+
+        /// <summary>
+        /// FlagMn
+        /// </summary>
         FlagMn,
+
+        /// <summary>
+        /// FlagMo
+        /// </summary>
         FlagMo,
+
+        /// <summary>
+        /// FlagMp
+        /// </summary>
         FlagMp,
+
+        /// <summary>
+        /// FlagMq
+        /// </summary>
         FlagMq,
+
+        /// <summary>
+        /// FlagMr
+        /// </summary>
         FlagMr,
+
+        /// <summary>
+        /// FlagMs
+        /// </summary>
         FlagMs,
+
+        /// <summary>
+        /// FlagMt
+        /// </summary>
         FlagMt,
+
+        /// <summary>
+        /// FlagMu
+        /// </summary>
         FlagMu,
+
+        /// <summary>
+        /// FlagMv
+        /// </summary>
         FlagMv,
+
+        /// <summary>
+        /// FlagMw
+        /// </summary>
         FlagMw,
+
+        /// <summary>
+        /// FlagMx
+        /// </summary>
         FlagMx,
+
+        /// <summary>
+        /// FlagMy
+        /// </summary>
         FlagMy,
+
+        /// <summary>
+        /// FlagMz
+        /// </summary>
         FlagMz,
+
+        /// <summary>
+        /// FlagNa
+        /// </summary>
         FlagNa,
+
+        /// <summary>
+        /// FlagNc
+        /// </summary>
         FlagNc,
+
+        /// <summary>
+        /// FlagNe
+        /// </summary>
         FlagNe,
+
+        /// <summary>
+        /// FlagNf
+        /// </summary>
         FlagNf,
+
+        /// <summary>
+        /// FlagNg
+        /// </summary>
         FlagNg,
+
+        /// <summary>
+        /// FlagNi
+        /// </summary>
         FlagNi,
+
+        /// <summary>
+        /// FlagNl
+        /// </summary>
         FlagNl,
+
+        /// <summary>
+        /// FlagNo
+        /// </summary>
         FlagNo,
+
+        /// <summary>
+        /// FlagNp
+        /// </summary>
         FlagNp,
+
+        /// <summary>
+        /// FlagNr
+        /// </summary>
         FlagNr,
+
+        /// <summary>
+        /// FlagNu
+        /// </summary>
         FlagNu,
+
+        /// <summary>
+        /// FlagNz
+        /// </summary>
         FlagNz,
+
+        /// <summary>
+        /// FlagOm
+        /// </summary>
         FlagOm,
+
+        /// <summary>
+        /// FlagOrange
+        /// </summary>
         FlagOrange,
+
+        /// <summary>
+        /// FlagPa
+        /// </summary>
         FlagPa,
+
+        /// <summary>
+        /// FlagPe
+        /// </summary>
         FlagPe,
+
+        /// <summary>
+        /// FlagPf
+        /// </summary>
         FlagPf,
+
+        /// <summary>
+        /// FlagPg
+        /// </summary>
         FlagPg,
+
+        /// <summary>
+        /// FlagPh
+        /// </summary>
         FlagPh,
+
+        /// <summary>
+        /// FlagPink
+        /// </summary>
         FlagPink,
+
+        /// <summary>
+        /// FlagPk
+        /// </summary>
         FlagPk,
+
+        /// <summary>
+        /// FlagPl
+        /// </summary>
         FlagPl,
+
+        /// <summary>
+        /// FlagPm
+        /// </summary>
         FlagPm,
+
+        /// <summary>
+        /// FlagPn
+        /// </summary>
         FlagPn,
+
+        /// <summary>
+        /// FlagPr
+        /// </summary>
         FlagPr,
+
+        /// <summary>
+        /// FlagPs
+        /// </summary>
         FlagPs,
+
+        /// <summary>
+        /// FlagPt
+        /// </summary>
         FlagPt,
+
+        /// <summary>
+        /// FlagPurple
+        /// </summary>
         FlagPurple,
+
+        /// <summary>
+        /// FlagPw
+        /// </summary>
         FlagPw,
+
+        /// <summary>
+        /// FlagPy
+        /// </summary>
         FlagPy,
+
+        /// <summary>
+        /// FlagQa
+        /// </summary>
         FlagQa,
+
+        /// <summary>
+        /// FlagRe
+        /// </summary>
         FlagRe,
+
+        /// <summary>
+        /// FlagRed
+        /// </summary>
         FlagRed,
+
+        /// <summary>
+        /// FlagRo
+        /// </summary>
         FlagRo,
+
+        /// <summary>
+        /// FlagRs
+        /// </summary>
         FlagRs,
+
+        /// <summary>
+        /// FlagRu
+        /// </summary>
         FlagRu,
+
+        /// <summary>
+        /// FlagRw
+        /// </summary>
         FlagRw,
+
+        /// <summary>
+        /// FlagSa
+        /// </summary>
         FlagSa,
+
+        /// <summary>
+        /// FlagSb
+        /// </summary>
         FlagSb,
+
+        /// <summary>
+        /// FlagSc
+        /// </summary>
         FlagSc,
+
+        /// <summary>
+        /// FlagScotland
+        /// </summary>
         FlagScotland,
+
+        /// <summary>
+        /// FlagSd
+        /// </summary>
         FlagSd,
+
+        /// <summary>
+        /// FlagSe
+        /// </summary>
         FlagSe,
+
+        /// <summary>
+        /// FlagSg
+        /// </summary>
         FlagSg,
+
+        /// <summary>
+        /// FlagSh
+        /// </summary>
         FlagSh,
+
+        /// <summary>
+        /// FlagSi
+        /// </summary>
         FlagSi,
+
+        /// <summary>
+        /// FlagSj
+        /// </summary>
         FlagSj,
+
+        /// <summary>
+        /// FlagSk
+        /// </summary>
         FlagSk,
+
+        /// <summary>
+        /// FlagSl
+        /// </summary>
         FlagSl,
+
+        /// <summary>
+        /// FlagSm
+        /// </summary>
         FlagSm,
+
+        /// <summary>
+        /// FlagSn
+        /// </summary>
         FlagSn,
+
+        /// <summary>
+        /// FlagSo
+        /// </summary>
         FlagSo,
+
+        /// <summary>
+        /// FlagSr
+        /// </summary>
         FlagSr,
+
+        /// <summary>
+        /// FlagSt
+        /// </summary>
         FlagSt,
+
+        /// <summary>
+        /// FlagSv
+        /// </summary>
         FlagSv,
+
+        /// <summary>
+        /// FlagSy
+        /// </summary>
         FlagSy,
+
+        /// <summary>
+        /// FlagSz
+        /// </summary>
         FlagSz,
+
+        /// <summary>
+        /// FlagTc
+        /// </summary>
         FlagTc,
+
+        /// <summary>
+        /// FlagTd
+        /// </summary>
         FlagTd,
+
+        /// <summary>
+        /// FlagTf
+        /// </summary>
         FlagTf,
+
+        /// <summary>
+        /// FlagTg
+        /// </summary>
         FlagTg,
+
+        /// <summary>
+        /// FlagTh
+        /// </summary>
         FlagTh,
+
+        /// <summary>
+        /// FlagTj
+        /// </summary>
         FlagTj,
+
+        /// <summary>
+        /// FlagTk
+        /// </summary>
         FlagTk,
+
+        /// <summary>
+        /// FlagTl
+        /// </summary>
         FlagTl,
+
+        /// <summary>
+        /// FlagTm
+        /// </summary>
         FlagTm,
+
+        /// <summary>
+        /// FlagTn
+        /// </summary>
         FlagTn,
+
+        /// <summary>
+        /// FlagTo
+        /// </summary>
         FlagTo,
+
+        /// <summary>
+        /// FlagTr
+        /// </summary>
         FlagTr,
+
+        /// <summary>
+        /// FlagTt
+        /// </summary>
         FlagTt,
+
+        /// <summary>
+        /// FlagTv
+        /// </summary>
         FlagTv,
+
+        /// <summary>
+        /// FlagTw
+        /// </summary>
         FlagTw,
+
+        /// <summary>
+        /// FlagTz
+        /// </summary>
         FlagTz,
+
+        /// <summary>
+        /// FlagUa
+        /// </summary>
         FlagUa,
+
+        /// <summary>
+        /// FlagUg
+        /// </summary>
         FlagUg,
+
+        /// <summary>
+        /// FlagUm
+        /// </summary>
         FlagUm,
+
+        /// <summary>
+        /// FlagUs
+        /// </summary>
         FlagUs,
+
+        /// <summary>
+        /// FlagUy
+        /// </summary>
         FlagUy,
+
+        /// <summary>
+        /// FlagUz
+        /// </summary>
         FlagUz,
+
+        /// <summary>
+        /// FlagVa
+        /// </summary>
         FlagVa,
+
+        /// <summary>
+        /// FlagVc
+        /// </summary>
         FlagVc,
+
+        /// <summary>
+        /// FlagVe
+        /// </summary>
         FlagVe,
+
+        /// <summary>
+        /// FlagVg
+        /// </summary>
         FlagVg,
+
+        /// <summary>
+        /// FlagVi
+        /// </summary>
         FlagVi,
+
+        /// <summary>
+        /// FlagVn
+        /// </summary>
         FlagVn,
+
+        /// <summary>
+        /// FlagVu
+        /// </summary>
         FlagVu,
+
+        /// <summary>
+        /// FlagWales
+        /// </summary>
         FlagWales,
+
+        /// <summary>
+        /// FlagWf
+        /// </summary>
         FlagWf,
+
+        /// <summary>
+        /// FlagWhite
+        /// </summary>
         FlagWhite,
+
+        /// <summary>
+        /// FlagWs
+        /// </summary>
         FlagWs,
+
+        /// <summary>
+        /// FlagYe
+        /// </summary>
         FlagYe,
+
+        /// <summary>
+        /// FlagYellow
+        /// </summary>
         FlagYellow,
+
+        /// <summary>
+        /// FlagYt
+        /// </summary>
         FlagYt,
+
+        /// <summary>
+        /// FlagZa
+        /// </summary>
         FlagZa,
+
+        /// <summary>
+        /// FlagZm
+        /// </summary>
         FlagZm,
+
+        /// <summary>
+        /// FlagZw
+        /// </summary>
         FlagZw,
+
+        /// <summary>
+        /// FlowerDaisy
+        /// </summary>
         FlowerDaisy,
+
+        /// <summary>
+        /// Folder
+        /// </summary>
         Folder,
+
+        /// <summary>
+        /// FolderAdd
+        /// </summary>
         FolderAdd,
+
+        /// <summary>
+        /// FolderBell
+        /// </summary>
         FolderBell,
+
+        /// <summary>
+        /// FolderBookmark
+        /// </summary>
         FolderBookmark,
+
+        /// <summary>
+        /// FolderBrick
+        /// </summary>
         FolderBrick,
+
+        /// <summary>
+        /// FolderBug
+        /// </summary>
         FolderBug,
+
+        /// <summary>
+        /// FolderCamera
+        /// </summary>
         FolderCamera,
+
+        /// <summary>
+        /// FolderConnect
+        /// </summary>
         FolderConnect,
+
+        /// <summary>
+        /// FolderDatabase
+        /// </summary>
         FolderDatabase,
+
+        /// <summary>
+        /// FolderDelete
+        /// </summary>
         FolderDelete,
+
+        /// <summary>
+        /// FolderEdit
+        /// </summary>
         FolderEdit,
+
+        /// <summary>
+        /// FolderError
+        /// </summary>
         FolderError,
+
+        /// <summary>
+        /// FolderExplore
+        /// </summary>
         FolderExplore,
+
+        /// <summary>
+        /// FolderFeed
+        /// </summary>
         FolderFeed,
+
+        /// <summary>
+        /// FolderFilm
+        /// </summary>
         FolderFilm,
+
+        /// <summary>
+        /// FolderFind
+        /// </summary>
         FolderFind,
+
+        /// <summary>
+        /// FolderFont
+        /// </summary>
         FolderFont,
+
+        /// <summary>
+        /// FolderGo
+        /// </summary>
         FolderGo,
+
+        /// <summary>
+        /// FolderHeart
+        /// </summary>
         FolderHeart,
+
+        /// <summary>
+        /// FolderHome
+        /// </summary>
         FolderHome,
+
+        /// <summary>
+        /// FolderImage
+        /// </summary>
         FolderImage,
+
+        /// <summary>
+        /// FolderKey
+        /// </summary>
         FolderKey,
+
+        /// <summary>
+        /// FolderLightbulb
+        /// </summary>
         FolderLightbulb,
+
+        /// <summary>
+        /// FolderLink
+        /// </summary>
         FolderLink,
+
+        /// <summary>
+        /// FolderMagnify
+        /// </summary>
         FolderMagnify,
+
+        /// <summary>
+        /// FolderPage
+        /// </summary>
         FolderPage,
+
+        /// <summary>
+        /// FolderPageWhite
+        /// </summary>
         FolderPageWhite,
+
+        /// <summary>
+        /// FolderPalette
+        /// </summary>
         FolderPalette,
+
+        /// <summary>
+        /// FolderPicture
+        /// </summary>
         FolderPicture,
+
+        /// <summary>
+        /// FolderStar
+        /// </summary>
         FolderStar,
+
+        /// <summary>
+        /// FolderTable
+        /// </summary>
         FolderTable,
+
+        /// <summary>
+        /// FolderUp
+        /// </summary>
         FolderUp,
+
+        /// <summary>
+        /// FolderUser
+        /// </summary>
         FolderUser,
+
+        /// <summary>
+        /// FolderWrench
+        /// </summary>
         FolderWrench,
+
+        /// <summary>
+        /// Font
+        /// </summary>
         Font,
+
+        /// <summary>
+        /// FontAdd
+        /// </summary>
         FontAdd,
+
+        /// <summary>
+        /// FontColor
+        /// </summary>
         FontColor,
+
+        /// <summary>
+        /// FontDelete
+        /// </summary>
         FontDelete,
+
+        /// <summary>
+        /// FontGo
+        /// </summary>
         FontGo,
+
+        /// <summary>
+        /// FontLarger
+        /// </summary>
         FontLarger,
+
+        /// <summary>
+        /// FontSmaller
+        /// </summary>
         FontSmaller,
+
+        /// <summary>
+        /// ForwardBlue
+        /// </summary>
         ForwardBlue,
+
+        /// <summary>
+        /// ForwardGreen
+        /// </summary>
         ForwardGreen,
+
+        /// <summary>
+        /// Group
+        /// </summary>
         Group,
+
+        /// <summary>
+        /// GroupAdd
+        /// </summary>
         GroupAdd,
+
+        /// <summary>
+        /// GroupDelete
+        /// </summary>
         GroupDelete,
+
+        /// <summary>
+        /// GroupEdit
+        /// </summary>
         GroupEdit,
+
+        /// <summary>
+        /// GroupError
+        /// </summary>
         GroupError,
+
+        /// <summary>
+        /// GroupGear
+        /// </summary>
         GroupGear,
+
+        /// <summary>
+        /// GroupGo
+        /// </summary>
         GroupGo,
+
+        /// <summary>
+        /// GroupKey
+        /// </summary>
         GroupKey,
+
+        /// <summary>
+        /// GroupLink
+        /// </summary>
         GroupLink,
+
+        /// <summary>
+        /// Heart
+        /// </summary>
         Heart,
+
+        /// <summary>
+        /// HeartAdd
+        /// </summary>
         HeartAdd,
+
+        /// <summary>
+        /// HeartBroken
+        /// </summary>
         HeartBroken,
+
+        /// <summary>
+        /// HeartConnect
+        /// </summary>
         HeartConnect,
+
+        /// <summary>
+        /// HeartDelete
+        /// </summary>
         HeartDelete,
+
+        /// <summary>
+        /// Help
+        /// </summary>
         Help,
+
+        /// <summary>
+        /// Hourglass
+        /// </summary>
         Hourglass,
+
+        /// <summary>
+        /// HourglassAdd
+        /// </summary>
         HourglassAdd,
+
+        /// <summary>
+        /// HourglassDelete
+        /// </summary>
         HourglassDelete,
+
+        /// <summary>
+        /// HourglassGo
+        /// </summary>
         HourglassGo,
+
+        /// <summary>
+        /// HourglassLink
+        /// </summary>
         HourglassLink,
+
+        /// <summary>
+        /// House
+        /// </summary>
         House,
+
+        /// <summary>
+        /// HouseConnect
+        /// </summary>
         HouseConnect,
+
+        /// <summary>
+        /// HouseGo
+        /// </summary>
         HouseGo,
+
+        /// <summary>
+        /// HouseKey
+        /// </summary>
         HouseKey,
+
+        /// <summary>
+        /// HouseLink
+        /// </summary>
         HouseLink,
+
+        /// <summary>
+        /// HouseStar
+        /// </summary>
         HouseStar,
+
+        /// <summary>
+        /// Html
+        /// </summary>
         Html,
+
+        /// <summary>
+        /// HtmlAdd
+        /// </summary>
         HtmlAdd,
+
+        /// <summary>
+        /// HtmlDelete
+        /// </summary>
         HtmlDelete,
+
+        /// <summary>
+        /// HtmlError
+        /// </summary>
         HtmlError,
+
+        /// <summary>
+        /// HtmlGo
+        /// </summary>
         HtmlGo,
+
+        /// <summary>
+        /// HtmlValid
+        /// </summary>
         HtmlValid,
+
+        /// <summary>
+        /// Image
+        /// </summary>
         Image,
+
+        /// <summary>
+        /// Images
+        /// </summary>
         Images,
+
+        /// <summary>
+        /// ImageAdd
+        /// </summary>
         ImageAdd,
+
+        /// <summary>
+        /// ImageDelete
+        /// </summary>
         ImageDelete,
+
+        /// <summary>
+        /// ImageEdit
+        /// </summary>
         ImageEdit,
+
+        /// <summary>
+        /// ImageLink
+        /// </summary>
         ImageLink,
+
+        /// <summary>
+        /// ImageMagnify
+        /// </summary>
         ImageMagnify,
+
+        /// <summary>
+        /// ImageStar
+        /// </summary>
         ImageStar,
+
+        /// <summary>
+        /// Information
+        /// </summary>
         Information,
+
+        /// <summary>
+        /// Ipod
+        /// </summary>
         Ipod,
+
+        /// <summary>
+        /// IpodCast
+        /// </summary>
         IpodCast,
+
+        /// <summary>
+        /// IpodCastAdd
+        /// </summary>
         IpodCastAdd,
+
+        /// <summary>
+        /// IpodCastDelete
+        /// </summary>
         IpodCastDelete,
+
+        /// <summary>
+        /// IpodConnect
+        /// </summary>
         IpodConnect,
+
+        /// <summary>
+        /// IpodNano
+        /// </summary>
         IpodNano,
+
+        /// <summary>
+        /// IpodNanoConnect
+        /// </summary>
         IpodNanoConnect,
+
+        /// <summary>
+        /// IpodSound
+        /// </summary>
         IpodSound,
+
+        /// <summary>
+        /// Joystick
+        /// </summary>
         Joystick,
+
+        /// <summary>
+        /// JoystickAdd
+        /// </summary>
         JoystickAdd,
+
+        /// <summary>
+        /// JoystickConnect
+        /// </summary>
         JoystickConnect,
+
+        /// <summary>
+        /// JoystickDelete
+        /// </summary>
         JoystickDelete,
+
+        /// <summary>
+        /// JoystickError
+        /// </summary>
         JoystickError,
+
+        /// <summary>
+        /// Key
+        /// </summary>
         Key,
+
+        /// <summary>
+        /// Keyboard
+        /// </summary>
         Keyboard,
+
+        /// <summary>
+        /// KeyboardAdd
+        /// </summary>
         KeyboardAdd,
+
+        /// <summary>
+        /// KeyboardConnect
+        /// </summary>
         KeyboardConnect,
+
+        /// <summary>
+        /// KeyboardDelete
+        /// </summary>
         KeyboardDelete,
+
+        /// <summary>
+        /// KeyboardMagnify
+        /// </summary>
         KeyboardMagnify,
+
+        /// <summary>
+        /// KeyAdd
+        /// </summary>
         KeyAdd,
+
+        /// <summary>
+        /// KeyDelete
+        /// </summary>
         KeyDelete,
+
+        /// <summary>
+        /// KeyGo
+        /// </summary>
         KeyGo,
+
+        /// <summary>
+        /// KeyStart
+        /// </summary>
         KeyStart,
+
+        /// <summary>
+        /// KeyStop
+        /// </summary>
         KeyStop,
+
+        /// <summary>
+        /// Laptop
+        /// </summary>
         Laptop,
+
+        /// <summary>
+        /// LaptopAdd
+        /// </summary>
         LaptopAdd,
+
+        /// <summary>
+        /// LaptopConnect
+        /// </summary>
         LaptopConnect,
+
+        /// <summary>
+        /// LaptopDelete
+        /// </summary>
         LaptopDelete,
+
+        /// <summary>
+        /// LaptopDisk
+        /// </summary>
         LaptopDisk,
+
+        /// <summary>
+        /// LaptopEdit
+        /// </summary>
         LaptopEdit,
+
+        /// <summary>
+        /// LaptopError
+        /// </summary>
         LaptopError,
+
+        /// <summary>
+        /// LaptopGo
+        /// </summary>
         LaptopGo,
+
+        /// <summary>
+        /// LaptopKey
+        /// </summary>
         LaptopKey,
+
+        /// <summary>
+        /// LaptopLink
+        /// </summary>
         LaptopLink,
+
+        /// <summary>
+        /// LaptopMagnify
+        /// </summary>
         LaptopMagnify,
+
+        /// <summary>
+        /// LaptopStart
+        /// </summary>
         LaptopStart,
+
+        /// <summary>
+        /// LaptopStop
+        /// </summary>
         LaptopStop,
+
+        /// <summary>
+        /// LaptopWrench
+        /// </summary>
         LaptopWrench,
+
+        /// <summary>
+        /// Layers
+        /// </summary>
         Layers,
+
+        /// <summary>
+        /// Layout
+        /// </summary>
         Layout,
+
+        /// <summary>
+        /// LayoutAdd
+        /// </summary>
         LayoutAdd,
+
+        /// <summary>
+        /// LayoutContent
+        /// </summary>
         LayoutContent,
+
+        /// <summary>
+        /// LayoutDelete
+        /// </summary>
         LayoutDelete,
+
+        /// <summary>
+        /// LayoutEdit
+        /// </summary>
         LayoutEdit,
+
+        /// <summary>
+        /// LayoutError
+        /// </summary>
         LayoutError,
+
+        /// <summary>
+        /// LayoutHeader
+        /// </summary>
         LayoutHeader,
+
+        /// <summary>
+        /// LayoutKey
+        /// </summary>
         LayoutKey,
+
+        /// <summary>
+        /// LayoutLightning
+        /// </summary>
         LayoutLightning,
+
+        /// <summary>
+        /// LayoutLink
+        /// </summary>
         LayoutLink,
+
+        /// <summary>
+        /// LayoutSidebar
+        /// </summary>
         LayoutSidebar,
+
+        /// <summary>
+        /// Lightbulb
+        /// </summary>
         Lightbulb,
+
+        /// <summary>
+        /// LightbulbAdd
+        /// </summary>
         LightbulbAdd,
+
+        /// <summary>
+        /// LightbulbDelete
+        /// </summary>
         LightbulbDelete,
+
+        /// <summary>
+        /// LightbulbOff
+        /// </summary>
         LightbulbOff,
+
+        /// <summary>
+        /// Lightning
+        /// </summary>
         Lightning,
+
+        /// <summary>
+        /// LightningAdd
+        /// </summary>
         LightningAdd,
+
+        /// <summary>
+        /// LightningDelete
+        /// </summary>
         LightningDelete,
+
+        /// <summary>
+        /// LightningGo
+        /// </summary>
         LightningGo,
+
+        /// <summary>
+        /// Link
+        /// </summary>
         Link,
+
+        /// <summary>
+        /// LinkAdd
+        /// </summary>
         LinkAdd,
+
+        /// <summary>
+        /// LinkBreak
+        /// </summary>
         LinkBreak,
+
+        /// <summary>
+        /// LinkDelete
+        /// </summary>
         LinkDelete,
+
+        /// <summary>
+        /// LinkEdit
+        /// </summary>
         LinkEdit,
+
+        /// <summary>
+        /// LinkError
+        /// </summary>
         LinkError,
+
+        /// <summary>
+        /// LinkGo
+        /// </summary>
         LinkGo,
+
+        /// <summary>
+        /// Lock
+        /// </summary>
         Lock,
+
+        /// <summary>
+        /// LockAdd
+        /// </summary>
         LockAdd,
+
+        /// <summary>
+        /// LockBreak
+        /// </summary>
         LockBreak,
+
+        /// <summary>
+        /// LockDelete
+        /// </summary>
         LockDelete,
+
+        /// <summary>
+        /// LockEdit
+        /// </summary>
         LockEdit,
+
+        /// <summary>
+        /// LockGo
+        /// </summary>
         LockGo,
+
+        /// <summary>
+        /// LockKey
+        /// </summary>
         LockKey,
+
+        /// <summary>
+        /// LockOpen
+        /// </summary>
         LockOpen,
+
+        /// <summary>
+        /// LockStart
+        /// </summary>
         LockStart,
+
+        /// <summary>
+        /// LockStop
+        /// </summary>
         LockStop,
+
+        /// <summary>
+        /// Lorry
+        /// </summary>
         Lorry,
+
+        /// <summary>
+        /// LorryAdd
+        /// </summary>
         LorryAdd,
+
+        /// <summary>
+        /// LorryDelete
+        /// </summary>
         LorryDelete,
+
+        /// <summary>
+        /// LorryError
+        /// </summary>
         LorryError,
+
+        /// <summary>
+        /// LorryFlatbed
+        /// </summary>
         LorryFlatbed,
+
+        /// <summary>
+        /// LorryGo
+        /// </summary>
         LorryGo,
+
+        /// <summary>
+        /// LorryLink
+        /// </summary>
         LorryLink,
+
+        /// <summary>
+        /// LorryStart
+        /// </summary>
         LorryStart,
+
+        /// <summary>
+        /// LorryStop
+        /// </summary>
         LorryStop,
+
+        /// <summary>
+        /// MagifierZoomOut
+        /// </summary>
         MagifierZoomOut,
+
+        /// <summary>
+        /// Magnifier
+        /// </summary>
         Magnifier,
+
+        /// <summary>
+        /// MagnifierZoomIn
+        /// </summary>
         MagnifierZoomIn,
+
+        /// <summary>
+        /// Mail
+        /// </summary>
         Mail,
+
+        /// <summary>
+        /// Male
+        /// </summary>
         Male,
+
+        /// <summary>
+        /// Map
+        /// </summary>
         Map,
+
+        /// <summary>
+        /// MapAdd
+        /// </summary>
         MapAdd,
+
+        /// <summary>
+        /// MapClipboard
+        /// </summary>
         MapClipboard,
+
+        /// <summary>
+        /// MapCursor
+        /// </summary>
         MapCursor,
+
+        /// <summary>
+        /// MapDelete
+        /// </summary>
         MapDelete,
+
+        /// <summary>
+        /// MapEdit
+        /// </summary>
         MapEdit,
+
+        /// <summary>
+        /// MapError
+        /// </summary>
         MapError,
+
+        /// <summary>
+        /// MapGo
+        /// </summary>
         MapGo,
+
+        /// <summary>
+        /// MapLink
+        /// </summary>
         MapLink,
+
+        /// <summary>
+        /// MapMagnify
+        /// </summary>
         MapMagnify,
+
+        /// <summary>
+        /// MapStart
+        /// </summary>
         MapStart,
+
+        /// <summary>
+        /// MapStop
+        /// </summary>
         MapStop,
+
+        /// <summary>
+        /// MedalBronze1
+        /// </summary>
         MedalBronze1,
+
+        /// <summary>
+        /// MedalBronze2
+        /// </summary>
         MedalBronze2,
+
+        /// <summary>
+        /// MedalBronze3
+        /// </summary>
         MedalBronze3,
+
+        /// <summary>
+        /// MedalBronzeAdd
+        /// </summary>
         MedalBronzeAdd,
+
+        /// <summary>
+        /// MedalBronzeDelete
+        /// </summary>
         MedalBronzeDelete,
+
+        /// <summary>
+        /// MedalGold1
+        /// </summary>
         MedalGold1,
+
+        /// <summary>
+        /// MedalGold2
+        /// </summary>
         MedalGold2,
+
+        /// <summary>
+        /// MedalGold3
+        /// </summary>
         MedalGold3,
+
+        /// <summary>
+        /// MedalGoldAdd
+        /// </summary>
         MedalGoldAdd,
+
+        /// <summary>
+        /// MedalGoldDelete
+        /// </summary>
         MedalGoldDelete,
+
+        /// <summary>
+        /// MedalSilver1
+        /// </summary>
         MedalSilver1,
+
+        /// <summary>
+        /// MedalSilver2
+        /// </summary>
         MedalSilver2,
+
+        /// <summary>
+        /// MedalSilver3
+        /// </summary>
         MedalSilver3,
+
+        /// <summary>
+        /// MedalSilverAdd
+        /// </summary>
         MedalSilverAdd,
+
+        /// <summary>
+        /// MedalSilverDelete
+        /// </summary>
         MedalSilverDelete,
+
+        /// <summary>
+        /// Money
+        /// </summary>
         Money,
+
+        /// <summary>
+        /// MoneyAdd
+        /// </summary>
         MoneyAdd,
+
+        /// <summary>
+        /// MoneyDelete
+        /// </summary>
         MoneyDelete,
+
+        /// <summary>
+        /// MoneyDollar
+        /// </summary>
         MoneyDollar,
+
+        /// <summary>
+        /// MoneyEuro
+        /// </summary>
         MoneyEuro,
+
+        /// <summary>
+        /// MoneyPound
+        /// </summary>
         MoneyPound,
+
+        /// <summary>
+        /// MoneyYen
+        /// </summary>
         MoneyYen,
+
+        /// <summary>
+        /// Monitor
+        /// </summary>
         Monitor,
+
+        /// <summary>
+        /// MonitorAdd
+        /// </summary>
         MonitorAdd,
+
+        /// <summary>
+        /// MonitorDelete
+        /// </summary>
         MonitorDelete,
+
+        /// <summary>
+        /// MonitorEdit
+        /// </summary>
         MonitorEdit,
+
+        /// <summary>
+        /// MonitorError
+        /// </summary>
         MonitorError,
+
+        /// <summary>
+        /// MonitorGo
+        /// </summary>
         MonitorGo,
+
+        /// <summary>
+        /// MonitorKey
+        /// </summary>
         MonitorKey,
+
+        /// <summary>
+        /// MonitorLightning
+        /// </summary>
         MonitorLightning,
+
+        /// <summary>
+        /// MonitorLink
+        /// </summary>
         MonitorLink,
+
+        /// <summary>
+        /// MoonFull
+        /// </summary>
         MoonFull,
+
+        /// <summary>
+        /// Mouse
+        /// </summary>
         Mouse,
+
+        /// <summary>
+        /// MouseAdd
+        /// </summary>
         MouseAdd,
+
+        /// <summary>
+        /// MouseDelete
+        /// </summary>
         MouseDelete,
+
+        /// <summary>
+        /// MouseError
+        /// </summary>
         MouseError,
+
+        /// <summary>
+        /// Music
+        /// </summary>
         Music,
+
+        /// <summary>
+        /// MusicNote
+        /// </summary>
         MusicNote,
+
+        /// <summary>
+        /// Neighbourhood
+        /// </summary>
         Neighbourhood,
+
+        /// <summary>
+        /// New
+        /// </summary>
         New,
+
+        /// <summary>
+        /// Newspaper
+        /// </summary>
         Newspaper,
+
+        /// <summary>
+        /// NewspaperAdd
+        /// </summary>
         NewspaperAdd,
+
+        /// <summary>
+        /// NewspaperDelete
+        /// </summary>
         NewspaperDelete,
+
+        /// <summary>
+        /// NewspaperGo
+        /// </summary>
         NewspaperGo,
+
+        /// <summary>
+        /// NewspaperLink
+        /// </summary>
         NewspaperLink,
+
+        /// <summary>
+        /// NewBlue
+        /// </summary>
         NewBlue,
+
+        /// <summary>
+        /// NewRed
+        /// </summary>
         NewRed,
+
+        /// <summary>
+        /// NextBlue
+        /// </summary>
         NextBlue,
+
+        /// <summary>
+        /// NextGreen
+        /// </summary>
         NextGreen,
+
+        /// <summary>
+        /// Note
+        /// </summary>
         Note,
+
+        /// <summary>
+        /// NoteAdd
+        /// </summary>
         NoteAdd,
+
+        /// <summary>
+        /// NoteDelete
+        /// </summary>
         NoteDelete,
+
+        /// <summary>
+        /// NoteEdit
+        /// </summary>
         NoteEdit,
+
+        /// <summary>
+        /// NoteError
+        /// </summary>
         NoteError,
+
+        /// <summary>
+        /// NoteGo
+        /// </summary>
         NoteGo,
+
+        /// <summary>
+        /// Outline
+        /// </summary>
         Outline,
+
+        /// <summary>
+        /// Overlays
+        /// </summary>
         Overlays,
+
+        /// <summary>
+        /// Package
+        /// </summary>
         Package,
+
+        /// <summary>
+        /// PackageAdd
+        /// </summary>
         PackageAdd,
+
+        /// <summary>
+        /// PackageDelete
+        /// </summary>
         PackageDelete,
+
+        /// <summary>
+        /// PackageDown
+        /// </summary>
         PackageDown,
+
+        /// <summary>
+        /// PackageGo
+        /// </summary>
         PackageGo,
+
+        /// <summary>
+        /// PackageGreen
+        /// </summary>
         PackageGreen,
+
+        /// <summary>
+        /// PackageIn
+        /// </summary>
         PackageIn,
+
+        /// <summary>
+        /// PackageLink
+        /// </summary>
         PackageLink,
+
+        /// <summary>
+        /// PackageSe
+        /// </summary>
         PackageSe,
+
+        /// <summary>
+        /// PackageStart
+        /// </summary>
         PackageStart,
+
+        /// <summary>
+        /// PackageStop
+        /// </summary>
         PackageStop,
+
+        /// <summary>
+        /// PackageWhite
+        /// </summary>
         PackageWhite,
+
+        /// <summary>
+        /// Page
+        /// </summary>
         Page,
+
+        /// <summary>
+        /// PageAdd
+        /// </summary>
         PageAdd,
+
+        /// <summary>
+        /// PageAttach
+        /// </summary>
         PageAttach,
+
+        /// <summary>
+        /// PageBack
+        /// </summary>
         PageBack,
+
+        /// <summary>
+        /// PageBreak
+        /// </summary>
         PageBreak,
+
+        /// <summary>
+        /// PageBreakInsert
+        /// </summary>
         PageBreakInsert,
+
+        /// <summary>
+        /// PageCancel
+        /// </summary>
         PageCancel,
+
+        /// <summary>
+        /// PageCode
+        /// </summary>
         PageCode,
+
+        /// <summary>
+        /// PageCopy
+        /// </summary>
         PageCopy,
+
+        /// <summary>
+        /// PageDelete
+        /// </summary>
         PageDelete,
+
+        /// <summary>
+        /// PageEdit
+        /// </summary>
         PageEdit,
+
+        /// <summary>
+        /// PageError
+        /// </summary>
         PageError,
+
+        /// <summary>
+        /// PageExcel
+        /// </summary>
         PageExcel,
+
+        /// <summary>
+        /// PageFind
+        /// </summary>
         PageFind,
+
+        /// <summary>
+        /// PageForward
+        /// </summary>
         PageForward,
+
+        /// <summary>
+        /// PageGear
+        /// </summary>
         PageGear,
+
+        /// <summary>
+        /// PageGo
+        /// </summary>
         PageGo,
+
+        /// <summary>
+        /// PageGreen
+        /// </summary>
         PageGreen,
+
+        /// <summary>
+        /// PageHeaderFooter
+        /// </summary>
         PageHeaderFooter,
+
+        /// <summary>
+        /// PageKey
+        /// </summary>
         PageKey,
+
+        /// <summary>
+        /// PageLandscape
+        /// </summary>
         PageLandscape,
+
+        /// <summary>
+        /// PageLandscapeShot
+        /// </summary>
         PageLandscapeShot,
+
+        /// <summary>
+        /// PageLightning
+        /// </summary>
         PageLightning,
+
+        /// <summary>
+        /// PageLink
+        /// </summary>
         PageLink,
+
+        /// <summary>
+        /// PageMagnify
+        /// </summary>
         PageMagnify,
+
+        /// <summary>
+        /// PagePaintbrush
+        /// </summary>
         PagePaintbrush,
+
+        /// <summary>
+        /// PagePaste
+        /// </summary>
         PagePaste,
+
+        /// <summary>
+        /// PagePortrait
+        /// </summary>
         PagePortrait,
+
+        /// <summary>
+        /// PagePortraitShot
+        /// </summary>
         PagePortraitShot,
+
+        /// <summary>
+        /// PageRed
+        /// </summary>
         PageRed,
+
+        /// <summary>
+        /// PageRefresh
+        /// </summary>
         PageRefresh,
+
+        /// <summary>
+        /// PageSave
+        /// </summary>
         PageSave,
+
+        /// <summary>
+        /// PageWhite
+        /// </summary>
         PageWhite,
+
+        /// <summary>
+        /// PageWhiteAcrobat
+        /// </summary>
         PageWhiteAcrobat,
+
+        /// <summary>
+        /// PageWhiteActionscript
+        /// </summary>
         PageWhiteActionscript,
+
+        /// <summary>
+        /// PageWhiteAdd
+        /// </summary>
         PageWhiteAdd,
+
+        /// <summary>
+        /// PageWhiteBreak
+        /// </summary>
         PageWhiteBreak,
+
+        /// <summary>
+        /// PageWhiteC
+        /// </summary>
         PageWhiteC,
+
+        /// <summary>
+        /// PageWhiteCamera
+        /// </summary>
         PageWhiteCamera,
+
+        /// <summary>
+        /// PageWhiteCd
+        /// </summary>
         PageWhiteCd,
+
+        /// <summary>
+        /// PageWhiteCdr
+        /// </summary>
         PageWhiteCdr,
+
+        /// <summary>
+        /// PageWhiteCode
+        /// </summary>
         PageWhiteCode,
+
+        /// <summary>
+        /// PageWhiteCodeRed
+        /// </summary>
         PageWhiteCodeRed,
+
+        /// <summary>
+        /// PageWhiteColdfusion
+        /// </summary>
         PageWhiteColdfusion,
+
+        /// <summary>
+        /// PageWhiteCompressed
+        /// </summary>
         PageWhiteCompressed,
+
+        /// <summary>
+        /// PageWhiteConnect
+        /// </summary>
         PageWhiteConnect,
+
+        /// <summary>
+        /// PageWhiteCopy
+        /// </summary>
         PageWhiteCopy,
+
+        /// <summary>
+        /// PageWhiteCplusplus
+        /// </summary>
         PageWhiteCplusplus,
+
+        /// <summary>
+        /// PageWhiteCsharp
+        /// </summary>
         PageWhiteCsharp,
+
+        /// <summary>
+        /// PageWhiteCup
+        /// </summary>
         PageWhiteCup,
+
+        /// <summary>
+        /// PageWhiteDatabase
+        /// </summary>
         PageWhiteDatabase,
+
+        /// <summary>
+        /// PageWhiteDatabaseYellow
+        /// </summary>
         PageWhiteDatabaseYellow,
+
+        /// <summary>
+        /// PageWhiteDelete
+        /// </summary>
         PageWhiteDelete,
+
+        /// <summary>
+        /// PageWhiteDvd
+        /// </summary>
         PageWhiteDvd,
+
+        /// <summary>
+        /// PageWhiteEdit
+        /// </summary>
         PageWhiteEdit,
+
+        /// <summary>
+        /// PageWhiteError
+        /// </summary>
         PageWhiteError,
+
+        /// <summary>
+        /// PageWhiteExcel
+        /// </summary>
         PageWhiteExcel,
+
+        /// <summary>
+        /// PageWhiteFind
+        /// </summary>
         PageWhiteFind,
+
+        /// <summary>
+        /// PageWhiteFlash
+        /// </summary>
         PageWhiteFlash,
+
+        /// <summary>
+        /// PageWhiteFont
+        /// </summary>
         PageWhiteFont,
+
+        /// <summary>
+        /// PageWhiteFreehand
+        /// </summary>
         PageWhiteFreehand,
+
+        /// <summary>
+        /// PageWhiteGear
+        /// </summary>
         PageWhiteGear,
+
+        /// <summary>
+        /// PageWhiteGet
+        /// </summary>
         PageWhiteGet,
+
+        /// <summary>
+        /// PageWhiteGo
+        /// </summary>
         PageWhiteGo,
+
+        /// <summary>
+        /// PageWhiteH
+        /// </summary>
         PageWhiteH,
+
+        /// <summary>
+        /// PageWhiteHorizontal
+        /// </summary>
         PageWhiteHorizontal,
+
+        /// <summary>
+        /// PageWhiteKey
+        /// </summary>
         PageWhiteKey,
+
+        /// <summary>
+        /// PageWhiteLightning
+        /// </summary>
         PageWhiteLightning,
+
+        /// <summary>
+        /// PageWhiteLink
+        /// </summary>
         PageWhiteLink,
+
+        /// <summary>
+        /// PageWhiteMagnify
+        /// </summary>
         PageWhiteMagnify,
+
+        /// <summary>
+        /// PageWhiteMedal
+        /// </summary>
         PageWhiteMedal,
+
+        /// <summary>
+        /// PageWhiteOffice
+        /// </summary>
         PageWhiteOffice,
+
+        /// <summary>
+        /// PageWhitePaint
+        /// </summary>
         PageWhitePaint,
+
+        /// <summary>
+        /// PageWhitePaintbrush
+        /// </summary>
         PageWhitePaintbrush,
+
+        /// <summary>
+        /// PageWhitePaint2
+        /// </summary>
         PageWhitePaint2,
+
+        /// <summary>
+        /// PageWhitePaste
+        /// </summary>
         PageWhitePaste,
+
+        /// <summary>
+        /// PageWhitePasteTable
+        /// </summary>
         PageWhitePasteTable,
+
+        /// <summary>
+        /// PageWhitePhp
+        /// </summary>
         PageWhitePhp,
+
+        /// <summary>
+        /// PageWhitePicture
+        /// </summary>
         PageWhitePicture,
+
+        /// <summary>
+        /// PageWhitePowerpoint
+        /// </summary>
         PageWhitePowerpoint,
+
+        /// <summary>
+        /// PageWhitePut
+        /// </summary>
         PageWhitePut,
+
+        /// <summary>
+        /// PageWhiteRefresh
+        /// </summary>
         PageWhiteRefresh,
+
+        /// <summary>
+        /// PageWhiteRuby
+        /// </summary>
         PageWhiteRuby,
+
+        /// <summary>
+        /// PageWhiteSideBySide
+        /// </summary>
         PageWhiteSideBySide,
+
+        /// <summary>
+        /// PageWhiteStack
+        /// </summary>
         PageWhiteStack,
+
+        /// <summary>
+        /// PageWhiteStar
+        /// </summary>
         PageWhiteStar,
+
+        /// <summary>
+        /// PageWhiteSwoosh
+        /// </summary>
         PageWhiteSwoosh,
+
+        /// <summary>
+        /// PageWhiteText
+        /// </summary>
         PageWhiteText,
+
+        /// <summary>
+        /// PageWhiteTextWidth
+        /// </summary>
         PageWhiteTextWidth,
+
+        /// <summary>
+        /// PageWhiteTux
+        /// </summary>
         PageWhiteTux,
+
+        /// <summary>
+        /// PageWhiteVector
+        /// </summary>
         PageWhiteVector,
+
+        /// <summary>
+        /// PageWhiteVisualstudio
+        /// </summary>
         PageWhiteVisualstudio,
+
+        /// <summary>
+        /// PageWhiteWidth
+        /// </summary>
         PageWhiteWidth,
+
+        /// <summary>
+        /// PageWhiteWord
+        /// </summary>
         PageWhiteWord,
+
+        /// <summary>
+        /// PageWhiteWorld
+        /// </summary>
         PageWhiteWorld,
+
+        /// <summary>
+        /// PageWhiteWrench
+        /// </summary>
         PageWhiteWrench,
+
+        /// <summary>
+        /// PageWhiteZip
+        /// </summary>
         PageWhiteZip,
+
+        /// <summary>
+        /// PageWord
+        /// </summary>
         PageWord,
+
+        /// <summary>
+        /// PageWorld
+        /// </summary>
         PageWorld,
+
+        /// <summary>
+        /// Paint
+        /// </summary>
         Paint,
+
+        /// <summary>
+        /// Paintbrush
+        /// </summary>
         Paintbrush,
+
+        /// <summary>
+        /// PaintbrushColor
+        /// </summary>
         PaintbrushColor,
+
+        /// <summary>
+        /// Paintcan
+        /// </summary>
         Paintcan,
+
+        /// <summary>
+        /// PaintcanRed
+        /// </summary>
         PaintcanRed,
+
+        /// <summary>
+        /// PaintCanBrush
+        /// </summary>
         PaintCanBrush,
+
+        /// <summary>
+        /// Palette
+        /// </summary>
         Palette,
+
+        /// <summary>
+        /// PastePlain
+        /// </summary>
         PastePlain,
+
+        /// <summary>
+        /// PasteWord
+        /// </summary>
         PasteWord,
+
+        /// <summary>
+        /// PauseBlue
+        /// </summary>
         PauseBlue,
+
+        /// <summary>
+        /// PauseGreen
+        /// </summary>
         PauseGreen,
+
+        /// <summary>
+        /// PauseRecord
+        /// </summary>
         PauseRecord,
+
+        /// <summary>
+        /// Pencil
+        /// </summary>
         Pencil,
+
+        /// <summary>
+        /// PencilAdd
+        /// </summary>
         PencilAdd,
+
+        /// <summary>
+        /// PencilDelete
+        /// </summary>
         PencilDelete,
+
+        /// <summary>
+        /// PencilGo
+        /// </summary>
         PencilGo,
+
+        /// <summary>
+        /// Phone
+        /// </summary>
         Phone,
+
+        /// <summary>
+        /// PhoneAdd
+        /// </summary>
         PhoneAdd,
+
+        /// <summary>
+        /// PhoneDelete
+        /// </summary>
         PhoneDelete,
+
+        /// <summary>
+        /// PhoneEdit
+        /// </summary>
         PhoneEdit,
+
+        /// <summary>
+        /// PhoneError
+        /// </summary>
         PhoneError,
+
+        /// <summary>
+        /// PhoneGo
+        /// </summary>
         PhoneGo,
+
+        /// <summary>
+        /// PhoneKey
+        /// </summary>
         PhoneKey,
+
+        /// <summary>
+        /// PhoneLink
+        /// </summary>
         PhoneLink,
+
+        /// <summary>
+        /// PhoneSound
+        /// </summary>
         PhoneSound,
+
+        /// <summary>
+        /// PhoneStart
+        /// </summary>
         PhoneStart,
+
+        /// <summary>
+        /// PhoneStop
+        /// </summary>
         PhoneStop,
+
+        /// <summary>
+        /// Photo
+        /// </summary>
         Photo,
+
+        /// <summary>
+        /// Photos
+        /// </summary>
         Photos,
+
+        /// <summary>
+        /// PhotoAdd
+        /// </summary>
         PhotoAdd,
+
+        /// <summary>
+        /// PhotoDelete
+        /// </summary>
         PhotoDelete,
+
+        /// <summary>
+        /// PhotoEdit
+        /// </summary>
         PhotoEdit,
+
+        /// <summary>
+        /// PhotoLink
+        /// </summary>
         PhotoLink,
+
+        /// <summary>
+        /// PhotoPaint
+        /// </summary>
         PhotoPaint,
+
+        /// <summary>
+        /// Picture
+        /// </summary>
         Picture,
+
+        /// <summary>
+        /// Pictures
+        /// </summary>
         Pictures,
+
+        /// <summary>
+        /// PicturesThumbs
+        /// </summary>
         PicturesThumbs,
+
+        /// <summary>
+        /// PictureAdd
+        /// </summary>
         PictureAdd,
+
+        /// <summary>
+        /// PictureClipboard
+        /// </summary>
         PictureClipboard,
+
+        /// <summary>
+        /// PictureDelete
+        /// </summary>
         PictureDelete,
+
+        /// <summary>
+        /// PictureEdit
+        /// </summary>
         PictureEdit,
+
+        /// <summary>
+        /// PictureEmpty
+        /// </summary>
         PictureEmpty,
+
+        /// <summary>
+        /// PictureError
+        /// </summary>
         PictureError,
+
+        /// <summary>
+        /// PictureGo
+        /// </summary>
         PictureGo,
+
+        /// <summary>
+        /// PictureKey
+        /// </summary>
         PictureKey,
+
+        /// <summary>
+        /// PictureLink
+        /// </summary>
         PictureLink,
+
+        /// <summary>
+        /// PictureSave
+        /// </summary>
         PictureSave,
+
+        /// <summary>
+        /// Pilcrow
+        /// </summary>
         Pilcrow,
+
+        /// <summary>
+        /// Pill
+        /// </summary>
         Pill,
+
+        /// <summary>
+        /// PillAdd
+        /// </summary>
         PillAdd,
+
+        /// <summary>
+        /// PillDelete
+        /// </summary>
         PillDelete,
+
+        /// <summary>
+        /// PillError
+        /// </summary>
         PillError,
+
+        /// <summary>
+        /// PillGo
+        /// </summary>
         PillGo,
+
+        /// <summary>
+        /// PlayBlue
+        /// </summary>
         PlayBlue,
+
+        /// <summary>
+        /// PlayGreen
+        /// </summary>
         PlayGreen,
+
+        /// <summary>
+        /// Plugin
+        /// </summary>
         Plugin,
+
+        /// <summary>
+        /// PluginAdd
+        /// </summary>
         PluginAdd,
+
+        /// <summary>
+        /// PluginDelete
+        /// </summary>
         PluginDelete,
+
+        /// <summary>
+        /// PluginDisabled
+        /// </summary>
         PluginDisabled,
+
+        /// <summary>
+        /// PluginEdit
+        /// </summary>
         PluginEdit,
+
+        /// <summary>
+        /// PluginError
+        /// </summary>
         PluginError,
+
+        /// <summary>
+        /// PluginGo
+        /// </summary>
         PluginGo,
+
+        /// <summary>
+        /// PluginKey
+        /// </summary>
         PluginKey,
+
+        /// <summary>
+        /// PluginLink
+        /// </summary>
         PluginLink,
+
+        /// <summary>
+        /// PreviousGreen
+        /// </summary>
         PreviousGreen,
+
+        /// <summary>
+        /// Printer
+        /// </summary>
         Printer,
+
+        /// <summary>
+        /// PrinterAdd
+        /// </summary>
         PrinterAdd,
+
+        /// <summary>
+        /// PrinterCancel
+        /// </summary>
         PrinterCancel,
+
+        /// <summary>
+        /// PrinterColor
+        /// </summary>
         PrinterColor,
+
+        /// <summary>
+        /// PrinterConnect
+        /// </summary>
         PrinterConnect,
+
+        /// <summary>
+        /// PrinterDelete
+        /// </summary>
         PrinterDelete,
+
+        /// <summary>
+        /// PrinterEmpty
+        /// </summary>
         PrinterEmpty,
+
+        /// <summary>
+        /// PrinterError
+        /// </summary>
         PrinterError,
+
+        /// <summary>
+        /// PrinterGo
+        /// </summary>
         PrinterGo,
+
+        /// <summary>
+        /// PrinterKey
+        /// </summary>
         PrinterKey,
+
+        /// <summary>
+        /// PrinterMono
+        /// </summary>
         PrinterMono,
+
+        /// <summary>
+        /// PrinterStart
+        /// </summary>
         PrinterStart,
+
+        /// <summary>
+        /// PrinterStop
+        /// </summary>
         PrinterStop,
+
+        /// <summary>
+        /// Rainbow
+        /// </summary>
         Rainbow,
+
+        /// <summary>
+        /// RainbowStar
+        /// </summary>
         RainbowStar,
+
+        /// <summary>
+        /// RecordBlue
+        /// </summary>
         RecordBlue,
+
+        /// <summary>
+        /// RecordGreen
+        /// </summary>
         RecordGreen,
+
+        /// <summary>
+        /// RecordRed
+        /// </summary>
         RecordRed,
+
+        /// <summary>
+        /// Reload
+        /// </summary>
         Reload,
+
+        /// <summary>
+        /// Report
+        /// </summary>
         Report,
+
+        /// <summary>
+        /// ReportAdd
+        /// </summary>
         ReportAdd,
+
+        /// <summary>
+        /// ReportDelete
+        /// </summary>
         ReportDelete,
+
+        /// <summary>
+        /// ReportDisk
+        /// </summary>
         ReportDisk,
+
+        /// <summary>
+        /// ReportEdit
+        /// </summary>
         ReportEdit,
+
+        /// <summary>
+        /// ReportGo
+        /// </summary>
         ReportGo,
+
+        /// <summary>
+        /// ReportKey
+        /// </summary>
         ReportKey,
+
+        /// <summary>
+        /// ReportLink
+        /// </summary>
         ReportLink,
+
+        /// <summary>
+        /// ReportMagnify
+        /// </summary>
         ReportMagnify,
+
+        /// <summary>
+        /// ReportPicture
+        /// </summary>
         ReportPicture,
+
+        /// <summary>
+        /// ReportStart
+        /// </summary>
         ReportStart,
+
+        /// <summary>
+        /// ReportStop
+        /// </summary>
         ReportStop,
+
+        /// <summary>
+        /// ReportUser
+        /// </summary>
         ReportUser,
+
+        /// <summary>
+        /// ReportWord
+        /// </summary>
         ReportWord,
+
+        /// <summary>
+        /// ResultsetFirst
+        /// </summary>
         ResultsetFirst,
+
+        /// <summary>
+        /// ResultsetLast
+        /// </summary>
         ResultsetLast,
+
+        /// <summary>
+        /// ResultsetNext
+        /// </summary>
         ResultsetNext,
+
+        /// <summary>
+        /// ResultsetPrevious
+        /// </summary>
         ResultsetPrevious,
+
+        /// <summary>
+        /// ReverseBlue
+        /// </summary>
         ReverseBlue,
+
+        /// <summary>
+        /// ReverseGreen
+        /// </summary>
         ReverseGreen,
+
+        /// <summary>
+        /// RewindBlue
+        /// </summary>
         RewindBlue,
+
+        /// <summary>
+        /// RewindGreen
+        /// </summary>
         RewindGreen,
+
+        /// <summary>
+        /// Rgb
+        /// </summary>
         Rgb,
+
+        /// <summary>
+        /// Rosette
+        /// </summary>
         Rosette,
+
+        /// <summary>
+        /// RosetteBlue
+        /// </summary>
         RosetteBlue,
+
+        /// <summary>
+        /// Rss
+        /// </summary>
         Rss,
+
+        /// <summary>
+        /// RssAdd
+        /// </summary>
         RssAdd,
+
+        /// <summary>
+        /// RssDelete
+        /// </summary>
         RssDelete,
+
+        /// <summary>
+        /// RssError
+        /// </summary>
         RssError,
+
+        /// <summary>
+        /// RssGo
+        /// </summary>
         RssGo,
+
+        /// <summary>
+        /// RssValid
+        /// </summary>
         RssValid,
+
+        /// <summary>
+        /// Ruby
+        /// </summary>
         Ruby,
+
+        /// <summary>
+        /// RubyAdd
+        /// </summary>
         RubyAdd,
+
+        /// <summary>
+        /// RubyDelete
+        /// </summary>
         RubyDelete,
+
+        /// <summary>
+        /// RubyGear
+        /// </summary>
         RubyGear,
+
+        /// <summary>
+        /// RubyGet
+        /// </summary>
         RubyGet,
+
+        /// <summary>
+        /// RubyGo
+        /// </summary>
         RubyGo,
+
+        /// <summary>
+        /// RubyKey
+        /// </summary>
         RubyKey,
+
+        /// <summary>
+        /// RubyLink
+        /// </summary>
         RubyLink,
+
+        /// <summary>
+        /// RubyPut
+        /// </summary>
         RubyPut,
+
+        /// <summary>
+        /// Script
+        /// </summary>
         Script,
+
+        /// <summary>
+        /// ScriptAdd
+        /// </summary>
         ScriptAdd,
+
+        /// <summary>
+        /// ScriptCode
+        /// </summary>
         ScriptCode,
+
+        /// <summary>
+        /// ScriptCodeOriginal
+        /// </summary>
         ScriptCodeOriginal,
+
+        /// <summary>
+        /// ScriptCodeRed
+        /// </summary>
         ScriptCodeRed,
+
+        /// <summary>
+        /// ScriptDelete
+        /// </summary>
         ScriptDelete,
+
+        /// <summary>
+        /// ScriptEdit
+        /// </summary>
         ScriptEdit,
+
+        /// <summary>
+        /// ScriptError
+        /// </summary>
         ScriptError,
+
+        /// <summary>
+        /// ScriptGear
+        /// </summary>
         ScriptGear,
+
+        /// <summary>
+        /// ScriptGo
+        /// </summary>
         ScriptGo,
+
+        /// <summary>
+        /// ScriptKey
+        /// </summary>
         ScriptKey,
+
+        /// <summary>
+        /// ScriptLightning
+        /// </summary>
         ScriptLightning,
+
+        /// <summary>
+        /// ScriptLink
+        /// </summary>
         ScriptLink,
+
+        /// <summary>
+        /// ScriptPalette
+        /// </summary>
         ScriptPalette,
+
+        /// <summary>
+        /// ScriptSave
+        /// </summary>
         ScriptSave,
+
+        /// <summary>
+        /// ScriptStart
+        /// </summary>
         ScriptStart,
+
+        /// <summary>
+        /// ScriptStop
+        /// </summary>
         ScriptStop,
+
+        /// <summary>
+        /// Seasons
+        /// </summary>
         Seasons,
+
+        /// <summary>
+        /// SectionCollapsed
+        /// </summary>
         SectionCollapsed,
+
+        /// <summary>
+        /// SectionExpanded
+        /// </summary>
         SectionExpanded,
+
+        /// <summary>
+        /// Server
+        /// </summary>
         Server,
+
+        /// <summary>
+        /// ServerAdd
+        /// </summary>
         ServerAdd,
+
+        /// <summary>
+        /// ServerChart
+        /// </summary>
         ServerChart,
+
+        /// <summary>
+        /// ServerCompressed
+        /// </summary>
         ServerCompressed,
+
+        /// <summary>
+        /// ServerConnect
+        /// </summary>
         ServerConnect,
+
+        /// <summary>
+        /// ServerDatabase
+        /// </summary>
         ServerDatabase,
+
+        /// <summary>
+        /// ServerDelete
+        /// </summary>
         ServerDelete,
+
+        /// <summary>
+        /// ServerEdit
+        /// </summary>
         ServerEdit,
+
+        /// <summary>
+        /// ServerError
+        /// </summary>
         ServerError,
+
+        /// <summary>
+        /// ServerGo
+        /// </summary>
         ServerGo,
+
+        /// <summary>
+        /// ServerKey
+        /// </summary>
         ServerKey,
+
+        /// <summary>
+        /// ServerLightning
+        /// </summary>
         ServerLightning,
+
+        /// <summary>
+        /// ServerLink
+        /// </summary>
         ServerLink,
+
+        /// <summary>
+        /// ServerStart
+        /// </summary>
         ServerStart,
+
+        /// <summary>
+        /// ServerStop
+        /// </summary>
         ServerStop,
+
+        /// <summary>
+        /// ServerUncompressed
+        /// </summary>
         ServerUncompressed,
+
+        /// <summary>
+        /// ServerWrench
+        /// </summary>
         ServerWrench,
+
+        /// <summary>
+        /// Shading
+        /// </summary>
         Shading,
+
+        /// <summary>
+        /// ShapesMany
+        /// </summary>
         ShapesMany,
+
+        /// <summary>
+        /// ShapesManySelect
+        /// </summary>
         ShapesManySelect,
+
+        /// <summary>
+        /// Shape3d
+        /// </summary>
         Shape3d,
+
+        /// <summary>
+        /// ShapeAlignBottom
+        /// </summary>
         ShapeAlignBottom,
+
+        /// <summary>
+        /// ShapeAlignCenter
+        /// </summary>
         ShapeAlignCenter,
+
+        /// <summary>
+        /// ShapeAlignLeft
+        /// </summary>
         ShapeAlignLeft,
+
+        /// <summary>
+        /// ShapeAlignMiddle
+        /// </summary>
         ShapeAlignMiddle,
+
+        /// <summary>
+        /// ShapeAlignRight
+        /// </summary>
         ShapeAlignRight,
+
+        /// <summary>
+        /// ShapeAlignTop
+        /// </summary>
         ShapeAlignTop,
+
+        /// <summary>
+        /// ShapeFlipHorizontal
+        /// </summary>
         ShapeFlipHorizontal,
+
+        /// <summary>
+        /// ShapeFlipVertical
+        /// </summary>
         ShapeFlipVertical,
+
+        /// <summary>
+        /// ShapeGroup
+        /// </summary>
         ShapeGroup,
+
+        /// <summary>
+        /// ShapeHandles
+        /// </summary>
         ShapeHandles,
+
+        /// <summary>
+        /// ShapeMoveBack
+        /// </summary>
         ShapeMoveBack,
+
+        /// <summary>
+        /// ShapeMoveBackwards
+        /// </summary>
         ShapeMoveBackwards,
+
+        /// <summary>
+        /// ShapeMoveForwards
+        /// </summary>
         ShapeMoveForwards,
+
+        /// <summary>
+        /// ShapeMoveFront
+        /// </summary>
         ShapeMoveFront,
+
+        /// <summary>
+        /// ShapeRotateAnticlockwise
+        /// </summary>
         ShapeRotateAnticlockwise,
+
+        /// <summary>
+        /// ShapeRotateClockwise
+        /// </summary>
         ShapeRotateClockwise,
+
+        /// <summary>
+        /// ShapeShadeA
+        /// </summary>
         ShapeShadeA,
+
+        /// <summary>
+        /// ShapeShadeB
+        /// </summary>
         ShapeShadeB,
+
+        /// <summary>
+        /// ShapeShadeC
+        /// </summary>
         ShapeShadeC,
+
+        /// <summary>
+        /// ShapeShadow
+        /// </summary>
         ShapeShadow,
+
+        /// <summary>
+        /// ShapeShadowToggle
+        /// </summary>
         ShapeShadowToggle,
+
+        /// <summary>
+        /// ShapeSquare
+        /// </summary>
         ShapeSquare,
+
+        /// <summary>
+        /// ShapeSquareAdd
+        /// </summary>
         ShapeSquareAdd,
+
+        /// <summary>
+        /// ShapeSquareDelete
+        /// </summary>
         ShapeSquareDelete,
+
+        /// <summary>
+        /// ShapeSquareEdit
+        /// </summary>
         ShapeSquareEdit,
+
+        /// <summary>
+        /// ShapeSquareError
+        /// </summary>
         ShapeSquareError,
+
+        /// <summary>
+        /// ShapeSquareGo
+        /// </summary>
         ShapeSquareGo,
+
+        /// <summary>
+        /// ShapeSquareKey
+        /// </summary>
         ShapeSquareKey,
+
+        /// <summary>
+        /// ShapeSquareLink
+        /// </summary>
         ShapeSquareLink,
+
+        /// <summary>
+        /// ShapeSquareSelect
+        /// </summary>
         ShapeSquareSelect,
+
+        /// <summary>
+        /// ShapeUngroup
+        /// </summary>
         ShapeUngroup,
+
+        /// <summary>
+        /// Share
+        /// </summary>
         Share,
+
+        /// <summary>
+        /// Shield
+        /// </summary>
         Shield,
+
+        /// <summary>
+        /// ShieldAdd
+        /// </summary>
         ShieldAdd,
+
+        /// <summary>
+        /// ShieldDelete
+        /// </summary>
         ShieldDelete,
+
+        /// <summary>
+        /// ShieldError
+        /// </summary>
         ShieldError,
+
+        /// <summary>
+        /// ShieldGo
+        /// </summary>
         ShieldGo,
+
+        /// <summary>
+        /// ShieldRainbow
+        /// </summary>
         ShieldRainbow,
+
+        /// <summary>
+        /// ShieldSilver
+        /// </summary>
         ShieldSilver,
+
+        /// <summary>
+        /// ShieldStart
+        /// </summary>
         ShieldStart,
+
+        /// <summary>
+        /// ShieldStop
+        /// </summary>
         ShieldStop,
+
+        /// <summary>
+        /// Sitemap
+        /// </summary>
         Sitemap,
+
+        /// <summary>
+        /// SitemapColor
+        /// </summary>
         SitemapColor,
+
+        /// <summary>
+        /// Smartphone
+        /// </summary>
         Smartphone,
+
+        /// <summary>
+        /// SmartphoneAdd
+        /// </summary>
         SmartphoneAdd,
+
+        /// <summary>
+        /// SmartphoneConnect
+        /// </summary>
         SmartphoneConnect,
+
+        /// <summary>
+        /// SmartphoneDelete
+        /// </summary>
         SmartphoneDelete,
+
+        /// <summary>
+        /// SmartphoneDisk
+        /// </summary>
         SmartphoneDisk,
+
+        /// <summary>
+        /// SmartphoneEdit
+        /// </summary>
         SmartphoneEdit,
+
+        /// <summary>
+        /// SmartphoneError
+        /// </summary>
         SmartphoneError,
+
+        /// <summary>
+        /// SmartphoneGo
+        /// </summary>
         SmartphoneGo,
+
+        /// <summary>
+        /// SmartphoneKey
+        /// </summary>
         SmartphoneKey,
+
+        /// <summary>
+        /// SmartphoneWrench
+        /// </summary>
         SmartphoneWrench,
+
+        /// <summary>
+        /// SortAscending
+        /// </summary>
         SortAscending,
+
+        /// <summary>
+        /// SortDescending
+        /// </summary>
         SortDescending,
+
+        /// <summary>
+        /// Sound
+        /// </summary>
         Sound,
+
+        /// <summary>
+        /// SoundAdd
+        /// </summary>
         SoundAdd,
+
+        /// <summary>
+        /// SoundDelete
+        /// </summary>
         SoundDelete,
+
+        /// <summary>
+        /// SoundHigh
+        /// </summary>
         SoundHigh,
+
+        /// <summary>
+        /// SoundIn
+        /// </summary>
         SoundIn,
+
+        /// <summary>
+        /// SoundLow
+        /// </summary>
         SoundLow,
+
+        /// <summary>
+        /// SoundMute
+        /// </summary>
         SoundMute,
+
+        /// <summary>
+        /// SoundNone
+        /// </summary>
         SoundNone,
+
+        /// <summary>
+        /// SoundOut
+        /// </summary>
         SoundOut,
+
+        /// <summary>
+        /// Spellcheck
+        /// </summary>
         Spellcheck,
+
+        /// <summary>
+        /// Sport8ball
+        /// </summary>
         Sport8ball,
+
+        /// <summary>
+        /// SportBasketball
+        /// </summary>
         SportBasketball,
+
+        /// <summary>
+        /// SportFootball
+        /// </summary>
         SportFootball,
+
+        /// <summary>
+        /// SportGolf
+        /// </summary>
         SportGolf,
+
+        /// <summary>
+        /// SportGolfPractice
+        /// </summary>
         SportGolfPractice,
+
+        /// <summary>
+        /// SportRaquet
+        /// </summary>
         SportRaquet,
+
+        /// <summary>
+        /// SportShuttlecock
+        /// </summary>
         SportShuttlecock,
+
+        /// <summary>
+        /// SportSoccer
+        /// </summary>
         SportSoccer,
+
+        /// <summary>
+        /// SportTennis
+        /// </summary>
         SportTennis,
+
+        /// <summary>
+        /// Star
+        /// </summary>
         Star,
+
+        /// <summary>
+        /// StarBronze
+        /// </summary>
         StarBronze,
+
+        /// <summary>
+        /// StarBronzeHalfGrey
+        /// </summary>
         StarBronzeHalfGrey,
+
+        /// <summary>
+        /// StarGold
+        /// </summary>
         StarGold,
+
+        /// <summary>
+        /// StarGoldHalfGrey
+        /// </summary>
         StarGoldHalfGrey,
+
+        /// <summary>
+        /// StarGoldHalfSilver
+        /// </summary>
         StarGoldHalfSilver,
+
+        /// <summary>
+        /// StarGrey
+        /// </summary>
         StarGrey,
+
+        /// <summary>
+        /// StarHalfGrey
+        /// </summary>
         StarHalfGrey,
+
+        /// <summary>
+        /// StarSilver
+        /// </summary>
         StarSilver,
+
+        /// <summary>
+        /// StatusAway
+        /// </summary>
         StatusAway,
+
+        /// <summary>
+        /// StatusBeRightBack
+        /// </summary>
         StatusBeRightBack,
+
+        /// <summary>
+        /// StatusBusy
+        /// </summary>
         StatusBusy,
+
+        /// <summary>
+        /// StatusInvisible
+        /// </summary>
         StatusInvisible,
+
+        /// <summary>
+        /// StatusOffline
+        /// </summary>
         StatusOffline,
+
+        /// <summary>
+        /// StatusOnline
+        /// </summary>
         StatusOnline,
+
+        /// <summary>
+        /// Stop
+        /// </summary>
         Stop,
+
+        /// <summary>
+        /// StopBlue
+        /// </summary>
         StopBlue,
+
+        /// <summary>
+        /// StopGreen
+        /// </summary>
         StopGreen,
+
+        /// <summary>
+        /// StopRed
+        /// </summary>
         StopRed,
+
+        /// <summary>
+        /// Style
+        /// </summary>
         Style,
+
+        /// <summary>
+        /// StyleAdd
+        /// </summary>
         StyleAdd,
+
+        /// <summary>
+        /// StyleDelete
+        /// </summary>
         StyleDelete,
+
+        /// <summary>
+        /// StyleEdit
+        /// </summary>
         StyleEdit,
+
+        /// <summary>
+        /// StyleGo
+        /// </summary>
         StyleGo,
+
+        /// <summary>
+        /// Sum
+        /// </summary>
         Sum,
+
+        /// <summary>
+        /// Tab
+        /// </summary>
         Tab,
+
+        /// <summary>
+        /// Table
+        /// </summary>
         Table,
+
+        /// <summary>
+        /// TableAdd
+        /// </summary>
         TableAdd,
+
+        /// <summary>
+        /// TableCell
+        /// </summary>
         TableCell,
+
+        /// <summary>
+        /// TableColumn
+        /// </summary>
         TableColumn,
+
+        /// <summary>
+        /// TableColumnAdd
+        /// </summary>
         TableColumnAdd,
+
+        /// <summary>
+        /// TableColumnDelete
+        /// </summary>
         TableColumnDelete,
+
+        /// <summary>
+        /// TableConnect
+        /// </summary>
         TableConnect,
+
+        /// <summary>
+        /// TableDelete
+        /// </summary>
         TableDelete,
+
+        /// <summary>
+        /// TableEdit
+        /// </summary>
         TableEdit,
+
+        /// <summary>
+        /// TableError
+        /// </summary>
         TableError,
+
+        /// <summary>
+        /// TableGear
+        /// </summary>
         TableGear,
+
+        /// <summary>
+        /// TableGo
+        /// </summary>
         TableGo,
+
+        /// <summary>
+        /// TableKey
+        /// </summary>
         TableKey,
+
+        /// <summary>
+        /// TableLightning
+        /// </summary>
         TableLightning,
+
+        /// <summary>
+        /// TableLink
+        /// </summary>
         TableLink,
+
+        /// <summary>
+        /// TableMultiple
+        /// </summary>
         TableMultiple,
+
+        /// <summary>
+        /// TableRefresh
+        /// </summary>
         TableRefresh,
+
+        /// <summary>
+        /// TableRelationship
+        /// </summary>
         TableRelationship,
+
+        /// <summary>
+        /// TableRow
+        /// </summary>
         TableRow,
+
+        /// <summary>
+        /// TableRowDelete
+        /// </summary>
         TableRowDelete,
+
+        /// <summary>
+        /// TableRowInsert
+        /// </summary>
         TableRowInsert,
+
+        /// <summary>
+        /// TableSave
+        /// </summary>
         TableSave,
+
+        /// <summary>
+        /// TableSort
+        /// </summary>
         TableSort,
+
+        /// <summary>
+        /// TabAdd
+        /// </summary>
         TabAdd,
+
+        /// <summary>
+        /// TabBlue
+        /// </summary>
         TabBlue,
+
+        /// <summary>
+        /// TabDelete
+        /// </summary>
         TabDelete,
+
+        /// <summary>
+        /// TabEdit
+        /// </summary>
         TabEdit,
+
+        /// <summary>
+        /// TabGo
+        /// </summary>
         TabGo,
+
+        /// <summary>
+        /// TabGreen
+        /// </summary>
         TabGreen,
+
+        /// <summary>
+        /// TabRed
+        /// </summary>
         TabRed,
+
+        /// <summary>
+        /// Tag
+        /// </summary>
         Tag,
+
+        /// <summary>
+        /// TagsGrey
+        /// </summary>
         TagsGrey,
+
+        /// <summary>
+        /// TagsRed
+        /// </summary>
         TagsRed,
+
+        /// <summary>
+        /// TagBlue
+        /// </summary>
         TagBlue,
+
+        /// <summary>
+        /// TagBlueAdd
+        /// </summary>
         TagBlueAdd,
+
+        /// <summary>
+        /// TagBlueDelete
+        /// </summary>
         TagBlueDelete,
+
+        /// <summary>
+        /// TagBlueEdit
+        /// </summary>
         TagBlueEdit,
+
+        /// <summary>
+        /// TagGreen
+        /// </summary>
         TagGreen,
+
+        /// <summary>
+        /// TagOrange
+        /// </summary>
         TagOrange,
+
+        /// <summary>
+        /// TagPink
+        /// </summary>
         TagPink,
+
+        /// <summary>
+        /// TagPurple
+        /// </summary>
         TagPurple,
+
+        /// <summary>
+        /// TagRed
+        /// </summary>
         TagRed,
+
+        /// <summary>
+        /// TagYellow
+        /// </summary>
         TagYellow,
+
+        /// <summary>
+        /// Telephone
+        /// </summary>
         Telephone,
+
+        /// <summary>
+        /// TelephoneAdd
+        /// </summary>
         TelephoneAdd,
+
+        /// <summary>
+        /// TelephoneDelete
+        /// </summary>
         TelephoneDelete,
+
+        /// <summary>
+        /// TelephoneEdit
+        /// </summary>
         TelephoneEdit,
+
+        /// <summary>
+        /// TelephoneError
+        /// </summary>
         TelephoneError,
+
+        /// <summary>
+        /// TelephoneGo
+        /// </summary>
         TelephoneGo,
+
+        /// <summary>
+        /// TelephoneKey
+        /// </summary>
         TelephoneKey,
+
+        /// <summary>
+        /// TelephoneLink
+        /// </summary>
         TelephoneLink,
+
+        /// <summary>
+        /// TelephoneRed
+        /// </summary>
         TelephoneRed,
+
+        /// <summary>
+        /// Television
+        /// </summary>
         Television,
+
+        /// <summary>
+        /// TelevisionAdd
+        /// </summary>
         TelevisionAdd,
+
+        /// <summary>
+        /// TelevisionDelete
+        /// </summary>
         TelevisionDelete,
+
+        /// <summary>
+        /// TelevisionIn
+        /// </summary>
         TelevisionIn,
+
+        /// <summary>
+        /// TelevisionOff
+        /// </summary>
         TelevisionOff,
+
+        /// <summary>
+        /// TelevisionOut
+        /// </summary>
         TelevisionOut,
+
+        /// <summary>
+        /// TelevisionStar
+        /// </summary>
         TelevisionStar,
+
+        /// <summary>
+        /// Textfield
+        /// </summary>
         Textfield,
+
+        /// <summary>
+        /// TextfieldAdd
+        /// </summary>
         TextfieldAdd,
+
+        /// <summary>
+        /// TextfieldDelete
+        /// </summary>
         TextfieldDelete,
+
+        /// <summary>
+        /// TextfieldKey
+        /// </summary>
         TextfieldKey,
+
+        /// <summary>
+        /// TextfieldRename
+        /// </summary>
         TextfieldRename,
+
+        /// <summary>
+        /// TextAb
+        /// </summary>
         TextAb,
+
+        /// <summary>
+        /// TextAlignCenter
+        /// </summary>
         TextAlignCenter,
+
+        /// <summary>
+        /// TextAlignJustify
+        /// </summary>
         TextAlignJustify,
+
+        /// <summary>
+        /// TextAlignLeft
+        /// </summary>
         TextAlignLeft,
+
+        /// <summary>
+        /// TextAlignRight
+        /// </summary>
         TextAlignRight,
+
+        /// <summary>
+        /// TextAllcaps
+        /// </summary>
         TextAllcaps,
+
+        /// <summary>
+        /// TextBold
+        /// </summary>
         TextBold,
+
+        /// <summary>
+        /// TextColumns
+        /// </summary>
         TextColumns,
+
+        /// <summary>
+        /// TextComplete
+        /// </summary>
         TextComplete,
+
+        /// <summary>
+        /// TextDirection
+        /// </summary>
         TextDirection,
+
+        /// <summary>
+        /// TextDoubleUnderline
+        /// </summary>
         TextDoubleUnderline,
+
+        /// <summary>
+        /// TextDropcaps
+        /// </summary>
         TextDropcaps,
+
+        /// <summary>
+        /// TextFit
+        /// </summary>
         TextFit,
+
+        /// <summary>
+        /// TextFlip
+        /// </summary>
         TextFlip,
+
+        /// <summary>
+        /// TextFontDefault
+        /// </summary>
         TextFontDefault,
+
+        /// <summary>
+        /// TextHeading1
+        /// </summary>
         TextHeading1,
+
+        /// <summary>
+        /// TextHeading2
+        /// </summary>
         TextHeading2,
+
+        /// <summary>
+        /// TextHeading3
+        /// </summary>
         TextHeading3,
+
+        /// <summary>
+        /// TextHeading4
+        /// </summary>
         TextHeading4,
+
+        /// <summary>
+        /// TextHeading5
+        /// </summary>
         TextHeading5,
+
+        /// <summary>
+        /// TextHeading6
+        /// </summary>
         TextHeading6,
+
+        /// <summary>
+        /// TextHorizontalrule
+        /// </summary>
         TextHorizontalrule,
+
+        /// <summary>
+        /// TextIndent
+        /// </summary>
         TextIndent,
+
+        /// <summary>
+        /// TextIndentRemove
+        /// </summary>
         TextIndentRemove,
+
+        /// <summary>
+        /// TextInverse
+        /// </summary>
         TextInverse,
+
+        /// <summary>
+        /// TextItalic
+        /// </summary>
         TextItalic,
+
+        /// <summary>
+        /// TextKerning
+        /// </summary>
         TextKerning,
+
+        /// <summary>
+        /// TextLeftToRight
+        /// </summary>
         TextLeftToRight,
+
+        /// <summary>
+        /// TextLetterspacing
+        /// </summary>
         TextLetterspacing,
+
+        /// <summary>
+        /// TextLetterOmega
+        /// </summary>
         TextLetterOmega,
+
+        /// <summary>
+        /// TextLinespacing
+        /// </summary>
         TextLinespacing,
+
+        /// <summary>
+        /// TextListBullets
+        /// </summary>
         TextListBullets,
+
+        /// <summary>
+        /// TextListNumbers
+        /// </summary>
         TextListNumbers,
+
+        /// <summary>
+        /// TextLowercase
+        /// </summary>
         TextLowercase,
+
+        /// <summary>
+        /// TextLowercaseA
+        /// </summary>
         TextLowercaseA,
+
+        /// <summary>
+        /// TextMirror
+        /// </summary>
         TextMirror,
+
+        /// <summary>
+        /// TextPaddingBottom
+        /// </summary>
         TextPaddingBottom,
+
+        /// <summary>
+        /// TextPaddingLeft
+        /// </summary>
         TextPaddingLeft,
+
+        /// <summary>
+        /// TextPaddingRight
+        /// </summary>
         TextPaddingRight,
+
+        /// <summary>
+        /// TextPaddingTop
+        /// </summary>
         TextPaddingTop,
+
+        /// <summary>
+        /// TextReplace
+        /// </summary>
         TextReplace,
+
+        /// <summary>
+        /// TextRightToLeft
+        /// </summary>
         TextRightToLeft,
+
+        /// <summary>
+        /// TextRotate0
+        /// </summary>
         TextRotate0,
+
+        /// <summary>
+        /// TextRotate180
+        /// </summary>
         TextRotate180,
+
+        /// <summary>
+        /// TextRotate270
+        /// </summary>
         TextRotate270,
+
+        /// <summary>
+        /// TextRotate90
+        /// </summary>
         TextRotate90,
+
+        /// <summary>
+        /// TextRuler
+        /// </summary>
         TextRuler,
+
+        /// <summary>
+        /// TextShading
+        /// </summary>
         TextShading,
+
+        /// <summary>
+        /// TextSignature
+        /// </summary>
         TextSignature,
+
+        /// <summary>
+        /// TextSmallcaps
+        /// </summary>
         TextSmallcaps,
+
+        /// <summary>
+        /// TextSpelling
+        /// </summary>
         TextSpelling,
+
+        /// <summary>
+        /// TextStrikethrough
+        /// </summary>
         TextStrikethrough,
+
+        /// <summary>
+        /// TextSubscript
+        /// </summary>
         TextSubscript,
+
+        /// <summary>
+        /// TextSuperscript
+        /// </summary>
         TextSuperscript,
+
+        /// <summary>
+        /// TextTab
+        /// </summary>
         TextTab,
+
+        /// <summary>
+        /// TextUnderline
+        /// </summary>
         TextUnderline,
+
+        /// <summary>
+        /// TextUppercase
+        /// </summary>
         TextUppercase,
+
+        /// <summary>
+        /// Theme
+        /// </summary>
         Theme,
+
+        /// <summary>
+        /// ThumbDown
+        /// </summary>
         ThumbDown,
+
+        /// <summary>
+        /// ThumbUp
+        /// </summary>
         ThumbUp,
+
+        /// <summary>
+        /// Tick
+        /// </summary>
         Tick,
+
+        /// <summary>
+        /// Time
+        /// </summary>
         Time,
+
+        /// <summary>
+        /// TimelineMarker
+        /// </summary>
         TimelineMarker,
+
+        /// <summary>
+        /// TimeAdd
+        /// </summary>
         TimeAdd,
+
+        /// <summary>
+        /// TimeDelete
+        /// </summary>
         TimeDelete,
+
+        /// <summary>
+        /// TimeGo
+        /// </summary>
         TimeGo,
+
+        /// <summary>
+        /// TimeGreen
+        /// </summary>
         TimeGreen,
+
+        /// <summary>
+        /// TimeRed
+        /// </summary>
         TimeRed,
+
+        /// <summary>
+        /// Transmit
+        /// </summary>
         Transmit,
+
+        /// <summary>
+        /// TransmitAdd
+        /// </summary>
         TransmitAdd,
+
+        /// <summary>
+        /// TransmitBlue
+        /// </summary>
         TransmitBlue,
+
+        /// <summary>
+        /// TransmitDelete
+        /// </summary>
         TransmitDelete,
+
+        /// <summary>
+        /// TransmitEdit
+        /// </summary>
         TransmitEdit,
+
+        /// <summary>
+        /// TransmitError
+        /// </summary>
         TransmitError,
+
+        /// <summary>
+        /// TransmitGo
+        /// </summary>
         TransmitGo,
+
+        /// <summary>
+        /// TransmitRed
+        /// </summary>
         TransmitRed,
+
+        /// <summary>
+        /// Tux
+        /// </summary>
         Tux,
+
+        /// <summary>
+        /// User
+        /// </summary>
         User,
+
+        /// <summary>
+        /// UserAdd
+        /// </summary>
         UserAdd,
+
+        /// <summary>
+        /// UserAlert
+        /// </summary>
         UserAlert,
+
+        /// <summary>
+        /// UserB
+        /// </summary>
         UserB,
+
+        /// <summary>
+        /// UserBrown
+        /// </summary>
         UserBrown,
+
+        /// <summary>
+        /// UserComment
+        /// </summary>
         UserComment,
+
+        /// <summary>
+        /// UserCross
+        /// </summary>
         UserCross,
+
+        /// <summary>
+        /// UserDelete
+        /// </summary>
         UserDelete,
+
+        /// <summary>
+        /// UserEarth
+        /// </summary>
         UserEarth,
+
+        /// <summary>
+        /// UserEdit
+        /// </summary>
         UserEdit,
+
+        /// <summary>
+        /// UserFemale
+        /// </summary>
         UserFemale,
+
+        /// <summary>
+        /// UserGo
+        /// </summary>
         UserGo,
+
+        /// <summary>
+        /// UserGray
+        /// </summary>
         UserGray,
+
+        /// <summary>
+        /// UserGrayCool
+        /// </summary>
         UserGrayCool,
+
+        /// <summary>
+        /// UserGreen
+        /// </summary>
         UserGreen,
+
+        /// <summary>
+        /// UserHome
+        /// </summary>
         UserHome,
+
+        /// <summary>
+        /// UserKey
+        /// </summary>
         UserKey,
+
+        /// <summary>
+        /// UserMagnify
+        /// </summary>
         UserMagnify,
+
+        /// <summary>
+        /// UserMature
+        /// </summary>
         UserMature,
+
+        /// <summary>
+        /// UserOrange
+        /// </summary>
         UserOrange,
+
+        /// <summary>
+        /// UserRed
+        /// </summary>
         UserRed,
+
+        /// <summary>
+        /// UserStar
+        /// </summary>
         UserStar,
+
+        /// <summary>
+        /// UserSuit
+        /// </summary>
         UserSuit,
+
+        /// <summary>
+        /// UserSuitBlack
+        /// </summary>
         UserSuitBlack,
+
+        /// <summary>
+        /// UserTick
+        /// </summary>
         UserTick,
+
+        /// <summary>
+        /// Vcard
+        /// </summary>
         Vcard,
+
+        /// <summary>
+        /// VcardAdd
+        /// </summary>
         VcardAdd,
+
+        /// <summary>
+        /// VcardDelete
+        /// </summary>
         VcardDelete,
+
+        /// <summary>
+        /// VcardEdit
+        /// </summary>
         VcardEdit,
+
+        /// <summary>
+        /// VcardKey
+        /// </summary>
         VcardKey,
+
+        /// <summary>
+        /// Vector
+        /// </summary>
         Vector,
+
+        /// <summary>
+        /// VectorAdd
+        /// </summary>
         VectorAdd,
+
+        /// <summary>
+        /// VectorDelete
+        /// </summary>
         VectorDelete,
+
+        /// <summary>
+        /// VectorKey
+        /// </summary>
         VectorKey,
+
+        /// <summary>
+        /// Wand
+        /// </summary>
         Wand,
+
+        /// <summary>
+        /// WeatherCloud
+        /// </summary>
         WeatherCloud,
+
+        /// <summary>
+        /// WeatherClouds
+        /// </summary>
         WeatherClouds,
+
+        /// <summary>
+        /// WeatherCloudy
+        /// </summary>
         WeatherCloudy,
+
+        /// <summary>
+        /// WeatherCloudyRain
+        /// </summary>
         WeatherCloudyRain,
+
+        /// <summary>
+        /// WeatherLightning
+        /// </summary>
         WeatherLightning,
+
+        /// <summary>
+        /// WeatherRain
+        /// </summary>
         WeatherRain,
+
+        /// <summary>
+        /// WeatherSnow
+        /// </summary>
         WeatherSnow,
+
+        /// <summary>
+        /// WeatherSun
+        /// </summary>
         WeatherSun,
+
+        /// <summary>
+        /// Webcam
+        /// </summary>
         Webcam,
+
+        /// <summary>
+        /// WebcamAdd
+        /// </summary>
         WebcamAdd,
+
+        /// <summary>
+        /// WebcamConnect
+        /// </summary>
         WebcamConnect,
+
+        /// <summary>
+        /// WebcamDelete
+        /// </summary>
         WebcamDelete,
+
+        /// <summary>
+        /// WebcamError
+        /// </summary>
         WebcamError,
+
+        /// <summary>
+        /// WebcamStart
+        /// </summary>
         WebcamStart,
+
+        /// <summary>
+        /// WebcamStop
+        /// </summary>
         WebcamStop,
+
+        /// <summary>
+        /// World
+        /// </summary>
         World,
+
+        /// <summary>
+        /// WorldAdd
+        /// </summary>
         WorldAdd,
+
+        /// <summary>
+        /// WorldConnect
+        /// </summary>
         WorldConnect,
+
+        /// <summary>
+        /// WorldDawn
+        /// </summary>
         WorldDawn,
+
+        /// <summary>
+        /// WorldDelete
+        /// </summary>
         WorldDelete,
+
+        /// <summary>
+        /// WorldEdit
+        /// </summary>
         WorldEdit,
+
+        /// <summary>
+        /// WorldGo
+        /// </summary>
         WorldGo,
+
+        /// <summary>
+        /// WorldKey
+        /// </summary>
         WorldKey,
+
+        /// <summary>
+        /// WorldLink
+        /// </summary>
         WorldLink,
+
+        /// <summary>
+        /// WorldNight
+        /// </summary>
         WorldNight,
+
+        /// <summary>
+        /// WorldOrbit
+        /// </summary>
         WorldOrbit,
+
+        /// <summary>
+        /// Wrench
+        /// </summary>
         Wrench,
+
+        /// <summary>
+        /// WrenchOrange
+        /// </summary>
         WrenchOrange,
+
+        /// <summary>
+        /// Xhtml
+        /// </summary>
         Xhtml,
+
+        /// <summary>
+        /// XhtmlAdd
+        /// </summary>
         XhtmlAdd,
+
+        /// <summary>
+        /// XhtmlDelete
+        /// </summary>
         XhtmlDelete,
+
+        /// <summary>
+        /// XhtmlError
+        /// </summary>
         XhtmlError,
+
+        /// <summary>
+        /// XhtmlGo
+        /// </summary>
         XhtmlGo,
+
+        /// <summary>
+        /// XhtmlValid
+        /// </summary>
         XhtmlValid,
+
+        /// <summary>
+        /// Zoom
+        /// </summary>
         Zoom,
+
+        /// <summary>
+        /// ZoomIn
+        /// </summary>
         ZoomIn,
+
+        /// <summary>
+        /// ZoomOut
+        /// </summary>
         ZoomOut,
+
+        /// <summary>
+        /// SystemClose
+        /// </summary>
         SystemClose,
+
+        /// <summary>
+        /// SystemNew
+        /// </summary>
         SystemNew,
+
+        /// <summary>
+        /// SystemSave
+        /// </summary>
         SystemSave,
+
+        /// <summary>
+        /// SystemSaveClose
+        /// </summary>
         SystemSaveClose,
+
+        /// <summary>
+        /// SystemSaveNew
+        /// </summary>
         SystemSaveNew,
+
+        /// <summary>
+        /// SystemSearch
+        /// </summary>
         SystemSearch
     }
 
@@ -1762,6 +8641,11 @@ namespace FineUI
     /// </summary>
     public static partial class IconHelper
     {
+        /// <summary>
+        /// 获取图标名称
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static string GetName(Icon type)
         {
             string result = String.Empty;

@@ -40,7 +40,10 @@ namespace FineUI
     {
         #region public static
 
-        public static MessageBoxIcon DefaultMessageBoxIcon = MessageBoxIcon.Information;
+        /// <summary>
+        /// 默认提示对话图标
+        /// </summary>
+        public static readonly MessageBoxIcon DefaultMessageBoxIcon = MessageBoxIcon.Information;
 
         #endregion
 
@@ -48,6 +51,9 @@ namespace FineUI
 
         private string _message;
 
+        /// <summary>
+        /// 对话框消息正文
+        /// </summary>
         public string Message
         {
             get { return _message; }
@@ -56,6 +62,9 @@ namespace FineUI
 
         private string _title;
 
+        /// <summary>
+        /// 对话框标题
+        /// </summary>
         public string Title
         {
             get { return _title; }
@@ -64,6 +73,9 @@ namespace FineUI
 
         private MessageBoxIcon _messageBoxIcon = DefaultMessageBoxIcon;
 
+        /// <summary>
+        /// 对话框图标
+        /// </summary>
         public MessageBoxIcon MessageBoxIcon
         {
             get { return _messageBoxIcon; }
@@ -72,6 +84,9 @@ namespace FineUI
 
         private string _okScript;
 
+        /// <summary>
+        /// 点击确认按钮执行的JavaScript脚本
+        /// </summary>
         public string OkScript
         {
             get { return _okScript; }

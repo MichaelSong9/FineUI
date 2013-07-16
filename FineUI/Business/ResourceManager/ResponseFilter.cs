@@ -10,6 +10,9 @@ using System.Text.RegularExpressions;
 
 namespace FineUI
 {
+    /// <summary>
+    /// AJAX输出过滤器
+    /// </summary>
     internal class ResponseFilter : Stream
     {
         #region fields
@@ -311,8 +314,8 @@ namespace FineUI
         /// <summary>
         /// 更新 EventValidation 节点的值
         /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="completeHtml"></param>
+        /// <param name="sb"></param>
+        /// <param name="doc"></param>
         private void UpdateEventValidation(StringBuilder sb, HtmlDocument doc)
         {
             string oldEventValidation = HttpContext.Current.Request.Form["__EVENTVALIDATION"];

@@ -700,10 +700,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 向子控件公开的方法，可以在备份初始化属性之前修改属性值
-        /// 在这个地方对控件的属性做变更是安全的：
-        //     -> 页面第一次加载时，运行到这里 ASPX 上面的标签已经初始化完毕
-        //     -> 页面回发时（包括正常回发或者AJAX回发），此时请求表单中 X_STATE 已经恢复完毕
+        /// 在备份初始化属性之前修改属性值
+        /// 
+        /// 此时对控件的属性做修改是安全的：
+        ///  1. 页面第一次加载时，运行到这里 ASPX 上面的标签已经初始化完毕
+        ///  2. 页面回发时（包括正常回发或者AJAX回发），此时请求表单中 X_STATE 已经恢复完毕
         /// </summary>
         protected virtual void OnInitControl()
         {
@@ -769,7 +770,7 @@ namespace FineUI
         #region OnPreRender
 
         /// <summary>
-        /// 渲染输出 HTML 之前调用
+        /// 渲染 HTML 之前调用
         /// </summary>
         /// <param name="e"></param>
         protected override void OnPreRender(EventArgs e)
@@ -811,7 +812,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 在计算被修改属性列表之前调用，可以在此修改属性
+        /// 渲染 HTML 之前调用（计算被修改属性列表之前调用，可以在此修改属性）
         /// </summary>
         protected virtual void OnBothPreRender()
         {
@@ -819,7 +820,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 渲染输出 HTML 之前调用（AJAX回发阶段）
+        /// 渲染 HTML 之前调用（AJAX回发）
         /// </summary>
         protected virtual void OnAjaxPreRender()
         {
@@ -871,7 +872,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 渲染输出 HTML 之前调用（页面第一次加载和正常的 PostBack 两种情况）
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
         /// </summary>
         protected virtual void OnFirstPreRender()
         {

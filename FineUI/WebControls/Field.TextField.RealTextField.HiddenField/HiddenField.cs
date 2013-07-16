@@ -54,13 +54,12 @@ namespace FineUI
 
         #region OnPreRender
 
-
-
-        protected override void OnPreRender(EventArgs e)
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
+        protected override void OnFirstPreRender()
         {
-            base.OnPreRender(e);
-
-
+            base.OnFirstPreRender();
             
 
             string jsContent = String.Format("var {0}=new Ext.form.Hidden({1});", XID, OB.ToString());

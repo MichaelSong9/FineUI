@@ -379,11 +379,17 @@ namespace FineUI
 
         #region OnPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             // 表格列控件不监视列属性的改变
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();

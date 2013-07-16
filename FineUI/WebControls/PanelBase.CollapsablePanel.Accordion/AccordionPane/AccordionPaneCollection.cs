@@ -31,7 +31,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 手风琴面板控件集合，继承自BaseCollection<AccordionPane>
+    /// 手风琴面板控件集合
     /// </summary>
     public class AccordionPaneCollection : BaseCollection<AccordionPane>
     {

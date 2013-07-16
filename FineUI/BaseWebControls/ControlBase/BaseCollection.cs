@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 控件集合，继承自Collection<T>
+    /// 控件集合
     /// </summary>
     public class BaseCollection<T> : Collection<T> where T : ControlBase
     {

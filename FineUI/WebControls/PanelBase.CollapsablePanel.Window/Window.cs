@@ -799,6 +799,9 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -812,6 +815,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
@@ -1743,10 +1749,10 @@ namespace FineUI
         private static readonly object _handlerKey = new object();
 
         /// <summary>
-        /// 关闭窗体的事件（需要设置EnableClose=true和CloseAction=HidePostBack）
+        /// 窗体关闭事件（需要设置EnableClose=true和CloseAction=HidePostBack）
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("关闭窗体的事件（需要设置EnableClose=true和CloseAction=HidePostBack）")]
+        [Description("窗体关闭事件（需要设置EnableClose=true和CloseAction=HidePostBack）")]
         public event EventHandler<WindowCloseEventArgs> Close
         {
             add
@@ -1759,7 +1765,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发窗体关闭事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnClose(WindowCloseEventArgs e)
         {
             EventHandler<WindowCloseEventArgs> handler = Events[_handlerKey] as EventHandler<WindowCloseEventArgs>;

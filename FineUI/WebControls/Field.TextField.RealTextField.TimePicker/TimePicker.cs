@@ -310,6 +310,9 @@ namespace FineUI
 
         #region OnPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -323,6 +326,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
@@ -413,10 +419,10 @@ namespace FineUI
         private object _handlerKey = new object();
 
         /// <summary>
-        /// 选择日期事件（需要启用EnableDateSelect）
+        /// 日期选择事件（需要启用EnableDateSelect）
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("选择日期事件（需要启用EnableDateSelect）")]
+        [Description("日期选择事件（需要启用EnableDateSelect）")]
         public virtual event EventHandler DateSelect
         {
             add
@@ -429,6 +435,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发日期选择事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnDateSelect(EventArgs e)
         {
             EventHandler handler = Events[_handlerKey] as EventHandler;

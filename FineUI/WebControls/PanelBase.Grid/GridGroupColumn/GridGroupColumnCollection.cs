@@ -33,7 +33,7 @@ using System.Collections.ObjectModel;
 namespace FineUI
 {
     /// <summary>
-    /// 表格分组列集合，继承自Collection<GridGroupColumn>
+    /// 表格分组列集合
     /// </summary>
     public class GridGroupColumnCollection : BaseCollection<GridGroupColumn>
     {

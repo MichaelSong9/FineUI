@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 工具条控件集合，继承自BaseCollection<Toolbar>
+    /// 工具条控件集合
     /// </summary>
     public class ToolbarCollection : BaseCollection<Toolbar>
     {

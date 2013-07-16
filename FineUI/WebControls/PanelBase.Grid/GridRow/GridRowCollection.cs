@@ -32,7 +32,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 表格行控件集合，继承自Collection<GridRow>
+    /// 表格行控件集合
     /// </summary>
     public class GridRowCollection : Collection<GridRow>
     {

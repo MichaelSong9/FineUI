@@ -31,7 +31,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// Region控件集合，继承自BaseCollection<Region>
+    /// Region控件集合
     /// </summary>
     public class RegionCollection : BaseCollection<Region>
     {

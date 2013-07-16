@@ -30,7 +30,7 @@ using System.Text;
 namespace FineUI
 {
     /// <summary>
-    /// Used by Grid and Tree.
+    /// 模拟树帮助类（用于表格和树控件）
     /// </summary>
     internal class SimulateTreeHeper
     {

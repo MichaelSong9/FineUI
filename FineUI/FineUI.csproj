@@ -122,7 +122,6 @@
     <Compile Include="Business\Enums\BoxLayoutAlign.cs" />
     <Compile Include="Business\Enums\BoxLayoutPosition.cs" />
     <Compile Include="Business\Enums\FooterBarAlign.cs" />
-    <Compile Include="Business\Enums\AutoPostBackTrigger.cs" />
     <Compile Include="Business\Enums\AjaxLoadingType.cs" />
     <Compile Include="Business\Enums\TextAlign.cs" />
     <Compile Include="Business\Enums\LabelAlign.cs" />
@@ -130,7 +129,6 @@
     <Compile Include="Business\JsHelper\JsArrayBuilder.cs" />
     <Compile Include="Business\JsHelper\OptionBuilder.cs" />
     <Compile Include="Business\ResourceManager\ClientJavascriptIDManager.cs" />
-    <Compile Include="Business\ResourceManager\DesignTimeResourceHelper.cs" />
     <Compile Include="Business\ResourceManager\CommonResourceHelper.cs" />
     <Compile Include="Business\ResourceManager\ResourceHandler.cs" />
     <Compile Include="Business\ResourceManager\ResponseFilter.cs" />

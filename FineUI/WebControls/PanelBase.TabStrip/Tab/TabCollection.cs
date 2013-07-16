@@ -31,7 +31,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 选项卡集合，继承自BaseCollection<Tab>
+    /// 选项卡集合
     /// </summary>
     public class TabCollection : BaseCollection<Tab>
     {

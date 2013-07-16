@@ -80,6 +80,9 @@ namespace FineUI
 
         #region OnPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -90,6 +93,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             RenderWrapperNode = false;
@@ -164,7 +170,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发定时事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnTick(EventArgs e)
         {
             EventHandler handler = Events[_handlerKey] as EventHandler;

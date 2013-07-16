@@ -56,6 +56,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Tree()
         {
             AddServerAjaxProperties();
@@ -931,6 +934,9 @@ namespace FineUI
             FixTreeNodes();
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -951,6 +957,9 @@ namespace FineUI
         }
 
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             // 确保 X_Nodes 在页面第一次加载时都存在于 X_STATE 中，因为客户端需要这个数据来渲染树控件
@@ -1650,8 +1659,11 @@ namespace FineUI
 
         private static readonly object _nodeCheckHandlerKey = new object();
 
+        /// <summary>
+        /// 节点选中事件
+        /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("点击节点事件")]
+        [Description("节点选中事件")]
         public event EventHandler<TreeCheckEventArgs> NodeCheck
         {
             add
@@ -1664,6 +1676,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发节点选中事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnNodeCheck(TreeCheckEventArgs e)
         {
             EventHandler<TreeCheckEventArgs> handler = Events[_nodeCheckHandlerKey] as EventHandler<TreeCheckEventArgs>;
@@ -1679,8 +1695,11 @@ namespace FineUI
 
         private static readonly object _nodeCommandHandlerKey = new object();
 
+        /// <summary>
+        /// 节点点击事件
+        /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("点击节点事件")]
+        [Description("节点点击事件")]
         public event EventHandler<TreeCommandEventArgs> NodeCommand
         {
             add
@@ -1693,6 +1712,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发节点点击事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnNodeCommand(TreeCommandEventArgs e)
         {
             EventHandler<TreeCommandEventArgs> handler = Events[_nodeCommandHandlerKey] as EventHandler<TreeCommandEventArgs>;
@@ -1708,8 +1731,11 @@ namespace FineUI
 
         private static readonly object _nodeExpandHandlerKey = new object();
 
+        /// <summary>
+        /// 节点展开事件
+        /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("展开节点事件")]
+        [Description("节点展开事件")]
         public event EventHandler<TreeExpandEventArgs> NodeExpand
         {
             add
@@ -1722,6 +1748,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发节点展开事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnNodeExpand(TreeExpandEventArgs e)
         {
             EventHandler<TreeExpandEventArgs> handler = Events[_nodeExpandHandlerKey] as EventHandler<TreeExpandEventArgs>;

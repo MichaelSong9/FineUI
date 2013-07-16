@@ -31,7 +31,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 表单行控件集合，继承自BaseCollection<FormRow>
+    /// 表单行控件集合
     /// </summary>
     public class FormRowCollection : BaseCollection<FormRow>
     {

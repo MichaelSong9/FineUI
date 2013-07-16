@@ -471,6 +471,9 @@ namespace FineUI
         #endregion
 
         #region OnPreRender
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -487,6 +490,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
@@ -710,7 +716,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发选项卡改变事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnTabIndexChanged(EventArgs e)
         {
             EventHandler handler = Events[_handlerKey] as EventHandler;

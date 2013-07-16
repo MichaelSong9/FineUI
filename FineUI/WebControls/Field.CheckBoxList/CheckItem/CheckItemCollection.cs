@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 复选项集合，继承自Collection<CheckItem>
+    /// 复选项集合
     /// </summary>
     public class CheckItemCollection : Collection<CheckItem>
     {

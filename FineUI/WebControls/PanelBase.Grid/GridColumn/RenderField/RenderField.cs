@@ -285,6 +285,9 @@ namespace FineUI
 
         #region OnFirstPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();

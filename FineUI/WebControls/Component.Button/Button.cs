@@ -51,6 +51,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Button()
         {
             AddServerAjaxProperties("Text", "Icon", "IconUrl", "ToolTip", "OnClientClick", "ConfirmTitle", "ConfirmText", "ConfirmIcon", "ConfirmTarget");
@@ -510,15 +513,6 @@ namespace FineUI
 
         #endregion
 
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-        }
-        #endregion
-
         #region OnAjaxPreRender OnFirstPreRender
 
         #region PressedHiddenFieldID
@@ -537,6 +531,9 @@ namespace FineUI
 
         #region OnAjaxPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -587,6 +584,9 @@ namespace FineUI
         #endregion
 
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
@@ -870,10 +870,10 @@ namespace FineUI
         private static readonly object _handlerKey = new object();
 
         /// <summary>
-        /// 点击按钮事件
+        /// 按钮点击事件
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("点击按钮事件")]
+        [Description("按钮点击事件")]
         public event EventHandler Click
         {
             add
@@ -886,7 +886,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发按钮点击事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnClick(EventArgs e)
         {
             EventHandler handler = Events[_handlerKey] as EventHandler;

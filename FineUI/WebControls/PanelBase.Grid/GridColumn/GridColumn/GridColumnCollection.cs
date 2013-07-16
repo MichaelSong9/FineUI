@@ -34,7 +34,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 表格列集合，继承自Collection<GridColumn>
+    /// 表格列集合
     /// </summary>
     public class GridColumnCollection : BaseCollection<GridColumn>
     {

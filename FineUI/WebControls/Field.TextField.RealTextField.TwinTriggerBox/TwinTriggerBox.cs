@@ -312,6 +312,9 @@ namespace FineUI
 
         #region OnPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -330,6 +333,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
@@ -501,10 +507,10 @@ namespace FineUI
         private static readonly object _trigger1HandlerKey = new object();
 
         /// <summary>
-        /// 点击第一个触发按钮事件
+        /// 第一个触发按钮点击事件
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("点击第一个触发按钮事件")]
+        [Description("第一个触发按钮点击事件")]
         public event EventHandler Trigger1Click
         {
             add
@@ -517,7 +523,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发第一个触发按钮点击事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnTrigger1Click(EventArgs e)
         {
             EventHandler handler = Events[_trigger1HandlerKey] as EventHandler;
@@ -534,10 +543,10 @@ namespace FineUI
         private static readonly object _Trigger2HandlerKey = new object();
 
         /// <summary>
-        /// 点击第二个触发按钮事件
+        /// 第二个触发按钮点击事件
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("点击第二个触发按钮事件")]
+        [Description("第二个触发按钮点击事件")]
         public event EventHandler Trigger2Click
         {
             add
@@ -550,7 +559,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发第二个触发按钮点击事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnTrigger2Click(EventArgs e)
         {
             EventHandler handler = Events[_Trigger2HandlerKey] as EventHandler;

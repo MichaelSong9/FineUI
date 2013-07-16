@@ -52,6 +52,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Accordion()
         {
             AddServerAjaxProperties();
@@ -312,6 +315,9 @@ namespace FineUI
 
         #region OnPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -325,6 +331,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();

@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 单选项集合，继承自Collection<RadioItem>
+    /// 单选项集合
     /// </summary>
     public class RadioItemCollection : Collection<RadioItem>
     {

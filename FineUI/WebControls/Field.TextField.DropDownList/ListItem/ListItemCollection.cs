@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 列表项集合，继承自Collection<ListItem>
+    /// 列表项集合
     /// </summary>
     public class ListItemCollection : Collection<ListItem>
     {

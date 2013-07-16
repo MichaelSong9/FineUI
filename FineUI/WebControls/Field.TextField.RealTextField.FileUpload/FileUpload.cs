@@ -49,6 +49,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public FileUpload()
         {
             AddServerAjaxProperties();
@@ -243,6 +246,9 @@ namespace FineUI
         #region OnPreRender
 
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -256,6 +262,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
@@ -341,10 +350,10 @@ namespace FineUI
         private static readonly object _handlerKey = new object();
 
         /// <summary>
-        /// 选择文件事件（需要启用AutoPostBack）
+        /// 文件选定事件（需要启用AutoPostBack）
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("选择文件事件（需要启用AutoPostBack）")]
+        [Description("文件选定事件（需要启用AutoPostBack）")]
         public virtual event EventHandler FileSelected
         {
             add
@@ -357,6 +366,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发文件选定事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnFileSelected(EventArgs e)
         {
             EventHandler handler = Events[_handlerKey] as EventHandler;

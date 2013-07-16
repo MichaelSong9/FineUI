@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 菜单项控件集合，继承自BaseCollection<BaseMenuItem>
+    /// 菜单项控件集合
     /// </summary>
     public class MenuItemCollection : BaseCollection<BaseMenuItem>
     {

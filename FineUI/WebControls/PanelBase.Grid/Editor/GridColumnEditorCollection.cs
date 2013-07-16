@@ -32,7 +32,7 @@ using System.Collections;
 namespace FineUI
 {
     /// <summary>
-    /// 控件集合，继承自BaseCollection<ControlBase>
+    /// 控件集合
     /// </summary>
     public class GridColumnEditorCollection : BaseCollection<Field>
     {

@@ -68,6 +68,9 @@ namespace FineUI
 		
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Grid()
         {
             // 严格的说，PageIndex、SortColumnIndex、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
@@ -1651,25 +1654,6 @@ namespace FineUI
 
         #endregion
 
-        #region OnInitControl
-
-        protected override void OnInitControl()
-        {
-            base.OnInitControl();
-
-            // Note: this initialization is done in the InsertItem of GridColumnCollection.
-            //// Init Columns property.
-            //int columnIndex = 0;
-            //foreach (GridColumn column in Columns)
-            //{
-            //    column.Grid = this;
-            //    column.ColumnIndex = columnIndex;
-            //    columnIndex++;
-            //}
-        }
-
-        #endregion
-
         #region old code LoadXState/SaveXState
 
         //protected override void LoadXState(JObject state, string property)
@@ -1948,6 +1932,9 @@ namespace FineUI
 
         #region OnAjaxPreRender OnFirstPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -2078,6 +2065,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             // 确保 X_Rows 在页面第一次加载时都存在于x_state中
@@ -3142,6 +3132,10 @@ namespace FineUI
 
         #region RenderBeginTag/RenderEndTag
 
+        /// <summary>
+        /// 渲染开始标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
             base.RenderBeginTag(writer);
@@ -3149,6 +3143,10 @@ namespace FineUI
             writer.Write(String.Format("<div id=\"{0}_tpls\" class=\"x-grid-tpls x-hide-display\">", ClientID));
         }
 
+        /// <summary>
+        /// 渲染结束标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderEndTag(HtmlTextWriter writer)
         {
             writer.Write("</div>");
@@ -4110,6 +4108,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发排序事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnSort(GridSortEventArgs e)
         {
             EventHandler<GridSortEventArgs> handler = Events[_sortHandlerKey] as EventHandler<GridSortEventArgs>;
@@ -4126,7 +4128,7 @@ namespace FineUI
         private static readonly object _preDataBoundHandlerKey = new object();
 
         /// <summary>
-        /// 行绑定前事件
+        /// 绑定前事件
         /// </summary>
         [Category(CategoryName.ACTION)]
         [Description("绑定前事件")]
@@ -4142,7 +4144,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发绑定前事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnPreDataBound(EventArgs e)
         {
             EventHandler<EventArgs> handler = Events[_preDataBoundHandlerKey] as EventHandler<EventArgs>;
@@ -4175,7 +4180,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发行绑定前事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnPreRowDataBound(GridPreRowEventArgs e)
         {
             EventHandler<GridPreRowEventArgs> handler = Events[_preRowDataBoundHandlerKey] as EventHandler<GridPreRowEventArgs>;
@@ -4208,7 +4216,10 @@ namespace FineUI
             }
         }
 
-
+        /// <summary>
+        /// 触发行绑定后事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnRowDataBound(GridRowEventArgs e)
         {
             EventHandler<GridRowEventArgs> handler = Events[_rowDataBoundHandlerKey] as EventHandler<GridRowEventArgs>;
@@ -4241,6 +4252,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发行内事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnRowCommand(GridCommandEventArgs e)
         {
             EventHandler<GridCommandEventArgs> handler = Events[_rowCommandHandlerKey] as EventHandler<GridCommandEventArgs>;
@@ -4257,10 +4272,10 @@ namespace FineUI
         private static readonly object _pageIndexChangeHandlerKey = new object();
 
         /// <summary>
-        /// 分页跳转事件
+        /// 页索引改变事件
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("分页跳转事件")]
+        [Description("页索引改变事件")]
         public event EventHandler<GridPageEventArgs> PageIndexChange
         {
             add
@@ -4273,6 +4288,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发页索引改变事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnPageIndexChange(GridPageEventArgs e)
         {
             EventHandler<GridPageEventArgs> handler = Events[_pageIndexChangeHandlerKey] as EventHandler<GridPageEventArgs>;
@@ -4305,6 +4324,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发行点击事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnRowClick(GridRowClickEventArgs e)
         {
             EventHandler<GridRowClickEventArgs> handler = Events[_rowClickHandlerKey] as EventHandler<GridRowClickEventArgs>;
@@ -4321,10 +4344,10 @@ namespace FineUI
         private static readonly object _rowDoubleClickHandlerKey = new object();
 
         /// <summary>
-        /// 行点击事件（需要启用EnableRowDoubleClick）
+        /// 行双击事件（需要启用EnableRowDoubleClick）
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("行点击事件（需要启用EnableRowDoubleClick）")]
+        [Description("行双击事件（需要启用EnableRowDoubleClick）")]
         public event EventHandler<GridRowClickEventArgs> RowDoubleClick
         {
             add
@@ -4337,6 +4360,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发行双击事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnRowDoubleClick(GridRowClickEventArgs e)
         {
             EventHandler<GridRowClickEventArgs> handler = Events[_rowDoubleClickHandlerKey] as EventHandler<GridRowClickEventArgs>;
@@ -4369,6 +4396,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 触发行选中事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected virtual void OnRowSelect(GridRowSelectEventArgs e)
         {
             EventHandler<GridRowSelectEventArgs> handler = Events[_rowSelectHandlerKey] as EventHandler<GridRowSelectEventArgs>;

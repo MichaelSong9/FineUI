@@ -105,8 +105,8 @@ namespace FineUI
         /// <summary>
         /// 在父控件的所有子控件中查找控件
         /// </summary>
-        /// <param name="parentControl">父控件</param>
-        /// <param name="controlId">要查找的控件ID</param>
+        /// <param name="control">父控件</param>
+        /// <param name="findControlId">要查找的控件ID</param>
         /// <returns>找到的控件</returns>
         public static Control FindControl(Control control, string findControlId)
         {
@@ -135,8 +135,8 @@ namespace FineUI
         /// <summary>
         /// 在父控件的所有子控件中查找控件
         /// </summary>
-        /// <param name="parentControl">父控件</param>
-        /// <param name="controlId">要查找的控件类型</param>
+        /// <param name="control">父控件</param>
+        /// <param name="controlType">要查找的控件类型</param>
         /// <returns>找到的控件</returns>
         public static Control FindControl(Control control, Type controlType)
         {

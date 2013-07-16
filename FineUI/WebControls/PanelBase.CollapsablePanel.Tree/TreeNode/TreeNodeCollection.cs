@@ -32,7 +32,7 @@ using System.Web.UI;
 namespace FineUI
 {
     /// <summary>
-    /// 树节点控件集合，继承自Collection<TreeNode>
+    /// 树节点控件集合
     /// </summary>
     public class TreeNodeCollection : Collection<TreeNode>
     {

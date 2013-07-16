@@ -99,25 +99,11 @@ namespace FineUI
         //}
         #endregion
 
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-            //// 添加子控件
-            //foreach (ControlBase row in Items)
-            //{
-            //    row.RenderWrapperDiv = false;
-            //    Controls.Add(row);
-            //}
-
-        }
-
-        #endregion
-
         #region OnPreRender
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（AJAX回发）
+        /// </summary>
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
@@ -131,6 +117,9 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();

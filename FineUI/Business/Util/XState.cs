@@ -8,12 +8,19 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI
 {
+    /// <summary>
+    /// FineUI控件的状态保持机制
+    /// </summary>
     public class XState
     {
         #region Constructor
         
         private ControlBase _control = null;
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="control">控件</param>
         public XState(ControlBase control)
         {
             _control = control;
