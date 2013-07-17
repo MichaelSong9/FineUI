@@ -29,10 +29,15 @@ using System.ComponentModel.Design;
 
 namespace FineUI
 {
+
     public class ControlBaseItemsEditor : CollectionEditor
     {
         private Type[] types;
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="type">控件类型</param>
         public ControlBaseItemsEditor(Type type)
             : base(type)
         {

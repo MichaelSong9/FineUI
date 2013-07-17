@@ -34,7 +34,7 @@ using System.Drawing;
 namespace FineUI
 {
     /// <summary>
-    /// 提示对话框帮助类
+    /// 对话框帮助类
     /// </summary>
     public class Alert
     {
@@ -95,6 +95,9 @@ namespace FineUI
 
         private Target _target;
 
+        /// <summary>
+        /// 对话框的目标位置
+        /// </summary>
         public Target Target
         {
             get { return _target; }
@@ -103,6 +106,9 @@ namespace FineUI
 
         private string _iconUrl;
 
+        /// <summary>
+        /// 自定义对话框图标地址
+        /// </summary>
         public string IconUrl
         {
             get { return _iconUrl; }
@@ -111,6 +117,9 @@ namespace FineUI
 
         private Icon _icon = Icon.None;
 
+        /// <summary>
+        /// 自定义对话框图标
+        /// </summary>
         public Icon Icon
         {
             get { return _icon; }
@@ -119,7 +128,7 @@ namespace FineUI
 
 
         /// <summary>
-        /// 显示提示对话框
+        /// 显示对话框
         /// </summary>
         public void Show()
         {
@@ -127,9 +136,9 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
-        /// <returns></returns>
+        /// <returns>客户端脚本</returns>
         public string GetShowReference()
         {
             return GetShowReference(Message, Title, MessageBoxIcon, OkScript, Target, Icon, IconUrl);
@@ -140,60 +149,91 @@ namespace FineUI
         #region static Show
 
         /// <summary>
-        /// 显示提示对话框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">消息正文</param>
         public static void Show(string message)
         {
             Show(message, String.Empty, DefaultMessageBoxIcon, String.Empty);
         }
 
         /// <summary>
-        /// 显示提示对话框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">标题</param>
         public static void Show(string message, string title)
         {
             Show(message, title, DefaultMessageBoxIcon, String.Empty);
         }
 
         /// <summary>
-        /// 显示提示对话框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="icon">图标</param>
         public static void Show(string message, MessageBoxIcon icon)
         {
             Show(message, String.Empty, icon, String.Empty);
         }
 
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         public static void Show(string message, string title, string okScript)
         {
             Show(message, title, DefaultMessageBoxIcon, okScript);
         }
 
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
         public static void Show(string message, string title, MessageBoxIcon icon)
         {
             Show(message, title, icon, String.Empty);
         }
 
         /// <summary>
-        /// 显示提示对话框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         public static void Show(string message, string title, MessageBoxIcon icon, string okScript)
         {
             PageContext.RegisterStartupScript(GetShowReference(message, title, icon, okScript));
         }
 
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="target">显示对话框的目标页面</param>
         public static void Show(string message, string title, MessageBoxIcon icon, string okScript, Target target)
         {
             PageContext.RegisterStartupScript(GetShowReference(message, title, icon, okScript, target));
         }
 
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="messageBoxIcon"></param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="target">显示对话框的目标页面</param>
+        /// <param name="icon">自定义对话框图标</param>
+        /// <param name="iconUrl">自定义对话框图标地址</param>
         public static void Show(string message, string title, MessageBoxIcon messageBoxIcon, string okScript, Target target, Icon icon, string iconUrl)
         {
             PageContext.RegisterStartupScript(GetShowReference(message, title, messageBoxIcon, okScript, target, icon, iconUrl));
@@ -204,50 +244,63 @@ namespace FineUI
         #region static ShowInParent
 
         /// <summary>
-        /// 在父页面中显示提示对话框
+        /// 在父页面中显示对话框
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">消息正文</param>
         public static void ShowInParent(string message)
         {
             ShowInParent(message, String.Empty, DefaultMessageBoxIcon, String.Empty);
         }
 
         /// <summary>
-        /// 在父页面中显示提示对话框
+        /// 在父页面中显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">标题</param>
         public static void ShowInParent(string message, string title)
         {
             ShowInParent(message, title, DefaultMessageBoxIcon, String.Empty);
         }
 
         /// <summary>
-        /// 在父页面中显示提示对话框
+        /// 在父页面中显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="icon">图标</param>
         public static void ShowInParent(string message, MessageBoxIcon icon)
         {
             ShowInParent(message, String.Empty, icon, String.Empty);
         }
 
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         public static void ShowInParent(string message, string title, string okScript)
         {
             ShowInParent(message, title, DefaultMessageBoxIcon, okScript);
         }
 
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
         public static void ShowInParent(string message, string title, MessageBoxIcon icon)
         {
             ShowInParent(message, title, icon, String.Empty);
         }
 
         /// <summary>
-        /// 在父页面中显示提示对话框
+        /// 在父页面中显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         public static void ShowInParent(string message, string title, MessageBoxIcon icon, string okScript)
         {
             PageContext.RegisterStartupScript(GetShowInParentReference(message, title, icon, okScript));
@@ -258,50 +311,63 @@ namespace FineUI
         #region static ShowInTop
 
         /// <summary>
-        /// 在顶层窗口中显示提示对话框
+        /// 在顶层窗口中显示对话框
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">消息正文</param>
         public static void ShowInTop(string message)
         {
             ShowInTop(message, String.Empty, DefaultMessageBoxIcon, String.Empty);
         }
 
         /// <summary>
-        /// 在顶层窗口中显示提示对话框
+        /// 在顶层窗口中显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">对话框标题</param>
         public static void ShowInTop(string message, string title)
         {
             ShowInTop(message, title, DefaultMessageBoxIcon, String.Empty);
         }
 
         /// <summary>
-        /// 在顶层窗口中显示提示对话框
+        /// 在顶层窗口中显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="icon">自定义对话框图标</param>
         public static void ShowInTop(string message, MessageBoxIcon icon)
         {
             ShowInTop(message, String.Empty, icon, String.Empty);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         public static void ShowInTop(string message, string title, string okScript)
         {
             ShowInTop(message, title, DefaultMessageBoxIcon, okScript);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
         public static void ShowInTop(string message, string title, MessageBoxIcon icon)
         {
             ShowInTop(message, title, icon, String.Empty);
         }
 
         /// <summary>
-        /// 在顶层窗口中显示提示对话框
+        /// 在顶层窗口中显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">自定义对话框图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         public static void ShowInTop(string message, string title, MessageBoxIcon icon, string okScript)
         {
             PageContext.RegisterStartupScript(GetShowInTopReference(message, title, icon, okScript));
@@ -312,7 +378,7 @@ namespace FineUI
         #region static GetShowReference
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <returns>客户端脚本</returns>
@@ -322,7 +388,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
@@ -333,10 +399,10 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, MessageBoxIcon icon)
         {
@@ -344,11 +410,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, string title, MessageBoxIcon icon)
         {
@@ -356,7 +422,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
@@ -368,11 +434,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScript)
@@ -381,11 +447,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <param name="target">显示对话框的目标页面</param>
         /// <returns>客户端脚本</returns>
@@ -395,13 +461,15 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示提示对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="messageBoxIcon">对话框图标</param>
+        /// <param name="messageBoxIcon"></param>
         /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <param name="target">显示对话框的目标页面</param>
+        /// <param name="icon"></param>
+        /// <param name="iconUrl">自定义对话框图标地址</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, string title, MessageBoxIcon messageBoxIcon, string okScript, Target target, Icon icon, string iconUrl)
         {
@@ -477,7 +545,7 @@ namespace FineUI
         #region static GetShowInParentReference
 
         /// <summary>
-        /// 获取在父页面中显示提示对话框的客户端脚本
+        /// 获取在父页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <returns>客户端脚本</returns>
@@ -487,7 +555,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在父页面中显示提示对话框的客户端脚本
+        /// 获取在父页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
@@ -498,10 +566,10 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在父页面中显示提示对话框的客户端脚本
+        /// 获取在父页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowInParentReference(string message, MessageBoxIcon icon)
         {
@@ -509,11 +577,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在父页面中显示提示对话框的客户端脚本
+        /// 获取在父页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowInParentReference(string message, string title, MessageBoxIcon icon)
         {
@@ -521,7 +589,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在父页面中显示提示对话框的客户端脚本
+        /// 获取在父页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
@@ -533,11 +601,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在父页面中显示提示对话框的客户端脚本
+        /// 获取在父页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowInParentReference(string message, string title, MessageBoxIcon icon, string okScript)
@@ -550,7 +618,7 @@ namespace FineUI
         #region static GetShowInTopReference
 
         /// <summary>
-        /// 获取在最上层页面中显示提示对话框的客户端脚本
+        /// 获取在最上层页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <returns>客户端脚本</returns>
@@ -560,7 +628,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在最上层页面中显示提示对话框的客户端脚本
+        /// 获取在最上层页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
@@ -571,10 +639,10 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在最上层页面中显示提示对话框的客户端脚本
+        /// 获取在最上层页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowInTopReference(string message, MessageBoxIcon icon)
         {
@@ -582,11 +650,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在最上层页面中显示提示对话框的客户端脚本
+        /// 获取在最上层页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowInTopReference(string message, string title, MessageBoxIcon icon)
         {
@@ -594,7 +662,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在最上层页面中显示提示对话框的客户端脚本
+        /// 获取在最上层页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
@@ -606,11 +674,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取在最上层页面中显示提示对话框的客户端脚本
+        /// 获取在最上层页面中显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <param name="icon">自定义对话框图标</param>
         /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowInTopReference(string message, string title, MessageBoxIcon icon, string okScript)

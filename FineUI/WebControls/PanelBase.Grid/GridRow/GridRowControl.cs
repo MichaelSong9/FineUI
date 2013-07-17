@@ -52,6 +52,10 @@ namespace FineUI
             
         }
 
+        /// <summary>
+        /// 控件初始化事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);

@@ -29,6 +29,7 @@ using System.ComponentModel.Design;
 
 namespace FineUI
 {
+
     public class GridColumnEditorEditor : CollectionEditor
     {
         private Type[] types;

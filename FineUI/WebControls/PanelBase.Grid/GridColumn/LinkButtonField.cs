@@ -52,7 +52,7 @@ namespace FineUI
         #region Properties
 
 
-        public string _dataTextField = String.Empty;
+        private string _dataTextField = String.Empty;
 
         /// <summary>
         /// 字段名称
@@ -73,7 +73,7 @@ namespace FineUI
         }
 
 
-        public string _dataTextFormatString = String.Empty;
+        private string _dataTextFormatString = String.Empty;
 
         /// <summary>
         /// 字段格式化字符串
@@ -94,7 +94,7 @@ namespace FineUI
         }
 
 
-        public string _text = String.Empty;
+        private string _text = String.Empty;
 
         /// <summary>
         /// 按钮文本
@@ -221,7 +221,7 @@ namespace FineUI
             }
         }
 
-        public string[] _validateForms = null;
+        private string[] _validateForms = null;
 
         /// <summary>
         /// 提交之前需要验证的表单名称列表
@@ -242,7 +242,7 @@ namespace FineUI
             }
         }
 
-        public Target _validateTarget = Target.Self;
+        private Target _validateTarget = Target.Self;
 
         /// <summary>
         /// 验证失败时提示对话框弹出位置
@@ -262,7 +262,7 @@ namespace FineUI
             }
         }
 
-        public bool _validateMessageBox = true;
+        private bool _validateMessageBox = true;
 
         /// <summary>
         /// 验证失败时是否出现提示对话框
@@ -284,7 +284,7 @@ namespace FineUI
 
 
 
-        public Icon _icon = Icon.None;
+        private Icon _icon = Icon.None;
 
         /// <summary>
         /// 图标
@@ -304,7 +304,7 @@ namespace FineUI
             }
         }
 
-        public string _iconUrl = String.Empty;
+        private string _iconUrl = String.Empty;
 
         /// <summary>
         /// 图标地址
@@ -389,7 +389,7 @@ namespace FineUI
             }
         }
 
-        public Target _confirmTarget = Target.Self;
+        private Target _confirmTarget = Target.Self;
 
         /// <summary>
         /// 确认对话框弹出位置
@@ -413,7 +413,7 @@ namespace FineUI
 
         #region CommandName/CommandArgument
 
-        public string _commandName = String.Empty;
+        private string _commandName = String.Empty;
 
         /// <summary>
         /// 命令名称
@@ -433,7 +433,7 @@ namespace FineUI
             }
         }
 
-        public string _commandArgument = String.Empty;
+        private string _commandArgument = String.Empty;
 
         /// <summary>
         /// 命令参数

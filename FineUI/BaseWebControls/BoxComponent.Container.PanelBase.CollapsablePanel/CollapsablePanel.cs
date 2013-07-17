@@ -266,7 +266,7 @@ namespace FineUI
         // 这个值在 X.ajax.js 中和 getXStateViaCmp 函数相呼应
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        protected string CollapsedHiddenFieldID
+        internal string CollapsedHiddenFieldID
         {
             get
             {

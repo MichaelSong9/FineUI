@@ -237,22 +237,6 @@ namespace FineUI
         }
         #endregion
 
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-            /*
-            foreach (FormRow row in Rows)
-            {
-                row.RenderWrapperNode = false;
-                Controls.Add(row);
-            }
-             * */
-        }
-
-        #endregion
-
         #region OnPreRender
 
         /// <summary>

@@ -195,7 +195,7 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        protected string SelectedDateHiddenFieldID
+        private string SelectedDateHiddenFieldID
         {
             get
             {

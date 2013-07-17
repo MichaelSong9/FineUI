@@ -50,10 +50,14 @@ namespace FineUI
 
         private ITemplate _itemTemplate;
 
+        /// <summary>
+        /// 模板容器
+        /// </summary>
         [Browsable(false)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
         [TemplateInstance(TemplateInstance.Single)]
         [TemplateContainer(typeof(GridRowControl))]
+        [Description("模板容器")]
         public virtual ITemplate ItemTemplate
         {
             get
@@ -67,11 +71,14 @@ namespace FineUI
         }
 
 
-        public bool _renderAsRowExpander = false;
+        private bool _renderAsRowExpander = false;
 
+        /// <summary>
+        /// 是否渲染为行扩展列
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("渲染为行扩展")]
+        [Description("是否渲染为行扩展列")]
         public bool RenderAsRowExpander
         {
             get

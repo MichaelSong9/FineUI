@@ -300,6 +300,10 @@ namespace FineUI
 
         #region GetDefaultBackgroundColor
 
+        /// <summary>
+        /// 获取默认的背景颜色
+        /// </summary>
+        /// <returns>用于CSS的背景颜色值</returns>
         public static string GetDefaultBackgroundColor()
         {
             string backgroundColor = String.Empty;

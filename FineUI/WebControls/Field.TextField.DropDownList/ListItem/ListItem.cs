@@ -40,19 +40,31 @@ using System.Collections;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 列表项
+    /// </summary>
     [ToolboxItem(false)]
     [ParseChildren(true, DefaultProperty = "Text")]
+    [Description("列表项")]
     [PersistChildren(false)]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class ListItem
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public ListItem()
         {
 
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="text">列表项文本</param>
+        /// <param name="value">列表项值</param>
         public ListItem(string text, string value)
         {
             Text = text;
@@ -144,6 +156,7 @@ namespace FineUI
         }
 
         private int _simulateTreeLevel = 0;
+
         /// <summary>
         /// 模拟树的层次（从0开始为根节点）
         /// </summary>

@@ -89,8 +89,11 @@ namespace FineUI
         }
 
 
-        public string _dataField = "";
+        private string _dataField = "";
 
+        /// <summary>
+        /// 字段名称
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
         [Description("字段名称")]
@@ -107,7 +110,7 @@ namespace FineUI
         }
 
 
-        public bool _renderAsStaticField = true;
+        private bool _renderAsStaticField = true;
 
         /// <summary>
         /// 渲染为静态图片，否则渲染为可编辑的复选框
@@ -128,7 +131,8 @@ namespace FineUI
         }
 
 
-        public bool _showHeaderCheckBox = false;
+        private bool _showHeaderCheckBox = false;
+
 
         /// <summary>
         /// 显示列头复选框（只在RenderAsStaticField=false时有效）
@@ -154,9 +158,12 @@ namespace FineUI
 
         private string _commandName = "";
 
+        /// <summary>
+        /// 命令名称
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("")]
+        [Description("命令名称")]
         public string CommandName
         {
             get
@@ -171,9 +178,12 @@ namespace FineUI
 
         private string _commandArgument = "";
 
+        /// <summary>
+        /// 命令参数
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("")]
+        [Description("命令参数")]
         public string CommandArgument
         {
             get

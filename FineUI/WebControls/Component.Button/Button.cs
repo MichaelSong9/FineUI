@@ -756,19 +756,20 @@ namespace FineUI
         #region ResolveClientScript
 
         /// <summary>
-        /// 生成按钮客户端点击事件的脚本
+        /// 获取按钮客户端点击事件的脚本
         /// </summary>
-        /// <param name="validateForms"></param>
-        /// <param name="validateTarget"></param>
-        /// <param name="enablePostBack"></param>
-        /// <param name="postBackEventReference"></param>
-        /// <param name="confirmText"></param>
-        /// <param name="confirmTitle"></param>
-        /// <param name="confirmIcon"></param>
-        /// <param name="confirmTarget"></param>
-        /// <param name="onClientClick"></param>
-        /// <param name="disableControlJavascriptID"></param>
-        /// <returns></returns>
+        /// <param name="validateForms">验证表单列表</param>
+        /// <param name="validateTarget">表单验证提示消息目标页面</param>
+        /// <param name="validateMessageBox">是否显示表单验证提示对话框</param>
+        /// <param name="enablePostBack">启用回发</param>
+        /// <param name="postBackEventReference">回发脚本</param>
+        /// <param name="confirmText">确认对话框消息</param>
+        /// <param name="confirmTitle">确认对话框标题</param>
+        /// <param name="confirmIcon">确认对话框图标</param>
+        /// <param name="confirmTarget">确认对话框目标页面</param>
+        /// <param name="onClientClick">自定义客户端点击脚本</param>
+        /// <param name="disableControlJavascriptID">需要禁用的控件客户端ID</param>
+        /// <returns>客户端脚本</returns>
         internal static string ResolveClientScript(string[] validateForms, Target validateTarget, bool validateMessageBox, bool enablePostBack, string postBackEventReference,
             string confirmText, string confirmTitle, MessageBoxIcon confirmIcon, Target confirmTarget, string onClientClick, string disableControlJavascriptID)
         {

@@ -336,8 +336,7 @@ namespace FineUI
         /// <summary>
         /// 取得列头渲染后的HTML
         /// </summary>
-        /// <param name="row"></param>
-        /// <returns></returns>
+        /// <returns>渲染后的HTML</returns>
         internal virtual string GetHeaderValue()
         {
             return String.IsNullOrEmpty(HeaderText) ? "&nbsp;" : HeaderText;
@@ -346,8 +345,8 @@ namespace FineUI
         /// <summary>
         /// 取得列渲染后的HTML
         /// </summary>
-        /// <param name="row"></param>
-        /// <returns></returns>
+        /// <param name="row">表格行实例</param>
+        /// <returns>渲染后的HTML</returns>
         internal virtual string GetColumnValue(GridRow row)
         {
             return String.Empty;

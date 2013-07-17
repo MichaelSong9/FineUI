@@ -136,7 +136,10 @@ namespace FineUI
 
         }
 
-        
+        /// <summary>
+        /// 添加提示信息
+        /// </summary>
+        /// <param name="htmlBuilder">HtmlNodeBuilder实例</param>
         protected void ResolveTooltip(HtmlNodeBuilder htmlBuilder)
         {
             if (!String.IsNullOrEmpty(ToolTip))

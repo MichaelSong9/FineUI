@@ -102,22 +102,6 @@ namespace FineUI
 
         #endregion
 
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-            //// 添加子控件
-            //foreach (ControlBase item in Items)
-            //{
-            //    item.RenderWrapperDiv = false;
-            //    Controls.Add(item);
-            //}
-        }
-
-        #endregion
-
         #region OnPreRender
 
         /// <summary>

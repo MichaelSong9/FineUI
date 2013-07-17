@@ -172,7 +172,7 @@ namespace FineUI
         }
 
 
-        public string _dataNavigateUrlFormatString = String.Empty;
+        private string _dataNavigateUrlFormatString = String.Empty;
 
         /// <summary>
         /// 绑定到超链接地址的字段格式化字符串
@@ -192,7 +192,7 @@ namespace FineUI
             }
         }
 
-        public string _target = String.Empty;
+        private string _target = String.Empty;
 
         /// <summary>
         /// 打开超链接的目标框架
@@ -213,7 +213,7 @@ namespace FineUI
         }
 
 
-        public string _navigateUrl = String.Empty;
+        private string _navigateUrl = String.Empty;
 
         /// <summary>
         /// 超链接地址
@@ -233,7 +233,7 @@ namespace FineUI
             }
         }
 
-        public string _text = String.Empty;
+        private string _text = String.Empty;
 
         /// <summary>
         /// 超链接文本

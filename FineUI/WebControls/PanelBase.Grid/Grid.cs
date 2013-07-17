@@ -3639,6 +3639,7 @@ namespace FineUI
         /// <summary>
         /// 获取接受用户编辑单元格的客户端脚本（同时消除编辑单元格左上方的红色提示图标）
         /// </summary>
+        /// <returns>客户端脚本</returns>
         public string GetCommitChangesReference()
         {
             return String.Format("{0}.x_commitChanges();", ScriptID);
@@ -3876,7 +3877,7 @@ namespace FineUI
         /// <summary>
         /// 通过列ID获取列实例
         /// </summary>
-        /// <param name="columnId">列ID</param>
+        /// <param name="columnID">列ID</param>
         /// <returns>列实例</returns>
         public GridColumn FindColumn(string columnID)
         {

@@ -35,16 +35,28 @@ using System.Collections.ObjectModel;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 表格行
+    /// </summary>
     [ToolboxItem(false)]
     public class GridRow //: WebControl
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public GridRow()
         {
 
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="grid">表格实例</param>
+        /// <param name="dataItem">行对应的数据源（在回发时为null）</param>
+        /// <param name="rowIndex">行序号</param>
         public GridRow(Grid grid, object dataItem, int rowIndex)
         {
             _grid = grid;
@@ -233,7 +245,12 @@ namespace FineUI
 
         #region TemplateContainers
 
+
         private GridRowControl[] _templateContainers = null;
+        
+        /// <summary>
+        /// 表格行中模板列控件列表，一个典型的例子为：[GridRowControl, null, null, GridRowControl, null, null, null, null, null]
+        /// </summary>
         public GridRowControl[] TemplateContainers
         {
             get
@@ -246,9 +263,11 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 表格行中模板列控件列表（数据绑定时自动生成每个模板列控件ID，回发时从XState中回发模板列控件ID）
+        /// </summary>
         public void InitTemplateContainers()
         {
-
             Collection<GridColumn> columns = _grid.AllColumns;
             TemplateContainers = new GridRowControl[columns.Count];
 

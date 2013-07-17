@@ -49,8 +49,11 @@ namespace FineUI
         #region Properties
 
 
-        public string _dataImageUrlField = String.Empty;
+        private string _dataImageUrlField = String.Empty;
 
+        /// <summary>
+        /// Í¼Æ¬µØÖ·×Ö¶Î
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
         [Description("Í¼Æ¬µØÖ·×Ö¶Î")]
@@ -68,8 +71,11 @@ namespace FineUI
 
 
 
-        public string _dataImageUrlFormatString = String.Empty;
+        private string _dataImageUrlFormatString = String.Empty;
 
+        /// <summary>
+        /// Í¼Æ¬µØÖ·×Ö¶Î¸ñÊ½»¯×Ö·û´®
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
         [Description("Í¼Æ¬µØÖ·×Ö¶Î¸ñÊ½»¯×Ö·û´®")]
@@ -86,7 +92,7 @@ namespace FineUI
         }
 
 
-        public Unit _imageWidth = Unit.Empty;
+        private Unit _imageWidth = Unit.Empty;
 
         /// <summary>
         /// Í¼Æ¬µÄ¿í¶È

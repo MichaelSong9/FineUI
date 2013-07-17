@@ -70,11 +70,14 @@ namespace FineUI
         }
 
 
-        public string _windowID = String.Empty;
+        private string _windowID = String.Empty;
 
+        /// <summary>
+        /// 对应的窗体控件ID
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("")]
+        [Description("对应的窗体控件ID")]
         public string WindowID
         {
             get
@@ -87,11 +90,14 @@ namespace FineUI
             }
         }
 
-        public string _dataWindowTitleField = String.Empty;
+        private string _dataWindowTitleField = String.Empty;
 
+        /// <summary>
+        /// 窗体标题对应的字段名称
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("")]
+        [Description("窗体标题对应的字段名称")]
         public string DataWindowTitleField
         {
             get
@@ -105,11 +111,14 @@ namespace FineUI
         }
 
 
-        public string _dataWindowTitleFormatString = String.Empty;
+        private string _dataWindowTitleFormatString = String.Empty;
 
+        /// <summary>
+        /// 窗体标题对应的字段格式化字符串
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("")]
+        [Description("窗体标题对应的字段格式化字符串")]
         public string DataWindowTitleFormatString
         {
             get
@@ -123,7 +132,7 @@ namespace FineUI
         }
 
 
-        public string _dataTextField = String.Empty;
+        private string _dataTextField = String.Empty;
 
         /// <summary>
         /// 字段名称
@@ -144,7 +153,7 @@ namespace FineUI
         }
 
 
-        public string _dataTextFormatString = String.Empty;
+        private string _dataTextFormatString = String.Empty;
 
         /// <summary>
         /// 字段格式化字符串
@@ -209,7 +218,7 @@ namespace FineUI
 
 
 
-        public string _dataIFrameUrlFields = String.Empty;
+        private string _dataIFrameUrlFields = String.Empty;
 
         /// <summary>
         /// 绑定到IFrame地址的字段名称列表
@@ -229,7 +238,7 @@ namespace FineUI
             }
         }
 
-        public string _dataIFrameUrlFormatString = String.Empty;
+        private string _dataIFrameUrlFormatString = String.Empty;
 
         /// <summary>
         /// 绑定到IFrame地址的字段格式化字符串
@@ -272,7 +281,7 @@ namespace FineUI
 
 
 
-        public string _iframeUrl = String.Empty;
+        private string _iframeUrl = String.Empty;
 
         /// <summary>
         /// IFrame地址
@@ -293,7 +302,7 @@ namespace FineUI
         }
 
 
-        public string _text = String.Empty;
+        private string _text = String.Empty;
 
         /// <summary>
         /// 显示文本
@@ -313,7 +322,7 @@ namespace FineUI
             }
         }
 
-        public string _title = String.Empty;
+        private string _title = String.Empty;
 
         /// <summary>
         /// 标题
@@ -333,7 +342,7 @@ namespace FineUI
             }
         }
 
-        public Icon _icon = Icon.None;
+        private Icon _icon = Icon.None;
 
         /// <summary>
         /// 图标
@@ -353,7 +362,7 @@ namespace FineUI
             }
         }
 
-        public string _iconUrl = String.Empty;
+        private string _iconUrl = String.Empty;
 
         /// <summary>
         /// 图标地址
