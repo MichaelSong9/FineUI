@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FineUI
 {
-    public class OptionBuilder
+    internal class OptionBuilder
     {
         #region fields
 

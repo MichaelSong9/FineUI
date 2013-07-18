@@ -46,6 +46,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Timer()
         {
             AddServerAjaxProperties();
@@ -125,6 +128,10 @@ namespace FineUI
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 获取 Hidden 属性改变的 JavaScript 脚本
+        /// </summary>
+        /// <returns>客户端脚本</returns>
         protected override string GetEnabledPropertyChangedScript()
         {
             if (PropertyModified("Enabled"))

@@ -34,6 +34,9 @@ using System.IO.Compression;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 字符串帮助类
+    /// </summary>
     public class StringUtil
     {
         #region GZIPPED_VIEWSTATE
@@ -52,11 +55,22 @@ namespace FineUI
 
         #region EnumFromName EnumToName
 
+        /// <summary>
+        /// 获取枚举实例
+        /// </summary>
+        /// <param name="enumType">枚举类型</param>
+        /// <param name="enumName">枚举实例名称</param>
+        /// <returns>枚举实例</returns>
         public static object EnumFromName(Type enumType, string enumName)
         {
             return Enum.Parse(enumType, enumName);
         }
 
+        /// <summary>
+        /// 获取枚举实例名称
+        /// </summary>
+        /// <param name="param">枚举实例</param>
+        /// <returns>枚举实例名称</returns>
         public static string EnumToName(Enum param)
         {
             return Enum.GetName(param.GetType(), param);
@@ -69,8 +83,8 @@ namespace FineUI
         /// <summary>
         /// 去除字符串中的Html
         /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="source">字符串</param>
+        /// <returns>字符串</returns>
         public static string StripHtml(string source)
         {
             return Regex.Replace(source, @"<[\s\S]*?>", "", RegexOptions.IgnoreCase);
@@ -81,21 +95,21 @@ namespace FineUI
         #region GetIntListFromString GetStringListFromString
 
         /// <summary>
-        /// 由字符串"1,2,3"转化为整形列表[1,2,3]
+        /// 将字符串"1,2,3"转化为整形列表[1,2,3]
         /// </summary>
-        /// <param name="postValue"></param>
-        /// <returns></returns>
+        /// <param name="postValue">字符串</param>
+        /// <returns>整形列表</returns>
         public static List<int> GetIntListFromString(string postValue)
         {
             return GetIntListFromString(postValue, true);
         }
 
         /// <summary>
-        /// 由字符串"1,2,3"转化为整形列表[1,2,3]
+        /// 将字符串"1,2,3"转化为整形列表[1,2,3]
         /// </summary>
-        /// <param name="postValue"></param>
+        /// <param name="postValue">字符串</param>
         /// <param name="sortBeforeReturn">返回之前是否对数组进行排序（由小到大）</param>
-        /// <returns></returns>
+        /// <returns>整形列表</returns>
         public static List<int> GetIntListFromString(string postValue, bool sortBeforeReturn)
         {
             if (String.IsNullOrEmpty(postValue))
@@ -124,21 +138,21 @@ namespace FineUI
 
 
         /// <summary>
-        /// 由字符串"ssdd,2,ok"转化为字符串列表["ssdd","2","ok"]
+        /// 将字符串"ssdd,2,ok"转化为字符串列表["ssdd","2","ok"]
         /// </summary>
-        /// <param name="postValue"></param>
-        /// <returns></returns>
+        /// <param name="postValue">字符串</param>
+        /// <returns>字符串列表</returns>
         public static List<string> GetStringListFromString(string postValue)
         {
             return GetStringListFromString(postValue);
         }
 
         /// <summary>
-        /// 由字符串"ssdd,2,ok"转化为字符串列表["ssdd","2","ok"]
+        /// 将字符串"ssdd,2,ok"转化为字符串列表["ssdd","2","ok"]
         /// </summary>
         /// <param name="postValue"></param>
         /// <param name="sortBeforeReturn">返回之前是否对数组进行排序（由小到大）</param>
-        /// <returns></returns>
+        /// <returns>字符串列表</returns>
         public static List<string> GetStringListFromString(string postValue, bool sortBeforeReturn)
         {
             if (String.IsNullOrEmpty(postValue))
@@ -166,10 +180,10 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 由字符串数组["ssdd","2","ok"]转化为字符串"ssdd,2,ok"
+        /// 将字符串数组["ssdd","2","ok"]转化为字符串"ssdd,2,ok"
         /// </summary>
-        /// <param name="postValue"></param>
-        /// <returns></returns>
+        /// <param name="strArray">字符串数组</param>
+        /// <returns>字符串</returns>
         public static string GetStringFromStringArray(string[] strArray)
         {
             if (strArray == null || strArray.Length == 0)
@@ -187,10 +201,10 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 由整型数组[2,3,4]转化为字符串"2,3,4"
+        /// 将整型数组[2,3,4]转化为字符串"2,3,4"
         /// </summary>
-        /// <param name="postValue"></param>
-        /// <returns></returns>
+        /// <param name="intArray">整形数组</param>
+        /// <returns>字符串</returns>
         public static string GetStringFromIntArray(int[] intArray)
         {
             if (intArray == null || intArray.Length == 0)
@@ -214,9 +228,9 @@ namespace FineUI
         /// <summary>
         /// 比较两个整形数组是否相等
         /// </summary>
-        /// <param name="array1"></param>
-        /// <param name="array2"></param>
-        /// <returns></returns>
+        /// <param name="array1">整形数组1</param>
+        /// <param name="array2">整形数组2</param>
+        /// <returns>是否相等</returns>
         public static bool CompareIntArray(int[] array1, int[] array2)
         {
             if (array1 == null && array2 == null)
@@ -251,9 +265,9 @@ namespace FineUI
         /// <summary>
         /// 比较两个字符串数组是否相等
         /// </summary>
-        /// <param name="array1"></param>
-        /// <param name="array2"></param>
-        /// <returns></returns>
+        /// <param name="array1">字符串数组1</param>
+        /// <param name="array2">字符串数组2</param>
+        /// <returns>是否相等</returns>
         public static bool CompareStringArray(string[] array1, string[] array2)
         {
             if (array1 == null && array2 == null)
@@ -292,8 +306,8 @@ namespace FineUI
         /// <summary>
         /// 将 10% 转换为 0.1 的字符串的形式
         /// </summary>
-        /// <param name="percentageStr"></param>
-        /// <returns></returns>
+        /// <param name="percentageStr">百分比字符串</param>
+        /// <returns>小数</returns>
         public static string ConvertPercentageToDecimalString(string percentageStr)
         {
             string decimalStr = String.Empty;
@@ -316,22 +330,42 @@ namespace FineUI
 
         #region DecodeFrom64/EncodeTo64
 
+        /// <summary>
+        /// Base64解码
+        /// </summary>
+        /// <param name="encodedDataAsBytes">需要解码的字节数组</param>
+        /// <returns>解码后的字符串</returns>
         public static string DecodeFrom64(byte[] encodedDataAsBytes)
         {
             return System.Text.UTF8Encoding.UTF8.GetString(encodedDataAsBytes);
         }
 
+        /// <summary>
+        /// Base64解码
+        /// </summary>
+        /// <param name="encodedData">需要解码的字符串</param>
+        /// <returns>解码后的字符串</returns>
         public static string DecodeFrom64(string encodedData)
         {
             byte[] encodedDataAsBytes = System.Convert.FromBase64String(encodedData);
             return System.Text.UTF8Encoding.UTF8.GetString(encodedDataAsBytes);
         }
 
+        /// <summary>
+        /// Base64编码
+        /// </summary>
+        /// <param name="toEncodeAsBytes">需要编码的字节数组</param>
+        /// <returns>编码后的字符串</returns>
         public static string EncodeTo64(byte[] toEncodeAsBytes)
         {
             return System.Convert.ToBase64String(toEncodeAsBytes);
         }
 
+        /// <summary>
+        /// Base64编码
+        /// </summary>
+        /// <param name="toEncode">需要编码的字符串</param>
+        /// <returns>编码后的字符串</returns>
         public static string EncodeTo64(string toEncode)
         {
             byte[] toEncodeAsBytes = System.Text.UTF8Encoding.UTF8.GetBytes(toEncode);
@@ -341,6 +375,11 @@ namespace FineUI
 
         #region Gzip/Ungzip
 
+        /// <summary>
+        /// Gzip编码字符串
+        /// </summary>
+        /// <param name="source">源字符串</param>
+        /// <returns>Gzip后的字符串</returns>
         public static string Gzip(string source)
         {
             using (var outStream = new MemoryStream())
@@ -357,6 +396,11 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 解码Gzip字符串
+        /// </summary>
+        /// <param name="source">Gzip后的字符串</param>
+        /// <returns>源字符串</returns>
         public static string Ungzip(string source)
         {
             byte[] bytes = Convert.FromBase64String(source);

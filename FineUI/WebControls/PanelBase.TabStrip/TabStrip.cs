@@ -353,7 +353,7 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        protected string ActiveTabIndexHiddenFieldID
+        private string ActiveTabIndexHiddenFieldID
         {
             get
             {

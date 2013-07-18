@@ -43,11 +43,7 @@ namespace FineUI
         // " "
         private static string X_ELBOW_EMPTY = "<div class=\"x-elbow-empty\"></div>";
 
-        /// <summary>
-        /// Calculate tree.
-        /// </summary>
-        /// <param name="silumateTreeNodes"></param>
-        /// <param name="postfixOriginalContent"></param>
+        
         public void ResolveSimulateTree(List<SimulateTreeNode> silumateTreeNodes, bool modifiyOriginalContent)
         {
             int rowIndex = 0;

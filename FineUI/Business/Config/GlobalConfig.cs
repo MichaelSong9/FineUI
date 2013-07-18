@@ -33,6 +33,9 @@ using System.ComponentModel;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 全局配置参数
+    /// </summary>
     public static class GlobalConfig
     {
         #region 静态构造函数

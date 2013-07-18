@@ -54,6 +54,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Tab()
         {
             ServerAjaxProperties.Remove("Hidden");
@@ -210,22 +213,6 @@ namespace FineUI
                     throw new Exception("Tab must be inside TabStrip.");
                 }
             }
-        }
-
-        #endregion
-
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-            //// 添加子控件
-            //foreach (ControlBase row in Items)
-            //{
-            //    row.RenderWrapperDiv = false;
-            //    Controls.Add(row);
-            //}
         }
 
         #endregion

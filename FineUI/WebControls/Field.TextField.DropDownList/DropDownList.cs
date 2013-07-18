@@ -1155,11 +1155,9 @@ namespace FineUI
 
 
         /// <summary>
-        /// 绑定到数据表
+        /// 绑定到数据表格
         /// </summary>
-        /// <param name="dataView"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="endIndex"></param>
+        /// <param name="dataTable">数据表格</param>
         private void DataBindToDataTable(DataTable dataTable)
         {
             int startIndex = 0;
@@ -1174,11 +1172,9 @@ namespace FineUI
 
 
         /// <summary>
-        /// 绑定到可枚举列表
+        /// 绑定到可枚举类型
         /// </summary>
-        /// <param name="enumerable"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="endIndex"></param>
+        /// <param name="enumerable">可枚举类型</param>
         private void DataBindToEnumerable(IEnumerable enumerable)
         {
             #region old code

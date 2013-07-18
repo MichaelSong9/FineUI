@@ -84,6 +84,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 添加服务器AJAX属性
+        /// </summary>
+        /// <param name="props">属性列表</param>
         protected void AddServerAjaxProperties(params string[] props)
         {
             foreach (string prop in props)
@@ -100,6 +104,10 @@ namespace FineUI
 
         }
 
+        /// <summary>
+        /// 添加客户端AJAX属性
+        /// </summary>
+        /// <param name="props">属性列表</param>
         protected void AddClientAjaxProperties(params string[] props)
         {
             foreach (string prop in props)
@@ -116,6 +124,10 @@ namespace FineUI
 
         }
 
+        /// <summary>
+        /// 添加Gzip压缩属性
+        /// </summary>
+        /// <param name="props">属性列表</param>
         protected void AddGzippedAjaxProperties(params string[] props)
         {
             foreach (string prop in props)
@@ -730,9 +742,9 @@ namespace FineUI
 
 
         /// <summary>
-        /// 生成控件的开始标签
+        /// 渲染控件的开始标签
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">输出流</param>
         protected virtual void RenderBeginTag(HtmlTextWriter writer)
         {
             if (RenderWrapperNode)
@@ -744,7 +756,7 @@ namespace FineUI
         /// <summary>
         /// 渲染控件的结束标签
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">输出流</param>
         protected virtual void RenderEndTag(HtmlTextWriter writer)
         {
             if (RenderWrapperNode)
@@ -1283,6 +1295,11 @@ namespace FineUI
 
         #region AddStartupCSS
 
+        /// <summary>
+        /// 添加CSS样式
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="cssContent">CSS内容</param>
         protected void AddStartupCSS(string key, string cssContent)
         {
             if (!IsFineUIAjaxPostBack)
@@ -1291,6 +1308,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 删除CSS样式
+        /// </summary>
+        /// <param name="key">键</param>
         protected void RemoveStartupCSS(string key)
         {
             if (!IsFineUIAjaxPostBack)
@@ -1303,6 +1324,10 @@ namespace FineUI
 
         #region AddStartupScript AddStartupAbsoluteScript
 
+        /// <summary>
+        /// 向页面添加控件无关脚本
+        /// </summary>
+        /// <param name="script">客户端脚本</param>
         protected void AddStartupAbsoluteScript(string script)
         {
             if (!IsFineUIAjaxPostBack)
@@ -1311,6 +1336,11 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 向页面添加控件无关脚本
+        /// </summary>
+        /// <param name="script">客户端脚本</param>
+        /// <param name="level">脚本层级</param>
         protected void AddStartupAbsoluteScript(string script, int level)
         {
             if (!IsFineUIAjaxPostBack)
@@ -1319,6 +1349,10 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 添加控件相关脚本
+        /// </summary>
+        /// <param name="scriptContent">客户端脚本</param>
         protected void AddStartupScript(string scriptContent)
         {
             if (!IsFineUIAjaxPostBack)
@@ -1373,9 +1407,10 @@ namespace FineUI
         #region GetHiddenPropertyChangedScript GetEnabledPropertyChangedScript
 
         /// <summary>
-        /// 反映 Hidden 属性改变的 JavaScript 脚本
+        /// 获取 Hidden 属性改变的 JavaScript 脚本
         /// 有些控件可能需要特别的逻辑，因此这里为虚函数（比如 Window 控件）
         /// </summary>
+        /// <returns>客户端脚本</returns>
         protected virtual string GetHiddenPropertyChangedScript()
         {
             if (PropertyModified("Hidden"))
@@ -1386,9 +1421,10 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 反映 Enabled 属性改变的 JavaScript 脚本
+        /// 获取 Enabled 属性改变的 JavaScript 脚本
         /// 有些控件可能需要特别的逻辑，因此这里为虚函数
         /// </summary>
+        /// <returns>客户端脚本</returns>
         protected virtual string GetEnabledPropertyChangedScript()
         {
             if (PropertyModified("Enabled"))
@@ -1497,13 +1533,25 @@ namespace FineUI
 
         #region GetSetHiddenFieldValueScript
 
-        // 获取修改隐藏表单字段值的脚本（如果此隐藏表单字段不存在，则添加）
+        /// <summary>
+        /// 获取修改隐藏表单字段值的脚本（如果此隐藏表单字段不存在，则添加）
+        /// </summary>
+        /// <param name="id">隐藏字段ID</param>
+        /// <param name="value">隐藏字段值</param>
+        /// <returns></returns>
         protected string GetSetHiddenFieldValueScript(string id, string value)
         {
             return String.Format("X.util.setHiddenFieldValue('{0}','{1}');", id, value);
         }
 
-        // 获取修改隐藏表单字段值的脚本（如果此隐藏表单字段不存在，则添加）
+        
+        /// <summary>
+        /// 获取修改隐藏表单字段值的脚本（如果此隐藏表单字段不存在，则添加）
+        /// </summary>
+        /// <param name="id">隐藏字段ID</param>
+        /// <param name="value">隐藏字段值</param>
+        /// <param name="windowObj">隐藏字段所在的页面对象（JavaScript实例window）</param>
+        /// <returns>客户端脚本</returns>
         protected string GetSetHiddenFieldValueScript(string id, string value, string windowObj)
         {
             if (String.IsNullOrEmpty(windowObj) || windowObj == "window")
@@ -1517,6 +1565,10 @@ namespace FineUI
 
         #region ResolveAttribuites
 
+        /// <summary>
+        /// 添加Attributes中的属性值
+        /// </summary>
+        /// <param name="htmlBuilder">HtmlNodeBuilder对象</param>
         protected void ResolveAttribuites(HtmlNodeBuilder htmlBuilder)
         {
             foreach (JProperty propertyObj in Attributes.Properties())

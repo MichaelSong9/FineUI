@@ -70,6 +70,9 @@ namespace FineUI
 
         private Grid _grid;
 
+        /// <summary>
+        /// ±í¸ñÊµÀý
+        /// </summary>
         public Grid Grid
         {
             get

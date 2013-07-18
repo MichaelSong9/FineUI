@@ -35,8 +35,16 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI
 {
+    /// <summary>
+    /// JSON帮助类
+    /// </summary>
     public class JSONUtil
     {
+        /// <summary>
+        /// 将JArray转换为整型数组
+        /// </summary>
+        /// <param name="ja">JArray对象</param>
+        /// <returns>整型数组</returns>
         public static int[] IntArrayFromJArray(JArray ja)
         {
             int length = ja.Count;
@@ -49,7 +57,11 @@ namespace FineUI
             return array;
         }
 
-
+        /// <summary>
+        /// 将JArray转换为字符串数组
+        /// </summary>
+        /// <param name="ja">JArray对象</param>
+        /// <returns>字符串数组</returns>
         public static string[] StringArrayFromJArray(JArray ja)
         {
             int length = ja.Count;
@@ -62,6 +74,11 @@ namespace FineUI
             return array;
         }
 
+        /// <summary>
+        /// 将JArray转换为对象数组
+        /// </summary>
+        /// <param name="ja">JArray对象</param>
+        /// <returns>对象数组</returns>
         public static object[] ObjectArrayFromJArray(JArray ja)
         {
             int length = ja.Count;

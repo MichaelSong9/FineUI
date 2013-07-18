@@ -39,6 +39,10 @@ namespace FineUI
         #region public static
 
         //public static string DefaultTitle = "确认对话框";
+
+        /// <summary>
+        /// 确认对话框默认图标
+        /// </summary>
         public static MessageBoxIcon DefaultIcon = MessageBoxIcon.Question;
 
 

@@ -46,6 +46,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public ToolbarText()
         {
             AddServerAjaxProperties("Text");

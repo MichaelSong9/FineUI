@@ -38,10 +38,13 @@ using System.Web.UI.HtmlControls;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 区域面板控件
+    /// </summary>
     [Designer("FineUI.Design.RegionPanelDesigner, FineUI.Design")]
     [ToolboxData("<{0}:RegionPanel ShowBorder=\"false\" runat=\"server\"><Regions><{0}:Region Split=\"true\" Width=\"200px\" ShowHeader=\"true\" Title=\"Left Region\" Position=\"Left\" runat=\"server\"></{0}:Region><{0}:Region Title=\"Center Region\" Position=\"Center\" ShowHeader=\"true\" runat=\"server\"></{0}:Region></Regions></{0}:RegionPanel>")]
     [ToolboxBitmap(typeof(RegionPanel), "toolbox.RegionPanel.bmp")]
-    [Description("布局控件")]
+    [Description("区域面板控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]
     public class RegionPanel : PanelBase
@@ -129,7 +132,9 @@ namespace FineUI
         //    }
         //}
 
-
+        /// <summary>
+        /// 不支持此属性
+        /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override bool AutoHeight
@@ -141,6 +146,9 @@ namespace FineUI
         }
 
 
+        /// <summary>
+        /// 不支持此属性
+        /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override bool AutoWidth
@@ -157,6 +165,9 @@ namespace FineUI
 
         private RegionCollection _regions;
 
+        /// <summary>
+        /// 区域集合
+        /// </summary>
         [Category(CategoryName.OPTIONS)]
         [NotifyParentProperty(true)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
@@ -170,21 +181,6 @@ namespace FineUI
                 }
                 return _regions;
             }
-        }
-
-        #endregion
-
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-            //foreach (Region region in Regions)
-            //{
-            //    region.RenderWrapperDiv = false;
-            //    Controls.Add(region);
-            //}
         }
 
         #endregion

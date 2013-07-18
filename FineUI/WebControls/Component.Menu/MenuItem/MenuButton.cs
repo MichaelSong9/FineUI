@@ -51,6 +51,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public MenuButton()
         {
             // Two type of ajax properties: 1. Can only be changed in server-side. 2. Can be changed both in client and server.

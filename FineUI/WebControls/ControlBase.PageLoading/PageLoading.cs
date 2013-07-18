@@ -33,6 +33,9 @@ using System.Web.UI.Design;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 页面加载提示控件
+    /// </summary>
     [Designer("FineUI.Design.PageLoadingDesigner, FineUI.Design")]
     [ToolboxData("<{0}:PageLoading runat=server></{0}:PageLoading>")]
     [ToolboxBitmap(typeof(PageLoading), "toolbox.PageLoading.bmp")]
@@ -117,6 +120,10 @@ namespace FineUI
 
         #region RenderBeginTag/RenderEndTag
 
+        /// <summary>
+        /// 渲染控件的开始标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
             //base.RenderBeginTag(writer);
@@ -144,6 +151,10 @@ namespace FineUI
 
         }
 
+        /// <summary>
+        /// 渲染控件的结束标签（不生成结束标签）
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderEndTag(HtmlTextWriter writer)
         {
 

@@ -66,6 +66,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public Window()
         {
             ServerAjaxProperties.Remove("Hidden");
@@ -740,7 +743,7 @@ namespace FineUI
         /// <summary>
         /// 不向页面输出任何HTML代码，通过Javascript代码添加DIV标签
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">输出流</param>
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
             //base.RenderBeginTag(writer);
@@ -762,26 +765,10 @@ namespace FineUI
         /// <summary>
         /// 不向页面输出任何HTML代码，通过Javascript代码添加DIV标签
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">输出流</param>
         protected override void RenderEndTag(HtmlTextWriter writer)
         {
             //base.RenderEndTag(writer);
-        }
-
-        #endregion
-
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-            //// 添加子控件
-            //foreach (ControlBase row in Items)
-            //{
-            //    row.RenderWrapperDiv = false;
-            //    Controls.Add(row);
-            //}
         }
 
         #endregion

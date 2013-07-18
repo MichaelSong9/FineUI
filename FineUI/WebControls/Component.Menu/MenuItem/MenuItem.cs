@@ -208,19 +208,15 @@ namespace FineUI
 
         #region CreateChildControls
 
+        /// <summary>
+        /// 添加子控件
+        /// </summary>
         protected override void CreateChildControls()
         {
             base.CreateChildControls();
 
             Menu.RenderWrapperNode = false;
             Controls.Add(Menu);
-
-            //// 添加子控件
-            //foreach (Menu menu in Menus)
-            //{
-            //    menu.RenderWrapperDiv = false;
-            //    Controls.Add(menu);
-            //}
         }
 
         #endregion

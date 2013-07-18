@@ -51,6 +51,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public MenuCheckBox()
         {
             AddServerAjaxProperties();
@@ -126,7 +129,7 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        protected string CheckedHiddenFieldID
+        private string CheckedHiddenFieldID
         {
             get
             {

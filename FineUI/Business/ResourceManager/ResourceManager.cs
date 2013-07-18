@@ -197,6 +197,7 @@ namespace FineUI
         /// <summary>
         /// 准备呈现页面内容，在保存页面状态之前
         /// </summary>
+        /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_PreRenderComplete(object sender, EventArgs e)
         {
@@ -640,17 +641,16 @@ namespace FineUI
         /// 取得应该将Script插入的位置
         /// modified by 30372245@qq.com, 要能够向上回溯，因为控件A的父的父控件可能不存在列表中
         /// </summary>
-        /// <param name="control"></param>
+        /// <param name="testControl"></param>
         /// <param name="testList"></param>
         /// <returns></returns>
         private int GetInsertIndex(Control testControl, List<ScriptBlock> testList)
         {
             int returnIndex = testList.Count;
 
-
             Control parentControl = testControl.Parent;
             // 如果父控件不是HtmlForm
-            while (!(parentControl is System.Web.UI.HtmlControls.HtmlForm))
+            while (parentControl != null && !(parentControl is System.Web.UI.HtmlControls.HtmlForm))
             {
                 for (int i = 0, count = testList.Count; i < count; i++)
                 {
@@ -661,22 +661,6 @@ namespace FineUI
                     {
                         return i;
                     }
-
-
-                    #region old code
-
-                    //// 在PageLayout的Region中用过
-                    //if (testControl is ControlBase)
-                    //{
-                    //    ControlBase control2 = testControl as ControlBase;
-                    //    if (control2.RefParentControl != null && control2.RefParentControl.ID == existControl.ID)
-                    //    {
-                    //        returnIndex = i;
-                    //        break;
-                    //    }
-                    //} 
-
-                    #endregion
                 }
 
                 parentControl = parentControl.Parent;

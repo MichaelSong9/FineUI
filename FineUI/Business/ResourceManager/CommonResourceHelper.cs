@@ -315,6 +315,7 @@ namespace FineUI
         /// <summary>
         /// 添加样式表到页头
         /// </summary>
+        /// <param name="page"></param>
         /// <param name="controlId"></param>
         /// <param name="resourceName"></param>
         public static void AddCssResourceToHead(Page page, string controlId, string resourceName)
@@ -355,6 +356,7 @@ namespace FineUI
         /// <summary>
         /// 页头是否包含控件
         /// </summary>
+        /// <param name="page"></param>
         /// <param name="controlId"></param>
         /// <returns></returns>
         public static bool IsHeaderContains(Page page, string controlId)

@@ -821,6 +821,10 @@ namespace FineUI
 
         #region RenderBeginTag/RenderEndTag
 
+        /// <summary>
+        /// 渲染控件的开始标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
             if (!PageLoadingControlExist)
@@ -838,6 +842,10 @@ namespace FineUI
             base.RenderBeginTag(writer);
         }
 
+        /// <summary>
+        /// 渲染控件的结束标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderEndTag(HtmlTextWriter writer)
         {
             base.RenderEndTag(writer);
@@ -1012,6 +1020,9 @@ namespace FineUI
 
         //// 这是一个严重的错误，不应该将_manager保存为全局变量，而是作为随页面存在的
         //private static PageManager _manager = null;
+        /// <summary>
+        /// PageManager在当前页面的实例
+        /// </summary>
         public static PageManager Instance
         {
             get
@@ -1030,17 +1041,22 @@ namespace FineUI
             }
         }
 
-        public static PageManager GetInstance(ISite site)
-        {
-            foreach (System.ComponentModel.IComponent c in site.Container.Components)
-            {
-                if (c is FineUI.PageManager)
-                {
-                    return c as FineUI.PageManager;
-                }
-            }
-            return null;
-        }
+        ///// <summary>
+        ///// 获取PageManager实例
+        ///// </summary>
+        ///// <param name="site"></param>
+        ///// <returns></returns>
+        //public static PageManager GetInstance(ISite site)
+        //{
+        //    foreach (System.ComponentModel.IComponent c in site.Container.Components)
+        //    {
+        //        if (c is FineUI.PageManager)
+        //        {
+        //            return c as FineUI.PageManager;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         //public static PageManager GetInstance(Page page)
         //{

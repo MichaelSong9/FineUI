@@ -30,15 +30,17 @@ using System.Web.UI;
 
 namespace FineUI
 {
-
+    /// <summary>
+    /// 样式帮助类
+    /// </summary>
     public class StyleUtil
     {
         /// <summary>
         /// 从字符串“padding:5px;background-color:#DFE8F6;”中提取“background-color:#DFE8F6;”
         /// </summary>
-        /// <param name="css"></param>
-        /// <param name="styleName"></param>
-        /// <returns></returns>
+        /// <param name="css">CSS字符串</param>
+        /// <param name="styleName">样式名称</param>
+        /// <returns>样式键值对</returns>
         public static string GetSingleStyleFormCSS(string css, string styleName)
         {
             styleName = styleName.ToLower();
@@ -55,11 +57,23 @@ namespace FineUI
             return String.Empty;
         }
 
+        /// <summary>
+        /// 获取背景图片样式
+        /// </summary>
+        /// <param name="selector">选择符</param>
+        /// <param name="imageUrl">图片地址</param>
+        /// <returns>CSS样式</returns>
         public static string GetBackgroundStyle(string selector, string imageUrl)
         {
             return String.Format("{0}{{background: url({1}) !important;}}", selector, imageUrl);
         }
 
+        /// <summary>
+        /// 获取背景图片样式（no-repeat）
+        /// </summary>
+        /// <param name="selector">选择符</param>
+        /// <param name="imageUrl">图片地址</param>
+        /// <returns>CSS样式</returns>
         public static string GetNoRepeatBackgroundStyle(string selector, string imageUrl)
         {
             return String.Format("{0}{{background: url({1}) no-repeat;}}", selector, imageUrl);

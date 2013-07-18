@@ -39,10 +39,13 @@ using System.Web.UI.HtmlControls;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 区域控件
+    /// </summary>
     [Designer("FineUI.Design.RegionDesigner, FineUI.Design")]
     [ToolboxData("<{0}:Region Position=\"Center\" runat=\"server\"></{0}:Region>")]
     [ToolboxBitmap(typeof(Region), "toolbox.Region.bmp")]
-    [Description("页面布局子控件")]
+    [Description("区域控件")]
     [ParseChildren(true)]
     [PersistChildren(false)]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
@@ -288,23 +291,6 @@ namespace FineUI
         //        return _items;
         //    }
         //}
-        #endregion
-
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-            //// 添加子控件
-            //foreach (ControlBase row in Items)
-            //{
-            //    row.RenderWrapperDiv = false;
-            //    Controls.Add(row);
-            //}
-
-        }
-
         #endregion
 
         #region OnPreRender

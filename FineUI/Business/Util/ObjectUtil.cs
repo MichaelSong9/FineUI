@@ -34,14 +34,17 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 对象帮助类
+    /// </summary>
     public class ObjectUtil
     {
         /// <summary>
-        /// 取得属性的值
+        /// 获取对象的属性值
         /// </summary>
         /// <param name="obj">可能是DataRowView或一个对象</param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
+        /// <param name="propertyName">属性名</param>
+        /// <returns>属性值</returns>
         public static object GetPropertyValue(object obj, string propertyName)
         {
             object result = null;
@@ -74,12 +77,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Get the property from an object.
-        /// The property can be "Color", "BodyStyle" or "Info.UserName".
+        /// 获取对象的属性值
         /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
+        /// <param name="obj">对象</param>
+        /// <param name="propertyName">属性名（"Color"、"BodyStyle"或者"Info.UserName"）</param>
+        /// <returns>属性值</returns>
         private static object GetPropertyValueFormObject(object obj, string propertyName)
         {
             object rowObj = obj;

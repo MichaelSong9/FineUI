@@ -40,19 +40,31 @@ using System.Collections;
 
 namespace FineUI
 {
+    /// <summary>
+    /// 单项按钮项
+    /// </summary>
     [ToolboxItem(false)]
     [ParseChildren(true, DefaultProperty = "Text")]
+    [Description("单项按钮项")]
     [PersistChildren(false)]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class RadioItem
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public RadioItem()
         {
 
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="text">文本</param>
+        /// <param name="value">值</param>
         public RadioItem(string text, string value)
         {
             Text = text;

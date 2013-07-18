@@ -38,12 +38,18 @@ using System.Text.RegularExpressions;
 
 namespace FineUI
 {
-
+    /// <summary>
+    /// 资源帮助类
+    /// </summary>
     public static class ResourceHelper
     {
-
         #region GetWebResourceUrl
 
+        /// <summary>
+        /// 获取嵌入资源的 res.axd 地址
+        /// </summary>
+        /// <param name="resName">资源名称</param>
+        /// <returns>资源地址</returns>
         public static string GetWebResourceUrlResAxd(string resName)
         {
             Page page = HttpContext.Current.CurrentHandler as Page;
@@ -59,9 +65,9 @@ namespace FineUI
         /// <summary>
         /// 获取嵌入资源的 res.axd 地址
         /// </summary>
-        /// <param name="page"></param>
-        /// <param name="resName"></param>
-        /// <returns></returns>
+        /// <param name="page">页面对象</param>
+        /// <param name="resName">资源名称</param>
+        /// <returns>资源地址</returns>
         public static string GetWebResourceUrlResAxd(Page page, string resName)
         {
             //return ResourceHelper.GetWebResourceUrl(page, resName);
@@ -106,7 +112,11 @@ namespace FineUI
             return null;
         } 
 
-
+        /// <summary>
+        /// 获取嵌入资源的地址
+        /// </summary>
+        /// <param name="resourceName">资源名称</param>
+        /// <returns>资源地址</returns>
         public static string GetWebResourceUrl(string resourceName)
         {
             Page page = HttpContext.Current.CurrentHandler as Page;
@@ -119,10 +129,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 嵌入资源url地址
+        /// 获取嵌入资源的地址
         /// </summary>
-        /// <param name="resourceName"></param>
-        /// <returns></returns>
+        /// <param name="page">页面实例</param>
+        /// <param name="resourceName">资源名称</param>
+        /// <returns>资源地址</returns>
         public static string GetWebResourceUrl(Page page, string resourceName)
         {
             string resourceUrl = String.Empty;
@@ -131,29 +142,29 @@ namespace FineUI
             return resourceUrl;
         }
 
-        /// <summary>
-        /// 设计时嵌入资源url地址
-        /// </summary>
-        /// <param name="site"></param>
-        /// <param name="resourceName"></param>
-        /// <returns></returns>
-        public static string GetWebResourceUrl(ISite site, string resourceName)
-        {
-            string resourceUrl = String.Empty;
-            if (site != null)
-            {
-                IResourceUrlGenerator service = (IResourceUrlGenerator)site.GetService(typeof(IResourceUrlGenerator));
-                if (service != null)
-                {
-                    resourceUrl = service.GetResourceUrl(site.Component.GetType(), resourceName);
-                }
-            }
+        ///// <summary>
+        ///// 设计时嵌入资源url地址
+        ///// </summary>
+        ///// <param name="site"></param>
+        ///// <param name="resourceName"></param>
+        ///// <returns></returns>
+        //public static string GetWebResourceUrl(ISite site, string resourceName)
+        //{
+        //    string resourceUrl = String.Empty;
+        //    if (site != null)
+        //    {
+        //        IResourceUrlGenerator service = (IResourceUrlGenerator)site.GetService(typeof(IResourceUrlGenerator));
+        //        if (service != null)
+        //        {
+        //            resourceUrl = service.GetResourceUrl(site.Component.GetType(), resourceName);
+        //        }
+        //    }
 
-            //// 告诉HttpCompress，不要设置ETag，同时设置Expires为一年后的今天
-            //resourceUrl += "&expires=1";
+        //    //// 告诉HttpCompress，不要设置ETag，同时设置Expires为一年后的今天
+        //    //resourceUrl += "&expires=1";
 
-            return resourceUrl;
-        }
+        //    return resourceUrl;
+        //}
         #endregion
 
         #region GetResourceContent
@@ -161,8 +172,8 @@ namespace FineUI
         /// <summary>
         /// 取得资源的内容
         /// </summary>
-        /// <param name="resourceName"></param>
-        /// <returns></returns>
+        /// <param name="resourceName">资源名称</param>
+        /// <returns>资源内容</returns>
         public static string GetResourceContent(string resourceName)
         {
             string result = String.Empty;
@@ -178,8 +189,8 @@ namespace FineUI
         /// <summary>
         /// 取得资源的二进制内容
         /// </summary>
-        /// <param name="resourceName"></param>
-        /// <returns></returns>
+        /// <param name="resourceName">资源名称</param>
+        /// <returns>资源的二进制内容</returns>
         public static byte[] GetResourceContentAsBinary(string resourceName)
         {
             byte[] buf;
@@ -192,19 +203,19 @@ namespace FineUI
             return buf;
         }
 
+        
+        //public static string ResolveResourceContent(Page page, string resourceContent)
+        //{
+        //    Regex regex = new Regex(@"<%=WebResource\("".*\.(gif|png)*""\)%>");
+        //    MatchCollection matches = regex.Matches(resourceContent);
+        //    foreach (Match match in matches)
+        //    {
+        //        string url = match.Value.Replace("<%=WebResource(\"", string.Empty).Replace("\")%>", string.Empty);
+        //        resourceContent = resourceContent.Replace(match.Value, string.Format("{0}", GetWebResourceUrl(page, url)));
+        //    }
 
-        public static string ResolveResourceContent(Page page, string resourceContent)
-        {
-            Regex regex = new Regex(@"<%=WebResource\("".*\.(gif|png)*""\)%>");
-            MatchCollection matches = regex.Matches(resourceContent);
-            foreach (Match match in matches)
-            {
-                string url = match.Value.Replace("<%=WebResource(\"", string.Empty).Replace("\")%>", string.Empty);
-                resourceContent = resourceContent.Replace(match.Value, string.Format("{0}", GetWebResourceUrl(page, url)));
-            }
-
-            return resourceContent;
-        }
+        //    return resourceContent;
+        //}
 
         #endregion
 

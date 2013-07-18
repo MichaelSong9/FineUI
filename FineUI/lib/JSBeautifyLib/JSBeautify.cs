@@ -6,15 +6,32 @@ using System.Text.RegularExpressions;
 
 namespace JSBeautifyLib
 {
-
+    /// <summary>
+    /// JSBeautifyOptions
+    /// </summary>
     public class JSBeautifyOptions
     {
+        /// <summary>
+        /// indent_size
+        /// </summary>
         public int? indent_size { get; set; }
+        /// <summary>
+        /// indent_char
+        /// </summary>
         public char? indent_char { get; set; }
+        /// <summary>
+        /// indent_level
+        /// </summary>
         public int? indent_level { get; set; }
+        /// <summary>
+        /// preserve_newlines
+        /// </summary>
         public bool? preserve_newlines { get; set; }
     }
 
+    /// <summary>
+    /// JSBeautify
+    /// </summary>
     public class JSBeautify
     {
         private StringBuilder output;
@@ -459,6 +476,10 @@ namespace JSBeautifyLib
         private bool in_case;
         private string token_type;
 
+        /// <summary>
+        /// GetResult
+        /// </summary>
+        /// <returns></returns>
         public string GetResult()
         {
             if (add_script_tags)
@@ -470,6 +491,11 @@ namespace JSBeautifyLib
         }
 
         private bool add_script_tags;
+        /// <summary>
+        /// JSBeautify
+        /// </summary>
+        /// <param name="js_source_text"></param>
+        /// <param name="options"></param>
         public JSBeautify(string js_source_text, JSBeautifyOptions options)
         {
             opt_indent_size = options.indent_size ?? 4;

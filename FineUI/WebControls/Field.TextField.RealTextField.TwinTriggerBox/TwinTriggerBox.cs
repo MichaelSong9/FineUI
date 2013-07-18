@@ -49,6 +49,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public TwinTriggerBox()
         {
             AddServerAjaxProperties("ShowTrigger1", "ShowTrigger2");
@@ -292,20 +295,6 @@ namespace FineUI
             {
                 XState["OnClientTrigger2Click"] = value;
             }
-        }
-
-        #endregion
-
-        #region RenderBeginTag/RenderEndTag
-
-        protected override void RenderBeginTag(HtmlTextWriter writer)
-        {
-            base.RenderBeginTag(writer);
-        }
-
-        protected override void RenderEndTag(HtmlTextWriter writer)
-        {
-            base.RenderEndTag(writer);
         }
 
         #endregion

@@ -114,14 +114,20 @@ namespace FineUI
 
         #region Refresh
 
+        /// <summary>
+        /// 刷新当前页面
+        /// </summary>
         public static void Refresh()
         {
             Refresh("_self");
         }
 
+        /// <summary>
+        /// 刷新指定页面
+        /// </summary>
+        /// <param name="target">目标页面</param>
         public static void Refresh(string target)
         {
-            
             string refreshScript = String.Empty;
             switch (target.ToLower())
             {
@@ -189,10 +195,9 @@ namespace FineUI
         #endregion
 
         /// <summary>
-        /// 注册页面加载后的JS脚本
+        /// 注册页面脚本
         /// </summary>
-        /// <param name="page"></param>
-        /// <param name="scriptContent"></param>
+        /// <param name="scriptContent">客户端脚本</param>
         public static void RegisterStartupScript(string scriptContent)
         {
             //Page page = HttpContext.Current.CurrentHandler as Page;

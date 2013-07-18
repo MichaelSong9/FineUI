@@ -442,7 +442,7 @@ namespace FineUI
         /// <summary>
         /// 添加列
         /// </summary>
-        /// <param name="ab"></param>
+        /// <param name="rowIdsBuilder">行ID集合</param>
         /// <param name="startLineIndex">开始行的索引（包含）</param>
         /// <param name="endLineIndex">结束行的索引（包含）</param>
         /// <param name="columnCount">行的列数</param>
@@ -668,6 +668,7 @@ namespace FineUI
         /// <summary>
         /// 取得当前行 columnIndex 列的控件
         /// </summary>
+        /// <param name="row"></param>
         /// <param name="columnIndex"></param>
         /// <returns></returns>
         private ControlBase GetRowColumnControl(FormRow row, int columnIndex)

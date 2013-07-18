@@ -55,6 +55,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public RadioButtonList()
         {
             AddServerAjaxProperties("X_Items");
@@ -723,9 +726,7 @@ namespace FineUI
         /// <summary>
         /// 绑定到数据表
         /// </summary>
-        /// <param name="dataView"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="endIndex"></param>
+        /// <param name="dataTable"></param>
         private void DataBindToDataTable(DataTable dataTable)
         {
             int startIndex = 0;
@@ -741,8 +742,6 @@ namespace FineUI
         /// 绑定到可枚举列表
         /// </summary>
         /// <param name="enumerable"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="endIndex"></param>
         private void DataBindToEnumerable(IEnumerable enumerable)
         {
             #region old code

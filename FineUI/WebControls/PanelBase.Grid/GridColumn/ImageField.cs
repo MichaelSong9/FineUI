@@ -112,7 +112,7 @@ namespace FineUI
             }
         }
 
-        public Unit _imageHeight = Unit.Empty;
+        private Unit _imageHeight = Unit.Empty;
 
         /// <summary>
         /// ͼƬ�ĸ߶�

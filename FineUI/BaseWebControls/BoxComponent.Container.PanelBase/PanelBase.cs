@@ -504,7 +504,10 @@ namespace FineUI
         ///// 是否向页面写iframe
         ///// </summary>
         //private bool _writeIframeToHtmlDocument = false;
-
+        /// <summary>
+        /// 渲染控件的开始标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
             base.RenderBeginTag(writer);
@@ -571,6 +574,10 @@ namespace FineUI
 
         }
 
+        /// <summary>
+        /// 渲染控件的结束标签
+        /// </summary>
+        /// <param name="writer">输出流</param>
         protected override void RenderEndTag(HtmlTextWriter writer)
         {
 
@@ -602,15 +609,6 @@ namespace FineUI
         //        }
         //    }
         //}
-
-        #endregion
-
-        #region CreateChildControls
-
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-        }
 
         #endregion
 

@@ -281,7 +281,7 @@ namespace FineUI
         /// <summary>
         /// 设置引起本次回发的按钮（或其他控件）可用
         /// </summary>
-        /// <param name="writer"></param>
+        /// <returns></returns>
         private static string GetEnableTargetControlScript()
         {
             string targetControlClientID = HttpContext.Current.Request.Form[ResourceManager.DISABLED_CONTROL_BEFORE_POSTBACK];
@@ -332,8 +332,9 @@ namespace FineUI
         /// <summary>
         /// 更新 ViewState 节点的值
         /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="completeHtml"></param>
+        /// <param name="sb"></param>
+        /// <param name="doc"></param>
+        /// <param name="gzipped"></param>
         private void UpdateViewState(StringBuilder sb, HtmlDocument doc, bool gzipped)
         {
             string viewStateHiddenFieldID = StringUtil.VIEWSTATE_ID;
@@ -384,7 +385,7 @@ namespace FineUI
         /// <summary>
         /// 更新ASP.NET控件
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="sb"></param>
         /// <param name="doc"></param>
         private void UpdateASPNETControls(StringBuilder sb, HtmlDocument doc)
         {

@@ -68,6 +68,12 @@ namespace FineUI
         // 注意 InsertItem 第一次调用是在添加Suiping这个节点时进行的，
         // 也就是说在添加Suiping时，并不知道当前的树实例，而只有在添加China到tree1.Nodes时才知道树实例
         // 所以需要在 _treeInstance 不为空时，也即是添加根节点时递归所有的子节点，设置树实例
+        
+        /// <summary>
+        /// 插入树节点
+        /// </summary>
+        /// <param name="index">插入索引位置</param>
+        /// <param name="item">树节点实例</param>
         protected override void InsertItem(int index, TreeNode item)
         {
             if (_treeInstance != null)

@@ -47,6 +47,9 @@ namespace FineUI
     {
         #region Constructor
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public RadioButton()
         {
             AddServerAjaxProperties();
@@ -165,6 +168,9 @@ namespace FineUI
 
         #region OnInitControl
 
+        /// <summary>
+        /// 初始化控件
+        /// </summary>
         protected override void OnInitControl()
         {
             base.OnInitControl();

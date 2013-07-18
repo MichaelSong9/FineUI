@@ -829,16 +829,6 @@ namespace FineUI
 
         #endregion
 
-        #region CreateChildControls
-        
-        protected override void CreateChildControls()
-        {
-            base.CreateChildControls();
-
-        } 
-
-        #endregion
-
         #region OnPreRender
 
         #region Render_LoaderID
@@ -915,6 +905,9 @@ namespace FineUI
 
         #region OnPreRender
 
+        /// <summary>
+        /// 初始化控件
+        /// </summary>
         protected override void OnInitControl()
         {
             base.OnInitControl();
@@ -926,6 +919,9 @@ namespace FineUI
             FixTreeNodes();
         }
 
+        /// <summary>
+        /// 渲染 HTML 之前调用
+        /// </summary>
         protected override void OnBothPreRender()
         {
             base.OnBothPreRender();
@@ -1482,7 +1478,7 @@ namespace FineUI
             }
         }
 
-        protected void LoadXmlNode(TreeNode treeNode, XmlNode xmlNode)
+        private void LoadXmlNode(TreeNode treeNode, XmlNode xmlNode)
         {
             treeNode.ReadXmlAttributes(xmlNode.Attributes, this);
 
