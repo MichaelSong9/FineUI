@@ -6,6 +6,7 @@ function onReady() {
     var mainTabStrip = Ext.getCmp(IDS.mainTabStrip);
     var windowSourceCode = Ext.getCmp(IDS.windowSourceCode);
 
+	// 当前展开的手风琴面板
     function getExpandedPanel() {
         var panel = null;
         mainMenu.items.each(function (item) {
@@ -16,11 +17,13 @@ function onReady() {
         return panel;
     }
 
-    // 点击全部展开按钮
+    // 点击展开菜单
     btnExpandAll.on('click', function () {
         if (IDS.menuType == "menu") {
+			// 左侧为树控件
             mainMenu.expandAll();
         } else {
+			// 左侧为树控件+手风琴控件
             var expandedPanel = getExpandedPanel();
             if (expandedPanel) {
                 expandedPanel.items.itemAt(0).expandAll();
@@ -28,11 +31,13 @@ function onReady() {
         }
     });
 
-    // 点击全部折叠按钮
+    // 点击折叠菜单
     btnCollapseAll.on('click', function () {
         if (IDS.menuType == "menu") {
+			// 左侧为树控件
             mainMenu.collapseAll();
         } else {
+			// 左侧为树控件+手风琴控件
             var expandedPanel = getExpandedPanel();
             if (expandedPanel) {
                 expandedPanel.items.itemAt(0).collapseAll();
