@@ -78,31 +78,31 @@ ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\access.css
 
 type extjs_source_all\src\locale\ext-lang-en.js > _x
 type js\lang\fineui-lang-en.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\en.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\en.js
 
 type extjs_source_all\src\locale\ext-lang-pt_BR.js > _x
 type js\lang\fineui-lang-pt_BR.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\pt_BR.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\pt_BR.js
 
 
 type extjs_source_all\src\locale\ext-lang-tr.js > _x
 type js\lang\fineui-lang-tr.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\tr.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\tr.js
 
 
 type extjs_source_all\src\locale\ext-lang-zh_CN.js > _x
 type js\lang\fineui-lang-zh_CN.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\zh_CN.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\zh_CN.js
 
 
 type extjs_source_all\src\locale\ext-lang-zh_TW.js > _x
 type js\lang\fineui-lang-zh_TW.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\zh_TW.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\zh_TW.js
 
 
 type extjs_source_all\src\locale\ext-lang-ru.js > _x
 type js\lang\fineui-lang-ru.js >> _x
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\lang\ru.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\ru.js
 
 
 
@@ -143,7 +143,7 @@ type _x > ..\extjs\x-debug.js
 type ..\extjs\ext-debug.js > _x
 type ..\extjs\x-debug.js >> _x
 
-ajaxminifier\ajaxminifier -js _x -o ..\extjs\ext.js
+ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\ext.js
 
 
 del _x /Q

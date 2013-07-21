@@ -146,21 +146,45 @@
             }
         },
 
-        // 隐藏Ext-Window（比如用户点击了关闭按钮）
-        hide: function (panel, targetName, enableIFrame, hiddenHiddenFieldID, guid) {
+        // 获取真正的Window实例
+        getRealWindow: function (panel, targetName, guid) {
             var target = X.util.getTargetWindow(targetName);
-            // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
-            Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             if (window.frameElement && target !== window) {
                 // 从父页面中查找幻影Ext-Window对象
                 panel = target.X[guid];
             }
+            return panel;
+        },
+
+        // 隐藏Ext-Window（比如用户点击了关闭按钮）
+        hide: function (panel, targetName, enableIFrame, hiddenHiddenFieldID, guid) {
+            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
+            Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
             if (enableIFrame) {
-                panel.body.first().dom.src = 'about:blank';
-                panel['x_iframe_url'] = 'about:blank';
+                wnd.body.first().dom.src = 'about:blank';
+                wnd['x_iframe_url'] = 'about:blank';
             }
-            panel.hide();
+            wnd.hide();
+        },
+
+        // 最大化
+        maximize: function (panel, targetName, guid) {
+            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            wnd.maximize();
+        },
+
+        // 最小化
+        minimize: function (panel, targetName, guid) {
+            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            wnd.minimize();
+        },
+
+        // 恢复窗体大小
+        restore: function (panel, targetName, guid) {
+            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            wnd.restore();
         },
 
         // 这是 Extjs 的一个 bug，如果 Window 控件不是渲染在 document.body 中，则 maximize 函数并不能真正的最大化

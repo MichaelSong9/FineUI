@@ -1526,7 +1526,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetMaximizeReference()
         {
-            return String.Format("{0}.maximize();", ScriptID);
+            return String.Format("{0}.x_maximize();", ScriptID);
         }
 
         /// <summary>
@@ -1535,7 +1535,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetRestoreReference()
         {
-            return String.Format("{0}.restore();", ScriptID);
+            return String.Format("{0}.x_restore();", ScriptID);
         }
 
         /// <summary>
@@ -1544,7 +1544,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetMinimizeReference()
         {
-            return String.Format("{0}.minimize();", ScriptID);
+            return String.Format("{0}.x_minimize();", ScriptID);
         }
 
 

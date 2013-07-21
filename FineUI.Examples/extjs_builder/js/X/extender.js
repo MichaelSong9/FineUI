@@ -1133,6 +1133,16 @@ if (Ext.Window) {
         },
         x_show: function (iframeUrl, windowTitle) {
             X.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
+        },
+
+        x_maximize: function () {
+            X.wnd.maximize(this, this.x_property_target, this.x_property_guid);
+        },
+        x_minimize: function () {
+            X.wnd.minimize(this, this.x_property_target, this.x_property_guid);
+        },
+        x_restore: function () {
+            X.wnd.restore(this, this.x_property_target, this.x_property_guid);
         }
 
     });
