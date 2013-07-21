@@ -1128,8 +1128,10 @@ if (Ext.Window) {
             window.location.reload();
         },
         x_hide_postback: function (argument) {
+            // 如果argument为undefined，则传入__doPostBack应为空字符串
+            argument = argument || '';
             this.x_hide();
-            __doPostBack(this.id, argument);
+            __doPostBack(this.name, argument);
         },
         x_show: function (iframeUrl, windowTitle) {
             X.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
