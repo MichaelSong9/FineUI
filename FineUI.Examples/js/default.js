@@ -113,7 +113,7 @@ function onReady() {
 	
 
     // 公开添加示例标签页的方法
-    window.addExampleTab = function (id, url, text, icon) {
+    window.addExampleTab = function (id, url, text, icon, refreshWhenExist) {
 		// 动态添加一个标签页
 		// mainTabStrip： 选项卡实例
 		// id： 选项卡ID
@@ -122,7 +122,7 @@ function onReady() {
 		// icon： 选项卡图标
 		// addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
 		// refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
-        X.util.addMainTab(mainTabStrip, id, url, text, icon, null, true);
+        X.util.addMainTab(mainTabStrip, id, url, text, icon, null, refreshWhenExist);
     };
 
     window.removeActiveTab = function () {
