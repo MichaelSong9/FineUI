@@ -534,17 +534,27 @@ X.toggle = function (el, className) {
 
 
         // 动态添加一个标签页
-        // addExampleTab(node) or addExampleTab(id, url, text)
-        addMainTab: function (mainTabStrip, id, url, text, icon, tbarCallback) {
+		// mainTabStrip： 选项卡实例
+		// id： 选项卡ID
+		// url: 选项卡IFrame地址 
+		// text： 选项卡标题
+		// icon： 选项卡图标
+		// addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
+		// refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
+        addMainTab: function (mainTabStrip, id, url, text, icon, addTabCallback, refreshWhenExist) {
             var iconId, iconCss, tabId, currentTab, tabConfig;
+			
+			// 兼容 addMainTab(mainTabStrip, treeNode, addTabCallback, refreshWhenExist) 调用方式
             if (typeof (id) !== 'string') {
-                tbarCallback = url;
+				refreshWhenExist = text;
+                addTabCallback = url;
                 url = id.attributes.href;
                 icon = id.attributes.icon;
                 text = id.text;
 
                 id = id.id;
             }
+			
             //var href = node.attributes.href;
             if (icon) {
                 iconId = icon.replace(/\W/ig, '_');
@@ -559,11 +569,11 @@ X.toggle = function (el, className) {
                 }
             }
             // 动态添加一个带工具栏的标签页
-            tabId = 'dynamic_added_tab' + id.replace('__', '-');
-            currentTab = mainTabStrip.getTab(tabId);
+            //tabId = 'dynamic_added_tab' + id.replace('__', '-');
+            currentTab = mainTabStrip.getTab(id);
             if (!currentTab) {
                 tabConfig = {
-                    'id': tabId,
+                    'id': id,
                     'url': url,
                     'title': text,
                     'closable': true,
@@ -572,18 +582,36 @@ X.toggle = function (el, className) {
                 if (icon) {
                     tabConfig['iconCls'] = iconId;
                 }
-                if (tbarCallback) {
-                    tabConfig['tbar'] = tbarCallback.call(window);
+				
+                if (addTabCallback) {
+                    var addTabCallbackResult = addTabCallback.apply(window, [tabConfig]);
+					// 兼容之前的方法，函数返回值如果不为空，则将返回值作为顶部工具条实例
+					if(addTabCallbackResult) {
+						tabConfig['tbar'] = addTabCallbackResult;
+					}
                 }
                 mainTabStrip.addTab(tabConfig);
             } else {
                 mainTabStrip.setActiveTab(currentTab);
+				if(refreshWhenExist) {
+					var iframeNode = currentTab.body.query('iframe')[0];
+					if(iframeNode) {
+						iframeNode.contentWindow.location.reload();
+					}
+				}
+				
             }
         },
 
 		// 初始化左侧树（或者手风琴+树）与右侧选项卡控件的交互
-        initTreeTabStrip: function (treeMenu, mainTabStrip, tbarCallback, updateLocationHash) {
-
+		// treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例
+		// mainTabStrip： 选项卡实例
+		// addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
+		// updateLocationHash: 切换Tab时，是否更新地址栏Hash值
+		// refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
+		// refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
+        initTreeTabStrip: function (treeMenu, mainTabStrip, addTabCallback, updateLocationHash, refreshWhenExist, refreshWhenTabChange) {
+            
             // 注册树的节点点击事件
             function registerTreeClickEvent(treeInstance) {
                 treeInstance.on('click', function (node, event) {
@@ -599,7 +627,7 @@ X.toggle = function (el, className) {
                         }
 
                         // 新增Tab节点
-                        X.util.addMainTab(mainTabStrip, node, tbarCallback);
+                        X.util.addMainTab(mainTabStrip, node, addTabCallback, refreshWhenExist);
                     }
                 });
             }
@@ -616,20 +644,33 @@ X.toggle = function (el, className) {
                 registerTreeClickEvent(treeMenu);
             }
 
-
-            if (updateLocationHash) {
-                // 切换主窗口的Tab
-                mainTabStrip.on('tabchange', function (tabStrip, tab) {
-                    if (tab.url) {
-                        //window.location.href = '#' + tab.url;
-                        window.location.hash = '#' + tab.url;
-                    } else {
-                        window.location.hash = '#';
-                    }
-                });
-            }
-
-
+			// 切换主窗口的Tab
+			mainTabStrip.on('tabchange', function (tabStrip, tab) {
+				var tabHash = '#' + (tab.url || '');
+				
+				// 只有当浏览器地址栏的Hash值和将要改变的不一样时，才进行如下两步处理：
+				// 1. 更新地址栏Hash值
+				// 2. 刷新Tab内的IFrame
+				if(tabHash !== window.location.hash) {
+					
+					if (updateLocationHash) {
+						window.location.hash = tabHash;
+					}
+					
+					if(refreshWhenTabChange) {
+						var iframeNode = tab.body.query('iframe')[0];
+						if(iframeNode) {
+							var currentLocationHref = iframeNode.contentWindow.location.href;
+							if(/^http(s?):\/\//.test(currentLocationHref)) {
+								iframeNode.contentWindow.location.reload();
+							}
+						}
+					}
+				}
+				
+			});
+			
+			
             // 页面第一次加载时，根据URL地址在主窗口加载页面
             var HASH = window.location.hash.substr(1);
             if (HASH) {
@@ -646,7 +687,7 @@ X.toggle = function (el, className) {
                                     path = currentNode.getPath();
                                     treeInstance.expandPath(path); //node.expand();
                                     treeInstance.selectPath(path); // currentNode.select();
-                                    X.util.addMainTab(mainTabStrip, currentNode, tbarCallback);
+                                    X.util.addMainTab(mainTabStrip, currentNode, addTabCallback);
                                     FOUND = true;
                                     return;
                                 }
@@ -674,6 +715,9 @@ X.toggle = function (el, className) {
                     initTreeMenu(treeMenu, treeMenu.getRootNode());
                 }
             }
+			
+			
+			
 
         },
 
