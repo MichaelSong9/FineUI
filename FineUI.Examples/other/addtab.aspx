@@ -10,11 +10,11 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Button ID="Button1" runat="server" EnablePostBack="false" OnClientClick="openHelloFineUI();"
-        Text="添加TAB">
+        Text="向父页面添加选项卡">
     </x:Button>
     <br />
     <x:Button ID="Button2" runat="server" EnablePostBack="false" OnClientClick="closeActiveTab();"
-        Text="关闭当前TAB">
+        Text="关闭当前选项卡">
     </x:Button>
     </form>
 	<script type="text/javascript">
