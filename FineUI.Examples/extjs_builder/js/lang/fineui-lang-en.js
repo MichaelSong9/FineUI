@@ -2,7 +2,8 @@
 
 
 Ext.apply(X.ajax, {
-    errorMsg: "Error! {0} ({1})"
+    errorMsg: "Error! {0} ({1})",
+	timeoutErrorMsg: "Request timeout, please refresh the page and try again!"
 });
 
 Ext.apply(X.util, {

@@ -3,7 +3,8 @@
 
 
 Ext.apply(X.ajax, {
-    errorMsg: "出錯了！{0} ({1})"
+    errorMsg: "出錯了！{0} ({1})",
+	timeoutErrorMsg: "請求超時，請刷新頁面並重試！"
 });
 
 Ext.apply(X.util, {

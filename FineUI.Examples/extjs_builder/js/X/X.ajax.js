@@ -2,8 +2,10 @@
 (function () {
 
     X.ajax = {
-
+		
+		timeoutErrorMsg: "Request timeout, please refresh the page and try again!",
         errorMsg: "Error! {0} ({1})",
+		errorWindow: null,
 
         hookPostBack: function () {
             if (typeof (__doPostBack) != 'undefined') {
@@ -97,15 +99,7 @@
                         X.enable(lastDisabledButtonId);
                     }
                     //X.util.alert(String.format(X.ajax.errorMsg, data.statusText, data.status));
-
-                    if (!X.ajax.errorWindow) {
-                        initErrorWindow();
-                    }
-                    X.ajax.errorWindow.show();
-                    X.ajax.errorWindow.body.dom.innerHTML = X.wnd.createIFrameHtml('about:blank', 'FINEUI_ERROR');
-                    X.ajax.errorWindow.setTitle(String.format(X.ajax.errorMsg, data.statusText, data.status));
-                    writeContentToIFrame(X.ajax.errorWindow.body.query('iframe')[0], data.responseText);
-                    //writeContentToIFrame(Ext.DomQuery.selectNode('iframe', X.ajax.errorWindow.body), data.responseText);
+					createErrorWindow(data);
                 },
                 callback: function (options, success, response) {
                     // AJAX结束时需要清空此字段，否则下一次的type=submit提交（ASP.NET回发方式之一）会被误认为是AJAX提交
@@ -136,11 +130,6 @@
         // contentWindow is always there.
         if (iframe) {
             var doc = iframe.contentWindow.document;
-            //            if (iframe.contentDocument) {
-            //                doc = iframe.contentDocument;
-            //            } else if (iframe.contentWindow) {
-            //                doc = iframe.contentWindow.document;
-            //            }
             if (doc) {
                 doc.open();
                 doc.write(content);
@@ -149,27 +138,47 @@
         }
     }
 
-    function initErrorWindow() {
-        X.ajax.errorWindow = new Ext.Window({
-            id: "FINEUI_ERROR",
-            renderTo: window.body,
-            width: 550,
-            height: 350,
-            border: true,
-            animCollapse: true,
-            collapsible: false,
-            collapsed: false,
-            closeAction: "hide",
-            plain: false,
-            modal: true,
-            draggable: true,
-            minimizable: false,
-            minHeight: 100,
-            minWidth: 200,
-            resizable: false,
-            maximizable: false,
-            closable: true
-        });
+	// 创建出错窗口
+    function createErrorWindow(data) {
+		// 如果是请求超时错误，则弹出简单提醒对话框
+		if(data.isTimeout) {
+			X.util.alert(X.ajax.timeoutErrorMsg);
+			return;
+		}
+		
+		// 如果响应正文为空，则弹出简单提醒对话框
+		if(!data.responseText) {
+			X.util.alert(String.format(X.ajax.errorMsg, data.statusText, data.status));
+			return;
+		}
+		
+        if(!X.ajax.errorWindow) {
+			X.ajax.errorWindow = new Ext.Window({
+				id: "FINEUI_ERROR",
+				renderTo: window.body,
+				width: 550,
+				height: 350,
+				border: true,
+				animCollapse: true,
+				collapsible: false,
+				collapsed: false,
+				closeAction: "hide",
+				plain: false,
+				modal: true,
+				draggable: true,
+				minimizable: false,
+				minHeight: 100,
+				minWidth: 200,
+				resizable: true,
+				maximizable: true,
+				closable: true
+			});
+		}
+		
+		X.ajax.errorWindow.show();
+		X.ajax.errorWindow.body.dom.innerHTML = X.wnd.createIFrameHtml('about:blank', 'FINEUI_ERROR');
+		X.ajax.errorWindow.setTitle(String.format(X.ajax.errorMsg, data.statusText, data.status));
+		writeContentToIFrame(X.ajax.errorWindow.body.query('iframe')[0], data.responseText);
     }
 
     // Ext.Ajax.serializeForm has a fault. The result will include type="submit" section, which is not always right.
@@ -404,7 +413,7 @@
         if (!enableAjaxLoading()) {
             // ...
         } else {
-            Ext.defer(_hideAjaxLoading, 80, window, [ajaxLoadingType()]);
+            Ext.defer(_hideAjaxLoading, 100, window, [ajaxLoadingType()]);
         }
         X.control_enable_ajax_loading = undefined;
         X.control_ajax_loading_type = undefined;
@@ -417,7 +426,7 @@
         if (!enableAjaxLoading()) {
             // ...
         } else {
-            Ext.defer(_hideAjaxLoading, 100);
+            Ext.defer(_hideAjaxLoading, 100, window, [ajaxLoadingType()]);
         }
         X.control_enable_ajax_loading = undefined;
         X.control_ajax_loading_type = undefined;

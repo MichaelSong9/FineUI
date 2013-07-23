@@ -34,6 +34,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-对X.util.initTreeTabStrip和X.util.addMainTab进行重构，可以指定切换/新增选项卡时是否刷新IFrame。
 	-更新other/addtab.aspx示例，在JavaScript中使用网站根路径。
 	-增加示例other/confirm_cancel.aspx，点击确认对话框的取消按钮也能回发页面（夏了，夏天）。
+	-修正AJAX异常时提示信息没有消失的问题。
+	-优化AJAX超时提示对话框（请求超时，请刷新页面并重试！）。
 	+性能优化。
 		-为官方示例增加压缩ViewState的方法，在页面基类PageBase中实现。
 		+为表格/树/下拉列表/单选框复选框列表/表单字段控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
