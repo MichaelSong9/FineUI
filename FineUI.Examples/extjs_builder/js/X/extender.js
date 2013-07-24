@@ -486,6 +486,7 @@ if (Ext.grid.GridPanel) {
 
             // 重新加载数据前清空之前的改变
             this.x_newAddedRows = [];
+			this.x_deletedRows = [];
 
             store.loadData(datas);
 
@@ -740,6 +741,7 @@ if (Ext.grid.GridPanel) {
             this.getStore().commitChanges();
 
             this.x_newAddedRows = [];
+			this.x_deletedRows = [];
         },
 
         // 添加一条新纪录
@@ -747,8 +749,6 @@ if (Ext.grid.GridPanel) {
             var i, count, store = this.getStore();
             var recordType = store.recordType;
             var newRecord = new recordType(defaultObj);
-
-            // 记录客户端新增的行索引，this.x_newAddedRows
 
             this.stopEditing();
             if (appendToEnd) {
