@@ -366,6 +366,13 @@ if (Ext.grid.RowNumberer) {
 
 }
 
+if (Ext.data.Store) {
+    Ext.override(Ext.data.Store, {
+		// true to clear all modified record information each time the store is loaded or when a record is removed (defaults to false).
+		pruneModifiedRecords: true
+		
+	});
+}
 
 if (Ext.grid.GridPanel) {
     Ext.override(Ext.grid.GridPanel, {
@@ -472,8 +479,10 @@ if (Ext.grid.GridPanel) {
 
             var store = this.getStore();
 
+			// 已经设置 Ext.data.Store 的 pruneModifiedRecords ，在重新加载数据时都会清除所有已经改变的数据
+			// 所以无需 rejectChanges
             // 拒绝之前对表格的编辑，因为接下来就要重新加载数据
-            store.rejectChanges();
+            //store.rejectChanges();
 
             // 重新加载数据前清空之前的改变
             this.x_newAddedRows = [];
@@ -501,7 +510,7 @@ if (Ext.grid.GridPanel) {
         },
 
         // http://evilcroco.name/2010/10/making-extjs-grid-content-selectable/
-        /* IE下允许选中表格中的文本 */
+        // IE下允许选中表格中的文本
         x_enableTextSelection: function () {
             //if (Ext.isIE) {
             var elems = Ext.DomQuery.select("div[unselectable=on]", this.el.dom);
