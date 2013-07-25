@@ -39,59 +39,54 @@ namespace FineUI.Examples.grid
         {
             Dictionary<int, Dictionary<string, string>> modifiedDict = Grid1.GetModifiedDict();
 
-            for (int i = 0, count = Grid1.Rows.Count; i < count; i++)
+            foreach (int rowIndex in modifiedDict.Keys)
             {
-                if (modifiedDict.ContainsKey(i))
-                {
-                    Dictionary<string, string> rowDict = modifiedDict[i];
+                int rowID = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
+                DataRow row = FindRowByID(rowID);
 
-                    // 更新数据源
-                    DataTable table = GetSourceData();
-
-                    DataRow rowData = table.Rows[i];
-
-                    // 姓名
-                    if (rowDict.ContainsKey("Name"))
-                    {
-                        rowData["Name"] = rowDict["Name"];
-                    }
-                    // 性别
-                    if (rowDict.ContainsKey("Gender"))
-                    {
-                        rowData["Gender"] = Convert.ToInt32(rowDict["Gender"]);
-                    }
-                    // 入学年份
-                    if (rowDict.ContainsKey("EntranceYear"))
-                    {
-                        rowData["EntranceYear"] = rowDict["EntranceYear"];
-                    }
-                    // 入学日期
-                    if (rowDict.ContainsKey("EntranceDate"))
-                    {
-                        rowData["EntranceDate"] = DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd");
-                    }
-                    // 是否在校
-                    if (rowDict.ContainsKey("AtSchool"))
-                    {
-                        rowData["AtSchool"] = Convert.ToBoolean(rowDict["AtSchool"]);
-                    }
-                    // 所学专业
-                    if (rowDict.ContainsKey("Major"))
-                    {
-                        rowData["Major"] = rowDict["Major"];
-                    }
-
-                }
+                UpdateDataRow(modifiedDict[rowIndex], row);
             }
 
-            labResult.Text = "用户修改的数据：" + Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.None);
-
             BindGrid();
+
+            labResult.Text = "用户修改的数据：" + Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.None);
 
             Alert.Show("数据保存成功！（表格数据已重新绑定）");
         }
 
-
+        private static void UpdateDataRow(Dictionary<string, string> rowDict, DataRow rowData)
+        {
+            // 姓名
+            if (rowDict.ContainsKey("Name"))
+            {
+                rowData["Name"] = rowDict["Name"];
+            }
+            // 性别
+            if (rowDict.ContainsKey("Gender"))
+            {
+                rowData["Gender"] = Convert.ToInt32(rowDict["Gender"]);
+            }
+            // 入学年份
+            if (rowDict.ContainsKey("EntranceYear"))
+            {
+                rowData["EntranceYear"] = rowDict["EntranceYear"];
+            }
+            // 入学日期
+            if (rowDict.ContainsKey("EntranceDate"))
+            {
+                rowData["EntranceDate"] = DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd");
+            }
+            // 是否在校
+            if (rowDict.ContainsKey("AtSchool"))
+            {
+                rowData["AtSchool"] = Convert.ToBoolean(rowDict["AtSchool"]);
+            }
+            // 所学专业
+            if (rowDict.ContainsKey("Major"))
+            {
+                rowData["Major"] = rowDict["Major"];
+            }
+        }
 
 
         #endregion
@@ -111,7 +106,21 @@ namespace FineUI.Examples.grid
             return (DataTable)Session[KEY_FOR_DATASOURCE_SESSION];
         }
 
+        // 根据行ID来获取行数据
+        private DataRow FindRowByID(int rowID)
+        {
+            DataTable table = GetSourceData();
+            foreach (DataRow row in table.Rows)
+            {
+                if (Convert.ToInt32(row["Id"]) == rowID)
+                {
+                    return row;
+                }
+            }
+            return null;
+        }
         
         #endregion
+
     }
 }

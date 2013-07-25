@@ -54,6 +54,16 @@ namespace FineUI
         /// 获取客户端可用的图标URL地址
         /// </summary>
         /// <param name="icon">图标</param>
+        /// <returns>URL地址</returns>
+        public static string GetResolvedIconUrl(Icon icon)
+        {
+            return GetResolvedIconUrl(icon, String.Empty);
+        }
+
+        /// <summary>
+        /// 获取客户端可用的图标URL地址
+        /// </summary>
+        /// <param name="icon">图标</param>
         /// <param name="iconUrl">图标地址</param>
         /// <returns>URL地址</returns>
         public static string GetResolvedIconUrl(Icon icon, string iconUrl)

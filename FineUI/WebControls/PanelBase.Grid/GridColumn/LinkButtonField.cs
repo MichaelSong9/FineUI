@@ -512,7 +512,7 @@ namespace FineUI
                   ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, OnClientClick, String.Empty);
 
                 //clientScript = JsHelper.GetDeferScript(clientScript, 0) + "X.stopEvent();";
-                clientScript = clientScript + "X.stop();";
+                //clientScript = clientScript + "X.stop();";
 
                 nb.SetProperty("onclick", clientScript);
 

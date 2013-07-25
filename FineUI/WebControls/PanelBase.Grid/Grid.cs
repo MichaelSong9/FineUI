@@ -57,15 +57,15 @@ namespace FineUI
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class Grid : CollapsablePanel, IPostBackDataHandler, IPostBackEventHandler
     {
-		#region static readonly
-		
-		/// <summary>
-		/// 模板列占位符前缀
-		/// </summary>
+        #region static readonly
+
+        /// <summary>
+        /// 模板列占位符前缀
+        /// </summary>
         public static readonly string TEMPLATE_PLACEHOLDER_PREFIX = "#@TPL@#";
 
-		#endregion
-		
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -820,7 +820,7 @@ namespace FineUI
 
         #endregion
 
-        #region EnableXXEvent
+        #region EnableRowClickEvent/EnableRowClickEvent
 
         /// <summary>
         /// 点击行是否自动回发
@@ -961,7 +961,7 @@ namespace FineUI
         }
         #endregion
 
-        #region ForceFitAllTime
+        #region ForceFitAllTime/AutoExpandColumn
 
         /// <summary>
         /// 列的最小宽度
@@ -1617,7 +1617,7 @@ namespace FineUI
 
                     row.InitTemplateContainers();
 
-                    
+
                 }
 
             }
@@ -1654,7 +1654,7 @@ namespace FineUI
 
         #endregion
 
-        #region old code LoadXState/SaveXState
+        #region oldcode
 
         //protected override void LoadXState(JObject state, string property)
         //{
@@ -1798,11 +1798,11 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        private string EditorDataHiddenFieldID
+        private string ModifiedDataHiddenFieldID
         {
             get
             {
-                return String.Format("{0}_EditorData", ClientID);
+                return String.Format("{0}_ModifiedData", ClientID);
             }
         }
 
@@ -1816,7 +1816,15 @@ namespace FineUI
             }
         }
 
-
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        private string DeletedRowsHiddenFieldID
+        {
+            get
+            {
+                return String.Format("{0}_DeletedRows", ClientID);
+            }
+        }
 
         ///// <summary>
         ///// 实际绑定到页面上的值
@@ -3393,6 +3401,17 @@ namespace FineUI
         //}
 
 
+        private List<int> _deletedList;
+
+        /// <summary>
+        /// 获取删除的行索引列表
+        /// </summary>
+        /// <returns></returns>
+        public List<int> GetDeletedList()
+        {
+            return _deletedList;
+        }
+
 
         private List<Dictionary<string, string>> _newAddedList;
 
@@ -3483,105 +3502,96 @@ namespace FineUI
             }
 
 
+            // 删除的行索引列表
+            string paramDeletedRows = postCollection[DeletedRowsHiddenFieldID];
+            _deletedList = new List<int>();
+            if (!String.IsNullOrEmpty(paramDeletedRows))
+            {
+                _deletedList = StringUtil.GetIntListFromString(paramDeletedRows, true);
+            }
+
+
             // 启用单元格编辑
             if (AllowCellEditing)
             {
+                // 新增的行索引列表
                 string paramNewAddedRows = postCollection[NewAddedRowsHiddenFieldID];
                 List<int> newAddedRows = new List<int>();
                 if (!String.IsNullOrEmpty(paramNewAddedRows))
                 {
                     newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
-
                 }
 
-                // 应该从客户端的RowIndex中减去这个数字，这个数字是客户端新增的行数
-                int addedRowNumbers = 0;
-                if (newAddedRows.Contains(0))
-                {
-                    addedRowNumbers = newAddedRows.Count;
-                }
-
+                //// 应该从客户端的RowIndex中减去这个数字，这个数字是客户端新增的行数
+                //int addedRowNumbers = 0;
+                //if (newAddedRows.Contains(0))
+                //{
+                //    addedRowNumbers = newAddedRows.Count;
+                //}
 
                 // 根据用户的输入修改每个单元格的Values
                 _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
                 _newAddedList = new List<Dictionary<string, string>>();
                 _modifiedData = new JArray();
-                //_modifiedCells = new List<ModifiedCell>();
-                String editorDataStr = postCollection[EditorDataHiddenFieldID];
+                String editorDataStr = postCollection[ModifiedDataHiddenFieldID];
                 if (!String.IsNullOrEmpty(editorDataStr))
                 {
                     _modifiedData = JArray.Parse(editorDataStr);
-                    if (_modifiedData.Count > 0)
+
+                    foreach (JArray modifiedItem in _modifiedData)
                     {
-                        int lastNewAddedRowIndex = -1;
-                        foreach (JArray modifiedItem in _modifiedData)
+                        // 修改的数据在新集合中的行索引
+                        int rowIndex = modifiedItem[0].ToObject<int>();
+                        // 修改的数据在原始集合中的行索引，如果是新增行则为-1
+                        int originalRowIndex = modifiedItem[1].ToObject<int>();
+
+                        //bool thisRowIsNewAdded = false;
+                        //if (newAddedRows.Count > 0 && newAddedRows.Contains(rowIndex))
+                        //{
+                        //    thisRowIsNewAdded = true;
+                        //}
+                        //else
+                        //{
+                        //    thisRowIsNewAdded = false;
+                        //    rowIndex -= addedRowNumbers;
+                        //}
+
+                        // 获取本行（Record）中所有修改的记录（Field），并保存到字典中（rowModifiedDic）
+                        Dictionary<string, string> rowModifiedDic = new Dictionary<string, string>();
+                        JObject rowModifiedData = modifiedItem[2].ToObject<JObject>();
+                        foreach (JProperty propertyObj in rowModifiedData.Properties())
                         {
-                            int rowIndex = modifiedItem[0].ToObject<int>();
+                            string columnID = propertyObj.Name;
+                            object cellValue = rowModifiedData.Value<object>(columnID);
+                            int columnIndex = FindColumn(columnID).ColumnIndex;
 
-                            bool thisRowIsNewAdded = false;
-                            if (newAddedRows.Count > 0 && newAddedRows.Contains(rowIndex))
+                            string newCellValue = cellValue.ToString();
+
+                            rowModifiedDic.Add(columnID, newCellValue);
+
+                            // 如果本行不是新增的，还需要更新行的Values属性
+                            if (originalRowIndex >= 0)
                             {
-                                thisRowIsNewAdded = true;
+                                Rows[originalRowIndex].Values[columnIndex] = newCellValue;
                             }
-                            else
-                            {
-                                thisRowIsNewAdded = false;
-                                rowIndex -= addedRowNumbers;
-                            }
-
-
-                            Dictionary<string, string> rowModifiedDic = new Dictionary<string, string>();
-
-                            JObject rowModifiedData = modifiedItem[1].ToObject<JObject>();
-                            foreach (JProperty propertyObj in rowModifiedData.Properties())
-                            {
-                                string columnID = propertyObj.Name;
-                                object cellValue = rowModifiedData.Value<object>(columnID);
-                                int columnIndex = FindColumn(columnID).ColumnIndex;
-
-                                string newCellValue = cellValue.ToString();
-
-                                rowModifiedDic.Add(columnID, newCellValue);
-
-                                //ModifiedCell cell = new ModifiedCell();
-                                //cell.RowIndex = rowIndex;
-                                //cell.ColumnID = columnID;
-                                //cell.ColumnIndex = columnIndex;
-                                //cell.OldCellValue = Rows[rowIndex].Values[columnIndex];
-                                //cell.CellValue = newCellValue;
-                                //_modifiedCells.Add(cell);
-
-                                // 如果本行不是新增的，还需要更新行的Values属性
-                                if (!thisRowIsNewAdded)
-                                {
-                                    Rows[rowIndex].Values[columnIndex] = newCellValue;
-                                }
-                            }
-
-                            if (thisRowIsNewAdded)
-                            {
-                                // 通过 lastNewAddedRowIndex 来简单地保证新增数据行的顺序
-                                if (rowIndex > lastNewAddedRowIndex)
-                                {
-                                    _newAddedList.Add(rowModifiedDic);
-                                }
-                                else
-                                {
-                                    _newAddedList.Insert(0, rowModifiedDic);
-                                }
-
-                                lastNewAddedRowIndex = rowIndex;
-                            }
-                            else
-                            {
-                                _modifiedDict.Add(rowIndex, rowModifiedDic);
-                            }
-
                         }
 
-                        XState.BackupPostDataProperty("X_Rows");
+                        if (originalRowIndex >= 0)
+                        {
+                            // 已经存在的行
+                            _modifiedDict.Add(originalRowIndex, rowModifiedDic);
+                        }
+                        else
+                        {
+                            // 新增行
+                            _newAddedList.Add(rowModifiedDic);
+                        }
+
                     }
+
+                    XState.BackupPostDataProperty("X_Rows");
                 }
+
 
                 // 选中的单元格（数组中元素的顺序是固定的，不能排序）
                 int[] selectedCell = StringUtil.GetIntListFromString(postCollection[SelectedCellHiddenFieldID], false).ToArray();
@@ -3626,7 +3636,7 @@ namespace FineUI
 
         #endregion
 
-        #region CommitChanges
+        #region CommitChanges/RejectChanges/ClearSelections/AddNewRecord
 
         /// <summary>
         /// 接受用户编辑单元格（同时消除编辑单元格左上方的红色提示图标）
@@ -3722,6 +3732,23 @@ namespace FineUI
             return String.Format("{0}.x_addNewRecord({1},{2});", ScriptID, defaultObject.ToString(Formatting.None), appendToEnd.ToString().ToLower());
         }
 
+
+        /// <summary>
+        /// 删除选中行（或者单元格）
+        /// </summary>
+        public void DeleteSelected()
+        {
+            PageContext.RegisterStartupScript(GetDeleteSelectedReference());
+        }
+
+        /// <summary>
+        /// 获取删除选中行（或者单元格）的客户端脚本
+        /// </summary>
+        /// <returns>客户端脚本</returns>
+        public string GetDeleteSelectedReference()
+        {
+            return String.Format("{0}.x_deleteSelected();", ScriptID);
+        }
 
         #endregion
 

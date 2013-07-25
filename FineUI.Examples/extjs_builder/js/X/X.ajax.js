@@ -2,10 +2,10 @@
 (function () {
 
     X.ajax = {
-		
-		timeoutErrorMsg: "Request timeout, please refresh the page and try again!",
+
+        timeoutErrorMsg: "Request timeout, please refresh the page and try again!",
         errorMsg: "Error! {0} ({1})",
-		errorWindow: null,
+        errorWindow: null,
 
         hookPostBack: function () {
             if (typeof (__doPostBack) != 'undefined') {
@@ -99,7 +99,7 @@
                         X.enable(lastDisabledButtonId);
                     }
                     //X.util.alert(String.format(X.ajax.errorMsg, data.statusText, data.status));
-					createErrorWindow(data);
+                    createErrorWindow(data);
                 },
                 callback: function (options, success, response) {
                     // AJAX结束时需要清空此字段，否则下一次的type=submit提交（ASP.NET回发方式之一）会被误认为是AJAX提交
@@ -138,47 +138,47 @@
         }
     }
 
-	// 创建出错窗口
+    // 创建出错窗口
     function createErrorWindow(data) {
-		// 如果是请求超时错误，则弹出简单提醒对话框
-		if(data.isTimeout) {
-			X.util.alert(X.ajax.timeoutErrorMsg);
-			return;
-		}
-		
-		// 如果响应正文为空，则弹出简单提醒对话框
-		if(!data.responseText) {
-			X.util.alert(String.format(X.ajax.errorMsg, data.statusText, data.status));
-			return;
-		}
-		
-        if(!X.ajax.errorWindow) {
-			X.ajax.errorWindow = new Ext.Window({
-				id: "FINEUI_ERROR",
-				renderTo: window.body,
-				width: 550,
-				height: 350,
-				border: true,
-				animCollapse: true,
-				collapsible: false,
-				collapsed: false,
-				closeAction: "hide",
-				plain: false,
-				modal: true,
-				draggable: true,
-				minimizable: false,
-				minHeight: 100,
-				minWidth: 200,
-				resizable: true,
-				maximizable: true,
-				closable: true
-			});
-		}
-		
-		X.ajax.errorWindow.show();
-		X.ajax.errorWindow.body.dom.innerHTML = X.wnd.createIFrameHtml('about:blank', 'FINEUI_ERROR');
-		X.ajax.errorWindow.setTitle(String.format(X.ajax.errorMsg, data.statusText, data.status));
-		writeContentToIFrame(X.ajax.errorWindow.body.query('iframe')[0], data.responseText);
+        // 如果是请求超时错误，则弹出简单提醒对话框
+        if (data.isTimeout) {
+            X.util.alert(X.ajax.timeoutErrorMsg);
+            return;
+        }
+
+        // 如果响应正文为空，则弹出简单提醒对话框
+        if (!data.responseText) {
+            X.util.alert(String.format(X.ajax.errorMsg, data.statusText, data.status));
+            return;
+        }
+
+        if (!X.ajax.errorWindow) {
+            X.ajax.errorWindow = new Ext.Window({
+                id: "FINEUI_ERROR",
+                renderTo: window.body,
+                width: 550,
+                height: 350,
+                border: true,
+                animCollapse: true,
+                collapsible: false,
+                collapsed: false,
+                closeAction: "hide",
+                plain: false,
+                modal: true,
+                draggable: true,
+                minimizable: false,
+                minHeight: 100,
+                minWidth: 200,
+                resizable: true,
+                maximizable: true,
+                closable: true
+            });
+        }
+
+        X.ajax.errorWindow.show();
+        X.ajax.errorWindow.body.dom.innerHTML = X.wnd.createIFrameHtml('about:blank', 'FINEUI_ERROR');
+        X.ajax.errorWindow.setTitle(String.format(X.ajax.errorMsg, data.statusText, data.status));
+        writeContentToIFrame(X.ajax.errorWindow.body.query('iframe')[0], data.responseText);
     }
 
     // Ext.Ajax.serializeForm has a fault. The result will include type="submit" section, which is not always right.
@@ -284,27 +284,43 @@
         }
 
         if (cmp.isXType('grid')) {
+
             if (cmp.isXType('editorgrid')) {
+                // 可编辑单元格的表格
+                // 选中单元格
                 saveInHiddenField('SelectedCell', cmp.x_getSelectedCell().join(','));
 
-                if (cmp.x_newAddedRows.length > 0) {
-                    saveInHiddenField('NewAddedRows', cmp.x_newAddedRows.join(','));
+                // 新增行
+                var newAddedRows = cmp.x_getNewAddedRows();
+                if (newAddedRows.length > 0) {
+                    saveInHiddenField('NewAddedRows', newAddedRows.join(','));
                 } else {
                     removeHiddenField('NewAddedRows');
                 }
 
-                var gridEditorData = cmp.x_getEditorData();
-                if (gridEditorData.length > 0) {
-                    saveInHiddenField('EditorData', Ext.encode(gridEditorData));
+                // 修改的数据
+                var modifiedData = cmp.x_getModifiedData();
+                if (modifiedData.length > 0) {
+                    saveInHiddenField('ModifiedData', Ext.encode(modifiedData));
                 } else {
-                    removeHiddenField('EditorData');
+                    removeHiddenField('ModifiedData');
                 }
 
             } else {
+                // 普通的表格
+                // 选中行索引列表
                 saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
             }
 
+            // 删除的行索引列表
+            var deletedRows = cmp.x_getDeletedRows();
+            if (deletedRows.length > 0) {
+                saveInHiddenField('DeletedRows', deletedRows.join(','));
+            } else {
+                removeHiddenField('DeletedRows');
+            }
 
+            // 隐藏的列索引列表
             var gridHiddenColumns = cmp.x_getHiddenColumns();
             if (gridHiddenColumns.length > 0) {
                 saveInHiddenField('HiddenColumnIndexArray', gridHiddenColumns.join(','));
@@ -312,7 +328,7 @@
                 removeHiddenField('HiddenColumnIndexArray');
             }
 
-
+            // 目前States仅用于CheckBoxField
             var gridStates = cmp.x_getStates();
             if (gridStates.length > 0) {
                 saveInHiddenField('States', Ext.encode(gridStates));

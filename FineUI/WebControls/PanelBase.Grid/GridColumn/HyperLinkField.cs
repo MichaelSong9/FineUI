@@ -397,7 +397,7 @@ namespace FineUI
 
                 #endregion
 
-                nb.SetProperty("onclick", "X.stop();");
+                //nb.SetProperty("onclick", "X.stop();");
 
             }
             else

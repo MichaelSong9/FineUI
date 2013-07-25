@@ -304,8 +304,9 @@
             </TreeNode>
             <TreeNode Text="可编辑单元格（删除行）" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
             </TreeNode>
-
             <TreeNode Text="可编辑单元格（新增行）" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
+            </TreeNode>
+            <TreeNode Text="可编辑单元格（新增行+删除行）" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
             </TreeNode>
         </TreeNode>
         <TreeNode Text="其他" SingleClickExpand="true">

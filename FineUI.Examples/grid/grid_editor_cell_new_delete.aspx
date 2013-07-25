@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_delete.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell_delete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_new_delete.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_new_delete" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,12 +11,13 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="850px" Height="400px"
-        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2"
-        OnRowCommand="Grid1_RowCommand">
+        runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" OnPreDataBound="Grid1_PreDataBound">
         <Toolbars>
             <x:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <x:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
+                    <x:Button ID="btnNew" Text="新增数据" Icon="Add" EnablePostBack="false" runat="server">
+                    </x:Button>
+                    <x:Button ID="btnDelete" Text="删除选中行" Icon="Delete" EnablePostBack="false" runat="server">
                     </x:Button>
                     <x:ToolbarFill runat="server">
                     </x:ToolbarFill>
@@ -70,8 +71,8 @@
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:LinkButtonField HeaderText="&nbsp;" Width="60px" ConfirmText="删除选中行？" ConfirmTarget="Top"
-                CommandName="Delete" Icon="Delete" />
+            <x:LinkButtonField ColumnID="Delete" HeaderText="&nbsp;" Width="60px" EnablePostBack="false"
+                Icon="Delete" />
         </Columns>
     </x:Grid>
     <br />

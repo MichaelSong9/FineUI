@@ -368,10 +368,10 @@ if (Ext.grid.RowNumberer) {
 
 if (Ext.data.Store) {
     Ext.override(Ext.data.Store, {
-		// true to clear all modified record information each time the store is loaded or when a record is removed (defaults to false).
-		pruneModifiedRecords: true
-		
-	});
+        // true to clear all modified record information each time the store is loaded or when a record is removed (defaults to false).
+        pruneModifiedRecords: true
+
+    });
 }
 
 if (Ext.grid.GridPanel) {
@@ -439,7 +439,7 @@ if (Ext.grid.GridPanel) {
                 this['data-last-tpls'] = tpls;
 
             } else {
-                
+
                 tpls = this['data-last-tpls'];
             }
 
@@ -479,17 +479,29 @@ if (Ext.grid.GridPanel) {
 
             var store = this.getStore();
 
-			// 已经设置 Ext.data.Store 的 pruneModifiedRecords ，在重新加载数据时都会清除所有已经改变的数据
-			// 所以无需 rejectChanges
+            // 已经设置 Ext.data.Store 的 pruneModifiedRecords ，在重新加载数据时都会清除所有已经改变的数据
+            // 所以无需 rejectChanges
             // 拒绝之前对表格的编辑，因为接下来就要重新加载数据
             //store.rejectChanges();
 
             // 重新加载数据前清空之前的改变
-            this.x_newAddedRows = [];
-			this.x_deletedRows = [];
+            //this.x_newAddedRows = [];
+            //this.x_deletedRows = [];
 
             store.loadData(datas);
 
+
+            this.x_initRecordIDs();
+
+        },
+
+        // 初始化所有记录的ID列表
+        x_initRecordIDs: function () {
+            var $this = this;
+            this.x_recordIDs = [];
+            this.getStore().each(function (record, index) {
+                $this.x_recordIDs.push(record.id);
+            });
         },
 
         // 展开所有的行扩展列
@@ -740,8 +752,26 @@ if (Ext.grid.GridPanel) {
 
             this.getStore().commitChanges();
 
-            this.x_newAddedRows = [];
-			this.x_deletedRows = [];
+            //this.x_newAddedRows = [];
+            //this.x_deletedRows = [];
+            this.x_initRecordIDs();
+        },
+
+        // 从Store中删除选中的行（或者单元格）
+        x_deleteSelected: function () {
+            var $this = this;
+            var store = this.getStore();
+
+            var sm = this.getSelectionModel();
+            if (sm.getSelections) {
+                var selections = sm.getSelections();
+                Ext.each(selections, function (record, index) {
+                    store.remove(record);
+                });
+            } else if (sm.getSelectedCell) {
+                var selectedCell = sm.getSelectedCell();
+                store.removeAt(selectedCell[0]);
+            }
         },
 
         // 添加一条新纪录
@@ -755,72 +785,109 @@ if (Ext.grid.GridPanel) {
                 store.add(newRecord);
 
                 // 新增客户端改变的行索引
-                this.x_newAddedRows.push(store.getCount() - 1);
+                //this.x_newAddedRows.push(store.getCount() - 1);
 
             } else {
                 store.insert(0, newRecord);
 
                 // 新增客户端改变的行索引
-                for (i = 0, count = this.x_newAddedRows.length; i < count; i++) {
-                    this.x_newAddedRows[i]++;
-                }
-                this.x_newAddedRows.push(0);
+                //for (i = 0, count = this.x_newAddedRows.length; i < count; i++) {
+                //    this.x_newAddedRows[i]++;
+                //}
+                //this.x_newAddedRows.push(0);
 
             }
             this.startEditing(0, 0);
         },
 
+        // 获取新增的行索引（在修改后的列表中）
+        x_getNewAddedRows: function () {
+            var $this = this;
+            var newAddedRows = [];
+            this.getStore().each(function (record, index) {
+                if ($this.x_recordIDs.indexOf(record.id) < 0) {
+                    newAddedRows.push(index);
+                }
+            });
+            return newAddedRows;
+        },
 
-        // 获取用户改变的单元格值
-        x_getEditorData: function () {
-            var i, j, count, columns = this.x_getColumns();
-            /*
-            for (i = 0, count = columns.length; i < count; i++) {
-            columnMap[columns[i].dataIndex] = i;
+        // 获取删除的行索引（在原始的列表中）
+        x_getDeletedRows: function () {
+            var currentRecordIDs = [], deletedRows = [];
+            this.getStore().each(function (record, index) {
+                currentRecordIDs.push(record.id);
+            });
+
+            // 快速判断是否存在行被删除的情况
+            if (currentRecordIDs.join('') === this.x_recordIDs.join('')) {
+                return deletedRows;
             }
-            */
+
+            Ext.each(this.x_recordIDs, function (recordID, index) {
+                if (currentRecordIDs.indexOf(recordID) < 0) {
+                    deletedRows.push(index);
+                }
+            });
+            return deletedRows;
+        },
+
+        // 获取用户修改的单元格值
+        x_getModifiedData: function () {
+            var i, j, count, columns = this.x_getColumns(), columnMap = {};
+
+            Ext.each(columns, function (column, index) {
+                columnMap[column.id] = column;
+            });
+
+            function checkColumnEditable(columnID) {
+                var column = columnMap[columnID];
+                if (column.editor || column.xtype === 'checkcolumn') {
+                    return true;
+                }
+                return false;
+            }
 
             var modifiedRows = [];
             var store = this.getStore();
             var modifiedRecords = store.getModifiedRecords();
-            var rowIndex, rowData, newData, modifiedRecord;
+            var rowIndex, rowData, newData, modifiedRecord, recordID, rowIndexOriginal;
             for (i = 0, count = modifiedRecords.length; i < count; i++) {
                 modifiedRecord = modifiedRecords[i];
+                recordID = modifiedRecord.id;
                 rowIndex = store.indexOf(modifiedRecord);
                 rowData = modifiedRecord.data;
                 if (rowIndex < 0) {
                     continue;
                 }
 
-                if (this.x_newAddedRows.indexOf(rowIndex) >= 0) {
-
-                    // 新增数据行
-                    modifiedRows.push([rowIndex, rowData]);
-
-                } else {
-
-                    // 修改现有数据行
-                    var rowModifiedObj = {};
-                    for (var columnid in modifiedRecord.modified) {
-                        /*
-                        columnIndex = columnMap[modifiedKey];
-                        if (typeof (columnIndex) === 'undefined') {
-                        continue;
-                        }*/
-
-                        newData = rowData[columnid];
-                        //oldData = modifiedRecord.modified[columnid];
-
-                        rowModifiedObj[columnid] = newData;
-
+                // 本行数据在原始数据集合中的行索引
+                rowIndexOriginal = this.x_recordIDs.indexOf(recordID);
+                if (rowIndexOriginal < 0) {
+                    // 删除那些不能编辑的列
+                    for (var columnID in rowData) {
+                        if (!checkColumnEditable(columnID)) {
+                            delete rowData[columnID];
+                        }
                     }
-
-                    modifiedRows.push([rowIndex, rowModifiedObj]);
+                    // 新增数据行
+                    modifiedRows.push([rowIndex, -1, rowData]);
+                } else {
+                    var rowModifiedObj = {};
+                    for (var columnID in modifiedRecord.modified) {
+                        if (checkColumnEditable(columnID)) {
+                            newData = rowData[columnID];
+                            rowModifiedObj[columnID] = newData;
+                        }
+                    }
+                    // 修改现有数据行
+                    modifiedRows.push([rowIndex, rowIndexOriginal, rowModifiedObj]);
                 }
 
             }
 
-            return modifiedRows;
+            // 结果按照 rowIndex 升序排序
+            return modifiedRows.sort(function (a, b) { return a[0] - b[0]; });
         }
 
     });
@@ -845,7 +912,7 @@ if (Ext.tree.TreePanel) {
 
         x_tranformData: function (datas) {
             var that = this, i = 0, nodes = [];
-            for (var i = 0; i < datas.length; i++) {
+            for (i = 0; i < datas.length; i++) {
                 var data = datas[i], node = {};
 
                 //            function copyIfExists(prop) {
@@ -970,7 +1037,7 @@ if (Ext.tree.TreePanel) {
         x_selectNodes: function () {
             var datas = this.x_state['SelectedNodeIDArray'] || [];
             var model = this.getSelectionModel(), i = 0;
-            for (var i = 0; i < datas.length; i++) {
+            for (i = 0; i < datas.length; i++) {
                 model.select(this.getNodeById(datas[i]), null, true);
             }
         }

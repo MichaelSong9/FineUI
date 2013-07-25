@@ -214,7 +214,7 @@ namespace FineUI
                 }
 
                 string onClickScript = "X.toggle(this,'unchecked');";
-                onClickScript += "X.stop();";
+                //onClickScript += "X.stop();";
 
                 //string tooltip = String.Empty;
                 //if (!String.IsNullOrEmpty(HeaderText))
@@ -294,7 +294,7 @@ namespace FineUI
                         onClickScript += postBackReference;
                     }
 
-                    onClickScript += "X.stop();";
+                    //onClickScript += "X.stop();";
 
                     if (checkState)
                     {
