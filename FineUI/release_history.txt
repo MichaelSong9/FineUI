@@ -26,7 +26,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 发布历史
 
-+2013-07-* v3.3.1
++2013-07-29 v3.3.1
 	-将工具YUICompressor替换为Microsoft Ajax Minifier（需要指定-evals:immediate）。
 	-完善FineUI的代码注释，创建FineUI参考手册离线版。
 	-修正Window控件无法在外层页面最大化的问题（小兵）。
