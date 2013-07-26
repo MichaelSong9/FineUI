@@ -121,7 +121,7 @@ type extjs_source_all\examples\ux\fileuploadfield\FileUploadField.js >> _x
 type extjs_source_all\examples\ux\RowExpander.js >> _x
 type extjs_source_all\examples\ux\RowEditor.js >> _x
 type extjs_source_all\examples\ux\ColumnHeaderGroup.js >> _x
-type extjs_source_all\examples\ux\CheckColumn.js >> _x
+type js\ux\CheckColumn.js >> _x
 type js\ux\FormViewport.js >> _x
 type js\ux\SimplePagingToolbar.js >> _x
 

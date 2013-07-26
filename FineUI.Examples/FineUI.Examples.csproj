@@ -186,6 +186,7 @@
     <Content Include="grid\grid_rowcommand_paging.aspx" />
     <Content Include="grid\grid_rowcommand_paging_database.aspx" />
     <Content Include="grid\grid_editor_cell_new_delete.aspx" />
+    <Content Include="grid\grid_editor_cell_afteredit.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -800,6 +801,13 @@
     </Compile>
     <Compile Include="grid\grid_editor_cell_new_delete.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_new_delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_afteredit.aspx.cs">
+      <DependentUpon>grid_editor_cell_afteredit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_afteredit.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_afteredit.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

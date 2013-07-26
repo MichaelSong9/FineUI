@@ -67,6 +67,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 			-服务器端通过GetDeletedList方法获取客户端删除的行在原始数据中的索引列表。
 			-重构GetModifiedData的实现[[rowIndex(int),originalRowIndex(int),modifiedFields(Dictionary)]]。
 			-增加示例grid/grid_editor_cell_new_delete.aspx。
+			-为表格增加EnableAfterEditEvent属性和AfterEdit事件，用来处理单元格失去焦点事件。
+			-增加示例grid/grid_editor_cell_afteredit.aspx。
 			
 
 

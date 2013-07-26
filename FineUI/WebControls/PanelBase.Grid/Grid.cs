@@ -959,6 +959,26 @@ namespace FineUI
                 XState["EnableRowDoubleClickEvent"] = value;
             }
         }
+
+        /// <summary>
+        /// 结束编辑是否自动回发（需要启用AllowCellEditing）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("结束编辑是否自动回发（需要启用AllowCellEditing）")]
+        public bool EnableAfterEditEvent
+        {
+            get
+            {
+                object obj = XState["EnableAfterEditEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableAfterEditEvent"] = value;
+            }
+        }
+
         #endregion
 
         #region ForceFitAllTime/AutoExpandColumn
@@ -1881,7 +1901,7 @@ namespace FineUI
 
         #endregion
 
-        #region OnFirstPreRender
+        #region OnFirstPreRender/OnAjaxPreRender
 
         #region Render_IDS
 
@@ -2542,7 +2562,17 @@ namespace FineUI
 
                 //OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
 
-                OB.AddProperty("x_newAddedRows", "[]", true);
+                //OB.AddProperty("x_newAddedRows", "[]", true);
+
+                if (EnableAfterEditEvent)
+                {
+                    string validateScript = "var args='AfterEdit$'+e.row+'$'+e.field;";
+                    validateScript += GetPostBackEventReference("#AfterEdit#").Replace("'#AfterEdit#'", "args");
+
+                    string rowClickScript = String.Format("function(e){{{0}}}", validateScript);
+
+                    OB.Listeners.AddProperty("afteredit", rowClickScript, true);
+                }
             }
 
             #endregion
@@ -4093,6 +4123,14 @@ namespace FineUI
                     OnRowSelect(new GridRowSelectEventArgs(Convert.ToInt32(commandArgs[1])));
                 }
             }
+            else if (eventArgument.StartsWith("AfterEdit$"))
+            {
+                string[] commandArgs = eventArgument.Split('$');
+                if (commandArgs.Length == 3)
+                {
+                    OnAfterEdit(new GridAfterEditEventArgs(Convert.ToInt32(commandArgs[1]), commandArgs[2].ToString()));
+                }
+            }
         }
 
         /// <summary>
@@ -4431,6 +4469,42 @@ namespace FineUI
         protected virtual void OnRowSelect(GridRowSelectEventArgs e)
         {
             EventHandler<GridRowSelectEventArgs> handler = Events[_rowSelectHandlerKey] as EventHandler<GridRowSelectEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
+        #region OnAfterEdit
+
+        private static readonly object _afterEditHandlerKey = new object();
+
+        /// <summary>
+        /// 结束编辑事件（需要启用EnableAfterEditEvent）
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("结束编辑事件（需要启用EnableAfterEditEvent）")]
+        public event EventHandler<GridAfterEditEventArgs> AfterEdit
+        {
+            add
+            {
+                Events.AddHandler(_afterEditHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_afterEditHandlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发结束编辑事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnAfterEdit(GridAfterEditEventArgs e)
+        {
+            EventHandler<GridAfterEditEventArgs> handler = Events[_afterEditHandlerKey] as EventHandler<GridAfterEditEventArgs>;
             if (handler != null)
             {
                 handler(this, e);
