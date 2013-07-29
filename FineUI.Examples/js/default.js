@@ -108,7 +108,7 @@ function onReady() {
 	// updateLocationHash: 切换Tab时，是否更新地址栏Hash值
 	// refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
 	// refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
-    X.util.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, true, true);
+    X.util.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, false, false);
 
 	
 

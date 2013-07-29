@@ -19,12 +19,58 @@ Apache License v2.0
 下载：http://fineui.codeplex.com/
 
 
-FineUI严格遵守 ExtJS 关于开源软件的规则，不再内置 ExtJS 库。
-如何获取适用于 FineUI 的 ExtJS 库？http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218 
-
+FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，请通过如下两个途径获取ExtJS库：
+1. 获取适用于 FineUI 的 ExtJS 库：http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218 
+2. 基于 FineUI 的空项目（Net2.0 和 Net4.0 两个版本）：http://fineui.com/bbs/forum.php?mod=viewthread&tid=2123
 
 
 发布历史
+
++2013-07-29 v3.3.1
+	-将工具YUICompressor替换为Microsoft Ajax Minifier（需要指定-evals:immediate）。
+	-完善FineUI的代码注释，创建FineUI参考手册离线版。
+	-修正Window控件无法在外层页面最大化的问题（小兵）。
+	-修正Window控件在Master-Content页中无法触发关闭事件的问题（小兵）。
+	-对X.util.initTreeTabStrip和X.util.addMainTab进行重构，可以指定切换/新增选项卡时是否刷新IFrame。
+	-更新other/addtab.aspx示例，在JavaScript中使用网站根路径。
+	-增加示例other/confirm_cancel.aspx，点击确认对话框的取消按钮也能回发页面（夏了，夏天）。
+	-修正AJAX异常时提示信息没有消失的问题。
+	-优化AJAX超时提示对话框（请求超时，请刷新页面并重试！）。
+	+性能优化。
+		-为官方示例增加压缩ViewState的方法，在页面基类PageBase中实现。
+		+为表格/树/下拉列表/单选框复选框列表/表单字段控件启用XState的Gzip压缩，减少AJAX时POST的数据量。
+			-会稍微增加下载数据量，从整体上提升用户体验。
+			-可以通过设置控件、PageManager或者Web.config的EnableXStateCompress属性来关闭XState压缩（默认启用）。
+		+表格性能优化
+			-优化CheckBoxField/HyperLinkField/LinkButtonField，减少生成的HTML代码片段大小。
+			-优化模板列存在时POST数据大小，优化内存分页时响应数据大小。
+			-优化CheckBoxField生产的CSS类名，将.box-grid-checkbox-unchecked-disabled更改为.unchecked.disabled。
+		-优化TextArea/HtmlEditor在页面第一次加载和AJAX回发时产生的数据大小，防止生成重复数据。
+		-更新导出Excel的示例grid/grid_excel.aspx，特别注意如何处理模板列（为了优化性能，不能直接获取模板列的内容了）。
+		+优化结果（A:grid/grid_rowcommand_paging.aspx,B:grid/grid_rowcommand_paging_database.aspx）：
+			-版本-----A首次响应----A下一页请求----A下一页响应---B首次响应----B下一页请求----B下一页响应---
+			-v3.3.0---56.4K--------61.7K----------7.8K----------18.0K--------14.4K----------10.7K---------
+			-v3.3.1---43.7K---------7.0K----------0.2K----------16.4K---------3.5K-----------8.6K---------
+	+表格增强。
+		+修正模板列示例中注册客户端事件的错误，重新绑定数据后客户端脚本失效。
+			-现在使用ExtJS的代理事件，只需要在页面第一次加载时注册事件即可。
+			-更新全部模板列示例grid\grid_edit.aspx、grid_edit_compare.aspx等，请仔细阅读源代码。
+		+修正SelectedRowIndexArray的一个BUG。
+			-在grid/grid_checkboxfield_rowcheckall.aspx中，点击第一个复选框选中行，然后再次点击第一个复选框不能取消行的选中状态。
+		+模板列重构（内部实现）。
+			-模板列的ClientID由原来的Grid1_r1c5调整为Grid1_ctl09，现在ID由系统自动生成。
+			-GridRow不再继承自WebControl，重新优化Grid内部的数据绑定逻辑（减少一个控件层次结构）。
+			-模板列控件GridRowControl实例直接添加到Grid.Controls中（之前添加为行控件的子控件）。
+		+可编辑单元格重构。
+			-更新所有示例，通过行索引找到行DataKeys，然后根据行关键字查找需要更新的数据。
+			-为表格增加DeleteSelected/GetDeleteSelectedReference方法，以便在客户端删除行。
+			-服务器端通过GetDeletedList方法获取客户端删除的行在原始数据中的索引列表。
+			-重构GetModifiedData的实现[[rowIndex(int),originalRowIndex(int),modifiedFields(Dictionary)]]。
+			-增加示例grid/grid_editor_cell_new_delete.aspx。
+			-为表格增加EnableAfterEditEvent属性和AfterEdit事件，用来处理单元格失去焦点事件。
+			-增加示例grid/grid_editor_cell_afteredit.aspx。
+			
+
 
 +2013-06-17 v3.3.0
 	-更新示例form/form_center_button.aspx，支持IE7（Stone.yu）。
