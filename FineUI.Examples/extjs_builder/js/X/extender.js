@@ -842,7 +842,7 @@ if (Ext.grid.GridPanel) {
 
             function checkColumnEditable(columnID) {
                 var column = columnMap[columnID];
-                if (column.editor || column.xtype === 'checkcolumn') {
+                if (column && (column.editor || column.xtype === 'checkcolumn')) {
                     return true;
                 }
                 return false;
@@ -1275,3 +1275,37 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
     };
 
 }
+
+
+
+
+// 修正IE7/IE8下Date.parse('2015-10-01')出错的问题
+(function () {
+
+    // http://jibbering.com/faq/#parseDate
+    function parseISO8601(dateStr) {
+        var isoExp = /(\d{2,4})-(\d\d?)-(\d\d?)/,
+       date = new Date(NaN), month,
+       parts = isoExp.exec(dateStr);
+
+        if (parts) {
+            month = +parts[2];
+            date.setFullYear(parts[1], month - 1, parts[3]);
+            if (month != date.getMonth() + 1) {
+                date.setTime(NaN);
+            }
+        }
+        return date;
+    }
+
+	var originalParse = Date.parse;
+    Date.parse = function (dateStr) {
+        var date = originalParse(dateStr);
+        if (isNaN(date)) {
+            date = parseISO8601(dateStr);
+        }
+        return date;
+    }
+
+})();
+

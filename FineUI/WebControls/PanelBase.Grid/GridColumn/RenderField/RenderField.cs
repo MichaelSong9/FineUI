@@ -265,6 +265,8 @@ namespace FineUI
                         {
                             text = text.Substring(0, tIndex) + "T00:00:00";
                         }
+
+                        //text = date.ToString(RendererArgument);
                     }
                     else
                     {
