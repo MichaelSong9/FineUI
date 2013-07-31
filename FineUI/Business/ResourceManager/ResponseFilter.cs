@@ -188,8 +188,7 @@ namespace FineUI
 
                     /////////////////////////
                     // 重新加载表格数据（也就是存在对x_loadData函数的调用）
-                    if (PageManager.Instance.AjaxGridReloadedClientIDs.Contains(clientId) &&
-                        (PageManager.Instance.AjaxGridClientIDs.Count != 0 && PageManager.Instance.AjaxGridClientIDs.Contains(clientId)))
+                    if (PageManager.Instance.AjaxGridReloadedClientIDs.Contains(clientId) && PageManager.Instance.AjaxGridClientIDs.Contains(clientId))
                     {
                         PageManager.Instance.AjaxGridClientIDs.Remove(clientId);
 
@@ -300,11 +299,15 @@ namespace FineUI
 
         private string GetGridTpls(HtmlDocument doc, string controlId)
         {
+            string html = String.Empty;
             string tpls = GetHtmlNodeInnerHTML(controlId + "_tpls", doc);
-            tpls = Regex.Replace(tpls, "\r?\n\\s*", "");
+            if (!String.IsNullOrEmpty(tpls))
+            {
+                // 删除生成HTML中的 "\r\n     "
+                html = Regex.Replace(tpls, "\r?\n\\s*", "");
+            }
 
-            // 删除生成HTML中的 "\r\n     "
-            return JsHelper.Enquote(tpls);
+            return JsHelper.Enquote(html);
         }
 
         #endregion

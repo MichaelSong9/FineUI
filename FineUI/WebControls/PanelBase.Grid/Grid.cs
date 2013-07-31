@@ -1998,13 +1998,13 @@ namespace FineUI
                 }
 
                 // 如果X_Rows改变了，则每行的模版列内容应该也要变化
-                PageManager.Instance.AjaxGridClientIDs.Add(ClientID);
+                PageManager.Instance.AddAjaxGridClientID(ClientID);
             }
 
             // 本次AJAX请求重新加载的表格
             if (dataReloaded)
             {
-                PageManager.Instance.AjaxGridReloadedClientIDs.Add(ClientID);
+                PageManager.Instance.AddAjaxGridReloadedClientID(ClientID);
 
             }
 
@@ -3202,7 +3202,7 @@ namespace FineUI
         /// </summary>
         public void UpdateTemplateFields()
         {
-            PageManager.Instance.AjaxGridClientIDs.Add(ClientID);
+            PageManager.Instance.AddAjaxGridClientID(ClientID);
         }
 
         #endregion
@@ -3215,6 +3215,10 @@ namespace FineUI
         public override void DataBind()
         {
             //base.DataBind();
+
+            // 如果重新绑定数据，则每行的模版列内容有可能发生变化，就需要更新
+            // 因为目前，没有判断模板列是否改变的机制，所以只要可能导致模板列的动作都要更新模板列
+            PageManager.Instance.AddAjaxGridClientID(ClientID);
 
             // 数据绑定之前要先清空 _dataKeys
             _dataKeys = null;

@@ -69,6 +69,8 @@ namespace FineUI.Examples.grid
         protected void btnRebindData_Click(object sender, EventArgs e)
         {
             BindGrid();
+
+           
         }
         
 

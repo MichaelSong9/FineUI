@@ -347,6 +347,15 @@ namespace FineUI
             }
         }
 
+        
+        internal void AddAjaxGridClientID(string clientID)
+        {
+            if (!_ajaxGridClientIDs.Contains(clientID))
+            {
+                _ajaxGridClientIDs.Add(clientID);
+            }
+        }
+
         private List<string> _ajaxGridReloadedClientIDs = new List<string>();
 
         /// <summary>
@@ -361,6 +370,14 @@ namespace FineUI
             set
             {
                 _ajaxGridReloadedClientIDs = value;
+            }
+        }
+
+        internal void AddAjaxGridReloadedClientID(string clientID)
+        {
+            if (!_ajaxGridReloadedClientIDs.Contains(clientID))
+            {
+                _ajaxGridReloadedClientIDs.Add(clientID);
             }
         }
 
