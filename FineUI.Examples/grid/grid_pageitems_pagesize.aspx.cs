@@ -67,6 +67,12 @@ namespace FineUI.Examples.grid
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             Grid1.PageSize = Convert.ToInt32(ddlPageSize.SelectedValue);
+
+            // 更改每页显示数目时，防止 PageIndex 越界
+            if (Grid1.PageIndex > Grid1.PageCount - 1)
+            {
+                Grid1.PageIndex = Grid1.PageCount - 1;
+            }
         }
 
         #endregion

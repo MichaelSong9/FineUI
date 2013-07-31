@@ -27,8 +27,10 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 发布历史
 
 +2013-09-** v3.3.2
-	+修正IE7/IE8下表格的日期列显示错误，IE不能正确解析Date.parse('2015-10-01')（夏雨雪）。
+	-修正IE7/IE8下表格的日期列显示错误，IE不能正确解析Date.parse('2015-10-01')（夏雨雪）。
 	-修正表格中模板列在数据绑定时可能不更新的问题（小兵、舞柯庶）。
+	+更新示例grid/grid_pageitems_pagesize.aspx和grid/grid_pageitems_pagesize_database.aspx。
+		-在更改每页显示数目（PageSize）时，防止PageIndex越界。
 	
 
 +2013-07-29 v3.3.1
