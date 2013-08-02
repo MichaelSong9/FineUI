@@ -103,15 +103,18 @@
             parsedStack = parsedStack.split( this.localSeparator );
             parsedStack.length = parsedStack.length - 1;
 
-            for( var i= 0, tempPath, root = this.stack; tempPath = parsedStack[ i ]; i++ ) {
-
-                if( PathStack.isParentPath( tempPath ) ) {
-                    root.pop();
-                } else {
-                    root.push( tempPath );
+            for(var i= 0,tempPath,l=parsedStack.length,root = this.stack;i<l;i++){
+                tempPath = parsedStack[i];
+                if(tempPath){
+                    if( PathStack.isParentPath( tempPath ) ) {
+                        root.pop();
+                    } else {
+                        root.push( tempPath );
+                    }
                 }
 
             }
+
 
         }
 
@@ -377,6 +380,10 @@
 //            }
 //           ]
 
+        //快捷菜单
+        //,shortcutMenu:["fontfamily", "fontsize", "bold", "italic", "underline", "forecolor", "backcolor", "insertorderedlist", "insertunorderedlist"]
+
+        //
         //wordCount
         //,wordCount:true          //是否开启字数统计
         //,maximumWords:10000       //允许的最大字符数

@@ -31,6 +31,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正表格中模板列在数据绑定时可能不更新的问题（小兵、舞柯庶、蒙奇.D.二毛）。
 	+更新示例grid/grid_pageitems_pagesize.aspx和grid/grid_pageitems_pagesize_database.aspx。
 		-在更改每页显示数目（PageSize）时，防止PageIndex越界。
+	-UEditor更新为1.2.6.1。
 	-Tree,x_loadData时要清空一些数据
 
 
