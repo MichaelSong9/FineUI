@@ -157,7 +157,9 @@
                                         <br />
                                         <br />
                                         <h2>相关链接</h2>
-                                            论坛：<a target="_blank" style="font-weight:bold;" href="http://fineui.com/bbs/">http://fineui.com/bbs/</a>
+                                            首页：<a target="_blank" style="font-weight:bold;" href="http://fineui.com/">http://fineui.com/</a>
+                                        <br />
+                                            论坛：<a target="_blank" href="http://fineui.com/bbs/">http://fineui.com/bbs/</a>
                                         <br />
                                             示例：<a target="_blank" href="http://fineui.com/demo/">http://fineui.com/demo/</a>
                                         <br />
@@ -165,7 +167,9 @@
                                         <br />
                                             下载：<a target="_blank" href="http://fineui.codeplex.com/">http://fineui.codeplex.com/</a>
                                         <br />
-                                        
+                                        <br />
+                                        <br />
+                                        FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
                                         
                                     </x:ContentPanel>
                                 </Items>
