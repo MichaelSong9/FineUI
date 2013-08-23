@@ -13,6 +13,7 @@ Apache License v2.0
     
 
 相关链接
+首页：http://fineui.com/
 论坛：http://fineui.com/bbs/
 示例：http://fineui.com/demo/
 文档：http://fineui.com/doc/
@@ -32,6 +33,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+更新示例grid/grid_pageitems_pagesize.aspx和grid/grid_pageitems_pagesize_database.aspx。
 		-在更改每页显示数目（PageSize）时，防止PageIndex越界。
 	-UEditor更新为1.2.6.1。
+	-增加自定义图片按钮示例button/button_custom.aspx（簫今Shawgin）。
+	-修正Window控件不支持EnableAjax的问题，增加示例grid/grid_excel_selectcolumns.aspx（◆◇_提拉米苏℡）。
 	-Tree,x_loadData时要清空一些数据
 
 

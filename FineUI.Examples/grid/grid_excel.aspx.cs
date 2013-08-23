@@ -31,6 +31,7 @@ namespace FineUI.Examples.data
 
         #endregion
 
+        #region Events
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -121,7 +122,9 @@ namespace FineUI.Examples.data
                 }
             }
             return String.Empty;
-        }
+        } 
+
+        #endregion
 
     }
 }

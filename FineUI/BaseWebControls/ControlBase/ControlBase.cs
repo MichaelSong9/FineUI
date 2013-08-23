@@ -1491,27 +1491,6 @@ namespace FineUI
                 sb.AppendFormat("X.control_ajax_loading_type='{0}';", AjaxLoadingTypeName.GetName(AjaxLoadingType));
             }
 
-            //// 如果页面启用 AJAX，但是此控件禁用 AJAX
-            //if (EnableAjax)
-            //{
-            //    if (EnableAjaxLoading)
-            //    {
-            //        if (AjaxLoadingType != AjaxLoadingType.Default)
-            //        {
-            //            sb.AppendFormat("X.control_ajax_loading_type='{0}';", AjaxLoadingTypeName.GetName(AjaxLoadingType));
-            //        }
-            //    }
-            //    else
-            //    {
-            //        sb.Append("X.control_enable_ajax_loading=false;");
-            //    }
-            //}
-            //else
-            //{
-            //    sb.Append("X.control_enable_ajax=false;");
-            //}
-
-
             sb.Append(Page.ClientScript.GetPostBackEventReference(this, eventArgument));
             sb.Append(";");
 
