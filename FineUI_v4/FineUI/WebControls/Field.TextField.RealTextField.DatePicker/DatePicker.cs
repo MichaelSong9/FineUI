@@ -55,14 +55,14 @@ namespace FineUI
         /// 是否允许编辑
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         [Description("是否允许编辑")]
         public bool EnableEdit
         {
             get
             {
                 object obj = XState["EnableEdit"];
-                return obj == null ? true : (bool)obj;
+                return obj == null ? false : (bool)obj;
             }
             set
             {

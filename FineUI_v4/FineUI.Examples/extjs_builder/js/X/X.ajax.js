@@ -76,20 +76,23 @@
                 isUpload: X.form_upload_file,
                 //params: serializeForm(theForm) + '&X_AJAX=true',
                 success: function (data) {
-                    // see: http://extjs.com/forum/showthread.php?t=8129
-                    // 如果页面中有FileUpload，responseObj.responseText会包含于 <pre>标签。
                     var scripts = data.responseText;
                     if (scripts) {
-                        // 已经经过encodeURIComponent编码了，在ResponseFilter中的Close函数中
-                        var prefix = scripts.substr(0, 4);
-                        if (prefix.toLowerCase() === '<pre') {
-                            //scripts = scripts.substr(5, scripts.length - 11);
-                            //scripts = decodeURIComponent(scripts.replace(/<\/?pre>/ig, ''));
-                            scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
+                        if (X.form_upload_file) {
+                            // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
+                            //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
                             scripts = decodeURIComponent(scripts);
                         }
-                        //eval(scripts);
-                        new Function(scripts)();
+
+                        try {
+                            new Function(scripts)();
+                        } catch(e){
+                            createErrorWindow({
+                                statusText: "Unexpected Response",
+                                status: -1,
+                                responseText: scripts
+                            });
+                        }
                     }
                     X.ajaxReady();
                 },
@@ -98,7 +101,6 @@
                     if (lastDisabledButtonId) {
                         X.enable(lastDisabledButtonId);
                     }
-                    //X.util.alert(String.format(X.ajax.errorMsg, data.statusText, data.status));
                     createErrorWindow(data);
                 },
                 callback: function (options, success, response) {

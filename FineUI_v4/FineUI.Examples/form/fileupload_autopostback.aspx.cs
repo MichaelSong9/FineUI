@@ -53,9 +53,9 @@ namespace FineUI.Examples.form
                 return;
             }
 
-            labResult.Text = "<p>用户名：" + tbxUserName.Text + "</p>" +
-                    "<p>邮箱：" + tbxEmail.Text + "</p>" +
-                    "<p>头像地址：" + imgPhoto.ImageUrl + "</p>";
+            labResult.Text = "用户名：" + tbxUserName.Text + "<br/>" +
+                    "邮箱：" + tbxEmail.Text + "<br/>" +
+                    "头像地址：" + imgPhoto.ImageUrl + "<br/>";
 
             // 清空表单字段（注意，不要清空imgPhoto，否则就看不到上传的头像了）
             filePhoto.Reset();

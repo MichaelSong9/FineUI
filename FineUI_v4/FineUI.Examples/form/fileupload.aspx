@@ -29,7 +29,7 @@
                 </x:Button>
             </Items>
         </x:SimpleForm>
-        <x:Label ID="labResult" CssClass="result" EncodeText="false" runat="server">
+        <x:Label ID="labResult" EncodeText="false" runat="server">
         </x:Label>
     </form>
 </body>

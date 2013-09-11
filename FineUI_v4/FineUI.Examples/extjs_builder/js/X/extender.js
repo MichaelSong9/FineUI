@@ -70,20 +70,6 @@ Ext.override(Ext.Panel, {
 
 });
 
-/*
-Ext.override(Ext.form.field.HtmlEditor, {
-
-//  Add functionality to Field's initComponent to enable the change event to bubble
-initComponent: Ext.Function.createSequence(Ext.form.field.Base.prototype.initComponent, function () {
-this.enableBubble('change');
-}),
-
-x_setValue: function () {
-this.setValue(this.x_state['Text']);
-}
-
-});
-*/
 
 if (Ext.form.Field) {
     Ext.override(Ext.form.Field, {

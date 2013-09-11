@@ -293,23 +293,18 @@ namespace FineUI
 
                 OB.AddProperty("buttonCfg", buttonOB);
             }
-            //if (TextMode != TextMode.Text)
-            //{
-            //    OB.AddProperty("inputType", TextModeHelper.GetName(TextMode));
-            //}
 
-            if (AutoPostBack)
-            {
-                OB.Listeners.RemoveProperty("change");
-                OB.Listeners.AddProperty("fileselected", JsHelper.GetFunction(GetPostBackEventReference()), true);
-            }
+            //if (AutoPostBack)
+            //{
+            //    OB.Listeners.RemoveProperty("change");
+            //    OB.Listeners.AddProperty("fileselected", JsHelper.GetFunction(GetPostBackEventReference()), true);
+            //}
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.File',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 
         #endregion
-
 
         #region IPostBackDataHandler Members
 

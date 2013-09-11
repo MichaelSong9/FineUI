@@ -54,7 +54,7 @@
             </x:TemplateField>
             <x:TemplateField HeaderText="比较结果" Width="100px">
                 <ItemTemplate>
-                    <asp:Label runat="server" CssClass="result" ID="labCompare"></asp:Label>
+                    <asp:Label runat="server" ID="labCompare"></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
         </Columns>

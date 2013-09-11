@@ -91,7 +91,7 @@ namespace FineUI
 
             string responseText = sb.ToString();
 
-            // 文件上传，此时应该对返回的数据进行编码，因为ExtJs会将返回的数据放在<pre></pre>中，导致自定编码
+            // 文件上传，此时应该对返回的数据进行编码，因为ExtJs会将返回的数据放在<pre></pre>中，不编码会导致HTML标签错乱
             if (HttpContext.Current.Request.ContentType.Contains("multipart/form-data"))
             {
                 // HttpUtility.UrlEncode 在 Encode 的时候, 将空格转换成加号，而客户端的 encodeURIComponent 则是将空格转换为 %20
