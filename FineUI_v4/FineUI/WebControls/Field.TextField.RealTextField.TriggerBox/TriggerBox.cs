@@ -335,8 +335,10 @@ namespace FineUI
         /// 处理回发事件
         /// </summary>
         /// <param name="eventArgument">事件参数</param>
-        public void RaisePostBackEvent(string eventArgument)
+        public override void RaisePostBackEvent(string eventArgument)
         {
+            base.RaisePostBackEvent(eventArgument);
+
             OnTriggerClick(EventArgs.Empty);
         }
 

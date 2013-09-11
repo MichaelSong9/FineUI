@@ -36,7 +36,7 @@ namespace FineUI
     /// <summary>
     /// 表单文本输入框字段基类（抽象类）
     /// </summary>
-    public abstract class RealTextField : TextField, IPostBackDataHandler
+    public abstract class RealTextField : TextField, IPostBackDataHandler, IPostBackEventHandler
     {
         #region Constructor
 
@@ -110,6 +110,25 @@ namespace FineUI
             set
             {
                 XState["AutoPostBack"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 启用失去焦点事件
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("启用失去焦点事件")]
+        public bool EnableBlurEvent
+        {
+            get
+            {
+                object obj = XState["EnableBlurEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableBlurEvent"] = value;
             }
         }
 
@@ -194,6 +213,12 @@ namespace FineUI
                 #endregion
             }
 
+            if (EnableBlurEvent)
+            {
+                OB.Listeners.AddProperty("blur", JsHelper.GetFunction(GetPostBackEventReference("Blur")), true);
+
+            }
+
             //if (EnableServerValidate)
             //{
             //    OB.Listeners.AddProperty("blur", JsHelper.GetFunctionWrapper(GetPostBackEventReference("Validate")), true);
@@ -272,6 +297,55 @@ namespace FineUI
         protected virtual void OnTextChanged(EventArgs e)
         {
             EventHandler handler = Events[_handlerKey] as EventHandler;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
+        #region OnBlur
+
+        /// <summary>
+        /// 处理回发事件
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        public virtual void RaisePostBackEvent(string eventArgument)
+        {
+            if (eventArgument == "Blur")
+            {
+                OnBlur(EventArgs.Empty);
+            }
+        }
+
+
+        private object _handlerKeyBlur = new object();
+
+        /// <summary>
+        /// 失去焦点事件（需要启用EnableBlurEvent）
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("失去焦点事件（需要启用EnableBlurEvent）")]
+        public virtual event EventHandler Blur
+        {
+            add
+            {
+                Events.AddHandler(_handlerKeyBlur, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_handlerKeyBlur, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发失去焦点事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnBlur(EventArgs e)
+        {
+            EventHandler handler = Events[_handlerKeyBlur] as EventHandler;
             if (handler != null)
             {
                 handler(this, e);

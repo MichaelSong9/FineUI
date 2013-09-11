@@ -45,6 +45,23 @@
             </Items>
         </x:SimpleForm>
         <br />
+        <x:SimpleForm ID="SimpleForm3" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+            Title="简单表单（EnableDateSelectEvent）" runat="server">
+            <Items>
+                <x:DatePicker runat="server" Required="true" EnableBlurEvent="true" OnBlur="DatePicker5_Blur"
+                    Label="开始日期" EmptyText="请选择开始日期" ID="DatePicker5" ShowRedStar="True">
+                </x:DatePicker>
+                <x:DatePicker ID="DatePicker6" Required="true" Readonly="false" CompareControl="DatePicker3"
+                    DateFormatString="yyyy-MM-dd" CompareOperator="GreaterThan" CompareMessage="结束日期应该大于开始日期"
+                    Label="结束日期" runat="server" ShowRedStar="True">
+                </x:DatePicker>
+                <x:Button ID="Button3" runat="server" ValidateForms="SimpleForm3" Text="提交表单" OnClick="Button3_Click">
+                </x:Button>
+                <x:Label ID="labResult3" ShowLabel="false" runat="server">
+                </x:Label>
+            </Items>
+        </x:SimpleForm>
+        <br />
         注意：DatePicker的TextChanged事件（启用AutoPostBack），与DateSelect事件（启用EnableDateSelectEvent）的效果是一样的。
     </form>
 </body>
