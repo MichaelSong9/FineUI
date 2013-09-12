@@ -16,7 +16,7 @@
         <x:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px" EnableFrame="true" EnableCollapse="true"
             runat="server" Title="表单 1">
             <Rows>
-                <x:FormRow ColumnWidths="40% 60%">
+                <x:FormRow ColumnWidths="50% 50%">
                     <Items>
                         <x:Label ID="Label1" runat="server" Label="标签" Text="标签的值">
                         </x:Label>
@@ -24,7 +24,7 @@
                         </x:CheckBox>
                     </Items>
                 </x:FormRow>
-                <x:FormRow ColumnWidths="40% 60%">
+                <x:FormRow ColumnWidths="50% 50%">
                     <Items>
                         <x:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True">
                             <x:ListItem Selected="true" Text="可选项 1" Value="0"></x:ListItem>
@@ -70,9 +70,7 @@
                 </x:FormRow>
                 <x:FormRow>
                     <Items>
-                        <x:DropDownList ID="DropDownList3" Label="审批人" runat="server" ShowRedStar="True"
-                            CompareValue="-1" CompareOperator="NotEqual" CompareMessage="审批人不能留空">
-                            <x:ListItem Text="--请选择--" Value="-1"></x:ListItem>
+                        <x:DropDownList ID="DropDownList3" Label="审批人" runat="server" Required="true" ShowRedStar="True">
                             <x:ListItem Text="老大甲" Value="0"></x:ListItem>
                             <x:ListItem Text="老大乙" Value="1"></x:ListItem>
                             <x:ListItem Text="老大丙" Value="2"></x:ListItem>

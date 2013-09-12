@@ -30,6 +30,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 +2013-09-** v4.0 beta1
 	-表格样式类中"x-grid3"字符串更改为"x-grid"。
 	-MsgTarget改名为MessageTarget，增加项None。
+	-FormOffsetRight的默认值由20px改为10px。
 	-为Web.config和PageManager增加FormLabelAlign配置项。
 	-ToolbarPosition增加Left/Right。
 	-废弃EnableBackgroundColor属性，以便和ExtJS保持一致（可以搜索现有项目，删除EnableBackgroundColor="false"）。
@@ -38,8 +39,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-FineUI_v4中的文本输入框或者日期选择器，AutoPostBack使得TextChanged事件立即触发（输入单个字符串和选择日期后）。
 		-FineUI_v3中的文本输入框或者日期选择器，AutoPostBack使得TextChanged事件在输入框失去焦点后触发。
 		-为了在FineUI_v4中实现之前的失去焦点后触发的事件，为文本输入框增加EnableBlurEvent属性和Blur事件。
-	-将DatePicker和TimePicker的EnableEdit的默认值改为false（DropDownList的一致），而TriggerBox的EnableEdit的默认值依然为true。
-
+	-DropDownList默认可以不选择，方便使用Required属性做客户端验证，示例form/form.aspx。
+	-
 
 
 +2013-09-** v3.3.2

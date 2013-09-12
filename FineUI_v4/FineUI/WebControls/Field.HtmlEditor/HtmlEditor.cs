@@ -390,7 +390,7 @@ namespace FineUI
             if (XState.ModifiedProperties.Contains("Text"))
             {
                 OB.RemoveProperty("value");
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
+                OB.Listeners.AddProperty("initialize", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
             }
 
 

@@ -488,7 +488,7 @@ namespace FineUI
                 Control compareControl = ControlUtil.FindControl(Page, CompareControl);
                 if (compareControl != null && compareControl is ControlBase)
                 {
-                    compareValue = String.Format("X({0}).getValue()", JsHelper.Enquote((compareControl as ControlBase).ClientID));
+                    compareValue = String.Format("X.fieldValue({0})", JsHelper.Enquote((compareControl as ControlBase).ClientID));
                 }
             }
             else if (!String.IsNullOrEmpty(CompareValue))
@@ -519,7 +519,7 @@ namespace FineUI
                 }
 
                 string compareScript = String.Format("if({0}){{return true;}}else{{return {1};}}", compareExpressionScript, JsHelper.Enquote(CompareMessage));
-                OB.AddProperty("validator", String.Format("function(){{var value=this.getValue();{0}}}", compareScript), true);
+                OB.AddProperty("validator", String.Format("function(){{var value=X.fieldValue(this);{0}}}", compareScript), true);
             }
 
             #endregion

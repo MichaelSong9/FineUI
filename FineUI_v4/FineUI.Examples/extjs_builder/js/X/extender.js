@@ -70,9 +70,18 @@ Ext.override(Ext.Panel, {
 
 });
 
+if (Ext.menu.CheckItem) {
+    Ext.override(Ext.menu.CheckItem, {
 
-if (Ext.form.Field) {
-    Ext.override(Ext.form.Field, {
+        x_setChecked: function () {
+            this.setChecked(this.x_state['Checked'], true);
+        }
+
+    });
+}
+
+if (Ext.form.field.Base) {
+    Ext.override(Ext.form.field.Base, {
 
         //  Add functionality to Field's initComponent to enable the change event to bubble
         /*
@@ -140,28 +149,22 @@ if (Ext.form.Field) {
     });
 }
 
-if (Ext.menu.CheckItem) {
-    Ext.override(Ext.menu.CheckItem, {
+if (Ext.form.field.HtmlEditor) {
+    Ext.override(Ext.form.field.HtmlEditor, {
 
-        x_setChecked: function () {
-            this.setChecked(this.x_state['Checked'], true);
+        x_setValue: function (text) {
+            if (typeof (text) === 'undefined') {
+                text = this.x_state['Text'];
+            }
+            this.setValue(text);
         }
 
     });
 }
 
-if (Ext.form.Checkbox) {
-    Ext.override(Ext.form.Checkbox, {
 
-        x_setValue: function () {
-            this.setValue(this.x_state['Checked']);
-        }
-
-    });
-}
-
-if (Ext.form.Radio) {
-    Ext.override(Ext.form.Radio, {
+if (Ext.form.field.Checkbox) {
+    Ext.override(Ext.form.field.Checkbox, {
 
         x_setValue: function () {
             this.setValue(this.x_state['Checked']);

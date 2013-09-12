@@ -101,22 +101,18 @@ namespace FineUI
             get
             {
                 string value = null;
-                if (SelectedItem == null)
-                {
-                    // 如果强制选择一项，我们可能需要选中第一项
-                    if (ForceSelection)
-                    {
-                        if (Items.Count > 0)
-                        {
-                            SelectedIndex = 0;
-                            // If SelectedValue is null, then we select the first item of the list.
-                            value = Items[0].Value;
-                        }
-                    }
-                }
-                else
+                if (SelectedItem != null)
                 {
                     value = SelectedItem.Value;
+                    //// 如果强制选择一项，我们可能需要选中第一项
+                    //if (ForceSelection)
+                    //{
+                    //    if (Items.Count > 0)
+                    //    {
+                    //        SelectedIndex = 0;
+                    //        value = Items[0].Value;
+                    //    }
+                    //}
                 }
                 return value;
             }

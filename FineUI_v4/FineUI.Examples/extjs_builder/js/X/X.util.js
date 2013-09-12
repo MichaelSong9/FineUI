@@ -55,6 +55,9 @@ X.toggle = function (el, className) {
     Ext.get(el).toggleClass(className);
 };
 
+X.fieldValue = function (cmp) {
+    return X.util.getFormFieldValue(cmp);
+};
 
 (function () {
 
@@ -408,17 +411,19 @@ X.toggle = function (el, className) {
             }
         },
 
-        /*
-        // 取得表单字段的值，日期字段的值类似"2008-07-08"
+        
+        // 取得表单字段的值
         getFormFieldValue: function (cmp) {
-            if (cmp.getXType() == "datefield") {
-                return cmp.value;
+            if (typeof (cmp) === 'string') {
+                cmp = X(cmp);
             }
-            else {
-                return cmp.getValue();
+            var value = cmp.getValue();
+            if (cmp.isXType('displayfield')) {
+                value = value.replace(/<\/?span[^>]*>/ig, '');
             }
+            return value;
         },
-        */
+        
 
         // 由target获取window对象
         getTargetWindow: function (target) {

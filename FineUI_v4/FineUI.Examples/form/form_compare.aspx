@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelWidth="180px"
+    <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelWidth="180px" EnableFrame="true" EnableCollapse="true"
         runat="server"  ShowBorder="True" ShowHeader="True"
         Title="简单表单">
         <Items>
@@ -36,10 +36,10 @@
             </x:Label>
             <x:Label ID="Label1" runat="server" Label="标签 1" Text="88">
             </x:Label>
-            <x:TextBox ID="TextBox3" Required="true" Label="文本框 3（大于等于标签 1）" CompareControl="Label1"
+            <x:NumberBox ID="NumberBox3" Required="true" Label="文本框 3（大于等于标签 1）" CompareControl="Label1"
                 CompareOperator="GreaterThanEqual" CompareType="Int" CompareMessage="文本框 3 应该大于等于标签 1！"
                 runat="server">
-            </x:TextBox>
+            </x:NumberBox>
             <x:Label runat="server">
             </x:Label>
             <x:Button ID="btnSubmit" ValidateForms="SimpleForm1" CssClass="inline" Text="提交表单"

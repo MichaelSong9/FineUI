@@ -411,10 +411,10 @@ namespace FineUI
                     columnOB.AddProperty("width", columnWidths[columnIndex], true);
                 }
 
-                columnOB.AddProperty("layout", "form");
+                columnOB.AddProperty("layout", "anchor");
                 columnOB.AddProperty("border", false);
                 //columnOB.AddProperty("bodyStyle", bodyStyleStr);
-                columnOB.AddProperty("labelWidth", LabelWidth.Value);
+                //columnOB.AddProperty("labelWidth", LabelWidth.Value);
                 columnOB.AddProperty("id", rowId + "_column" + columnIndex.ToString());
 
                 // 有可能为空

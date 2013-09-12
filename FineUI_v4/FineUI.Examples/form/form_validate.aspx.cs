@@ -18,9 +18,9 @@ namespace FineUI.Examples.form
         {
             if (tbxUserName.Text == "admin")
             {
-                tbxUserName.MarkInvalid(String.Format("'{0}' 是保留字，请另外选择！", tbxUserName.Text));
+                tbxUserName.MarkInvalid(String.Format("{0} 是保留字，请另外选择！", tbxUserName.Text));
 
-                Alert.ShowInTop("表单服务器端验证失败！");
+                Alert.ShowInTop("服务器端验证失败！");
             }
         }
 

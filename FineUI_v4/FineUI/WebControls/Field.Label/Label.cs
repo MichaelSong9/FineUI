@@ -209,8 +209,14 @@ namespace FineUI
 
             htmlBuilder.InnerProperty = text;
 
-            return htmlBuilder.ToString();
+            string html = htmlBuilder.ToString();
 
+            if (html == "<span></span>")
+            {
+                html = String.Empty;
+            }
+
+            return html;
         }
 
         #endregion
