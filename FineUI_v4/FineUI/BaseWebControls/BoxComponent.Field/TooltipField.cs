@@ -147,15 +147,15 @@ namespace FineUI
         {
             if (!String.IsNullOrEmpty(ToolTip))
             {
-                htmlBuilder.SetProperty("ext:qtip", ToolTip);
+                htmlBuilder.SetProperty("data-qtip", ToolTip);
 
                 if (!String.IsNullOrEmpty(ToolTipTitle))
                 {
-                    htmlBuilder.SetProperty("ext:qtitle", ToolTipTitle);
+                    htmlBuilder.SetProperty("data-qtitle", ToolTipTitle);
                 }
                 if (!ToolTipAutoHide)
                 {
-                    htmlBuilder.SetProperty("ext:hide", "false");
+                    htmlBuilder.SetProperty("data-hide", "user");
                 }
             }
         }

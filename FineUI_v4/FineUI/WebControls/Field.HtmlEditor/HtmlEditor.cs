@@ -32,6 +32,7 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Web.UI.Design.WebControls;
+using Newtonsoft.Json.Linq;
 
 namespace FineUI
 {
@@ -340,12 +341,6 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            //// Color需要菜单组件的支持
-            //if (EnableColors)
-            //{
-            //    ResourceManager.Instance.AddJavaScriptComponent("menu");
-            //}
-
             if (!EnableAlignments) OB.AddProperty("enableAlignments", false);
             if (!EnableColors) OB.AddProperty("enableColors", false);
             if (!EnableFont) OB.AddProperty("enableFont", false);
@@ -385,12 +380,13 @@ namespace FineUI
                 OB.AddProperty("value", Text);
             }
 
-
+            
             // 如果Text属性存在于XState中，则不要重复设置value属性，而是在render事件中使用XState的值
             if (XState.ModifiedProperties.Contains("Text"))
             {
                 OB.RemoveProperty("value");
                 OB.Listeners.AddProperty("initialize", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
+
             }
 
 

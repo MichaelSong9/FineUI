@@ -357,7 +357,7 @@ namespace FineUI
 
             if (Trigger1Icon != TriggerIcon.None)
             {
-                OB.AddProperty("trigger1Class", TriggerIconHelper.GetName(Trigger1Icon));
+                OB.AddProperty("trigger1Cls", TriggerIconHelper.GetName(Trigger1Icon));
             }
             else if (!String.IsNullOrEmpty(Trigger1IconUrl))
             {
@@ -365,13 +365,13 @@ namespace FineUI
                 string selector = String.Format(".x-form-field-wrap .x-form-twin-triggers .{0}", className);
                 AddStartupCSS(className, StyleUtil.GetBackgroundStyle(selector, ResolveUrl(Trigger1IconUrl)));
 
-                OB.AddProperty("trigger1Class", className);
+                OB.AddProperty("trigger1Cls", className);
             }
 
 
             if (Trigger2Icon != TriggerIcon.None)
             {
-                OB.AddProperty("trigger2Class", TriggerIconHelper.GetName(Trigger2Icon));
+                OB.AddProperty("trigger2Cls", TriggerIconHelper.GetName(Trigger2Icon));
             }
             else if (!String.IsNullOrEmpty(Trigger2IconUrl))
             {
@@ -379,7 +379,7 @@ namespace FineUI
                 string selector = String.Format(".x-form-field-wrap .x-form-twin-triggers .{0}", className);
                 AddStartupCSS(className, StyleUtil.GetBackgroundStyle(selector, ResolveUrl(Trigger2IconUrl)));
 
-                OB.AddProperty("trigger2Class", className);
+                OB.AddProperty("trigger2Cls", className);
             }
 
 
@@ -463,8 +463,10 @@ namespace FineUI
             //OB.Listeners.AddProperty("render", "function(component){" + renderScript + "}", true);
 
             #endregion
+			
+			// X('SimpleForm1_ttbxMyBox2').triggerEl.item(0).show();
 
-            string jsContent = String.Format("var {0}=new Ext.form.TwinTriggerField({1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=new Ext.form.field.Trigger({1});", XID, OB.ToString());
             AddStartupScript(jsContent);
 
         }
