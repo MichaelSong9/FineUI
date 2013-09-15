@@ -1007,36 +1007,26 @@ namespace FineUI
 
             string loaderScript = String.Empty;
 
-            JsObjectBuilder loaderBuilder = new JsObjectBuilder();
-            //if (!String.IsNullOrEmpty(DataCallbackUrl))
-            //{
-            //    loaderBuilder.AddProperty("baseParams",String.Format("{{treeClientId:'{0}'}}", ClientID), true);
-            //    loaderBuilder.AddProperty("dataUrl", DataCallbackUrl); 
+            //JsObjectBuilder loaderBuilder = new JsObjectBuilder();
+           
 
-            //    JsObjectBuilder listenersBuilder = new JsObjectBuilder();
-            //    listenersBuilder.AddProperty("load", String.Format("function(loader,node,response){{\r\nvar i =0;\r\n}}"), true);
+            //JsObjectBuilder listenersBuilder = new JsObjectBuilder();
 
-            //    listenersBuilder.AddProperty(OptionName.Scope, "box", true);
-            //    loaderBuilder.AddProperty("listeners", listenersBuilder);
-            //}
+            //string paramStr = String.Format("Expand${0}", "#ID#");
+            //string postBackScript = GetPostBackEventReference(paramStr);
+            //postBackScript = postBackScript.Replace("#ID#'", "'+node.id");
+            //listenersBuilder.AddProperty("beforeload", String.Format("function(loader,node,callback){{{0}return false;}}", postBackScript), true);
 
-            JsObjectBuilder listenersBuilder = new JsObjectBuilder();
+            ////listenersBuilder.AddProperty(OptionName.Scope, "box", true);
+            //loaderBuilder.AddProperty("listeners", listenersBuilder);
+            //// 必须添加dataUrl，才会引发beforeload事件
+            //loaderBuilder.AddProperty("dataUrl", "about:blank");
+            //loaderBuilder.AddProperty("preloadChildren", true);
+            ////loaderBuilder.AddProperty("clearOnLoad", false);
 
-            string paramStr = String.Format("Expand${0}", "#ID#");
-            string postBackScript = GetPostBackEventReference(paramStr);
-            postBackScript = postBackScript.Replace("#ID#'", "'+node.id");
-            listenersBuilder.AddProperty("beforeload", String.Format("function(loader,node,callback){{{0}return false;}}", postBackScript), true);
+            //loaderScript = String.Format("var {0}=new Ext.tree.TreeLoader({1});", Render_LoaderID, loaderBuilder);
 
-            //listenersBuilder.AddProperty(OptionName.Scope, "box", true);
-            loaderBuilder.AddProperty("listeners", listenersBuilder);
-            // 必须添加dataUrl，才会引发beforeload事件
-            loaderBuilder.AddProperty("dataUrl", "about:blank");
-            loaderBuilder.AddProperty("preloadChildren", true);
-            //loaderBuilder.AddProperty("clearOnLoad", false);
-
-            loaderScript = String.Format("var {0}=new Ext.tree.TreeLoader({1});", Render_LoaderID, loaderBuilder);
-
-            OB.AddProperty("loader", Render_LoaderID, true);
+            //OB.AddProperty("loader", Render_LoaderID, true);
 
             #endregion
 

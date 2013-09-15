@@ -13,7 +13,7 @@
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
                 <x:DropDownList runat="server" ID="DropDownList1">
-                    <x:ListItem Text="选项 1" Value="Value1" />
+                    <x:ListItem Text="选项 1" Value="Value1" Selected="true" />
                     <x:ListItem Text="选项 2（不可选择）" Value="Value2" EnableSelect="false" />
                     <x:ListItem Text="选项 3（不可选择）" Value="Value3" EnableSelect="false" />
                     <x:ListItem Text="选项 4" Value="Value4" />
