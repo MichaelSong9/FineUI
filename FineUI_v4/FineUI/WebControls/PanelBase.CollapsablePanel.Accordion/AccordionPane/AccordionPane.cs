@@ -314,7 +314,7 @@ namespace FineUI
             if (!String.IsNullOrEmpty(renderScript))
             {
                 renderScript = JsHelper.GetDeferScript(renderScript, 100);
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript, "component"), true);
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true);
             }
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.panel.Panel',{1});", XID, OB.ToString());

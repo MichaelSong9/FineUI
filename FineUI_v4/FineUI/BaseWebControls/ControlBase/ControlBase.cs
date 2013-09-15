@@ -921,8 +921,8 @@ namespace FineUI
             if (totalModifiedProperties.Count > 0)
             {
                 string xstate = ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None);
-                AddStartupScript(String.Format("var {0}_state={1};", XID, xstate));
-                OB.AddProperty("x_state", String.Format("{0}_state", XID), true);
+                AddStartupScript(String.Format("var {0}={1};", GetXStateScriptID(), xstate));
+                OB.AddProperty("x_state", GetXStateScriptID(), true);
             }
             else
             {
@@ -975,6 +975,16 @@ namespace FineUI
             //} 
 
             #endregion
+        }
+
+
+        /// <summary>
+        /// 获取XState的JS变量
+        /// </summary>
+        /// <returns></returns>
+        protected string GetXStateScriptID()
+        {
+            return String.Format("{0}_state", XID);
         }
 
         #endregion

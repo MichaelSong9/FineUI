@@ -905,7 +905,7 @@ namespace FineUI
 
                 // 在页面元素渲染完成后，才显示容器控件的内容
                 string renderScript = String.Format("Ext.get('{0}').show();", ContentID);
-                OB.Listeners.AddProperty("render", "function(component){" + renderScript + "}", true);
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true);
 
                 //string beforerenderScript = String.Format("Ext.get('{0}').setStyle('display','');", ChildrenContentID);
                 //OB.Listeners.AddProperty("beforerender", "function(component){" + beforerenderScript + "}", true);

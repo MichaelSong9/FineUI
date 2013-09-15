@@ -812,10 +812,10 @@ namespace FineUI
 
             JsObjectBuilder storeBuilder = new JsObjectBuilder();
             storeBuilder.AddProperty("fields", "['value','text','enabled','prefix']", true);
-            storeBuilder.AddProperty("data", String.Format("X.simulateTree.transform({0}_state.X_Items)", XID), true);
+            storeBuilder.AddProperty("data", String.Format("X.simulateTree.transform({0}.X_Items)", GetXStateScriptID()), true);
             OB.AddProperty("store", String.Format("new Ext.data.ArrayStore({0})", storeBuilder), true);
 
-            OB.AddProperty("value", String.Format("{0}_state.SelectedValue", XID), true);
+            OB.AddProperty("value", String.Format("{0}.SelectedValue", GetXStateScriptID()), true);
 
             OB.AddProperty("tpl", "X.util.ddlTPL", true);
 

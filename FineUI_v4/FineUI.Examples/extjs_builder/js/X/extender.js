@@ -20,7 +20,7 @@ Ext.override(Ext.Panel, {
         if (!this.hidden) {
             this.items.each(function (f) {
                 if (!f.hidden) {
-                    if (f.isXType('field')) {
+                    if (f.isXType('field') || f.isXType('checkboxgroup')) {
                         if (!f.validate()) {
                             valid = false;
                             if (firstInvalidField == null) {
