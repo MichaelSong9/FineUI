@@ -920,12 +920,16 @@ namespace FineUI
             List<string> totalModifiedProperties = XState.GetTotalModifiedProperties();
             if (totalModifiedProperties.Count > 0)
             {
-                OB.AddProperty("x_state", ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None), true);
+                string xstate = ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None);
+                AddStartupScript(String.Format("var {0}_state={1};", XID, xstate));
+                OB.AddProperty("x_state", String.Format("{0}_state", XID), true);
             }
             else
             {
                 OB.AddProperty("x_state", "{}", true);
             }
+           
+
 
             // Every component need this property.
             OB.AddProperty("id", ClientID);
@@ -1221,7 +1225,7 @@ namespace FineUI
 
                     // 无论 propertyGzippedValue 是否为空字符串，都要输出来覆盖上次的结果（因为并非每一次的GZipped都有值）
                     jo.Add(property + "_GZ", propertyGzippedValue);
-                    
+
                 }
 
 
@@ -1360,7 +1364,7 @@ namespace FineUI
                 // 合并在基类中注册的脚本，然后整体注册
                 if (ResourceManager.Instance.IsStartupScriptExist(this))
                 {
-                    scriptContent = scriptContent + ResourceManager.Instance.GetStartupScript(this).Script;
+                    scriptContent = ResourceManager.Instance.GetStartupScript(this).Script + scriptContent;
                     ResourceManager.Instance.RemoveStartupScript(this);
                 }
 
@@ -1523,7 +1527,7 @@ namespace FineUI
             return String.Format("X.util.setHiddenFieldValue('{0}','{1}');", id, value);
         }
 
-        
+
         /// <summary>
         /// 获取修改隐藏表单字段值的脚本（如果此隐藏表单字段不存在，则添加）
         /// </summary>

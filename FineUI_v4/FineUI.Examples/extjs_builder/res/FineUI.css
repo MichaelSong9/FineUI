@@ -1,38 +1,27 @@
-/*
-html, body
-{
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0px;
-    font-family: arial,tahoma,helvetica,sans-serif;
-    font-size: 12px;
-}
-*/
 
-.x-unselectable a, .x-unselectable a *
+/*.x-unselectable a, .x-unselectable a *
 {
 	cursor: pointer;
-}
+}*/
 
 /* Input box editable in Grid template column under Chorme */
-.x-unselectable input
+/*.x-unselectable input
 {
     -webkit-user-select: auto;
-}
+}*/
 
 
 
 /* Let expander icon at the top of the cell */
-.x-grid-body .x-grid-td-expander
+/*.x-grid-body .x-grid-td-expander
 {
     vertical-align: top !important;
-}
+}*/
 
 
 
 
-html, body
+/*html, body
 {
     margin: 0;
     padding: 0;
@@ -43,51 +32,8 @@ html, body
 form
 {
     height: 100%;
-}
+}*/
 
-/*
-body {margin:0;padding:0;border:0px none;}
-html, body{height:100%;}
-form {width:100%;	height:100%;}
-*/
-
-/* override css class in ext-all.css */
-/*
-.x-item-disabled
-{
-    opacity: 1;
-    -moz-opacity: 1;
-    filter: alpha(opacity=100);
-}
-*/
-
-/* 
-a
-{
-    color: #5582AC;
-    text-decoration: none;
-}
-a:hover
-{
-    color: #990000;
-    text-decoration: none;
-}
-a:link
-{
-    color: #5582AC;
-    text-decoration: none;
-}
-a:visited
-{
-    color: #5582AC;
-    text-decoration: none;
-}
-a:active
-{
-    color: #5582AC;
-    text-decoration: none;
-}
- */
 
 /* elbow */
 .x-elbow
@@ -120,31 +66,28 @@ a:active
 }
 
 
-/* cursor pointer */
-.cursor-pointer
+/*.cursor-pointer
 {
     cursor: pointer;
 }
 
 
-/* gray */
 .gray
 {
     color: gray;
-}
+}*/
 
 
-/* dropdownlist can't select style */
-.x-combo-list .x-combo-list-item-disable
+.x-boundlist-item-disabled
 {
-    background: #FFFFFF none repeat scroll 0% 0%;
-    border: 1px solid #FFFFFF !important;
+    background: #fff none repeat scroll 0% 0% !important;
+    border: 1px solid #fff !important;
     cursor: default;
     color: gray;
 }
 
 /* radiogroup background color */
-.x-form-radio-group .x-panel-body
+/*.x-form-radio-group .x-panel-body
 {
     background-color: transparent;
 }
@@ -153,20 +96,19 @@ a:active
 .x-form-radio-wrap-inner
 {
     white-space: nowrap;
-}
+}*/
 
 
 /* 
  * Ext.ux.layout.CenterLayout
  */
-.ux-layout-center-item
+/*.ux-layout-center-item
 {
     margin: 0 auto;
     text-align: left;
 }
-.ux-layout-center .x-panel-body, /* if the container is a panel */ body.ux-layout-center
+.ux-layout-center .x-panel-body, body.ux-layout-center
 {
-    /* if the container is the doc body (for viewport) */
     text-align: center;
 }
 
@@ -196,27 +138,18 @@ a:active
 .x-btn button
 {
     margin: 0 3px !important;
-}
-
-
-/* Fix extjs tree node icon height(original is 18px) */
-/*
-.x-tree-node-collapsed .x-tree-node-icon, .x-tree-node-expanded .x-tree-node-icon, .x-tree-node-leaf .x-tree-node-icon
-{
-    height: 16px;
-}
-*/
+}*/
 
 
 /* This style defined in extjs is not that precise. */
-.x-tab-strip .x-tab-with-icon span.x-tab-strip-text
+/*.x-tab-strip .x-tab-with-icon span.x-tab-strip-text
 {
     background-position: 0 5px;
-}
+}*/
 
 
 /* allow grid text selection in Firefox and WebKit based browsers */
-.x-grid-selectable .x-grid-row td,
+/*.x-grid-selectable .x-grid-row td,
 .x-grid-selectable .x-grid-summary-row td,
 .x-grid-selectable .x-grid-cell-text,
 .x-grid-selectable .x-grid-hd-text,
@@ -226,11 +159,5 @@ a:active
     -moz-user-select: inherit;
     -khtml-user-select: text;
     -webkit-user-select: text;
-}
+}*/
 
-
-/* Define window container style */
-.x-window-wrapper
-{
-    
-}

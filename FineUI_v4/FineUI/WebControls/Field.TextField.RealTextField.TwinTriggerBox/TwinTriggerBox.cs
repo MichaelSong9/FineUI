@@ -311,12 +311,12 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("ShowTrigger1"))
             {
-                sb.AppendFormat("{0}.getTrigger(0).{1}();", XID, ShowTrigger1 ? "show" : "hide");
+                sb.AppendFormat("{0}.triggerEl.item(0).{1}();", XID, ShowTrigger1 ? "show" : "hide");
             }
 
             if (PropertyModified("ShowTrigger2"))
             {
-                sb.AppendFormat("{0}.getTrigger(1).{1}();", XID, ShowTrigger2 ? "show" : "hide");
+                sb.AppendFormat("{0}.triggerEl.item(1).{1}();", XID, ShowTrigger2 ? "show" : "hide");
             }
 
             AddAjaxScript(sb);
@@ -336,20 +336,27 @@ namespace FineUI
                 OB.AddProperty("hideTrigger", true);
             }
 
-
-            if (!ShowTrigger1)
-            {
-                OB.AddProperty("hideTrigger1", true);
-            }
-            if (!ShowTrigger2)
-            {
-                OB.AddProperty("hideTrigger2", true);
-            }
-
             if (!EnableEdit)
             {
                 OB.AddProperty("editable", false);
             }
+
+
+            string renderScript = String.Empty;
+            if (!ShowTrigger1)
+            {
+                renderScript += String.Format("this.triggerEl.item(0).hide();");
+            }
+            if (!ShowTrigger2)
+            {
+                renderScript += String.Format("this.triggerEl.item(1).hide();");
+            }
+
+            if (!String.IsNullOrEmpty(renderScript))
+            {
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true); 
+            }
+
 
             #endregion
 
@@ -435,35 +442,6 @@ namespace FineUI
 
             #endregion
 
-            #region old code
-
-            //string renderScript = String.Empty;
-
-            
-            ////// 只禁用文本框，不禁用Trigger
-            ////if (!EnableTextBox)
-            ////{
-            ////    //AddAbsoluteStartupScript(String.Format("{0}.el.dom.disabled=true;", ClientJavascriptID));
-            ////    renderScript += String.Format("{0}.el.dom.disabled=true;", ClientJavascriptID);
-            ////}
-
-            
-            //if (AjaxPropertyChanged("ShowTrigger1", ShowTrigger1))
-            //{
-            //    AddAjaxPropertyChangedScript(String.Format("{0}.getTrigger(0).{1}();", XID, ShowTrigger1 ? "show" : "hide"));
-            //}
-
-            //if (AjaxPropertyChanged("ShowTrigger2", ShowTrigger2))
-            //{
-            //    AddAjaxPropertyChangedScript(String.Format("{0}.getTrigger(1).{1}();", XID, ShowTrigger2 ? "show" : "hide"));
-            //}
-
-
-            //renderScript = "(function(){" + renderScript + "}).defer(20);";
-            //OB.Listeners.AddProperty("render", "function(component){" + renderScript + "}", true);
-
-            #endregion
-			
 			// X('SimpleForm1_ttbxMyBox2').triggerEl.item(0).show();
 
             string jsContent = String.Format("var {0}=new Ext.form.field.Trigger({1});", XID, OB.ToString());

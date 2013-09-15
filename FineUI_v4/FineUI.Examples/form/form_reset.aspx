@@ -52,7 +52,7 @@
             </Rows>
         </x:Form>
         <br />
-        <x:Form Width="600px" LabelWidth="100px" BodyPadding="5px"
+        <x:Form Width="600px" LabelWidth="100px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
             ID="Form2" runat="server" Title="表单 2">
             <Rows>
                 <x:FormRow>

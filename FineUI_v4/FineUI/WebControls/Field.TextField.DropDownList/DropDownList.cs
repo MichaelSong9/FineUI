@@ -808,16 +808,19 @@ namespace FineUI
             }
 
             OB.AddProperty("hiddenName", UniqueID);
-            //OB.RemoveProperty("name");
-            OB.AddProperty("store", "new Ext.data.ArrayStore({fields:['value','text','enabled','prefix']})", true);
+
+
+            JsObjectBuilder storeBuilder = new JsObjectBuilder();
+            storeBuilder.AddProperty("fields", "['value','text','enabled','prefix']", true);
+            storeBuilder.AddProperty("data", String.Format("X.simulateTree.transform({0}_state.X_Items)", XID), true);
+            OB.AddProperty("store", String.Format("new Ext.data.ArrayStore({0})", storeBuilder), true);
+
+            OB.AddProperty("value", String.Format("{0}_state.SelectedValue", XID), true);
 
             OB.AddProperty("tpl", "X.util.ddlTPL", true);
 
-            OB.AddProperty("mode", "local");
+            OB.AddProperty("queryMode", "local");
             OB.AddProperty("triggerAction", "all");
-//            mode: "local",
-//        triggerAction: "all",
-
 
             #region old code
             //OB.AddProperty("mode", "local");
@@ -965,9 +968,9 @@ namespace FineUI
 
             #region Listeners - render
 
-            string renderScript = "cmp.x_loadData();cmp.x_setValue();";
+            //string renderScript = "cmp.x_loadData();cmp.x_setValue();";
 
-            OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript, "cmp"), true);
+            //OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript, "cmp"), true);
 
             #endregion
 

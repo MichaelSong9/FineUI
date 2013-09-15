@@ -72,7 +72,7 @@ X.fieldValue = function (cmp) {
         loading: "Loading...",
 
         // 下拉列表的模板
-        ddlTPL: '<tpl for="."><div class="x-combo-list-item <tpl if="!enabled">x-combo-list-item-disable</tpl>">{prefix}{text}</div></tpl>',
+        ddlTPL: '<tpl for="."><div class="x-boundlist-item<tpl if="!enabled"> x-boundlist-item-disabled</tpl>">{prefix}{text}</div></tpl>',
 
         // 初始化
         init: function (msgTarget, labelWidth, labelSeparator, enableBigFont,

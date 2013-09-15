@@ -40,7 +40,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-FineUI_v3中的文本输入框或者日期选择器，AutoPostBack使得TextChanged事件在输入框失去焦点后触发。
 		-为了在FineUI_v4中实现之前的失去焦点后触发的事件，为文本输入框增加EnableBlurEvent属性和Blur事件。
 	-DropDownList默认可以不选择，方便使用Required属性做客户端验证，示例form/form.aspx。
-	-
+	-优化XState的初始化代码，使得Reset按钮可用于下拉列表等控件，而不会清空这些控件的值。
+
 
 
 +2013-09-** v3.3.2

@@ -111,8 +111,8 @@ namespace FineUI
                 AddJavascriptPathToPageBottom(page, "ext-debug.js", String.Format("{0}/ext-debug.js", extjsBasePath));
                 AddJavascriptPathToPageBottom(page, "x-debug.js", String.Format("{0}/x-debug.js", extjsBasePath));
 
-                AddJavascriptPathToPageBottom(page, "ext3-core-compat.js", String.Format("{0}/ext3-core-compat.js", extjsBasePath));
-                AddJavascriptPathToPageBottom(page, "ext3-compat.js", String.Format("{0}/ext3-compat.js", extjsBasePath));
+                //AddJavascriptPathToPageBottom(page, "ext3-core-compat.js", String.Format("{0}/ext3-core-compat.js", extjsBasePath));
+                //AddJavascriptPathToPageBottom(page, "ext3-compat.js", String.Format("{0}/ext3-compat.js", extjsBasePath));
             }
             else
             {
