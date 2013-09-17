@@ -1921,11 +1921,11 @@ namespace FineUI
             }
         }
 
-        private string Render_GridColumnModelID
+        private string Render_GridColumnsID
         {
             get
             {
-                return String.Format("{0}_cm", XID);
+                return String.Format("{0}_columns", XID);
             }
         }
 
@@ -2141,12 +2141,8 @@ namespace FineUI
             //OB.AddProperty("disableSelection", true);
 
             string gridColumnsScript = GetGridColumnScript();
-            OB.AddProperty("cm", Render_GridColumnModelID, true);
-            //if (!String.IsNullOrEmpty(RowExpander.DataFormatString))
-            //{
-            //    OB.AddProperty("plugins", Render_GridRowExpanderID, true);
-            //}
-
+            OB.AddProperty("columns", Render_GridColumnsID, true);
+            
             string gridStoreScript = GetGridStore();
             OB.AddProperty("store", Render_GridStoreID, true);
 
@@ -2530,7 +2526,7 @@ namespace FineUI
             StringBuilder renderSB = new StringBuilder();
 
             // 加载表格数据
-            renderSB.Append("cmp.x_loadData();");
+            //renderSB.Append("cmp.x_loadData();");
 
             // 隐藏列
             if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
@@ -2579,7 +2575,8 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
             sb.Append(gridSelectModelScript + gridStoreScript + pagingScript + gridColumnsScript);
-            sb.AppendFormat("var {0}=new Ext.grid.{2}({1});", XID, OB, AllowCellEditing ? "EditorGridPanel" : "GridPanel");
+            //sb.AppendFormat("var {0}=new Ext.grid.{2}({1});", XID, OB, AllowCellEditing ? "EditorGridPanel" : "GridPanel");
+            sb.AppendFormat("var {0}=Ext.create('Ext.grid.Panel',{1});", XID, OB);
 
             AddStartupScript(sb.ToString());
 
@@ -2702,7 +2699,7 @@ namespace FineUI
         private string GetGridColumnScript()
         {
             string selectModelID = Render_SelectModelID;
-            string gridColumnID = Render_GridColumnModelID;
+            
             // columns
             JsArrayBuilder columnsBuilder = new JsArrayBuilder();
 
@@ -2776,15 +2773,17 @@ namespace FineUI
 
 
 
-            JsObjectBuilder defaultsBuilder = new JsObjectBuilder();
-            // 这是Extjs默认的客户端排序
-            //defaultsBuilder.AddProperty("sortable", false);
-            //defaultsBuilder.AddProperty("menuDisabled", true);
-            defaultsBuilder.AddProperty("width", 100);
+            //JsObjectBuilder defaultsBuilder = new JsObjectBuilder();
+            //// 这是Extjs默认的客户端排序
+            ////defaultsBuilder.AddProperty("sortable", false);
+            ////defaultsBuilder.AddProperty("menuDisabled", true);
+            //defaultsBuilder.AddProperty("width", 100);
 
-            string columnModelScript = String.Format("var {0}=new Ext.grid.ColumnModel({{columns:{1},defaults:{2}}});", gridColumnID, columnsBuilder, defaultsBuilder);
+            //string columnModelScript = String.Format("var {0}=new Ext.grid.ColumnModel({{columns:{1},defaults:{2}}});", gridColumnID, columnsBuilder, defaultsBuilder);
+            string columnsScript = String.Format("var {0}={1};", Render_GridColumnsID, columnsBuilder);
 
-            return groupColumnScript + columnModelScript;
+            
+            return groupColumnScript + columnsScript;
         }
 
         #endregion
@@ -2900,11 +2899,11 @@ namespace FineUI
 
                 if (EnableCheckBoxSelect)
                 {
-                    return String.Format("var {0}=new Ext.selection.CheckboxModel({1});", Render_SelectModelID, selectOB);
+                    return String.Format("var {0}=Ext.create('Ext.selection.CheckboxModel',{1});", Render_SelectModelID, selectOB);
                 }
                 else
                 {
-                    return String.Format("var {0}=new Ext.selection.RowModel({1});", Render_SelectModelID, selectOB);
+                    return String.Format("var {0}=Ext.create('Ext.selection.RowModel',{1});", Render_SelectModelID, selectOB);
                 }
             }
         }
@@ -2959,7 +2958,7 @@ namespace FineUI
 
             storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "options"), true);
 
-            return String.Format("var {0}=new Ext.data.ArrayStore({1});", Render_GridStoreID, storeBuilder.ToString());
+            return String.Format("var {0}=Ext.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
 
             #region old code
 
