@@ -97,15 +97,15 @@ namespace FineUI
 
 
 
-        private List<string> _javascriptComponentList = new List<string>();
-        /// <summary>
-        /// 页面需要的JavaScript组件列表
-        /// </summary>
-        public List<string> JavaScriptComponentList
-        {
-            get { return _javascriptComponentList; }
-            set { _javascriptComponentList = value; }
-        }
+        //private List<string> _javascriptComponentList = new List<string>();
+        ///// <summary>
+        ///// 页面需要的JavaScript组件列表
+        ///// </summary>
+        //public List<string> JavaScriptComponentList
+        //{
+        //    get { return _javascriptComponentList; }
+        //    set { _javascriptComponentList = value; }
+        //}
 
 
 
@@ -765,13 +765,13 @@ namespace FineUI
 
         #region AddStartupScript/IsStartupScriptExist
 
-        public void AddJavaScriptComponent(string component)
-        {
-            if (!_javascriptComponentList.Contains(component))
-            {
-                _javascriptComponentList.Add(component);
-            }
-        }
+        //public void AddJavaScriptComponent(string component)
+        //{
+        //    if (!_javascriptComponentList.Contains(component))
+        //    {
+        //        _javascriptComponentList.Add(component);
+        //    }
+        //}
 
         public void AddStartupScript(Control control, string script)
         {

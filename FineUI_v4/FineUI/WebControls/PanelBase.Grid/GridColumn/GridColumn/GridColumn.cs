@@ -196,30 +196,6 @@ namespace FineUI
 
 
 
-        //private string _columnID = String.Empty;
-
-        ///// <summary>
-        ///// 列ID
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue("")]
-        //[Description("列ID")]
-        //public string ColumnID
-        //{
-        //    get
-        //    {
-        //        if (String.IsNullOrEmpty(_columnID))
-        //        {
-        //            return String.Format("ct{0}", ColumnIndex);
-        //        }
-        //        return _columnID;
-        //    }
-        //    set
-        //    {
-        //        _columnID = value;
-        //    }
-        //}
-
         private string _columnID = String.Empty;
 
         /// <summary>
@@ -246,7 +222,6 @@ namespace FineUI
 
 
         private string _headerText = String.Empty;
-
         /// <summary>
         /// 标题栏显示的文字
         /// </summary>
@@ -262,6 +237,44 @@ namespace FineUI
             set
             {
                 _headerText = value;
+            }
+        }
+
+        private string _toolTip = String.Empty;
+        /// <summary>
+        /// 标题栏文字的提示文本
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("标题栏文字的提示文本")]
+        public string ToolTip
+        {
+            get
+            {
+                return _toolTip;
+            }
+            set
+            {
+                _toolTip = value;
+            }
+        }
+
+        private ToolTipType _tooltipType = ToolTipType.Qtip;
+        /// <summary>
+        /// 标题栏文字的提示文本类型
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(ToolTipType.Qtip)]
+        [Description("标题栏文字的提示文本类型")]
+        public ToolTipType ToolTipType
+        {
+            get
+            {
+                return _tooltipType;
+            }
+            set
+            {
+                _tooltipType = value;
             }
         }
 
@@ -283,6 +296,26 @@ namespace FineUI
             set
             {
                 _width = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 控制子控件的尺寸（表格列使用HBox布局）
+        /// </summary>
+        [Category(CategoryName.LAYOUT)]
+        [DefaultValue(0)]
+        [Description("控制子控件的尺寸（表格列使用HBox布局）")]
+        public int BoxFlex
+        {
+            get
+            {
+                object obj = XState["BoxFlex"];
+                return obj == null ? 0 : (int)obj;
+            }
+            set
+            {
+                XState["BoxFlex"] = value;
             }
         }
 
@@ -328,6 +361,46 @@ namespace FineUI
             }
         }
 
+        private bool _enableHeaderMenu = true;
+        /// <summary>
+        /// 启用表头菜单
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("启用表头菜单")]
+        public bool EnableHeaderMenu
+        {
+            get
+            {
+                return _enableHeaderMenu;
+            }
+            set
+            {
+                _enableHeaderMenu = value;
+            }
+        }
+
+
+        private bool _allowHideColumn = true;
+        /// <summary>
+        /// 是否允许隐藏列
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否允许隐藏列")]
+        public bool AllowHideColumn
+        {
+            get
+            {
+                return _allowHideColumn;
+            }
+            set
+            {
+                _allowHideColumn = value;
+            }
+        }
+
+        
 
         #endregion
 
@@ -408,7 +481,13 @@ namespace FineUI
             {
                 JsObjectBuilder columnBuilder = new JsObjectBuilder();
 
-                OB.AddProperty("header", GetHeaderValue());
+                OB.AddProperty("text", GetHeaderValue());
+
+                if (!String.IsNullOrEmpty(ToolTip))
+                {
+                    OB.AddProperty("tooltip", ToolTip);
+                    OB.AddProperty("tooltipType", ToolTipTypeName.GetName(ToolTipType));
+                }
 
                 if (Hidden)
                 {
@@ -417,13 +496,20 @@ namespace FineUI
 
                 if (Grid.AllowSorting)
                 {
-                    if (!String.IsNullOrEmpty(SortField))
+                    if (String.IsNullOrEmpty(SortField))
                     {
-                        //// 自定义JavaScript变量
-                        //OB.AddProperty("x_serverSortable", true);
+                        OB.AddProperty("sortable", false);
+                    }
+                    else
+                    {
                         OB.AddProperty("sortable", true);
                     }
                 }
+                else
+                {
+                    OB.AddProperty("sortable", false);
+                }
+
 
                 if (PersistState)
                 {
@@ -433,8 +519,7 @@ namespace FineUI
 
                 
 
-                ////If not specified, the column's index is used as an index into the Record's data Array.
-                //columnBuilder.AddProperty(OptionName.DataIndex, field.DataField);
+                //If not specified, the column's index is used as an index into the Record's data Array.
                 OB.AddProperty("dataIndex", ColumnID);
                 OB.AddProperty("id", ColumnID);
 
@@ -447,7 +532,40 @@ namespace FineUI
                 {
                     OB.AddProperty("width", Width.Value);
                 }
+                else if (BoxFlex != 0)
+                {
+                    OB.AddProperty("flex", BoxFlex);
+                }
 
+                if (ExpandUnusedSpace)
+                {
+                    OB.AddProperty("flex", 1);
+                }
+
+                if (Grid.EnableHeaderMenu)
+                {
+                    if (EnableHeaderMenu)
+                    {
+                        OB.AddProperty("menuDisabled", false);
+                    }
+                    else
+                    {
+                        OB.AddProperty("menuDisabled", true);
+                    }
+                }
+                else
+                {
+                    OB.AddProperty("menuDisabled", true);
+                }
+
+                if (AllowHideColumn)
+                {
+                    OB.AddProperty("hideable", true);
+                }
+                else
+                {
+                    OB.AddProperty("hideable", false);
+                }
             }
 
             

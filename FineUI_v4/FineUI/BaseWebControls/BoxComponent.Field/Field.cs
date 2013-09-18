@@ -325,7 +325,7 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            ResourceManager.Instance.AddJavaScriptComponent("form");
+            //ResourceManager.Instance.AddJavaScriptComponent("form");
 
             // 默认隐藏空白标签
             if (ShowEmptyLabel)

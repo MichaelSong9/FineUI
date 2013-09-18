@@ -140,7 +140,7 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            ResourceManager.Instance.AddJavaScriptComponent("form");
+            //ResourceManager.Instance.AddJavaScriptComponent("form");
 
             #region Options
 

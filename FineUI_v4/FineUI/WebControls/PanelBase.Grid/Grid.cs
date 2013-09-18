@@ -741,24 +741,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 启用标题栏菜单中的隐藏列功能（默认为true，仅在EnableHeaderMenu=true时有效）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("启用标题栏菜单中的隐藏列功能（默认为true，仅在EnableHeaderMenu=true时有效）")]
-        public bool EnableColumnHide
-        {
-            get
-            {
-                object obj = XState["EnableColumnHide"];
-                return obj == null ? true : (bool)obj;
-            }
-            set
-            {
-                XState["EnableColumnHide"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 启用标题栏菜单中的隐藏列功能（默认为true，仅在EnableHeaderMenu=true时有效）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(true)]
+        //[Description("启用标题栏菜单中的隐藏列功能（默认为true，仅在EnableHeaderMenu=true时有效）")]
+        //public bool EnableColumnHide
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableColumnHide"];
+        //        return obj == null ? true : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableColumnHide"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 启用表格列分隔线（默认为false）
@@ -983,31 +983,31 @@ namespace FineUI
 
         #region ForceFitAllTime/AutoExpandColumn
 
-        /// <summary>
-        /// 列的最小宽度
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue(typeof(Unit), "")]
-        [Description("列的最小宽度")]
-        public Unit MinColumnWidth
-        {
-            get
-            {
-                object obj = XState["MinColumnWidth"];
-                return obj == null ? Unit.Empty : (Unit)obj;
-            }
-            set
-            {
-                XState["MinColumnWidth"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 列的最小宽度
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(typeof(Unit), "")]
+        //[Description("列的最小宽度")]
+        //public Unit MinColumnWidth
+        //{
+        //    get
+        //    {
+        //        object obj = XState["MinColumnWidth"];
+        //        return obj == null ? Unit.Empty : (Unit)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["MinColumnWidth"] = value;
+        //    }
+        //}
 
         /// <summary>
-        /// 自动扩展宽度以填充剩余空间的列（ColumnID）（如果设置了ForceFitFirstTime或者ForceFitAllTime，则忽略此属性）
+        /// 自动扩展宽度以填充剩余空间的列（ColumnID）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
-        [Description("自动扩展宽度以填充剩余空间的列（ColumnID）（如果设置了ForceFitFirstTime或者ForceFitAllTime，则忽略此属性）")]
+        [Description("自动扩展宽度以填充剩余空间的列（ColumnID）")]
         public string AutoExpandColumn
         {
             get
@@ -1021,62 +1021,62 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 自动扩展列的最大宽度
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue(typeof(Unit), "")]
-        [Description("自动扩展列的最大宽度")]
-        public Unit AutoExpandColumnMax
-        {
-            get
-            {
-                object obj = XState["AutoExpandColumnMax"];
-                return obj == null ? Unit.Empty : (Unit)obj;
-            }
-            set
-            {
-                XState["AutoExpandColumnMax"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 自动扩展列的最大宽度
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(typeof(Unit), "")]
+        //[Description("自动扩展列的最大宽度")]
+        //public Unit AutoExpandColumnMax
+        //{
+        //    get
+        //    {
+        //        object obj = XState["AutoExpandColumnMax"];
+        //        return obj == null ? Unit.Empty : (Unit)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["AutoExpandColumnMax"] = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// 自动扩展列的最小宽度
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue(typeof(Unit), "")]
-        [Description("自动扩展列的最小宽度")]
-        public Unit AutoExpandColumnMin
-        {
-            get
-            {
-                object obj = XState["AutoExpandColumnMin"];
-                return obj == null ? Unit.Empty : (Unit)obj;
-            }
-            set
-            {
-                XState["AutoExpandColumnMin"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 自动扩展列的最小宽度
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(typeof(Unit), "")]
+        //[Description("自动扩展列的最小宽度")]
+        //public Unit AutoExpandColumnMin
+        //{
+        //    get
+        //    {
+        //        object obj = XState["AutoExpandColumnMin"];
+        //        return obj == null ? Unit.Empty : (Unit)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["AutoExpandColumnMin"] = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// 成比例改变表格各列的宽度，以防止出现水平滚动条（仅在第一次加载表格时有效）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("成比例改变表格各列的宽度，以防止出现水平滚动条（仅在第一次加载表格时有效）")]
-        public bool ForceFitFirstTime
-        {
-            get
-            {
-                object obj = XState["ForceFitFirstTime"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["ForceFitFirstTime"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 成比例改变表格各列的宽度，以防止出现水平滚动条（仅在第一次加载表格时有效）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("成比例改变表格各列的宽度，以防止出现水平滚动条（仅在第一次加载表格时有效）")]
+        //public bool ForceFitFirstTime
+        //{
+        //    get
+        //    {
+        //        object obj = XState["ForceFitFirstTime"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["ForceFitFirstTime"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 成比例改变表格各列的宽度，以防止出现水平滚动条（第一次加载和之后改变表格宽度时都有效）
@@ -1097,24 +1097,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 垂直滚动条的宽度（不设置则自动计算宽度，0则消除右侧预留的滚动条宽度）
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue(typeof(Unit), "")]
-        [Description("垂直滚动条的宽度（不设置则自动计算宽度，0则消除右侧预留的滚动条宽度）")]
-        public Unit VerticalScrollWidth
-        {
-            get
-            {
-                object obj = XState["VerticalScrollWidth"];
-                return obj == null ? Unit.Empty : (Unit)obj;
-            }
-            set
-            {
-                XState["VerticalScrollWidth"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 垂直滚动条的宽度（不设置则自动计算宽度，0则消除右侧预留的滚动条宽度）
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(typeof(Unit), "")]
+        //[Description("垂直滚动条的宽度（不设置则自动计算宽度，0则消除右侧预留的滚动条宽度）")]
+        //public Unit VerticalScrollWidth
+        //{
+        //    get
+        //    {
+        //        object obj = XState["VerticalScrollWidth"];
+        //        return obj == null ? Unit.Empty : (Unit)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["VerticalScrollWidth"] = value;
+        //    }
+        //}
 
         #endregion
 
@@ -2114,13 +2114,13 @@ namespace FineUI
 
             base.OnFirstPreRender();
 
-            ResourceManager.Instance.AddJavaScriptComponent("grid");
+            //ResourceManager.Instance.AddJavaScriptComponent("grid");
 
-            // 分页工具栏使用了 Ext.form.NumberField 组件，所以必须引入 form 的JavaScript
-            if (AllowPaging)
-            {
-                ResourceManager.Instance.AddJavaScriptComponent("form");
-            }
+            //// 分页工具栏使用了 Ext.form.NumberField 组件，所以必须引入 form 的JavaScript
+            //if (AllowPaging)
+            //{
+            //    ResourceManager.Instance.AddJavaScriptComponent("form");
+            //}
 
             //OB.Listeners.AddProperty("rowmousedown", "function(){alert('ok');}", true);
 
@@ -2152,31 +2152,31 @@ namespace FineUI
 
             #region Width
 
-            if (MinColumnWidth != Unit.Empty)
-            {
-                OB.AddProperty("minColumnWidth", MinColumnWidth.Value);
-            }
+            //if (MinColumnWidth != Unit.Empty)
+            //{
+            //    OB.AddProperty("minColumnWidth", MinColumnWidth.Value);
+            //}
 
-            string autoExpandColumnID = AutoExpandColumn; // GetAutoExpandColumnID();
-            if (String.IsNullOrEmpty(autoExpandColumnID))
-            {
-                autoExpandColumnID = GetAutoExpandColumnID();
-            }
+            //string autoExpandColumnID = AutoExpandColumn; // GetAutoExpandColumnID();
+            //if (String.IsNullOrEmpty(autoExpandColumnID))
+            //{
+            //    autoExpandColumnID = GetAutoExpandColumnID();
+            //}
 
-            if (!String.IsNullOrEmpty(autoExpandColumnID))
-            {
-                OB.AddProperty("autoExpandColumn", autoExpandColumnID);
+            //if (!String.IsNullOrEmpty(autoExpandColumnID))
+            //{
+            //    OB.AddProperty("autoExpandColumn", autoExpandColumnID);
 
-                if (AutoExpandColumnMax != Unit.Empty)
-                {
-                    OB.AddProperty("autoExpandMax", AutoExpandColumnMax.Value);
-                }
+            //    if (AutoExpandColumnMax != Unit.Empty)
+            //    {
+            //        OB.AddProperty("autoExpandMax", AutoExpandColumnMax.Value);
+            //    }
 
-                if (AutoExpandColumnMin != Unit.Empty)
-                {
-                    OB.AddProperty("autoExpandMin", AutoExpandColumnMin.Value);
-                }
-            }
+            //    if (AutoExpandColumnMin != Unit.Empty)
+            //    {
+            //        OB.AddProperty("autoExpandMin", AutoExpandColumnMin.Value);
+            //    }
+            //}
 
 
 
@@ -2184,20 +2184,21 @@ namespace FineUI
 
             #region viewConfig
 
+            
             JsObjectBuilder viewBuilder = new JsObjectBuilder();
             if (ForceFitAllTime)
             {
                 viewBuilder.AddProperty("forceFit", true);
             }
-            if (ForceFitFirstTime)
-            {
-                viewBuilder.AddProperty("autoFill", true);
-            }
+            //if (ForceFitFirstTime)
+            //{
+            //    viewBuilder.AddProperty("autoFill", true);
+            //}
 
-            if (VerticalScrollWidth != Unit.Empty)
-            {
-                viewBuilder.AddProperty("scrollOffset", VerticalScrollWidth.Value);
-            }
+            //if (VerticalScrollWidth != Unit.Empty)
+            //{
+            //    viewBuilder.AddProperty("scrollOffset", VerticalScrollWidth.Value);
+            //}
 
             if (!String.IsNullOrEmpty(EmptyText))
             {
@@ -2223,16 +2224,16 @@ namespace FineUI
             }
 
 
-            OB.AddProperty("enableHdMenu", EnableHeaderMenu);
+            //OB.AddProperty("enableHdMenu", EnableHeaderMenu);
 
-            if (EnableHeaderMenu)
-            {
-                // 启用标题栏菜单，但是不启用标题栏菜单中的隐藏列功能
-                if (!EnableColumnHide)
-                {
-                    OB.AddProperty("enableColumnHide", false);
-                }
-            }
+            //if (EnableHeaderMenu)
+            //{
+            //    // 启用标题栏菜单，但是不启用标题栏菜单中的隐藏列功能
+            //    if (!EnableColumnHide)
+            //    {
+            //        OB.AddProperty("enableColumnHide", false);
+            //    }
+            //}
 
             if (EnableAlternateRowColor)
             {
@@ -2323,61 +2324,6 @@ namespace FineUI
                 OB.AddProperty("bbar", Render_PagingID, true);
             }
 
-            #endregion
-
-            #region old code
-
-            //string checkBoxFieldScript = String.Empty;
-            //int columnIndex = 0;
-            //List<int> needPersistStateColumnIndexList = new List<int>();
-            //foreach (GridColumn column in Columns)
-            //{
-            //    if (column is CheckBoxField)
-            //    {
-            //        CheckBoxField checkBoxField = column as CheckBoxField;
-
-            //        if (!checkBoxField.RenderAsStaticField)
-            //        {
-            //            // check -> uncheck
-            //            //string checkScript = String.Format("ele.toggleClass('box-grid-checkbox-uncheck');var domValue=Ext.get('{0}').dom.value;var rowValueIndex=domValue.indexOf(rowIndex+',');if(rowValueIndex>=0){{Ext.get('{0}').dom.value=domValue.replace(rowIndex+',','');}}else{{return;}}", GetNeedPersistStateColumnIndexID(columnIndex));
-            //            //string uncheckScript = String.Format("ele.toggleClass('box-grid-checkbox-uncheck');var domValue=Ext.get('{0}').dom.value;var rowValueIndex=domValue.indexOf(rowIndex+',');if(rowValueIndex>=0){{return;}}else{{Ext.get('{0}').dom.value+=rowIndex+',';}}", GetNeedPersistStateColumnIndexID(columnIndex));
-
-            //            //string checkScript = String.Format("ele.toggleClass('box-grid-checkbox-uncheck');X.util.removeValueFromHiddenField('{0}',rowIndex);", GetNeedPersistStateColumnIndexID(columnIndex));
-            //            //string uncheckScript = String.Format("ele.toggleClass('box-grid-checkbox-uncheck');X.util.addValueToHiddenField('{0}',rowIndex);", GetNeedPersistStateColumnIndexID(columnIndex));
-
-            //            string checkScript = "ele.toggleClass('box-grid-checkbox-uncheck');";
-            //            string uncheckScript = "ele.toggleClass('box-grid-checkbox-uncheck');";
-
-
-            //            checkBoxFieldScript += String.Format("{0}_checkbox{1}=function(e,ele,rowIndex){{var ele=Ext.get(ele);if(ele.hasClass('box-grid-checkbox-uncheck')){{{2}}}else{{{3}}}}};", XID, columnIndex, uncheckScript, checkScript);
-            //            //checkBoxFieldScript += "\r\n";
-
-            //            needPersistStateColumnIndexList.Add(columnIndex);
-            //        }
-            //    }
-            //    columnIndex++;
-            //}
-
-            //NeedPersistStateColumnIndexArray = needPersistStateColumnIndexList.ToArray();
-
-            #endregion
-
-            #region old code
-
-            //string hiddenFieldsScript = String.Empty;
-
-            //hiddenFieldsScript += GetSetHiddenFieldValueScript(SelectedRowIndexArrayHiddenFieldID, StringUtil.GetStringFromIntArray(SelectedRowIndexArray));
-
-            //// 有这些列需要保存状态
-            //if (NeedPersistStateColumnIndexArray != null && NeedPersistStateColumnIndexArray.Length > 0)
-            //{
-            //    foreach (int needStateColumnIndex in NeedPersistStateColumnIndexArray)
-            //    {
-            //        hiddenFieldsScript += GetSetHiddenFieldValueScript(GetNeedPersistStateColumnIndexID(needStateColumnIndex), Columns[needStateColumnIndex].SaveColumnState());
-            //    }
-            //}
-
-            //hiddenFieldsScript += "\r\n";
             #endregion
 
             #region remove fx
@@ -2499,6 +2445,7 @@ namespace FineUI
                 viewreadySB.Append("cmp.x_enableTextSelection();");
             }
 
+            viewreadySB.Append("cmp.updateLayout();");
 
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
@@ -2526,7 +2473,7 @@ namespace FineUI
             StringBuilder renderSB = new StringBuilder();
 
             // 加载表格数据
-            //renderSB.Append("cmp.x_loadData();");
+            renderSB.Append("cmp.x_loadData();");
 
             // 隐藏列
             if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
@@ -2671,45 +2618,34 @@ namespace FineUI
 
         #endregion
 
-        #region GetAutoExpandColumnID
-
-        private string GetAutoExpandColumnID()
-        {
-            string result = String.Empty;
-
-            int columnIndex = 0;
-            foreach (GridColumn column in AllColumns)
-            {
-                if (column.ExpandUnusedSpace)
-                {
-                    result = column.ColumnID;
-                    break;
-                }
-
-                columnIndex++;
-            }
-
-            return result;
-        }
-
-        #endregion
-
         #region GetGridColumnScript
 
+        //private string GetAutoExpandColumnID()
+        //{
+        //    string result = String.Empty;
+
+        //    int columnIndex = 0;
+        //    foreach (GridColumn column in AllColumns)
+        //    {
+        //        if (column.ExpandUnusedSpace)
+        //        {
+        //            result = column.ColumnID;
+        //            break;
+        //        }
+
+        //        columnIndex++;
+        //    }
+
+        //    return result;
+        //}
+
+        
         private string GetGridColumnScript()
         {
             string selectModelID = Render_SelectModelID;
             
             // columns
             JsArrayBuilder columnsBuilder = new JsArrayBuilder();
-
-            //string expanderScript = String.Empty;
-            //if (!String.IsNullOrEmpty(RowExpander.DataFormatString))
-            //{
-            //    string tplStr = String.Format(RowExpander.DataFormatString.Replace("{", "{{{").Replace("}", "}}}"), RowExpander.DataFields);
-            //    expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template({1})}});", Render_GridRowExpanderID, JsHelper.Enquote(tplStr));
-            //    columnsBuilder.AddProperty(Render_GridRowExpanderID, true);
-            //}
 
             // 如果启用行序号，则放在第一列
             if (EnableRowNumber)
@@ -2769,9 +2705,6 @@ namespace FineUI
             {
                 OB.AddProperty("plugins", pluginBuilder.ToString(), true);
             }
-
-
-
 
             //JsObjectBuilder defaultsBuilder = new JsObjectBuilder();
             //// 这是Extjs默认的客户端排序

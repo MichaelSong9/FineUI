@@ -441,7 +441,7 @@ if (Ext.grid.GridPanel) {
 
         x_loadData: function () {
             var datas = this.x_getData();
-            var pagingBar = this.getBottomToolbar();
+            var pagingBar = null; //this.getBottomToolbar();
             if (pagingBar) {
                 var pagingDatas = [];
                 if (pagingBar.x_databasePaging) {
@@ -468,6 +468,7 @@ if (Ext.grid.GridPanel) {
 
             store.loadData(datas);
 
+            
 
             this.x_initRecordIDs();
 

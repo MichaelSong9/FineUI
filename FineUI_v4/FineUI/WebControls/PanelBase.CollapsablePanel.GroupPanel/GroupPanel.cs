@@ -129,7 +129,7 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            ResourceManager.Instance.AddJavaScriptComponent("form");
+            //ResourceManager.Instance.AddJavaScriptComponent("form");
 
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.FieldSet',{1});", XID, OB.ToString());
