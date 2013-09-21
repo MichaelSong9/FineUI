@@ -46,8 +46,6 @@ namespace FineUI
     [PersistChildren(false)]
     public abstract class BaseField : GridColumn
     {
-
-
         #region Properties
 
         private string _dataSimulateTreeLevelField = String.Empty;
@@ -168,8 +166,7 @@ namespace FineUI
                 result = ToolTip;
             }
 
-            return result == null ? "" : String.Format(" ext:qtip=\"{0}\" ", result);
-            //return String.IsNullOrEmpty(result) ? String.Empty : result;
+            return result == null ? "" : String.Format(" data-qtip=\"{0}\" ", result);
         }
 
         #endregion

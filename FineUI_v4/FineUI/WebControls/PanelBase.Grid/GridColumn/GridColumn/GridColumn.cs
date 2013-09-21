@@ -240,41 +240,41 @@ namespace FineUI
             }
         }
 
-        private string _toolTip = String.Empty;
+        private string _headerToolTip = String.Empty;
         /// <summary>
         /// 标题栏文字的提示文本
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
         [Description("标题栏文字的提示文本")]
-        public string ToolTip
+        public string HeaderToolTip
         {
             get
             {
-                return _toolTip;
+                return _headerToolTip;
             }
             set
             {
-                _toolTip = value;
+                _headerToolTip = value;
             }
         }
 
-        private ToolTipType _tooltipType = ToolTipType.Qtip;
+        private ToolTipType _headerTooltipType = ToolTipType.Qtip;
         /// <summary>
         /// 标题栏文字的提示文本类型
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(ToolTipType.Qtip)]
         [Description("标题栏文字的提示文本类型")]
-        public ToolTipType ToolTipType
+        public ToolTipType HeaderToolTipType
         {
             get
             {
-                return _tooltipType;
+                return _headerTooltipType;
             }
             set
             {
-                _tooltipType = value;
+                _headerTooltipType = value;
             }
         }
 
@@ -483,10 +483,10 @@ namespace FineUI
 
                 OB.AddProperty("text", GetHeaderValue());
 
-                if (!String.IsNullOrEmpty(ToolTip))
+                if (!String.IsNullOrEmpty(HeaderToolTip))
                 {
-                    OB.AddProperty("tooltip", ToolTip);
-                    OB.AddProperty("tooltipType", ToolTipTypeName.GetName(ToolTipType));
+                    OB.AddProperty("tooltip", HeaderToolTip);
+                    OB.AddProperty("tooltipType", ToolTipTypeName.GetName(HeaderToolTipType));
                 }
 
                 if (Hidden)

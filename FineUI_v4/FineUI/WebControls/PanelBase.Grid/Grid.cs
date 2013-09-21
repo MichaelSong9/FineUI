@@ -1909,7 +1909,7 @@ namespace FineUI
         {
             get
             {
-                return String.Format("{0}_sm", XID);
+                return String.Format("{0}_selModel", XID);
             }
         }
 
@@ -2137,12 +2137,12 @@ namespace FineUI
             #endregion
 
             string gridSelectModelScript = GetGridSelectModel();
-            OB.AddProperty("sm", Render_SelectModelID, true);
-            //OB.AddProperty("disableSelection", true);
+            OB.AddProperty("selModel", Render_SelectModelID, true);
+
 
             string gridColumnsScript = GetGridColumnScript();
             OB.AddProperty("columns", Render_GridColumnsID, true);
-            
+
             string gridStoreScript = GetGridStore();
             OB.AddProperty("store", Render_GridStoreID, true);
 
@@ -2184,7 +2184,7 @@ namespace FineUI
 
             #region viewConfig
 
-            
+
             JsObjectBuilder viewBuilder = new JsObjectBuilder();
             if (ForceFitAllTime)
             {
@@ -2425,16 +2425,16 @@ namespace FineUI
             // Note: this.x_state['X_Rows']['Values'] will always rendered to the client side.
             //viewreadySB.Append("cmp.x_updateTpls();");
 
-            if (AllowSorting)
-            {
-                // After the grid is rendered, then we can apply sort icon to grid header.
-                viewreadySB.AppendFormat("cmp.x_setSortIcon({0}, '{1}');", SortColumnIndex, SortDirection);
-            }
+            //if (AllowSorting)
+            //{
+            //    // After the grid is rendered, then we can apply sort icon to grid header.
+            //    viewreadySB.AppendFormat("cmp.x_setSortIcon({0}, '{1}');", SortColumnIndex, SortDirection);
+            //}
 
-            if (!AllowCellEditing)
-            {
-                viewreadySB.Append("cmp.x_selectRows();");
-            }
+            //if (!AllowCellEditing)
+            //{
+            //    viewreadySB.Append("cmp.x_selectRows();");
+            //}
 
 
             if (EnableTextSelection)
@@ -2639,11 +2639,11 @@ namespace FineUI
         //    return result;
         //}
 
-        
+
         private string GetGridColumnScript()
         {
             string selectModelID = Render_SelectModelID;
-            
+
             // columns
             JsArrayBuilder columnsBuilder = new JsArrayBuilder();
 
@@ -2664,14 +2664,17 @@ namespace FineUI
                     rowNumberBuilder.AddProperty("x_paging_enabled", EnableRowNumberPaging);
                 }
 
-                columnsBuilder.AddProperty(String.Format("new Ext.grid.RowNumberer({0})", rowNumberBuilder.ToString()), true);
+                //columnsBuilder.AddProperty(String.Format("Ext.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
+                columnsBuilder.AddProperty("Ext.create('Ext.grid.RowNumberer')", true);
             }
-            // 如果启用CheckBox，则放在第二列
-            // 如果启用单元格编辑，则EnableCheckBoxSelect属性失效
-            if (EnableCheckBoxSelect && !AllowCellEditing)
-            {
-                columnsBuilder.AddProperty(selectModelID, true);
-            }
+
+            //// 如果启用CheckBox，则放在第二列
+            //// 如果启用单元格编辑，则EnableCheckBoxSelect属性失效
+            //if (EnableCheckBoxSelect && !AllowCellEditing)
+            //{
+            //    columnsBuilder.AddProperty(selectModelID, true);
+            //}
+
 
             string groupColumnScript = GetGroupColumnScript();
 
@@ -2715,7 +2718,7 @@ namespace FineUI
             //string columnModelScript = String.Format("var {0}=new Ext.grid.ColumnModel({{columns:{1},defaults:{2}}});", gridColumnID, columnsBuilder, defaultsBuilder);
             string columnsScript = String.Format("var {0}={1};", Render_GridColumnsID, columnsBuilder);
 
-            
+
             return groupColumnScript + columnsScript;
         }
 
@@ -2852,11 +2855,11 @@ namespace FineUI
             JsArrayBuilder fieldsBuidler = new JsArrayBuilder();
             foreach (GridColumn column in AllColumns)
             {
+                JsObjectBuilder fieldBuilder = new JsObjectBuilder();
+                fieldBuilder.AddProperty("name", column.ColumnID);
+
                 if (AllowCellEditing)
                 {
-                    JsObjectBuilder fieldBuilder = new JsObjectBuilder();
-                    fieldBuilder.AddProperty("name", column.ColumnID);
-
                     RenderBaseField field = column as RenderBaseField;
                     if (field != null)
                     {
@@ -2873,12 +2876,8 @@ namespace FineUI
                             fieldBuilder.AddProperty("type", "boolean");
                         }
                     }
-                    fieldsBuidler.AddProperty(fieldBuilder);
                 }
-                else
-                {
-                    fieldsBuidler.AddProperty(column.ColumnID);
-                }
+                fieldsBuidler.AddProperty(fieldBuilder);
             }
 
             storeBuilder.AddProperty("fields", fieldsBuidler, true);
@@ -2889,7 +2888,7 @@ namespace FineUI
             string postbackScript = GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "'Sort$'+options.params.sort+'$'+options.params.dir");
             postbackScript = "if(!store.headerclickprocessed&&options.params.sort){" + postbackScript + "};store.headerclickprocessed=false;return false;";
 
-            storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "options"), true);
+            //storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "options"), true);
 
             return String.Format("var {0}=Ext.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
 

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
-        <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" EnableHeaderMenu="true" Title="表格" Width="800px" runat="server" EnableFrame="true" EnableCollapse="true"
+        <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server" EnableFrame="true" EnableCollapse="true"
             DataKeyNames="Guid">
             <Columns>
                 <x:TemplateField Width="60px">

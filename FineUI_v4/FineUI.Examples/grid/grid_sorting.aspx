@@ -10,8 +10,8 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumnIndex="2" SortDirection="ASC"
-        Width="750px" AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
-        EnableRowNumber="True" OnSort="Grid1_Sort">
+        Width="750px" AutoHeight="true" runat="server" EnableCheckBoxSelect="false" DataKeyNames="Id,Name,AtSchool"
+        EnableRowNumber="true" OnSort="Grid1_Sort">
         <Columns>
             <x:BoundField Width="100px" SortField="Name" DataField="Name" DataFormatString="{0}"
                 HeaderText="姓名" />

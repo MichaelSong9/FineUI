@@ -47,8 +47,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 			-可以为Column指定BoxFlex属性或者Width属性。
 			-删除表格属性MinColumnWidth、AutoExpandColumnMax、AutoExpandColumnMin。
 			-删除属性ForceFitFirstTime，属性ForceFitAllTime依然可用。
-			-列增加属性ToolTip、ToolTipType、BoxFlex、AllowHideColumn
+			-列增加属性HeaderToolTip、HeaderToolTipType、BoxFlex、AllowHideColumn
 			-列增加属性EnableHeaderMenu（默认为true），表格的EnableHeaderMenu默认为false。
+			-
 
 
 
