@@ -28,7 +28,7 @@
         BoxConfigPosition="Start" BoxConfigPadding="5" BoxConfigChildMargin="0 5 0 0"
         ShowHeader="false">
         <Items>
-            <x:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" runat="server"
+            <x:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" runat="server"
                 DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid1_RowSelect"
                 EnableTextSelection="true">
                 <Columns>

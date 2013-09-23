@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="900px" runat="server"
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px" runat="server"
         DataKeyNames="Guid" ForceFitAllTime="true">
         <GroupColumns>
             <x:GridGroupColumn HeaderText="河南省" TextAlign="Center">

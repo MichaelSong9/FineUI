@@ -58,4 +58,5 @@ table.result td, table.result th
 {
     border-bottom: solid 1px #efefef;
     padding: 5px;
+    text-align: left;
 }

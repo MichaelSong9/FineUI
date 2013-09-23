@@ -73,7 +73,7 @@
             </x:Toolbar>
         </Toolbars>
         <Items>
-            <x:Grid ID="Grid1" Title="表格" PageSize="4" ShowBorder="true" ShowHeader="False"
+            <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" PageSize="4" ShowBorder="true" ShowHeader="False"
                 runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name">
                 <Columns>
                     <x:RowNumberField />

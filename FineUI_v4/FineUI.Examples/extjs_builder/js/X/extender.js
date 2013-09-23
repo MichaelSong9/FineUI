@@ -542,12 +542,12 @@ if (Ext.grid.GridPanel) {
         x_getSelectedRows: function () {
             var selectedRows = [];
             var sm = this.getSelectionModel();
-            if (sm.getSelections) {
-                var selections = sm.getSelections();
+            if (sm.getSelection) {
+                var selection = sm.getSelection();
                 var store = this.getStore();
 
-                Ext.each(selections, function (record, index) {
-                    selectedRows.push(store.indexOfId(record.id));
+                Ext.each(selection, function (record, index) {
+                    selectedRows.push(store.indexOf(record));
                 });
             }
 

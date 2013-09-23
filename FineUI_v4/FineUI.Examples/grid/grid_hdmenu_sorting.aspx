@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" AllowSorting="true" SortColumnIndex="2" SortDirection="ASC"
+    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" AllowSorting="true" SortColumnIndex="2" SortDirection="ASC"
         Width="750px" AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
         OnSort="Grid1_Sort" EnableHeaderMenu="true" EnableColumnHide="false">
         <Columns>
