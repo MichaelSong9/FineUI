@@ -74,8 +74,9 @@
         </Toolbars>
         <Items>
             <x:Grid ID="Grid1" Title="表格" PageSize="4" ShowBorder="true" ShowHeader="False"
-                runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name" EnableRowNumber="True">
+                runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name">
                 <Columns>
+                    <x:RowNumberField />
                     <x:TemplateField Width="60px">
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>

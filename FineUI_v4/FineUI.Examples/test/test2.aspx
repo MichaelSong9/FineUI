@@ -14,7 +14,7 @@
             <x:Tab ID="ZtTab" runat="server"  Layout="Fit">
                 <Items>
                     <x:Grid ID="ZtGrid" PageSize="20" DataKeyNames="Remarks" runat="server" AllowPaging="True"
-                        EnableCheckBoxSelect="True" EnableRowNumber="True" IsDatabasePaging="True" ShowBorder="False"
+                        EnableCheckBoxSelect="True" IsDatabasePaging="True" ShowBorder="False"
                         ShowHeader="False" EnableMultiSelect="False" ExpandAllRowExpanders="true">
                         <Columns>
                             <x:BoundField TextAlign="Center" ExpandUnusedSpace="true" DataField="Remarks" DataFormatString="{0}"
@@ -38,7 +38,7 @@
             <x:Tab ID="XhycTab" runat="server"  Layout="Fit">
                 <Items>
                     <x:Grid ID="XhycGrid" PageSize="20" DataKeyNames="Remarks" runat="server" AllowPaging="True"
-                        EnableCheckBoxSelect="True" EnableRowNumber="True" IsDatabasePaging="True" ShowBorder="False"
+                        EnableCheckBoxSelect="True" IsDatabasePaging="True" ShowBorder="False"
                         ShowHeader="False" EnableMultiSelect="False" ExpandAllRowExpanders="true">
                         <Columns>
                             <x:BoundField TextAlign="Center" ExpandUnusedSpace="true" DataField="Remarks" DataFormatString="{0}"

@@ -12,8 +12,9 @@
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" PageSize="3" ShowBorder="true" AutoHeight="true"
         Width="800px" ShowHeader="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Year"
-        EnableRowNumber="True">
+       >
         <Columns>
+            <x:RowNumberField />
             <x:BoundField DataField="MyText" SortField="MyText" DataFormatString="{0}" HeaderText="姓名" />
             <x:BoundField Width="60px" DataField="Year" HeaderText="入学年份" />
             <x:CheckBoxField Width="60px" DataField="MyCheckBox" HeaderText="是否在校" />

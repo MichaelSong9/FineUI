@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" PageSize="20" DataKeyNames="Remarks" runat="server" AllowPaging="True"
-        EnableCheckBoxSelect="True" EnableRowNumber="True" IsDatabasePaging="false" ShowBorder="true"
+        EnableCheckBoxSelect="True" IsDatabasePaging="false" ShowBorder="true"
         ShowHeader="true" Width="500px" Height="200px" EnableMultiSelect="False" OnPageIndexChange="Grid1_PageIndexChange">
         <Columns>
             <x:BoundField TextAlign="Center" ExpandUnusedSpace="true" DataField="Remarks" DataFormatString="{0}"

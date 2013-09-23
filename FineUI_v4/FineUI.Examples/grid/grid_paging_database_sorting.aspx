@@ -13,9 +13,10 @@
     <x:Grid ID="Grid1" Title="表格" Width="800px" PageSize="5" ShowBorder="true" ShowHeader="true"
         AutoHeight="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
         DataKeyNames="Id,Name" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-        EnableRowNumber="True" AllowSorting="true" SortColumnIndex="0" SortDirection="ASC"
+        AllowSorting="true" SortColumnIndex="0" SortDirection="ASC"
         OnSort="Grid1_Sort">
         <Columns>
+            <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" SortField="Name" DataFormatString="{0}"
                 HeaderText="姓名" />
             <x:TemplateField Width="60px" SortField="Gender" HeaderText="性别">

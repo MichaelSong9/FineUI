@@ -323,7 +323,7 @@ if (Ext.Button) {
     });
 }
 
-
+/*
 if (Ext.grid.RowNumberer) {
 
     X.originalRowNumbererRenderer = Ext.grid.RowNumberer.prototype.renderer;
@@ -343,6 +343,7 @@ if (Ext.grid.RowNumberer) {
     });
 
 }
+*/
 
 if (Ext.data.Store) {
     Ext.override(Ext.data.Store, {
@@ -584,9 +585,9 @@ if (Ext.grid.GridPanel) {
 
         // 获取隐藏列的索引列表
         x_getHiddenColumns: function () {
-            var hiddens = [], model = this.getColumnModel(), columns = model.config;
+            var hiddens = [], columns = this.columns;
             Ext.each(columns, function (column, index) {
-                if (model.isHidden(index)) {
+                if (column.isHidden()) {
                     hiddens.push(index);
                 }
             });
@@ -596,12 +597,12 @@ if (Ext.grid.GridPanel) {
         // 隐藏需要隐藏的列，显示不需要隐藏的列
         x_updateColumnsHiddenStatus: function (hiddens) {
             hiddens = hiddens || this.x_state['HiddenColumnIndexArray'] || [];
-            var model = this.getColumnModel(), columns = model.config;
+            var columns = this.columns;
             Ext.each(columns, function (column, index) {
                 if (hiddens.indexOf(index) !== -1) {
-                    model.setHidden(index, true);
+                    column.setVisible(false);
                 } else {
-                    model.setHidden(index, false);
+                    column.setVisible(true);
                 }
             });
         },
@@ -612,9 +613,9 @@ if (Ext.grid.GridPanel) {
 
             function getHeaderNode(index) {
                 if (typeof (index) === 'number') {
-                    return gridEl.select('.x-grid-hd-row .x-grid-cell.x-grid-td-' + columns[index].id);
+                    return gridEl.select('.x-column-header' + columns[index].id);
                 } else {
-                    return gridEl.select('.x-grid-hd-row .x-grid-cell.x-grid-hd');
+                    return gridEl.select('.x-column-header');
                 }
             }
 
@@ -630,15 +631,15 @@ if (Ext.grid.GridPanel) {
 
             // Set current sort column
             if (sortColumnIndex >= 0 && sortColumnIndex < columns.length) {
-                getHeaderNode(sortColumnIndex).addCls('sort-' + sortDirection.toLowerCase());
+                getHeaderNode(sortColumnIndex).addCls('x-column-header-sort-' + sortDirection.toLowerCase());
             }
 
         },
 
         // 获取表格列
         x_getColumns: function () {
+            /*
             var columns = [];
-            // this.getColumnModel().config -> An Array of Column definition objects representing the configuration of this ColumnModel.
             var configColumns = this.getColumnModel().config;
             Ext.each(configColumns, function (item, index) {
                 // expander也属于表格列的一种类型，否则设置x_setSortIcon会出错
@@ -646,7 +647,8 @@ if (Ext.grid.GridPanel) {
                     columns.push(item);
                 }
             });
-            return columns;
+            */
+            return this.columns;
         },
 
         // 这个方法用不到了，现在对States的更新会导致Values的改变，进而促使表格的重新加载

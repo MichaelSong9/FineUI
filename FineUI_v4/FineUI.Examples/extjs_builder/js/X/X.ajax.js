@@ -303,20 +303,21 @@
                     removeHiddenField('ModifiedData');
                 }
 
+                // 删除的行索引列表
+                var deletedRows = cmp.x_getDeletedRows();
+                if (deletedRows.length > 0) {
+                    saveInHiddenField('DeletedRows', deletedRows.join(','));
+                } else {
+                    removeHiddenField('DeletedRows');
+                }
+
             } else {
                 // 普通的表格
                 // 选中行索引列表
                 saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
             }
 
-            // 删除的行索引列表
-            var deletedRows = cmp.x_getDeletedRows();
-            if (deletedRows.length > 0) {
-                saveInHiddenField('DeletedRows', deletedRows.join(','));
-            } else {
-                removeHiddenField('DeletedRows');
-            }
-
+            
             // 隐藏的列索引列表
             var gridHiddenColumns = cmp.x_getHiddenColumns();
             if (gridHiddenColumns.length > 0) {

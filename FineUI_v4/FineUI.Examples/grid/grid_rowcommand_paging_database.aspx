@@ -26,7 +26,7 @@
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" ShowBorder="true" ShowHeader="true" AutoHeight="true"
         AllowPaging="true" IsDatabasePaging="true" PageSize="5" runat="server" DataKeyNames="Id,Name" Width="800px"
-        Height="300px" OnRowCommand="Grid1_RowCommand" EnableRowNumber="false" EnableCheckBoxSelect="false"
+        Height="300px" OnRowCommand="Grid1_RowCommand" EnableCheckBoxSelect="false"
         OnPageIndexChange="Grid1_PageIndexChange">
         <Columns>
             <x:TemplateField ColumnID="expander" RenderAsRowExpander="true">

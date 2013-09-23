@@ -11,8 +11,9 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" ShowBorder="true" ShowHeader="true" Width="800px" runat="server"
-        EnableCheckBoxSelect="true" DataKeyNames="Id,Name" EnableRowNumber="True" EnableHeaderMenu="true">
+        EnableCheckBoxSelect="true" DataKeyNames="Id,Name" EnableHeaderMenu="true">
         <Columns>
+            <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" ColumnID="gender" HeaderText="性别">
                 <ItemTemplate>

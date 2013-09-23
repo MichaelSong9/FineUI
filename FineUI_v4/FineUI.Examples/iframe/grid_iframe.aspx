@@ -53,8 +53,9 @@
                 <Items>
                     <x:Grid ID="Grid2" Title="Grid2" PageSize="80" ShowBorder="false" AllowPaging="true"
                         OnPageIndexChange="Grid2_PageIndexChange" ShowHeader="False" runat="server" EnableCheckBoxSelect="True"
-                        DataKeyNames="Id,Name" OnSort="Grid2_Sort" EnableRowNumber="True">
+                        DataKeyNames="Id,Name" OnSort="Grid2_Sort">
                         <Columns>
+                            <x:RowNumberField />
                             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                             <x:TemplateField Width="60px" HeaderText="性别">
                                 <ItemTemplate>

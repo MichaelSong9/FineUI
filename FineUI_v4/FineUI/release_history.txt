@@ -43,13 +43,13 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+表格相关。
 		-生成的样式类"x-grid3"字符串全部更改为"x-grid"。
 		-删除表格属性VerticalScrollWidth、EnableColumnHide。
-		+列宽的定义和之前不兼容（现在使用HBox布局）。
-			-可以为Column指定BoxFlex属性或者Width属性。
+		+表格列和之前不兼容（现在使用HBox布局）。
+			-可以为Column指定BoxFlex属性或者Width属性（之前ExpandUnusedSpace属性等价于BoxFlex=1）。
 			-删除表格属性MinColumnWidth、AutoExpandColumnMax、AutoExpandColumnMin。
-			-删除属性ForceFitFirstTime，属性ForceFitAllTime依然可用。
-			-列增加属性HeaderToolTip、HeaderToolTipType、BoxFlex、AllowHideColumn
-			-列增加属性EnableHeaderMenu（默认为true），表格的EnableHeaderMenu默认为false。
-			-
+			-删除表格属性ForceFitFirstTime，属性ForceFitAllTime依然可用。
+			-增加列属性HeaderToolTip、HeaderToolTipType、BoxFlex、AllowHideColumn
+			-增加列属性EnableHeaderMenu（默认为true），修改表格的EnableHeaderMenu默认值true。
+			-增加列RowNumberField，删除表格属性EnableRowNumber、EnableRowNumberPaging、RowNumberWidth。
 
 
 

@@ -13,8 +13,9 @@
     <x:Grid ID="Grid1" Title="表格" PageSize="5" ShowBorder="true" ShowHeader="true" AutoHeight="true"
         AllowPaging="true" runat="server" EnableCheckBoxSelect="True" Width="800px" Height="350px"
         DataKeyNames="Id,Name" OnPageIndexChange="Grid1_PageIndexChange" IsDatabasePaging="true"
-        EnableRowNumber="True">
+       >
         <Columns>
+            <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
                 <ItemTemplate>

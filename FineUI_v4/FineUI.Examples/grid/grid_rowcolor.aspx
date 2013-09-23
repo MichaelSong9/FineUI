@@ -31,7 +31,7 @@
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" ShowBorder="true" ShowHeader="true" Width="800px"
         runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound"
-        EnableRowNumber="True">
+       >
        <%-- <Toolbars>
             <x:Toolbar ID="Toolbar1" runat="server">
                 <Items>
@@ -52,6 +52,7 @@
             </x:Toolbar>
         </Toolbars>--%>
         <Columns>
+            <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
                 <ItemTemplate>

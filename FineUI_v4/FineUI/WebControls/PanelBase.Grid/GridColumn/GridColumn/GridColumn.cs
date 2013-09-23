@@ -280,14 +280,13 @@ namespace FineUI
 
 
         private Unit _width = Unit.Empty;
-
         /// <summary>
         /// 列宽度
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(typeof(Unit), "")]
         [Description("列宽度")]
-        public Unit Width
+        public virtual Unit Width
         {
             get
             {
@@ -368,7 +367,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
         [Description("启用表头菜单")]
-        public bool EnableHeaderMenu
+        public virtual bool EnableHeaderMenu
         {
             get
             {
@@ -388,7 +387,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
         [Description("是否允许隐藏列")]
-        public bool AllowHideColumn
+        public virtual bool AllowHideColumn
         {
             get
             {
@@ -400,7 +399,7 @@ namespace FineUI
             }
         }
 
-        
+
 
         #endregion
 
@@ -473,13 +472,20 @@ namespace FineUI
                 //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template({1})}});", Render_GridRowExpanderID, JsHelper.Enquote(tplStr));
                 //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", Grid.Render_GridRowExpanderID, Grid.Render_GridRowExpanderID);
 
+                JsObjectBuilder rowExpanderBuilder = new JsObjectBuilder();
+                rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("new Ext.XTemplate('{{{0}}}')", ColumnID), true);
 
-                string jsContent = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", XID, ColumnID);
+                string jsContent = String.Format("var {0}=Ext.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
                 AddStartupScript(jsContent);
             }
             else
             {
                 JsObjectBuilder columnBuilder = new JsObjectBuilder();
+
+                if (this is RowNumberField)
+                {
+                    OB.AddProperty("xtype", "rownumberer");
+                }
 
                 OB.AddProperty("text", GetHeaderValue());
 
@@ -517,7 +523,7 @@ namespace FineUI
                     OB.AddProperty("x_persistStateType", "checkbox");
                 }
 
-                
+
 
                 //If not specified, the column's index is used as an index into the Record's data Array.
                 OB.AddProperty("dataIndex", ColumnID);
@@ -568,12 +574,12 @@ namespace FineUI
                 }
             }
 
-            
+
         }
 
         #endregion
 
-       
+
 
     }
 }

@@ -103,8 +103,9 @@
                 <Items>
                     <x:Grid ID="Grid1" Title="表格" PageSize="3" ShowBorder="false" ShowHeader="False"
                         AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name"
-                        EnableRowNumber="True">
+                       >
                         <Columns>
+                            <x:RowNumberField />
                             <x:TemplateField Width="60px">
                                 <ItemTemplate>
                                     <asp:Label ID="Label3" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
@@ -170,8 +171,9 @@
                 </Toolbars>
                 <Items>
                     <x:Grid ID="Grid2" Title="Grid2" PageSize="3" ShowBorder="false" ShowHeader="False"
-                        runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name" EnableRowNumber="True">
+                        runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name">
                         <Columns>
+                            <x:RowNumberField />
                             <x:TemplateField Width="60px">
                                 <ItemTemplate>
                                     <asp:Label ID="Label5" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
@@ -242,8 +244,9 @@
                 </Toolbars>
                 <Items>
                     <x:Grid ID="Grid3" Title="Grid3" PageSize="3" ShowBorder="false" ShowHeader="False"
-                        runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name" EnableRowNumber="True">
+                        runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name">
                         <Columns>
+                            <x:RowNumberField />
                             <x:TemplateField Width="60px">
                                 <ItemTemplate>
                                     <asp:Label ID="Label7" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>

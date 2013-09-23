@@ -524,24 +524,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 序号列的宽度（默认为23px）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(typeof(Unit), "")]
-        [Description("序号列的宽度（默认为23px）")]
-        public Unit RowNumberWidth
-        {
-            get
-            {
-                object obj = XState["RowNumberWidth"];
-                return obj == null ? Unit.Empty : (Unit)obj;
-            }
-            set
-            {
-                XState["RowNumberWidth"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 序号列的宽度（默认为23px）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(typeof(Unit), "")]
+        //[Description("序号列的宽度（默认为23px）")]
+        //public Unit RowNumberWidth
+        //{
+        //    get
+        //    {
+        //        object obj = XState["RowNumberWidth"];
+        //        return obj == null ? Unit.Empty : (Unit)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["RowNumberWidth"] = value;
+        //    }
+        //}
 
 
         /// <summary>
@@ -664,44 +664,44 @@ namespace FineUI
 
         #endregion
 
-        /// <summary>
-        /// 启用行序号列
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("启用行序号列")]
-        public bool EnableRowNumber
-        {
-            get
-            {
-                object obj = XState["EnableRowNumber"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableRowNumber"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 启用行序号列
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("启用行序号列")]
+        //public bool EnableRowNumber
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableRowNumber"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableRowNumber"] = value;
+        //    }
+        //}
 
 
-        /// <summary>
-        /// 行序号列是否支持分页（默认为false，也即是每页都从1开始）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("行序号列是否支持分页（默认为false，也即是每页都从1开始）")]
-        public bool EnableRowNumberPaging
-        {
-            get
-            {
-                object obj = XState["EnableRowNumberPaging"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableRowNumberPaging"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 行序号列是否支持分页（默认为false，也即是每页都从1开始）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("行序号列是否支持分页（默认为false，也即是每页都从1开始）")]
+        //public bool EnableRowNumberPaging
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableRowNumberPaging"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableRowNumberPaging"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 显示表格表头
@@ -726,14 +726,14 @@ namespace FineUI
         /// 启用表头菜单
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Description("启用表头菜单")]
         public bool EnableHeaderMenu
         {
             get
             {
                 object obj = XState["EnableHeaderMenu"];
-                return obj == null ? false : (bool)obj;
+                return obj == null ? true : (bool)obj;
             }
             set
             {
@@ -1969,6 +1969,8 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
 
+            bool needUpdateSortIcon = false;
+
             bool dataReloaded = false;
             if (AllowPaging)
             {
@@ -1979,7 +1981,8 @@ namespace FineUI
                     sb.AppendFormat("{0}.getBottomToolbar().load({1});", XID, GetPagingBuilder());
                     sb.AppendFormat("{0}.x_loadData();", XID);
 
-                    sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+                    needUpdateSortIcon = true;
+                    //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
 
                     dataReloaded = true;
                 }
@@ -1992,7 +1995,8 @@ namespace FineUI
                 {
                     sb.AppendFormat("{0}.x_loadData();", XID);
 
-                    sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+                    needUpdateSortIcon = true;
+                    //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
 
                     dataReloaded = true;
                 }
@@ -2015,9 +2019,14 @@ namespace FineUI
 
             if (PropertyModified("SortColumnIndex", "SortDirection"))
             {
-                sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+                needUpdateSortIcon = true;
+                //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
             }
 
+            if (needUpdateSortIcon)
+            {
+                //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+            }
 
             bool selectRowsScriptRegistered = false;
             if (AllowCellEditing)
@@ -2337,84 +2346,19 @@ namespace FineUI
             #region AllowSorting
 
 
-            // 如果启用服务器端排序，则需要注册headerclick事件处理
-            if (AllowSorting)
-            {
-                #region old code
-                ////string argumentStr = "var field=sortInfo.field.substr(sortInfo.field.indexOf('__')+2);var args='Sort$'+field+'$'+ sortInfo.direction;";
-                //string argumentStr = "var args='Sort$'+sortInfo.field;";
-                //string postBackReference = String.Format("{1}__doPostBack('{0}',args);return false;", ClientID, argumentStr);
+            //// 如果启用服务器端排序，则需要注册headerclick事件处理
+            //if (AllowSorting)
+            //{
+            //    string headerClickScript = "if(!cmp.getColumnModel().config[columnIndex].sortable){return false;}";
+            //    headerClickScript += "var args='Sort$'+columnIndex;";
+            //    headerClickScript += GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "args");
 
-                //string sortChangeScript = String.Format("function(grid,sortInfo){{{0}}}", postBackReference);
-                //OB.Listeners.AddProperty(OptionName.Sortchange, sortChangeScript, true); 
+            //    // 告诉 store 本次排序已经处理了，不要重复处理了
+            //    headerClickScript += "cmp.getStore().headerclickprocessed=true;";
 
-
-                // 下面这个规则不再使用，因为会引入中文，导致Ext.get('Grid1').select 函数出错
-                // 还要进行验证：序号列和多选框列不能排序，没有设置SortField的列也不能排序
-                // 规则：如果此列的dataIndex为空，表示不是数据列（就是序号列或多选框列），
-                // 如果dataIndex为"c0__MyText"，表示排序字段是"MyText"，如果dataIndex为"c2"，表示没有定义排序列
-                //string validateScript = "var dataIndex=grid.initialConfig.columns[columnIndex].dataIndex;if(dataIndex==''||dataIndex.indexOf('__')<0){return false;}";
-
-                //string validateScript = "var dataIndex=grid.getColumnModel().getDataIndex(columnIndex);if(dataIndex==''||dataIndex.indexOf('__')<0){return false;}";
-                #endregion
-
-                string headerClickScript = "if(!cmp.getColumnModel().config[columnIndex].sortable){return false;}";
-                headerClickScript += "var args='Sort$'+columnIndex;";
-                headerClickScript += GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "args");
-
-                // 告诉 store 本次排序已经处理了，不要重复处理了
-                headerClickScript += "cmp.getStore().headerclickprocessed=true;";
-
-                //string headerClickScript = String.Format("function(grid,columnIndex){{{0}}}", validateScript);
-                OB.Listeners.AddProperty("headerclick", JsHelper.GetFunction(headerClickScript, "cmp", "columnIndex"), true);
-
-
-                #region old code
-                //string sortIconScript = GetSortIconScript();
-
-                //if (_FineUIAjaxColumnsChanged)
-                //{
-                //    // 如果列都发生了变化，需要重新设置图标
-                //    AddAjaxPropertyChangedScript(sortIconScript);
-                //}
-                //else
-                //{
-                //    if (AjaxPropertyChanged("SortIconScript", sortIconScript))
-                //    {
-                //        AddAjaxPropertyChangedScript(sortIconScript);
-                //    }
-                //}
-
-                //renderSB.Append(sortIconScript);
-
-
-                //// For these columns need sorted, show the cursor pointer.
-                //List<string> columnIDList = new List<string>();
-                //foreach (GridColumn column in Columns)
-                //{
-                //    if (!String.IsNullOrEmpty(column.SortField))
-                //    {
-                //        columnIDList.Add(column.ColumnID);
-                //    }
-                //}
-
-                //// 存在需要排序的列
-                //if (columnIDList.Count > 0)
-                //{
-                //    string cursorScript = String.Format("Ext.each({0},{1});", JsHelper.GetJsStringArray(columnIDList.ToArray()),
-                //        String.Format("function(item){{Ext.get('{0}').select('.x-grid3-hd-row .x-grid3-td-'+item).addClass('cursor-pointer');}}", ClientID));
-
-
-                //    renderSB.Append(cursorScript);
-
-                //    if (_FineUIAjaxColumnsChanged)
-                //    {
-                //        // 如果列都发生了变化，需要重新需要排序的列，显示为手型的光标
-                //        AddAjaxPropertyChangedScript(cursorScript);
-                //    }
-                //} 
-                #endregion
-            }
+            //    //string headerClickScript = String.Format("function(grid,columnIndex){{{0}}}", validateScript);
+            //    OB.Listeners.AddProperty("headerclick", JsHelper.GetFunction(headerClickScript, "cmp", "columnIndex"), true);
+            //}
 
             #endregion
 
@@ -2445,7 +2389,7 @@ namespace FineUI
                 viewreadySB.Append("cmp.x_enableTextSelection();");
             }
 
-            viewreadySB.Append("cmp.updateLayout();");
+            //viewreadySB.Append("cmp.updateLayout();");
 
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
@@ -2647,26 +2591,26 @@ namespace FineUI
             // columns
             JsArrayBuilder columnsBuilder = new JsArrayBuilder();
 
-            // 如果启用行序号，则放在第一列
-            if (EnableRowNumber)
-            {
-                JsObjectBuilder rowNumberBuilder = new JsObjectBuilder();
-                if (RowNumberWidth != Unit.Empty)
-                {
-                    rowNumberBuilder.AddProperty("width", RowNumberWidth.Value);
-                }
-                if (AllowPaging)
-                {
-                    rowNumberBuilder.AddProperty("x_paging", Render_PagingID, true);
-                }
-                if (EnableRowNumberPaging)
-                {
-                    rowNumberBuilder.AddProperty("x_paging_enabled", EnableRowNumberPaging);
-                }
+            //// 如果启用行序号，则放在第一列
+            //if (EnableRowNumber)
+            //{
+            //    JsObjectBuilder rowNumberBuilder = new JsObjectBuilder();
+            //    if (RowNumberWidth != Unit.Empty)
+            //    {
+            //        rowNumberBuilder.AddProperty("width", RowNumberWidth.Value);
+            //    }
+            //    if (AllowPaging)
+            //    {
+            //        rowNumberBuilder.AddProperty("x_paging", Render_PagingID, true);
+            //    }
+            //    if (EnableRowNumberPaging)
+            //    {
+            //        rowNumberBuilder.AddProperty("x_paging_enabled", EnableRowNumberPaging);
+            //    }
 
-                //columnsBuilder.AddProperty(String.Format("Ext.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
-                columnsBuilder.AddProperty("Ext.create('Ext.grid.RowNumberer')", true);
-            }
+            //    columnsBuilder.AddProperty(String.Format("Ext.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
+                
+            //}
 
             //// 如果启用CheckBox，则放在第二列
             //// 如果启用单元格编辑，则EnableCheckBoxSelect属性失效
@@ -2686,9 +2630,10 @@ namespace FineUI
                 {
                     expanderXID = column.XID;
                 }
-
-                columnsBuilder.AddProperty(column.XID, true);
-
+                else
+                {
+                    columnsBuilder.AddProperty(column.XID, true);
+                }
             }
 
             // 为Grid添加plugin属性
@@ -2885,10 +2830,10 @@ namespace FineUI
             storeBuilder.AddProperty("remoteSort", true);
 
 
-            string postbackScript = GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "'Sort$'+options.params.sort+'$'+options.params.dir");
-            postbackScript = "if(!store.headerclickprocessed&&options.params.sort){" + postbackScript + "};store.headerclickprocessed=false;return false;";
+            string postbackScript = GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "'Sort$'+sorter.property+'$'+sorter.direction");
+            postbackScript = "var sorter=operation.sorters[0];if(sorter){" + postbackScript + "}return false;";
 
-            //storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "options"), true);
+            storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "operation"), true);
 
             return String.Format("var {0}=Ext.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
 
@@ -4075,10 +4020,11 @@ namespace FineUI
         private int GetPrefixColumnNumber()
         {
             int prefix = 0;
-            if (EnableRowNumber)
-            {
-                prefix++;
-            }
+            //if (EnableRowNumber)
+            //{
+            //    prefix++;
+            //}
+            // TODO:
             if (EnableCheckBoxSelect && !AllowCellEditing)
             {
                 prefix++;

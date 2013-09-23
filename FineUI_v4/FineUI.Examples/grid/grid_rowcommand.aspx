@@ -12,8 +12,9 @@
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" ShowBorder="true" ShowHeader="true"
         AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name"
-        Width="800px" OnRowCommand="Grid1_RowCommand" EnableRowNumber="True">
+        Width="800px" OnRowCommand="Grid1_RowCommand">
         <Columns>
+            <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="60px" HeaderText="性别">
                 <ItemTemplate>
