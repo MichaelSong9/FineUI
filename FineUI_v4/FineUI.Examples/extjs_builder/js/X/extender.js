@@ -439,10 +439,14 @@ if (Ext.grid.GridPanel) {
             });
         },
 
+        x_getPaging: function () {
+            var toolbar = this.getDockedItems('toolbar[dock="bottom"]');
+            return toolbar.length ? toolbar[0] : undefined;
+        },
 
         x_loadData: function () {
             var datas = this.x_getData();
-            var pagingBar = null; //this.getBottomToolbar();
+            var pagingBar = this.x_getPaging();
             if (pagingBar) {
                 var pagingDatas = [];
                 if (pagingBar.x_databasePaging) {

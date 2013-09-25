@@ -5,18 +5,18 @@
 *
 */
 
-if(Ext.ux.SimplePagingToolbar){
-Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
-    beforePageText: "P&aacute;gina",
-    afterPageText: "de {0}",
-    firstText: "Primeira P&aacute;gina",
-    prevText: "P&aacute;gina Anterior",
-    nextText: "Pr&oacute;xima P&aacute;gina",
-    lastText: "&Uacute;ltima P&aacute;gina",
-    displayMsg: "Mostrando {0} - {1} de {2}",
-    emptyMsg: 'Sem dados a serem exibidos'
-});
-}
+//if(Ext.ux.SimplePagingToolbar){
+//Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
+//    beforePageText: "P&aacute;gina",
+//    afterPageText: "de {0}",
+//    firstText: "Primeira P&aacute;gina",
+//    prevText: "P&aacute;gina Anterior",
+//    nextText: "Pr&oacute;xima P&aacute;gina",
+//    lastText: "&Uacute;ltima P&aacute;gina",
+//    displayMsg: "Mostrando {0} - {1} de {2}",
+//    emptyMsg: 'Sem dados a serem exibidos'
+//});
+//}
 
 
 Ext.apply(X.ajax, {

@@ -3,7 +3,9 @@ Ext.define('Ext.ux.FormViewport', {
     extend: 'Ext.container.Container',
 
     initComponent: function () {
-        Ext.ux.FormViewport.superclass.initComponent.call(this);
+        //Ext.ux.FormViewport.superclass.initComponent.call(this);
+        this.callParent();
+
         document.getElementsByTagName('html')[0].className += ' x-viewport';
 
         if (this.renderTo != '') {

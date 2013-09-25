@@ -1978,7 +1978,7 @@ namespace FineUI
                 // 如果不是数据库分页，则X_Rows不会变化，但是必须执行x_loadData
                 if (PropertyModified("PageIndex", "PageSize", "RecordCount"))
                 {
-                    sb.AppendFormat("{0}.getBottomToolbar().load({1});", XID, GetPagingBuilder());
+                    sb.AppendFormat("{0}.x_getPaging().x_update({1});", XID, GetPagingBuilder());
                     sb.AppendFormat("{0}.x_loadData();", XID);
 
                     needUpdateSortIcon = true;
@@ -2299,18 +2299,19 @@ namespace FineUI
             string pagingScript = String.Empty;
             if (AllowPaging)
             {
-                JsObjectBuilder pagingBuilder = GetPagingBuilder();
+                OptionBuilder pagingBuilder = GetPagingBuilder();
 
                 pagingBuilder.AddProperty("displayInfo", true);
-                //pagingBuilder.AddProperty("store", Render_GridStoreID, true);
+                
+                pagingBuilder.AddProperty("store", Render_GridStoreID, true);
                 //// Hide refresh button, we don't implement this logic now.
                 //pagingBuilder.Listeners.AddProperty("beforerender", JsHelper.GetFunction("this.x_hideRefresh();"), true);
 
                 string postbackScript = String.Empty;
                 postbackScript = GetPostBackEventReference("#PLACEHOLDER#");
-                string loadPageScript = JsHelper.GetFunction(postbackScript.Replace("'#PLACEHOLDER#'", "'Page$'+pageIndex"), "pageIndex");
+                string loadPageScript = JsHelper.GetFunction(postbackScript.Replace("'#PLACEHOLDER#'", "'Page$'+(pageNum-1)"), "bar", "pageNum");
 
-                pagingBuilder.AddProperty("onLoadPage", loadPageScript, true);
+                pagingBuilder.Listeners.AddProperty("beforechange", loadPageScript, true);
 
 
                 if (PageItems.Count > 0)
@@ -2328,7 +2329,7 @@ namespace FineUI
                 }
 
 
-                pagingScript = String.Format("var {0}=new Ext.ux.SimplePagingToolbar({1});", Render_PagingID, pagingBuilder);
+                pagingScript = String.Format("var {0}=Ext.create('Ext.ux.SimplePagingToolbar',{1});", Render_PagingID, pagingBuilder);
 
                 OB.AddProperty("bbar", Render_PagingID, true);
             }
@@ -2494,13 +2495,13 @@ namespace FineUI
             #endregion
         }
 
-        private JsObjectBuilder GetPagingBuilder()
+        private OptionBuilder GetPagingBuilder()
         {
-            JsObjectBuilder pagingBuilder = new JsObjectBuilder();
-            pagingBuilder.AddProperty("pageSize", PageSize);
-            pagingBuilder.AddProperty("pageIndex", PageIndex);
-            pagingBuilder.AddProperty("recordCount", RecordCount);
-            pagingBuilder.AddProperty("pageCount", PageCount);
+            OptionBuilder pagingBuilder = new OptionBuilder();
+            pagingBuilder.AddProperty("x_pageSize", PageSize);
+            pagingBuilder.AddProperty("x_pageIndex", PageIndex);
+            pagingBuilder.AddProperty("x_recordCount", RecordCount);
+            pagingBuilder.AddProperty("x_pageCount", PageCount);
 
             int startRowIndex, endRowIndex;
             ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
@@ -2516,49 +2517,6 @@ namespace FineUI
 
             return pagingBuilder;
         }
-
-
-
-        #region old code
-
-        //private JsObjectBuilder GetPagingBuilder()
-        //{
-        //    JsObjectBuilder pagingBuilder = new JsObjectBuilder();
-        //    pagingBuilder.AddProperty("pageSize", PageSize);
-        //    pagingBuilder.AddProperty("pageIndex", PageIndex);
-        //    pagingBuilder.AddProperty("recordCount", RecordCount);
-        //    pagingBuilder.AddProperty("pageCount", PageCount);
-
-        //    int[] startEndRowIndex = GetStartEndRowIndex();
-        //    pagingBuilder.AddProperty("x_startRowIndex", startEndRowIndex[0]);
-        //    pagingBuilder.AddProperty("x_endRowIndex", startEndRowIndex[1]);
-
-
-        //    return pagingBuilder;
-        //}
-
-        #region old code
-        //private string GetSortIconScript()
-        //{
-        //    StringBuilder sb = new StringBuilder();
-
-        //    // 清空排序图标
-        //    sb.AppendFormat("Ext.get('{0}').select('.x-grid3-hd-row .x-grid3-hd').removeClass(['sort-asc','sort-desc']);", ClientID);
-
-        //    if (CurrentSortColumnIndex != -1 && CurrentSortColumnIndex >= 0 && CurrentSortColumnIndex < Columns.Count)
-        //    {
-        //        GridColumn currentSortColumn = Columns[CurrentSortColumnIndex];
-        //        string direction = currentSortColumn.SortDirection.ToString().ToLower();
-
-        //        // 设置需要排序的列
-        //        sb.AppendFormat("Ext.get('{0}').select('.x-grid3-hd-row .x-grid3-td-{1}').addClass('sort-{2}');", ClientID, currentSortColumn.ColumnID, direction);
-        //    }
-
-        //    return sb.ToString();
-        //} 
-        #endregion
-
-        #endregion
 
         #endregion
 

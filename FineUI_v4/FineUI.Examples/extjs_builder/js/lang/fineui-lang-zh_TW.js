@@ -23,18 +23,18 @@ Ext.apply(X.wnd, {
 });
 
 
-if (Ext.ux.SimplePagingToolbar) {
-    Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
-        beforePageText: "轉到",
-        afterPageText: " 共 {0} 頁",
-        firstText: "第一頁",
-        prevText: "前一頁",
-        nextText: "下一頁",
-        lastText: "最後頁",
-        displayMsg: "顯示 {0} - {1}，共 {2} 條",
-        emptyMsg: "没有資料需要顯示"
-    });
-}
+//if (Ext.ux.SimplePagingToolbar) {
+//    Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
+//        beforePageText: "轉到",
+//        afterPageText: " 共 {0} 頁",
+//        firstText: "第一頁",
+//        prevText: "前一頁",
+//        nextText: "下一頁",
+//        lastText: "最後頁",
+//        displayMsg: "顯示 {0} - {1}，共 {2} 條",
+//        emptyMsg: "没有資料需要顯示"
+//    });
+//}
 
 if (Ext.ux.form && Ext.ux.TabCloseMenu) {
     Ext.apply(Ext.ux.TabCloseMenu.prototype, {

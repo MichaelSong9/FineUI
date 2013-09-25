@@ -22,18 +22,18 @@ Ext.apply(X.wnd, {
 
 
 
-if (Ext.ux.SimplePagingToolbar) {
-    Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
-        beforePageText: "Page",
-        afterPageText: "of {0}",
-        firstText: "First Page",
-        prevText: "Previous Page",
-        nextText: "Next Page",
-        lastText: "Last Page",
-        displayMsg: "Displaying {0} - {1} of {2}",
-        emptyMsg: 'No data to display'
-    });
-}
+//if (Ext.ux.SimplePagingToolbar) {
+//    Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
+//        beforePageText: "Page",
+//        afterPageText: "of {0}",
+//        firstText: "First Page",
+//        prevText: "Previous Page",
+//        nextText: "Next Page",
+//        lastText: "Last Page",
+//        displayMsg: "Displaying {0} - {1} of {2}",
+//        emptyMsg: 'No data to display'
+//    });
+//}
 
 if (Ext.ux.TabCloseMenu) {
     Ext.apply(Ext.ux.TabCloseMenu.prototype, {

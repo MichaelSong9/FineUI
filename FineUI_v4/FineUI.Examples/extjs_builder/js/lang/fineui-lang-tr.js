@@ -18,15 +18,15 @@ Ext.apply(X.wnd, {
     formModifiedConfirmMsg: "Mevcut sayfadaki bilgiler değiştirildi.<br/><br/>Değişiklikleri iptal et?"
 });
 
-if (Ext.ux.SimplePagingToolbar) {
-    Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
-        beforePageText: "Sayfa",
-        afterPageText: " / {0}",
-        firstText: "İlk Sayfa",
-        prevText: "Önceki Sayfa",
-        nextText: "Sonraki Sayfa",
-        lastText: "Son Sayfa",
-        displayMsg: "{0} - {1} (Toplam {2})",
-        emptyMsg: 'Gösterilecek bilgi yok'
-    });
-}
+//if (Ext.ux.SimplePagingToolbar) {
+//    Ext.apply(Ext.ux.SimplePagingToolbar.prototype, {
+//        beforePageText: "Sayfa",
+//        afterPageText: " / {0}",
+//        firstText: "İlk Sayfa",
+//        prevText: "Önceki Sayfa",
+//        nextText: "Sonraki Sayfa",
+//        lastText: "Son Sayfa",
+//        displayMsg: "{0} - {1} (Toplam {2})",
+//        emptyMsg: 'Gösterilecek bilgi yok'
+//    });
+//}
