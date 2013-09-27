@@ -102,7 +102,7 @@ X.fieldValue = function (cmp) {
             X.util.setHiddenFieldValue('X_CHANGED', 'false');
             document.forms[0].autocomplete = 'off';
 
-            
+
             if (Ext.form.field) {
                 var fieldPro = Ext.form.field.Base.prototype;
                 fieldPro.msgTarget = msgTarget;
@@ -110,7 +110,7 @@ X.fieldValue = function (cmp) {
                 fieldPro.labelSeparator = labelSeparator;
                 fieldPro.autoFitErrors = true;
             }
-            
+
 
             if (enableBigFont) {
                 Ext.getBody().addCls('bigfont');
@@ -411,7 +411,7 @@ X.fieldValue = function (cmp) {
             }
         },
 
-        
+
         // 取得表单字段的值
         getFormFieldValue: function (cmp) {
             if (typeof (cmp) === 'string') {
@@ -423,7 +423,7 @@ X.fieldValue = function (cmp) {
             }
             return value;
         },
-        
+
 
         // 由target获取window对象
         getTargetWindow: function (target) {
@@ -488,7 +488,7 @@ X.fieldValue = function (cmp) {
         }
 
         if (typeof (buttonId) === "undefined") {
-        Ext.each(Ext.DomQuery.select("input[type=submit]"), function (item, index) {
+        Ext.Array.each(Ext.DomQuery.select("input[type=submit]"), function (item, index) {
         resetButton(Ext.get(item));
         });
         } else {
@@ -501,6 +501,19 @@ X.fieldValue = function (cmp) {
         },
 
         */
+
+        htmlEncode: function (str) {
+            var div = document.createElement("div");
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        },
+
+        htmlDecode: function (str) {
+            var div = document.createElement("div");
+            div.innerHTML = str;
+            return div.innerHTML;
+        },
+
 
         // Whether a object is empty (With no property) or not.
         // 可以使用 Ext.Object.isEmpty
@@ -517,7 +530,7 @@ X.fieldValue = function (cmp) {
         // ['Text', 'Icon']  -> {'Text':true, 'Icon': true}
         arrayToObject: function (arr) {
             var obj = {};
-            Ext.each(arr, function (item, index) {
+            Ext.Array.each(arr, function (item, index) {
                 obj[item] = true;
             });
             return obj;

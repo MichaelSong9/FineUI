@@ -70,7 +70,7 @@
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:LinkButtonField HeaderText="&nbsp;" Width="60px" ConfirmText="删除选中行？" ConfirmTarget="Top"
+            <x:LinkButtonField HeaderText="&nbsp;" Width="80px" ConfirmText="删除选中行？" ConfirmTarget="Top"
                 CommandName="Delete" Icon="Delete" />
         </Columns>
     </x:Grid>

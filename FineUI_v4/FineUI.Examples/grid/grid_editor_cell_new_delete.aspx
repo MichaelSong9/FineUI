@@ -71,7 +71,7 @@
                     </x:TextBox>
                 </Editor>
             </x:RenderField>
-            <x:LinkButtonField ColumnID="Delete" HeaderText="&nbsp;" Width="60px" EnablePostBack="false"
+            <x:LinkButtonField ColumnID="Delete" HeaderText="&nbsp;" Width="80px" EnablePostBack="false"
                 Icon="Delete" />
         </Columns>
     </x:Grid>

@@ -18,7 +18,7 @@
             <x:RowNumberField />
             <x:BoundField DataField="Name" DataSimulateTreeLevelField="TreeLevel" DataFormatString="{0}"
                 HeaderText="地区" ExpandUnusedSpace="True" />
-            <x:ImageField Width="60px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
+            <x:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
                 HeaderText="分组"></x:ImageField>
         </Columns>
     </x:Grid>

@@ -91,12 +91,12 @@
             //    ["13", "Ajax", 1, 1]
             //]
             var levels = [];
-            Ext.each(datas, function(data, index) {
+            Ext.Array.each(datas, function (data, index) {
                 levels.push(data[3]);
             });
 
             var tempdatas = [];
-            Ext.each(levels, function(level, index) {
+            Ext.Array.each(levels, function (level, index) {
                 tempdatas.push({
                     'level': level,
                     'parentIndex': getParentIndex(levels, level, index),
@@ -105,7 +105,7 @@
             });
 
             var newdatas = [];
-            Ext.each(datas, function(data, index) {
+            Ext.Array.each(datas, function (data, index) {
                 newdatas.push([data[0], data[1], data[2], getPrefix(tempdatas, index)]);
             });
             return newdatas;

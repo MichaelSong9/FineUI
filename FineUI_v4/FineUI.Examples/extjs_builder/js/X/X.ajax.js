@@ -90,7 +90,7 @@
                             createErrorWindow({
                                 statusText: "Unexpected Response",
                                 status: -1,
-                                responseText: scripts
+                                responseText: X.util.htmlEncode(scripts)
                             });
                         }
                     }

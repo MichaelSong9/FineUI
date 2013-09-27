@@ -3803,12 +3803,16 @@ namespace FineUI
         /// </summary>
         public void SelectAllRows()
         {
+            /*
             List<int> rowIndexs = new List<int>();
             for (int i = 0; i < Rows.Count; i++)
             {
                 rowIndexs.Add(i);
             }
             SelectedRowIndexArray = rowIndexs.ToArray();
+            */
+
+            PageContext.RegisterStartupScript(String.Format("{0}.x_selectAllRows();", ScriptID));
         }
 
         /// <summary>

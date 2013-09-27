@@ -360,38 +360,21 @@ if (Ext.grid.GridPanel) {
             var $this = this, data = this.x_state['X_Rows']['Values'];
 
             //////////////////////////////////////////////////
-            var tpls = this.x_tpls;
-            //if (!tpls) {
-            if (typeof (tpls) === 'undefined') {
-                tpls = this.x_getTpls();
-            }
+            var tpls = this.x_getTpls(this.x_tpls);
 
             // 将Grid1_ctl37与对应的outHTML放在哈希表中
             var tplsHash = {};
             var e = document.createElement('div');
             e.innerHTML = tpls;
-            Ext.each(e.childNodes, function (item, index) {
+            Ext.Array.each(e.childNodes, function (item, index) {
                 tplsHash[item.id] = item.outerHTML.replace(/\r?\n\s*/ig, '');
             });
 
-            // INPUT:  /(<div id="(.+)_container">)<\/div>/ig.exec("<div id=\"Grid1_ctl37_container\"></div>")
-            // OUTPUT: ["<div id="Grid1_ctl37_container"></div>", "<div id="Grid1_ctl37_container">", "Grid1_ctl37"]
-            /*
-            Ext.each(data, function (row, rowIndex) {
-            Ext.each(row, function (item, index) {
-            if (item.substr(0, 7) === "#@TPL@#") {
-            var clientId = item.substr(7);
-            row[index] = '<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>';
-            }
-            });
-            });
-            */
-
             // 不要改变 X_Rows -> Values 的原始数据，因为这个值会被POST到后台
             var newdata = [], newdataitem;
-            Ext.each(data, function (row, rowIndex) {
+            Ext.Array.each(data, function (row, rowIndex) {
                 newdataitem = [];
-                Ext.each(row, function (item, index) {
+                Ext.Array.each(row, function (item, index) {
                     if (item.substr(0, 7) === "#@TPL@#") {
                         var clientId = $this.id + '_' + item.substr(7);
                         newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
@@ -406,20 +389,27 @@ if (Ext.grid.GridPanel) {
             return newdata;
         },
 
-        x_getTpls: function () {
-            var tpls, tplsNode = Ext.get(this.id + '_tpls');
-            if (tplsNode) {
-                tpls = tplsNode.dom.innerHTML;
-
-                // 获取模板列的内容之后，必须要删除原有的节点，因为会在表格中创建完全相同的新节点
-                tplsNode.remove();
-
-                // 将模板列内容保存到表格实例中
+        x_getTpls: function (paramTpls) {
+            var tpls;
+            if (typeof (paramTpls) !== 'undefined') {
+                // 1. 如果Tpls存在于函数参数中
+                tpls = paramTpls;
                 this['data-last-tpls'] = tpls;
-
             } else {
+                var tplsNode = Ext.get(this.id + '_tpls');
+                if (tplsNode) {
+                    // 2. 如果Tpls存在于页面节点中
+                    tpls = tplsNode.dom.innerHTML;
+                    // 获取模板列的内容之后，必须要删除原有的节点，因为会在表格中创建完全相同的新节点
+                    tplsNode.remove();
 
-                tpls = this['data-last-tpls'];
+                    // 将模板列内容保存到表格实例中
+                    this['data-last-tpls'] = tpls;
+                } else {
+                    // 3. 从缓存中读取
+                    // 从表格实例中读取模板列内容
+                    tpls = this['data-last-tpls'];
+                }
             }
 
             return tpls;
@@ -427,15 +417,18 @@ if (Ext.grid.GridPanel) {
 
 
         x_updateTpls: function (tpls) {
-            if (typeof (tpls) == 'undefined') {
-                tpls = this.x_getTpls();
-            }
+            tpls = this.x_getTpls(tpls);
 
             var e = document.createElement('div');
             e.innerHTML = tpls;
-            Ext.each(e.childNodes, function (item, index) {
+            Ext.Array.each(e.childNodes, function (item, index) {
                 var nodeId = item.id;
-                Ext.get(nodeId + '_container').dom.innerHTML = item.outerHTML;
+                var tplContainer = Ext.get(nodeId + '_container');
+
+                // 对于内存分页，模板列的内容可能还没有渲染到页面中
+                if (tplContainer) {
+                    tplContainer.dom.innerHTML = item.outerHTML;
+                }
             });
         },
 
@@ -537,8 +530,20 @@ if (Ext.grid.GridPanel) {
         x_selectRows: function (rows) {
             rows = rows || this.x_state['SelectedRowIndexArray'] || [];
             var sm = this.getSelectionModel();
-            if (sm.selectRows) {
-                sm.selectRows(rows);
+            if (sm.select) {
+                sm.deselectAll(true);
+                Ext.Array.each(rows, function (row, index) {
+                    // select( records, [keepExisting], [suppressEvent] )
+                    sm.select(row, true, true);
+                });
+            }
+        },
+
+        // 选中全部行
+        x_selectAllRows: function() {
+            var sm = this.getSelectionModel();
+            if (sm.selectAll) {
+                sm.selectAll(true);
             }
         },
 
@@ -550,7 +555,7 @@ if (Ext.grid.GridPanel) {
                 var selection = sm.getSelection();
                 var store = this.getStore();
 
-                Ext.each(selection, function (record, index) {
+                Ext.Array.each(selection, function (record, index) {
                     selectedRows.push(store.indexOf(record));
                 });
             }
@@ -590,7 +595,7 @@ if (Ext.grid.GridPanel) {
         // 获取隐藏列的索引列表
         x_getHiddenColumns: function () {
             var hiddens = [], columns = this.columns;
-            Ext.each(columns, function (column, index) {
+            Ext.Array.each(columns, function (column, index) {
                 if (column.isHidden()) {
                     hiddens.push(index);
                 }
@@ -602,7 +607,7 @@ if (Ext.grid.GridPanel) {
         x_updateColumnsHiddenStatus: function (hiddens) {
             hiddens = hiddens || this.x_state['HiddenColumnIndexArray'] || [];
             var columns = this.columns;
-            Ext.each(columns, function (column, index) {
+            Ext.Array.each(columns, function (column, index) {
                 if (hiddens.indexOf(index) !== -1) {
                     column.setVisible(false);
                 } else {
@@ -627,7 +632,7 @@ if (Ext.grid.GridPanel) {
             getHeaderNode().removeCls(['sort-asc', 'sort-desc']);
 
             // Add cursor to all server sortable column header.
-            Ext.each(columns, function (item, index) {
+            Ext.Array.each(columns, function (item, index) {
                 if (item['sortable']) {
                     getHeaderNode(index).addCls('cursor-pointer');
                 }
@@ -645,7 +650,7 @@ if (Ext.grid.GridPanel) {
             /*
             var columns = [];
             var configColumns = this.getColumnModel().config;
-            Ext.each(configColumns, function (item, index) {
+            Ext.Array.each(configColumns, function (item, index) {
                 // expander也属于表格列的一种类型，否则设置x_setSortIcon会出错
                 if (item.id !== 'numberer' && item.id !== 'checker') { // && item.id !== 'expander'
                     columns.push(item);
@@ -680,7 +685,7 @@ if (Ext.grid.GridPanel) {
         }
 
         var stateColumnIndex = 0;
-        Ext.each(columns, function (column, index) {
+        Ext.Array.each(columns, function (column, index) {
         if (column['x_persistState']) {
         if (column['x_persistStateType'] === 'checkbox') {
         setCheckBoxStates(index, stateColumnIndex);
@@ -708,7 +713,7 @@ if (Ext.grid.GridPanel) {
                 return columnStates;
             }
 
-            Ext.each(columns, function (column, index) {
+            Ext.Array.each(columns, function (column, index) {
                 if (column['x_persistState']) {
                     if (column['x_persistStateType'] === 'checkbox') {
                         states.push(getCheckBoxStates(index));
@@ -722,7 +727,7 @@ if (Ext.grid.GridPanel) {
                 rowCount = states[0].length;
                 for (i = 0; i < rowCount; i++) {
                     rowState = [];
-                    Ext.each(states, function (state, index) {
+                    Ext.Array.each(states, function (state, index) {
                         rowState.push(state[i]);
                     });
                     resolvedStates.push(rowState);
@@ -750,7 +755,7 @@ if (Ext.grid.GridPanel) {
             var sm = this.getSelectionModel();
             if (sm.getSelections) {
                 var selections = sm.getSelections();
-                Ext.each(selections, function (record, index) {
+                Ext.Array.each(selections, function (record, index) {
                     store.remove(record);
                 });
             } else if (sm.getSelectedCell) {
@@ -809,7 +814,7 @@ if (Ext.grid.GridPanel) {
                 return deletedRows;
             }
 
-            Ext.each(this.x_recordIDs, function (recordID, index) {
+            Ext.Array.each(this.x_recordIDs, function (recordID, index) {
                 if (currentRecordIDs.indexOf(recordID) < 0) {
                     deletedRows.push(index);
                 }
@@ -821,7 +826,7 @@ if (Ext.grid.GridPanel) {
         x_getModifiedData: function () {
             var i, j, count, columns = this.x_getColumns(), columnMap = {};
 
-            Ext.each(columns, function (column, index) {
+            Ext.Array.each(columns, function (column, index) {
                 columnMap[column.id] = column;
             });
 
@@ -1007,7 +1012,7 @@ if (Ext.tree.TreePanel) {
         x_getSelectedNodes: function () {
             var model = this.getSelectionModel(), nodes = [];
             if (model.constructor === Ext.tree.MultiSelectionModel) {
-                Ext.each(model.getSelectedNodes(), function (item, index) {
+                Ext.Array.each(model.getSelectedNodes(), function (item, index) {
                     nodes.push(item.id);
                 });
             } else {

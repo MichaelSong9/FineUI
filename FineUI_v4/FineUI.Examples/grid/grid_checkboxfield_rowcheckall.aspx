@@ -17,13 +17,13 @@
             <x:RowNumberField />
             <x:BoundField Width="100px" ExpandUnusedSpace="true" DataField="Name" DataFormatString="{0}"
                 HeaderText="姓名" />
-            <x:TemplateField Width="60px" HeaderText="性别">
+            <x:TemplateField Width="80px" HeaderText="性别">
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
             <x:BoundField Width="100px" DataField="EntranceYear" HeaderText="入学年份" />
-            <x:CheckBoxField Width="60px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校1" />
+            <x:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校1" />
             <x:CheckBoxField ColumnID="CheckBoxField1" Width="100px" RenderAsStaticField="false"
                 DataField="AtSchool" HeaderText="是否在校1" />
             <x:CheckBoxField ColumnID="CheckBoxField2" Width="100px" RenderAsStaticField="false"
