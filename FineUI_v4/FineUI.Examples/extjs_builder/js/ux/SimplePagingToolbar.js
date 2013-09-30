@@ -26,12 +26,20 @@ Ext.define('Ext.ux.SimplePagingToolbar', {
 
     // Override parent
     getPageData: function () {
+        var fromRecord = 0, toRecord = 0;
+        if (this.x_databasePaging) {
+            fromRecord = (this.x_pageIndex * this.x_pageSize) + 1;
+            toRecord = fromRecord + this.x_pageSize - 1;
+        } else {
+            fromRecord = this.x_startRowIndex + 1;
+            toRecord = this.x_endRowIndex + 1;
+        }
         return {
             total: this.x_recordCount,
             currentPage: this.x_pageIndex + 1,
             pageCount: this.x_pageCount <= 0 ? 1 : this.x_pageCount,
-            fromRecord: this.x_startRowIndex,
-            toRecord: this.x_endRowIndex
+            fromRecord: fromRecord,
+            toRecord: toRecord
         };
     },
 

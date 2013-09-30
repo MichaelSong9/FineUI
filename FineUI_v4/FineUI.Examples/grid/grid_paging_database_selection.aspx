@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" PageSize="5" ShowBorder="true" ShowHeader="true"
+    <x:Grid ID="Grid1" Title="表格（跨页选中行）" EnableFrame="true" EnableCollapse="true" Width="800px" PageSize="5" ShowBorder="true" ShowHeader="true"
         AutoHeight="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
         DataKeyNames="Id,Name" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
         ClearSelectedRowsAfterPaging="false">
@@ -34,7 +34,7 @@
     <x:HiddenField ID="hfSelectedIDS" runat="server">
     </x:HiddenField>
     <br />
-    <x:Button ID="Button1" runat="server" Text="全部选中行的ID列表" OnClick="Button1_Click">
+    <x:Button ID="Button1" runat="server" Text="选中行的ID列表" OnClick="Button1_Click">
     </x:Button>
     <br />
     <x:Label ID="labResult" EncodeText="false" runat="server">

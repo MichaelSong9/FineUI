@@ -50,7 +50,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 			-增加列属性HeaderToolTip、HeaderToolTipType、BoxFlex、AllowHideColumn
 			-增加列属性EnableHeaderMenu（默认为true），修改表格的EnableHeaderMenu默认值true。
 			-增加列RowNumberField，删除表格属性EnableRowNumber、EnableRowNumberPaging、RowNumberWidth。
-
+		-由于RowNumberField属于表格列，注意SortColumnIndex的变化，建议使用SortColumn指定。
 
 
 +2013-09-** v3.3.2

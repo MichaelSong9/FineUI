@@ -98,9 +98,6 @@ type ..\extjs\x-debug.js >> _x
 type ext3-core-compat.js > ..\extjs\ext3-core-compat.js
 type ext3-compat.js > ..\extjs\ext3-compat.js
 
-type ext3-core-compat.js >> _x
-type ext3-compat.js >> _x
-
 
 ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\ext.js
 

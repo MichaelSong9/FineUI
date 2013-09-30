@@ -426,10 +426,6 @@ namespace FineUI
             set
             {
                 XState["SortColumnIndex"] = value;
-                //if (value != -1)
-                //{
-                //    SortColumn = AllColumns[value].ColumnID;
-                //}
             }
         }
 
@@ -2976,27 +2972,7 @@ namespace FineUI
                     endRowIndex = endRowIndex < RecordCount - 1 ? endRowIndex : RecordCount - 1;
                 }
             }
-
-            //return new int[] { startRowIndex, endRowIndex };
         }
-
-        //private void ResolveSelectedRowIndexArray(int maxIndex)
-        //{
-        //    if (SelectedRowIndexArray.Length > 0)
-        //    {
-        //        List<int> indexList = new List<int>();
-
-        //        foreach (int index in SelectedRowIndexArray)
-        //        {
-        //            if (index >= 0 && index <= maxIndex)
-        //            {
-        //                indexList.Add(index);
-        //            }
-        //        }
-
-        //        SelectedRowIndexArray = indexList.ToArray();
-        //    }
-        //}
 
         #endregion
 
