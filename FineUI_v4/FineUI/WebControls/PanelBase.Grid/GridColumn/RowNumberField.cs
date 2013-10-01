@@ -73,7 +73,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
         [Description(" «∑Ò‘ –Ì“˛≤ÿ¡–")]
-        public override bool AllowHideColumn
+        public override bool EnableColumnHide
         {
             get
             {

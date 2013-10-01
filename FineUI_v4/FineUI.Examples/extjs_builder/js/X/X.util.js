@@ -52,7 +52,7 @@ X.confirm = function () {
 };
 
 X.toggle = function (el, className) {
-    Ext.get(el).toggleClass(className);
+    Ext.get(el).toggleCls(className);
 };
 
 X.fieldValue = function (cmp) {

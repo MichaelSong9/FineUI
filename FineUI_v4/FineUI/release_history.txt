@@ -48,12 +48,13 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 			-可以为Column指定BoxFlex属性或者Width属性（之前ExpandUnusedSpace属性等价于BoxFlex=1）。
 			-删除表格属性MinColumnWidth、AutoExpandColumnMax、AutoExpandColumnMin。
 			-删除表格属性ForceFitFirstTime，属性ForceFitAllTime依然可用。
-			-增加列属性HeaderToolTip、HeaderToolTipType、BoxFlex、AllowHideColumn
+			-增加列属性HeaderToolTip、HeaderToolTipType、BoxFlex、EnableColumnHide。
 			-增加列属性EnableHeaderMenu（默认为true），修改表格的EnableHeaderMenu默认值true。
-			-增加列RowNumberField，删除表格属性EnableRowNumber、EnableRowNumberPaging、RowNumberWidth。
+			-删除表格属性EnableRowNumber、EnableRowNumberPaging、RowNumberWidth，增加列RowNumberField。
+			-LinkButtonField默认EnableHeaderMenu=false，EnableColumnHide=false。
 		-删除表格属性SortColumnIndex、SortColumn，请直接使用SortField属性（注意RowNumberField对属性SortColumnIndex的影响）。
 		-设置表格内图片的默认大小为16px*16px，用户可以手工设置样式来覆盖图片的默认大小。
-		-
+		-删除HiddenColumnIndexArray属性，增加HiddenColumns属性。
 
 
 +2013-09-** v3.3.2

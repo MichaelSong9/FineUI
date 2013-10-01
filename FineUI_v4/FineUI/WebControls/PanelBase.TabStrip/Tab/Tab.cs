@@ -139,24 +139,24 @@ namespace FineUI
         //    }
         //}
 
-        /// <summary>
-        /// 是否自动宽度
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否自动宽度")]
-        public override bool AutoWidth
-        {
-            get
-            {
-                object obj = XState["AutoWidth"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["AutoWidth"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否自动宽度
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否自动宽度")]
+        //public override bool AutoWidth
+        //{
+        //    get
+        //    {
+        //        object obj = XState["AutoWidth"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["AutoWidth"] = value;
+        //    }
+        //}
 
 
         ///// <summary>

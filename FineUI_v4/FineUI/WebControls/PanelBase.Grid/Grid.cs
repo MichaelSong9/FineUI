@@ -76,7 +76,7 @@ namespace FineUI
             // 严格的说，PageIndex、SortField、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
             AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortField", "SortDirection");
-            AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
+            AddClientAjaxProperties("X_Rows", "HiddenColumns", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
 
             AddGzippedAjaxProperties("X_Rows");
         }
@@ -1305,24 +1305,65 @@ namespace FineUI
         //    return new JArray(SelectedRowIndexArray).ToString() != new JArray(newValue).ToString();
         //}
 
+        ///// <summary>
+        ///// [AJAX属性]隐藏的列
+        ///// </summary>
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public int[] HiddenColumnIndexArray
+        //{
+        //    get
+        //    {
+        //        List<int> hiddens = new List<int>();
+        //        if (AllColumns.Count > 0)
+        //        {
+        //            int prefix = GetPrefixColumnNumber();
+        //            for (int i = 0; i < AllColumns.Count; i++)
+        //            {
+        //                if (AllColumns[i].Hidden)
+        //                {
+        //                    hiddens.Add(i + prefix);
+        //                }
+        //            }
+        //        }
+        //        return hiddens.ToArray();
+        //    }
+        //    set
+        //    {
+        //        List<int> hiddens = GetSortedArray(value);
+        //        int prefix = GetPrefixColumnNumber();
+        //        for (int i = 0; i < AllColumns.Count; i++)
+        //        {
+        //            if (hiddens.Contains(i + prefix))
+        //            {
+        //                AllColumns[i].Hidden = true;
+        //            }
+        //            else
+        //            {
+        //                AllColumns[i].Hidden = false;
+        //            }
+        //        }
+        //    }
+        //}
+
         /// <summary>
-        /// [AJAX属性]隐藏的列
+        /// [AJAX属性]隐藏的列名称列表（逗号分隔）
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int[] HiddenColumnIndexArray
+        public string[] HiddenColumns
         {
             get
             {
-                List<int> hiddens = new List<int>();
+                List<string> hiddens = new List<string>();
                 if (AllColumns.Count > 0)
                 {
-                    int prefix = GetPrefixColumnNumber();
                     for (int i = 0; i < AllColumns.Count; i++)
                     {
-                        if (AllColumns[i].Hidden)
+                        GridColumn column = AllColumns[i];
+                        if (column.Hidden)
                         {
-                            hiddens.Add(i + prefix);
+                            hiddens.Add(column.ColumnID);
                         }
                     }
                 }
@@ -1330,17 +1371,17 @@ namespace FineUI
             }
             set
             {
-                List<int> hiddens = GetSortedArray(value);
-                int prefix = GetPrefixColumnNumber();
+                List<string> hiddens = new List<string>(value);
                 for (int i = 0; i < AllColumns.Count; i++)
                 {
-                    if (hiddens.Contains(i + prefix))
+                    GridColumn column = AllColumns[i];
+                    if (hiddens.Contains(column.ColumnID))
                     {
-                        AllColumns[i].Hidden = true;
+                        column.Hidden = true;
                     }
                     else
                     {
-                        AllColumns[i].Hidden = false;
+                        column.Hidden = false;
                     }
                 }
             }
@@ -1647,35 +1688,6 @@ namespace FineUI
             }
         }
 
-        ///// <summary>
-        ///// 保存的行状态（内部使用）
-        ///// </summary>
-        //[Browsable(false)]
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        //public JArray X_States
-        //{
-        //    get
-        //    {
-        //        JArray statesJA = new JArray();
-        //        foreach (GridRow row in Rows)
-        //        {
-        //            statesJA.Add(new JArray(row.ToShortStates()));
-        //        }
-
-        //        return statesJA;
-        //    }
-        //    set
-        //    {
-        //        for (int i = 0, length = value.Count; i < length; i++)
-        //        {
-        //            GridRow row = Rows[i];
-
-        //            // row.States
-        //            row.FromShortStates(JSONUtil.ObjectArrayFromJArray(value[i].Value<JArray>()));
-        //        }
-        //    }
-        //}
-
         #endregion
 
         #region oldcode
@@ -1802,11 +1814,11 @@ namespace FineUI
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        private string HiddenColumnIndexArrayHiddenFieldID
+        private string HiddenColumnsHiddenFieldID
         {
             get
             {
-                return String.Format("{0}_HiddenColumnIndexArray", ClientID);
+                return String.Format("{0}_HiddenColumns", ClientID);
             }
         }
 
@@ -1973,7 +1985,7 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
 
-            bool needUpdateSortIcon = false;
+            //bool needUpdateSortIcon = false;
 
             bool dataReloaded = false;
             if (AllowPaging)
@@ -1985,8 +1997,7 @@ namespace FineUI
                     sb.AppendFormat("{0}.x_getPaging().x_update({1});", XID, GetPagingBuilder());
                     sb.AppendFormat("{0}.x_loadData();", XID);
 
-                    needUpdateSortIcon = true;
-                    //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+                    //needUpdateSortIcon = true;
 
                     dataReloaded = true;
                 }
@@ -1999,8 +2010,7 @@ namespace FineUI
                 {
                     sb.AppendFormat("{0}.x_loadData();", XID);
 
-                    needUpdateSortIcon = true;
-                    //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+                    //needUpdateSortIcon = true;
 
                     dataReloaded = true;
                 }
@@ -2013,7 +2023,6 @@ namespace FineUI
             if (dataReloaded)
             {
                 PageManager.Instance.AddAjaxGridReloadedClientID(ClientID);
-
             }
 
             //if (PropertyModified("X_States"))
@@ -2021,17 +2030,17 @@ namespace FineUI
             //    sb.AppendFormat("{0}.x_setRowStates();", XID);
             //}
 
-            if (PropertyModified("SortField", "SortDirection"))
-            {
-                needUpdateSortIcon = true;
-                //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
-            }
+            //if (PropertyModified("SortField", "SortDirection"))
+            //{
+            //    needUpdateSortIcon = true;
+            //}
 
 
-            if (needUpdateSortIcon)
-            {
-                sb.AppendFormat("{0}.x_setSortIcon('{1}','{2}');", XID, GetSortColummID(), SortDirection);
-            }
+            // 客户端已经改变了排序状态，无需再次设置
+            //if (needUpdateSortIcon)
+            //{
+            //    sb.AppendFormat("{0}.x_setSortIcon('{1}','{2}');", XID, GetSortColummID(), SortDirection);
+            //}
 
             bool selectRowsScriptRegistered = false;
             if (AllowCellEditing)
@@ -2051,7 +2060,7 @@ namespace FineUI
             }
 
 
-            if (PropertyModified("HiddenColumnIndexArray"))
+            if (PropertyModified("HiddenColumns"))
             {
                 sb.AppendFormat("{0}.x_updateColumnsHiddenStatus();", XID);
             }
@@ -2115,13 +2124,13 @@ namespace FineUI
             // 确保 X_Rows 在页面第一次加载时都存在于x_state中
             XState.AddModifiedProperty("X_Rows");
 
-            // 因为可以在 ASPX 中指定列的 Hidden 属性
-            // 如果在 ASPX 中指定了列的 Hidden 属性，但是 HiddenColumnIndexArray 不在改变的属性列表中，
-            // 为了在客户端初始化隐藏的列，需要手工将 HiddenColumnIndexArray 添加到改变的属性列表中，以便使其存在于 x_state 属性中。
-            if (HiddenColumnIndexArray.Length > 0)
-            {
-                XState.AddModifiedProperty("HiddenColumnIndexArray");
-            }
+            //// 因为可以在 ASPX 中指定列的 Hidden 属性
+            //// 如果在 ASPX 中指定了列的 Hidden 属性，但是 HiddenColumnIndexArray 不在改变的属性列表中，
+            //// 为了在客户端初始化隐藏的列，需要手工将 HiddenColumnIndexArray 添加到改变的属性列表中，以便使其存在于 x_state 属性中。
+            //if (HiddenColumnIndexArray.Length > 0)
+            //{
+            //    XState.AddModifiedProperty("HiddenColumnIndexArray");
+            //}
 
 
             // 不需要手工添加 SelectedRowIndexArray 属性，是因为只能通过代码设置此属性
@@ -2375,11 +2384,10 @@ namespace FineUI
             // Note: this.x_state['X_Rows']['Values'] will always rendered to the client side.
             //viewreadySB.Append("cmp.x_updateTpls();");
 
-            //if (AllowSorting)
-            //{
-            //    // After the grid is rendered, then we can apply sort icon to grid header.
-            //    viewreadySB.AppendFormat("cmp.x_setSortIcon('{0}','{1}');", GetSortColummID(), SortDirection);
-            //}
+            if (AllowSorting)
+            {
+                viewreadySB.AppendFormat("cmp.x_initSortHeaders();");
+            }
 
             if (!AllowCellEditing)
             {
@@ -2394,8 +2402,6 @@ namespace FineUI
 
                 viewreadySB.Append("cmp.x_enableTextSelection();");
             }
-
-            //viewreadySB.Append("cmp.updateLayout();");
 
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
@@ -2425,11 +2431,11 @@ namespace FineUI
             // 加载表格数据
             renderSB.Append("cmp.x_loadData();");
 
-            // 隐藏列
-            if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
-            {
-                renderSB.Append("cmp.x_updateColumnsHiddenStatus();");
-            }
+            //// 隐藏列
+            //if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
+            //{
+            //    renderSB.Append("cmp.x_updateColumnsHiddenStatus();");
+            //}
 
             // 展开所有的行扩展列
             if (ExpandAllRowExpanders)
@@ -3332,17 +3338,17 @@ namespace FineUI
             base.LoadPostData(postDataKey, postCollection);
 
 
-            string paramHiddenColumnIndexArray = postCollection[HiddenColumnIndexArrayHiddenFieldID];
-            List<int> hiddenColumnIndexList = new List<int>();
-            if (!String.IsNullOrEmpty(paramHiddenColumnIndexArray))
+            string paramHiddenColumns = postCollection[HiddenColumnsHiddenFieldID];
+            List<string> hiddenColumnsList = new List<string>();
+            if (!String.IsNullOrEmpty(paramHiddenColumns))
             {
-                hiddenColumnIndexList = StringUtil.GetIntListFromString(paramHiddenColumnIndexArray, true);
+                hiddenColumnsList = StringUtil.GetStringListFromString(paramHiddenColumns, true);
             }
-            int[] hiddenColumnIndexArray = hiddenColumnIndexList.ToArray();
-            if (!StringUtil.CompareIntArray(HiddenColumnIndexArray, hiddenColumnIndexArray))
+            string[] hiddenColumns = hiddenColumnsList.ToArray();
+            if (!StringUtil.CompareStringArray(HiddenColumns, hiddenColumns))
             {
-                HiddenColumnIndexArray = hiddenColumnIndexArray;
-                XState.BackupPostDataProperty("HiddenColumnIndexArray");
+                HiddenColumns = hiddenColumns;
+                XState.BackupPostDataProperty("HiddenColumns");
             }
 
 
@@ -3987,11 +3993,11 @@ namespace FineUI
             //{
             //    prefix++;
             //}
-            // TODO:
-            if (EnableCheckBoxSelect && !AllowCellEditing)
-            {
-                prefix++;
-            }
+
+            //if (EnableCheckBoxSelect && !AllowCellEditing)
+            //{
+            //    prefix++;
+            //}
             return prefix;
         }
 

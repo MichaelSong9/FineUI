@@ -69,7 +69,7 @@
             var donateTotal = 0, store = grid.getStore(), view = grid.getView(), storeCount = store.getCount();
 
             // 防止重复添加了合计行
-            if (Ext.get(view.getRow(storeCount - 1)).hasClass('mygrid-row-summary')) {
+            if (Ext.get(view.getRow(storeCount - 1)).hasCls('mygrid-row-summary')) {
                 return;
             }
 
@@ -107,7 +107,7 @@
 
             // 防止选中合计行
             grid.getSelectionModel().addListener('beforerowselect', function (sm, rowIndex, keepExisting, record) {
-                if (Ext.get(grid.getView().getRow(rowIndex)).hasClass('mygrid-row-summary')) {
+                if (Ext.get(grid.getView().getRow(rowIndex)).hasCls('mygrid-row-summary')) {
                     return false;
                 }
                 return true;

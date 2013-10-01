@@ -31,7 +31,6 @@ namespace FineUI.Examples.grid
 
         #endregion
 
-
         #region Event
 
 
@@ -39,10 +38,6 @@ namespace FineUI.Examples.grid
         {
             GridColumn genderColumn = Grid1.FindColumn("gender");
             genderColumn.Hidden = !genderColumn.Hidden;
-
-            //GridColumn lastColumn1 = Grid1.Columns[Grid1.Columns.Count - 1];
-            //GridColumn lastColumn2 = Grid1.Columns[Grid1.Columns.Count - 2];
-          
         }
 
         protected void Button4_Click(object sender, EventArgs e)

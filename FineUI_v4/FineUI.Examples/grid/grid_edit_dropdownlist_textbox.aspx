@@ -21,8 +21,8 @@
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="160px" HeaderText="性别">
                 <ItemTemplate>
-                    <asp:TextBox runat="server" ID="tbxGender" CssClass="gender" Width="50px"></asp:TextBox>
-                    <asp:DropDownList runat="server" Width="50px" CssClass="gender" ID="ddlGender">
+                    <asp:TextBox runat="server" ID="tbxGender" CssClass="gender" Width="60px"></asp:TextBox>
+                    <asp:DropDownList runat="server" Width="60px" CssClass="gender" ID="ddlGender">
                         <asp:ListItem Text="男" Value="男"></asp:ListItem>
                         <asp:ListItem Text="女" Value="女"></asp:ListItem>
                     </asp:DropDownList>

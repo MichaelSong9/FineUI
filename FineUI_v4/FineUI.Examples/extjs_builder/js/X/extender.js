@@ -591,13 +591,12 @@ if (Ext.grid.GridPanel) {
         },
 
 
-
-        // 获取隐藏列的索引列表
+        // 获取隐藏列的名称列表
         x_getHiddenColumns: function () {
             var hiddens = [], columns = this.columns;
             Ext.Array.each(columns, function (column, index) {
                 if (column.isHidden()) {
-                    hiddens.push(index);
+                    hiddens.push(column.id);
                 }
             });
             return hiddens;
@@ -605,10 +604,10 @@ if (Ext.grid.GridPanel) {
 
         // 隐藏需要隐藏的列，显示不需要隐藏的列
         x_updateColumnsHiddenStatus: function (hiddens) {
-            hiddens = hiddens || this.x_state['HiddenColumnIndexArray'] || [];
+            hiddens = hiddens || this.x_state['HiddenColumns'] || [];
             var columns = this.columns;
             Ext.Array.each(columns, function (column, index) {
-                if (hiddens.indexOf(index) !== -1) {
+                if (hiddens.indexOf(column.id) !== -1) {
                     column.setVisible(false);
                 } else {
                     column.setVisible(true);
@@ -616,17 +615,21 @@ if (Ext.grid.GridPanel) {
             });
         },
 
+        // 初始化排序列头
+        x_initSortHeaders: function() {
+            var gridEl = Ext.get(this.id), columns = this.x_getColumns();
+
+            // 为所有可排序列添加手型光标
+            Ext.Array.each(columns, function (item, index) {
+                if (item['sortable']) {
+                    Ext.get(item.id).addCls('cursor-pointer');
+                }
+            });
+        },
+
         // 设置表格标题栏的排序图标
         x_setSortIcon: function (sortColumnID, sortDirection) {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns(), headers = gridEl.select('.x-column-header');
-
-            function getHeaderNode(index) {
-                if (typeof (index) === 'number') {
-                    return gridEl.select('.x-column-header' + columns[index].id);
-                } else {
-                    return gridEl.select('.x-column-header');
-                }
-            }
 
             // 清空所有可排序列的排序箭头
             headers.removeCls(['x-column-header-sort-DESC', 'x-column-header-sort-ASC']);
@@ -669,13 +672,13 @@ if (Ext.grid.GridPanel) {
         var checkboxRows = gridEl.select('.x-grid-body .x-grid-row .x-grid-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
         checkboxRows.each(function (row, rows, index) {
         if (states[index][stateColumnIndex]) {
-        if (row.hasClass('box-grid-checkbox-unchecked-disabled')) {
+        if (row.hasCls('box-grid-checkbox-unchecked-disabled')) {
         row.removeCls('box-grid-checkbox-unchecked-disabled');
         } else {
         row.removeCls('box-grid-checkbox-unchecked');
         }
         } else {
-        if (row.hasClass('box-grid-checkbox-disabled')) {
+        if (row.hasCls('box-grid-checkbox-disabled')) {
         row.addCls('box-grid-checkbox-unchecked-disabled')
         } else {
         row.addCls('box-grid-checkbox-unchecked')
@@ -701,10 +704,10 @@ if (Ext.grid.GridPanel) {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = [];
 
             function getCheckBoxStates(columnIndex) {
-                var checkboxRows = gridEl.select('.x-grid-row .x-grid-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
+                var checkboxRows = gridEl.select('.x-grid-row .x-grid-cell-' + columns[columnIndex].id + ' .box-grid-checkbox');
                 var columnStates = [];
                 checkboxRows.each(function (row, index) {
-                    if (row.hasClass('unchecked')) {
+                    if (row.hasCls('unchecked')) {
                         columnStates.push(false);
                     } else {
                         columnStates.push(true);

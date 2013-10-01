@@ -24,13 +24,13 @@
     <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="850px"
         runat="server" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
         <Columns>
-            <x:TemplateField Width="50px">
+            <x:TemplateField Width="60px">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
             </x:TemplateField>
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
-            <x:TemplateField Width="50px" HeaderText="性别">
+            <x:TemplateField Width="60px" HeaderText="性别">
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                 </ItemTemplate>

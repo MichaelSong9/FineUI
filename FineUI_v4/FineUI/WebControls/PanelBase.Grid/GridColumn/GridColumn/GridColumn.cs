@@ -380,22 +380,22 @@ namespace FineUI
         }
 
 
-        private bool _allowHideColumn = true;
+        private bool _enableColumnHide = true;
         /// <summary>
-        /// 是否允许隐藏列
+        /// 启用隐藏列功能
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
-        [Description("是否允许隐藏列")]
-        public virtual bool AllowHideColumn
+        [Description("启用隐藏列功能")]
+        public virtual bool EnableColumnHide
         {
             get
             {
-                return _allowHideColumn;
+                return _enableColumnHide;
             }
             set
             {
-                _allowHideColumn = value;
+                _enableColumnHide = value;
             }
         }
 
@@ -564,7 +564,7 @@ namespace FineUI
                     OB.AddProperty("menuDisabled", true);
                 }
 
-                if (AllowHideColumn)
+                if (EnableColumnHide)
                 {
                     OB.AddProperty("hideable", true);
                 }

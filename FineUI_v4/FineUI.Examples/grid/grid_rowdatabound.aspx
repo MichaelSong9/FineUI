@@ -29,9 +29,9 @@
             <x:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
                 HeaderText="分组"></x:ImageField>
             <x:LinkButtonField TextAlign="Center" ConfirmText="你确定要这么做么？" ConfirmTarget="Top"
-                ColumnID="lbfAction1" Width="50px" CommandName="Action1" Text="按钮" />
+                ColumnID="lbfAction1" Width="60px" CommandName="Action1" Text="按钮" />
             <x:LinkButtonField TextAlign="Center" ConfirmText="删除选中行？" Icon="Delete" ConfirmTarget="Top"
-                ColumnID="lbfAction2" HeaderText="&nbsp;" Width="50px" CommandName="Action2" />
+                ColumnID="lbfAction2" HeaderText="&nbsp;" Width="60px" CommandName="Action2" />
         </Columns>
     </x:Grid>
     <br />

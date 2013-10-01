@@ -28,8 +28,8 @@
             <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                 DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                 DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-            <x:LinkButtonField HeaderText="&nbsp;" Width="50px" CommandName="Action1" Text="按钮 1" />
-            <x:LinkButtonField HeaderText="&nbsp;" Width="50px" CommandName="Action2" Text="按钮 2" />
+            <x:LinkButtonField HeaderText="&nbsp;" Width="60px" CommandName="Action1" Text="按钮 1" />
+            <x:LinkButtonField HeaderText="&nbsp;" Width="60px" CommandName="Action2" Text="按钮 2" />
         </Columns>
     </x:Grid>
     <br />

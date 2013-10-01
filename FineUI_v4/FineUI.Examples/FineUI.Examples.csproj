@@ -102,7 +102,6 @@
     <Content Include="extjs_builder\js\X\extender.js" />
     <Content Include="extjs_builder\js\X\X.ajax.js" />
     <Content Include="extjs_builder\js\X\X.format.js" />
-    <Content Include="extjs_builder\js\X\X.js" />
     <Content Include="extjs_builder\js\X\X.simulateTree.js" />
     <Content Include="extjs_builder\js\X\X.util.js" />
     <Content Include="extjs_builder\js\X\X.wnd.js" />

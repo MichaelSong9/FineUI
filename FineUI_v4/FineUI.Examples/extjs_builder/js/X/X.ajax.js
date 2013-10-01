@@ -321,9 +321,9 @@
             // 隐藏的列索引列表
             var gridHiddenColumns = cmp.x_getHiddenColumns();
             if (gridHiddenColumns.length > 0) {
-                saveInHiddenField('HiddenColumnIndexArray', gridHiddenColumns.join(','));
+                saveInHiddenField('HiddenColumns', gridHiddenColumns.join(','));
             } else {
-                removeHiddenField('HiddenColumnIndexArray');
+                removeHiddenField('HiddenColumns');
             }
 
             // 目前States仅用于CheckBoxField
