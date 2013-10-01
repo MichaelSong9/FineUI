@@ -102,7 +102,7 @@
                 </Toolbars>
                 <Items>
                     <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" PageSize="3" ShowBorder="false" ShowHeader="False"
-                        AutoHeight="true" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name"
+                        runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name"
                        >
                         <Columns>
                             <x:RowNumberField />

@@ -200,17 +200,17 @@ namespace FineUI
             #endregion
 
 
-            #region AutoHeight
+            //#region AutoHeight
 
 
-            // 如果要充满整个Accordion，则设置每个AccordionPanel的AutoHeight=false
-            if (parentControl.EnableFill)
-            {
-                OB.AddProperty("autoHeight", false);
-            }
+            //// 如果要充满整个Accordion，则设置每个AccordionPanel的AutoHeight=false
+            //if (parentControl.EnableFill)
+            //{
+            //    OB.AddProperty("autoHeight", false);
+            //}
 
 
-            #endregion
+            //#endregion
 
             string renderScript = String.Empty;
 

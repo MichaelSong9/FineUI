@@ -24,7 +24,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" AutoHeight="true"
+    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true"
         AllowPaging="true" PageSize="5" runat="server" DataKeyNames="Id,Name" Width="800px"
         Height="300px" OnRowCommand="Grid1_RowCommand" EnableCheckBoxSelect="false"
         OnPageIndexChange="Grid1_PageIndexChange">

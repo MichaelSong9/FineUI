@@ -73,9 +73,9 @@ namespace FineUI
         /// </summary>
         public Grid()
         {
-            // 严格的说，PageIndex、SortColumnIndex、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
+            // 严格的说，PageIndex、SortField、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
-            AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortColumnIndex", "SortDirection");
+            AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortField", "SortDirection");
             AddClientAjaxProperties("X_Rows", "HiddenColumnIndexArray", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
 
             AddGzippedAjaxProperties("X_Rows");
@@ -343,7 +343,7 @@ namespace FineUI
 
         #endregion
 
-        #region AllowSorting/SortDirection/SortColumnIndex
+        #region AllowSorting/SortDirection/SortField
 
         /// <summary>
         /// 允许服务器端排序
@@ -387,94 +387,102 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// [AJAX属性]当前按照第几列排序（从零算起）
-        /// </summary>
-        //[Browsable(false)]
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(-1)]
-        [Description("[AJAX属性]当前按照第几列排序（从零算起）")]
-        public int SortColumnIndex
-        {
-            get
-            {
-                if (DesignMode)
-                {
-                    return -1;
-                }
-                else
-                {
-                    object obj = XState["SortColumnIndex"];
-                    if (obj == null)
-                    {
-                        if (!String.IsNullOrEmpty(SortColumn))
-                        {
-                            return FindColumn(SortColumn).ColumnIndex;
-                        }
-                        else
-                        {
-                            return -1;
-                        }
-                    }
-                    else
-                    {
-                        return (int)obj;
-                    }
-                }
-            }
-            set
-            {
-                XState["SortColumnIndex"] = value;
-            }
-        }
+
 
         /// <summary>
         /// 当前排序字段（只读）
         /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Description("当前排序字段（只读）")]
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("[AJAX属性]当前排序字段")]
         public string SortField
         {
             get
             {
-                if (DesignMode)
-                {
-                    return "";
-                }
-
-                if (SortColumnIndex >= 0 && SortColumnIndex < AllColumns.Count)
-                {
-                    return AllColumns[SortColumnIndex].SortField;
-                }
-                else
-                {
-                    return "";
-                }
-
-            }
-        }
-
-
-        /// <summary>
-        /// [AJAX属性]排序列（ColumnID）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("[AJAX属性]排序列（ColumnID）")]
-        public string SortColumn
-        {
-            get
-            {
-                object obj = XState["SortColumn"];
+                object obj = XState["SortField"];
                 return obj == null ? "" : (string)obj;
+
+                //object obj = XState["SortField"];
+                //if (obj == null)
+                //{
+                //    if (SortColumnIndex >= 0 && SortColumnIndex < AllColumns.Count)
+                //    {
+                //        obj = AllColumns[SortColumnIndex].SortField;
+                //    }
+                //    else
+                //    {
+                //        obj = String.Empty;
+                //    }
+                //}
+                //return (string)obj;
             }
             set
             {
-                XState["SortColumn"] = value;
+                XState["SortField"] = value;
             }
         }
+
+
+        ///// <summary>
+        ///// [AJAX属性]当前按照第几列排序（从零算起）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(-1)]
+        //[Description("[AJAX属性]当前按照第几列排序（从零算起）")]
+        //[Obsolete("此属性已废除，请使用SortField属性")]
+        //public int SortColumnIndex
+        //{
+        //    get
+        //    {
+        //        if (DesignMode)
+        //        {
+        //            return -1;
+        //        }
+        //        else
+        //        {
+        //            object obj = XState["SortColumnIndex"];
+        //            if (obj == null)
+        //            {
+        //                if (!String.IsNullOrEmpty(SortColumn))
+        //                {
+        //                    return FindColumn(SortColumn).ColumnIndex;
+        //                }
+        //                else
+        //                {
+        //                    return -1;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return (int)obj;
+        //            }
+        //        }
+        //    }
+        //    set
+        //    {
+        //        XState["SortColumnIndex"] = value;
+        //    }
+        //}
+
+        ///// <summary>
+        ///// [AJAX属性]排序列（ColumnID）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("[AJAX属性]排序列（ColumnID）")]
+        //[Obsolete("此属性已废除，请使用SortField属性")]
+        //public string SortColumn
+        //{
+        //    get
+        //    {
+        //        object obj = XState["SortColumn"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["SortColumn"] = value;
+        //    }
+        //}
 
         #endregion
 
@@ -2013,15 +2021,16 @@ namespace FineUI
             //    sb.AppendFormat("{0}.x_setRowStates();", XID);
             //}
 
-            if (PropertyModified("SortColumnIndex", "SortDirection"))
+            if (PropertyModified("SortField", "SortDirection"))
             {
                 needUpdateSortIcon = true;
                 //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
             }
 
+
             if (needUpdateSortIcon)
             {
-                //sb.AppendFormat("{0}.x_setSortIcon({1}, '{2}');", XID, SortColumnIndex, SortDirection);
+                sb.AppendFormat("{0}.x_setSortIcon('{1}','{2}');", XID, GetSortColummID(), SortDirection);
             }
 
             bool selectRowsScriptRegistered = false;
@@ -2298,7 +2307,7 @@ namespace FineUI
                 OptionBuilder pagingBuilder = GetPagingBuilder();
 
                 pagingBuilder.AddProperty("displayInfo", true);
-                
+
                 pagingBuilder.AddProperty("store", Render_GridStoreID, true);
                 //// Hide refresh button, we don't implement this logic now.
                 //pagingBuilder.Listeners.AddProperty("beforerender", JsHelper.GetFunction("this.x_hideRefresh();"), true);
@@ -2369,13 +2378,13 @@ namespace FineUI
             //if (AllowSorting)
             //{
             //    // After the grid is rendered, then we can apply sort icon to grid header.
-            //    viewreadySB.AppendFormat("cmp.x_setSortIcon({0}, '{1}');", SortColumnIndex, SortDirection);
+            //    viewreadySB.AppendFormat("cmp.x_setSortIcon('{0}','{1}');", GetSortColummID(), SortDirection);
             //}
 
-            //if (!AllowCellEditing)
-            //{
-            //    viewreadySB.Append("cmp.x_selectRows();");
-            //}
+            if (!AllowCellEditing)
+            {
+                viewreadySB.Append("cmp.x_selectRows();");
+            }
 
 
             if (EnableTextSelection)
@@ -2433,6 +2442,7 @@ namespace FineUI
 
             #endregion
 
+
             #region AllowCellEditing
 
             if (AllowCellEditing)
@@ -2489,6 +2499,20 @@ namespace FineUI
             //sb.Append(JsHelper.GetDeferScript(String.Format("{0}.x_selectRows();", XID), 200));
 
             #endregion
+        }
+
+        private string GetSortColummID()
+        {
+            string columnID = String.Empty;
+            foreach (GridColumn column in AllColumns)
+            {
+                if (column.SortField == SortField)
+                {
+                    columnID = column.ColumnID;
+                    break;
+                }
+            }
+            return columnID;
         }
 
         private OptionBuilder GetPagingBuilder()
@@ -2563,7 +2587,7 @@ namespace FineUI
             //    }
 
             //    columnsBuilder.AddProperty(String.Format("Ext.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
-                
+
             //}
 
             //// 如果启用CheckBox，则放在第二列
@@ -2782,6 +2806,19 @@ namespace FineUI
             storeBuilder.AddProperty("fields", fieldsBuidler, true);
 
             storeBuilder.AddProperty("remoteSort", true);
+
+            // 设置初始排序列
+            if (AllowSorting)
+            {
+                string sortColumnID = GetSortColummID();
+                if (!String.IsNullOrEmpty(sortColumnID))
+                {
+                    JsObjectBuilder sorterBuilder = new JsObjectBuilder();
+                    sorterBuilder.AddProperty("property", GetSortColummID());
+                    sorterBuilder.AddProperty("direction", SortDirection.ToString());
+                    storeBuilder.AddProperty("sorters", sorterBuilder);
+                }
+            }
 
 
             string postbackScript = GetPostBackEventReference("#SORT#").Replace("'#SORT#'", "'Sort$'+sorter.property+'$'+sorter.direction");
@@ -3828,47 +3865,36 @@ namespace FineUI
                 #region Sort
 
                 string[] sortArgs = eventArgument.Split('$');
-                if (sortArgs.Length == 2)
+                //if (sortArgs.Length == 2)
+                //{
+                //    // 格式为 "Sort$2"，其中columnIndex = 2，这个是把前面的RowNumber，CheckBox列也算上去的，应该减掉
+                //    // 所在的列
+                //    int columnIndex = Convert.ToInt32(sortArgs[1]);
+                //    columnIndex -= GetPrefixColumnNumber();
+
+
+                //    // 当前列的排序字段和排序方向
+                //    string sortDirection = "ASC";
+                //    string sortField = AllColumns[columnIndex].SortField;
+
+                //    // Sort column index not changed in current postback.
+                //    if (columnIndex == SortColumnIndex)
+                //    {
+                //        sortDirection = SortDirection == "ASC" ? "DESC" : "ASC";
+                //    }
+
+                //    // 为了和之前的兼容，还是先把表格的这两个属性设置好
+                //    SortDirection = sortDirection;
+                //    SortColumnIndex = columnIndex;
+
+                //    OnSort(new GridSortEventArgs(sortField, sortDirection, columnIndex));
+                //}
+                if (sortArgs.Length == 3)
                 {
-                    // 格式为 "Sort$2"，其中columnIndex = 2，这个是把前面的RowNumber，CheckBox列也算上去的，应该减掉
-                    // 所在的列
-                    int columnIndex = Convert.ToInt32(sortArgs[1]);
-                    columnIndex -= GetPrefixColumnNumber();
-
-
-                    // 当前列的排序字段和排序方向
-                    string sortDirection = "ASC";
-                    string sortField = AllColumns[columnIndex].SortField;
-
-                    // Sort column index not changed in current postback.
-                    if (columnIndex == SortColumnIndex)
-                    {
-                        sortDirection = SortDirection == "ASC" ? "DESC" : "ASC";
-                    }
-
-                    // 为了和之前的兼容，还是先把表格的这两个属性设置好
-                    SortDirection = sortDirection;
-                    SortColumnIndex = columnIndex;
-
-                    OnSort(new GridSortEventArgs(sortField, sortDirection, columnIndex));
-                }
-                else if (sortArgs.Length == 3)
-                {
-                    #region old code
-                    //// 格式为 "Sort$c0__Name"
-                    //string sortStr = sortArgs[1].Substring(1);
-                    //// 所在的列
-                    //int sortColumnIndex = Convert.ToInt32(sortStr.Substring(0, sortStr.IndexOf("__")));
-                    //string sortField = sortStr.Substring(sortStr.IndexOf("__") + 2);
-                    //// 当前排序
-                    //Columns[sortColumnIndex].SortDirection = Columns[sortColumnIndex].SortDirection == "ASC" ? "DESC" : "ASC";
-
-                    //OnSort(new GridSortEventArgs(sortField, Columns[sortColumnIndex].SortDirection));  
-                    #endregion
-
-                    // 格式为 "Sort$2$ASC"
+                    // 格式为 "Sort$Grid1_ctl03$ASC"
                     string sortDir = sortArgs[2];
                     string columnId = sortArgs[1];
+
                     int columnIndex = 0;
                     foreach (GridColumn column in AllColumns)
                     {
@@ -3883,9 +3909,8 @@ namespace FineUI
                     string sortField = AllColumns[columnIndex].SortField;
                     string sortDirection = sortDir.ToUpper() == "ASC" ? "ASC" : "DESC";
 
-                    // 为了和之前的兼容，还是先把表格的这两个属性设置好
                     SortDirection = sortDirection;
-                    SortColumnIndex = columnIndex;
+                    SortField = sortField;
 
                     OnSort(new GridSortEventArgs(sortField, sortDirection, columnIndex));
                 }

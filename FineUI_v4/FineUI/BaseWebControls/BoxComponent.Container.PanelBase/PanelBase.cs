@@ -59,44 +59,44 @@ namespace FineUI
 
         #region virtual properties
 
-        /// <summary>
-        /// 是否自动高度
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue(false)]
-        [Description("是否自动高度")]
-        public virtual bool AutoHeight
-        {
-            get
-            {
-                object obj = XState["AutoHeight"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["AutoHeight"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否自动高度
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(false)]
+        //[Description("是否自动高度")]
+        //public virtual bool AutoHeight
+        //{
+        //    get
+        //    {
+        //        object obj = XState["AutoHeight"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["AutoHeight"] = value;
+        //    }
+        //}
 
 
-        /// <summary>
-        /// 是否启用自动宽度，通过设置CSS属性height:auto来实现
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue(false)]
-        [Description("是否自动宽度，通过设置CSS属性height:auto来实现")]
-        public virtual bool AutoWidth
-        {
-            get
-            {
-                object obj = XState["AutoWidth"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["AutoWidth"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否启用自动宽度，通过设置CSS属性height:auto来实现
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(false)]
+        //[Description("是否自动宽度，通过设置CSS属性height:auto来实现")]
+        //public virtual bool AutoWidth
+        //{
+        //    get
+        //    {
+        //        object obj = XState["AutoWidth"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["AutoWidth"] = value;
+        //    }
+        //}
 
 
         /// <summary>
@@ -716,29 +716,29 @@ namespace FineUI
 
             #region Width/Height
 
-            // 对于Panel，如果宽度/高度没有定义
-            if (Width == Unit.Empty && AutoWidth)
-            {
-                OB.AddProperty("autoWidth", true);
-            }
+            //// 对于Panel，如果宽度/高度没有定义
+            //if (Width == Unit.Empty && AutoWidth)
+            //{
+            //    OB.AddProperty("autoWidth", true);
+            //}
 
-            if (Height == Unit.Empty && AutoHeight)
-            {
-                OB.AddProperty("autoHeight", true);
-            }
+            //if (Height == Unit.Empty && AutoHeight)
+            //{
+            //    OB.AddProperty("autoHeight", true);
+            //}
             
 
-            // 如果父控件是容器控件（不是ContentPanel），并且Layout != LayoutType.Container，
-            // 则设置AutoWidth/AutoHeight都为false
-            if (Parent is PanelBase)
-            {
-                PanelBase parent = Parent as PanelBase;
-                if (!(parent is ContentPanel) && parent.Layout != Layout.Container)
-                {
-                    OB.RemoveProperty("autoHeight");
-                    OB.RemoveProperty("autoWidth");
-                }
-            }
+            //// 如果父控件是容器控件（不是ContentPanel），并且Layout != LayoutType.Container，
+            //// 则设置AutoWidth/AutoHeight都为false
+            //if (Parent is PanelBase)
+            //{
+            //    PanelBase parent = Parent as PanelBase;
+            //    if (!(parent is ContentPanel) && parent.Layout != Layout.Container)
+            //    {
+            //        OB.RemoveProperty("autoHeight");
+            //        OB.RemoveProperty("autoWidth");
+            //    }
+            //}
 
 
 

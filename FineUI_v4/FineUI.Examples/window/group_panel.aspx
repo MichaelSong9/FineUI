@@ -12,7 +12,7 @@
     <x:Panel ID="Panel1" BodyPadding="5px" runat="server" 
         EnableCollapse="True" Title="面板" Width="600px">
         <Items>
-            <x:GroupPanel runat="server" AutoHeight="true" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True">
+            <x:GroupPanel runat="server" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True">
                 <Items>
                     <x:SimpleForm ID="SimpleForm1" runat="server"  ShowBorder="False"
                         ShowHeader="False">
@@ -25,7 +25,7 @@
                     </x:SimpleForm>
                 </Items>
             </x:GroupPanel>
-            <x:GroupPanel ID="GroupPanel2"  AutoHeight="true" Title="分组面板二"
+            <x:GroupPanel ID="GroupPanel2"  Title="分组面板二"
                 runat="server" EnableCollapse="True">
                 <Items>
                     <x:ContentPanel ID="ContentPanel1" ShowBorder="false" ShowHeader="false" 

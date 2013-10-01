@@ -40,6 +40,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-为了在FineUI_v4中实现之前的失去焦点后触发的事件，为文本输入框增加EnableBlurEvent属性和Blur事件。
 	-DropDownList默认可以不选择，方便使用Required属性做客户端验证，示例form/form.aspx。
 	-优化XState的初始化代码，使得Reset按钮可用于下拉列表、富文本编辑器等控件，而不会清空这些控件的值。
+	-删除PanelBase的属性AutoHeight和AutoWidth。
 	+表格相关。
 		-生成的样式类"x-grid3"字符串全部更改为"x-grid"。
 		-删除表格属性VerticalScrollWidth、EnableColumnHide。
@@ -50,7 +51,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 			-增加列属性HeaderToolTip、HeaderToolTipType、BoxFlex、AllowHideColumn
 			-增加列属性EnableHeaderMenu（默认为true），修改表格的EnableHeaderMenu默认值true。
 			-增加列RowNumberField，删除表格属性EnableRowNumber、EnableRowNumberPaging、RowNumberWidth。
-		-由于RowNumberField属于表格列，注意SortColumnIndex的变化，建议使用SortColumn指定。
+		-删除表格属性SortColumnIndex、SortColumn，请直接使用SortField属性（注意RowNumberField对属性SortColumnIndex的影响）。
+		-设置表格内图片的默认大小为16px*16px，用户可以手工设置样式来覆盖图片的默认大小。
+		-
 
 
 +2013-09-** v3.3.2

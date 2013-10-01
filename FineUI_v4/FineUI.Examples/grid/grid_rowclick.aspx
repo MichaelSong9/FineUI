@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px" AutoHeight="true"
+    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
         runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name"
         EnableMultiSelect="false" EnableRowClickEvent="true" OnRowClick="Grid1_RowClick">
         <Columns>

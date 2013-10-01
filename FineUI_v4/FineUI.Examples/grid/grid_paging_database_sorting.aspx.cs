@@ -98,7 +98,7 @@ namespace FineUI.Examples.grid
         protected void Grid1_Sort(object sender, FineUI.GridSortEventArgs e)
         {
             Grid1.SortDirection = e.SortDirection;
-            Grid1.SortColumnIndex = e.ColumnIndex;
+            Grid1.SortField = e.SortField;
 
             BindGrid();
         }

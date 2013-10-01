@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Panel ID="Panel1" runat="server" Title="面板" Width="500px" AutoHeight="true"
+    <x:Panel ID="Panel1" runat="server" Title="面板" Width="500px"
          BodyPadding="10px" EnableCollapse="True" IconUrl="~/images/16/8.png">
         <Toolbars>
             <x:Toolbar runat="server">

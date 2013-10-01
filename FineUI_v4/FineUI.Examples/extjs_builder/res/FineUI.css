@@ -19,6 +19,17 @@
 }*/
 
 
+.cursor-pointer
+{
+    cursor: pointer;
+}
+
+
+.gray
+{
+    color: gray;
+}
+
 
 
 /*html, body
@@ -65,17 +76,6 @@ form
     background: transparent url(../images/elbow-empty.gif) no-repeat 0px 0px;
 }
 
-
-/*.cursor-pointer
-{
-    cursor: pointer;
-}
-
-
-.gray
-{
-    color: gray;
-}*/
 
 
 .x-boundlist-item-disabled
@@ -161,3 +161,9 @@ form
     -webkit-user-select: text;
 }*/
 
+
+
+.x-grid .x-grid-cell img {
+    width: 16px;
+    height: 16px;
+}

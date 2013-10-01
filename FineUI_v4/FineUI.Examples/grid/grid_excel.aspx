@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="900px"
-        AutoHeight="true" runat="server" DataKeyNames="Id,Name">
+        runat="server" DataKeyNames="Id,Name">
         <Columns>
             <x:TemplateField Width="60px">
                 <ItemTemplate>

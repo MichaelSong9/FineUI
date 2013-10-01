@@ -1182,7 +1182,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	
 +2008-08-12 v0.4 beta3
 	-底层的javascript框架Extjs升级为v2.2，Grid的渲染速度有很大提升。
-	-Grid的EnableDelayRender默认为true（如果没有设置Grid的高度或通过布局间接设置高度，则行不可见，可以通过AutoHeight="true"解决）。
+	-Grid的EnableDelayRender默认为true（如果没有设置Grid的高度或通过布局间接设置高度，则行不可见，可以通过AutoHeight=true解决）。
 	+页面正在加载的提示尽早的显示出来。
 		-首先在执行js来完成页面渲染之前延迟5ms，以便浏览器把当前页面内容显示出来。
 		-加载js脚本的script标签放置在页面的最后，放置加载js而阻塞PageLoading的显示。
@@ -1361,7 +1361,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	
 +2008-07-03 v0.3 beta1
 	+容器控件的AutoHeight/AutoWidth默认为false。
-		-使用GroupPanel的地方需要手工添加AutoHeight="true"属性。
+		-使用GroupPanel的地方需要手工添加AutoHeight=true属性。
 	+增加UserControlConnector，可以在其中放置用户控件（示例在page_usercontrol.aspx）。
 		-也可以在ContentPanel中放置用户控件，注意两者的区别。
 	+增加ContentPlaceHolderConnector，替换原来Region的ContentPlaceHolderId属性（示例在Site.master）。

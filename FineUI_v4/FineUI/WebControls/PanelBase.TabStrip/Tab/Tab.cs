@@ -120,24 +120,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 是否自动高度
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否自动高度")]
-        public override bool AutoHeight
-        {
-            get
-            {
-                object obj = XState["AutoHeight"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["AutoHeight"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否自动高度
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否自动高度")]
+        //public override bool AutoHeight
+        //{
+        //    get
+        //    {
+        //        object obj = XState["AutoHeight"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["AutoHeight"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 是否自动宽度

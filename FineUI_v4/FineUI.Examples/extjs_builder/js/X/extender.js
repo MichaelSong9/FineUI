@@ -616,9 +616,9 @@ if (Ext.grid.GridPanel) {
             });
         },
 
-        // 设置表格标题栏的排序图标 .x-grid-hd-over
-        x_setSortIcon: function (sortColumnIndex, sortDirection) {
-            var gridEl = Ext.get(this.id), columns = this.x_getColumns();
+        // 设置表格标题栏的排序图标
+        x_setSortIcon: function (sortColumnID, sortDirection) {
+            var gridEl = Ext.get(this.id), columns = this.x_getColumns(), headers = gridEl.select('.x-column-header');
 
             function getHeaderNode(index) {
                 if (typeof (index) === 'number') {
@@ -628,19 +628,19 @@ if (Ext.grid.GridPanel) {
                 }
             }
 
-            // Clear sort icon for all column header.
-            getHeaderNode().removeCls(['sort-asc', 'sort-desc']);
+            // 清空所有可排序列的排序箭头
+            headers.removeCls(['x-column-header-sort-DESC', 'x-column-header-sort-ASC']);
 
-            // Add cursor to all server sortable column header.
+            // 为所有可排序列添加手型光标
             Ext.Array.each(columns, function (item, index) {
                 if (item['sortable']) {
-                    getHeaderNode(index).addCls('cursor-pointer');
+                    Ext.get(item.id).addCls('cursor-pointer');
                 }
             });
 
-            // Set current sort column
-            if (sortColumnIndex >= 0 && sortColumnIndex < columns.length) {
-                getHeaderNode(sortColumnIndex).addCls('x-column-header-sort-' + sortDirection.toLowerCase());
+            // 设置当前列的排序箭头
+            if (sortColumnID) {
+                Ext.get(sortColumnID).addCls('x-column-header-sort-' + sortDirection.toUpperCase());
             }
 
         },

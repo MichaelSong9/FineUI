@@ -132,18 +132,18 @@ namespace FineUI
         //    }
         //}
 
-        /// <summary>
-        /// 不支持此属性
-        /// </summary>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override bool AutoHeight
-        {
-            get
-            {
-                return false;
-            }
-        }
+        ///// <summary>
+        ///// 不支持此属性
+        ///// </summary>
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public override bool AutoHeight
+        //{
+        //    get
+        //    {
+        //        return false;
+        //    }
+        //}
 
 
         /// <summary>

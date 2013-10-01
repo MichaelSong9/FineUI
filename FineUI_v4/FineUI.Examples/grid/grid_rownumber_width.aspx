@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" PageSize="10" ShowBorder="true" ShowHeader="true"
-        AutoHeight="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
+        AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
         DataKeyNames="Id" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
         EnableRowNumberPaging="true" RowNumberWidth="24px">
         <Columns>
