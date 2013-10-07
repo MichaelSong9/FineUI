@@ -18,7 +18,7 @@
             <x:BoundField DataField="MyText" SortField="MyText" DataFormatString="{0}" HeaderText="姓名" />
             <x:BoundField Width="80px" DataField="Year" HeaderText="入学年份" />
             <x:CheckBoxField Width="80px" DataField="MyCheckBox" HeaderText="是否在校" />
-            <x:TemplateField HeaderText="是否在校（模板列）">
+            <x:TemplateField HeaderText="是否在校">
                 <ItemTemplate>
                     <%-- Container.DataItem should be System.Data.DataRowView or Custom Class --%>
                     <%-- <%# DataBinder.Eval(Container.DataItem, "MyText") %> --%>

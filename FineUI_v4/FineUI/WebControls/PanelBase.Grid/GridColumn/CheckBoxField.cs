@@ -45,7 +45,6 @@ namespace FineUI
     [PersistChildren(false)]
     public class CheckBoxField : BaseField
     {
-
         #region Properties
 
         private bool _enabled = true;
@@ -222,7 +221,8 @@ namespace FineUI
                 //    tooltip = String.Format(" ext:qtip=\"{0}\" ", HeaderText);
                 //}
 
-                result = String.Format("<div class=\"box-grid-checkbox unchecked {0}\" onclick=\"{1}\">{2}</div>", textAlignClass, onClickScript, HeaderText);
+                result = String.Format("<div class=\"box-grid-checkbox unchecked {0}\" onclick=\"{1}\">{2}</div>", 
+                    textAlignClass, onClickScript, HeaderText);
 
                 return result;
             }

@@ -55,6 +55,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-删除表格属性SortColumnIndex、SortColumn，请直接使用SortField属性（注意RowNumberField对属性SortColumnIndex的影响）。
 		-设置表格内图片的默认大小为16px*16px，用户可以手工设置样式来覆盖图片的默认大小。
 		-删除HiddenColumnIndexArray属性，增加HiddenColumns属性。
+		-更新可编辑表格实示例的客户端脚本，在执行onReady函数时表格的viewready事件已经执行完毕。
 
 
 +2013-09-** v3.3.2

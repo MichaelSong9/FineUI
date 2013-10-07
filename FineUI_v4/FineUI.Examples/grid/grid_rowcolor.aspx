@@ -7,20 +7,20 @@
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .highlight
+        .x-grid-row.highlight td
         {
             background-color: lightgreen;
         }
-        .highlight .x-grid-col
+        .x-grid-row.highlight .x-grid-col
         {
             background-image: none;
         }
         
-        .x-grid-row-selected .highlight
+        .x-grid-row-selected.highlight td
         {
             background-color: yellow;
         }
-        .x-grid-row-selected .highlight .x-grid-col
+        .x-grid-row-selected.highlight .x-grid-col
         {
             background-image: none;
         }
@@ -32,25 +32,6 @@
     <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
         runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound"
        >
-       <%-- <Toolbars>
-            <x:Toolbar ID="Toolbar1" runat="server">
-                <Items>
-                    <x:Form  ShowBorder="false" LabelAlign="Right" ShowHeader="false" Width="600px" runat="server">
-                        <Rows>
-                            <x:FormRow>
-                                <Items>
-                                    <x:CheckBox ID="ckbEnd" Label="显示已结项目" runat="server" Text="显示已结项目" />
-                                    <x:RadioButton ID="rbtn1" runat="server" Text="单选按钮" />
-                                </Items>
-                            </x:FormRow>
-                        </Rows>
-                    </x:Form>
-                    <x:ToolbarFill ID="ToolbarFill2" runat="server" />
-                    <x:Button ID="btExp" Icon="Disk" Text="导 出" EnableAjax="false" DisableControlBeforePostBack="false"
-                        runat="server" />
-                </Items>
-            </x:Toolbar>
-        </Toolbars>--%>
         <Columns>
             <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
@@ -93,8 +74,8 @@
 
             Ext.Array.each(highlightRows.getValue().split(','), function (item, index) {
                 if (item !== '') {
-                    var row = grid.getView().getRow(parseInt(item, 10));
-                    Ext.get(row).first().addCls('highlight');
+                    var row = grid.getView().getNode(parseInt(item, 10));
+                    Ext.get(row).addCls('highlight');
                 }
             });
 
@@ -102,10 +83,7 @@
 
         // 页面第一个加载完毕后执行的函数
         function onReady() {
-            var grid = X(gridClientID);
-            grid.addListener('viewready', function () {
-                highlightRows();
-            });
+            highlightRows();
         }
 
         // 页面AJAX回发后执行的函数

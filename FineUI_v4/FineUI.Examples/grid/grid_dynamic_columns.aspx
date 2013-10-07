@@ -9,16 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" runat="server" Width="650px" EnableCheckBoxSelect="true" EnableRowNumber="true"
-        Title="表格（动态创建的列）">
-    </x:Grid>
-    <br />
-    <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
-    </x:Button>
-    <br />
-    <x:Label ID="labResult" EncodeText="false" runat="server">
-    </x:Label>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:Grid ID="Grid1" runat="server" Width="650px" EnableCheckBoxSelect="true"
+            Title="表格（动态创建的列）">
+        </x:Grid>
+        <br />
+        <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
+        </x:Button>
+        <br />
+        <x:Label ID="labResult" EncodeText="false" runat="server">
+        </x:Label>
     </form>
 </body>
 </html>

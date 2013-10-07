@@ -45,7 +45,6 @@ namespace FineUI
     [PersistChildren(false)]
     public class ImageField : BaseField
     {
-
         #region Properties
 
 
@@ -154,17 +153,19 @@ namespace FineUI
                     imageUrl = value.ToString();
                 }
 
-                string cssStr = String.Empty;
-                if (ImageWidth != Unit.Empty)
+                string backgroundSize = String.Empty;
+                if (ImageWidth != Unit.Empty || ImageHeight != Unit.Empty)
                 {
-                    cssStr += String.Format("width:{0}px;", ImageWidth.Value);
-                }
-                if (ImageHeight != Unit.Empty)
-                {
-                    cssStr += String.Format("height:{0}px;", ImageHeight.Value);
+                    backgroundSize = String.Format(" background-size:{0} {1};", 
+                        ImageWidth == Unit.Empty ? "auto" : ImageWidth.Value + "px",
+                        ImageHeight == Unit.Empty ? "auto" : ImageHeight.Value + "px");
                 }
 
-                result = String.Format("<img src=\"{0}\" style=\"border-width: 0px;{1}\"/>", Grid.ResolveUrl(imageUrl), cssStr);
+
+                result = String.Format("<img src=\"{2}\" class=\"box-grid-imagefield\" style=\"background-image:url({0});{1}\"/>", 
+                    Grid.ResolveUrl(imageUrl), 
+                    backgroundSize,
+                    Grid.ResolveUrl(ResourceHelper.GetEmptyImageUrl()));
             }
 
             string tooltip = GetTooltipString(row);
