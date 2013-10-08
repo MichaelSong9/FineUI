@@ -44,7 +44,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+表格相关。
 		-生成的样式类"x-grid3"字符串全部更改为"x-grid"。
 		-删除表格属性VerticalScrollWidth、EnableColumnHide。
-		+表格列和之前不兼容（现在使用HBox布局）。
+		+表格列和之前不兼容（现在使用HBox布局，注意列的Width和BoxFlex属性）。
 			-可以为Column指定BoxFlex属性或者Width属性（之前ExpandUnusedSpace属性等价于BoxFlex=1）。
 			-删除表格属性MinColumnWidth、AutoExpandColumnMax、AutoExpandColumnMin。
 			-删除表格属性ForceFitFirstTime，属性ForceFitAllTime依然可用。
@@ -56,6 +56,11 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-设置表格内图片的默认大小为16px*16px，用户可以手工设置样式来覆盖图片的默认大小。
 		-删除HiddenColumnIndexArray属性，增加HiddenColumns属性。
 		-更新可编辑表格实示例的客户端脚本，在执行onReady函数时表格的viewready事件已经执行完毕。
+		+分组表头和之前不兼容。
+			-删除类GridGroupColumn，删除表格的Columns属性，增加类GroupField。
+			-
+
+
 
 
 +2013-09-** v3.3.2

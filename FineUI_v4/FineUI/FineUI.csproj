@@ -214,8 +214,7 @@
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField\RenderCheckField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\RenderField\RenderBaseField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\RowNumberField.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumn.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridGroupColumn\GridGroupColumnCollection.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridColumn\GroupField.cs" />
     <Compile Include="WebControls\PanelBase.RegionPanel\RegionPanel.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Accordion\Accordion.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Accordion\AccordionPane\AccordionPane.cs" />

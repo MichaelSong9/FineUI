@@ -1493,26 +1493,26 @@ namespace FineUI
 
 
 
-        private GridGroupColumnCollection _groupColumns;
+        //private GridGroupColumnCollection _groupColumns;
 
-        /// <summary>
-        /// 分组列数据
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [NotifyParentProperty(true)]
-        [PersistenceMode(PersistenceMode.InnerProperty)]
-        [Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        public virtual GridGroupColumnCollection GroupColumns
-        {
-            get
-            {
-                if (_groupColumns == null)
-                {
-                    _groupColumns = new GridGroupColumnCollection(this);
-                }
-                return _groupColumns;
-            }
-        }
+        ///// <summary>
+        ///// 分组列数据
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[NotifyParentProperty(true)]
+        //[PersistenceMode(PersistenceMode.InnerProperty)]
+        //[Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        //public virtual GridGroupColumnCollection GroupColumns
+        //{
+        //    get
+        //    {
+        //        if (_groupColumns == null)
+        //        {
+        //            _groupColumns = new GridGroupColumnCollection(this);
+        //        }
+        //        return _groupColumns;
+        //    }
+        //}
 
         //private GridColumnCollection _allColumnsInternal;
         ///// <summary>
@@ -1541,19 +1541,12 @@ namespace FineUI
         {
             get
             {
-                if (GroupColumns.Count == 0)
+                if (_allColumns == null)
                 {
-                    return Columns;
+                    ResolveAllColumns();
                 }
-                else
-                {
-                    if (_allColumns == null)
-                    {
-                        ResolveAllColumns();
-                    }
 
-                    return _allColumns;
-                }
+                return _allColumns;
             }
         }
 
@@ -1561,26 +1554,24 @@ namespace FineUI
         {
             _allColumns = new Collection<GridColumn>();
 
-            foreach (GridGroupColumn groupColumn in GroupColumns)
+            foreach (GridColumn column in Columns)
             {
-                ResolveAllColumns(groupColumn);
+                _allColumns.Add(column);
+                if (column is GroupField)
+                {
+                    ResolveAllColumns(column as GroupField);
+                }
             }
         }
 
-        private void ResolveAllColumns(GridGroupColumn column)
+        private void ResolveAllColumns(GroupField column)
         {
-            if (column.Columns.Count > 0)
+            foreach (GridColumn subColumn in column.Columns)
             {
-                foreach (GridColumn subColumn in column.Columns)
+                _allColumns.Add(subColumn);
+                if (subColumn is GroupField)
                 {
-                    _allColumns.Add(subColumn);
-                }
-            }
-            else if (column.GroupColumns.Count > 0)
-            {
-                foreach (GridGroupColumn subColumn in column.GroupColumns)
-                {
-                    ResolveAllColumns(subColumn);
+                    ResolveAllColumns(subColumn as GroupField);
                 }
             }
         }
@@ -2604,11 +2595,11 @@ namespace FineUI
             //}
 
 
-            string groupColumnScript = GetGroupColumnScript();
+            //string groupColumnScript = GetGroupColumnScript();
 
 
             string expanderXID = String.Empty;
-            foreach (GridColumn column in AllColumns)
+            foreach (GridColumn column in Columns)
             {
                 if (column is TemplateField && (column as TemplateField).RenderAsRowExpander)
                 {
@@ -2628,10 +2619,10 @@ namespace FineUI
                 pluginBuilder.AddProperty(expanderXID, true);
             }
 
-            if (!String.IsNullOrEmpty(groupColumnScript))
-            {
-                pluginBuilder.AddProperty(Render_GridGroupColumnID, true);
-            }
+            //if (!String.IsNullOrEmpty(groupColumnScript))
+            //{
+            //    pluginBuilder.AddProperty(Render_GridGroupColumnID, true);
+            //}
 
             if (pluginBuilder.Count > 0)
             {
@@ -2648,85 +2639,85 @@ namespace FineUI
             string columnsScript = String.Format("var {0}={1};", Render_GridColumnsID, columnsBuilder);
 
 
-            return groupColumnScript + columnsScript;
+            return columnsScript;
         }
 
         #endregion
 
         #region GetGroupColumnScript/ResolveGroupColumns
 
-        private string GetGroupColumnScript()
-        {
-            if (Columns.Count > 0)
-            {
-                return String.Empty;
-            }
+        //private string GetGroupColumnScript()
+        //{
+        //    if (Columns.Count > 0)
+        //    {
+        //        return String.Empty;
+        //    }
 
-            List<List<GridGroupColumn>> resolvedGroups = new List<List<GridGroupColumn>>();
-            ResolveGroupColumns(GroupColumns, 0, resolvedGroups);
+        //    List<List<GridGroupColumn>> resolvedGroups = new List<List<GridGroupColumn>>();
+        //    ResolveGroupColumns(GroupColumns, 0, resolvedGroups);
 
-            JsArrayBuilder groupHeaderBuilder = new JsArrayBuilder();
+        //    JsArrayBuilder groupHeaderBuilder = new JsArrayBuilder();
 
-            foreach (List<GridGroupColumn> groups in resolvedGroups)
-            {
-                JsArrayBuilder groupsBuilder = new JsArrayBuilder();
-                foreach (GridGroupColumn group in groups)
-                {
-                    JsObjectBuilder groupBuilder = new JsObjectBuilder();
-                    groupBuilder.AddProperty("header", group.HeaderText);
-                    if (group.TextAlign != TextAlign.Left)
-                    {
-                        groupBuilder.AddProperty("align", TextAlignName.GetName(group.TextAlign));
-                    }
+        //    foreach (List<GridGroupColumn> groups in resolvedGroups)
+        //    {
+        //        JsArrayBuilder groupsBuilder = new JsArrayBuilder();
+        //        foreach (GridGroupColumn group in groups)
+        //        {
+        //            JsObjectBuilder groupBuilder = new JsObjectBuilder();
+        //            groupBuilder.AddProperty("header", group.HeaderText);
+        //            if (group.TextAlign != TextAlign.Left)
+        //            {
+        //                groupBuilder.AddProperty("align", TextAlignName.GetName(group.TextAlign));
+        //            }
 
-                    int groupColumnCount = 0;
-                    ResolveColumnCount(group, ref groupColumnCount);
-                    groupBuilder.AddProperty("colspan", groupColumnCount);
+        //            int groupColumnCount = 0;
+        //            ResolveColumnCount(group, ref groupColumnCount);
+        //            groupBuilder.AddProperty("colspan", groupColumnCount);
 
-                    groupsBuilder.AddProperty(groupBuilder);
-                }
+        //            groupsBuilder.AddProperty(groupBuilder);
+        //        }
 
-                groupHeaderBuilder.AddProperty(groupsBuilder);
-            }
+        //        groupHeaderBuilder.AddProperty(groupsBuilder);
+        //    }
 
-            return String.Format("var {0}=new Ext.ux.grid.ColumnHeaderGroup({{rows:{1}}});", Render_GridGroupColumnID, groupHeaderBuilder.ToString());
+        //    return String.Format("var {0}=new Ext.ux.grid.ColumnHeaderGroup({{rows:{1}}});", Render_GridGroupColumnID, groupHeaderBuilder.ToString());
 
-        }
+        //}
 
-        // 递归获得每个分组头中包含的列数
-        private void ResolveColumnCount(GridGroupColumn group, ref int columnCount)
-        {
-            if (group.Columns.Count > 0)
-            {
-                columnCount += group.Columns.Count;
-            }
-            else if (group.GroupColumns.Count > 0)
-            {
-                foreach (GridGroupColumn subGroup in group.GroupColumns)
-                {
-                    ResolveColumnCount(subGroup, ref columnCount);
-                }
-            }
-        }
+        //// 递归获得每个分组头中包含的列数
+        //private void ResolveColumnCount(GridGroupColumn group, ref int columnCount)
+        //{
+        //    if (group.Columns.Count > 0)
+        //    {
+        //        columnCount += group.Columns.Count;
+        //    }
+        //    else if (group.GroupColumns.Count > 0)
+        //    {
+        //        foreach (GridGroupColumn subGroup in group.GroupColumns)
+        //        {
+        //            ResolveColumnCount(subGroup, ref columnCount);
+        //        }
+        //    }
+        //}
 
-        // 将表头的树状分组转换为数组形式
-        private void ResolveGroupColumns(GridGroupColumnCollection groups, int level, List<List<GridGroupColumn>> resolvedGroups)
-        {
-            foreach (GridGroupColumn group in groups)
-            {
-                if (resolvedGroups.Count <= level)
-                {
-                    resolvedGroups.Add(new List<GridGroupColumn>());
-                }
-                resolvedGroups[level].Add(group);
+        //// 将表头的树状分组转换为数组形式
+        //private void ResolveGroupColumns(GridGroupColumnCollection groups, int level, List<List<GridGroupColumn>> resolvedGroups)
+        //{
+        //    foreach (GridGroupColumn group in groups)
+        //    {
+        //        if (resolvedGroups.Count <= level)
+        //        {
+        //            resolvedGroups.Add(new List<GridGroupColumn>());
+        //        }
+        //        resolvedGroups[level].Add(group);
 
-                if (group.GroupColumns.Count > 0)
-                {
-                    ResolveGroupColumns(group.GroupColumns, ++level, resolvedGroups);
-                    level--;
-                }
-            }
-        }
+        //        if (group.GroupColumns.Count > 0)
+        //        {
+        //            ResolveGroupColumns(group.GroupColumns, ++level, resolvedGroups);
+        //            level--;
+        //        }
+        //    }
+        //}
 
         #endregion
 

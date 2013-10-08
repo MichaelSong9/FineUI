@@ -77,21 +77,21 @@ namespace FineUI
             }
             else
             {
-                return ResolveParentGrid(Parent as GridGroupColumn);
+                return ResolveParentGrid(Parent as GridColumn);
             }
         }
 
-        private Grid ResolveParentGrid(GridGroupColumn groupColumn)
+        private Grid ResolveParentGrid(GridColumn column)
         {
-            if (groupColumn != null)
+            if (column != null)
             {
-                if (groupColumn.Parent is Grid)
+                if (column.Parent is Grid)
                 {
-                    return (Grid)groupColumn.Parent;
+                    return (Grid)column.Parent;
                 }
                 else
                 {
-                    return ResolveParentGrid(groupColumn.Parent as GridGroupColumn);
+                    return ResolveParentGrid(column.Parent as GridColumn);
                 }
             }
             else

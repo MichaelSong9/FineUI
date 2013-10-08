@@ -48,26 +48,6 @@ namespace FineUI
     [DefaultProperty("HeaderText")]
     public class GridGroupColumn : ControlBase
     {
-        #region oldcode
-
-        
-        ///// <summary>
-        ///// 表格对象
-        ///// </summary>
-        //[Browsable(false)]
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        //[Description("表格对象")]
-        //public Grid Grid
-        //{
-        //    get
-        //    {
-        //        return (Grid)this.Parent;
-        //    }
-        //}
-
-
-        #endregion
-
         #region Properties
 
 
