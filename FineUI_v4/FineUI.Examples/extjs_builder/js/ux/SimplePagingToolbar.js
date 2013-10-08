@@ -34,6 +34,10 @@ Ext.define('Ext.ux.SimplePagingToolbar', {
             fromRecord = this.x_startRowIndex + 1;
             toRecord = this.x_endRowIndex + 1;
         }
+        if (toRecord > this.x_recordCount) {
+            toRecord = this.x_recordCount;
+        }
+
         return {
             total: this.x_recordCount,
             currentPage: this.x_pageIndex + 1,

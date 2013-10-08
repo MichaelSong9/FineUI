@@ -171,26 +171,30 @@ namespace FineUI
 
         #endregion
 
-        /// <summary>
-        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
-        /// </summary>
-        protected override void OnFirstPreRender()
-        {
-            base.OnFirstPreRender();
+        #region OnFirstPreRender
 
-            if (this is TemplateField && (this as TemplateField).RenderAsRowExpander)
-            {
-                // GridColumn中已经处理过了
-            }
-            else
-            {
+        ///// <summary>
+        ///// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        ///// </summary>
+        //protected override void OnFirstPreRender()
+        //{
+        //    base.OnFirstPreRender();
 
-                string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
-                AddStartupScript(jsContent);
-            }
+        //    if (this is TemplateField && (this as TemplateField).RenderAsRowExpander)
+        //    {
+        //        // GridColumn中已经处理过了
+        //    }
+        //    else
+        //    {
+
+        //        string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
+        //        AddStartupScript(jsContent);
+        //    }
 
 
-        }
+        //} 
+
+        #endregion
         
     }
 }

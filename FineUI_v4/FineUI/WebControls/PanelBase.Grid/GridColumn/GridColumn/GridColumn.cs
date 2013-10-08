@@ -400,6 +400,17 @@ namespace FineUI
         }
 
 
+        /// <summary>
+        /// 表格单元格容器样式类
+        /// </summary>
+        internal virtual string InnerCls
+        {
+            get
+            {
+                return String.Empty;
+            }
+        }
+
 
         #endregion
 
@@ -465,18 +476,10 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            // 行扩展列需要特殊处理
+            
             if (this is TemplateField && (this as TemplateField).RenderAsRowExpander)
             {
-                //string tplStr = String.Format(RowExpander.DataFormatString.Replace("{", "{{{").Replace("}", "}}}"), RowExpander.DataFields);
-                //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template({1})}});", Render_GridRowExpanderID, JsHelper.Enquote(tplStr));
-                //expanderScript = String.Format("var {0}=new Ext.ux.grid.RowExpander({{tpl:new Ext.Template(\"{{{1}}}\")}});", Grid.Render_GridRowExpanderID, Grid.Render_GridRowExpanderID);
-
-                JsObjectBuilder rowExpanderBuilder = new JsObjectBuilder();
-                rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("new Ext.XTemplate('{{{0}}}')", ColumnID), true);
-
-                string jsContent = String.Format("var {0}=Ext.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
-                AddStartupScript(jsContent);
+                // 行扩展列需要特殊处理
             }
             else
             {
@@ -499,6 +502,11 @@ namespace FineUI
                 {
                     OB.AddProperty("hidden", true);
                 }
+
+                //if (!String.IsNullOrEmpty(InnerCls))
+                //{
+                //    OB.AddProperty("innerCls", InnerCls);
+                //}
 
                 if (Grid.AllowSorting)
                 {

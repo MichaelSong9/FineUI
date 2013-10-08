@@ -131,6 +131,15 @@ namespace FineUI
             }
         }
 
+
+        internal override string InnerCls
+        {
+            get
+            {
+                return "box-grid-cell-inner-image";
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -153,19 +162,27 @@ namespace FineUI
                     imageUrl = value.ToString();
                 }
 
-                string backgroundSize = String.Empty;
-                if (ImageWidth != Unit.Empty || ImageHeight != Unit.Empty)
+                string cssStyle = String.Empty;
+
+                if (ImageWidth != Unit.Empty)
                 {
-                    backgroundSize = String.Format(" background-size:{0} {1};", 
-                        ImageWidth == Unit.Empty ? "auto" : ImageWidth.Value + "px",
-                        ImageHeight == Unit.Empty ? "auto" : ImageHeight.Value + "px");
+                    cssStyle += String.Format("width:{0}px;", ImageWidth.Value);
+                }
+                if (ImageHeight != Unit.Empty)
+                {
+                    cssStyle += String.Format("height:{0}px;", ImageHeight.Value);
+                }
+
+                if (!String.IsNullOrEmpty(cssStyle))
+                {
+                    cssStyle = String.Format(" style=\"{0}\"", cssStyle);
                 }
 
 
-                result = String.Format("<img src=\"{2}\" class=\"box-grid-imagefield\" style=\"background-image:url({0});{1}\"/>", 
-                    Grid.ResolveUrl(imageUrl), 
-                    backgroundSize,
-                    Grid.ResolveUrl(ResourceHelper.GetEmptyImageUrl()));
+
+                result = String.Format("<img src=\"{0}\" class=\"box-grid-imagefield\"{1}/>",
+                    Grid.ResolveUrl(imageUrl),
+                    cssStyle);
             }
 
             string tooltip = GetTooltipString(row);
@@ -185,6 +202,21 @@ namespace FineUI
 
         #endregion
 
+        #region OnFirstPreRender
+
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
+        protected override void OnFirstPreRender()
+        {
+            base.OnFirstPreRender();
+
+
+            string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
+            AddStartupScript(jsContent);
+        }
+
+        #endregion
     }
 }
 

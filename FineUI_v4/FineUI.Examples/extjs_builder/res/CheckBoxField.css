@@ -11,39 +11,42 @@
 
 
 
-/*
-.x-grid .x-grid-row td, .x-grid .x-grid-summary-row td
+
+.x-grid .x-grid-td, .x-grid .x-grid-summary-row td
 {
     vertical-align: middle;
 }
-.x-grid.row-align-top .x-grid-row td, .x-grid.row-align-top .x-grid-summary-row td
+.x-grid.row-align-top .x-grid-td, .x-grid.row-align-top .x-grid-summary-row td
 {
     vertical-align: top;
 }
-.x-grid.row-align-bottom .x-grid-row td, .x-grid.row-align-bottom .x-grid-summary-row td
+.x-grid.row-align-bottom .x-grid-td, .x-grid.row-align-bottom .x-grid-summary-row td
 {
     vertical-align: bottom;
 }
-    */
 
-
-
-.x-grid .box-grid-imagefield
+.x-grid .x-grid-td.x-grid-cell-special
 {
-    width:15px;
-    height:15px;
-    background-position:left center;
-    background-repeat:no-repeat;
-    background-color:transparent;
+    vertical-align: top;
 }
 
 
+
+
+.x-grid .box-grid-cell-inner-image
+{
+    line-height: 0;
+}
+
+.x-grid img
+{
+    width:16px;
+    height:16px;
+}
 
 
 .x-grid .box-grid-static-checkbox
 {
-    width:15px;
-    height:15px;
     background-position:left center;
     background-repeat:no-repeat;
     background-color:transparent;
@@ -73,8 +76,6 @@
 
 .x-grid .box-grid-checkbox
 {
-    width:15px;
-    height:15px;
     background-position:left center;
     background-repeat:no-repeat;
     background-color:transparent;

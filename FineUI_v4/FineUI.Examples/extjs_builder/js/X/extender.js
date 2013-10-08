@@ -323,27 +323,29 @@ if (Ext.Button) {
     });
 }
 
-/*
-if (Ext.grid.RowNumberer) {
 
-    X.originalRowNumbererRenderer = Ext.grid.RowNumberer.prototype.renderer;
-    Ext.override(Ext.grid.RowNumberer, {
+if (Ext.grid.column.RowNumberer) {
 
-        renderer: function (v, p, record, rowIndex) {
+    X.originalRowNumbererRenderer = Ext.grid.column.RowNumberer.prototype.renderer;
+    Ext.override(Ext.grid.column.RowNumberer, {
 
-            var number = X.originalRowNumbererRenderer.call(this, v, p, record, rowIndex);
+        renderer: function () {
 
-            if (this.x_paging_enabled && this.x_paging) {
-                number += this.x_paging.pageIndex * this.x_paging.pageSize;
+            var number = X.originalRowNumbererRenderer.apply(this, arguments);
+
+            if (this.x_paging) {
+                var pagingBar = X(this.x_paging_grid).x_getPaging();
+                if (pagingBar) {
+                    number += pagingBar.x_pageIndex * pagingBar.x_pageSize;
+                }
             }
 
             return number;
         }
-
     });
 
 }
-*/
+
 
 if (Ext.data.Store) {
     Ext.override(Ext.data.Store, {

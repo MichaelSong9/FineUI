@@ -85,6 +85,26 @@ namespace FineUI
             }
         }
 
+
+        private bool _enablePagingNumber = false;
+        /// <summary>
+        /// 是否启用分页行号
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否启用分页行号")]
+        public bool EnablePagingNumber
+        {
+            get
+            {
+                return _enablePagingNumber;
+            }
+            set
+            {
+                _enablePagingNumber = value;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -92,6 +112,27 @@ namespace FineUI
         internal override string GetColumnValue(GridRow row)
         {
             return String.Empty;
+        }
+
+        #endregion
+
+        #region OnFirstPreRender
+
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
+        protected override void OnFirstPreRender()
+        {
+            base.OnFirstPreRender();
+
+            if (EnablePagingNumber)
+            {
+                OB.AddProperty("x_paging", true);
+                OB.AddProperty("x_paging_grid", Grid.ClientID);
+            }
+
+            string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
+            AddStartupScript(jsContent);
         }
 
         #endregion

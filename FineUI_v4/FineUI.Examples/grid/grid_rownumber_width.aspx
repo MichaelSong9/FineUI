@@ -9,23 +9,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" PageSize="10" ShowBorder="true" ShowHeader="true"
-        AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
-        DataKeyNames="Id" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-        EnableRowNumberPaging="true" RowNumberWidth="24px">
-        <Columns>
-            <x:RowNumberField />
-            <x:BoundField Width="150px" DataField="Id" HeaderText="ID" />
-            <x:BoundField ExpandUnusedSpace="true" DataField="EntranceTime" HeaderText="时间" />
-        </Columns>
-    </x:Grid>
-    <br />
-    <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
-    </x:Button>
-    <br />
-    <x:Label ID="labResult" EncodeText="false" runat="server">
-    </x:Label>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" PageSize="10" ShowBorder="true" ShowHeader="true"
+            AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
+            DataKeyNames="Id" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange">
+            <Columns>
+                <x:RowNumberField EnablePagingNumber="true" Width="30px" />
+                <x:BoundField Width="150px" DataField="Id" HeaderText="ID" />
+                <x:BoundField ExpandUnusedSpace="true" DataField="EntranceTime" HeaderText="时间" />
+            </Columns>
+        </x:Grid>
+        <br />
+        <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
+        </x:Button>
+        <br />
+        <x:Label ID="labResult" EncodeText="false" runat="server">
+        </x:Label>
     </form>
 </body>
 </html>
