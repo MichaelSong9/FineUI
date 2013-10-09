@@ -10,10 +10,10 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" runat="server"
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px" runat="server"
         DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
         <Columns>
-            <x:TemplateField Width="80px">
+            <x:TemplateField Width="80px" EnableColumnHide="false" EnableHeaderMenu="false">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
@@ -22,6 +22,7 @@
             <x:TemplateField Width="160px" HeaderText="性别">
                 <ItemTemplate>
                     <asp:TextBox runat="server" ID="tbxGender" CssClass="gender" Width="60px"></asp:TextBox>
+                    &nbsp;
                     <asp:DropDownList runat="server" Width="60px" CssClass="gender" ID="ddlGender">
                         <asp:ListItem Text="男" Value="男"></asp:ListItem>
                         <asp:ListItem Text="女" Value="女"></asp:ListItem>
@@ -61,9 +62,7 @@
         function onReady() {
             var grid = X(gridClientID);
 
-            grid.on('viewready', function () {
-                registerSyncEvent();
-            });
+            registerSyncEvent();
         }
 
     </script>

@@ -7,26 +7,13 @@
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .mygrid-row-summary.x-grid-row
-        {
-            background-color: #efefef !important;
-            background-image: none !important;
-            border-color: #fff #ededed #ededed !important;
-        }
-        .mygrid-row-summary.x-grid-row .x-grid-td-numberer, .mygrid-row-summary.x-grid-row .x-grid-td-checker
-        {
-            background-image: none !important;
-        }
-        .mygrid-row-summary.x-grid-row .x-grid-td-numberer .x-grid-col-numberer, .mygrid-row-summary.x-grid-row .x-grid-td-checker .x-grid-col-checker
-        {
-            display: none;
-        }
-        .mygrid-row-summary.x-grid-row td
-        {
-            font-size: 14px;
-            line-height: 16px;
+        .mygrid-row-summary .x-grid-td, .mygrid-row-summary.x-grid-row-focused .x-grid-td {
+            background-color: #fafafa;
             font-weight: bold;
             color: red;
+        }
+        .mygrid-row-summary .x-grid-cell-row-checker .x-grid-cell-inner, .mygrid-row-summary .x-grid-cell-row-numberer .x-grid-cell-inner {
+            display: none;
         }
     </style>
 </head>
@@ -72,37 +59,32 @@
             var donateTotal = 0, store = grid.getStore(), view = grid.getView(), storeCount = store.getCount();
 
             // 防止重复添加了合计行
-            if (Ext.get(view.getRow(storeCount - 1)).hasCls('mygrid-row-summary')) {
+            if (Ext.get(view.getNode(storeCount - 1)).hasCls('mygrid-row-summary')) {
                 return;
             }
 
             // 从隐藏字段获取全部数据的汇总
             var summaryJSON = JSON.parse(X(gridSummaryID).getValue());
 
-
-            store.add(new Ext.data.Record({
+            store.add({
                 'major': '全部合计：',
                 'donate': summaryJSON['donateTotal'].toFixed(2),
                 'fee': summaryJSON['feeTotal'].toFixed(2)
-            }));
-
-
+            });
 
             // 为合计行添加自定义样式（隐藏序号列、复选框列，取消 hover 和 selected 效果）
-            Ext.get(view.getRow(storeCount)).addCls('mygrid-row-summary');
+            Ext.get(view.getNode(storeCount)).addCls('mygrid-row-summary');
 
         }
 
         // 页面第一个加载完毕后执行的函数
         function onReady() {
             var grid = X(gridClientID);
-            grid.addListener('viewready', function () {
-                calcGridSummary(grid);
-            });
+            calcGridSummary(grid);
 
             // 防止选中合计行
-            grid.getSelectionModel().addListener('beforerowselect', function (sm, rowIndex, keepExisting, record) {
-                if (Ext.get(grid.getView().getRow(rowIndex)).hasCls('mygrid-row-summary')) {
+            grid.addListener('beforeselect', function (sm, record, rowIndex) {
+                if (Ext.get(grid.getView().getNode(rowIndex)).hasCls('mygrid-row-summary')) {
                     return false;
                 }
                 return true;

@@ -42,7 +42,7 @@
                     </x:Toolbar>
                 </Toolbars>
                 <Columns>
-                    <x:TemplateField Width="60px">
+                    <x:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                         </ItemTemplate>

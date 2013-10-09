@@ -14,17 +14,17 @@
         .x-grid-tpl .hobby label
         {
             margin-left: 5px;
-            margin-right: 15px;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="850px"
+    <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px"
         runat="server" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
         <Columns>
-            <x:TemplateField Width="60px">
+            <x:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                 </ItemTemplate>
@@ -40,7 +40,7 @@
             <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                 DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                 DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-            <x:TemplateField Width="300px" HeaderText="爱好">
+            <x:TemplateField Width="350px" HeaderText="爱好">
                 <ItemTemplate>
                     <asp:CheckBoxList runat="server" CssClass="hobby" RepeatLayout="Flow" RepeatDirection="Horizontal"
                         ID="cblHobby">

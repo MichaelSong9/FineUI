@@ -503,15 +503,14 @@ if (Ext.grid.GridPanel) {
 
         // http://evilcroco.name/2010/10/making-extjs-grid-content-selectable/
         // IE下允许选中表格中的文本
+        /*
         x_enableTextSelection: function () {
-            //if (Ext.isIE) {
             var elems = Ext.DomQuery.select("div[unselectable=on]", this.el.dom);
             for (var i = 0, len = elems.length; i < len; i++) {
                 Ext.get(elems[i]).set({ 'unselectable': 'off' }).removeCls('x-unselectable');
             }
-            //}
         },
-
+        */
 
         // 获取选中的行数，或者单元格数（单元格编辑模式）
         x_getSelectedCount: function () {

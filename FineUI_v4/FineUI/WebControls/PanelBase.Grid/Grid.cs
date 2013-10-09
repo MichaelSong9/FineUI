@@ -2087,11 +2087,11 @@ namespace FineUI
                     }
                 }
 
-                // 数据重新加载了，检查是否启用文本选择
-                if (EnableTextSelection)
-                {
-                    sb.AppendFormat("{0}.x_enableTextSelection();", XID);
-                }
+                //// 数据重新加载了，检查是否启用文本选择
+                //if (EnableTextSelection)
+                //{
+                //    sb.AppendFormat("{0}.x_enableTextSelection();", XID);
+                //}
 
                 if (!AllowCellEditing)
                 {
@@ -2198,34 +2198,27 @@ namespace FineUI
 
             #region viewConfig
 
-
             JsObjectBuilder viewBuilder = new JsObjectBuilder();
-            if (ForceFitAllTime)
-            {
-                viewBuilder.AddProperty("forceFit", true);
-            }
-            //if (ForceFitFirstTime)
-            //{
-            //    viewBuilder.AddProperty("autoFill", true);
-            //}
-
-            //if (VerticalScrollWidth != Unit.Empty)
-            //{
-            //    viewBuilder.AddProperty("scrollOffset", VerticalScrollWidth.Value);
-            //}
-
             if (!String.IsNullOrEmpty(EmptyText))
             {
                 viewBuilder.AddProperty("deferEmptyText", false);
                 viewBuilder.AddProperty("emptyText", EmptyText);
             }
 
+            if (!EnableAlternateRowColor)
+            {
+                viewBuilder.AddProperty("stripeRows", false);
+            }
+
+            if (EnableTextSelection)
+            {
+                viewBuilder.AddProperty("enableTextSelection", true);
+            }
 
             if (viewBuilder.Count > 0)
             {
                 OB.AddProperty("viewConfig", viewBuilder);
             }
-
 
 
             #endregion
@@ -2237,6 +2230,10 @@ namespace FineUI
                 OB.AddProperty("columnLines", true);
             }
 
+            if (ForceFitAllTime)
+            {
+                OB.AddProperty("forceFit", true);
+            }
 
             //OB.AddProperty("enableHdMenu", EnableHeaderMenu);
 
@@ -2249,10 +2246,7 @@ namespace FineUI
             //    }
             //}
 
-            if (EnableAlternateRowColor)
-            {
-                OB.AddProperty("stripeRows", true);
-            }
+            
 
             if (!ShowGridHeader)
             {
@@ -2386,13 +2380,12 @@ namespace FineUI
             }
 
 
-            if (EnableTextSelection)
-            {
-                //OB.AddProperty("cls", CssClass + " x-grid-selectable");
-                cls += " x-grid-selectable";
+            //if (EnableTextSelection)
+            //{
+            //    cls += " x-grid-selectable";
 
-                viewreadySB.Append("cmp.x_enableTextSelection();");
-            }
+            //    viewreadySB.Append("cmp.x_enableTextSelection();");
+            //}
 
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);

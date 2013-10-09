@@ -66,7 +66,7 @@ namespace FineUI.Examples.grid
         protected void Button1_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("<table style=\"width:350px;\"><tr><th>编号</th><th>姓名</th><th>用户输入的性别</th></tr>");
+            sb.Append("<table class=\"result\" style=\"width:350px;\"><tr><th>编号</th><th>姓名</th><th>用户输入的性别</th></tr>");
             for (int i = 0, count = Grid1.Rows.Count; i < count; i++)
             {
                 sb.Append("<tr>");

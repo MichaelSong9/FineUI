@@ -673,7 +673,7 @@ namespace FineUI.Examples
             row[7] = DateTime.Now.AddDays(-90);
             row[8] = "陈飞，男，20岁，出生于中国北方的一个小山村，毕业于南方科学技术大学。";
             row[9] = Guid.NewGuid();
-            row[10] = "basketball,travel,movie";
+            row[10] = "basketball,travel,movie,reading,music";
             row[11] = "2001-09-01";
             row[12] = 0;
             row[13] = 0;
@@ -729,7 +729,7 @@ namespace FineUI.Examples
             row[7] = DateTime.Now.AddDays(-60);
             row[8] = "康颖颖，女，26岁，出生于中国福建的一个小山村，毕业于香港科学技术大学。";
             row[9] = Guid.NewGuid();
-            row[10] = "reading,travel,movie";
+            row[10] = "reading,travel,movie,music";
             row[11] = "2008-09-01";
             row[12] = 0;
             row[13] = 0;
@@ -767,7 +767,7 @@ namespace FineUI.Examples
             row[7] = DateTime.Now.AddDays(-40);
             row[8] = "黄倩倩，女，25岁，出生于中国北方的一个小山村，毕业于北京科学技术大学。";
             row[9] = Guid.NewGuid();
-            row[10] = "travel,movie,music";
+            row[10] = "travel,movie,music,reading";
             row[11] = "2000-09-01";
             row[12] = 0;
             row[13] = 0;
@@ -786,7 +786,7 @@ namespace FineUI.Examples
             row[7] = DateTime.Now.AddDays(-30);
             row[8] = "唐超，男，26岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。";
             row[9] = Guid.NewGuid();
-            row[10] = "reading,movie,music";
+            row[10] = "reading,movie,music,basketball";
             row[11] = "2004-09-01";
             row[12] = 0;
             row[13] = 0;
@@ -841,7 +841,7 @@ namespace FineUI.Examples
             row[7] = DateTime.Now.AddDays(-5);
             row[8] = "纪玲玲，女，22岁，出生于中国台湾的一个小山村，毕业于台湾科学技术大学。";
             row[9] = Guid.NewGuid();
-            row[10] = "reading,movie,music";
+            row[10] = "reading,movie,music,basketball";
             row[11] = "2006-09-01";
             row[12] = 0;
             row[13] = 0;

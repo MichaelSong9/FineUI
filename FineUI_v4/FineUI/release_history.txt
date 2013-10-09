@@ -58,7 +58,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-更新可编辑表格实示例的客户端脚本，在执行onReady函数时表格的viewready事件已经执行完毕。
 		+分组表头和之前不兼容。
 			-删除类GridGroupColumn，删除表格的Columns属性，增加类GroupField。
-			-
+		-
 
 
 

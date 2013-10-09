@@ -83,9 +83,8 @@
         // 页面第一个加载完毕后执行的函数
         function onReady() {
             var grid = X(gridClientID);
-            grid.addListener('viewready', function () {
-                expandAllRows();
-            });
+            
+            expandAllRows();
         }
 
         // 页面AJAX回发后执行的函数
