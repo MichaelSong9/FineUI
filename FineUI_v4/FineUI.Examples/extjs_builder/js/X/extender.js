@@ -888,8 +888,8 @@ if (Ext.grid.GridPanel) {
 }
 
 
-if (Ext.tree.TreePanel) {
-    Ext.override(Ext.tree.TreePanel, {
+if (Ext.tree.Panel) {
+    Ext.override(Ext.tree.Panel, {
 
         x_loadData: function () {
             var datas = this.x_state['X_Nodes'];
@@ -898,10 +898,11 @@ if (Ext.tree.TreePanel) {
             if (root) {
                 root.removeAll();
             }
-            this.setRootNode(new Ext.tree.AsyncTreeNode({
+            this.setRootNode({
                 id: this.id + '_root',
+                expanded: true,
                 children: nodes
-            }));
+            });
         },
 
         x_tranformData: function (datas) {

@@ -966,7 +966,6 @@ namespace FineUI
 
             //ResourceManager.Instance.AddJavaScriptComponent("tree");
 
-
             #region options
 
             OB.AddProperty("useArrows", EnableArrows);
@@ -1005,7 +1004,7 @@ namespace FineUI
 
             #region Loader
 
-            string loaderScript = String.Empty;
+            //string loaderScript = String.Empty;
 
             //JsObjectBuilder loaderBuilder = new JsObjectBuilder();
            
@@ -1067,7 +1066,7 @@ namespace FineUI
 
 
             //OB.AddProperty("root", "new Ext.tree.AsyncTreeNode()", true);
-            OB.AddProperty("rootVisible", false);
+            //OB.AddProperty("rootVisible", false);
 
             #endregion
 
@@ -1102,13 +1101,15 @@ namespace FineUI
 
             //scripts.AppendLine(hiddenFieldsScript);
 
+            //OB.AddProperty("store", "Ext.create('Ext.data.TreeStore')", true);
 
-            StringBuilder scripts = new StringBuilder();
 
-            scripts.AppendLine(loaderScript);
-            scripts.AppendFormat("{0}=Ext.create('Ext.tree.Panel',{1});", XID, OB);
+            StringBuilder sb = new StringBuilder();
 
-            AddStartupScript(scripts.ToString());
+            //scripts.AppendLine(loaderScript);
+            sb.AppendFormat("var {0}=Ext.create('Ext.tree.Panel',{1});", XID, OB);
+
+            AddStartupScript(sb.ToString());
 
             #endregion
         }
