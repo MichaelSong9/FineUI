@@ -22,14 +22,14 @@
             BodyPadding="5px" Layout="Column" ShowHeader="True" Title="面板（Height=250px Width=750px Layout=Column）">
             <Items>
                 <x:Panel ID="Panel1" Width="200px" Height="150px"
-                    runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="true">
+                    runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
                         <x:Label runat="server" Text="Width=200px Height=150px">
                         </x:Label>
                     </Items>
                 </x:Panel>
                 <x:Panel ID="Panel4" ColumnWidth="60%" runat="server"
-                    BodyPadding="5px" ShowBorder="true" ShowHeader="true" Layout="Fit">
+                    BodyPadding="5px" ShowBorder="true" ShowHeader="false" Layout="Fit">
                     <Items>
                         <x:Label ID="Label1" runat="server" Text="ColumnWidth=60%<br />长长的文本1<br />长长的文本2<br />长长的文本3<br />长长的文本4"
                             EncodeText="false">
@@ -37,7 +37,7 @@
                     </Items>
                 </x:Panel>
                 <x:Panel ID="Panel3" ColumnWidth="40%" runat="server"
-                    BodyPadding="5px" ShowBorder="true" ShowHeader="true">
+                    BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
                         <x:Label ID="Label2" runat="server" Text="ColumnWidth=40%">
                         </x:Label>
@@ -50,22 +50,22 @@
             BodyPadding="5px" Layout="Column" ShowHeader="True" Title="面板（Height=250px Width=750px Layout=Column）">
             <Items>
                 <x:Panel ID="Panel6" Width="200px" Height="150px" CssClass="columnpanel"
-                    runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="true">
+                    runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <x:Label ID="Label3" runat="server" Text="Width=200px Height=150px">
+                        <x:Label ID="Label3" runat="server" Text="Width=200px Height=150px CssClass=columnpanel">
                         </x:Label>
                     </Items>
                 </x:Panel>
                 <x:Panel ID="Panel7" ColumnWidth="60%" CssClass="columnpanel"
-                    runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="true" Layout="Fit">
+                    runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false" Layout="Fit">
                     <Items>
-                        <x:Label ID="Label4" runat="server" Text="ColumnWidth=60%<br />长长的文本1<br />长长的文本2<br />长长的文本3<br />长长的文本4"
+                        <x:Label ID="Label4" runat="server" Text="ColumnWidth=60% CssClass=columnpanel<br />长长的文本1<br />长长的文本2<br />长长的文本3<br />长长的文本4"
                             EncodeText="false">
                         </x:Label>
                     </Items>
                 </x:Panel>
                 <x:Panel ID="Panel8" ColumnWidth="40%" runat="server"
-                    BodyPadding="5px" ShowBorder="true" ShowHeader="true">
+                    BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
                         <x:Label ID="Label5" runat="server" Text="ColumnWidth=40%">
                         </x:Label>
@@ -82,14 +82,14 @@
                     ShowHeader="false" runat="server">
                     <Items>
                         <x:Panel ID="Panel14" Height="150px" CssClass="rowpanel" runat="server" BodyPadding="5px"
-                            ShowBorder="true" ShowHeader="true">
+                            ShowBorder="true" ShowHeader="false">
                             <Items>
                                 <x:Label ID="Label8" runat="server" Text="Height=100px CssClass=rowpanel">
                                 </x:Label>
                             </Items>
                         </x:Panel>
                         <x:Panel ID="Panel15" Height="100px" runat="server" BodyPadding="5px" ShowBorder="true"
-                            ShowHeader="true">
+                            ShowHeader="false">
                             <Items>
                                 <x:Label ID="Label9" runat="server" Text="Height=100px">
                                 </x:Label>
@@ -97,20 +97,19 @@
                         </x:Panel>
                     </Items>
                 </x:Panel>
-                <x:Panel ID="Panel16" ColumnWidth="50%" ShowBorder="false"
-                    ShowHeader="false" runat="server">
+                <x:Panel ID="Panel16" ColumnWidth="50%" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
                         <x:Panel ID="Panel17" Height="100px" CssClass="rowpanel" runat="server" BodyPadding="5px"
-                            ShowBorder="true" ShowHeader="true">
+                            ShowBorder="true" ShowHeader="false">
                             <Items>
                                 <x:Label ID="Label10" runat="server" Text="Height=100px CssClass=rowpanel">
                                 </x:Label>
                             </Items>
                         </x:Panel>
                         <x:Panel ID="Panel18" Height="150px" runat="server" BodyPadding="5px" ShowBorder="true"
-                            ShowHeader="true">
+                            ShowHeader="false">
                             <Items>
-                                <x:Label ID="Label11" runat="server" Text="Height=100px">
+                                <x:Label ID="Label11" runat="server" Text="Height=150px">
                                 </x:Label>
                             </Items>
                         </x:Panel>
@@ -129,18 +128,17 @@
             ShowBorder="true" ShowHeader="true" runat="server"
             Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
             <Items>
-                <x:Panel ID="Panel11" BoxFlex="1" ShowBorder="false"
-                    ShowHeader="false" runat="server">
+                <x:Panel ID="Panel11" BoxFlex="1" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
                         <x:Panel ID="Panel12" Height="150px" CssClass="rowpanel" runat="server" BodyPadding="5px"
-                            ShowBorder="true" ShowHeader="true">
+                            ShowBorder="true" ShowHeader="false">
                             <Items>
                                 <x:Label ID="Label6" runat="server" Text="Height=100px CssClass=rowpanel">
                                 </x:Label>
                             </Items>
                         </x:Panel>
                         <x:Panel ID="Panel19" Height="100px" runat="server" BodyPadding="5px" ShowBorder="true"
-                            ShowHeader="true">
+                            ShowHeader="false">
                             <Items>
                                 <x:Label ID="Label7" runat="server" Text="Height=100px">
                                 </x:Label>
@@ -148,20 +146,19 @@
                         </x:Panel>
                     </Items>
                 </x:Panel>
-                <x:Panel ID="Panel20" BoxFlex="1" BoxMargin="0" ShowBorder="false"
-                    ShowHeader="false" runat="server">
+                <x:Panel ID="Panel20" BoxFlex="1" BoxMargin="0" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
                         <x:Panel ID="Panel21" Height="100px" CssClass="rowpanel" runat="server" BodyPadding="5px"
-                            ShowBorder="true" ShowHeader="true">
+                            ShowBorder="true" ShowHeader="false">
                             <Items>
                                 <x:Label ID="Label12" runat="server" Text="Height=100px CssClass=rowpanel">
                                 </x:Label>
                             </Items>
                         </x:Panel>
                         <x:Panel ID="Panel22" Height="150px" runat="server" BodyPadding="5px" ShowBorder="true"
-                            ShowHeader="true">
+                            ShowHeader="false">
                             <Items>
-                                <x:Label ID="Label13" runat="server" Text="Height=100px">
+                                <x:Label ID="Label13" runat="server" Text="Height=150px">
                                 </x:Label>
                             </Items>
                         </x:Panel>

@@ -14,7 +14,7 @@
             <Items>
                 <x:Panel ID="Panel1" Width="300px" Title="Panel1" Height="300px" AbsoluteX="100px"
                     BodyPadding="5px" AbsoluteY="50px" runat="server"
-                    ShowBorder="True" ShowHeader="true">
+                    ShowBorder="True" ShowHeader="false">
                     <Items>
                         <x:Label ID="Label3" EncodeText="false" Text="Width=300px <br/>Height=300px <br/>AbsoluteX=100px <br/>AbsoluteY=50px"
                             runat="server">
@@ -23,7 +23,7 @@
                 </x:Panel>
                 <x:Panel ID="Panel3" Title="Panel2" Width="150px" Height="150px" AbsoluteX="450px"
                     BodyPadding="5px" AbsoluteY="150px" runat="server"
-                    ShowBorder="True" ShowHeader="true">
+                    ShowBorder="True" ShowHeader="false">
                     <Items>
                         <x:Label ID="Label1" EncodeText="false" Text="Width=150px <br/>Height=150px <br/>AbsoluteX=450px <br/>AbsoluteY=150px"
                             runat="server">

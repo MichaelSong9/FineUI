@@ -12,8 +12,7 @@
         <x:Panel ID="Panel3" Title="面板一（未设置Layout属性）" runat="server" Height="300px" Width="850px" EnableFrame="true" EnableCollapse="true"
             BodyPadding="5px" ShowBorder="True" ShowHeader="True">
             <Items>
-                <x:Form ID="Form3" runat="server" ShowBorder="True"
-                    BodyPadding="5px" ShowHeader="true" Title="表单">
+                <x:Form ID="Form3" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
                     <Rows>
                         <x:FormRow>
                             <Items>
@@ -38,8 +37,7 @@
             BodyPadding="5px" Width="850px" ShowBorder="True"
             ShowHeader="True">
             <Items>
-                <x:Form ID="Form2" runat="server" ShowBorder="True"
-                    BodyPadding="5px" ShowHeader="true" Title="表单">
+                <x:Form ID="Form2" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
                     <Rows>
                         <x:FormRow>
                             <Items>

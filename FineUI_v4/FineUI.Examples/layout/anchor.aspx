@@ -13,14 +13,14 @@
             Width="850px" BodyPadding="5px" ShowBorder="True" ShowHeader="True">
             <Items>
                 <x:Panel ID="Panel1" runat="server" ShowBorder="True"
-                    BodyPadding="5px" ShowHeader="true" Title="面板">
+                    BodyPadding="5px" ShowHeader="false" Title="面板">
                     <Items>
                         <x:Button ID="Button1" Text="按钮" runat="server">
                         </x:Button>
                     </Items>
                 </x:Panel>
                 <x:Form ID="Form3" runat="server" ShowBorder="True"
-                    BodyPadding="5px" ShowHeader="true" Title="表单">
+                    BodyPadding="5px" ShowHeader="false" Title="表单">
                     <Rows>
                         <x:FormRow>
                             <Items>
@@ -45,18 +45,18 @@
             BodyPadding="5px" Layout="Anchor" ShowHeader="True" Title="面板二（Height=300px Width=750px Layout=Anchor）">
             <Items>
                 <x:Panel ID="Panel4" AnchorValue="60% 30%" runat="server"
-                    BodyPadding="5px" ShowBorder="True" ShowHeader="true" Title="面板（AnchorValue=60% 30%）">
+                    BodyPadding="5px" ShowBorder="True" ShowHeader="false">
                     <Items>
-                        <x:Button ID="Button3" Text="按钮" runat="server">
-                        </x:Button>
+                        <x:Label ID="Label3" ShowEmptyLabel="false" Text="AnchorValue=60% 30%" runat="server">
+                        </x:Label>
                     </Items>
                 </x:Panel>
                 <x:Form ID="Form2" AnchorValue="100% 70%" runat="server"
-                    BodyPadding="5px" ShowBorder="True" ShowHeader="true" Title="表单（AnchorValue=100% 70%）">
+                    BodyPadding="5px" ShowBorder="True" ShowHeader="false">
                     <Rows>
                         <x:FormRow>
                             <Items>
-                                <x:Label ID="Label1" Label="文本" Text="文本内容" runat="server">
+                                <x:Label ID="Label1" ShowEmptyLabel="false" Text="AnchorValue=100% 70%" runat="server">
                                 </x:Label>
                             </Items>
                         </x:FormRow>
@@ -150,7 +150,7 @@
                         </x:FormRow>
                     </Rows>
                 </x:Form>
-                <x:Panel ID="Panel8" ShowBorder="True" ShowHeader="false" AnchorValue="100% -62"
+                <x:Panel ID="Panel8" ShowBorder="True" ShowHeader="false" AnchorValue="100% -68"
                     Layout="Fit" runat="server">
                     <Toolbars>
                         <x:Toolbar ID="Toolbar2" runat="server">

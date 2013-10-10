@@ -112,13 +112,13 @@ namespace FineUI.Examples.layout {
         protected global::FineUI.Panel Panel4;
         
         /// <summary>
-        /// Button3 控件。
+        /// Label3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button Button3;
+        protected global::FineUI.Label Label3;
         
         /// <summary>
         /// Form2 控件。
