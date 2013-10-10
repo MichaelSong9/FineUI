@@ -21,7 +21,7 @@
     </x:SimpleForm>
     <x:Window ID="Window1" Title="编辑" Popup="false" EnableIFrame="true" runat="server"
         EnableMaximize="true" EnableResize="true" Target="Parent" OnClose="Window1_Close"
-        IsModal="True" Width="750px" Height="450px">
+        IsModal="True" Width="850px" Height="450px">
     </x:Window>
     <x:Label ID="labResult" CssStyle="font-weight:bold;" runat="server">
     </x:Label>

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Panel ID="Panel2" runat="server" Height="250px" Width="750px" ShowBorder="True"
+    <x:Panel ID="Panel2" runat="server" Height="250px" Width="850px" ShowBorder="True"
         Layout="Card" ShowHeader="True"  Title="Height=250px Width=750px Layout=Card">
         <Items>
             <x:Panel ID="Panel1"  runat="server" ShowBorder="True"

@@ -122,18 +122,17 @@ namespace FineUI
 
             if (Layout != Layout.Container)
             {
-                OB.AddProperty("layout", LayoutHelper.GetName(Layout));
-
+                //OB.AddProperty("layout", LayoutHelper.GetName(Layout));
+                string layoutName = LayoutHelper.GetName(Layout);
+                
+                JsObjectBuilder layoutConfigOB = new JsObjectBuilder();
                 if (Layout == Layout.Table)
                 {
-                    OptionBuilder layoutConfigOB = new OptionBuilder();
                     layoutConfigOB.AddProperty("columns", TableConfigColumns);
 
-                    OB.AddProperty("layoutConfig", layoutConfigOB);
                 }
                 else if (Layout == Layout.HBox || Layout == Layout.VBox)
                 {
-                    OptionBuilder layoutConfigOB = new OptionBuilder();
                     if (BoxConfigAlign != BoxLayoutAlign.Top)
                     {
                         layoutConfigOB.AddProperty("align", BoxLayoutAlignHelper.GetName(BoxConfigAlign, Layout));
@@ -153,9 +152,17 @@ namespace FineUI
                     {
                         layoutConfigOB.AddProperty("defaultMargins", BoxConfigChildMargin);
                     }
+                }
 
-                    
-                    OB.AddProperty("layoutConfig", layoutConfigOB);
+                if (layoutConfigOB.Count > 0)
+                {
+                    layoutConfigOB.AddProperty("type", layoutName);
+
+                    OB.AddProperty("layout", layoutConfigOB);
+                }
+                else
+                {
+                    OB.AddProperty("layout", layoutName);
                 }
 
             }

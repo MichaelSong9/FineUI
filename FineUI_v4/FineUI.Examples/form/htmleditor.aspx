@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
         <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelAlign="Top" EnableFrame="true" EnableCollapse="true"
-            Title="表单" Width="750px">
+            Title="表单" Width="850px">
             <Items>
                 <x:HtmlEditor runat="server" Label="文本编辑器" ID="HtmlEditor1" Height="250px">
                 </x:HtmlEditor>

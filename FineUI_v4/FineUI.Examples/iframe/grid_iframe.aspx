@@ -82,7 +82,7 @@
     </x:Panel>
     <x:Window ID="Window1" Title="弹出窗体" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         EnableMaximize="true" Target="Top" EnableResize="true" runat="server" OnClose="Window1_Close"
-        IsModal="true" Width="750px" EnableConfirmOnClose="true" Height="550px">
+        IsModal="true" Width="850px" EnableConfirmOnClose="true" Height="550px">
     </x:Window>
     </form>
 </body>

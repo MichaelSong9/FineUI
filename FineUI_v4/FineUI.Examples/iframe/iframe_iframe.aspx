@@ -14,14 +14,14 @@
     <x:Button ID="Button1" EnablePostBack="false" Text="在本页面弹出窗体" runat="server">
     </x:Button>
     <x:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="#" runat="server"
-        EnableMaximize="true" EnableResize="true" Height="450px" Width="750px" Title="窗体一">
+        EnableMaximize="true" EnableResize="true" Height="450px" Width="850px" Title="窗体一">
     </x:Window>
     <br />
     <br />
     <x:Button ID="Button2" EnablePostBack="false" Text="在父页面弹出窗体" runat="server">
     </x:Button>
     <x:Window ID="Window2" Popup="false" EnableIFrame="true" IFrameUrl="#" EnableMaximize="true"
-        EnableResize="true" Target="Parent" runat="server" Height="450px" Width="750px"
+        EnableResize="true" Target="Parent" runat="server" Height="450px" Width="850px"
         Title="窗体二">
     </x:Window>
     <br />

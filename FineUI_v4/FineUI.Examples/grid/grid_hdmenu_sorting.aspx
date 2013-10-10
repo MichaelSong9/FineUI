@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
         <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" AllowSorting="true" SortField="Name" SortDirection="ASC"
-            Width="750px" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
+            Width="850px" runat="server" EnableCheckBoxSelect="True" DataKeyNames="Id,Name,AtSchool"
             OnSort="Grid1_Sort" EnableHeaderMenu="true">
             <Columns>
                 <x:RowNumberField />

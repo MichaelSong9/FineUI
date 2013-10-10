@@ -51,7 +51,7 @@
     <x:Window ID="Window1" Title="编辑" Popup="false" EnableIFrame="true" runat="server"
         CloseAction="HidePostBack" EnableConfirmOnClose="true" IFrameUrl="about:blank"
         EnableMaximize="true" EnableResize="true" OnClose="Window1_Close" Target="Top"
-        IsModal="True" Width="750px" Height="450px">
+        IsModal="True" Width="850px" Height="450px">
     </x:Window>
     </form>
 </body>
