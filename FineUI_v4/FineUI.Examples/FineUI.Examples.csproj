@@ -107,7 +107,6 @@
     <Content Include="extjs_builder\js\X\X.wnd.js" />
     <Content Include="extjs_builder\res\BigFont.css" />
     <Content Include="extjs_builder\res\box-panel-big-header.css" />
-    <Content Include="extjs_builder\res\CheckBoxField.css" />
     <Content Include="extjs_builder\res\ColumnHeaderGroup_access.css" />
     <Content Include="extjs_builder\res\ColumnHeaderGroup_blue.css" />
     <Content Include="extjs_builder\res\ColumnHeaderGroup_gray.css" />
@@ -148,6 +147,8 @@
     <Content Include="extjs_builder\res\images\unchecked.gif" />
     <Content Include="extjs_builder\res\images\unchecked_disabled.gif" />
     <Content Include="extjs_builder\res\PageLoading.css" />
+    <Content Include="extjs_builder\res\Grid.css" />
+    <Content Include="extjs_builder\res\Tree.css" />
     <Content Include="form\form_reset.aspx" />
     <Content Include="form\form_hide_field.aspx" />
     <Content Include="form\form_center_button.aspx" />

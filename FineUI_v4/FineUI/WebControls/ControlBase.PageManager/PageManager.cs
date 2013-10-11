@@ -697,7 +697,6 @@ namespace FineUI
 
         #endregion
 
-
         #region Form Settings
 
         /// <summary>

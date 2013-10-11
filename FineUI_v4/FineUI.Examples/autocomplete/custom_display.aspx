@@ -17,7 +17,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px"
+    <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
          Title="简单表单">
         <Items>
             <x:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 j 试试">
@@ -56,7 +56,7 @@
                 }
             ];
 
-            $('#' + textbox1ID).autocomplete({
+            $('#' + textbox1ID + ' input').autocomplete({
                 minLength: 0,
                 source: projects,
                 select: function (event, ui) {

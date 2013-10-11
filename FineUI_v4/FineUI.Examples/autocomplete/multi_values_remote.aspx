@@ -8,22 +8,21 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../jqueryui/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
     <style>
-        .ui-autocomplete-loading
-        {
+        .ui-autocomplete-loading {
             background: white url('../images/ui-anim_basic_16x16.gif') right center no-repeat;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px"
-         Title="简单表单">
-        <Items>
-            <x:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 a 试试，可以输入多个值">
-            </x:TextBox>
-        </Items>
-    </x:SimpleForm>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+            Title="简单表单">
+            <Items>
+                <x:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 a 试试，可以输入多个值">
+                </x:TextBox>
+            </Items>
+        </x:SimpleForm>
     </form>
     <script src="../jqueryui/js/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="../jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
@@ -44,7 +43,7 @@
                 return split(term).pop();
             }
 
-            $('#' + textbox1ID).bind("keydown", function (event) {
+            $('#' + textbox1ID + ' input').bind("keydown", function (event) {
                 // 通过 Tab 选择一项时，不会使当前文本框失去焦点
                 if (event.keyCode === $.ui.keyCode.TAB &&
                         $(this).data("autocomplete").menu.active) {
@@ -82,7 +81,7 @@
             });
 
         }
-    
+
     </script>
 </body>
 </html>

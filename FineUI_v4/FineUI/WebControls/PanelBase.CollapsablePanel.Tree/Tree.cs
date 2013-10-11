@@ -831,13 +831,13 @@ namespace FineUI
 
         #region OnPreRender
 
-        #region Render_LoaderID
+        #region Render_StoreID
 
-        private string Render_LoaderID
+        private string Render_StoreID
         {
             get
             {
-                return String.Format("{0}_loader", XID);
+                return String.Format("{0}_store", XID);
             }
         }
 
@@ -1004,29 +1004,28 @@ namespace FineUI
 
             #region Loader
 
-            //string loaderScript = String.Empty;
+            string loaderScript = String.Empty;
 
-            //JsObjectBuilder loaderBuilder = new JsObjectBuilder();
-           
+            JsObjectBuilder loaderBuilder = new JsObjectBuilder();
 
-            //JsObjectBuilder listenersBuilder = new JsObjectBuilder();
 
-            //string paramStr = String.Format("Expand${0}", "#ID#");
-            //string postBackScript = GetPostBackEventReference(paramStr);
-            //postBackScript = postBackScript.Replace("#ID#'", "'+node.id");
-            //listenersBuilder.AddProperty("beforeload", String.Format("function(loader,node,callback){{{0}return false;}}", postBackScript), true);
+            JsObjectBuilder listenersBuilder = new JsObjectBuilder();
 
-            ////listenersBuilder.AddProperty(OptionName.Scope, "box", true);
-            //loaderBuilder.AddProperty("listeners", listenersBuilder);
-            //// 必须添加dataUrl，才会引发beforeload事件
+            string paramStr = String.Format("Expand${0}", "#ID#");
+            string postBackScript = GetPostBackEventReference(paramStr);
+            postBackScript = postBackScript.Replace("#ID#'", "'+op.id");
+            listenersBuilder.AddProperty("beforeload", String.Format("function(store,op){{if(op.action==='read'&&op.id!=='root'){{{0}}}return false;}}", postBackScript), true);
+
+            //listenersBuilder.AddProperty(OptionName.Scope, "box", true);
+            loaderBuilder.AddProperty("listeners", listenersBuilder);
+            // 必须添加dataUrl，才会引发beforeload事件
             //loaderBuilder.AddProperty("dataUrl", "about:blank");
             //loaderBuilder.AddProperty("preloadChildren", true);
-            ////loaderBuilder.AddProperty("clearOnLoad", false);
+            //loaderBuilder.AddProperty("clearOnLoad", false);
 
-            //loaderScript = String.Format("var {0}=new Ext.tree.TreeLoader({1});", Render_LoaderID, loaderBuilder);
+            loaderScript = String.Format("var {0}=Ext.create('Ext.data.TreeStore',{1});", Render_StoreID, loaderBuilder);
 
-            //OB.AddProperty("loader", Render_LoaderID, true);
-
+            OB.AddProperty("store", Render_StoreID, true);
             #endregion
 
             #region selectModel
@@ -1066,7 +1065,7 @@ namespace FineUI
 
 
             //OB.AddProperty("root", "new Ext.tree.AsyncTreeNode()", true);
-            //OB.AddProperty("rootVisible", false);
+            OB.AddProperty("rootVisible", false);
 
             #endregion
 
@@ -1087,7 +1086,7 @@ namespace FineUI
 
             OB.Listeners.AddProperty("beforerender", JsHelper.GetFunction("cmp.x_loadData();", "cmp"), true);
 
-            OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction("cmp.x_selectNodes();", "cmp"), true);
+            //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction("cmp.x_selectNodes();", "cmp"), true);
 
             #endregion
 
@@ -1104,12 +1103,12 @@ namespace FineUI
             //OB.AddProperty("store", "Ext.create('Ext.data.TreeStore')", true);
 
 
-            StringBuilder sb = new StringBuilder();
+            //StringBuilder sb = new StringBuilder();
 
             //scripts.AppendLine(loaderScript);
-            sb.AppendFormat("var {0}=Ext.create('Ext.tree.Panel',{1});", XID, OB);
+            string startupScript = String.Format("var {0}=Ext.create('Ext.tree.Panel',{1});", XID, OB);
 
-            AddStartupScript(sb.ToString());
+            AddStartupScript(loaderScript + startupScript);
 
             #endregion
         }

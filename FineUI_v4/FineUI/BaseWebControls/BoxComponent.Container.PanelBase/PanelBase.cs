@@ -538,7 +538,7 @@ namespace FineUI
                 StringBuilder sb = new StringBuilder();
                 sb.Append("<div");
                 sb.AppendFormat(" id=\"{0}\" ", ContentID);
-                sb.Append(" class=\"x-hide-display\" ");
+                //sb.Append(" class=\"x-hide-display\" ");
 
                 // 注意，这里不能用 display=none（ContentPanel中的其他FineUI控件的渲染就会有问题）
                 // 一定要用visibility:hidden，The shape is not visible, but is still part of the flow of the objects in the browser. Mouse events are not processed. 
@@ -904,8 +904,8 @@ namespace FineUI
                 OB.AddProperty("contentEl", ContentID);
 
                 // 在页面元素渲染完成后，才显示容器控件的内容
-                string renderScript = String.Format("Ext.get('{0}').show();", ContentID);
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true);
+                //string renderScript = String.Format("Ext.get('{0}').show();", ContentID);
+                //OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true);
 
                 //string beforerenderScript = String.Format("Ext.get('{0}').setStyle('display','');", ChildrenContentID);
                 //OB.Listeners.AddProperty("beforerender", "function(component){" + beforerenderScript + "}", true);

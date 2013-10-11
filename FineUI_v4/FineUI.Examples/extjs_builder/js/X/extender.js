@@ -13,7 +13,7 @@ Ext.override(Ext.Component, {
 
 // 验证一个表单是否有效，会递归查询表单中每个字段
 // 如果表单隐藏或者字段隐藏，则不进行有效性校验
-Ext.override(Ext.Panel, {
+Ext.override(Ext.container.Container, {
     x_isValid: function () {
         var valid = true;
         var firstInvalidField = null;
@@ -50,23 +50,57 @@ Ext.override(Ext.Panel, {
                 validResult = this.x_reset();
             }
         });
-    },
+    }
 
+});
 
+Ext.override(Ext.panel.Panel, {
     x_setCollapse: function () {
         var collapsed = this.x_state['Collapsed'];
         if (collapsed) {
-            this.collapse(true);
+            this.collapse();
+        } else {
+            this.expand();
         }
-        else {
-            this.expand(true);
+    },
+
+    x_isCollapsed: function () {
+        var collapsed = false;
+        var state = this.getState();
+        if (state && state.collapsed) {
+            collapsed = true;
         }
+        return collapsed;
     },
 
     x_setTitle: function () {
         this.setTitle(this.x_state['Title']);
     }
 
+});
+
+Ext.override(Ext.form.FieldSet, {
+    x_setCollapse: function () {
+        var collapsed = this.x_state['Collapsed'];
+        if (collapsed) {
+            this.collapse();
+        } else {
+            this.expand();
+        }
+    },
+
+    x_isCollapsed: function () {
+        var collapsed = false;
+        var state = this.getState();
+        if (state && state.collapsed) {
+            collapsed = true;
+        }
+        return collapsed;
+    },
+
+    x_setTitle: function () {
+        this.setTitle(this.x_state['Title']);
+    }
 
 });
 
@@ -346,7 +380,7 @@ if (Ext.grid.column.RowNumberer) {
 
 }
 
-
+/*
 if (Ext.data.Store) {
     Ext.override(Ext.data.Store, {
         // true to clear all modified record information each time the store is loaded or when a record is removed (defaults to false).
@@ -354,6 +388,7 @@ if (Ext.data.Store) {
 
     });
 }
+*/
 
 if (Ext.grid.GridPanel) {
     Ext.override(Ext.grid.GridPanel, {
@@ -910,12 +945,6 @@ if (Ext.tree.Panel) {
             for (i = 0; i < datas.length; i++) {
                 var data = datas[i], node = {};
 
-                //            function copyIfExists(prop) {
-                //                if (typeof (data[prop]) !== 'undefined') {
-                //                    node[prop] = data[prop];
-                //                }
-                //            }
-
                 // 0 - Text
                 // 1 - Leaf
                 // 2 - NodeID
@@ -1000,7 +1029,7 @@ if (Ext.tree.Panel) {
             for (; i < nodes.length; i++) {
                 var node = nodes[i];
                 if (node.isExpanded()) {
-                    expandedNodes.push(node.id);
+                    expandedNodes.push(node.internalId);
                 }
                 if (node.hasChildNodes()) {
                     expandedNodes = expandedNodes.concat(that.x_getExpandedNodes(node.childNodes));
@@ -1011,22 +1040,25 @@ if (Ext.tree.Panel) {
         },
 
         x_getCheckedNodes: function () {
-            return this.getChecked('id');
+            var checkedIDs = [], checkedArray = this.getChecked();
+            Ext.Array.each(checkedArray, function (record, index) {
+                checkedIDs.push(record.internalId);
+            });
+            return checkedIDs;
         },
 
         x_getSelectedNodes: function () {
-            var model = this.getSelectionModel(), nodes = [];
-            if (model.constructor === Ext.tree.MultiSelectionModel) {
-                Ext.Array.each(model.getSelectedNodes(), function (item, index) {
-                    nodes.push(item.id);
+            var selectedNodeIDs = [];
+            var sm = this.getSelectionModel();
+            if (sm.getSelection) {
+                var selection = sm.getSelection();
+                
+                Ext.Array.each(selection, function (record, index) {
+                    selectedNodeIDs.push(record.internalId);
                 });
-            } else {
-                var selectedNode = model.getSelectedNode();
-                if (selectedNode) {
-                    nodes.push(selectedNode.id);
-                }
             }
-            return nodes;
+
+            return selectedNodeIDs;
         },
 
         x_selectNodes: function () {

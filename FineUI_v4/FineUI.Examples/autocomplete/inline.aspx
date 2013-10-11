@@ -9,14 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" 
-        Title="简单表单">
-        <Items>
-            <x:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入字母 a 试试">
-            </x:TextBox>
-        </Items>
-    </x:SimpleForm>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+            Title="简单表单">
+            <Items>
+                <x:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入字母 a 试试">
+                </x:TextBox>
+            </Items>
+        </x:SimpleForm>
     </form>
     <script src="../jqueryui/js/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="../jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
@@ -49,12 +49,12 @@
                 "Scala",
                 "Scheme"];
 
-            $('#' + textbox1ID).autocomplete({
+            $('#' + textbox1ID + ' input').autocomplete({
                 source: availableTags
             });
 
         }
-    
+
     </script>
 </body>
 </html>

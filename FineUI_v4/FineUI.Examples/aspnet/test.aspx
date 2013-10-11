@@ -22,7 +22,7 @@
     </x:Button>
     <br />
     <x:Window ID="EditTaskWin" Title="测试window里滚动条" Hidden="true" EnableIFrame="true"
-        runat="server" IsModal="true" Width="500px" Height="300px" EnableClose="true"
+        runat="server" IsModal="true" Width="650px" Height="300px" EnableClose="true"
         EnableMaximize="true" Target="Parent" WindowPosition="Center">
     </x:Window>
     <div style="width: 486px; height: 566px; border: solid 1px red;">

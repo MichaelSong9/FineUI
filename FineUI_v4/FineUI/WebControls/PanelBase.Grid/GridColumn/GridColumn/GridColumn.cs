@@ -503,10 +503,10 @@ namespace FineUI
                     OB.AddProperty("hidden", true);
                 }
 
-                //if (!String.IsNullOrEmpty(InnerCls))
-                //{
-                //    OB.AddProperty("innerCls", InnerCls);
-                //}
+                if (!String.IsNullOrEmpty(InnerCls))
+                {
+                    OB.AddProperty("innerCls", InnerCls);
+                }
 
                 if (Grid.AllowSorting)
                 {

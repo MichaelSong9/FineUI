@@ -266,8 +266,8 @@
             }
         }
 
-        if (cmp.isXType('panel')) {
-            saveInHiddenField('Collapsed', cmp.collapsed);
+        if (cmp.isXType('panel') || cmp.isXType('fieldset')) {
+            saveInHiddenField('Collapsed', cmp.x_isCollapsed());
         }
 
         if (cmp.isXType('datepicker')) {

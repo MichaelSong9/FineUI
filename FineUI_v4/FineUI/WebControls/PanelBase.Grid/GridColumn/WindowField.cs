@@ -47,6 +47,57 @@ namespace FineUI
     [PersistChildren(false)]
     public class WindowField : BaseField
     {
+        #region override
+
+        internal override string InnerCls
+        {
+            get
+            {
+                return "box-grid-cell-inner-image";
+            }
+        }
+
+        private bool _enableHeaderMenu = false;
+        /// <summary>
+        /// 启用表头菜单
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("启用表头菜单")]
+        public override bool EnableHeaderMenu
+        {
+            get
+            {
+                return _enableHeaderMenu;
+            }
+            set
+            {
+                _enableHeaderMenu = value;
+            }
+        }
+
+
+        private bool _allowHideColumn = false;
+        /// <summary>
+        /// 是否允许隐藏列
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否允许隐藏列")]
+        public override bool EnableColumnHide
+        {
+            get
+            {
+                return _allowHideColumn;
+            }
+            set
+            {
+                _allowHideColumn = value;
+            }
+        }
+
+        #endregion
+
         #region Properties
 
         private bool _enabled = true;

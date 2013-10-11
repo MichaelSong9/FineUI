@@ -19,7 +19,7 @@
     </x:Button>
     <br />
     <x:Window ID="Window1" runat="server" Height="350px" EnableIFrame="true" IFrameUrl="parent_postback3.aspx"
-        IsModal="false" Popup="true" Width="500px" EnableMaximize="true" EnableResize="true"
+        IsModal="false" Popup="true" Width="650px" EnableMaximize="true" EnableResize="true"
         Target="Self" OnClose="Window1_Close" Title="页面二中的弹出对话框">
     </x:Window>
     </form>

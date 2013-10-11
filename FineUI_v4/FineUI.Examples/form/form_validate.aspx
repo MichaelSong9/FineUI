@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" runat="server" Width="500px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+        <x:SimpleForm ID="SimpleForm1" runat="server" Width="650px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
             Title="用户注册表单">
             <Items>
                 <x:TextBox ID="tbxUserName" runat="server" Label="用户名" MinLength="3" Required="True"

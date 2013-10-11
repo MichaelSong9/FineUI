@@ -10,18 +10,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px"
-         ShowBorder="true" ShowHeader="true" Title="内容面板">
-        <textarea name="UEditor1" id="UEditor1">
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="900px" Height="550px" EnableFrame="true" EnableCollapse="true"
+            ShowBorder="true" ShowHeader="true" Title="内容面板">
+            <textarea name="UEditor1" id="UEditor1" style="">
             &lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ueditor.baidu.com/"&gt;UEditor&lt;/a&gt;.&lt;/p&gt;
        </textarea>
-    </x:ContentPanel>
-    <br />
-    <x:Button ID="Button2" runat="server" CssClass="inline" Text="设置 CKEditor 的值" OnClick="Button2_Click">
-    </x:Button>
-    <x:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
-    </x:Button>
+        </x:ContentPanel>
+        <br />
+        <x:Button ID="Button2" runat="server" CssClass="inline" Text="设置 CKEditor 的值" OnClick="Button2_Click">
+        </x:Button>
+        <x:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
+        </x:Button>
     </form>
     <script type="text/javascript">
         window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/ueditor/") %>';
@@ -30,12 +30,11 @@
     <script type="text/javascript" src="../ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
         var editor;
+
         function onReady() {
             editor = new UE.ui.Editor({
                 initialFrameWidth: '100%',
-                initialFrameHeight: 350,
-                minFrameHeight: 350,
-                autoFloatEnabled: false,
+                initialFrameHeight: '100%',
                 focus: true
             });
             editor.render("UEditor1");

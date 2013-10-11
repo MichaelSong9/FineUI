@@ -30,12 +30,12 @@ namespace FineUI.Examples.window
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            Panel1.Title = "面板 " + DateTime.Now.ToLongTimeString();
+            Panel1.Title = String.Format("面板（{0}）", DateTime.Now.ToLongTimeString());
         }
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            ToolbarText1.Text = "工具条文本一 " + DateTime.Now.ToLongTimeString();
+            ToolbarText1.Text = String.Format("工具条文本一 ", DateTime.Now.ToLongTimeString());
         }
 
         protected void Button6_Click(object sender, EventArgs e)

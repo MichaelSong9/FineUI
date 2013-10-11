@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px"
+        <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
             Title="简单表单">
             <Items>
                 <x:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="随便输入个字母试试">
@@ -47,7 +47,7 @@
                 return emails;
             }
 
-            $('#' + textbox1ID).autocomplete({
+            $('#' + textbox1ID + ' input').autocomplete({
                 source: function (request, response) {
                     if (request.term.indexOf('@') === -1) {
                         response(getFullEmails(request.term));

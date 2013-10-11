@@ -16,7 +16,16 @@ namespace FineUI
         /// <summary>
         /// 底部
         /// </summary>
-        Bottom
+        Bottom,
+        /// <summary>
+        /// 左侧
+        /// </summary>
+        Left,
+        /// <summary>
+        /// 右侧
+        /// </summary>
+        Right
+
     }
 
     /// <summary>
@@ -35,6 +44,12 @@ namespace FineUI
                     break;
                 case TabPosition.Bottom:
                     result = "bottom";
+                    break;
+                case TabPosition.Left:
+                    result = "left";
+                    break;
+                case TabPosition.Right:
+                    result = "right";
                     break;
             }
 

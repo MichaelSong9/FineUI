@@ -278,11 +278,14 @@ namespace FineUI.Examples
                 return;
             }
 
-            string themeValue = "Blue";
+            string themeValue = "Neptune";
             string themeID = GetSelectedMenuID(MenuTheme);
 
             switch (themeID)
             {
+                case "MenuThemeNeptune":
+                    themeValue = "neptune";
+                    break;
                 case "MenuThemeBlue":
                     themeValue = "blue";
                     break;
@@ -291,18 +294,6 @@ namespace FineUI.Examples
                     break;
                 case "MenuThemeAccess":
                     themeValue = "access";
-                    break;
-                case "MenuThemeBlueen":
-                    themeValue = "blueen";
-                    break;
-                case "MenuThemeFirst":
-                    themeValue = "first";
-                    break;
-                case "MenuThemeSecond":
-                    themeValue = "second";
-                    break;
-                case "MenuThemeFourth":
-                    themeValue = "fourth";
                     break;
             }
 

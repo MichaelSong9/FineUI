@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" AjaxAspnetControls="aspBox,aspButton" runat="server" />
-    <x:ContentPanel ID="ContentPanel1" runat="server" Width="500px" BodyPadding="5px"
+    <x:ContentPanel ID="ContentPanel1" runat="server" Width="650px" BodyPadding="5px"
          ShowBorder="true" ShowHeader="true" Title="内容面板">
         <x:TextBox runat="server" Width="300px" ID="extBox">
         </x:TextBox>

@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" AutoSizePanelID="TabStrip1" runat="server"></x:PageManager>
-    <x:TabStrip ID="TabStrip1" ShowBorder="false" runat="server">
+    <x:TabStrip ID="TabStrip1" ShowBorder="false" TabPosition="Left" runat="server">
     </x:TabStrip>
     </form>
 </body>

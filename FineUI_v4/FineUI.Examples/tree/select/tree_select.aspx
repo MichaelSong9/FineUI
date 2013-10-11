@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:Tree ID="Tree1" Width="500px" ShowHeader="true" Title="树控件" runat="server">
+    <x:Tree ID="Tree1" Width="650px" ShowHeader="true" Title="树控件" runat="server">
         <Nodes>
             <x:TreeNode Text="中国" Expanded="true">
                 <x:TreeNode Text="河南省" Expanded="true">

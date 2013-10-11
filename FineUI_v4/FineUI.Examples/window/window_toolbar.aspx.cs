@@ -23,7 +23,7 @@ namespace FineUI.Examples.window
 
         protected void btnChangeContent_Click(object sender, EventArgs e)
         {
-            labWindowContent.Text += " " + DateTime.Now.ToString();
+            labWindowContent.Text = String.Format("这是窗体的内容（{0}）", DateTime.Now.ToLongTimeString());
         }
 
     }

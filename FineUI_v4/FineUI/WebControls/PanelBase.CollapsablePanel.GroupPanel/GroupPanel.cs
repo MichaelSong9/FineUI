@@ -50,7 +50,6 @@ namespace FineUI
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class GroupPanel : CollapsablePanel
     {
-
         #region Unsupported Properties
 
         /// <summary>

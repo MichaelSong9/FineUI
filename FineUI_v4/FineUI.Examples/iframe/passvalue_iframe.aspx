@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
     <x:SimpleForm ID="SimpleForm1" Title="表单"  BodyPadding="5px"
-        runat="server" Width="500px" EnableCollapse="True">
+        runat="server" Width="650px" EnableCollapse="True">
         <Items>
             <x:TextBox Label="你所在的省份" ID="TextBox1" runat="server">
             </x:TextBox>

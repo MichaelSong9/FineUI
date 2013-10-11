@@ -51,8 +51,8 @@ namespace FineUI
         /// </summary>
         public CollapsablePanel()
         {
-            AddServerAjaxProperties("Collapsed", "Title");
-            AddClientAjaxProperties();
+            AddServerAjaxProperties("Title");
+            AddClientAjaxProperties("Collapsed");
         }
 
         #endregion

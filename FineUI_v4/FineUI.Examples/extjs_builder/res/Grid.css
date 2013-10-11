@@ -34,12 +34,7 @@
 
 
 
-.x-grid .box-grid-cell-inner-image
-{
-    line-height: 0;
-}
-
-.x-grid img
+.x-grid .box-grid-cell-inner-image img
 {
     width:16px;
     height:16px;
@@ -52,6 +47,8 @@
     background-repeat:no-repeat;
     background-color:transparent;
     background-image:url(../images/tick.png);
+    width:16px;
+    height:16px;
 }
 .x-grid .box-grid-static-checkbox.unchecked
 {
@@ -81,6 +78,8 @@
     background-repeat:no-repeat;
     background-color:transparent;
     background-image:url(../images/checked.gif);
+    width:16px;
+    height:16px;
 }
 .x-grid .box-grid-checkbox.disabled
 {

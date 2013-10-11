@@ -22,11 +22,9 @@ xcopy res\images ..\extjs\res\images /Y /E
 
 type res\FineUI.css > _x
 type res\PageLoading.css >> _x
-type res\CheckBoxField.css >> _x
-type res\FormViewport.css >> _x
-type res\box-panel-big-header.css >> _x
+type res\Grid.css >> _x
+type res\Tree.css >> _x
 type res\BigFont.css >> _x
-type res\ColumnHeaderGroup_blue.css >> _x
 ajaxminifier\ajaxminifier -css _x -o ..\extjs\res\css\ux.css 
 
 
