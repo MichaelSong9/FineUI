@@ -407,8 +407,8 @@ if (Ext.data.Store) {
 }
 */
 
-if (Ext.grid.GridPanel) {
-    Ext.override(Ext.grid.GridPanel, {
+if (Ext.grid.Panel) {
+    Ext.override(Ext.grid.Panel, {
 
         x_getData: function () {
             var $this = this, data = this.x_state['X_Rows']['Values'];
@@ -951,7 +951,7 @@ if (Ext.tree.Panel) {
                 root.removeAll();
             }
             this.setRootNode({
-                id: this.id + '_root',
+                //id: this.id + '_root',
                 expanded: true,
                 children: nodes
             });
@@ -989,6 +989,9 @@ if (Ext.tree.Panel) {
                 node.disabled = !data[3];
                 if (!!data[4]) {
                     node.checked = !!data[5];
+                    if (!!data[17]) {
+                        node.x_checkchangeevent = true;
+                    }
                 }
                 if (!data[1]) {
                     node.expanded = !!data[6];
@@ -1003,21 +1006,24 @@ if (Ext.tree.Panel) {
                 node.qtip = data[13];
                 node.singleClickExpand = !!data[14];
 
+                
 
                 node.listeners = {};
 
+                /*
                 if (!data[3]) {
                     node.listeners.beforeclick = function () {
                         return false;
                     };
                 }
-
+                
                 if (!!data[4] && !!data[17]) {
                     node.listeners.checkchange = function (node, checked) {
                         var args = 'Check$' + node.id + '$' + checked;
                         __doPostBack(that.name, args);
                     };
                 }
+                */
 
                 var clickScript = '';
                 if (data[15]) {
@@ -1046,7 +1052,7 @@ if (Ext.tree.Panel) {
             for (; i < nodes.length; i++) {
                 var node = nodes[i];
                 if (node.isExpanded()) {
-                    expandedNodes.push(node.internalId);
+                    expandedNodes.push(node.getId());
                 }
                 if (node.hasChildNodes()) {
                     expandedNodes = expandedNodes.concat(that.x_getExpandedNodes(node.childNodes));
@@ -1058,8 +1064,8 @@ if (Ext.tree.Panel) {
 
         x_getCheckedNodes: function () {
             var checkedIDs = [], checkedArray = this.getChecked();
-            Ext.Array.each(checkedArray, function (record, index) {
-                checkedIDs.push(record.internalId);
+            Ext.Array.each(checkedArray, function (node, index) {
+                checkedIDs.push(node.getId());
             });
             return checkedIDs;
         },
@@ -1070,8 +1076,8 @@ if (Ext.tree.Panel) {
             if (sm.getSelection) {
                 var selection = sm.getSelection();
                 
-                Ext.Array.each(selection, function (record, index) {
-                    selectedNodeIDs.push(record.internalId);
+                Ext.Array.each(selection, function (node, index) {
+                    selectedNodeIDs.push(node.getId());
                 });
             }
 
@@ -1079,11 +1085,13 @@ if (Ext.tree.Panel) {
         },
 
         x_selectNodes: function () {
-            var datas = this.x_state['SelectedNodeIDArray'] || [];
-            var model = this.getSelectionModel(), i = 0;
-            for (i = 0; i < datas.length; i++) {
-                model.select(this.getNodeById(datas[i]), null, true);
-            }
+            var nodeIDs = this.x_state['SelectedNodeIDArray'] || [];
+            var model = this.getSelectionModel(), store = this.getStore(), nodes = [];
+            Ext.Array.each(nodeIDs, function (nodeID, index) {
+                nodes.push(store.getNodeById(nodeID));
+            });
+            model.deselectAll(true);
+            model.select(nodes);
         }
 
 

@@ -939,14 +939,24 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
 
+			bool reloaded = false;
             if (PropertyModified("X_Nodes"))
             {
                 sb.AppendFormat("{0}.x_loadData();", XID);
+                reloaded = true;
             }
 
-            if (PropertyModified("SelectedNodeIDArray"))
+            if (reloaded)
             {
+                // 如果重新加载了数据，则要重新设置选中项
                 sb.AppendFormat("{0}.x_selectNodes();", XID);
+            }
+            else
+            {
+                if (PropertyModified("SelectedNodeIDArray"))
+                {
+                    sb.AppendFormat("{0}.x_selectNodes();", XID);
+                }
             }
 
             AddAjaxScript(sb);

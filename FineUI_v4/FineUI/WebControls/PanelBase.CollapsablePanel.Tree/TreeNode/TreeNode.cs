@@ -82,7 +82,6 @@ namespace FineUI
 
         #endregion
 
-        
         #region Nodes
 
         private TreeNodeCollection _nodes;

@@ -525,7 +525,7 @@ namespace FineUI
                 // 20 - Nodes
                 treeNode.Text = ja2[0].Value<string>(); //ja2.getString(0);
                 treeNode.Leaf = ja2[1].Value<int>() == 1 ? true : false;
-                treeNode.NodeID = ja2[2].Value<string>();;
+                treeNode.NodeID = ja2[2].Value<string>(); ;
                 treeNode.Enabled = ja2[3].Value<int>() == 1 ? true : false;
                 treeNode.EnableCheckBox = ja2[4].Value<int>() == 1 ? true : false;
                 treeNode.Checked = ja2[5].Value<int>() == 1 ? true : false;
@@ -939,14 +939,24 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
 
+            bool reloaded = false;
             if (PropertyModified("X_Nodes"))
             {
                 sb.AppendFormat("{0}.x_loadData();", XID);
+                reloaded = true;
             }
 
-            if (PropertyModified("SelectedNodeIDArray"))
+            if (reloaded)
             {
+                // 如果重新加载了数据，则要重新设置选中项
                 sb.AppendFormat("{0}.x_selectNodes();", XID);
+            }
+            else
+            {
+                if (PropertyModified("SelectedNodeIDArray"))
+                {
+                    sb.AppendFormat("{0}.x_selectNodes();", XID);
+                }
             }
 
             AddAjaxScript(sb);
@@ -1028,6 +1038,19 @@ namespace FineUI
             OB.AddProperty("store", Render_StoreID, true);
             #endregion
 
+            #region Listeners
+            
+            string beforeclickScript = "if(record.disabled){return false;}";
+            OB.Listeners.AddProperty("beforeitemclick", JsHelper.GetFunction(beforeclickScript, "view", "record", "item", "index"), true);
+
+
+            string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";
+            checkchangeScript += GetPostBackEventReference("#CheckChange#").Replace("'#CheckChange#'", "args");
+            checkchangeScript = String.Format("if(node.raw.x_checkchangeevent){{{0}}}", checkchangeScript);
+            OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkchangeScript, "node", "checked"), true);
+
+            #endregion
+
             #region selectModel
 
             string selectModelScript = String.Empty;
@@ -1084,9 +1107,9 @@ namespace FineUI
 
             ////renderScript = "function(cmp){window.setTimeout(function(){ cmp.x_loadData(); },1000);}";
 
-            OB.Listeners.AddProperty("beforerender", JsHelper.GetFunction("cmp.x_loadData();", "cmp"), true);
+            OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_loadData();", "cmp"), true);
 
-            //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction("cmp.x_selectNodes();", "cmp"), true);
+            OB.Listeners.AddProperty("viewready", JsHelper.GetFunction("cmp.x_selectNodes();", "cmp"), true);
 
             #endregion
 

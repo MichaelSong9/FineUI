@@ -59,8 +59,10 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		+分组表头和之前不兼容。
 			-删除类GridGroupColumn，删除表格的Columns属性，增加类GroupField。
 		-
-	+修正Collapsed属性在客户端改变后状态同步问题。
+	+修正面板的Collapsed属性在客户端改变后状态同步问题。
 		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
+	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
+		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
 	+TabStrip。
 		-为TabPosition类型增加Left、Right两个枚举类型。
 	-自动完成文本框示例更新（FineUI的TextBox控件被渲染为table而不是之前的input）。
@@ -76,6 +78,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正Window控件不支持EnableAjax的问题，增加示例grid/grid_excel_selectcolumns.aspx（◆◇_提拉米苏℡）。
 	+修正Collapsed属性在客户端改变后状态同步问题。
 		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
+	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
+		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
 	-修正TimerPicker无法赋值的问题（隨風往事、凤凰涅盘ing）。
 	-Tree,x_loadData时要清空一些数据
 
