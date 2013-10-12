@@ -1113,8 +1113,8 @@ if (Ext.PagingToolbar) {
 }
 
 
-if (Ext.TabPanel) {
-    Ext.override(Ext.TabPanel, {
+if (Ext.tab.Panel) {
+    Ext.override(Ext.tab.Panel, {
 
         x_autoPostBackTabsContains: function (tabId) {
             var tabs = this.x_state['X_AutoPostBackTabs'];

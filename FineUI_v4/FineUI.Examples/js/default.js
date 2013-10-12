@@ -6,7 +6,7 @@ function onReady() {
     var mainTabStrip = Ext.getCmp(IDS.mainTabStrip);
     var windowSourceCode = Ext.getCmp(IDS.windowSourceCode);
 
-	// 当前展开的手风琴面板
+    // 当前展开的手风琴面板
     function getExpandedPanel() {
         var panel = null;
         mainMenu.items.each(function (item) {
@@ -20,10 +20,10 @@ function onReady() {
     // 点击展开菜单
     btnExpandAll.on('click', function () {
         if (IDS.menuType == "menu") {
-			// 左侧为树控件
+            // 左侧为树控件
             mainMenu.expandAll();
         } else {
-			// 左侧为树控件+手风琴控件
+            // 左侧为树控件+手风琴控件
             var expandedPanel = getExpandedPanel();
             if (expandedPanel) {
                 expandedPanel.items.itemAt(0).expandAll();
@@ -34,10 +34,10 @@ function onReady() {
     // 点击折叠菜单
     btnCollapseAll.on('click', function () {
         if (IDS.menuType == "menu") {
-			// 左侧为树控件
+            // 左侧为树控件
             mainMenu.collapseAll();
         } else {
-			// 左侧为树控件+手风琴控件
+            // 左侧为树控件+手风琴控件
             var expandedPanel = getExpandedPanel();
             if (expandedPanel) {
                 expandedPanel.items.itemAt(0).collapseAll();
@@ -96,32 +96,32 @@ function onReady() {
         var toolbar = new Ext.Toolbar({
             items: ['->', sourcecodeButton, '-', refreshButton, '-', openNewWindowButton]
         });
-		
-		tabConfig['tbar'] = toolbar;
+
+        tabConfig['tbar'] = toolbar;
     }
 
 
     // 初始化主框架中的树(或者Accordion+Tree)和选项卡互动，以及地址栏的更新
     // treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例
-	// mainTabStrip： 选项卡实例
-	// addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
-	// updateLocationHash: 切换Tab时，是否更新地址栏Hash值
-	// refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
-	// refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
+    // mainTabStrip： 选项卡实例
+    // addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
+    // updateLocationHash: 切换Tab时，是否更新地址栏Hash值
+    // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
+    // refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
     X.util.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, false, false);
 
-	
+
 
     // 公开添加示例标签页的方法
     window.addExampleTab = function (id, url, text, icon, refreshWhenExist) {
-		// 动态添加一个标签页
-		// mainTabStrip： 选项卡实例
-		// id： 选项卡ID
-		// url: 选项卡IFrame地址 
-		// text： 选项卡标题
-		// icon： 选项卡图标
-		// addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
-		// refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
+        // 动态添加一个标签页
+        // mainTabStrip： 选项卡实例
+        // id： 选项卡ID
+        // url: 选项卡IFrame地址 
+        // text： 选项卡标题
+        // icon： 选项卡图标
+        // addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
+        // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
         X.util.addMainTab(mainTabStrip, id, url, text, icon, null, refreshWhenExist);
     };
 

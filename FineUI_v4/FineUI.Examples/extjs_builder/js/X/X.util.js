@@ -560,11 +560,11 @@ X.fieldValue = function (cmp) {
             if (typeof (id) !== 'string') {
                 refreshWhenExist = text;
                 addTabCallback = url;
-                url = id.attributes.href;
-                icon = id.attributes.icon;
-                text = id.text;
+                url = id.data.href;
+                icon = id.data.icon;
+                text = id.data.text;
 
-                id = id.id;
+                id = id.getId();
             }
 
             //var href = node.attributes.href;
@@ -626,12 +626,12 @@ X.fieldValue = function (cmp) {
 
             // 注册树的节点点击事件
             function registerTreeClickEvent(treeInstance) {
-                treeInstance.on('click', function (node, event) {
-                    if (node.isLeaf()) {
+                treeInstance.on('itemclick', function (view, record, item, index, event) {
+                    if (record.isLeaf()) {
                         // 阻止事件传播
                         event.stopEvent();
 
-                        var href = node.attributes.href;
+                        var href = record.data.href;
 
                         if (updateLocationHash) {
                             // 修改地址栏
@@ -639,7 +639,7 @@ X.fieldValue = function (cmp) {
                         }
 
                         // 新增Tab节点
-                        X.util.addMainTab(mainTabStrip, node, addTabCallback, refreshWhenExist);
+                        X.util.addMainTab(mainTabStrip, record, addTabCallback, refreshWhenExist);
                     }
                 });
             }

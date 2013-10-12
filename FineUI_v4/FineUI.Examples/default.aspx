@@ -130,22 +130,22 @@
                                             CssClass="intro" runat="server">
                                             <h2>关于FineUI</h2>
                                             基于 ExtJS 的专业 ASP.NET 控件库。
-                                        <br />
+                                        
                                             <br />
                                             <h2>FineUI的使命</h2>
                                             创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
-                                        <br />
+                                        
                                             <br />
                                             <h2>支持的浏览器</h2>
                                             IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
-                                        <br />
+                                        
                                             <br />
                                             <h2>授权协议</h2>
                                             Apache License v2.0
                                             <br />
                                             注：ExtJS 库在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
                                             
-                                        <br />
+                                        
                                             <br />
                                             <h2>相关链接</h2>
                                             首页：<a target="_blank" style="font-weight: bold;" href="http://fineui.com/">http://fineui.com/</a>
@@ -157,7 +157,6 @@
                                             文档：<a target="_blank" href="http://fineui.com/doc/">http://fineui.com/doc/</a>
                                             <br />
                                             下载：<a target="_blank" href="http://fineui.codeplex.com/">http://fineui.codeplex.com/</a>
-                                            <br />
                                             <br />
                                             <br />
                                             FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
