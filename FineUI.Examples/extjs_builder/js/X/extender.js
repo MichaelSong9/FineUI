@@ -138,15 +138,31 @@ if (Ext.form.Field) {
         },
         */
 
-        x_setValue: function (text) {
-            text = text || this.x_state['Text'];
-            this.setValue(text);
+        x_setValue: function (value) {
+            if (typeof (value) === 'undefined') {
+                value = this.x_state['Text'];
+            }
+            this.setValue(value);
         },
 
         x_setLabel: function (text) {
             if (this.label && this.label.update) {
                 this.label.update(text || this.x_state['Label']);
             }
+        }
+
+    });
+}
+
+
+if (Ext.form.TimeField) {
+    Ext.override(Ext.form.TimeField, {
+
+        x_setValue: function (value) {
+            if (typeof (value) === 'undefined') {
+                value = this.x_state['Text'];
+            }
+            this.setValue(value);
         }
 
     });

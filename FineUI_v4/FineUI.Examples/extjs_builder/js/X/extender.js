@@ -169,9 +169,11 @@ if (Ext.form.field.Base) {
         },
         */
 
-        x_setValue: function (text) {
-            text = text || this.x_state['Text'];
-            this.setValue(text);
+        x_setValue: function (value) {
+            if (typeof (value) === 'undefined') {
+                value = this.x_state['Text'];
+            }
+            this.setValue(value);
         },
 
         x_setLabel: function (text) {
@@ -182,6 +184,21 @@ if (Ext.form.field.Base) {
 
     });
 }
+
+if (Ext.form.field.Time) {
+    Ext.override(Ext.form.field.Time, {
+
+        // Time 继承自 ComboBox，这个函数被覆盖了，因此需要重新定义
+        x_setValue: function (value) {
+            if (typeof (value) === 'undefined') {
+                value = this.x_state['Text'];
+            }
+            this.setValue(value);
+        }
+
+    });
+}
+
 
 if (Ext.form.field.HtmlEditor) {
     Ext.override(Ext.form.field.HtmlEditor, {
@@ -294,8 +311,8 @@ if (Ext.form.CheckboxGroup) {
     });
 }
 
-if (Ext.form.ComboBox) {
-    Ext.override(Ext.form.ComboBox, {
+if (Ext.form.field.ComboBox) {
+    Ext.override(Ext.form.field.ComboBox, {
         // Load data from local cache.
         //        mode: "local",
         //        triggerAction: "all",
@@ -338,8 +355,8 @@ if (Ext.form.ComboBox) {
 }
 
 
-if (Ext.Button) {
-    Ext.override(Ext.Button, {
+if (Ext.button.Button) {
+    Ext.override(Ext.button.Button, {
 
         x_setTooltip: function () {
             this.setTooltip(this.x_state['ToolTip']);
