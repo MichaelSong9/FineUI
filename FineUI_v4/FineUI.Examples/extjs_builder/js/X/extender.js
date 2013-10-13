@@ -1131,39 +1131,6 @@ if (Ext.tab.Panel) {
         },
 
         /*
-        // private
-        onBeforeShowItem: function (item) {
-        this.showTab(item);
-        if (item != this.activeTab) {
-        this.setActiveTab(item);
-        return false;
-        }
-        },
-        // private
-        onStripMouseDown: function (e) {
-        if (e.button !== 0) {
-        return;
-        }
-        e.preventDefault();
-        var t = this.findTargets(e);
-        if (t.close) {
-        if (t.item['x_dynamic_added_tab']) {
-        if (t.item.fireEvent('beforeclose', t.item) !== false) {
-        t.item.fireEvent('close', t.item);
-        this.remove(t.item);
-        }
-        } else {
-        this.hideTab(t.item);
-        }
-        return;
-        }
-        if (t.item && t.item != this.activeTab) {
-        this.setActiveTab(t.item);
-        }
-        },
-        */
-
-
         activateNextTab: function (c) {
             if (c == this.activeTab) {
                 var next = this.stack.next();
@@ -1178,19 +1145,21 @@ if (Ext.tab.Panel) {
                 }
             }
         },
+        */
 
-        hideTab: function (item) {
-            item = this.getComponent(item);
-            this.hideTabStripItem(item);
-            item.hide();
-            this.activateNextTab(item);
+        hideTab: function (tabId) {
+            var tab = X(tabId).tab;
+            if (tab) {
+                tab.hide();
+            }
         },
 
-        showTab: function (item) {
-            item = this.getComponent(item);
-            this.unhideTabStripItem(item);
+        showTab: function (tabId) {
+            var tab = X(tabId).tab;
+            if (tab) {
+                tab.show();
+            }
         },
-
 
         addTab: function (id, url, title, closable) {
             var options = {};
@@ -1202,7 +1171,7 @@ if (Ext.tab.Panel) {
                     'url': url
                 });
             } else {
-                // id is not a string, then there should be only one argument.
+                // 如果id不是字符串，则id为对象并且只有一个参数
                 Ext.apply(options, id);
             }
             Ext.apply(options, {
@@ -1210,17 +1179,17 @@ if (Ext.tab.Panel) {
                 'html': '<iframe id="' + options.id + '" name="' + options.id + '" src="' + options.url + '" frameborder="0" style="height:100%;width:100%;overflow:auto;"\></iframe\>'
             });
             var tab = this.add(options);
-            this.activate(tab);
+            this.setActiveTab(tab);
 
             return tab;
         },
 
-        getTab: function (id) {
-            return this.getItem(id);
+        getTab: function (tabId) {
+            return X(tabId);
         },
 
-        removeTab: function (id) {
-            this.remove(id);
+        removeTab: function (tabId) {
+            this.remove(tabId);
         }
 
     });

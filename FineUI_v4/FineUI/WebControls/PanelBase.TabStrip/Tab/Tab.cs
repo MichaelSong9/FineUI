@@ -275,13 +275,11 @@ namespace FineUI
                 OB.AddProperty("closable", true);
             }
 
-            OB.RemoveProperty("hidden");
-            if (Hidden)
-            {
-                //string hideScript = String.Format("{0}.hideTab(cmp);", tabStrip.ScriptID);
-                //OB.Listeners.AddProperty("render", JsHelper.GetFunction(hideScript, "cmp"), true);
-                AddStartupAbsoluteScript(GetHideReference());
-            }
+            //OB.RemoveProperty("hidden");
+            //if (Hidden)
+            //{
+            //    AddStartupAbsoluteScript(GetHideReference());
+            //}
 
             //OB.Listeners.AddProperty("beforeclose", JsHelper.GetFunction(GetHideReference() + "return false;", "cmp"), true);
 

@@ -363,10 +363,8 @@
             saveInHiddenField('ActiveTabIndex', cmp.x_getActiveTabIndex());
         }
 
-        if (cmp['x_type']) {
-            if (cmp['x_type'] === 'tab') {
-                saveInHiddenField('Hidden', cmp.tabEl.style.display === 'none');
-            }
+        if (cmp['x_type'] && cmp['x_type'] === 'tab') {
+            saveInHiddenField('Hidden', cmp.tab.isHidden());
         }
 
         return state;

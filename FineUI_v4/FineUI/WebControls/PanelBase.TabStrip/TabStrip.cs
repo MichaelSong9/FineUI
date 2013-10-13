@@ -527,10 +527,9 @@ namespace FineUI
 
             //OB.AddProperty("bufferResize", true);
 
-            // 在切换Tab时重新布局Tab的内容
-            OB.AddProperty("layoutOnTabChange", true);
-
-            OB.AddProperty("enableTabScroll", true);
+            //// 在切换Tab时重新布局Tab的内容
+            //OB.AddProperty("layoutOnTabChange", true);
+            //OB.AddProperty("enableTabScroll", true);
 
             if (EnableTabCloseMenu)
             {
@@ -541,7 +540,7 @@ namespace FineUI
             //// This makes the child tab Component, and all its descendants unusable. 
             //// To enable re-use of a tab, configure the TabPanel with autoDestroy: false. 
             //OB.AddProperty("autoDestroy", false);
-
+            
             #endregion
 
             #region ActiveTabIndex/IFrameDelayLoad
