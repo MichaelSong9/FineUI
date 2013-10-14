@@ -25,20 +25,8 @@
                                     <img src="./images/logo/logo2.gif" alt="FineUI Logo" /></a>
                                 <a href="./default.aspx" style="color: #fff;">FineUI在线示例</a>
                             </div>
-                            <div class="version">
-                                <a href="http://fineui.com/demo_en/" target="_blank" style="color: #fff;">English Version</a>
-                            </div>
-                        </x:ContentPanel>
-                    </Items>
-                </x:Region>
-                <x:Region ID="Region2" Split="true" EnableSplitTip="true" Width="200px" ShowHeader="true" Title="示例菜单"
-                    EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
-                    <Toolbars>
-                        <x:Toolbar ID="Toolbar1" Position="Top" runat="server">
-                            <Items>
-                                <x:ToolbarFill ID="ToolbarFill1" runat="server">
-                                </x:ToolbarFill>
-                                <x:Button ID="Button2" EnablePostBack="false" Icon="Cog" runat="server">
+                            <div class="config">
+                                <x:Button ID="Button2" EnablePostBack="false" Icon="Cog" Text="设置" runat="server">
                                     <Menu ID="Menu1" runat="server">
                                         <x:MenuButton ID="btnExpandAll" IconUrl="~/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
                                             runat="server">
@@ -46,7 +34,7 @@
                                         <x:MenuButton ID="btnCollapseAll" IconUrl="~/images/collapse-all.gif" Text="折叠菜单"
                                             EnablePostBack="false" runat="server">
                                         </x:MenuButton>
-                                        <x:MenuSeparator runat="server">
+                                        <x:MenuSeparator ID="MenuSeparator1" runat="server">
                                         </x:MenuSeparator>
                                         <x:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
                                             <Menu ID="Menu3" runat="server">
@@ -59,7 +47,7 @@
                                             </Menu>
                                         </x:MenuButton>
                                         <x:MenuButton EnablePostBack="false" Text="语言" ID="MenuLang" runat="server">
-                                            <Menu runat="server">
+                                            <Menu ID="Menu2" runat="server">
                                                 <x:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang"
                                                     AutoPostBack="true" OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
                                                 </x:MenuCheckBox>
@@ -72,7 +60,7 @@
                                             </Menu>
                                         </x:MenuButton>
                                         <x:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
-                                            <Menu ID="Menu2" runat="server">
+                                            <Menu ID="Menu4" runat="server">
                                                 <x:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme"
                                                     AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
                                                 </x:MenuCheckBox>
@@ -87,11 +75,17 @@
                                                 </x:MenuCheckBox>
                                             </Menu>
                                         </x:MenuButton>
+                                        <x:MenuSeparator ID="MenuSeparator2" runat="server">
+                                        </x:MenuSeparator>
+                                        <x:MenuHyperLink runat="server" Text="转到英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank"></x:MenuHyperLink>
                                     </Menu>
                                 </x:Button>
-                            </Items>
-                        </x:Toolbar>
-                    </Toolbars>
+                            </div>
+                        </x:ContentPanel>
+                    </Items>
+                </x:Region>
+                <x:Region ID="Region2" Split="true" EnableSplitTip="true" Width="200px" ShowHeader="true" Title="示例菜单"
+                    EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                 </x:Region>
                 <x:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" Position="Center"
                     runat="server">

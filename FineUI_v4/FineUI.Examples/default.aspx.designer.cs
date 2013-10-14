@@ -58,33 +58,6 @@ namespace FineUI.Examples {
         protected global::FineUI.ContentPanel ContentPanel1;
         
         /// <summary>
-        /// Region2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region Region2;
-        
-        /// <summary>
-        /// Toolbar1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Toolbar Toolbar1;
-        
-        /// <summary>
-        /// ToolbarFill1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.ToolbarFill ToolbarFill1;
-        
-        /// <summary>
         /// Button2 控件。
         /// </summary>
         /// <remarks>
@@ -110,6 +83,15 @@ namespace FineUI.Examples {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.MenuButton btnCollapseAll;
+        
+        /// <summary>
+        /// MenuSeparator1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.MenuSeparator MenuSeparator1;
         
         /// <summary>
         /// MenuStyle 控件。
@@ -218,6 +200,24 @@ namespace FineUI.Examples {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.MenuCheckBox MenuThemeAccess;
+        
+        /// <summary>
+        /// MenuSeparator2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.MenuSeparator MenuSeparator2;
+        
+        /// <summary>
+        /// Region2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Region Region2;
         
         /// <summary>
         /// mainRegion 控件。

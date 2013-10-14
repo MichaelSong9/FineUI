@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Tree>
   <TreeNode Text="配置信息" SingleClickExpand="true">
-    <TreeNode Text="发布历史" NavigateUrl="~/config/release_history.txt">
+    <TreeNode Text="发布历史" NavigateUrl="http://fineui.com/version/index.html">
     </TreeNode>
     <TreeNode Text="版本发布周期" NavigateUrl="~/config/release_time_chart.htm" >
     </TreeNode>

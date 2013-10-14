@@ -194,43 +194,22 @@ namespace FineUI.Examples
         {
             string themeMenuID = "MenuThemeBlue";
 
-            string customThemeValue = PageManager1.CustomTheme.ToString().ToLower();
-
-            if (!String.IsNullOrEmpty(customThemeValue))
+            string themeValue = PageManager1.Theme.ToString().ToLower();
+            switch (themeValue)
             {
-                switch (customThemeValue)
-                {
-                    case "blueen":
-                        themeMenuID = "MenuThemeBlueen";
-                        break;
-                    case "first":
-                        themeMenuID = "MenuThemeFirst";
-                        break;
-                    case "second":
-                        themeMenuID = "MenuThemeSecond";
-                        break;
-                    case "fourth":
-                        themeMenuID = "MenuThemeFourth";
-                        break;
-                }
+                case "blue":
+                    themeMenuID = "MenuThemeBlue";
+                    break;
+                case "gray":
+                    themeMenuID = "MenuThemeGray";
+                    break;
+                case "access":
+                    themeMenuID = "MenuThemeAccess";
+                    break;
+                case "neptune":
+                    themeMenuID = "MenuThemeNeptune";
+                    break;
             }
-            else
-            {
-                string themeValue = PageManager1.Theme.ToString().ToLower();
-                switch (themeValue)
-                {
-                    case "blue":
-                        themeMenuID = "MenuThemeBlue";
-                        break;
-                    case "gray":
-                        themeMenuID = "MenuThemeGray";
-                        break;
-                    case "access":
-                        themeMenuID = "MenuThemeAccess";
-                        break;
-                }
-            }
-
 
             SetSelectedMenuID(MenuTheme, themeMenuID);
         }
@@ -312,7 +291,7 @@ namespace FineUI.Examples
 
             string menuValue = "menu";
             string menuStyleID = GetSelectedMenuID(MenuStyle);
-             
+
             switch (menuStyleID)
             {
                 case "MenuStyleTree":
@@ -321,7 +300,7 @@ namespace FineUI.Examples
                 case "MenuStyleAccordion":
                     menuValue = "accordion";
                     break;
-                
+
             }
             SaveToCookieAndRefresh("MenuStyle", menuValue);
         }

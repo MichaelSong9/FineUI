@@ -695,7 +695,7 @@ X.fieldValue = function (cmp) {
                         for (i = 0; i < nodes.length; i++) {
                             currentNode = nodes[i];
                             if (currentNode.isLeaf()) {
-                                if (currentNode.attributes.href === HASH) {
+                                if (currentNode.data.href === HASH) {
                                     path = currentNode.getPath();
                                     treeInstance.expandPath(path); //node.expand();
                                     treeInstance.selectPath(path); // currentNode.select();
