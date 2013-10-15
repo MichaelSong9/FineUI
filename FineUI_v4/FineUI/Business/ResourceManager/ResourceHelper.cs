@@ -225,7 +225,7 @@ namespace FineUI
         /// <returns>空白图片的地址</returns>
         public static string GetEmptyImageUrl()
         {
-            return String.Format("{0}/res/images/s.gif", GlobalConfig.GetExtjsBasePath());
+            return String.Format("{0}/res/s.gif", GlobalConfig.GetExtjsBasePath());
         }
     }
 }

@@ -78,13 +78,18 @@ namespace FineUI
 
             if (!String.IsNullOrEmpty(PageManager.Instance.CustomTheme))
             {
+                /*
                 AddCssPathToHead(page, CONTROL_ID_PREFIX + "notheme.css", String.Format("{0}/res/css/notheme.css", extjsBasePath));
 
                 string themePath = String.Format("{0}/css/xtheme-{1}.css", page.ResolveUrl(PageManager.Instance.CustomThemeBasePath), PageManager.Instance.CustomTheme);
                 AddCssPathToHead(page, CONTROL_ID_PREFIX + "custom-theme.css", themePath);
 
                 AddCssPathToHead(page, CONTROL_ID_PREFIX + "ux.css", String.Format("{0}/res/css/ux.css", extjsBasePath));
+                */
 
+                string themeName = PageManager.Instance.CustomTheme;
+
+                AddCssPathToHead(page, CONTROL_ID_PREFIX + themeName + ".css", String.Format("{0}/ext-theme-{1}/all.css", page.ResolveUrl(PageManager.Instance.CustomThemeBasePath), themeName));
             }
             else
             {
@@ -95,9 +100,9 @@ namespace FineUI
                     themeName = "classic";
                 }
 
-                AddCssPathToHead(page, CONTROL_ID_PREFIX + themeName + ".css", String.Format("{0}/res/ext-theme-{1}/ext-theme-{1}-all.css", extjsBasePath, themeName));
+                AddCssPathToHead(page, CONTROL_ID_PREFIX + themeName + ".css", String.Format("{0}/res/ext-theme-{1}/all.css", extjsBasePath, themeName));
 
-                AddCssPathToHead(page, CONTROL_ID_PREFIX + "ux.css", String.Format("{0}/res/css/ux.css", extjsBasePath));
+                //AddCssPathToHead(page, CONTROL_ID_PREFIX + "ux.css", String.Format("{0}/res/css/ux.css", extjsBasePath));
             }
 
 
@@ -108,16 +113,21 @@ namespace FineUI
 
             if (GlobalConfig.GetDebugMode())
             {
-                AddJavascriptPathToPageBottom(page, "ext-debug.js", String.Format("{0}/ext-debug.js", extjsBasePath));
-                AddJavascriptPathToPageBottom(page, "x-debug.js", String.Format("{0}/x-debug.js", extjsBasePath));
+                AddJavascriptPathToPageBottom(page, "ext-part1.js", String.Format("{0}/ext-part1.js", extjsBasePath));
+                AddJavascriptPathToPageBottom(page, "ext-part2.js", String.Format("{0}/ext-part2.js", extjsBasePath));
 
-                //AddJavascriptPathToPageBottom(page, "ext3-core-compat.js", String.Format("{0}/ext3-core-compat.js", extjsBasePath));
-                //AddJavascriptPathToPageBottom(page, "ext3-compat.js", String.Format("{0}/ext3-compat.js", extjsBasePath));
             }
             else
             {
-                AddJavascriptPathToPageBottom(page, "ext.js", String.Format("{0}/ext.js", extjsBasePath));
+                AddJavascriptPathToPageBottom(page, "ext-all.js", String.Format("{0}/ext-all.js", extjsBasePath));
             }
+
+            // Neptune需要额外的JavaScript文件
+            if (String.IsNullOrEmpty(PageManager.Instance.CustomTheme) && PageManager.Instance.Theme == Theme.Neptune)
+            {
+                AddJavascriptPathToPageBottom(page, "ext-theme-neptune.js", String.Format("{0}/ext-theme-neptune.js", extjsBasePath));
+            }
+
 
             // 语言资源应该放在最后，其中包含对 X.js 的语言定义
             string langName = LanguageHelper.GetName(PageManager.Instance.Language);
