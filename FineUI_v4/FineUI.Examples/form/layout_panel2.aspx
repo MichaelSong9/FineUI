@@ -28,7 +28,7 @@
                     <x:Label ID="Label2" Width="100px" runat="server" CssClass="inline" ShowLabel="false"
                         Text="用户名：">
                     </x:Label>
-                    <x:TextBox ID="TextBox2" Label="用户名" Required="true" CssClass="mright" runat="server">
+                    <x:TextBox ID="TextBox2" Required="true" CssClass="mright" runat="server">
                     </x:TextBox>
                     <x:Button ID="Button3" Text="按钮一" CssClass="mright" runat="server">
                     </x:Button>

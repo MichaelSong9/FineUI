@@ -66,6 +66,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+TabStrip。
 		-为TabPosition类型增加Left、Right两个枚举类型。
 	-自动完成文本框示例更新（FineUI的TextBox控件被渲染为table而不是之前的input）。
+	-删除TreeNode的属性SingleClickExpand，为Tree控件增加EnableSingleClickExpand属性。
+
 
 
 +2013-10-** v3.3.2

@@ -147,6 +147,25 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 单击切换节点的折叠展开状态
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("单击切换节点的折叠展开状态")]
+        public bool EnableSingleClickExpand
+        {
+            get
+            {
+                object obj = XState["EnableSingleClickExpand"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableSingleClickExpand"] = value;
+            }
+        }
+
+        /// <summary>
         /// 启用箭头
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -539,8 +558,8 @@ namespace FineUI
                 }
                 treeNode.Icon = (Icon)StringUtil.EnumFromName(typeof(Icon), iconName);
                 treeNode.IconUrl = ja2[11].Value<string>();
-                treeNode.ToolTip = ja2[13].Value<string>();
-                treeNode.SingleClickExpand = ja2[14].Value<int>() == 1 ? true : false;
+                treeNode.ToolTip = ja2[13].Value<string>(); 
+                //treeNode.SingleClickExpand = ja2[14].Value<int>() == 1 ? true : false;
 
                 treeNode.OnClientClick = ja2[15].Value<string>();
                 treeNode.EnablePostBack = ja2[16].Value<int>() == 1 ? true : false;
@@ -603,7 +622,8 @@ namespace FineUI
 
                 ja2.Add(String.IsNullOrEmpty(node.ToolTip) ? "" : node.ToolTip);
 
-                ja2.Add(node.SingleClickExpand ? 1 : 0);
+                // SingleClickExpand
+                ja2.Add(0);
 
                 ja2.Add(node.OnClientClick);
                 ja2.Add(node.EnablePostBack ? 1 : 0);
@@ -1039,9 +1059,15 @@ namespace FineUI
             #endregion
 
             #region Listeners
-            
-            string beforeclickScript = "if(record.disabled){return false;}";
-            OB.Listeners.AddProperty("beforeitemclick", JsHelper.GetFunction(beforeclickScript, "view", "record", "item", "index"), true);
+
+            string beforeclickScript = "if(node.disabled){return false;}";
+            OB.Listeners.AddProperty("beforeitemclick", JsHelper.GetFunction(beforeclickScript, "view", "node", "item", "index"), true);
+
+            if (EnableSingleClickExpand)
+            {
+                string itemclickScript = "if(!node.isLeaf()){if(node.isExpanded()){node.collapse();}else{node.expand();}}";
+                OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
+            }
 
 
             string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";

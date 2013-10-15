@@ -76,6 +76,7 @@ namespace FineUI.Examples
                     innerTree.ShowHeader = false;
                     innerTree.EnableIcons = false;
                     innerTree.AutoScroll = true;
+                    innerTree.EnableSingleClickExpand = true;
                     accordionPane.Items.Add(innerTree);
 
                     XmlDocument innerXmlDoc = new XmlDocument();
@@ -102,6 +103,7 @@ namespace FineUI.Examples
             treeMenu.ShowHeader = false;
             treeMenu.EnableIcons = false;
             treeMenu.AutoScroll = true;
+            treeMenu.EnableSingleClickExpand = true;
             Region2.Items.Add(treeMenu);
 
             // 绑定 XML 数据源到树控件

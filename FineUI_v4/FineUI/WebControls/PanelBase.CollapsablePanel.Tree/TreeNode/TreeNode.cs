@@ -499,24 +499,24 @@ namespace FineUI
             }
         }
 
-        private bool _singleClickExpand = false;
-        /// <summary>
-        /// 单击可切换节点的折叠展开状态
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("单击可切换节点的折叠展开状态")]
-        public bool SingleClickExpand
-        {
-            get
-            {
-                return _singleClickExpand;
-            }
-            set
-            {
-                _singleClickExpand = value;
-            }
-        }
+        //private bool _singleClickExpand = false;
+        ///// <summary>
+        ///// 单击可切换节点的折叠展开状态
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("单击可切换节点的折叠展开状态")]
+        //public bool SingleClickExpand
+        //{
+        //    get
+        //    {
+        //        return _singleClickExpand;
+        //    }
+        //    set
+        //    {
+        //        _singleClickExpand = value;
+        //    }
+        //}
 
 
         #endregion

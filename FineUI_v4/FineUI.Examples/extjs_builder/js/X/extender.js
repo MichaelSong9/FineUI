@@ -1004,7 +1004,8 @@ if (Ext.tree.Panel) {
                     node.icon = data[12];
                 }
                 node.qtip = data[13];
-                node.singleClickExpand = !!data[14];
+
+                //node.singleClickExpand = !!data[14];
 
                 
 
