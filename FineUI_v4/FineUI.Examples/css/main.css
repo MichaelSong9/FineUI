@@ -1,9 +1,8 @@
-﻿body
+﻿body, body.x-body
 {
-    margin: 8px;
     height: auto;
 	background-image: url(../images/square.gif);
-	padding: 20px;
+	padding: 10px;
 }
 
 .inline

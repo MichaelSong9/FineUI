@@ -16,7 +16,7 @@ mkdir ..\extjs\res\ext-theme-neptune
 mkdir ..\extjs\res\ext-theme-neptune\images
 
 
-xcopy extjs_source_all\src ..\extjs\src /Y /E
+
 xcopy extjs_source_all\resources\ext-theme-access\images ..\extjs\res\ext-theme-access\images /Y /E
 xcopy extjs_source_all\resources\ext-theme-classic\images ..\extjs\res\ext-theme-classic\images /Y /E
 xcopy extjs_source_all\resources\ext-theme-gray\images ..\extjs\res\ext-theme-gray\images /Y /E

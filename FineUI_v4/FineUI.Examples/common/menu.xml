@@ -509,9 +509,7 @@
     </TreeNode>
     <TreeNode Text="文本框的keypress事件" NavigateUrl="~/other/custom_postback.aspx">
     </TreeNode>
-    <TreeNode Text="CssStyle与CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
-    </TreeNode>
-    <TreeNode Text="FormItemClass属性" NavigateUrl="~/other/formitemclass.aspx">
+    <TreeNode Text="CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
     </TreeNode>
     <TreeNode Text="向父页面添加选项卡" NavigateUrl="~/other/addtab.aspx">
     </TreeNode>

@@ -5,6 +5,11 @@
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <style>
+        body.x-body {
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

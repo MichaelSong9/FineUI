@@ -9,16 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" 
-        Title="简单表单">
-        <Items>
-            <x:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入一些文字并按 ENTER 键">
-            </x:TextBox>
-            <x:TextBox ID="TextBox2" runat="server" ShowLabel="false">
-            </x:TextBox>
-        </Items>
-    </x:SimpleForm>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+            Title="简单表单">
+            <Items>
+                <x:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入一些文字并按 ENTER 键">
+                </x:TextBox>
+                <x:TextBox ID="TextBox2" runat="server" ShowLabel="false">
+                </x:TextBox>
+            </Items>
+        </x:SimpleForm>
     </form>
     <script type="text/javascript">
 
@@ -31,7 +31,7 @@
                 }
             });
         }
-    
+
     </script>
 </body>
 </html>

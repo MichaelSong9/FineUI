@@ -7,12 +7,12 @@
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .red
+        .red input
         {
             color: Red;
             font-style: italic;
         }
-        .blue
+        .blue input
         {
             color: Blue;
             font-style: italic;

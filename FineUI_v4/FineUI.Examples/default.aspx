@@ -92,7 +92,7 @@
                     <Items>
                         <x:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
                             <Tabs>
-                                <x:Tab Title="首页" Layout="Fit" Icon="House" runat="server">
+                                <x:Tab Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
                                     <Toolbars>
                                         <x:Toolbar runat="server">
                                             <Items>

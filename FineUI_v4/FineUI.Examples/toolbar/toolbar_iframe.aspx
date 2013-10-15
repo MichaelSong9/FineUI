@@ -9,22 +9,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:Panel runat="server" ID="Panel1" Title="面板" Width="600px" Height="450px" EnableIFrame="true"
-        IFrameName="main" IFrameUrl="#">
-        <Toolbars>
-            <x:Toolbar runat="server" Position="Top">
-                <Items>
-                    <x:Button runat="server" ID="Button1" Text="打开页面一" EnablePostBack="false"
-                        OnClientClick="window.open('../basic/hello.aspx', 'main');">
-                    </x:Button>
-                    <x:Button runat="server" ID="Button2" Text="打开页面二" EnablePostBack="false"
-                        OnClientClick="window.open('../basic/hello_aspnet.aspx', 'main');">
-                    </x:Button>
-                </Items>
-            </x:Toolbar>
-        </Toolbars>
-    </x:Panel>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:Panel runat="server" ID="Panel1" Title="面板" Width="600px" Height="450px" EnableIFrame="true" EnableFrame="true" EnableCollapse="true"
+            IFrameName="main" IFrameUrl="about:blank">
+            <Toolbars>
+                <x:Toolbar runat="server" Position="Top">
+                    <Items>
+                        <x:Button runat="server" ID="Button1" Text="打开页面一" EnablePostBack="false"
+                            OnClientClick="window.open('../basic/hello.aspx', 'main');">
+                        </x:Button>
+                        <x:Button runat="server" ID="Button2" Text="打开页面二" EnablePostBack="false"
+                            OnClientClick="window.open('../basic/hello_aspnet.aspx', 'main');">
+                        </x:Button>
+                    </Items>
+                </x:Toolbar>
+            </Toolbars>
+        </x:Panel>
     </form>
 </body>
 </html>

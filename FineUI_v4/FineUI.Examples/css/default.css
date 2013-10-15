@@ -78,3 +78,8 @@
     opacity: 0.8;
     z-index: 100000;
 }
+
+
+.maincontent .x-panel-body {
+    background-image: url(../images/square.gif);
+}
