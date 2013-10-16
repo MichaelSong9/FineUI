@@ -151,15 +151,22 @@ namespace FineUI
             if (!String.IsNullOrEmpty(DataToolTipField))
             {
                 object value = row.GetPropertyValue(DataToolTipField);
-
-                if (!String.IsNullOrEmpty(DataToolTipFormatString))
+				
+				if (value == null)
                 {
-                    result = String.Format(DataToolTipFormatString, value);
+                    result = null;
                 }
                 else
                 {
-                    result = value.ToString();
-                }
+					if (!String.IsNullOrEmpty(DataToolTipFormatString))
+					{
+						result = String.Format(DataToolTipFormatString, value);
+					}
+					else
+					{
+						result = value.ToString();
+					}
+				}
             }
             else if(!String.IsNullOrEmpty(ToolTip))
             {

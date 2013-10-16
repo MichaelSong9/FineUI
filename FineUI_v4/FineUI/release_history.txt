@@ -63,6 +63,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
 	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
 		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
+	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
 	+TabStrip。
 		-为TabPosition类型增加Left、Right两个枚举类型。
 	-自动完成文本框示例更新（FineUI的TextBox控件被渲染为table而不是之前的input）。
@@ -83,6 +84,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
 		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
 	-修正TimerPicker无法赋值的问题（隨風往事、凤凰涅盘ing）。
+	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
 	-Tree,x_loadData时要清空一些数据
 
 
