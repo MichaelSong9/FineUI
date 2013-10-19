@@ -39,6 +39,8 @@ namespace FineUI.Examples
                 ids.Add("menuType", "menu");
             }
 
+            ids.Add("theme", PageManager.Instance.Theme.ToString());
+
             // 只在页面第一次加载时注册客户端用到的脚本
             if (!Page.IsPostBack)
             {
@@ -76,7 +78,6 @@ namespace FineUI.Examples
                     innerTree.ShowHeader = false;
                     innerTree.EnableIcons = false;
                     innerTree.AutoScroll = true;
-                    innerTree.EnableSingleClickExpand = true;
                     accordionPane.Items.Add(innerTree);
 
                     XmlDocument innerXmlDoc = new XmlDocument();
@@ -103,7 +104,6 @@ namespace FineUI.Examples
             treeMenu.ShowHeader = false;
             treeMenu.EnableIcons = false;
             treeMenu.AutoScroll = true;
-            treeMenu.EnableSingleClickExpand = true;
             Region2.Items.Add(treeMenu);
 
             // 绑定 XML 数据源到树控件
@@ -230,19 +230,19 @@ namespace FineUI.Examples
                 return;
             }
 
-            string langValue = "zh_cn";
+            string langValue = FineUI.Language.ZH_CN.ToString();
             string langID = GetSelectedMenuID(MenuLang);
 
             switch (langID)
             {
                 case "MenuLangZHCN":
-                    langValue = "zh_cn";
+                    langValue = FineUI.Language.ZH_CN.ToString();
                     break;
                 case "MenuLangZHTW":
-                    langValue = "zh_tw";
+                    langValue = FineUI.Language.ZH_TW.ToString();
                     break;
                 case "MenuLangEN":
-                    langValue = "en";
+                    langValue = FineUI.Language.EN.ToString();
                     break;
             }
 
@@ -259,22 +259,22 @@ namespace FineUI.Examples
                 return;
             }
 
-            string themeValue = "Neptune";
+            string themeValue = FineUI.Theme.Neptune.ToString();
             string themeID = GetSelectedMenuID(MenuTheme);
 
             switch (themeID)
             {
                 case "MenuThemeNeptune":
-                    themeValue = "neptune";
+                    themeValue = FineUI.Theme.Neptune.ToString();
                     break;
                 case "MenuThemeBlue":
-                    themeValue = "blue";
+                    themeValue = FineUI.Theme.Blue.ToString();
                     break;
                 case "MenuThemeGray":
-                    themeValue = "gray";
+                    themeValue = FineUI.Theme.Gray.ToString();
                     break;
                 case "MenuThemeAccess":
-                    themeValue = "access";
+                    themeValue = FineUI.Theme.Access.ToString();
                     break;
             }
 
@@ -423,10 +423,21 @@ namespace FineUI.Examples
         /// <returns></returns>
         private string GetIconForTreeNode(string url)
         {
-            string iconUrl = "~/images/filetype/vs_unknow.png";
             url = url.ToLower();
+            int paramsIndex = url.IndexOf("?");
+            if (paramsIndex >= 0)
+            {
+                url = url.Substring(0, paramsIndex);
+            }
             int lastDotIndex = url.LastIndexOf('.');
-            string fileType = url.Substring(lastDotIndex + 1);
+            if (lastDotIndex >= 0)
+            {
+                url = url.Substring(lastDotIndex + 1);
+            }
+
+            string fileType = url;
+
+            string iconUrl = "~/images/filetype/vs_unknow.png";
             if (fileType == "txt")
             {
                 iconUrl = "~/images/filetype/vs_txt.png";

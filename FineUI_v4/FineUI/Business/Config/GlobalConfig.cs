@@ -217,13 +217,13 @@ namespace FineUI
 
 
 
-        /// <summary>
-        /// 是否启用大字体
-        /// </summary>
-        public static bool GetEnableBigFont()
-        {
-            return Convert.ToBoolean(section.EnableBigFont);
-        }
+        ///// <summary>
+        ///// 是否启用大字体
+        ///// </summary>
+        //public static bool GetEnableBigFont()
+        //{
+        //    return Convert.ToBoolean(section.EnableBigFont);
+        //}
 
         /// <summary>
         /// DEBUG 模式

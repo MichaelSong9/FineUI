@@ -32,6 +32,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-FormOffsetRight的默认值由20px改为5px。
 	-为Web.config和PageManager增加FormLabelAlign配置项。
 	-ToolbarPosition增加Left/Right。
+	-废弃Web.config中的配置项EnableBigFont。
 	-废弃EnableBackgroundColor属性，以便和ExtJS保持一致（可以搜索现有项目，删除EnableBackgroundColor="false"）。
 	-ExtJS的CheckboxGroup的setValue和getValue方法和之前不兼容，已更新相关示例form/checkboxlist.aspx。
 	-ExtJS_v4.2和之前版本对change事件的处理不同。
@@ -67,7 +68,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+TabStrip。
 		-为TabPosition类型增加Left、Right两个枚举类型。
 	-自动完成文本框示例更新（FineUI的TextBox控件被渲染为table而不是之前的input）。
-	-删除TreeNode的属性SingleClickExpand，为Tree控件增加EnableSingleClickExpand属性。
+	-删除TreeNode的属性SingleClickExpand。
 
 
 

@@ -533,7 +533,7 @@ namespace FineUI
 
             if (EnableTabCloseMenu)
             {
-                OB.AddProperty("plugins", "new Ext.ux.TabCloseMenu()", true);
+                OB.AddProperty("plugins", "Ext.create('Ext.ux.TabCloseMenu')", true);
             }
 
             ////Note: By default, a tab's close tool destroys the child tab Component and all its descendants. 

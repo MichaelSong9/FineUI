@@ -18,8 +18,6 @@ namespace FineUI.Examples
 
         protected override void OnInit(EventArgs e)
         {
-            base.OnInit(e);
-
             if (!IsPostBack)
             {
                 if (PageManager.Instance != null)
@@ -28,15 +26,16 @@ namespace FineUI.Examples
                     if (themeCookie != null)
                     {
                         string themeValue = themeCookie.Value;
+                        PageManager.Instance.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
 
-                        if (IsSystemTheme(themeValue))
-                        {
-                            PageManager.Instance.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
-                        }
-                        else
-                        {
-                            PageManager.Instance.CustomTheme = themeValue;
-                        }
+                        //if (IsSystemTheme(themeValue))
+                        //{
+                        //    PageManager.Instance.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
+                        //}
+                        //else
+                        //{
+                        //    PageManager.Instance.CustomTheme = themeValue;
+                        //}
                     }
 
                     HttpCookie langCookie = Request.Cookies["Language"];
@@ -48,6 +47,7 @@ namespace FineUI.Examples
                 }
             }
 
+            base.OnInit(e);
         }
 
         private bool IsSystemTheme(string themeName)

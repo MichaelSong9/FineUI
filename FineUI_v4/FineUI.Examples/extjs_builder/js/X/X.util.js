@@ -75,7 +75,7 @@ X.fieldValue = function (cmp) {
         ddlTPL: '<tpl for="."><div class="x-boundlist-item<tpl if="!enabled"> x-boundlist-item-disabled</tpl>">{prefix}{text}</div></tpl>',
 
         // 初始化
-        init: function (msgTarget, labelWidth, labelSeparator, enableBigFont,
+        init: function (msgTarget, labelWidth, labelSeparator,
             blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax) {
             // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
             // 表现为iframe中的页面出现滚动条时，页面上的所有按钮都不能点击了。
@@ -112,9 +112,9 @@ X.fieldValue = function (cmp) {
             }
 
 
-            if (enableBigFont) {
-                Ext.getBody().addCls('bigfont');
-            }
+            //if (enableBigFont) {
+            //    Ext.getBody().addCls('bigfont');
+            //}
 
             // Default empty image
             if (Ext.isIE6 || Ext.isIE7) {

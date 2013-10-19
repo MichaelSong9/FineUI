@@ -1,13 +1,7 @@
 ﻿
+
 .jumbotron {
-    color: #fff;
     position: relative;
-    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#8fc33a),color-stop(100%,#739b2e));
-    background-image: -webkit-linear-gradient(top,#8fc33a,#739b2e);
-    background-image: -moz-linear-gradient(top,#8fc33a,#739b2e);
-    background-image: -o-linear-gradient(top,#8fc33a,#739b2e);
-    background-image: linear-gradient(top,#8fc33a,#739b2e);
-    border-bottom: 1px solid #567422;
 }
 
 .jumbotron .x-panel-body
@@ -50,6 +44,65 @@
     right: 15px;
     top: 15px;
 }
+
+
+
+.theme-blue .jumbotron {
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#f3f6fc),color-stop(100%,#cbdaf0));
+    background-image: -webkit-linear-gradient(top,#f3f6fc,#cbdaf0);
+    background-image: -moz-linear-gradient(top,#f3f6fc,#cbdaf0);
+    background-image: -o-linear-gradient(top,#f3f6fc,#cbdaf0);
+    background-image: linear-gradient(top,#f3f6fc,#cbdaf0);
+    border-bottom: 1px solid #a3bde5;
+    
+}
+
+.theme-blue .jumbotron .title a {
+    color: #04408c;
+}
+
+.theme-gray .jumbotron {
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#ededed),color-stop(100%,#d3d3d3));
+    background-image: -webkit-linear-gradient(top,#ededed,#d3d3d3);
+    background-image: -moz-linear-gradient(top,#ededed,#d3d3d3);
+    background-image: -o-linear-gradient(top,#ededed,#d3d3d3);
+    background-image: linear-gradient(top,#ededed,#d3d3d3);
+    border-bottom: 1px solid #bab9b9;
+}
+
+.theme-gray .jumbotron .title a {
+    color: #333;
+}
+
+.theme-access .jumbotron {
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4a5366),color-stop(100%,#343b48));
+    background-image: -webkit-linear-gradient(top,#4a5366,#343b48);
+    background-image: -moz-linear-gradient(top,#4a5366,#343b48);
+    background-image: -o-linear-gradient(top,#4a5366,#343b48);
+    background-image: linear-gradient(top,#4a5366,#343b48);
+    border-bottom: 1px solid #1f232b;
+}
+
+.theme-access .jumbotron .title a {
+    color: #fff;
+}
+
+.theme-neptune .jumbotron {
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#8fc33a),color-stop(100%,#739b2e));
+    background-image: -webkit-linear-gradient(top,#8fc33a,#739b2e);
+    background-image: -moz-linear-gradient(top,#8fc33a,#739b2e);
+    background-image: -o-linear-gradient(top,#8fc33a,#739b2e);
+    background-image: linear-gradient(top,#8fc33a,#739b2e);
+    border-bottom: 1px solid #567422;
+}
+
+.theme-neptune .jumbotron .title a {
+    color: #fff;
+}
+
+
+
+
 
 
 .intro

@@ -38,7 +38,7 @@ Ext.apply(X.wnd, {
 if (Ext.ux.TabCloseMenu) {
     Ext.apply(Ext.ux.TabCloseMenu.prototype, {
         closeTabText: "Close Tab",
-        closeOtherTabsText: "Close Other Tabs",
+        closeOthersTabsText: "Close Other Tabs",
         closeAllTabsText: "Close All Tabs"
     });
 }

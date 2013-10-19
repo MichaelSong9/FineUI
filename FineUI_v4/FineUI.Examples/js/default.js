@@ -100,6 +100,11 @@ function onReady() {
         tabConfig['tbar'] = toolbar;
     }
 
+    // 向document.body添加主题类
+    if (IDS.theme) {
+        Ext.getBody().addCls('theme-' + IDS.theme.toLowerCase());
+    }
+
 
     // 初始化主框架中的树(或者Accordion+Tree)和选项卡互动，以及地址栏的更新
     // treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例

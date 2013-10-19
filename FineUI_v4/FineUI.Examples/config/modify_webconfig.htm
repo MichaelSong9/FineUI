@@ -2,20 +2,21 @@
 <html>
 <head>
     <title></title>
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        body
-        {
+        body {
             font-size: 13px;
         }
-        ul li
-        {
+
+        ul li {
             margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
     <div>
-        在开发项目之前一定要配置好 Web.config：</div>
+        在开发项目之前一定要配置好 Web.config：
+    </div>
     <ul>
         <li>打开 web.config，在 configuration 配置节:
             <br />
@@ -25,7 +26,7 @@
     &lt;/configSections&gt;
 
     &lt;!-- 可用的配置项（这里列的都是默认值）:Language="zh_CN" AjaxTimeout="60" EnableAjax="true" Theme="blue" FormMessageTarget="qtip" FormOffsetRight="20" FormLabelWidth="100" FormLabelSeparator="：" IconBasePath="~/icon" EnableAjaxLoading="true" AjaxLoadingType="default" CustomTheme="" CustomThemeBasePath="~/theme" --&gt;
-    &lt;FineUI EnableBigFont="true" DebugMode="false" /&gt;
+    &lt;FineUI DebugMode="false" /&gt;
             </pre>
             FineUI 配置节中的参数：
             <br />
@@ -38,7 +39,7 @@
                 <li>FormLabelSeparator: 表单字段标签与内容的分隔符（默认值："："）</li>
                 <li>EnableAjax: 是否启用AJAX（默认值：true）</li>
                 <li>AjaxTimeout: AJAX超时时间（单位：秒，默认值：60s）</li>
-                <li>EnableBigFont: 是否启用大字体，将ExtJS默认11px的字体全部改为12px，否则显示的中文字体太小（默认值：false）</li>
+                <!--<li>EnableBigFont: 是否启用大字体，将ExtJS默认11px的字体全部改为12px，否则显示的中文字体太小（默认值：false）</li>-->
                 <li>DebugMode: 是否开发模式，启用时格式化输出页面JavaScript代码，便于调试（默认值：false）</li>
                 <li>EnableAjaxLoading: 是否启用Ajax提示（默认值：true）</li>
                 <li>AjaxLoadingType: Ajax提示类型，默认在页面顶部显示黄色提示框，mask则显示extjs默认的加载提示（default/mask，默认值：default）</li>
@@ -67,7 +68,8 @@
     </ul>
     <br />
     <div style="font-weight: bold; color: Red;">
-        特别提醒</div>
+        特别提醒
+    </div>
     <br />
     基于.Net 4.0的项目，一定要为Web.config中&lt;page&gt;标签添加controlRenderingCompatibilityVersion和clientIDMode两个属性。
     <pre style="font-style: italic;">
@@ -79,7 +81,8 @@
     </pre>
     <br />
     <div style="font-weight: bold; color: Red;">
-        注意引用的Newtonsoft.Json.dll版本</div>
+        注意引用的Newtonsoft.Json.dll版本
+    </div>
     <br />
     FineUI.dll只有一个For Net2.0的版本，无论你的项目是2.0、3.5、4.0，都只需要引用同一个FineUI.dll即可。
     <br />

@@ -39,7 +39,7 @@ Ext.apply(X.wnd, {
 if (Ext.ux.TabCloseMenu) {
     Ext.apply(Ext.ux.TabCloseMenu.prototype, {
         closeTabText: "关闭标签",
-        closeOtherTabsText: "关闭其它标签",
+        closeOthersTabsText: "关闭其它标签",
         closeAllTabsText: "关闭全部标签"
     });
 }

@@ -14,11 +14,11 @@ namespace FineUI.Examples.other
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Random rd = new Random();
-            Label1.CssStyle = String.Format("font-weight: bold; color:rgb({0}, {1}, {2});", rd.Next(255), rd.Next(255), rd.Next(255));
-        }
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    Random rd = new Random();
+        //    Label1.CssStyle = String.Format("font-weight: bold; color:rgb({0}, {1}, {2});", rd.Next(255), rd.Next(255), rd.Next(255));
+        //}
 
         protected void Button2_Click(object sender, EventArgs e)
         {

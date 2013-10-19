@@ -239,7 +239,6 @@
     <Content Include="config\enable_gzip_iis6.htm" />
     <Content Include="config\install_toolbox.htm" />
     <Content Include="config\modify_webconfig.htm" />
-    <Content Include="config\release_history_en.txt" />
     <Content Include="config\release_time_chart.htm" />
     <Content Include="dropdownlist\databind\dropdownlist_compositelist.aspx" />
     <Content Include="dropdownlist\databind\dropdownlist_datatable.aspx" />
@@ -2197,7 +2196,6 @@
     <Content Include="tabstrip\tabstrip_iframe.aspx" />
     <Content Include="tabstrip\tabstrip.aspx" />
     <Content Include="other\toolbar.aspx" />
-    <Content Include="config\release_history.txt" />
     <Content Include="test\test.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -2240,8 +2238,6 @@
     <Content Include="test\test2.htm" />
     <Content Include="test\test3.aspx" />
     <Content Include="test\test4.aspx" />
-    <Content Include="config\Web.config.txt" />
-    <Content Include="config\Web.config.compress.txt" />
     <Content Include="tree\select\tree_multi_select.aspx" />
     <Content Include="grid\image.ashx" />
   </ItemGroup>

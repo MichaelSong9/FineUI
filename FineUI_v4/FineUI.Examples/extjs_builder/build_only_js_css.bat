@@ -86,8 +86,6 @@ ajaxminifier\ajaxminifier -js -evals:immediate  _x -o ..\extjs\lang\ru.js
 
 
 type extjs_source_all\ext-all.js > _x
-type extjs_source_all\examples\ux\TabCloseMenu.js >> _x
-type extjs_source_all\examples\ux\RowExpander.js >> _x
 
 type _x > ..\extjs\ext-part1.js
 
@@ -102,6 +100,8 @@ type js\X\X.simulateTree.js >> _x
 type js\X\X.format.js >> _x
 type js\ux\FormViewport.js >> _x
 type js\ux\SimplePagingToolbar.js >> _x
+type js\ux\TabCloseMenu.js >> _x
+type extjs_source_all\examples\ux\RowExpander.js >> _x
 
 type _x > ..\extjs\ext-part2.js
 

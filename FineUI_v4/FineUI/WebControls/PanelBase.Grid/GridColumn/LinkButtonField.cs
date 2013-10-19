@@ -525,20 +525,23 @@ namespace FineUI
             {
                 object value = row.GetPropertyValue(DataTextField);
 
-                if (!String.IsNullOrEmpty(DataTextFormatString))
+                if (value != null)
                 {
-                    text = String.Format(DataTextFormatString, value);
-                    if (HtmlEncodeFormatString)
+                    if (!String.IsNullOrEmpty(DataTextFormatString))
                     {
-                        text = HttpUtility.HtmlEncode(text);
+                        text = String.Format(DataTextFormatString, value);
+                        if (HtmlEncodeFormatString)
+                        {
+                            text = HttpUtility.HtmlEncode(text);
+                        }
                     }
-                }
-                else
-                {
-                    text = value.ToString();
-                    if (HtmlEncode)
+                    else
                     {
-                        text = HttpUtility.HtmlEncode(text);
+                        text = value.ToString();
+                        if (HtmlEncode)
+                        {
+                            text = HttpUtility.HtmlEncode(text);
+                        }
                     }
                 }
             }

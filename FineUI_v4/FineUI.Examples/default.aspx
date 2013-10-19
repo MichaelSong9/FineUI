@@ -23,7 +23,7 @@
                             <div class="title">
                                 <a href="http://fineui.com/" title="FineUI首页" class="logo">
                                     <img src="./images/logo/logo2.gif" alt="FineUI Logo" /></a>
-                                <a href="./default.aspx" style="color: #fff;">FineUI在线示例</a>
+                                <a href="./default.aspx">FineUI在线示例</a>
                             </div>
                             <div class="config">
                                 <x:Button ID="Button2" EnablePostBack="false" Icon="Cog" Text="设置" runat="server">

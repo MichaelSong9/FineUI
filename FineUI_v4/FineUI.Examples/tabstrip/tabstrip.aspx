@@ -7,7 +7,7 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .highlight {
-            font-weight: bold;
+            
             color: red;
         }
     </style>

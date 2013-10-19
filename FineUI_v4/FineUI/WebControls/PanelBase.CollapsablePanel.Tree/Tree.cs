@@ -146,24 +146,24 @@ namespace FineUI
 
         #region Properties
 
-        /// <summary>
-        /// 单击切换节点的折叠展开状态
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("单击切换节点的折叠展开状态")]
-        public bool EnableSingleClickExpand
-        {
-            get
-            {
-                object obj = XState["EnableSingleClickExpand"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableSingleClickExpand"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 单击切换节点的折叠展开状态
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("单击切换节点的折叠展开状态")]
+        //public bool EnableSingleClickExpand
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableSingleClickExpand"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableSingleClickExpand"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 启用箭头
@@ -1063,11 +1063,11 @@ namespace FineUI
             string beforeclickScript = "if(node.disabled){return false;}";
             OB.Listeners.AddProperty("beforeitemclick", JsHelper.GetFunction(beforeclickScript, "view", "node", "item", "index"), true);
 
-            if (EnableSingleClickExpand)
-            {
-                string itemclickScript = "if(!node.isLeaf()){if(node.isExpanded()){node.collapse();}else{node.expand();}}";
-                OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
-            }
+            //if (EnableSingleClickExpand)
+            //{
+            //    string itemclickScript = "if(!node.isLeaf()){if(node.isExpanded()){node.collapse();}else{node.expand();}}";
+            //    OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
+            //}
 
 
             string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";

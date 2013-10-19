@@ -509,35 +509,35 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 是否启用大字体
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否启用大字体")]
-        public bool EnableBigFont
-        {
-            get
-            {
-                object obj = XState["EnableBigFont"];
-                if (obj == null)
-                {
-                    if (DesignMode)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return GlobalConfig.GetEnableBigFont();
-                    }
-                }
-                return (bool)obj;
-            }
-            set
-            {
-                XState["EnableBigFont"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否启用大字体
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否启用大字体")]
+        //public bool EnableBigFont
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableBigFont"];
+        //        if (obj == null)
+        //        {
+        //            if (DesignMode)
+        //            {
+        //                return false;
+        //            }
+        //            else
+        //            {
+        //                return GlobalConfig.GetEnableBigFont();
+        //            }
+        //        }
+        //        return (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableBigFont"] = value;
+        //    }
+        //}
 
 
         /// <summary>
