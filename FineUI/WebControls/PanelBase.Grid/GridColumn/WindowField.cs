@@ -406,20 +406,23 @@ namespace FineUI
                 //    nb.InnerProperty = value.ToString();
                 //}
                 string text = String.Empty;
-                if (!String.IsNullOrEmpty(DataTextFormatString))
+                if (value != null)
                 {
-                    text = String.Format(DataTextFormatString, value);
-                    if (HtmlEncodeFormatString)
+                    if (!String.IsNullOrEmpty(DataTextFormatString))
                     {
-                        text = HttpUtility.HtmlEncode(text);
+                        text = String.Format(DataTextFormatString, value);
+                        if (HtmlEncodeFormatString)
+                        {
+                            text = HttpUtility.HtmlEncode(text);
+                        }
                     }
-                }
-                else
-                {
-                    text = value.ToString();
-                    if (HtmlEncode)
+                    else
                     {
-                        text = HttpUtility.HtmlEncode(text);
+                        text = value.ToString();
+                        if (HtmlEncode)
+                        {
+                            text = HttpUtility.HtmlEncode(text);
+                        }
                     }
                 }
 
@@ -450,10 +453,15 @@ namespace FineUI
                         if (!String.IsNullOrEmpty(field))
                         {
                             //fieldValues.Add(row.GetPropertyValue(field));
-                            string fieldValue = row.GetPropertyValue(field).ToString();
-                            if (UrlEncode)
+                            object fieldObj = row.GetPropertyValue(field);
+                            string fieldValue = String.Empty;
+                            if (fieldObj != null)
                             {
-                                fieldValue = HttpUtility.UrlEncode(fieldValue);
+								fieldValue = fieldObj.ToString();
+                                if (UrlEncode)
+                                {
+                                    fieldValue = HttpUtility.UrlEncode(fieldValue);
+                                }
                             }
                             fieldValues.Add(fieldValue);
                         }
@@ -489,13 +497,16 @@ namespace FineUI
                 {
                     object value = row.GetPropertyValue(DataWindowTitleField);
 
-                    if (!String.IsNullOrEmpty(DataWindowTitleFormatString))
+                    if (value != null)
                     {
-                        title = String.Format(DataWindowTitleFormatString, value);
-                    }
-                    else
-                    {
-                        title = value.ToString();
+                        if (!String.IsNullOrEmpty(DataWindowTitleFormatString))
+                        {
+                            title = String.Format(DataWindowTitleFormatString, value);
+                        }
+                        else
+                        {
+                            title = value.ToString();
+                        }
                     }
                 }
                 else

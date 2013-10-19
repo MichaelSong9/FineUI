@@ -362,6 +362,7 @@ namespace FineUI
                             string fieldValue = String.Empty;
                             if (fieldObj != null)
                             {
+								fieldValue = fieldObj.ToString();
                                 if (UrlEncode)
                                 {
                                     fieldValue = HttpUtility.UrlEncode(fieldValue);

@@ -145,13 +145,16 @@ namespace FineUI
                 object value = row.GetPropertyValue(DataImageUrlField);
                 string imageUrl = String.Empty;
 
-                if (!String.IsNullOrEmpty(DataImageUrlFormatString))
+                if (value != null)
                 {
-                    imageUrl = String.Format(DataImageUrlFormatString, value);
-                }
-                else
-                {
-                    imageUrl = value.ToString();
+                    if (!String.IsNullOrEmpty(DataImageUrlFormatString))
+                    {
+                        imageUrl = String.Format(DataImageUrlFormatString, value);
+                    }
+                    else
+                    {
+                        imageUrl = value.ToString();
+                    }
                 }
 
                 string cssStr = String.Empty;
