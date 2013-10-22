@@ -6,11 +6,9 @@
       <siteMapNode title="漯河市" NodeID="luohe"  />
     </siteMapNode>
     <siteMapNode title="安徽省" Expanded="true" NodeID="anhui">
-      <siteMapNode title="合肥市" NodeID="hefei">
-        <siteMapNode title="金色池塘小区"  NodeID="golden" >
-        </siteMapNode>
-        <siteMapNode title="中国科学技术大学（超链接）" url="http://www.ustc.edu.cn/"  NodeID="golden" >
-        </siteMapNode>
+      <siteMapNode title="合肥市" Expanded="true" NodeID="hefei">
+        <siteMapNode title="金色池塘小区" NodeID="golden" />
+        <siteMapNode title="中国科学技术大学（超链接）" url="http://www.ustc.edu.cn/" Target="_blank"  NodeID="ustc" />
       </siteMapNode>
     </siteMapNode>
   </siteMapNode>

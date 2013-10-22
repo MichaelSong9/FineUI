@@ -535,13 +535,12 @@ namespace FineUI
                 // 11 - IconUrl
                 // 12 - iconUrl - 这个是客户端用来生成图标的
                 // 13 - ToolTip
-                // 14 - SingleClickExpand
-                // 15 - OnClientClick
-                // 16 - EnablePostBack
-                // 17 - AutoPostBack
-                // 18 - CommandName
-                // 19 - CommandArgument
-                // 20 - Nodes
+                // 14 - OnClientClick
+                // 15 - EnablePostBack
+                // 16 - AutoPostBack
+                // 17 - CommandName
+                // 18 - CommandArgument
+                // 19 - Nodes
                 treeNode.Text = ja2[0].Value<string>(); //ja2.getString(0);
                 treeNode.Leaf = ja2[1].Value<int>() == 1 ? true : false;
                 treeNode.NodeID = ja2[2].Value<string>(); ;
@@ -559,16 +558,15 @@ namespace FineUI
                 treeNode.Icon = (Icon)StringUtil.EnumFromName(typeof(Icon), iconName);
                 treeNode.IconUrl = ja2[11].Value<string>();
                 treeNode.ToolTip = ja2[13].Value<string>(); 
-                //treeNode.SingleClickExpand = ja2[14].Value<int>() == 1 ? true : false;
 
-                treeNode.OnClientClick = ja2[15].Value<string>();
-                treeNode.EnablePostBack = ja2[16].Value<int>() == 1 ? true : false;
-                treeNode.AutoPostBack = ja2[17].Value<int>() == 1 ? true : false;
-                treeNode.CommandName = ja2[18].Value<string>();
-                treeNode.CommandArgument = ja2[19].Value<string>();
+                treeNode.OnClientClick = ja2[14].Value<string>();
+                treeNode.EnablePostBack = ja2[15].Value<int>() == 1 ? true : false;
+                treeNode.AutoPostBack = ja2[16].Value<int>() == 1 ? true : false;
+                treeNode.CommandName = ja2[17].Value<string>();
+                treeNode.CommandArgument = ja2[18].Value<string>();
 
 
-                JArray childNodes = ja2[20].Value<JArray>(); // ja2.getJArray(20);
+                JArray childNodes = ja2[19].Value<JArray>(); // ja2.getJArray(20);
                 if (childNodes != null && childNodes.Count > 0)
                 {
                     FromNodesJArray(childNodes, treeNode.Nodes);
@@ -597,13 +595,12 @@ namespace FineUI
                 // 11 - IconUrl
                 // 12 - iconUrl - 这个是客户端用来生成图标的
                 // 13 - ToolTip
-                // 14 - SingleClickExpand
-                // 15 - OnClientClick
-                // 16 - EnablePostBack
-                // 17 - AutoPostBack
-                // 18 - CommandName
-                // 19 - CommandArgument
-                // 20 - Nodes
+                // 14 - OnClientClick
+                // 15 - EnablePostBack
+                // 16 - AutoPostBack
+                // 17 - CommandName
+                // 18 - CommandArgument
+                // 19 - Nodes
                 ja2.Add(node.Text);
                 ja2.Add(node.Leaf ? 1 : 0);
                 ja2.Add(node.NodeID);
@@ -621,9 +618,6 @@ namespace FineUI
                 ja2.Add(IconHelper.GetResolvedIconUrl(node.Icon, node.IconUrl));
 
                 ja2.Add(String.IsNullOrEmpty(node.ToolTip) ? "" : node.ToolTip);
-
-                // SingleClickExpand
-                ja2.Add(0);
 
                 ja2.Add(node.OnClientClick);
                 ja2.Add(node.EnablePostBack ? 1 : 0);
@@ -1069,11 +1063,18 @@ namespace FineUI
             //    OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
             //}
 
+            string itemclickScript = "var args='Command$'+node.getId()+'$'+node.raw.x_commandname+'$'+node.raw.x_commandargument;";
+            itemclickScript += GetPostBackEventReference("#Click#").Replace("'#Click#'", "args");
+            itemclickScript = String.Format("if(node.raw.x_enablepostback){{{0}}}", itemclickScript);
+            itemclickScript = "if(node.raw.x_clientclick){eval(node.raw.x_clientclick);}" + itemclickScript; // new Function(node.raw.x_clientclick)();
+            OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
+
 
             string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";
             checkchangeScript += GetPostBackEventReference("#CheckChange#").Replace("'#CheckChange#'", "args");
-            checkchangeScript = String.Format("if(node.raw.x_checkchangeevent){{{0}}}", checkchangeScript);
+            checkchangeScript = String.Format("if(node.raw.x_autopostback){{{0}}}", checkchangeScript);
             OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkchangeScript, "node", "checked"), true);
+
 
             #endregion
 

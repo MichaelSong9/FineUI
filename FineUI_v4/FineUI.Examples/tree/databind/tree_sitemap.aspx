@@ -15,6 +15,7 @@
                 <x:XmlAttributeMapping From="url" To="NavigateUrl" />
                 <x:XmlAttributeMapping From="title" To="Text" />
                 <x:XmlAttributeMapping From="description" To="ToolTip" />
+                <x:XmlAttributeMapping From="target" To="Target" />
             </Mappings>
         </x:Tree>
         <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/tree/databind/Web.sitemap"></asp:XmlDataSource>

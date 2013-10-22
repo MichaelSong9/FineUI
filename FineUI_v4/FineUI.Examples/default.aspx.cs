@@ -220,13 +220,12 @@ namespace FineUI.Examples
 
         #region Event
 
-        protected void MenuLang_CheckedChanged(object sender, EventArgs e)
+        protected void MenuLang_CheckedChanged(object sender, CheckedEventArgs e)
         {
-            MenuCheckBox menuCheckBox = sender as MenuCheckBox;
-            if (!menuCheckBox.Checked)
+            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
+            if (!e.Checked)
             {
-                // CheckedChanged会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
-                // 这里不处理取消选中的菜单项的事件，从而防止此函数重复执行两次
                 return;
             }
 
@@ -249,13 +248,12 @@ namespace FineUI.Examples
             SaveToCookieAndRefresh("Language", langValue);
         }
 
-        protected void MenuTheme_CheckedChanged(object sender, EventArgs e)
+        protected void MenuTheme_CheckedChanged(object sender, CheckedEventArgs e)
         {
-            MenuCheckBox menuCheckBox = sender as MenuCheckBox;
-            if (!menuCheckBox.Checked)
+            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
+            if (!e.Checked)
             {
-                // CheckedChanged会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
-                // 这里不处理取消选中的菜单项的事件，从而防止此函数重复执行两次
                 return;
             }
 
@@ -281,13 +279,12 @@ namespace FineUI.Examples
             SaveToCookieAndRefresh("Theme", themeValue);
         }
 
-        protected void MenuStyle_CheckedChanged(object sender, EventArgs e)
+        protected void MenuStyle_CheckedChanged(object sender, CheckedEventArgs e)
         {
-            MenuCheckBox menuCheckBox = sender as MenuCheckBox;
-            if (!menuCheckBox.Checked)
+            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
+            if (!e.Checked)
             {
-                // CheckedChanged会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
-                // 这里不处理取消选中的菜单项的事件，从而防止此函数重复执行两次
                 return;
             }
 

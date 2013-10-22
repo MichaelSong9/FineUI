@@ -112,11 +112,11 @@ namespace FineUI
 
         private bool _enablePostBack = false;
         /// <summary>
-        /// 是否可以回发（单击树节点）
+        /// 单击树节点是否回发
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否可以回发（单击树节点）")]
+        [Description("单击树节点是否回发")]
         public bool EnablePostBack
         {
             get
@@ -233,6 +233,7 @@ namespace FineUI
             }
         }
 
+        /*
         private bool _autoPostBack = false;
 
         /// <summary>
@@ -252,6 +253,28 @@ namespace FineUI
                 _autoPostBack = value;
             }
         }
+        */
+
+        private bool _enableCheckChangeEvent = false;
+
+        /// <summary>
+        /// 改变复选框状态是否自动回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("改变复选框状态是否自动回发")]
+        public bool AutoPostBack
+        {
+            get
+            {
+                return _enableCheckChangeEvent;
+            }
+            set
+            {
+                _enableCheckChangeEvent = value;
+            }
+        }
+
 
         #endregion
 

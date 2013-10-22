@@ -49,12 +49,19 @@ namespace FineUI.Examples.toolbar
             labSiteResult.Text = "你选择的站点：" + selectedSites.ToString().TrimEnd(", ".ToCharArray());
         }
 
-        protected void MenuLang_CheckedChanged(object sender, EventArgs e)
+        protected void MenuLang_CheckedChanged(object sender, CheckedEventArgs e)
         {
+            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
+            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
+            if (!e.Checked)
+            {
+                return;
+            }
+
             UpdateLangResult();
         }
 
-        protected void MenuSite_CheckedChanged(object sender, EventArgs e)
+        protected void MenuSite_CheckedChanged(object sender, CheckedEventArgs e)
         {
             UpdateSiteResult();
         }

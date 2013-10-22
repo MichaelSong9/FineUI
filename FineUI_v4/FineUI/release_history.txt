@@ -42,7 +42,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-DropDownList默认可以不选择，方便使用Required属性做客户端验证，示例form/form.aspx。
 	-优化XState的初始化代码，使得Reset按钮可用于下拉列表、富文本编辑器等控件，而不会清空这些控件的值。
 	-删除PanelBase的属性AutoHeight和AutoWidth。
-	+表格相关。
+	+表格更新。
 		-生成的样式类"x-grid3"字符串全部更改为"x-grid"。
 		-删除表格属性VerticalScrollWidth、EnableColumnHide。
 		+表格列和之前不兼容（现在使用HBox布局，注意列的Width和BoxFlex属性）。
@@ -65,11 +65,14 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
 		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
 	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
-	+TabStrip。
+	+选项卡控件更新。
 		-为TabPosition类型增加Left、Right两个枚举类型。
 	-自动完成文本框示例更新（FineUI的TextBox控件被渲染为table而不是之前的input）。
-	-删除TreeNode的属性SingleClickExpand。
-
+	+树控件更新。
+		-删除TreeNode的属性SingleClickExpand。
+	+增加事件参数类CheckedEventArgs，复选框、单选框以及菜单按钮的CheckedChanged事件会接收这个事件参数。
+		-更新示例default.aspx、toolbar/menucheckbox.aspx、form/radiobutton.aspx，处理单选框列表时需要的技巧。
+	
 
 
 +2013-10-** v3.3.2

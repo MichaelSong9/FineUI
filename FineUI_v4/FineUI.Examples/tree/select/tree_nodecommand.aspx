@@ -18,7 +18,7 @@
                         <x:TreeNode Text="驻马店市（点击回发）" EnablePostBack="true" Expanded="true" NodeID="Zhumadian">
                             <x:TreeNode Text="遂平县（点击回发）" EnablePostBack="true" NodeID="Suiping">
                             </x:TreeNode>
-                            <x:TreeNode Text="西平县（点击回发）" EnablePostBack="true" NodeID="Xiping">
+                            <x:TreeNode Text="西平县（点击回发，OnClientClick）" OnClientClick="if(!confirm('确定回发？')){return false;}" EnablePostBack="true" NodeID="Xiping">
                             </x:TreeNode>
                         </x:TreeNode>
                         <x:TreeNode Text="漯河市" Enabled="true" NodeID="Luohe" />

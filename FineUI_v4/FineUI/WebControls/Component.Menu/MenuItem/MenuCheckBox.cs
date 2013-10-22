@@ -225,7 +225,7 @@ namespace FineUI
         /// </summary>
         public void RaisePostDataChangedEvent()
         {
-            OnCheckedChanged(EventArgs.Empty);
+            OnCheckedChanged(new CheckedEventArgs(Checked));
         }
 
         #endregion
@@ -239,7 +239,7 @@ namespace FineUI
         /// </summary>
         [Category(CategoryName.ACTION)]
         [Description("复选框状态改变事件（需要启用AutoPostBack）")]
-        public event EventHandler CheckedChanged
+        public event EventHandler<CheckedEventArgs> CheckedChanged
         {
             add
             {
@@ -255,9 +255,9 @@ namespace FineUI
         /// 触发复选框状态改变事件
         /// </summary>
         /// <param name="e">事件参数</param>
-        protected virtual void OnCheckedChanged(EventArgs e)
+        protected virtual void OnCheckedChanged(CheckedEventArgs e)
         {
-            EventHandler handler = Events[_handlerKey] as EventHandler;
+            EventHandler<CheckedEventArgs> handler = Events[_handlerKey] as EventHandler<CheckedEventArgs>;
             if (handler != null)
             {
                 handler(this, e);

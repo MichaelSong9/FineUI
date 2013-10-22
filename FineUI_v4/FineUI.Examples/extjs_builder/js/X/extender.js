@@ -976,21 +976,20 @@ if (Ext.tree.Panel) {
                 // 11 - IconUrl
                 // 12 - iconUrl
                 // 13 - ToolTip
-                // 14 - SingleClickExpand
-                // 15 - OnClientClick
-                // 16 - EnablePostBack
-                // 17 - AutoPostBack
-                // 18 - CommandName
-                // 19 - CommandArgument
-                // 20 - Nodes
+                // 14 - OnClientClick
+                // 15 - EnablePostBack
+                // 16 - AutoPostBack
+                // 17 - CommandName
+                // 18 - CommandArgument
+                // 19 - Nodes
                 node.text = data[0];
                 node.leaf = !!data[1];
                 node.id = data[2];
                 node.disabled = !data[3];
                 if (!!data[4]) {
                     node.checked = !!data[5];
-                    if (!!data[17]) {
-                        node.x_checkchangeevent = true;
+                    if (!!data[16]) {
+                        node.x_autopostback = true;
                     }
                 }
                 if (!data[1]) {
@@ -1005,13 +1004,21 @@ if (Ext.tree.Panel) {
                 }
                 node.qtip = data[13];
 
-                //node.singleClickExpand = !!data[14];
+                if (data[14]) {
+                    node.x_clientclick = data[14];
+                }
+                node.x_enablepostback = !!data[15];
+                node.x_commandname = data[17];
+                node.x_commandargument = data[18];
+                
+                if (data[19] && data[19].length > 0) {
+                    node.children = that.x_tranformData(data[19]);
+                }
 
                 
-
+                /*
                 node.listeners = {};
 
-                /*
                 if (!data[3]) {
                     node.listeners.beforeclick = function () {
                         return false;
@@ -1024,7 +1031,7 @@ if (Ext.tree.Panel) {
                         __doPostBack(that.name, args);
                     };
                 }
-                */
+                
 
                 var clickScript = '';
                 if (data[15]) {
@@ -1041,6 +1048,7 @@ if (Ext.tree.Panel) {
                 if (data[20] && data[20].length > 0) {
                     node.children = that.x_tranformData(data[20]);
                 }
+                */
 
                 nodes.push(node);
             }
