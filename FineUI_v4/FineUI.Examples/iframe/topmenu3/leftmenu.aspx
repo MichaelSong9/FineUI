@@ -25,8 +25,8 @@
             var treeFirstChild = tree.getRootNode().firstChild;
 
             // 选中第一个链接节点，并在右侧IFrame中打开此链接
-            treeFirstChild.select();
-            parent.window.frames['mainframe'].location.href = treeFirstChild.attributes['href'];
+            tree.getSelectionModel().select(treeFirstChild);
+            parent.window.frames['mainframe'].location.href = treeFirstChild.data.href;
 
         }
     </script>

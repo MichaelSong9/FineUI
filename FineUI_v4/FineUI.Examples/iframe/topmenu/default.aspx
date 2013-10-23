@@ -5,6 +5,11 @@
 <head runat="server">
     <title>顶部菜单框架（一）</title>
     <link type="text/css" rel="stylesheet" href="./res/main.css" />
+    <style>
+        body, body.x-body {
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -55,7 +60,7 @@
                 </Items>
             </x:Region>
             <x:Region ID="mainRegion" ShowHeader="false" Margins="0 0 0 0" Position="Center"
-                EnableIFrame="true" IFrameName="mainframe" IFrameUrl="about:blank;" runat="server">
+                EnableIFrame="true" IFrameName="mainframe" IFrameUrl="about:blank" runat="server">
             </x:Region>
         </Regions>
     </x:RegionPanel>
@@ -79,8 +84,8 @@
 
             // 选中第一个链接节点，并在右侧IFrame中打开此链接
             var treeFirstLink = treeFirstChild.firstChild;
-            treeFirstLink.select();
-            window.frames['mainframe'].location.href = treeFirstLink.attributes['href'];
+            tree.getSelectionModel().select(treeFirstLink);
+            window.frames['mainframe'].location.href = treeFirstLink.data.href;
 
         }
 

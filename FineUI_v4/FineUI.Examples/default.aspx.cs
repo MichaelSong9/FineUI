@@ -343,49 +343,6 @@ namespace FineUI.Examples
         }
 
 
-        ///// <summary>
-        ///// 修改样式
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //protected void ddlTheme_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    HttpCookie themeCookie = new HttpCookie("Theme", ddlTheme.SelectedValue);
-        //    themeCookie.Expires = DateTime.Now.AddYears(1);
-        //    Response.Cookies.Add(themeCookie);
-
-        //    PageContext.Refresh();
-        //}
-
-        ///// <summary>
-        ///// 修改语言
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //protected void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    HttpCookie langCookie = new HttpCookie("Language", ddlLanguage.SelectedValue);
-        //    langCookie.Expires = DateTime.Now.AddYears(1);
-        //    Response.Cookies.Add(langCookie);
-
-        //    PageContext.Refresh();
-        //}
-
-
-        ///// <summary>
-        ///// 修改菜单类型
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //protected void ddlMenu_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    HttpCookie langCookie = new HttpCookie("Menu", ddlMenu.SelectedValue);
-        //    langCookie.Expires = DateTime.Now.AddYears(1);
-        //    Response.Cookies.Add(langCookie);
-
-        //    PageContext.Refresh();
-        //}
-
 
         #endregion
 

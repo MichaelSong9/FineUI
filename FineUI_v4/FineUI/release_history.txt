@@ -74,7 +74,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+增加事件参数类CheckedEventArgs，复选框、单选框以及菜单按钮的CheckedChanged事件会接收这个事件参数。
 		-更新示例default.aspx、toolbar/menucheckbox.aspx、form/radiobutton.aspx，处理单选框列表时需要的技巧。
 	+窗体控件更新。
-		-页面中面板初始属性IFrameUrl="#"或者IFrameUrl="about:blank"完全可以删除，此时面板中的IFrame会延迟加载。
+		-如果删除面板初始属性IFrameUrl="#"或者IFrameUrl="about:blank"，则面板中的IFrame会延迟加载。
+		-对于设置了IFrameName的面板，初始属性IFrameUrl需要保留，比如iframe/topmenu/default.aspx。
+
 
 
 +2013-10-** v3.3.2

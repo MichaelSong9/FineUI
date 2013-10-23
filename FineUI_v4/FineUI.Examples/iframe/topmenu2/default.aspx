@@ -42,7 +42,7 @@
                 Position="Left" runat="server">
             </x:Region>
             <x:Region ID="mainRegion" ShowHeader="false" Margins="0 0 0 0" Position="Center"
-                EnableIFrame="true" IFrameName="mainframe" IFrameUrl="about:blank;" runat="server">
+                EnableIFrame="true" IFrameName="mainframe" IFrameUrl="about:blank" runat="server">
             </x:Region>
         </Regions>
     </x:RegionPanel>
