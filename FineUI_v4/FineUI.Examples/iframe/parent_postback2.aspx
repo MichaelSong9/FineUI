@@ -9,19 +9,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    页面二：parent_postback2.aspx
+        <x:PageManager ID="PageManager1" runat="server" />
+        页面二：parent_postback2.aspx
     <br />
-    <x:Label ID="labResult" runat="server">
-    </x:Label>
-    <br />
-    <x:Button ID="Button1" runat="server" Text="页面二中的按钮">
-    </x:Button>
-    <br />
-    <x:Window ID="Window1" runat="server" Height="350px" EnableIFrame="true" IFrameUrl="parent_postback3.aspx"
-        IsModal="false" Popup="true" Width="650px" EnableMaximize="true" EnableResize="true"
-        Target="Self" OnClose="Window1_Close" Title="页面二中的弹出对话框">
-    </x:Window>
+        <x:Label ID="labResult" runat="server">
+        </x:Label>
+        <br />
+        <x:Button ID="Button1" runat="server" Text="页面二中的按钮">
+        </x:Button>
+        <br />
+        <x:Window ID="Window1" runat="server" Height="350px" EnableIFrame="true" IFrameUrl="parent_postback3.aspx"
+            IsModal="false" Popup="true" Width="650px" EnableMaximize="true" EnableResize="true"
+            Target="Self" OnClose="Window1_Close" Title="页面二中的弹出对话框">
+        </x:Window>
     </form>
 </body>
 </html>

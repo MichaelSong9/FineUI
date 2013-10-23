@@ -25,7 +25,7 @@
             </x:HiddenField>
         </Items>
     </x:SimpleForm>
-    <x:Window ID="Window1" Title="编辑" Popup="false" EnableIFrame="true" runat="server"
+    <x:Window ID="Window1" Title="编辑" Hidden="true" EnableIFrame="true" runat="server"
         EnableMaximize="true" EnableResize="true" Target="Parent" OnClose="Window1_Close"
         IsModal="True" Width="650px" Height="450px">
     </x:Window>
@@ -42,7 +42,7 @@
             </x:Button>
         </Items>
     </x:SimpleForm>
-    <x:Window ID="Window2" Title="编辑" Popup="false" EnableIFrame="true" runat="server"
+    <x:Window ID="Window2" Title="编辑" Hidden="true" EnableIFrame="true" runat="server"
         EnableMaximize="true" EnableResize="true" Target="Self" OnClose="Window2_Close"
         IsModal="True" Width="650px" Height="450px">
     </x:Window>

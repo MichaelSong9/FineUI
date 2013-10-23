@@ -28,6 +28,13 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 发布历史
 
 +2013-09-** v4.0 beta1
+	+修正面板的Collapsed属性在客户端改变后状态同步问题。
+		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
+	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
+		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
+	-修正TimerPicker无法赋值的问题（隨風往事、凤凰涅盘ing）。
+	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
+	-修正引入样式文件的标签笔误，应为type=text/css（是梦~`）。
 	-MsgTarget改名为MessageTarget，增加项None。
 	-FormOffsetRight的默认值由20px改为5px。
 	-为Web.config和PageManager增加FormLabelAlign配置项。
@@ -59,12 +66,6 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-更新可编辑表格实示例的客户端脚本，在执行onReady函数时表格的viewready事件已经执行完毕。
 		+分组表头和之前不兼容。
 			-删除类GridGroupColumn，删除表格的Columns属性，增加类GroupField。
-		-
-	+修正面板的Collapsed属性在客户端改变后状态同步问题。
-		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
-	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
-		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
-	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
 	+选项卡控件更新。
 		-为TabPosition类型增加Left、Right两个枚举类型。
 	-自动完成文本框示例更新（FineUI的TextBox控件被渲染为table而不是之前的input）。
@@ -72,7 +73,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-删除TreeNode的属性SingleClickExpand。
 	+增加事件参数类CheckedEventArgs，复选框、单选框以及菜单按钮的CheckedChanged事件会接收这个事件参数。
 		-更新示例default.aspx、toolbar/menucheckbox.aspx、form/radiobutton.aspx，处理单选框列表时需要的技巧。
-	
+	+窗体控件更新。
+		-页面中面板初始属性IFrameUrl="#"或者IFrameUrl="about:blank"完全可以删除，此时面板中的IFrame会延迟加载。
 
 
 +2013-10-** v3.3.2
@@ -89,6 +91,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-重现步骤：tree/checkbox/tree_checkall.aspx示例，选中驻马店，点击河南省，则驻马店没能保持选中状态。
 	-修正TimerPicker无法赋值的问题（隨風往事、凤凰涅盘ing）。
 	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
+	-修正引入样式文件的标签笔误，应为type=text/css（是梦~`）。
 	-Tree,x_loadData时要清空一些数据
 
 

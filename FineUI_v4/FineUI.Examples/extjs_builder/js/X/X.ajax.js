@@ -155,7 +155,7 @@
         }
 
         if (!X.ajax.errorWindow) {
-            X.ajax.errorWindow = new Ext.Window({
+            X.ajax.errorWindow = Ext.create('Ext.window.Window', {
                 id: "FINEUI_ERROR",
                 renderTo: window.body,
                 width: 550,

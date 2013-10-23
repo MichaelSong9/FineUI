@@ -39,7 +39,7 @@
         <br />
         <x:Button ID="btnSelectColumns" runat="server" Text="选择需要导出的列" EnablePostBack="false">
         </x:Button>
-        <x:Window ID="Window1" Title="选择需要导出的列" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        <x:Window ID="Window1" Title="选择需要导出的列" Hidden="true" EnableIFrame="true"
             EnableMaximize="true" Target="Top" EnableResize="true" runat="server" OnClose="Window1_Close"
             IsModal="true" Width="850px" EnableConfirmOnClose="true" Height="550px">
         </x:Window>

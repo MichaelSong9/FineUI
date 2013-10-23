@@ -164,7 +164,7 @@
                 </x:Region>
             </Regions>
         </x:RegionPanel>
-        <x:Window ID="windowSourceCode" Icon="PageWhiteCode" Title="源代码" Popup="false" EnableIFrame="true"
+        <x:Window ID="windowSourceCode" Icon="PageWhiteCode" Title="源代码" Hidden="true" EnableIFrame="true"
             runat="server" IsModal="true" Width="950px" Height="550px" EnableClose="true"
             EnableMaximize="true" EnableResize="true">
         </x:Window>

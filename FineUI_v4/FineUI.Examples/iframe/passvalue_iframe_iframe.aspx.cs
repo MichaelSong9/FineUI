@@ -20,8 +20,6 @@ namespace FineUI.Examples.iframe
         {
             ddlSheng.DataSource = SHENG_JSON;
             ddlSheng.DataBind();
-
-            ddlSheng.Items.Insert(0, new ListItem("选择省份", "-1"));
         }
 
 

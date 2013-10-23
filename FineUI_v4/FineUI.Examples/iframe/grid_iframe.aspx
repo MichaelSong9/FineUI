@@ -85,7 +85,7 @@
             </x:Panel>
         </Items>
     </x:Panel>
-    <x:Window ID="Window1" Title="弹出窗体" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <x:Window ID="Window1" Title="弹出窗体" Hidden="true" EnableIFrame="true"
         EnableMaximize="true" Target="Top" EnableResize="true" runat="server" OnClose="Window1_Close"
         IsModal="true" Width="850px" EnableConfirmOnClose="true" Height="550px">
     </x:Window>

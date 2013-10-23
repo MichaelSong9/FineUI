@@ -81,7 +81,7 @@
                     // Ext.apply 的第三个参数是default obejct
                     var config = Ext.apply({}, {
                         'renderTo': wrapper,
-                        'manager': target.X.window_default_group,
+                        //'manager': target.X.x_window_manager,
                         'id': guid,
                         //'box_hide': null,
                         //'box_hide_refresh': null,
@@ -98,7 +98,7 @@
                     // 在这个幻影中，通过“x_property_frame_element_name”属性标示这是一个幻影
                     // x_property_frame_element_name: 并且真正的Ext-Window在当前页面中的哪个IFrame中
                     // x_property_client_id: 并且真正的Ext-Window在所在页面中的客户端ID
-                    target.X[guid] = new target.Ext.Window(config);
+                    target.X[guid] = target.Ext.create('Ext.window.Window', config);
                 }
                 panel = target.X[guid];
             }
@@ -163,8 +163,10 @@
             Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
             if (enableIFrame) {
-                wnd.body.first().dom.src = 'about:blank';
-                wnd['x_iframe_url'] = 'about:blank';
+                //wnd.body.query('iframe')[0].src = 'about:blank';
+                //wnd['x_iframe_url'] = 'about:blank';
+                wnd['x_iframe_loaded'] = false;
+                wnd.update("");
             }
             wnd.hide();
         },
@@ -212,15 +214,13 @@
                 if (!panel['x_iframe_loaded']) {
                     window.setTimeout(function () {
                         // 如果此Panel已经创建完毕，但有时Panel可能是延迟创建的（比如TabStrip中的Tab，只有点击这个Tab时才创建Tab的内容）
-                        if (panel.body) {
-                            panel['x_iframe_loaded'] = true;
-                            panel.body.dom.innerHTML = _createIFrameHtml(panel['x_iframe_url'], panel['x_iframe_name']);
-                        }
+                        panel['x_iframe_loaded'] = true;
+                        panel.update(_createIFrameHtml(panel['x_iframe_url'], panel['x_iframe_name']));
                     }, 0);
                 }
                 else {
                     if (iframeUrlChanged) {
-                        panel.body.first().dom.src = panel['x_iframe_url'];
+                        panel.body.query('iframe')[0].src = panel['x_iframe_url'];
                     }
                 }
             }
@@ -291,7 +291,7 @@
         /*
         getActiveWindow: function () {
         var activeWindow = parent.window;
-        var activeExtWindow = parent.X.window_default_group.getActive();
+        var activeExtWindow = parent.X.x_window_manager.getActive();
         if (activeExtWindow['box_property_frame_element_name']) {
         var iframeParentWindow = activeExtWindow['box_property_parent_window'];
         activeWindow = iframeParentWindow.Ext.query('iframe[name=' + activeExtWindow['box_property_frame_element_name'] + ']')[0].contentWindow;
@@ -304,7 +304,7 @@
 
         getActiveWindow: function () {
             var activeWindow = parent.window;
-            var activeExtWindow = parent.X.window_default_group.getActive();
+            var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.X.x_window_manager.getActive();
             if (activeExtWindow['x_property_window']) {
                 activeWindow = activeExtWindow['x_property_window'];
                 activeExtWindow = activeExtWindow['x_property_ext_window'];

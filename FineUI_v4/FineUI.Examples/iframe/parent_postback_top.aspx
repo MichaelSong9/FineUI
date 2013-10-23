@@ -9,15 +9,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    页面一：parent_postback_top.aspx
-    <x:Label ID="labResult" runat="server">
-    </x:Label>
-    <br />
-    <x:Panel ID="Panel1" runat="server"  ShowBorder="true"
-        Width="800px" Height="450px" EnableIFrame="true" IFrameUrl="parent_postback_top2.aspx"
-        ShowHeader="true" Title="面板一">
-    </x:Panel>
+        <x:PageManager ID="PageManager1" runat="server" />
+        页面一：parent_postback_top.aspx
+        <x:Label ID="labResult" runat="server">
+        </x:Label>
+        <br />
+        <x:Panel ID="Panel1" runat="server" ShowBorder="true" EnableFrame="true" EnableCollapse="true"
+            Width="800px" Height="450px" EnableIFrame="true" IFrameUrl="parent_postback_top2.aspx"
+            ShowHeader="true" Title="面板一">
+        </x:Panel>
     </form>
 </body>
 </html>

@@ -92,13 +92,14 @@ X.fieldValue = function (cmp) {
 
             // 添加Ajax Loading提示节点
             X.ajaxLoadingDefault = Ext.get(X.util.appendLoadingNode());
-            X.ajaxLoadingMask = new Ext.LoadMask(Ext.getBody(), { msg: X.util.loading });
+            X.ajaxLoadingMask = Ext.create('Ext.LoadMask', Ext.getBody(), { msg: X.util.loading });
 
 
             X.form_upload_file = false;
             X.global_disable_ajax = false;
-            X.window_default_group = new Ext.WindowGroup();
-            X.window_default_group.zseed = 6000;
+            //X.x_window_manager = new Ext.WindowManager();
+            //X.x_window_manager.zseed = 6000;
+
             X.util.setHiddenFieldValue('X_CHANGED', 'false');
             document.forms[0].autocomplete = 'off';
 

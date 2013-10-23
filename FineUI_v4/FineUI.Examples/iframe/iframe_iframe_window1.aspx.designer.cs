@@ -49,15 +49,6 @@ namespace FineUI.Examples.iframe {
         protected global::FineUI.Button btnPostBackClose;
         
         /// <summary>
-        /// ToolbarSeparator1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.ToolbarSeparator ToolbarSeparator1;
-        
-        /// <summary>
         /// Button1 控件。
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace FineUI.Examples.iframe {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.Button Button2;
+        
+        /// <summary>
+        /// labResult 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Label labResult;
         
         /// <summary>
         /// Window1 控件。

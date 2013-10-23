@@ -19,7 +19,7 @@
             </x:Button>
         </Items>
     </x:SimpleForm>
-    <x:Window ID="Window1" Title="编辑" Popup="false" EnableIFrame="true" runat="server"
+    <x:Window ID="Window1" Title="编辑" Hidden="true" EnableIFrame="true" runat="server"
         EnableMaximize="true" EnableResize="true" Target="Parent" IsModal="True" Width="580px"
         Height="460px">
     </x:Window>

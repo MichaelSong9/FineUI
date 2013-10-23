@@ -18,7 +18,7 @@ namespace FineUI.Examples.iframe
 
         protected void Window1_Close(object sender, WindowCloseEventArgs e)
         {
-            Button1.Text = "更新时间：" + DateTime.Now.ToLongTimeString();
+            //Button1.Text = "更新时间：" + DateTime.Now.ToLongTimeString();
             PageContext.RegisterStartupScript("parent.__doPostBack('','Test3WindowClose');");
         }
     }

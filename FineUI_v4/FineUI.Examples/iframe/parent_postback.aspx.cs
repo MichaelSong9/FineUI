@@ -14,13 +14,10 @@ namespace FineUI.Examples.iframe
         {
             if (IsPostBack)
             {
-
-
                 if (Request.Form["__EVENTARGUMENT"] == "Test3WindowClose")
                 {
-                    Button1.Text = "更新时间：" + DateTime.Now.ToLongTimeString();
+                    //Button1.Text = "更新时间：" + DateTime.Now.ToLongTimeString();
                 }
-
             }
             else
             {
