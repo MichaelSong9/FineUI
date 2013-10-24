@@ -10,10 +10,10 @@
 <body>
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" Width="650px" EnableFrame="true" EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
-                <x:DropDownList Label="DropDownList" AutoPostBack="false" Required="true" EnableSimulateTree="true"
+                <x:DropDownList Label="模拟树的下拉列表" AutoPostBack="false" Required="true" EnableSimulateTree="true"
                     ShowRedStar="true" runat="server" ID="ddlBox">
                 </x:DropDownList>
 

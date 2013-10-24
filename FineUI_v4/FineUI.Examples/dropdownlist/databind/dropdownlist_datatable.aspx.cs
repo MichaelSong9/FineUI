@@ -73,7 +73,7 @@ namespace FineUI.Examples.dropdownlist
             table.Rows.Add(row);
 
             row = table.NewRow();
-            row[0] = "这是一个很长很长很长很长很长很长很长很长很长很长的可选项";
+            row[0] = "这是一个很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的可选项";
             row[1] = "10";
             table.Rows.Add(row);
 

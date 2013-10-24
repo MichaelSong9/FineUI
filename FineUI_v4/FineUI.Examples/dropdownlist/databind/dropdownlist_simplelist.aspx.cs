@@ -31,7 +31,7 @@ namespace FineUI.Examples.dropdownlist
             strList.Add("选项 7");
             strList.Add("选项 8");
             strList.Add("选项 9");
-            strList.Add("这是一个很长很长很长很长很长很长很长很长很长很长的可选项");
+            strList.Add("这是一个很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的可选项");
 
             DropDownList1.DataSource = strList;
             DropDownList1.DataBind();

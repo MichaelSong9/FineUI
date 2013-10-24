@@ -34,7 +34,7 @@
         function onReady() {
             editor = new UE.ui.Editor({
                 initialFrameWidth: '100%',
-                initialFrameHeight: '100%',
+                initialFrameHeight: 300,
                 focus: true
             });
             editor.render("UEditor1");

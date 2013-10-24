@@ -28,6 +28,7 @@ namespace FineUI.Examples.data
             ddlSheng.DataBind();
 
             ddlSheng.Items.Insert(0, new ListItem("选择省份", "-1"));
+            ddlSheng.SelectedValue = "-1";
         }
 
         private void BindShi()
@@ -36,12 +37,13 @@ namespace FineUI.Examples.data
 
             if (sheng != "-1")
             {
-                JArray ja = SHI_JSON.Value<JArray>(sheng); // .getJSONArray(sheng);
+                JArray ja = SHI_JSON.Value<JArray>(sheng);
                 ddlShi.DataSource = ja;
                 ddlShi.DataBind();
             }
 
             ddlShi.Items.Insert(0, new ListItem("选择地区市", "-1"));
+            ddlShi.SelectedValue = "-1";
         }
 
         private void BindXian()
@@ -50,12 +52,13 @@ namespace FineUI.Examples.data
 
             if (shi != "-1")
             {
-                JArray ja = XIAN_JSON.Value<JArray>(shi); //.getJSONArray(shi);
+                JArray ja = XIAN_JSON.Value<JArray>(shi);
                 ddlXian.DataSource = ja;
                 ddlXian.DataBind();
             }
 
             ddlXian.Items.Insert(0, new ListItem("选择县级市", "-1"));
+            ddlXian.SelectedValue = "-1";
         }
 
         protected void ddlSheng_SelectedIndexChanged(object sender, EventArgs e)

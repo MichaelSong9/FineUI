@@ -38,6 +38,7 @@
         </x:SimpleForm>
         <br />
         <br />
+        注：下拉列表的属性设置为EnableEdit="true" ForceSelection="false"。
     </form>
 </body>
 </html>

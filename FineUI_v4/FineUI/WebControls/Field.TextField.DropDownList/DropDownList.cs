@@ -214,17 +214,17 @@ namespace FineUI
         #region Properties
 
         /// <summary>
-        /// 是否强制选中项为下拉列表中的项（启用编辑的情况下）
+        /// 是否强制选中下拉列表中的项（启用编辑的情况下）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("是否强制选中项为下拉列表中的项（启用编辑的情况下）")]
+        [DefaultValue(false)]
+        [Description("是否强制选中下拉列表中的项（启用编辑的情况下）")]
         public bool ForceSelection
         {
             get
             {
                 object obj = XState["ForceSelection"];
-                return obj == null ? true : (bool)obj;
+                return obj == null ? false : (bool)obj;
             }
             set
             {
@@ -335,24 +335,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 是否可以改变下拉列表的宽度
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否可以改变下拉列表的宽度")]
-        public bool Resizable
-        {
-            get
-            {
-                object obj = XState["Resizable"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["Resizable"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否可以改变下拉列表的宽度
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否可以改变下拉列表的宽度")]
+        //public bool Resizable
+        //{
+        //    get
+        //    {
+        //        object obj = XState["Resizable"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["Resizable"] = value;
+        //    }
+        //}
 
         #region old code
 
@@ -721,6 +721,20 @@ namespace FineUI
 
         #endregion
 
+        #region SelectedValueHiddenFieldID
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        private string SelectedValueHiddenFieldID
+        {
+            get
+            {
+                return String.Format("{0}_Value", ClientID);
+            }
+        }
+
+        #endregion
+
         #region OnPreRender
 
         /// <summary>
@@ -792,22 +806,28 @@ namespace FineUI
 
             #region Properties
 
-            if (!EnableEdit)
+            if (EnableEdit)
+            {
+                OB.AddProperty("editable", true);
+            }
+            else
             {
                 OB.AddProperty("editable", false);
             }
 
-            if (!ForceSelection)
+
+
+            if (ForceSelection)
             {
-                OB.AddProperty("forceSelection", false);
+                OB.AddProperty("forceSelection", true);
             }
 
-            if (Resizable)
-            {
-                OB.AddProperty("resizable", true);
-            }
+            //if (Resizable)
+            //{
+            //    OB.AddProperty("resizable", true);
+            //}
 
-            OB.AddProperty("hiddenName", UniqueID);
+            OB.AddProperty("hiddenName", SelectedValueHiddenFieldID);
 
 
             JsObjectBuilder storeBuilder = new JsObjectBuilder();
@@ -1357,30 +1377,30 @@ namespace FineUI
         /// <returns>回发数据是否改变</returns>
         public bool LoadPostData(string postDataKey, System.Collections.Specialized.NameValueCollection postCollection)
         {
-            string postValue = postCollection[postDataKey];
+            string postText = postCollection[postDataKey];
+            string postValue = postCollection[SelectedValueHiddenFieldID];
 
-            if (SelectedValue != postValue)
+
+            ListItem item = Items.FindByValue(postValue);
+            if (item != null && item.Text == postText)
             {
-                ListItem item = Items.FindByValue(postValue);
-                if (item != null)
+                if (SelectedValue != postValue)
                 {
                     SelectedValue = postValue;
                     XState.BackupPostDataProperty("SelectedValue");
                     return true;
                 }
-                else
-                {
-                    if (!ForceSelection)
-                    {
-                        SelectedValue = null;
-                        XState.BackupPostDataProperty("SelectedValue");
-
-                        Text = postValue;
-                        XState.BackupPostDataProperty("Text");
-                        return true;
-                    }
-                }
             }
+            else
+            {
+                SelectedValue = null;
+                XState.BackupPostDataProperty("SelectedValue");
+
+                Text = postText;
+                XState.BackupPostDataProperty("Text");
+                return true;
+            }
+
             return false;
         }
 

@@ -13,7 +13,7 @@
         <x:PageManager ID="PageManager1" runat="server" />
         <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px" Height="550px" EnableFrame="true" EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Title="内容面板">
-            <CKEditor:CKEditorControl ID="CKEditor1" runat="server" Height="200" BasePath="~/ckeditor">
+            <CKEditor:CKEditorControl ID="CKEditor1" runat="server" Height="300px" BasePath="~/ckeditor">
 		        &lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
             </CKEditor:CKEditorControl>
         </x:ContentPanel>

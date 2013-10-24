@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <x:PageManager ID="PageManager1" runat="server" />
-    <x:DropDownList runat="server" ID="DropDownList1" EnableEdit="true" ForceSelection="false">
+    <x:DropDownList runat="server" ID="DropDownList1" EnableEdit="true" ForceSelection="true">
         <x:ListItem Text="选项 1" Value="Value1" Selected="true" />
         <x:ListItem Text="选项 2（不可选择）" Value="Value2" EnableSelect="false" />
         <x:ListItem Text="选项 3（不可选择）" Value="Value3" EnableSelect="false" />

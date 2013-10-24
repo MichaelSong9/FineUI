@@ -46,7 +46,10 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-FineUI_v4中的文本输入框或者日期选择器，AutoPostBack使得TextChanged事件立即触发（输入单个字符串和选择日期后）。
 		-FineUI_v3中的文本输入框或者日期选择器，AutoPostBack使得TextChanged事件在输入框失去焦点后触发。
 		-为了在FineUI_v4中实现之前的失去焦点后触发的事件，为文本输入框增加EnableBlurEvent属性和Blur事件。
-	-DropDownList默认可以不选择，方便使用Required属性做客户端验证，示例form/form.aspx。
+	+DropDownList更新。
+		-默认可以为空，方便使用Required属性做客户端验证，示例form/form.aspx。
+		-ForceSelection属性默认为false，更新示例dropdownlist/dropdownlist_forceselection.aspx。
+		-删除Resizable属性。
 	-优化XState的初始化代码，使得Reset按钮可用于下拉列表、富文本编辑器等控件，而不会清空这些控件的值。
 	-删除PanelBase的属性AutoHeight和AutoWidth。
 	+表格更新。
@@ -94,7 +97,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正TimerPicker无法赋值的问题（隨風往事、凤凰涅盘ing）。
 	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
 	-修正引入样式文件的标签笔误，应为type=text/css（是梦~`）。
-	-Tree,x_loadData时要清空一些数据
+	-DropDownList的ForceSelection属性默认为false，更新示例dropdownlist/dropdownlist_forceselection.aspx。
 
 
 +2013-07-29 v3.3.1
@@ -119,9 +122,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-优化TextArea/HtmlEditor在页面第一次加载和AJAX回发时产生的数据大小，防止生成重复数据。
 		-更新导出Excel的示例grid/grid_excel.aspx，特别注意如何处理模板列（为了优化性能，不能直接获取模板列的内容了）。
 		+优化结果（A:grid/grid_rowcommand_paging.aspx,B:grid/grid_rowcommand_paging_database.aspx）：
-			-版本-----A首次响应----A下一页请求----A下一页响应---B首次响应----B下一页请求----B下一页响应---
-			-v3.3.0---56.4K--------61.7K----------7.8K----------18.0K--------14.4K----------10.7K---------
-			-v3.3.1---43.7K---------7.0K----------0.2K----------16.4K---------3.5K-----------8.6K---------
+			-[版本][A首次响应][A下一页请求][A下一页响应][B首次响应][B下一页请求][B下一页响应]
+			-[v3.3.0][56.4K][61.7K][7.8K][18.0K][14.4K][10.7K]
+			-[v3.3.1][43.7K][7.0K][0.2K][16.4K][3.5K][8.6K]
 	+表格增强。
 		+修正模板列示例中注册客户端事件的错误，重新绑定数据后客户端脚本失效。
 			-现在使用ExtJS的代理事件，只需要在页面第一次加载时注册事件即可。

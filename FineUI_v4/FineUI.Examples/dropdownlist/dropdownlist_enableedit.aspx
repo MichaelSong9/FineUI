@@ -13,7 +13,7 @@
         <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableFrame="true" EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
-                <x:DropDownList runat="server" ID="DropDownList1" EnableEdit="true">
+                <x:DropDownList runat="server" ID="DropDownList1" EnableEdit="true" ForceSelection="true">
                     <x:ListItem Text="选项 1" Value="Value1" Selected="true" />
                     <x:ListItem Text="选项 2（不可选择）" Value="Value2" EnableSelect="false" />
                     <x:ListItem Text="选项 3（不可选择）" Value="Value3" EnableSelect="false" />
@@ -38,6 +38,7 @@
         </x:SimpleForm>
         <br />
         <br />
+        注：下拉列表的属性设置为EnableEdit="true" ForceSelection="true"。
     </form>
 </body>
 </html>
