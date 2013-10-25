@@ -45,7 +45,7 @@ namespace FineUI
         /// </summary>
         public Component()
         {
-            AddServerAjaxProperties("CssClass", "FormItemClass", "CssStyle");
+            AddServerAjaxProperties("CssClass", "CssStyle");
             AddClientAjaxProperties();
 
         }
@@ -94,43 +94,43 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 控件所在容器的样式类名
-        /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue("")]
-        [Description("控件所在容器的样式类名")]
-        public virtual string ContainerClass
-        {
-            get
-            {
-                object obj = XState["ContainerClass"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                XState["ContainerClass"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 控件所在容器的样式类名
+        ///// </summary>
+        //[Category(CategoryName.BASEOPTIONS)]
+        //[DefaultValue("")]
+        //[Description("控件所在容器的样式类名")]
+        //public virtual string ContainerClass
+        //{
+        //    get
+        //    {
+        //        object obj = XState["ContainerClass"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["ContainerClass"] = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// [AJAX属性]表单中每一项的样式类名
-        /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue("")]
-        [Description("[AJAX属性]表单中每一项的样式类名")]
-        public virtual string FormItemClass
-        {
-            get
-            {
-                object obj = XState["FormItemClass"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                XState["FormItemClass"] = value;
-            }
-        }
+        ///// <summary>
+        ///// [AJAX属性]表单中每一项的样式类名
+        ///// </summary>
+        //[Category(CategoryName.BASEOPTIONS)]
+        //[DefaultValue("")]
+        //[Description("[AJAX属性]表单中每一项的样式类名")]
+        //public virtual string FormItemClass
+        //{
+        //    get
+        //    {
+        //        object obj = XState["FormItemClass"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["FormItemClass"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// [AJAX属性]控件样式
@@ -223,10 +223,10 @@ namespace FineUI
                 //sb.AppendFormat("{0}.el.addClass({1});", XID, JsHelper.Enquote(CssClass));
             }
 
-            if (PropertyModified("FormItemClass"))
-            {
-                //sb.AppendFormat("{0}.el.addClass({1});", XID, JsHelper.Enquote(FormItemClass));
-            }
+            //if (PropertyModified("FormItemClass"))
+            //{
+            //    sb.AppendFormat("{0}.el.addClass({1});", XID, JsHelper.Enquote(FormItemClass));
+            //}
 
             AddAjaxScript(sb);
         }
@@ -243,14 +243,15 @@ namespace FineUI
             {
                 OB.AddProperty("cls", CssClass);
             }
-            if (!String.IsNullOrEmpty(ContainerClass))
-            {
-                OB.AddProperty("ctCls", ContainerClass);
-            }
-            if (!String.IsNullOrEmpty(FormItemClass))
-            {
-                OB.AddProperty("itemCls", FormItemClass);
-            }
+            //if (!String.IsNullOrEmpty(ContainerClass))
+            //{
+            //    OB.AddProperty("ctCls", ContainerClass);
+            //}
+            //if (!String.IsNullOrEmpty(FormItemClass))
+            //{
+            //    OB.AddProperty("formItemCls", FormItemClass);
+            //}
+
             if (!String.IsNullOrEmpty(CssStyle))
             {
                 OB.AddProperty("style", CssStyle);

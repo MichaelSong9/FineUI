@@ -336,11 +336,11 @@
     <Content Include="other\alert.aspx" />
     <Content Include="other\button_in_form.aspx" />
     <Content Include="other\confirm_cancel.aspx" />
+    <Content Include="other\cssclass.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
     <Content Include="test\start.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
-    <Content Include="other\formitemclass.aspx" />
     <Content Include="other\cssstyle.aspx" />
     <Content Include="other\addtab.aspx" />
     <Content Include="other\ajax_loading.aspx" />
@@ -1579,6 +1579,13 @@
     <Compile Include="other\confirm_cancel.aspx.designer.cs">
       <DependentUpon>confirm_cancel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="other\cssclass.aspx.cs">
+      <DependentUpon>cssclass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\cssclass.aspx.designer.cs">
+      <DependentUpon>cssclass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="tabstrip\tabstrip_iframe_disabled.aspx.cs">
       <DependentUpon>tabstrip_iframe_disabled.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1606,13 +1613,6 @@
     </Compile>
     <Compile Include="toolbar\toolbar_iframe.aspx.designer.cs">
       <DependentUpon>toolbar_iframe.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="other\formitemclass.aspx.cs">
-      <DependentUpon>formitemclass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="other\formitemclass.aspx.designer.cs">
-      <DependentUpon>formitemclass.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\cssstyle.aspx.cs">
       <DependentUpon>cssstyle.aspx</DependentUpon>

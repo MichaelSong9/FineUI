@@ -65,8 +65,8 @@ namespace FineUI
 
         #region static readonly
 
-        private static readonly string ACCORDION_HEADER_SELECT = "box-accordion-hd-select";
-        private static readonly string ACCORDION_HEADER_HOVER = "box-accordion-hd-hover";
+        //private static readonly string ACCORDION_HEADER_SELECT = "box-accordion-hd-select";
+        //private static readonly string ACCORDION_HEADER_HOVER = "box-accordion-hd-hover";
 
         #endregion
 
@@ -214,31 +214,30 @@ namespace FineUI
 
             string renderScript = String.Empty;
 
-            #region Hover/Select
+            #region oldcode
 
 
-            // 如果启用高亮显示选中的，则在每个AccordionPanel的折叠展开时都要改变高亮选中的状态
-            if (EnableLargeHeader && EnableHightlight)
-            {
-                renderScript += String.Format("{0}.header.addClassOnOver('{1}');", XID, ACCORDION_HEADER_HOVER);
+            //// 如果启用高亮显示选中的，则在每个AccordionPanel的折叠展开时都要改变高亮选中的状态
+            //if (EnableLargeHeader && EnableHightlight)
+            //{
+            //    renderScript += String.Format("{0}.header.addClassOnOver('{1}');", XID, ACCORDION_HEADER_HOVER);
 
-                // 如果这个AccordionPanel需要高亮显示
-                if (parentControl.ActiveIndex >= 0 && parentControl.ActiveIndex < parentControl.Panes.Count)
-                {
-                    if (parentControl.Panes[parentControl.ActiveIndex] == this)
-                    {
-                        //OB.AddProperty(OptionName.Cls, ACCORDION_BIG_HEADER_SELECT_CLASS);
-                        renderScript += String.Format("{0}.header.addClass('{1}');", XID, ACCORDION_HEADER_SELECT);
-                    }
-                }
+            //    // 如果这个AccordionPanel需要高亮显示
+            //    if (parentControl.ActiveIndex >= 0 && parentControl.ActiveIndex < parentControl.Panes.Count)
+            //    {
+            //        if (parentControl.Panes[parentControl.ActiveIndex] == this)
+            //        {
+            //            //OB.AddProperty(OptionName.Cls, ACCORDION_BIG_HEADER_SELECT_CLASS);
+            //            renderScript += String.Format("{0}.header.addClass('{1}');", XID, ACCORDION_HEADER_SELECT);
+            //        }
+            //    }
 
-                OB.Listeners.RemoveProperty("collapse");
-                OB.Listeners.RemoveProperty("expand");
-                OB.Listeners.AddProperty("collapse", String.Format("function(panel){{Ext.get('{0}').dom.value=true;X.{1}.header.removeClass('{2}');}}", CollapsedHiddenFieldID, XID, ACCORDION_HEADER_SELECT), true);
-                OB.Listeners.AddProperty("expand", String.Format("function(panel){{Ext.get('{0}').dom.value=false;X.{1}.header.addClass('{2}');}}", CollapsedHiddenFieldID, XID, ACCORDION_HEADER_SELECT), true);
+            //    OB.Listeners.RemoveProperty("collapse");
+            //    OB.Listeners.RemoveProperty("expand");
+            //    OB.Listeners.AddProperty("collapse", String.Format("function(panel){{Ext.get('{0}').dom.value=true;X.{1}.header.removeClass('{2}');}}", CollapsedHiddenFieldID, XID, ACCORDION_HEADER_SELECT), true);
+            //    OB.Listeners.AddProperty("expand", String.Format("function(panel){{Ext.get('{0}').dom.value=false;X.{1}.header.addClass('{2}');}}", CollapsedHiddenFieldID, XID, ACCORDION_HEADER_SELECT), true);
 
-
-            }
+            //}
 
 
             #endregion

@@ -1083,11 +1083,11 @@ namespace FineUI
             string selectModelScript = String.Empty;
             if (EnableMultiSelect)
             {
-                selectModelScript = "new Ext.selection.TreeModel({mode:'MULTI'})";
+                selectModelScript = "Ext.create('Ext.selection.TreeModel',{mode:'MULTI'})";
             }
             else
             {
-                selectModelScript = "new Ext.selection.TreeModel()";
+                selectModelScript = "Ext.create('Ext.selection.TreeModel')";
             }
             OB.AddProperty("selModel", selectModelScript, true);
 

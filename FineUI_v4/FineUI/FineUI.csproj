@@ -114,7 +114,6 @@
     <Compile Include="Business\Enums\WindowPosition.cs" />
     <Compile Include="Business\Enums\ToolbarPosition.cs" />
     <Compile Include="Business\Enums\ButtonType.cs" />
-    <Compile Include="Business\Enums\CollapseMode.cs" />
     <Compile Include="Business\Enums\Target.cs" />
     <Compile Include="Business\Enums\RegexPattern.cs" />
     <Compile Include="Business\Enums\CloseAction.cs" />

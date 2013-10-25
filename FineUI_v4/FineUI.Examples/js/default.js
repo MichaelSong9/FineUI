@@ -26,7 +26,7 @@ function onReady() {
             // 左侧为树控件+手风琴控件
             var expandedPanel = getExpandedPanel();
             if (expandedPanel) {
-                expandedPanel.items.itemAt(0).expandAll();
+                expandedPanel.items.getAt(0).expandAll();
             }
         }
     });
@@ -40,7 +40,7 @@ function onReady() {
             // 左侧为树控件+手风琴控件
             var expandedPanel = getExpandedPanel();
             if (expandedPanel) {
-                expandedPanel.items.itemAt(0).collapseAll();
+                expandedPanel.items.getAt(0).collapseAll();
             }
         }
     });

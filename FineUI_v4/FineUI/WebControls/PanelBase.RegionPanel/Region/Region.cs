@@ -107,63 +107,63 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 是否启用分隔条提示
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否启用分隔条提示")]
-        public bool EnableSplitTip
-        {
-            get
-            {
-                object obj = XState["EnableSplitTip"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableSplitTip"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否启用分隔条提示
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否启用分隔条提示")]
+        //public bool EnableSplitTip
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableSplitTip"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableSplitTip"] = value;
+        //    }
+        //}
 
 
-        /// <summary>
-        /// 分隔条提示信息
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("分隔条提示信息")]
-        public string SplitTip
-        {
-            get
-            {
-                object obj = XState["SplitTip"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                XState["SplitTip"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 分隔条提示信息
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("分隔条提示信息")]
+        //public string SplitTip
+        //{
+        //    get
+        //    {
+        //        object obj = XState["SplitTip"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["SplitTip"] = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// 可折叠区域的分隔条提示信息
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("可折叠区域的分隔条提示信息")]
-        public string CollapsibleSplitTip
-        {
-            get
-            {
-                object obj = XState["CollapsibleSplitTip"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                XState["CollapsibleSplitTip"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 可折叠区域的分隔条提示信息
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("可折叠区域的分隔条提示信息")]
+        //public string CollapsibleSplitTip
+        //{
+        //    get
+        //    {
+        //        object obj = XState["CollapsibleSplitTip"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["CollapsibleSplitTip"] = value;
+        //    }
+        //}
 
 
         /// <summary>
@@ -185,24 +185,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 折叠后的边距
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("折叠后的边距")]
-        public string CMargins
-        {
-            get
-            {
-                object obj = XState["CMargins"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                XState["CMargins"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 折叠后的边距
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("折叠后的边距")]
+        //public string CMargins
+        //{
+        //    get
+        //    {
+        //        object obj = XState["CMargins"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["CMargins"] = value;
+        //    }
+        //}
 
 
         /// <summary>
@@ -224,24 +224,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(CollapseMode.Default)]
-        [Description("折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）")]
-        public CollapseMode CollapseMode
-        {
-            get
-            {
-                object obj = XState["CollapseMode"];
-                return obj == null ? CollapseMode.Default : (CollapseMode)obj;
-            }
-            set
-            {
-                XState["CollapseMode"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(CollapseMode.Default)]
+        //[Description("折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）")]
+        //public CollapseMode CollapseMode
+        //{
+        //    get
+        //    {
+        //        object obj = XState["CollapseMode"];
+        //        return obj == null ? CollapseMode.Default : (CollapseMode)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["CollapseMode"] = value;
+        //    }
+        //}
 
 
         #endregion
@@ -319,8 +319,6 @@ namespace FineUI
             base.OnFirstPreRender();
 
 
-            
-
             #region Options
 
             //// 默认Layout
@@ -339,35 +337,35 @@ namespace FineUI
                 OB.AddProperty("split", true);
             }
 
-            if (EnableSplitTip)
-            {
-                OB.AddProperty("useSplitTips", true);
-                if (EnableCollapse)
-                {
-                    if (!String.IsNullOrEmpty(CollapsibleSplitTip))
-                    {
-                        OB.AddProperty("collapsibleSplitTip", CollapsibleSplitTip);
-                    }
-                }
-                else
-                {
-                    if (!String.IsNullOrEmpty(SplitTip))
-                    {
-                        OB.AddProperty("splitTip", SplitTip);
-                    }
-                }
-            }
+            //if (EnableSplitTip)
+            //{
+            //    OB.AddProperty("useSplitTips", true);
+            //    if (EnableCollapse)
+            //    {
+            //        if (!String.IsNullOrEmpty(CollapsibleSplitTip))
+            //        {
+            //            OB.AddProperty("collapsibleSplitTip", CollapsibleSplitTip);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (!String.IsNullOrEmpty(SplitTip))
+            //        {
+            //            OB.AddProperty("splitTip", SplitTip);
+            //        }
+            //    }
+            //}
 
-            if (CollapseMode == CollapseMode.Mini)
-            {
-                OB.AddProperty("collapseMode", CollapseModeName.GetName(CollapseMode));
+            //if (CollapseMode == CollapseMode.Mini)
+            //{
+            //    OB.AddProperty("collapseMode", CollapseModeName.GetName(CollapseMode));
 
-            }
+            //}
 
-            if (!String.IsNullOrEmpty(CMargins))
-            {
-                OB.AddProperty("cmargins", CMargins);
-            }
+            //if (!String.IsNullOrEmpty(CMargins))
+            //{
+            //    OB.AddProperty("cmargins", CMargins);
+            //}
 
             
             #endregion

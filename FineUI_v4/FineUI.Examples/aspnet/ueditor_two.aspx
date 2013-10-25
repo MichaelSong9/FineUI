@@ -41,7 +41,6 @@
                             <td class="first">文章正文： </td>
                             <td class="second">
                                 <textarea name="UEditor1" id="UEditor1">
-                                &lt;p&gt;关于FineUI&lt;br /&gt;基于 ExtJS 的专业 ASP.NET 2.0 控件库。&lt;br /&gt;&lt;br /&gt;FineUI的使命&lt;br /&gt;创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。&lt;br /&gt;&lt;br /&gt;支持的浏览器&lt;br /&gt;IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+&lt;br /&gt;&lt;br /&gt;授权协议&lt;br /&gt;Apache License 2.0 (Apache)&lt;br /&gt;&lt;br /&gt;相关链接&lt;br /&gt;论坛：http://fineui.com/bbs/&lt;br /&gt;示例：http://fineui.com/demo/&lt;br /&gt;文档：http://fineui.com/doc/&lt;br /&gt;下载：http://fineui.codeplex.com/&lt;/p&gt;
                                 </textarea>
                             </td>
                         </tr>
@@ -85,7 +84,8 @@
         function onReady() {
             editor1 = new UE.ui.Editor({
                 initialFrameWidth: '100%',
-                initialFrameHeight: 100
+                initialFrameHeight: 100,
+                initialContent: '<p>关于FineUI<br>基于 ExtJS 的专业 ASP.NET 2.0 控件库。<br><br>FineUI的使命<br>创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。<br><br>支持的浏览器<br>IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+<br><br>授权协议<br>Apache License 2.0 (Apache)<br><br>相关链接<br>论坛：http://fineui.com/bbs/<br>示例：http://fineui.com/demo/<br>文档：http://fineui.com/doc/<br>下载：http://fineui.codeplex.com/</p>'
             });
             editor1.render("UEditor1");
 
@@ -99,35 +99,25 @@
             });
             editor2.render("UEditor2");
 
-
-
-            $.when(editor1Ready(), editor2Ready()).then(function () {
-                window.setTimeout(function () { updateLayout(); }, 100);
-
-            });
-
-
+            updateLayout();
+            
         }
 
-        function editor1Ready() {
+
+        function editorPromise(editor) {
             var dfd = $.Deferred();
 
-            editor1.addListener('ready', function (editor) {
+            if (editor.isReady) {
                 dfd.resolve();
-            });
+            } else {
+                editor.ready(function () {
+                    dfd.resolve();
+                });
+            }
 
             return dfd.promise();
         }
 
-        function editor2Ready() {
-            var dfd = $.Deferred();
-
-            editor2.addListener('ready', function (editor) {
-                dfd.resolve();
-            });
-
-            return dfd.promise();
-        }
 
         // 提交数据之前同步到表单隐藏字段
         X.util.beforeAjaxPostBackScript = function () {
@@ -137,20 +127,24 @@
 
         // 更新外部容器的布局
         function updateLayout() {
-            X(formClientID).updateLayout();
+            $.when(editorPromise(editor1), editorPromise(editor2)).then(function () {
+                window.setTimeout(function () {
+                    X(formClientID).updateLayout();
+                }, 100);
+            }); 
         }
 
         // 更新编辑器内容
         function updateUEditor1(content) {
-            window.setTimeout(function () {
+            editorPromise(editor1).then(function () {
                 editor1.setContent(content);
-            }, 100);
+            });
         }
 
         function updateUEditor2(content) {
-            window.setTimeout(function () {
+            editorPromise(editor2).then(function () {
                 editor2.setContent(content);
-            }, 100);
+            });
         }
     </script>
 </body>

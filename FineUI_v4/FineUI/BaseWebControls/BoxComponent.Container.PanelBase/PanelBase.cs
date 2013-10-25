@@ -160,24 +160,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 使用大的标题栏
-        /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue(false)]
-        [Description("使用大的标题栏")]
-        public bool EnableLargeHeader
-        {
-            get
-            {
-                object obj = XState["EnableLargeHeader"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                XState["EnableLargeHeader"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 使用大的标题栏
+        ///// </summary>
+        //[Category(CategoryName.BASEOPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("使用大的标题栏")]
+        //public bool EnableLargeHeader
+        //{
+        //    get
+        //    {
+        //        object obj = XState["EnableLargeHeader"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["EnableLargeHeader"] = value;
+        //    }
+        //}
 
 
         ///// <summary>
@@ -879,19 +879,15 @@ namespace FineUI
 
             #endregion
 
-            #region EnableLargeHeader
+            #region oldcode
 
-            if (EnableLargeHeader)
-            {
-                OB.AddProperty("cls", "box-panel-big-header");
-            }
+            //if (EnableLargeHeader)
+            //{
+            //    OB.AddProperty("cls", "box-panel-big-header");
+            //}
 
-            #endregion
 
-            #region remove fx
-
-            // 关闭折叠时特效
-            OB.AddProperty("animCollapse", false);
+            //OB.AddProperty("animCollapse", false);
 
             #endregion
 

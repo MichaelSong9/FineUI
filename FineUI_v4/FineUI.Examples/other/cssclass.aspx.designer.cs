@@ -10,7 +10,7 @@
 namespace FineUI.Examples.other {
     
     
-    public partial class formitemclass {
+    public partial class cssclass {
         
         /// <summary>
         /// form1 控件。

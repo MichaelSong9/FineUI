@@ -311,12 +311,12 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("ShowTrigger1"))
             {
-                sb.AppendFormat("{0}.triggerEl.item(0).{1}();", XID, ShowTrigger1 ? "show" : "hide");
+                sb.AppendFormat("{0}.triggerCell.item(0).setDisplayed({1});", XID, ShowTrigger1 ? "true" : "false");
             }
 
             if (PropertyModified("ShowTrigger2"))
             {
-                sb.AppendFormat("{0}.triggerEl.item(1).{1}();", XID, ShowTrigger2 ? "show" : "hide");
+                sb.AppendFormat("{0}.triggerCell.item(1).setDisplayed({1});", XID, ShowTrigger2 ? "true" : "false");
             }
 
             AddAjaxScript(sb);
@@ -345,16 +345,17 @@ namespace FineUI
             string renderScript = String.Empty;
             if (!ShowTrigger1)
             {
-                renderScript += String.Format("this.triggerEl.item(0).hide();");
+                renderScript += String.Format("this.triggerCell.item(0).setDisplayed(false);");
             }
             if (!ShowTrigger2)
             {
-                renderScript += String.Format("this.triggerEl.item(1).hide();");
+                renderScript += String.Format("this.triggerCell.item(1).setDisplayed(false);");
             }
 
             if (!String.IsNullOrEmpty(renderScript))
             {
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true); 
+                //renderScript += "this.updateLayout();";
+                OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(renderScript), true); 
             }
 
 

@@ -121,7 +121,7 @@ namespace FineUI
             if (this is TemplateField && (this as TemplateField).RenderAsRowExpander)
             {
                 JsObjectBuilder rowExpanderBuilder = new JsObjectBuilder();
-                rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("new Ext.XTemplate('{{{0}}}')", ColumnID), true);
+                rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("Ext.create('Ext.XTemplate','{{{0}}}')", ColumnID), true);
 
                 string jsContent = String.Format("var {0}=Ext.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
                 AddStartupScript(jsContent);

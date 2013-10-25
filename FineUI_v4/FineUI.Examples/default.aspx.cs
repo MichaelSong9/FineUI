@@ -140,8 +140,8 @@ namespace FineUI.Examples
                 InitLangMenuButton();
                 InitThemeMenuButton();
 
-                // 显示源代码按钮
-                btnSourceCode.OnClientClick = windowSourceCode.GetShowReference("./common/source.aspx?files=~/default.aspx;~/common/menu.xml;~/Web.config;~/Code/PageBase.cs;~/js/default.js;~/css/default.css");
+                //// 显示源代码按钮
+                //btnSourceCode.OnClientClick = windowSourceCode.GetShowReference("./common/source.aspx?files=~/default.aspx;~/common/menu.xml;~/Web.config;~/Code/PageBase.cs;~/js/default.js;~/css/default.css");
 
             }
         }

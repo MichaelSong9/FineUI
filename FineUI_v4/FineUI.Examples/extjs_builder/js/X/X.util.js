@@ -143,17 +143,17 @@ X.fieldValue = function (cmp) {
                 el.addCls(newValue);
             }
 
-            if (typeof (state['FormItemClass']) !== 'undefined') {
-                newValue = state['FormItemClass'];
-                oldValue = cmp['x_state']['FormItemClass'];
-                if (!oldValue) {
-                    oldValue = cmp.initialConfig.itemCls;
-                }
-                // Search for max 10 depth.
-                el = cmp.el.findParent('.x-form-item', 10, true);
-                el.removeCls(oldValue);
-                el.addCls(newValue);
-            }
+            //if (typeof (state['FormItemClass']) !== 'undefined') {
+            //    newValue = state['FormItemClass'];
+            //    oldValue = cmp['x_state']['FormItemClass'];
+            //    if (!oldValue) {
+            //        oldValue = cmp.initialConfig.itemCls;
+            //    }
+            //    // Search for max 10 depth.
+            //    el = cmp.el.findParent('.x-form-item', 10, true);
+            //    el.removeCls(oldValue);
+            //    el.addCls(newValue);
+            //}
 
             Ext.apply(cmp['x_state'], state);
 
@@ -648,7 +648,7 @@ X.fieldValue = function (cmp) {
             // treeMenu可能是Accordion或者Tree
             if (treeMenu.getXType() === 'panel') {
                 treeMenu.items.each(function (item) {
-                    var tree = item.items.itemAt(0);
+                    var tree = item.items.getAt(0);
                     if (tree && tree.getXType() === 'treepanel') {
                         registerTreeClickEvent(tree);
                     }
@@ -713,7 +713,7 @@ X.fieldValue = function (cmp) {
 
                 if (treeMenu.getXType() === 'panel') {
                     treeMenu.items.each(function (item) {
-                        var tree = item.items.itemAt(0);
+                        var tree = item.items.getAt(0);
                         if (tree && tree.getXType() === 'treepanel') {
                             initTreeMenu(tree, tree.getRootNode());
 

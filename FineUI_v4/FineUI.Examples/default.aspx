@@ -84,7 +84,7 @@
                         </x:ContentPanel>
                     </Items>
                 </x:Region>
-                <x:Region ID="Region2" Split="true" EnableSplitTip="true" Width="200px" ShowHeader="true" Title="示例菜单"
+                <x:Region ID="Region2" Split="true" Width="200px" ShowHeader="true" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                 </x:Region>
                 <x:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" Position="Center"
@@ -98,22 +98,17 @@
                                             <Items>
                                                 <x:ToolbarFill ID="ToolbarFill2" runat="server">
                                                 </x:ToolbarFill>
-                                                <x:Button ID="btnSourceCode" Icon="PageWhiteCode" Text="源代码" EnablePostBack="false"
-                                                    runat="server">
-                                                </x:Button>
-                                                <%--<x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
-                                            </x:ToolbarSeparator>
-                                            <x:Button ID="Button1" Icon="TabGo" Text="论坛" OnClientClick="window.open('http://bbs.fineui.com', '_blank');"
-                                                EnablePostBack="false" runat="server">
-                                            </x:Button>--%>
-                                                <x:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
-                                                </x:ToolbarSeparator>
-                                                <x:Button ID="btnGotoOpenSourceSite" Icon="TabGo" Text="下载示例" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
+                                                <x:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载全部示例" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
                                                     EnablePostBack="false" runat="server">
                                                 </x:Button>
                                                 <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
                                                 </x:ToolbarSeparator>
-                                                <x:Button ID="Button1" Icon="TabGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
+                                                <x:Button Icon="PageGo" Text="官网首页" EnablePostBack="false" OnClientClick="window.open('http://fineui.com/', '_blank');"
+                                                    runat="server">
+                                                </x:Button>
+                                                <x:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
+                                                </x:ToolbarSeparator>
+                                                <x:Button ID="Button1" Icon="PageGo" Text="论坛讨论" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
                                                     EnablePostBack="false" runat="server">
                                                 </x:Button>
                                             </Items>
