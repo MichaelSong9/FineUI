@@ -16,10 +16,10 @@ namespace FineUI.Examples.test
         {
             if (!IsPostBack)
             {
-                LiteralControl control = new LiteralControl();
-                control.ID = "my_control";
-                control.Text = "<script>alert('ok');</script>";
-                Page.Header.Controls.Add(control);
+                //LiteralControl control = new LiteralControl();
+                //control.ID = "my_control";
+                //control.Text = "<script>alert('ok');</script>";
+                //Page.Header.Controls.Add(control);
             }
 
         }

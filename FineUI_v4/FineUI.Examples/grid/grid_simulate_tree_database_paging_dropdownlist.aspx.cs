@@ -29,6 +29,7 @@ namespace FineUI.Examples.grid
             ddlSheng.DataBind();
 
             ddlSheng.Items.Insert(0, new ListItem("--选择省份--", "-1"));
+            ddlSheng.SelectedValue = "-1";
         }
 
         #endregion
