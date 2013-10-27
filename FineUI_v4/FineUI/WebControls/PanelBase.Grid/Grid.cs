@@ -1530,7 +1530,7 @@ namespace FineUI
         //    }
         //}
 
-        private Collection<GridColumn> _allColumns;
+        internal Collection<GridColumn> _allColumns;
 
         /// <summary>
         /// 全部的列
@@ -1593,10 +1593,19 @@ namespace FineUI
                 if (_columns == null)
                 {
                     _columns = new GridColumnCollection(this);
+
+                    // Columns改变后，要更新AllColumns
+                    _columns.ItemsChange += _columns_ItemsChange;
                 }
                 return _columns;
             }
         }
+
+        private void _columns_ItemsChange()
+        {
+            _allColumns = null;
+        }
+
 
         private GridRowCollection _rows;
 
@@ -2246,7 +2255,7 @@ namespace FineUI
             //    }
             //}
 
-            
+
 
             if (!ShowGridHeader)
             {
@@ -2744,7 +2753,7 @@ namespace FineUI
 
                     selectOB.Listeners.AddProperty("select", rowSelectScript, true);
                     //selectOB.AddProperty("listeners", "{select:" + rowSelectScript + "}", true);
-                    
+
                 }
 
                 if (EnableCheckBoxSelect)

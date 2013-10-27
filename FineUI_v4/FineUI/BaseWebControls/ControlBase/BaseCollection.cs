@@ -36,6 +36,10 @@ namespace FineUI
     /// </summary>
     public class BaseCollection<T> : Collection<T> where T : ControlBase
     {
+        internal delegate void ItemsChangeHandler();
+        internal event ItemsChangeHandler ItemsChange;
+
+
         private ControlBase _parent;
         private string _groupName;
 
@@ -63,6 +67,11 @@ namespace FineUI
             _parent.Controls.AddAt(startIndex + index, item);
 
             base.InsertItem(index, item);
+
+            if (this.ItemsChange != null)
+            {
+                this.ItemsChange();
+            }
         }
 
         /// <summary>
@@ -75,6 +84,11 @@ namespace FineUI
             _parent.Controls.RemoveAt(startIndex + index);
 
             base.RemoveItem(index);
+
+            if (this.ItemsChange != null)
+            {
+                this.ItemsChange();
+            }
         }
 
         /// <summary>
@@ -91,6 +105,11 @@ namespace FineUI
             }
 
             base.ClearItems();
+
+            if (this.ItemsChange != null)
+            {
+                this.ItemsChange();
+            }
         }
 
 
