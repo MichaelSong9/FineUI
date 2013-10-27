@@ -76,7 +76,7 @@ X.fieldValue = function (cmp) {
 
         // 初始化
         init: function (msgTarget, labelWidth, labelSeparator,
-            blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax) {
+            blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax, themeName) {
             // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
             // 表现为iframe中的页面出现滚动条时，页面上的所有按钮都不能点击了。
             // 测试例子在：aspnet/test.aspx
@@ -103,6 +103,10 @@ X.fieldValue = function (cmp) {
             X.util.setHiddenFieldValue('X_CHANGED', 'false');
             document.forms[0].autocomplete = 'off';
 
+            // 向document.body添加主题类
+            if (themeName) {
+                Ext.getBody().addCls('theme-' + themeName);
+            }
 
             if (Ext.form.field) {
                 var fieldPro = Ext.form.field.Base.prototype;

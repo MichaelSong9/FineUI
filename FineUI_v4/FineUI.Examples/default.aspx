@@ -108,7 +108,7 @@
                                                 </x:Button>
                                                 <x:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
                                                 </x:ToolbarSeparator>
-                                                <x:Button ID="Button1" Icon="PageGo" Text="论坛讨论" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
+                                                <x:Button ID="Button1" Icon="PageGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
                                                     EnablePostBack="false" runat="server">
                                                 </x:Button>
                                             </Items>
@@ -116,7 +116,7 @@
                                     </Toolbars>
                                     <Items>
                                         <x:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
-                                            CssClass="intro" runat="server">
+                                            runat="server">
                                             <h2>关于FineUI</h2>
                                             基于 ExtJS 的专业 ASP.NET 控件库。
                                         
@@ -130,11 +130,8 @@
                                         
                                             <br />
                                             <h2>授权协议</h2>
-                                            Apache License v2.0
-                                            <br />
-                                            注：ExtJS 库在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布。
+                                            Apache License v2.0（ExtJS 库在 <a target="_blank" href="http://www.sencha.com/license">GPL v3</a> 协议下发布）
                                             
-                                        
                                             <br />
                                             <h2>相关链接</h2>
                                             首页：<a target="_blank" style="font-weight: bold;" href="http://fineui.com/">http://fineui.com/</a>
@@ -148,7 +145,8 @@
                                             下载：<a target="_blank" href="http://fineui.codeplex.com/">http://fineui.codeplex.com/</a>
                                             <br />
                                             <br />
-                                            FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
+                                            <br />
+                                            注：FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
 
                                         </x:ContentPanel>
                                     </Items>

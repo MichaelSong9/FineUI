@@ -5,6 +5,10 @@
 	padding: 10px;
 }
 
+body.x-body.theme-access {
+    background-image: none;
+}
+
 .inline
 {
     margin-right: 5px;
