@@ -52,7 +52,7 @@ namespace FineUI
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="checked">是否选中</param>
+        /// <param name="isChecked">是否选中</param>
         public CheckedEventArgs(bool isChecked)
         {
             _checked = isChecked;

@@ -38,8 +38,8 @@ namespace FineUI.Examples.grid
             table.Columns.Add(new DataColumn("HLData2", typeof(int)));
             table.Columns.Add(new DataColumn("AHData1", typeof(int)));
             table.Columns.Add(new DataColumn("AHData2", typeof(int)));
-            table.Columns.Add(new DataColumn("ALData1", typeof(int)));
-            table.Columns.Add(new DataColumn("ALData2", typeof(int)));
+            table.Columns.Add(new DataColumn("LogTime", typeof(DateTime)));
+            
 
             DataRow row;
 
@@ -54,8 +54,7 @@ namespace FineUI.Examples.grid
                 row[4] = rd.Next(1000, 9999);
                 row[5] = rd.Next(1000, 9999);
                 row[6] = rd.Next(1000, 9999);
-                row[7] = rd.Next(1000, 9999);
-                row[8] = rd.Next(1000, 9999);
+                row[7] = DateTime.Parse(String.Format("{0}-09-01", rd.Next(2000, 2014)));
 
                 table.Rows.Add(row);
             }
