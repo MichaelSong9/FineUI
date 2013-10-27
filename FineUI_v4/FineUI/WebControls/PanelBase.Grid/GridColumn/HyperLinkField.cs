@@ -342,7 +342,6 @@ namespace FineUI
 
             if (Enabled)
             {
-
                 #region DataNavigateUrlFields
 
                 string hrefOriginal = String.Empty;
@@ -405,9 +404,6 @@ namespace FineUI
                 }
 
                 #endregion
-
-                //nb.SetProperty("onclick", "X.stop();");
-
             }
             else
             {

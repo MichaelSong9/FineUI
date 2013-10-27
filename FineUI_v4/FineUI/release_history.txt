@@ -27,7 +27,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 发布历史
 
-+2013-09-** v4.0 beta1
++2013-10-28 v4.0 beta1
 	+修正面板的Collapsed属性在客户端改变后状态同步问题。
 		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
 	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。
@@ -82,9 +82,11 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-对于设置了IFrameName的面板，初始属性IFrameUrl需要保留，比如iframe/topmenu/default.aspx。
 	-删除Region的EnableSplitTip、CollapsibleSplitTip、SplitTip、CollapseMode、CMargins属性。
 	-删除AccordionPane的EnableHightlight属性。
+	-全部200多个示例更新。
 
 
-+2013-10-** v3.3.2
+
++2013-11-** v3.3.2
 	-修正IE7/IE8下表格的日期列显示错误，IE不能正确解析Date.parse('2015-10-01')（夏雨雪）。
 	-修正表格中模板列在数据绑定时可能不更新的问题（小兵、舞柯庶、蒙奇.D.二毛、李明海）。
 	+更新示例grid/grid_pageitems_pagesize.aspx和grid/grid_pageitems_pagesize_database.aspx。
@@ -100,6 +102,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
 	-修正引入样式文件的标签笔误，应为type=text/css（是梦~`）。
 	-DropDownList的ForceSelection属性默认为false，更新示例dropdownlist/dropdownlist_forceselection.aspx。
+
 
 
 +2013-07-29 v3.3.1

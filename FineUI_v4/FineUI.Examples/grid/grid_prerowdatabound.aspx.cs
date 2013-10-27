@@ -43,24 +43,26 @@ namespace FineUI.Examples.grid
             LinkButtonField lbfAction1 = Grid1.FindColumn("lbfAction1") as LinkButtonField;
             LinkButtonField lbfAction2 = Grid1.FindColumn("lbfAction2") as LinkButtonField;
             CheckBoxField cbxAtSchool = Grid1.FindColumn("cbxAtSchool") as CheckBoxField;
+            HyperLinkField linkField = Grid1.FindColumn("hlMajor") as HyperLinkField;
 
             if (e.RowIndex < 5)
             {
                 cbxAtSchool.Enabled = true;
                 lbfAction1.Enabled = true;
                 lbfAction2.Enabled = true;
+                linkField.Enabled = true;
             }
             else
             {
                 cbxAtSchool.Enabled = false;
                 lbfAction1.Enabled = false;
                 lbfAction2.Enabled = false;
+                linkField.Enabled = false;
             }
             
             // 如果绑定到 DataTable，那么这里的 DataItem 就是 DataRowView
-            HyperLinkField linkField = Grid1.Columns[4] as HyperLinkField;
             DataRowView row = e.DataItem as DataRowView;
-            if (row != null)
+            if (linkField != null && row != null)
             {
                 linkField.DataTextFormatString = "{0} (" + row["EntranceYear"].ToString() + ")";
             }

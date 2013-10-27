@@ -105,14 +105,10 @@
     <Content Include="extjs_builder\js\X\X.simulateTree.js" />
     <Content Include="extjs_builder\js\X\X.util.js" />
     <Content Include="extjs_builder\js\X\X.wnd.js" />
-    <Content Include="extjs_builder\res\BigFont.css" />
-    <Content Include="extjs_builder\res\box-panel-big-header.css" />
-    <Content Include="extjs_builder\res\ColumnHeaderGroup_access.css" />
-    <Content Include="extjs_builder\res\ColumnHeaderGroup_blue.css" />
-    <Content Include="extjs_builder\res\ColumnHeaderGroup_gray.css" />
-    <Content Include="extjs_builder\res\FileUploadField.css" />
+    <Content Include="extjs_builder\res\access.css" />
+    <Content Include="extjs_builder\res\classic.css" />
     <Content Include="extjs_builder\res\FineUI.css" />
-    <Content Include="extjs_builder\res\FormViewport.css" />
+    <Content Include="extjs_builder\res\gray.css" />
     <Content Include="extjs_builder\res\images\accordion_hover.gif" />
     <Content Include="extjs_builder\res\images\accordion_link_hover.gif" />
     <Content Include="extjs_builder\res\images\accordion_link_hover2.gif" />
@@ -146,6 +142,7 @@
     <Content Include="extjs_builder\res\images\uncheck.gif" />
     <Content Include="extjs_builder\res\images\unchecked.gif" />
     <Content Include="extjs_builder\res\images\unchecked_disabled.gif" />
+    <Content Include="extjs_builder\res\neptune.css" />
     <Content Include="extjs_builder\res\PageLoading.css" />
     <Content Include="extjs_builder\res\Grid.css" />
     <Content Include="extjs_builder\res\Tree.css" />

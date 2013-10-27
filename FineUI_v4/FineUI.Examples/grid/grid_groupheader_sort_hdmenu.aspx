@@ -58,8 +58,8 @@
             </Columns>
         </x:Grid>
         <br />
-        注意：隐藏列时观察各列宽度的变化（ForceFitAllTime）。
-    <br />
+
+        <br />
     </form>
 </body>
 </html>

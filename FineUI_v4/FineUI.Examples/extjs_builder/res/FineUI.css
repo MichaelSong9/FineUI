@@ -23,19 +23,12 @@
 }
 
 
-
-/*html, body
-{
-    margin: 0;
-    padding: 0;
-    border: 0px;
-    font-size: 12px;
+.x-item-disabled {
+    opacity: .6;
+    -moz-opacity: .6;
+    filter: alpha(opacity=60);
 }
 
-form
-{
-    height: 100%;
-}*/
 
 
 /* elbow */

@@ -2272,23 +2272,22 @@ namespace FineUI
 
             if (EnableRowClickEvent)
             {
-                string validateScript = "var args='RowClick$'+rowIndex;";
+                string validateScript = "var args='RowClick$'+index;";
                 validateScript += GetPostBackEventReference("#RowClick#").Replace("'#RowClick#'", "args");
 
-                string rowClickScript = String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
+                string rowClickScript = JsHelper.GetFunction(validateScript, "grid", "record", "item", "index"); // String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
 
-
-                OB.Listeners.AddProperty("rowclick", rowClickScript, true);
+                OB.Listeners.AddProperty("itemclick", rowClickScript, true);
             }
 
             if (EnableRowDoubleClickEvent)
             {
-                string validateScript = "var args='RowDoubleClick$'+rowIndex;";
+                string validateScript = "var args='RowDoubleClick$'+index;";
                 validateScript += GetPostBackEventReference("#RowDoubleClick#").Replace("'#RowDoubleClick#'", "args");
 
-                string rowClickScript = String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
+                string rowClickScript = JsHelper.GetFunction(validateScript, "grid", "record", "item", "index"); //String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
 
-                OB.Listeners.AddProperty("rowdblclick", rowClickScript, true);
+                OB.Listeners.AddProperty("itemdblclick", rowClickScript, true);
             }
 
             #endregion
@@ -2362,7 +2361,7 @@ namespace FineUI
 
             #endregion
 
-            #region Listeners - render - viewready
+            #region Listeners - viewready
 
             StringBuilder viewreadySB = new StringBuilder();
 
@@ -2718,11 +2717,11 @@ namespace FineUI
 
         private string GetGridSelectModel()
         {
-            JsObjectBuilder selectOB = new JsObjectBuilder();
+            //JsObjectBuilder selectOB = new JsObjectBuilder();
+            OptionBuilder selectOB = new OptionBuilder();
 
             if (AllowCellEditing)
             {
-
                 return String.Format("var {0}=new Ext.grid.CellSelectionModel({1});", Render_SelectModelID, selectOB);
             }
             else
@@ -2738,12 +2737,14 @@ namespace FineUI
 
                 if (EnableRowSelectEvent)
                 {
-                    string validateScript = "var args='RowSelect$'+rowIndex;";
+                    string validateScript = "var args='RowSelect$'+index;";
                     validateScript += GetPostBackEventReference("#RowSelect#").Replace("'#RowSelect#'", "args");
 
-                    string rowSelectScript = String.Format("function(model,rowIndex){{{0}}}", validateScript);
+                    string rowSelectScript = JsHelper.GetFunction(validateScript, "model", "record", "index"); //String.Format("function(model,rowIndex){{{0}}}", validateScript);
 
-                    selectOB.AddProperty("listeners", "{rowselect:" + rowSelectScript + "}", true);
+                    selectOB.Listeners.AddProperty("select", rowSelectScript, true);
+                    //selectOB.AddProperty("listeners", "{select:" + rowSelectScript + "}", true);
+                    
                 }
 
                 if (EnableCheckBoxSelect)

@@ -483,7 +483,10 @@ namespace FineUI
             }
             else
             {
-                JsObjectBuilder columnBuilder = new JsObjectBuilder();
+                //JsObjectBuilder columnBuilder = new JsObjectBuilder();
+
+                // 列的禁用会反映到每个单元格上，而不是在列头
+                OB.RemoveProperty("disabled");
 
                 if (this is RowNumberField)
                 {

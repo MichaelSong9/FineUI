@@ -280,8 +280,8 @@
       </TreeNode>
       <TreeNode Text="列宽度自适应" NavigateUrl="~/grid/grid_width_forcefitalltime.aspx" >
       </TreeNode>
-      <TreeNode Text="列宽度自适应（仅第一次加载）" NavigateUrl="~/grid/grid_width_forcefitfirsttime.aspx" >
-      </TreeNode>
+      <!--<TreeNode Text="列宽度自适应（仅第一次加载）" NavigateUrl="~/grid/grid_width_forcefitfirsttime.aspx" >
+      </TreeNode>-->
     </TreeNode>
     <TreeNode Text="标题栏菜单">
       <TreeNode Text="显示隐藏列" NavigateUrl="~/grid/grid_hdmenu_hidecolumn.aspx" >

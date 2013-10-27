@@ -7,6 +7,10 @@
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style>
+        body, body.x-body {
+            padding: 0;
+        }
+
         .success {
             color: Green;
         }
@@ -27,7 +31,7 @@
             BoxConfigPosition="Start" BoxConfigPadding="5" BoxConfigChildMargin="0 5 0 0"
             ShowHeader="false">
             <Items>
-                <x:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" runat="server"
+                <x:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" runat="server" EnableFrame="true" EnableCollapse="true"
                     DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid1_RowSelect">
                     <Columns>
                         <x:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
@@ -110,7 +114,7 @@
                     var resultNode = Ext.get(row.query('span.TotalScore'));
                     resultNode.update(parseInt(num1, 10) + parseInt(num2, 10));
 
-                    var rowIndex = row.parent().query('>div').indexOf(row.dom);
+                    var rowIndex = row.parent().query('>tr').indexOf(row.dom);
 
                     __doPostBack(gridClientID, 'AutoSave$' + rowIndex);
 
