@@ -13,14 +13,12 @@
 
 
 
-.cursor-pointer
-{
+.cursor-pointer {
     cursor: pointer;
 }
 
 
-.gray
-{
+.gray {
     color: gray;
 }
 
@@ -41,29 +39,28 @@ form
 
 
 /* elbow */
-.x-elbow
-{
+.x-elbow {
     float: left;
     height: 13px;
     width: 18px;
     background: transparent url(../images/elbow.gif) no-repeat 0px 0px;
 }
-.x-elbow-line
-{
+
+.x-elbow-line {
     float: left;
     height: 13px;
     width: 18px;
     background: transparent url(../images/elbow-line.gif) no-repeat 0px 0px;
 }
-.x-elbow-end
-{
+
+.x-elbow-end {
     float: left;
     height: 13px;
     width: 18px;
     background: transparent url(../images/elbow-end.gif) no-repeat 0px 0px;
 }
-.x-elbow-empty
-{
+
+.x-elbow-empty {
     float: left;
     height: 13px;
     width: 18px;
@@ -72,8 +69,7 @@ form
 
 
 
-.x-boundlist-item-disabled
-{
+.x-boundlist-item-disabled {
     background: #fff none repeat scroll 0% 0% !important;
     border: 1px solid #fff !important;
     cursor: default;

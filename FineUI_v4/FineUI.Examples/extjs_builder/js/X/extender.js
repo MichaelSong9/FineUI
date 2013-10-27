@@ -537,18 +537,28 @@ if (Ext.grid.Panel) {
 
         // 展开所有的行扩展列
         x_expandAllRows: function () {
-            if (this.plugins && this.plugins[0] && this.plugins[0].id === 'expander') {
-                for (var i = 0, count = this.store.getCount() ; i < count; i++) {
-                    this.plugins[0].expandRow(i);
+            var expander = this.getPlugin(this.id + '_rowexpander');
+            if (expander) {
+                var store = this.getStore();
+                for (var i = 0, count = store.getCount() ; i < count; i++) {
+                    var record = store.getAt(i);
+                    if (!expander.recordsExpanded[record.internalId]) {
+                        expander.toggleRow(i, record);
+                    }
                 }
             }
         },
 
         // 隐藏所有的行扩展列
         x_collapseAllRows: function () {
-            if (this.plugins && this.plugins[0] && this.plugins[0].id === 'expander') {
-                for (var i = 0, count = this.store.getCount() ; i < count; i++) {
-                    this.plugins[0].collapseRow(i);
+            var expander = this.getPlugin(this.id + '_rowexpander');
+            if (expander) {
+                var store = this.getStore();
+                for (var i = 0, count = store.getCount() ; i < count; i++) {
+                    var record = store.getAt(i);
+                    if (expander.recordsExpanded[record.internalId]) {
+                        expander.toggleRow(i, record);
+                    }
                 }
             }
         },
@@ -1251,6 +1261,21 @@ if (Ext.Window) {
         },
         x_restore: function () {
             X.wnd.restore(this, this.x_property_target, this.x_property_guid);
+        }
+
+    });
+}
+
+
+
+if (Ext.grid.plugin.RowExpander) {
+    Ext.override(Ext.grid.plugin.RowExpander, {
+
+        // 将行扩展列的 td CSS类改为 x-grid-cell-row-expander
+        getHeaderConfig: function () {
+            var config = this.callParent(arguments);
+            config.tdCls = Ext.baseCSSPrefix + 'grid-cell-row-expander';
+            return config;
         }
 
     });

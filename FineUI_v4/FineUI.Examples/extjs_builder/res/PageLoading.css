@@ -1,6 +1,5 @@
 
-#loading-mask
-{
+#loading-mask {
     background-color: #fff;
     height: 100%;
     left: 0pt;
@@ -11,8 +10,7 @@
 }
 
 
-#loading
-{
+#loading {
     height: auto;
     left: 45%;
     padding: 2px;
@@ -21,26 +19,24 @@
     z-index: 20001;
 }
 
-#loading .loading-indicator
-{
-    background: white none repeat scroll 0%;
-    color: #555555;
-    font-family: tahoma,arial,helvetica;
-    font-size: 13px;
-    font-size-adjust: none;
-    font-stretch: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: bold;
-    height: auto;
-    line-height: normal;
-    margin: 0pt;
-    padding: 10px;
-    text-align: center;
-}
+    #loading .loading-indicator {
+        background: white none repeat scroll 0%;
+        color: #555555;
+        font-family: tahoma,arial,helvetica;
+        font-size: 13px;
+        font-size-adjust: none;
+        font-stretch: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: bold;
+        height: auto;
+        line-height: normal;
+        margin: 0pt;
+        padding: 10px;
+        text-align: center;
+    }
 
-.x-ajax-loading
-{
+.x-ajax-loading {
     position: absolute;
     top: 0px;
     background-color: #F9EDBE;

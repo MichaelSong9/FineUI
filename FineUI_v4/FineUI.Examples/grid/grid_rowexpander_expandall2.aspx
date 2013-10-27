@@ -37,11 +37,7 @@
                     </div>
                 </ItemTemplate>
             </x:TemplateField>
-            <x:TemplateField Width="60px">
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
-                </ItemTemplate>
-            </x:TemplateField>
+            <x:RowNumberField />
             <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             <x:TemplateField Width="80px" HeaderText="性别">
                 <ItemTemplate>
@@ -68,7 +64,7 @@
     </x:Button>
     <br />
     <br />
-    注：请注意如何通过一个简单的属性，来控制是否展开所有行扩展列（即使在重新绑定数据后，依然能够保持所有扩展列的展开状态）。
+    注：通过一个简单的属性，来控制是否展开所有行扩展列（即使在重新绑定数据后，依然能够保持所有扩展列的展开状态）。
     <br />
     </form>
 </body>

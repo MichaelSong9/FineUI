@@ -122,6 +122,7 @@ namespace FineUI
             {
                 JsObjectBuilder rowExpanderBuilder = new JsObjectBuilder();
                 rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("Ext.create('Ext.XTemplate','{{{0}}}')", ColumnID), true);
+                rowExpanderBuilder.AddProperty("pluginId", String.Format("{0}_rowexpander", Grid.ClientID));
 
                 string jsContent = String.Format("var {0}=Ext.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
                 AddStartupScript(jsContent);

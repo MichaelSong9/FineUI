@@ -445,7 +445,7 @@ namespace FineUI
 
 			// X('SimpleForm1_ttbxMyBox2').triggerEl.item(0).show();
 
-            string jsContent = String.Format("var {0}=new Ext.form.field.Trigger({1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.Trigger',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
 
         }

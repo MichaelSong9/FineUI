@@ -2387,6 +2387,12 @@ namespace FineUI
             //    viewreadySB.Append("cmp.x_enableTextSelection();");
             //}
 
+            // 展开所有的行扩展列
+            if (ExpandAllRowExpanders)
+            {
+                viewreadySB.Append("cmp.x_expandAllRows();");
+            }
+
 
             OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
 
@@ -2420,12 +2426,6 @@ namespace FineUI
             //{
             //    renderSB.Append("cmp.x_updateColumnsHiddenStatus();");
             //}
-
-            // 展开所有的行扩展列
-            if (ExpandAllRowExpanders)
-            {
-                renderSB.Append("cmp.x_expandAllRows();");
-            }
 
             OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderSB.ToString(), "cmp"), true);
 
