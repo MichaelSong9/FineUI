@@ -27,7 +27,10 @@
 						<div class="version">
                             <a href="http://fineui.com/demo_en/" target="_blank" style="color:#fff;">English Version</a>
                         </div>
-                    </x:ContentPanel>
+						<div class="version" style="top:28px;">
+                            <a href="http://fineui.com/demo_v4/" target="_blank" style="color:#fff;font-size:16px;">FineUI v4.0 在线示例</a>
+                        </div>
+					</x:ContentPanel>
                 </Items>
             </x:Region>
             <x:Region ID="Region2" Split="true" EnableSplitTip="true" CollapseMode="Mini" Width="200px"

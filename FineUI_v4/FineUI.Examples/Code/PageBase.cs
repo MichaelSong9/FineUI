@@ -22,7 +22,7 @@ namespace FineUI.Examples
             {
                 if (PageManager.Instance != null)
                 {
-                    HttpCookie themeCookie = Request.Cookies["Theme"];
+                    HttpCookie themeCookie = Request.Cookies["Theme_v4"];
                     if (themeCookie != null)
                     {
                         string themeValue = themeCookie.Value;
@@ -38,7 +38,7 @@ namespace FineUI.Examples
                         //}
                     }
 
-                    HttpCookie langCookie = Request.Cookies["Language"];
+                    HttpCookie langCookie = Request.Cookies["Language_v4"];
                     if (langCookie != null)
                     {
                         string langValue = langCookie.Value;

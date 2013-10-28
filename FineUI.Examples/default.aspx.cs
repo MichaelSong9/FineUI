@@ -17,7 +17,7 @@ namespace FineUI.Examples
         protected void Page_Init(object sender, EventArgs e)
         {
             string menuType = "menu";
-            HttpCookie menuCookie = Request.Cookies["MenuStyle"];
+            HttpCookie menuCookie = Request.Cookies["MenuStyle_v3"];
             if (menuCookie != null)
             {
                 menuType = menuCookie.Value;
@@ -149,7 +149,7 @@ namespace FineUI.Examples
         {
             string menuStyleID = "MenuStyleTree";
 
-            HttpCookie menuStyleCookie = Request.Cookies["MenuStyle"];
+            HttpCookie menuStyleCookie = Request.Cookies["MenuStyle_v3"];
             if (menuStyleCookie != null)
             {
                 switch (menuStyleCookie.Value)
@@ -321,7 +321,7 @@ namespace FineUI.Examples
 
             string menuValue = "menu";
             string menuStyleID = GetSelectedMenuID(MenuStyle);
-             
+
             switch (menuStyleID)
             {
                 case "MenuStyleTree":
@@ -330,7 +330,7 @@ namespace FineUI.Examples
                 case "MenuStyleAccordion":
                     menuValue = "accordion";
                     break;
-                
+
             }
             SaveToCookieAndRefresh("MenuStyle", menuValue);
         }
@@ -366,7 +366,7 @@ namespace FineUI.Examples
 
         private void SaveToCookieAndRefresh(string cookieName, string cookieValue)
         {
-            HttpCookie cookie = new HttpCookie(cookieName, cookieValue);
+            HttpCookie cookie = new HttpCookie(cookieName + "_v3", cookieValue);
             cookie.Expires = DateTime.Now.AddYears(1);
             Response.Cookies.Add(cookie);
 
