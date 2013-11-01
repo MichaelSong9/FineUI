@@ -583,14 +583,35 @@ namespace FineUI
                 {
                     OB.AddProperty("hideable", false);
                 }
+
+
+                if (Grid.EnableSummary)
+                {
+                    if (this is RowNumberField)
+                    {
+                        // 序号列 没有合计
+                    }
+                    else
+                    {
+                        OB.AddProperty("summaryType", String.Format("X.util.summaryType('{0}')", Grid.ClientID), true);
+                    }
+                }
+
+
+
+
+
+
+
             }
-
-
         }
 
         #endregion
 
-
+        protected void AddGridColumnScript(string jsContent)
+        {
+            AddStartupScript(jsContent);
+        }
 
     }
 }

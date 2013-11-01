@@ -216,7 +216,8 @@ namespace FineUI
 
 
             string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
-            AddStartupScript(jsContent);
+            AddGridColumnScript(jsContent);
+            
         }
 
         #endregion

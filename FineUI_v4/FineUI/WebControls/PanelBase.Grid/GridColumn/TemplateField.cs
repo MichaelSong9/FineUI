@@ -125,12 +125,14 @@ namespace FineUI
                 rowExpanderBuilder.AddProperty("pluginId", String.Format("{0}_rowexpander", Grid.ClientID));
 
                 string jsContent = String.Format("var {0}=Ext.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
-                AddStartupScript(jsContent);
+                AddGridColumnScript(jsContent);
+                
             }
             else
             {
                 string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
-                AddStartupScript(jsContent);
+                AddGridColumnScript(jsContent);
+                
             }
         }
 

@@ -285,40 +285,7 @@ namespace FineUI
 
         #endregion
 
-        #region OnFirstPreRender
-
-        /// <summary>
-        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
-        /// </summary>
-        protected override void OnFirstPreRender()
-        {
-            base.OnFirstPreRender();
-
-            string renderer = GetRenderer();
-            if (!String.IsNullOrEmpty(renderer))
-            {
-                OB.AddProperty("renderer", renderer, true);
-            }
-
-
-            if (Grid.AllowCellEditing)
-            {
-                if (Editor.Count > 0)
-                {
-                    OB.AddProperty("editor", Editor[0].XID, true);
-                }
-
-                //if (FieldType == FieldType.Boolean)
-                //{
-                //    OB.AddProperty("xtype", "booleancolumn");
-                //}
-            }
-
-            string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
-            AddStartupScript(jsContent);
-
-        }
-
+        #region GetRenderer
 
         private string GetRenderer()
         {
@@ -364,7 +331,45 @@ namespace FineUI
                 return String.Format("X.format.{0}", RendererName.GetName(Renderer));
             }
 
+        } 
+
+        #endregion
+
+
+        #region OnFirstPreRender
+
+        /// <summary>
+        /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
+        /// </summary>
+        protected override void OnFirstPreRender()
+        {
+            base.OnFirstPreRender();
+
+            string renderer = GetRenderer();
+            if (!String.IsNullOrEmpty(renderer))
+            {
+                OB.AddProperty("renderer", renderer, true);
+            }
+
+
+            if (Grid.AllowCellEditing)
+            {
+                if (Editor.Count > 0)
+                {
+                    OB.AddProperty("editor", Editor[0].XID, true);
+                }
+
+                //if (FieldType == FieldType.Boolean)
+                //{
+                //    OB.AddProperty("xtype", "booleancolumn");
+                //}
+            }
+
+            string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
+            AddGridColumnScript(jsContent);
+            
         }
+
 
         #endregion
 

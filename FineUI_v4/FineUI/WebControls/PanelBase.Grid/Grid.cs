@@ -75,7 +75,7 @@ namespace FineUI
         {
             // 严格的说，PageIndex、SortField、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
-            AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortField", "SortDirection");
+            AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortField", "SortDirection", "SummaryData", "SummaryHidden");
             AddClientAjaxProperties("X_Rows", "HiddenColumns", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
 
             AddGzippedAjaxProperties("X_Rows");
@@ -481,6 +481,85 @@ namespace FineUI
         //    set
         //    {
         //        XState["SortColumn"] = value;
+        //    }
+        //}
+
+        #endregion
+
+        #region EnableSummary
+
+        /// <summary>
+        /// 启用合计行
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("启用合计行")]
+        public bool EnableSummary
+        {
+            get
+            {
+                object obj = XState["EnableSummary"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                XState["EnableSummary"] = value;
+            }
+        }
+
+        /// <summary>
+        /// [AJAX属性]合计行数据
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public JObject SummaryData
+        {
+            get
+            {
+                object obj = XState["SummaryData"];
+                return obj == null ? new JObject() : (JObject)obj;
+            }
+            set
+            {
+                XState["SummaryData"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 合计行的位置
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(SummaryPosition.Flow)]
+        [Description("合计行的位置")]
+        public SummaryPosition SummaryPosition
+        {
+            get
+            {
+                object obj = XState["SummaryPosition"];
+                return obj == null ? SummaryPosition.Flow : (SummaryPosition)obj;
+            }
+            set
+            {
+                XState["SummaryPosition"] = value;
+            }
+        }
+
+        ///// <summary>
+        ///// 是否隐藏合计行
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否隐藏合计行")]
+        //public bool SummaryHidden
+        //{
+        //    get
+        //    {
+        //        object obj = XState["SummaryHidden"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        XState["SummaryHidden"] = value;
         //    }
         //}
 
@@ -1627,7 +1706,7 @@ namespace FineUI
         }
         #endregion
 
-        #region X Properties
+        #region X_Rows
 
         /// <summary>
         /// 保存的行数据（内部使用）
@@ -1681,10 +1760,7 @@ namespace FineUI
                     //Controls.Add(row);
 
                     row.InitTemplateContainers();
-
-
                 }
-
             }
         }
 
@@ -2124,30 +2200,12 @@ namespace FineUI
             // 确保 X_Rows 在页面第一次加载时都存在于x_state中
             XState.AddModifiedProperty("X_Rows");
 
-            //// 因为可以在 ASPX 中指定列的 Hidden 属性
-            //// 如果在 ASPX 中指定了列的 Hidden 属性，但是 HiddenColumnIndexArray 不在改变的属性列表中，
-            //// 为了在客户端初始化隐藏的列，需要手工将 HiddenColumnIndexArray 添加到改变的属性列表中，以便使其存在于 x_state 属性中。
-            //if (HiddenColumnIndexArray.Length > 0)
-            //{
-            //    XState.AddModifiedProperty("HiddenColumnIndexArray");
-            //}
-
-
             // 不需要手工添加 SelectedRowIndexArray 属性，是因为只能通过代码设置此属性
+            // 只要通过代码设置了 SelectedRowIndexArray 属性，则一定会存在于 X_States
 
             base.OnFirstPreRender();
 
             //ResourceManager.Instance.AddJavaScriptComponent("grid");
-
-            //// 分页工具栏使用了 Ext.form.NumberField 组件，所以必须引入 form 的JavaScript
-            //if (AllowPaging)
-            //{
-            //    ResourceManager.Instance.AddJavaScriptComponent("form");
-            //}
-
-            //OB.Listeners.AddProperty("rowmousedown", "function(){alert('ok');}", true);
-
-            string cls = CssClass;
 
             #region selectModel/gridStore/gridColumn
 
@@ -2370,6 +2428,37 @@ namespace FineUI
 
             #endregion
 
+            #region EnableSummary
+
+            JsArrayBuilder features = new JsArrayBuilder();
+
+            if (EnableSummary)
+            {
+                JsObjectBuilder summaryFeature = new JsObjectBuilder();
+                summaryFeature.AddProperty("ftype", "summary");
+                summaryFeature.AddProperty("id", "summary");
+
+                if (SummaryPosition != SummaryPosition.Flow)
+                {
+                    summaryFeature.AddProperty("dock", SummaryPositionHelper.GetName(SummaryPosition));
+                }
+
+                //if (SummaryHidden)
+                //{
+                //    summaryFeature.AddProperty("showSummaryRow", false);
+                //}
+
+                features.AddProperty(summaryFeature);
+            }
+
+
+            if (features.Count > 0)
+            {
+                OB.AddProperty("features", features);
+            }
+
+            #endregion
+
             #region Listeners - viewready
 
             StringBuilder viewreadySB = new StringBuilder();
@@ -2408,6 +2497,8 @@ namespace FineUI
             #endregion
 
             #region cls
+
+            string cls = CssClass;
 
             if (RowVerticalAlign != VerticalAlign.Middle)
             {
@@ -2598,7 +2689,6 @@ namespace FineUI
 
             //string groupColumnScript = GetGroupColumnScript();
 
-
             string expanderXID = String.Empty;
             foreach (GridColumn column in Columns)
             {
@@ -2638,7 +2728,6 @@ namespace FineUI
 
             //string columnModelScript = String.Format("var {0}=new Ext.grid.ColumnModel({{columns:{1},defaults:{2}}});", gridColumnID, columnsBuilder, defaultsBuilder);
             string columnsScript = String.Format("var {0}={1};", Render_GridColumnsID, columnsBuilder);
-
 
             return columnsScript;
         }

@@ -86,6 +86,7 @@
     <Compile Include="Business\Enums\Grid\FieldType.cs" />
     <Compile Include="Business\Enums\Grid\Renderer.cs" />
     <Compile Include="Business\Enums\MessageTarget.cs" />
+    <Compile Include="Business\Enums\SummaryPosition.cs" />
     <Compile Include="WebControls\Field.CheckBox\EventArgs\CheckedEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.Grid\Editor\GridColumnEditorCollection.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field\Field.cs" />

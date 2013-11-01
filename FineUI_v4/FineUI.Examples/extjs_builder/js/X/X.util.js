@@ -839,6 +839,21 @@ X.fieldValue = function (cmp) {
                     }
                 }
             });
+        },
+
+
+
+        summaryType: function (gridId) {
+            return function (records, dataIndex) {
+                var summary = X(gridId).x_state['SummaryData'];
+                if (summary) {
+                    var value = summary[dataIndex];
+                    if (typeof (value) !== 'undefined') {
+                        return value;
+                    }
+                }
+                return '';
+            };
         }
 
 

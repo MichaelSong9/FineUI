@@ -766,14 +766,6 @@ namespace FineUI
 
         #region AddStartupScript/IsStartupScriptExist
 
-        //public void AddJavaScriptComponent(string component)
-        //{
-        //    if (!_javascriptComponentList.Contains(component))
-        //    {
-        //        _javascriptComponentList.Add(component);
-        //    }
-        //}
-
         public void AddStartupScript(Control control, string script)
         {
             AddStartupScript(control, script, String.Empty);
@@ -790,14 +782,6 @@ namespace FineUI
         {
             ScriptBlock cs = new ScriptBlock(control, script);
 
-            //// modified by leizhang5 @2008-6-2
-            //// 如果control == null， 则后添加的脚本先渲染（也就是说：子控件相关的脚本先于父控件执行）
-            //if (control == null)
-            //{
-            //    _startupScriptBlockList.Insert(0, cs);
-            //}
-            //else
-            //{
             ScriptBlock existBlock = GetStartupScript(control);
             if (existBlock == null)
             {
@@ -806,9 +790,8 @@ namespace FineUI
             else
             {
                 existBlock.Script += script;
-                existBlock.ExtraScript += extraScript;
+                //existBlock.ExtraScript += extraScript;
             }
-            //}
         }
 
 
