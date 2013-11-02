@@ -2,11 +2,11 @@
 Ext.override(Ext.Component, {
 
     x_setDisabled: function () {
-        this.setDisabled(!this.x_state['Enabled']);
+        this.setDisabled(!this.f_state['Enabled']);
     },
 
     x_setVisible: function () {
-        this.setVisible(!this.x_state['Hidden']);
+        this.setVisible(!this.f_state['Hidden']);
     }
 
 });
@@ -56,7 +56,7 @@ Ext.override(Ext.container.Container, {
 
 Ext.override(Ext.panel.Panel, {
     x_setCollapse: function () {
-        var collapsed = this.x_state['Collapsed'];
+        var collapsed = this.f_state['Collapsed'];
         if (collapsed) {
             this.collapse();
         } else {
@@ -74,14 +74,14 @@ Ext.override(Ext.panel.Panel, {
     },
 
     x_setTitle: function () {
-        this.setTitle(this.x_state['Title']);
+        this.setTitle(this.f_state['Title']);
     }
 
 });
 
 Ext.override(Ext.form.FieldSet, {
     x_setCollapse: function () {
-        var collapsed = this.x_state['Collapsed'];
+        var collapsed = this.f_state['Collapsed'];
         if (collapsed) {
             this.collapse();
         } else {
@@ -99,7 +99,7 @@ Ext.override(Ext.form.FieldSet, {
     },
 
     x_setTitle: function () {
-        this.setTitle(this.x_state['Title']);
+        this.setTitle(this.f_state['Title']);
     }
 
 });
@@ -108,7 +108,7 @@ if (Ext.menu.CheckItem) {
     Ext.override(Ext.menu.CheckItem, {
 
         x_setChecked: function () {
-            this.setChecked(this.x_state['Checked'], true);
+            this.setChecked(this.f_state['Checked'], true);
         }
 
     });
@@ -171,14 +171,14 @@ if (Ext.form.field.Base) {
 
         x_setValue: function (value) {
             if (typeof (value) === 'undefined') {
-                value = this.x_state['Text'];
+                value = this.f_state['Text'];
             }
             this.setValue(value);
         },
 
         x_setLabel: function (text) {
             if (this.label && this.label.update) {
-                this.label.update(text || this.x_state['Label']);
+                this.label.update(text || this.f_state['Label']);
             }
         }
 
@@ -191,7 +191,7 @@ if (Ext.form.field.Time) {
         // Time 继承自 ComboBox，这个函数被覆盖了，因此需要重新定义
         x_setValue: function (value) {
             if (typeof (value) === 'undefined') {
-                value = this.x_state['Text'];
+                value = this.f_state['Text'];
             }
             this.setValue(value);
         }
@@ -205,7 +205,7 @@ if (Ext.form.field.HtmlEditor) {
 
         x_setValue: function (text) {
             if (typeof (text) === 'undefined') {
-                text = this.x_state['Text'];
+                text = this.f_state['Text'];
             }
             this.setValue(text);
         }
@@ -218,7 +218,7 @@ if (Ext.form.field.Checkbox) {
     Ext.override(Ext.form.field.Checkbox, {
 
         x_setValue: function () {
-            this.setValue(this.x_state['Checked']);
+            this.setValue(this.f_state['Checked']);
         }
 
     });
@@ -229,7 +229,7 @@ if (Ext.form.RadioGroup) {
     Ext.override(Ext.form.RadioGroup, {
 
         x_setValue: function (value) {
-            value = value || this.x_state['SelectedValue'];
+            value = value || this.f_state['SelectedValue'];
             var selectedObj = {};
             selectedObj[this.name] = value;
             this.setValue(selectedObj);
@@ -246,8 +246,8 @@ if (Ext.form.CheckboxGroup) {
         x_reloadData: function (name, isradiogroup) {
             var container = this.ownerCt;
             var newConfig = Ext.apply(this.initialConfig, {
-                "x_state": this.x_state,
-                "items": X.util.resolveCheckBoxGroup(name, this.x_state, isradiogroup)
+                "f_state": this.f_state,
+                "items": F.util.resolveCheckBoxGroup(name, this.f_state, isradiogroup)
             });
 
             if (container) {
@@ -284,7 +284,7 @@ if (Ext.form.CheckboxGroup) {
         // 选中项
         x_setValue: function (values) {
             // valueArray：["value1", "value2", "value3"]
-            var values = values || this.x_state['SelectedValueArray'];
+            var values = values || this.f_state['SelectedValueArray'];
             
             var selectedObj = {};
             this.items.each(function (item) {
@@ -326,21 +326,21 @@ if (Ext.form.field.ComboBox) {
         x_setValue: function (value) {
             // value 可以是空字符串
             if (typeof (value) === 'undefined') {
-                value = this.x_state['SelectedValue'];
+                value = this.f_state['SelectedValue'];
             }
             this.setValue(value);
         },
 
         x_loadData: function (data) {
-            data = data || this.x_state['X_Items'];
+            data = data || this.f_state['X_Items'];
             if (data) {
-                this.store.loadData(X.simulateTree.transform(data));
+                this.store.loadData(F.simulateTree.transform(data));
             }
         },
 
 
         x_getTextByValue: function (value, data) {
-            data = data || this.x_state['X_Items'];
+            data = data || this.f_state['X_Items'];
             value += ''; // 把Value转换为字符串
             for (var i = 0, count = data.length; i < count; i++) {
                 var item = data[i];
@@ -359,15 +359,15 @@ if (Ext.button.Button) {
     Ext.override(Ext.button.Button, {
 
         x_setTooltip: function () {
-            this.setTooltip(this.x_state['ToolTip']);
+            this.setTooltip(this.f_state['ToolTip']);
         },
 
         x_toggle: function () {
-            this.toggle(this.x_state['Pressed']);
+            this.toggle(this.f_state['Pressed']);
         },
 
         x_setText: function () {
-            this.setText(this.x_state['Text']);
+            this.setText(this.f_state['Text']);
         }
 
 
@@ -377,15 +377,15 @@ if (Ext.button.Button) {
 
 if (Ext.grid.column.RowNumberer) {
 
-    X.originalRowNumbererRenderer = Ext.grid.column.RowNumberer.prototype.renderer;
+    F.originalRowNumbererRenderer = Ext.grid.column.RowNumberer.prototype.renderer;
     Ext.override(Ext.grid.column.RowNumberer, {
 
         renderer: function () {
 
-            var number = X.originalRowNumbererRenderer.apply(this, arguments);
+            var number = F.originalRowNumbererRenderer.apply(this, arguments);
 
             if (this.x_paging) {
-                var pagingBar = X(this.x_paging_grid).x_getPaging();
+                var pagingBar = F(this.x_paging_grid).x_getPaging();
                 if (pagingBar) {
                     number += pagingBar.x_pageIndex * pagingBar.x_pageSize;
                 }
@@ -411,7 +411,7 @@ if (Ext.grid.Panel) {
     Ext.override(Ext.grid.Panel, {
 
         x_getData: function () {
-            var $this = this, data = this.x_state['X_Rows']['Values'];
+            var $this = this, data = this.f_state['X_Rows']['Values'];
 
             //////////////////////////////////////////////////
             var tpls = this.x_getTpls(this.x_tpls);
@@ -591,7 +591,7 @@ if (Ext.grid.Panel) {
 
         // 选中某些行
         x_selectRows: function (rows) {
-            rows = rows || this.x_state['SelectedRowIndexArray'] || [];
+            rows = rows || this.f_state['SelectedRowIndexArray'] || [];
             var sm = this.getSelectionModel();
             if (sm.select) {
                 sm.deselectAll(true);
@@ -629,7 +629,7 @@ if (Ext.grid.Panel) {
 
         // 选中单元格（AllowCellEditing）
         x_selectCell: function (cell) {
-            cell = cell || this.x_state['SelectedCell'] || [];
+            cell = cell || this.f_state['SelectedCell'] || [];
             var sm = this.getSelectionModel();
             if (sm.select) {
                 if (cell.length === 2) {
@@ -667,7 +667,7 @@ if (Ext.grid.Panel) {
 
         // 隐藏需要隐藏的列，显示不需要隐藏的列
         x_updateColumnsHiddenStatus: function (hiddens) {
-            hiddens = hiddens || this.x_state['HiddenColumns'] || [];
+            hiddens = hiddens || this.f_state['HiddenColumns'] || [];
             var columns = this.columns;
             Ext.Array.each(columns, function (column, index) {
                 if (hiddens.indexOf(column.id) !== -1) {
@@ -729,7 +729,7 @@ if (Ext.grid.Panel) {
         // 这个方法用不到了，现在对States的更新会导致Values的改变，进而促使表格的重新加载
         /*
         x_setRowStates: function (states) {
-        var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.x_state['X_States'] || [];
+        var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.f_state['f_states'] || [];
 
         function setCheckBoxStates(columnIndex, stateColumnIndex) {
         var checkboxRows = gridEl.select('.x-grid-body .x-grid-row .x-grid-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
@@ -954,7 +954,7 @@ if (Ext.tree.Panel) {
     Ext.override(Ext.tree.Panel, {
 
         x_loadData: function () {
-            var datas = this.x_state['X_Nodes'];
+            var datas = this.f_state['X_Nodes'];
             var nodes = this.x_tranformData(datas);
             var root = this.getRootNode();
             if (root) {
@@ -1104,7 +1104,7 @@ if (Ext.tree.Panel) {
         },
 
         x_selectNodes: function () {
-            var nodeIDs = this.x_state['SelectedNodeIDArray'] || [];
+            var nodeIDs = this.f_state['SelectedNodeIDArray'] || [];
             var model = this.getSelectionModel(), store = this.getStore(), nodes = [];
             Ext.Array.each(nodeIDs, function (nodeID, index) {
                 nodes.push(store.getNodeById(nodeID));
@@ -1136,12 +1136,12 @@ if (Ext.tab.Panel) {
     Ext.override(Ext.tab.Panel, {
 
         x_autoPostBackTabsContains: function (tabId) {
-            var tabs = this.x_state['X_AutoPostBackTabs'];
+            var tabs = this.f_state['X_AutoPostBackTabs'];
             return tabs.indexOf(tabId) !== -1;
         },
 
         x_setActiveTab: function () {
-            var tabIndex = this.x_state['ActiveTabIndex'];
+            var tabIndex = this.f_state['ActiveTabIndex'];
             this.setActiveTab(tabIndex);
         },
 
@@ -1167,14 +1167,14 @@ if (Ext.tab.Panel) {
         */
 
         hideTab: function (tabId) {
-            var tab = X(tabId).tab;
+            var tab = F(tabId).tab;
             if (tab) {
                 tab.hide();
             }
         },
 
         showTab: function (tabId) {
-            var tab = X(tabId).tab;
+            var tab = F(tabId).tab;
             if (tab) {
                 tab.show();
             }
@@ -1204,7 +1204,7 @@ if (Ext.tab.Panel) {
         },
 
         getTab: function (tabId) {
-            return X(tabId);
+            return F(tabId);
         },
 
         removeTab: function (tabId) {
@@ -1237,7 +1237,7 @@ if (Ext.Window) {
 
 
         x_hide: function () {
-            X.wnd.hide(this, this.x_property_target, this.x_iframe, this.id + '_Hidden', this.x_property_guid);
+            F.wnd.hide(this, this.x_property_target, this.x_iframe, this.id + '_Hidden', this.x_property_guid);
         },
         x_hide_refresh: function () {
             this.x_hide();
@@ -1250,17 +1250,17 @@ if (Ext.Window) {
             __doPostBack(this.name, argument);
         },
         x_show: function (iframeUrl, windowTitle) {
-            X.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
+            F.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
         },
 
         x_maximize: function () {
-            X.wnd.maximize(this, this.x_property_target, this.x_property_guid);
+            F.wnd.maximize(this, this.x_property_target, this.x_property_guid);
         },
         x_minimize: function () {
-            X.wnd.minimize(this, this.x_property_target, this.x_property_guid);
+            F.wnd.minimize(this, this.x_property_target, this.x_property_guid);
         },
         x_restore: function () {
-            X.wnd.restore(this, this.x_property_target, this.x_property_guid);
+            F.wnd.restore(this, this.x_property_target, this.x_property_guid);
         }
 
     });
@@ -1284,12 +1284,12 @@ if (Ext.grid.plugin.RowExpander) {
 // 修正IE7下，窗口出现滚动条时，点击Window控件标题栏有时node为null的问题
 /*
 if (Ext.dd.DragDrop) {
-    X.originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
+    F.originalIsValidHandleChild = Ext.dd.DragDrop.prototype.isValidHandleChild;
     Ext.dd.DragDrop.prototype.isValidHandleChild = function (node) {
         if (!node || !node.nodeName) {
             return false;
         }
-        return X.originalIsValidHandleChild.apply(this, [node]);
+        return F.originalIsValidHandleChild.apply(this, [node]);
     };
 }
 */

@@ -47,9 +47,10 @@
             </Regions>
         </x:RegionPanel>
     </form>
+    <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>
 
-        function onReady() {
+        F.ready(function () {
             var menuLis = Ext.select('.menu ul li');
             menuLis.on('click', function (evt, el) {
                 var classNames = /menu\-(\w+)/.exec(this.className);
@@ -62,7 +63,7 @@
                     window.frames['leftframe'].location.href = './leftmenu.aspx?menu=' + encodeURIComponent(menuType);
                 }
             });
-        }
+        });
     </script>
 </body>
 </html>

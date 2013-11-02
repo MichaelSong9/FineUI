@@ -110,7 +110,7 @@ namespace FineUI
             #endregion
 
             
-            OB.Listeners.AddProperty("change", JsHelper.GetFunction("X.util.setPageStateChanged();"), true); //this.doLayout();
+            OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true); //this.doLayout();
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);

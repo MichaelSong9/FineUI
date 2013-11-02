@@ -31,7 +31,7 @@
         var shengClientID = '<%= ddlSheng.ClientID %>';
 
         function selectProvince(name) {
-            X(shengClientID).setValue(name);
+            F(shengClientID).setValue(name);
         }
     </script>
 </body>

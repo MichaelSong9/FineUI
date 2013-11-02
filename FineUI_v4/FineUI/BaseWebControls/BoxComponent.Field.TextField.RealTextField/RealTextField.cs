@@ -197,7 +197,7 @@ namespace FineUI
                 //// First remove change event, because we has already register this event in super class - Field.
                 //OB.Listeners.RemoveProperty("change");
 
-                //string changeScript = "X.util.setPageStateChanged();";
+                //string changeScript = "F.util.setPageStateChanged();";
                 //changeScript += GetPostBackEventReference();
                 //OB.Listeners.AddProperty("change", JsHelper.GetFunction(changeScript), true);
 

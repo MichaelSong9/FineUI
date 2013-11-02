@@ -617,7 +617,7 @@ namespace FineUI
                 OB.AddProperty("pressed", Pressed);
 
                 //hiddenFieldsScript += GetSetHiddenFieldValueScript(PressedHiddenFieldID, Pressed.ToString().ToLower());
-                //string toggleScript = String.Format("function(btn,pressed){{X.util.setHiddenFieldValue('{0}',pressed);}}", PressedHiddenFieldID);
+                //string toggleScript = String.Format("function(btn,pressed){{F.util.setHiddenFieldValue('{0}',pressed);}}", PressedHiddenFieldID);
                 //OB.Listeners.AddProperty(OptionName.Toggle, toggleScript, true);
             }
 
@@ -787,7 +787,7 @@ namespace FineUI
                     }
                 }
 
-                validateScript = String.Format("if(!X.util.validForms({0},'{1}',{2})){{return false;}}", array.ToString(), TargetHelper.GetName(validateTarget), validateMessageBox.ToString().ToLower());
+                validateScript = String.Format("if(!F.util.validForms({0},'{1}',{2})){{return false;}}", array.ToString(), TargetHelper.GetName(validateTarget), validateMessageBox.ToString().ToLower());
             }
 
             // 2. 用户自定义脚本
@@ -804,7 +804,7 @@ namespace FineUI
             {
                 if (!String.IsNullOrEmpty(disableControlJavascriptID))
                 {
-                    postBackScript += String.Format("X.disable('{0}');", disableControlJavascriptID);
+                    postBackScript += String.Format("F.disable('{0}');", disableControlJavascriptID);
                 }
                 postBackScript += postBackEventReference;
             }

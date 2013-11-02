@@ -43,7 +43,7 @@ namespace FineUI
     {
         #region static readonly
 
-        //private static readonly string PAGE_STATE_CHANGED_FUNCTION_NAME = "X.box_pageStateChanged";
+        //private static readonly string PAGE_STATE_CHANGED_FUNCTION_NAME = "F.box_pageStateChanged";
 
         #endregion
 
@@ -228,7 +228,7 @@ namespace FineUI
         //public static string GetConfirmFormModifiedReference()
         //{
         //    //return String.Format("{0}();", PAGE_STATE_CHANGED_FUNCTION_NAME);
-        //    return "X.wnd.confirmFormModified();";
+        //    return "F.wnd.confirmFormModified();";
         //}
 
         //public static void RegisterPageStateChangedStartupScript()
@@ -269,7 +269,7 @@ namespace FineUI
         ///// <returns></returns>
         //private static string GetPageStateChangedReference()
         //{
-        //    return "X.util.isPageStateChanged();";
+        //    return "F.util.isPageStateChanged();";
         //}
 
         ///// <summary>

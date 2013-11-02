@@ -395,7 +395,7 @@ namespace FineUI
             // We have enableBubble for Ext.form.Field
 
             //// Fires just before the field blurs if the field value has changed.
-            //string changeScript = "X.util.setPageStateChanged();";
+            //string changeScript = "F.util.setPageStateChanged();";
             //OB.Listeners.AddProperty("change", JsHelper.GetFunction(changeScript), true);
 
         }

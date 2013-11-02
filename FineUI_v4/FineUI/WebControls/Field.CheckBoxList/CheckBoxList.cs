@@ -578,7 +578,7 @@ namespace FineUI
                 sb.AppendFormat("{0}.x_reloadData('{1}');", XID, UniqueID); //, GetItemsJArray().ToString(Formatting.None));
 
                 // 注意，在x_reloadData中重新创建了列表实例，所以要重新赋值
-                sb.AppendFormat("{0}=X('{1}');", XID, ClientID);
+                sb.AppendFormat("{0}=F('{1}');", XID, ClientID);
 
                 //if (Items.Count == 0)
                 //{
@@ -646,8 +646,8 @@ namespace FineUI
             string xitemsName = String.Format("{0}_xitems", XID);
             string hasDataName = xstateName;
 
-            string xstate = OB.GetProperty("x_state");
-            OB.AddProperty("x_state", xstateName, true);
+            string xstate = OB.GetProperty("f_state");
+            OB.AddProperty("f_state", xstateName, true);
 
             string jsState = String.Format("var {0}={1};", xstateName, xstate);
 
@@ -661,10 +661,10 @@ namespace FineUI
             //if (Items.Count > 0)
             //{
             //    //OB.AddProperty("items", GetItemsJArray().ToString(Formatting.None), true);
-            //    OB.AddProperty("items", String.Format("X.util.resolveCheckBoxGroup('{0}',{1})", UniqueID, hasDataName), true);
+            //    OB.AddProperty("items", String.Format("F.util.resolveCheckBoxGroup('{0}',{1})", UniqueID, hasDataName), true);
             //}
             OB.AddProperty("name", UniqueID);
-            OB.AddProperty("items", String.Format("X.util.resolveCheckBoxGroup('{0}',{1},false)", UniqueID, hasDataName), true);
+            OB.AddProperty("items", String.Format("F.util.resolveCheckBoxGroup('{0}',{1},false)", UniqueID, hasDataName), true);
 
 
             //if (Items.Count == 0)

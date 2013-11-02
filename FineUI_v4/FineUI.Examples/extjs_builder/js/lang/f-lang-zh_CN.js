@@ -2,12 +2,12 @@
 
 
 
-Ext.apply(X.ajax, {
+Ext.apply(F.ajax, {
     errorMsg: "出错了！{0} ({1})",
 	timeoutErrorMsg: "请求超时，请刷新页面并重试！"
 });
 
-Ext.apply(X.util, {
+Ext.apply(F.util, {
     alertTitle: "提示对话框",
     confirmTitle: "确认对话框",
     formAlertMsg: "请为 {0} 提供有效值！",
@@ -16,7 +16,7 @@ Ext.apply(X.util, {
 });
 
 
-Ext.apply(X.wnd, {
+Ext.apply(F.wnd, {
     closeButtonTooltip: "关闭此窗口",
     formModifiedConfirmTitle: "确认关闭",
     formModifiedConfirmMsg: "当前表单已经被修改。<br/><br/>确认放弃修改？"

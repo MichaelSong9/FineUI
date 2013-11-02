@@ -89,22 +89,22 @@
     </Content>
     <Content Include="common\source.aspx" />
     <Content Include="common\source_file.aspx" />
-    <Content Include="extjs_builder\js\lang\fineui-lang-en.js" />
-    <Content Include="extjs_builder\js\lang\fineui-lang-pt_BR.js" />
-    <Content Include="extjs_builder\js\lang\fineui-lang-ru.js" />
-    <Content Include="extjs_builder\js\lang\fineui-lang-tr.js" />
-    <Content Include="extjs_builder\js\lang\fineui-lang-zh_CN.js" />
-    <Content Include="extjs_builder\js\lang\fineui-lang-zh_TW.js" />
+    <Content Include="extjs_builder\js\lang\f-lang-en.js" />
+    <Content Include="extjs_builder\js\lang\f-lang-pt_BR.js" />
+    <Content Include="extjs_builder\js\lang\f-lang-ru.js" />
+    <Content Include="extjs_builder\js\lang\f-lang-tr.js" />
+    <Content Include="extjs_builder\js\lang\f-lang-zh_CN.js" />
+    <Content Include="extjs_builder\js\lang\f-lang-zh_TW.js" />
     <Content Include="extjs_builder\js\lib\Base64.js" />
     <Content Include="extjs_builder\js\lib\json2.js" />
     <Content Include="extjs_builder\js\ux\FormViewport.js" />
     <Content Include="extjs_builder\js\ux\SimplePagingToolbar.js" />
-    <Content Include="extjs_builder\js\X\extender.js" />
-    <Content Include="extjs_builder\js\X\X.ajax.js" />
-    <Content Include="extjs_builder\js\X\X.format.js" />
-    <Content Include="extjs_builder\js\X\X.simulateTree.js" />
-    <Content Include="extjs_builder\js\X\X.util.js" />
-    <Content Include="extjs_builder\js\X\X.wnd.js" />
+    <Content Include="extjs_builder\js\F\extender.js" />
+    <Content Include="extjs_builder\js\F\F.ajax.js" />
+    <Content Include="extjs_builder\js\F\F.format.js" />
+    <Content Include="extjs_builder\js\F\F.simulateTree.js" />
+    <Content Include="extjs_builder\js\F\F.util.js" />
+    <Content Include="extjs_builder\js\F\F.wnd.js" />
     <Content Include="extjs_builder\res\access.css" />
     <Content Include="extjs_builder\res\classic.css" />
     <Content Include="extjs_builder\res\FineUI.css" />
@@ -192,6 +192,7 @@
     <Content Include="grid\grid_editor_cell_afteredit.aspx" />
     <Content Include="grid\grid_excel_selectcolumns.aspx" />
     <Content Include="grid\grid_summary2.aspx" />
+    <Content Include="grid\grid_edit_enterkey_v.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -227,6 +228,8 @@
     <Content Include="iframe\topmenu\res\images\p.png" />
     <Content Include="iframe\topmenu\res\images\t.png" />
     <Content Include="iframe\topmenu\res\main.css" />
+    <Content Include="js\jquery-1.10.2.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -817,6 +820,13 @@
     </Compile>
     <Compile Include="grid\grid_summary2.aspx.designer.cs">
       <DependentUpon>grid_summary2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_enterkey_v.aspx.cs">
+      <DependentUpon>grid_edit_enterkey_v.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_enterkey_v.aspx.designer.cs">
+      <DependentUpon>grid_edit_enterkey_v.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

@@ -1805,7 +1805,7 @@ namespace FineUI
         //        XState.AddModifiedProperty("X_Rows");
         //    }
 
-        //    // Make sure SelectedRowIndexArray property exist in X_STATE during page's first load.
+        //    // Make sure SelectedRowIndexArray property exist in F_STATE during page's first load.
         //    if (!Page.IsPostBack)
         //    {
         //        XState.AddModifiedProperty("SelectedRowIndexArray");
@@ -2101,10 +2101,6 @@ namespace FineUI
                 PageManager.Instance.AddAjaxGridReloadedClientID(ClientID);
             }
 
-            //if (PropertyModified("X_States"))
-            //{
-            //    sb.AppendFormat("{0}.x_setRowStates();", XID);
-            //}
 
             //if (PropertyModified("SortField", "SortDirection"))
             //{
@@ -2197,7 +2193,7 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
-            // 确保 X_Rows 在页面第一次加载时都存在于x_state中
+            // 确保 X_Rows 在页面第一次加载时都存在于f_state中
             XState.AddModifiedProperty("X_Rows");
 
             // 不需要手工添加 SelectedRowIndexArray 属性，是因为只能通过代码设置此属性
@@ -2463,7 +2459,7 @@ namespace FineUI
 
             StringBuilder viewreadySB = new StringBuilder();
 
-            // Note: this.x_state['X_Rows']['Values'] will always rendered to the client side.
+            // Note: this.f_state['X_Rows']['Values'] will always rendered to the client side.
             //viewreadySB.Append("cmp.x_updateTpls();");
 
             if (AllowSorting)
@@ -2584,7 +2580,7 @@ namespace FineUI
             ////    sb.Append(JsHelper.GetDeferScript(selectScript, 200));
             ////}
 
-            //// Make sure SelectedRowIndexArray property exist in X_STATE during page's first load.
+            //// Make sure SelectedRowIndexArray property exist in F_STATE during page's first load.
             //sb.Append(JsHelper.GetDeferScript(String.Format("{0}.x_selectRows();", XID), 200));
 
             #endregion

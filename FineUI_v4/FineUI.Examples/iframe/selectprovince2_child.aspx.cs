@@ -25,7 +25,7 @@ namespace FineUI.Examples.iframe
                 {
                     string provinceName = eventArgument.Substring("SelectProvince$".Length);
 
-                    PageContext.RegisterStartupScript("X.wnd.getActiveWindow()[1].selectProvince('" + provinceName + "');" + ActiveWindow.GetHideReference());
+                    PageContext.RegisterStartupScript("F.wnd.getActiveWindow()[1].selectProvince('" + provinceName + "');" + ActiveWindow.GetHideReference());
                 }
             }
         }

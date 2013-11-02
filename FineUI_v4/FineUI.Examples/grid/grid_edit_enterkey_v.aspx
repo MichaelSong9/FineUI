@@ -1,25 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_edit_compare.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_edit_compare" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_edit_enterkey_v.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_edit_enterkey_v" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
     <title></title>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
-    <style>
-        .success {
-            color: Green;
-        }
 
-        .error {
-            color: Red;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
-        <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px" runat="server"
+        <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true"
+            Width="900px" Height="500px" runat="server"
             DataKeyNames="Id,Name">
             <Columns>
                 <x:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
@@ -40,32 +33,30 @@
                 <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                <x:TemplateField HeaderText="分组一" Width="100px">
+                <x:TemplateField HeaderText="语文" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxGroupName" CssClass="group1" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'
-                            Text='<%# Eval("Group") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbxYuwen" CssClass="group1" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
-                <x:TemplateField HeaderText="分组二" Width="100px">
+                <x:TemplateField HeaderText="数学" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="TextBox1" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 100 %>'></asp:TextBox>
+                        <asp:TextBox ID="tbxShuxue" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 + GetDataSourceCount() %>'></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
-                <x:TemplateField HeaderText="比较结果" Width="120px">
+                <x:TemplateField HeaderText="英语" Width="100px">
                     <ItemTemplate>
-                        <asp:Label runat="server" CssClass="result" ID="labCompare"></asp:Label>
+                        <asp:TextBox ID="tbxYingyu" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 + GetDataSourceCount() * 2 %>'></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
             </Columns>
         </x:Grid>
         <br />
         请注意如何实现：
-    <ul>
-        <li>使用Tab键遍历一列当中所有的文本输入框（通过TextBox的TabIndex属性）</li>
-        <li>使用Enter键遍历一列当中所有的文本输入框（JavaScript函数registerEnterEvent）</li>
-        <li>点击输入框即可选中全部文本（JavaScript函数registerSelectEvent）</li>
-        <li>比较两个输入框的文本是否相同（JavaScript函数registerCompareEvent）</li>
-    </ul>
+        <ul>
+            <li>使用Tab键遍历一列当中所有的文本输入框（通过TextBox的TabIndex属性）</li>
+            <li>使用Enter键遍历一列当中所有的文本输入框（JavaScript函数registerEnterEvent）</li>
+            <li>Tab/Enter遍历文本框时，先遍历一列的文本框，然后再遍历下一列的文本框</li>
+        </ul>
         <br />
         <x:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="获取用户输入的分组值">
         </x:Button>

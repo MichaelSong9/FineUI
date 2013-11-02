@@ -48,22 +48,23 @@
         </x:Label>
         <br />
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
 
         function registerSelectEvent() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
 
             grid.el.on('click', function (evt, el) {
                 el.select();
             }, { delegate: '.x-grid-tpl input' });
         }
 
-        function onReady() {
-            var grid = X(gridClientID);
+        F.ready(function () {
+            var grid = F(gridClientID);
 
             registerSelectEvent();
-        }
+        });
 
     </script>
 </body>

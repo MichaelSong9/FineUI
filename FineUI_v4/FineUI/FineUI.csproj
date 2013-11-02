@@ -87,6 +87,7 @@
     <Compile Include="Business\Enums\Grid\Renderer.cs" />
     <Compile Include="Business\Enums\MessageTarget.cs" />
     <Compile Include="Business\Enums\SummaryPosition.cs" />
+    <Compile Include="Business\Util\FState.cs" />
     <Compile Include="WebControls\Field.CheckBox\EventArgs\CheckedEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.Grid\Editor\GridColumnEditorCollection.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field\Field.cs" />
@@ -139,7 +140,6 @@
     <Compile Include="Business\ResourceManager\TreeNodeIDManager.cs" />
     <Compile Include="Business\SimulateTree\SimulateTreeHeper.cs" />
     <Compile Include="Business\SimulateTree\SimulateTreeNode.cs" />
-    <Compile Include="Business\Util\XState.cs" />
     <Compile Include="Business\Util\ControlUtil.cs" />
     <Compile Include="Business\Util\StringUtil.cs" />
     <Compile Include="Business\Util\ObjectUtil.cs" />

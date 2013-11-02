@@ -768,7 +768,7 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
-            // 确保 X_Items 和 SelectedValue 在页面第一次加载时都存在于x_state中
+            // 确保 X_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
             XState.AddModifiedProperty("X_Items");
             XState.AddModifiedProperty("SelectedValue");
 
@@ -832,12 +832,12 @@ namespace FineUI
 
             JsObjectBuilder storeBuilder = new JsObjectBuilder();
             storeBuilder.AddProperty("fields", "['value','text','enabled','prefix']", true);
-            storeBuilder.AddProperty("data", String.Format("X.simulateTree.transform({0}.X_Items)", GetXStateScriptID()), true);
+            storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.X_Items)", GetFStateScriptID()), true);
             OB.AddProperty("store", String.Format("Ext.create('Ext.data.ArrayStore',{0})", storeBuilder), true);
 
-            OB.AddProperty("value", String.Format("{0}.SelectedValue", GetXStateScriptID()), true);
+            OB.AddProperty("value", String.Format("{0}.SelectedValue", GetFStateScriptID()), true);
 
-            OB.AddProperty("tpl", "X.util.ddlTPL", true);
+            OB.AddProperty("tpl", "F.util.ddlTPL", true);
 
             OB.AddProperty("queryMode", "local");
             OB.AddProperty("triggerAction", "all");
@@ -885,7 +885,7 @@ namespace FineUI
 
             // 不管是不是disableSelectFields.Count > 0，都要执行下面的语句，因为可能页面加载时为0，在Ajax后不为零
             //if (disableSelectFields.Count > 0)
-            //OB.AddProperty(OptionName.Tpl, String.Format("'<tpl for=\".\"><div class=\"x-combo-list-item {{[X.util.isHiddenFieldContains(\"{0}\",xindex-1) ? \"box-combo-list-item-disable-select\" : \"\"]}}\">{{text}}</div></tpl>'", DisableSelectRowIndexsHiddenID), true);
+            //OB.AddProperty(OptionName.Tpl, String.Format("'<tpl for=\".\"><div class=\"x-combo-list-item {{[F.util.isHiddenFieldContains(\"{0}\",xindex-1) ? \"box-combo-list-item-disable-select\" : \"\"]}}\">{{text}}</div></tpl>'", DisableSelectRowIndexsHiddenID), true);
             //var tplStr = "'<tpl for=\".\"><div class=\"x-combo-list-item\">{text}</div></tpl>'";
             //var tplStr = "new Ext.XTemplate('<tpl for=\".\"><div class=\"x-combo-list-item\">{text}</div></tpl>')";
 
@@ -898,7 +898,7 @@ namespace FineUI
             //string setSimulateTreeTextScript = String.Empty;
             //if (EnableSimulateTree)
             //{
-            //    string setSimulateTextScript = String.Format("var text=Ext.get('{0}').dom.value;if(text.lastIndexOf('<img')>=0){{Ext.get('{0}').dom.value=X.util.stripHtmlTags(text);}}", ClientID);
+            //    string setSimulateTextScript = String.Format("var text=Ext.get('{0}').dom.value;if(text.lastIndexOf('<img')>=0){{Ext.get('{0}').dom.value=F.util.stripHtmlTags(text);}}", ClientID);
             //    setSimulateTreeTextFunctionScript = String.Format("{0}_setSimulateText=function(){{{1}}};", ClientJavascriptID, setSimulateTextScript);
 
             //    // 加载完毕后，显示选中的值
@@ -949,7 +949,7 @@ namespace FineUI
 
             StringBuilder beforeselectSB = new StringBuilder();
             // 是否能选中一项（如果此项不能选中，则点击没用）
-            //beforeselectSB.AppendFormat("if(X.util.isHiddenFieldContains('{0}',index)){{return false;}}", DisableRowIndexsHiddenID);
+            //beforeselectSB.AppendFormat("if(F.util.isHiddenFieldContains('{0}',index)){{return false;}}", DisableRowIndexsHiddenID);
             beforeselectSB.Append("if(!record.data.enabled){return false;}");
 
             if (AutoPostBack)

@@ -954,7 +954,7 @@ namespace FineUI
                 //    //Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "noscroll",  String.Format("window.document.body.style.overflow='hidden';"), true);
                 //    AddStartupAbsoluteScript("window.document.body.style.overflow='hidden';");
                 //}
-                AddStartupAbsoluteScript("X.util.hideScrollbar();");
+                AddStartupAbsoluteScript("F.util.hideScrollbar();");
             }
 
             #endregion
@@ -969,7 +969,7 @@ namespace FineUI
 
                 if (EnablePageLoading)
                 {
-                    jsContent += "X.util.removePageLoading(false);";
+                    jsContent += "F.util.removePageLoading(false);";
                 }
 
                 AddStartupAbsoluteScript(jsContent);
@@ -982,7 +982,7 @@ namespace FineUI
 
             //if (!EnableAjax)
             //{
-            //    AddStartupAbsoluteScript("X.global_disable_ajax=true;");
+            //    AddStartupAbsoluteScript("F.global_disable_ajax=true;");
             //}
  
             //#endregion
@@ -1032,9 +1032,9 @@ namespace FineUI
 
             #region oldcode
 
-            // Move to X.util.init
+            // Move to F.util.init
             // Asp.Net Buttons(type="submit")
-            // AddStartupAbsoluteScript("X.util.makeAspnetSubmitButtonAjax();");
+            // AddStartupAbsoluteScript("F.util.makeAspnetSubmitButtonAjax();");
 
             #endregion
         }

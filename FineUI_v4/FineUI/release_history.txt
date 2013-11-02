@@ -31,7 +31,16 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+表格合计行重构。
 		-增加属性EnableSummary、SummaryData、SummaryPosition。
 		-增加示例grid/grid_summary.aspx、。
-
+	+增强品牌意识。
+		-客户端库简称 X 统一改为 F。
+		-服务器控件标签前缀由 x 统一改为 f。
+		-自定义CSS、JavaScript前缀由 x_ 或者 box- 统一改为 f_ 或者 f- 。
+	+客户端事件由函数定义形式改为传入回调函数。
+		-函数onReady更改为F.ready(fn)。
+		-函数onAjaxReady更改为F.ajaxReady(fn)。
+		-函数X.util.beforeAjaxPostBackScript更改为F.beforeAjax(fn)。
+		-删除PageManager的ExecuteOnReadyWhenPostBack属性。
+	-需要客户端脚本的示例，改为jQuery实现。
 
 
 

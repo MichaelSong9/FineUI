@@ -506,7 +506,7 @@ namespace FineUI
                 {
                     addCSSPrefix = "top.";
                 }
-                addCSSScript = String.Format("{0}X.util.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, resolvedIconUrl));
+                addCSSScript = String.Format("{0}F.util.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, resolvedIconUrl));
 
                 iconScriptFragment = String.Format("'{0}'", className);
             }
@@ -528,11 +528,11 @@ namespace FineUI
                 String.IsNullOrEmpty(okScript) &&
                 String.IsNullOrEmpty(resolvedIconUrl))
             {
-                return addCSSScript + String.Format("{0}.X.alert({1});", targetScript, JsHelper.GetJsString(message));
+                return addCSSScript + String.Format("{0}.F.alert({1});", targetScript, JsHelper.GetJsString(message));
             }
             else
             {
-                return addCSSScript + String.Format("{0}.X.alert({1},{2},{3},{4});",
+                return addCSSScript + String.Format("{0}.F.alert({1},{2},{3},{4});",
                     targetScript,
                     JsHelper.GetJsStringWithScriptTag(message),
                     JsHelper.GetJsString(title),

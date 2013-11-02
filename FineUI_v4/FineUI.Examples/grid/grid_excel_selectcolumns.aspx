@@ -46,18 +46,20 @@
         <br />
         <br />
         <br />
-        <script>
-            var windowID = '<%= Window1.ClientID %>';
 
-            function onReady() {
-                var window = X(windowID);
-                var oldHidePostback = window.x_hide_postback;
-                window.x_hide_postback = function () {
-                    X.control_enable_ajax = false;
-                    oldHidePostback.apply(this, arguments);
-                };
-            }
-        </script>
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script>
+        var windowID = '<%= Window1.ClientID %>';
+
+        F.ready(function () {
+            var window = F(windowID);
+            var oldHidePostback = window.x_hide_postback;
+            window.x_hide_postback = function () {
+                F.control_enable_ajax = false;
+                oldHidePostback.apply(this, arguments);
+            };
+        });
+    </script>
 </body>
 </html>

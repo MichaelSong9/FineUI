@@ -56,11 +56,12 @@
         </x:Label>
         <br />
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
 
         function registerSelectEvent() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
 
             grid.el.on('click', function (evt, el) {
                 el.select();
@@ -68,7 +69,7 @@
         }
 
         function registerEnterEvent() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
 
             grid.el.on("keydown", function (evt, el) {
                 if (evt.getKey() == evt.ENTER) {
@@ -80,10 +81,10 @@
             }, { delegate: '.x-grid-tpl input' });
         }
 
-        function onReady() {
+        F.ready(function () {
             registerSelectEvent();
             registerEnterEvent();
-        }
+        });
 
     </script>
 </body>

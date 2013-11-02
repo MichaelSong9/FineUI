@@ -270,7 +270,7 @@ namespace FineUI
             base.OnFirstPreRender();
 
 
-            AddStartupAbsoluteScript("X.form_upload_file=true;");
+            AddStartupAbsoluteScript("F.form_upload_file=true;");
 
 
             if (!String.IsNullOrEmpty(ButtonText))

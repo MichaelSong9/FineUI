@@ -1,12 +1,12 @@
 
 
 
-Ext.apply(X.ajax, {
+Ext.apply(F.ajax, {
     errorMsg: "Error! {0} ({1})",
 	timeoutErrorMsg: "Request timeout, please refresh the page and try again!"
 });
 
-Ext.apply(X.util, {
+Ext.apply(F.util, {
     alertTitle: "Alert Dialog",
     confirmTitle: "Confirm Dialog",
     formAlertMsg: "Please provide valid value for {0}!",
@@ -14,7 +14,7 @@ Ext.apply(X.util, {
     loading: "Loading..."
 });
 
-Ext.apply(X.wnd, {
+Ext.apply(F.wnd, {
     closeButtonTooltip: "Close this window",
     formModifiedConfirmTitle: "Close Confrim",
     formModifiedConfirmMsg: "Current form has been modified.<br/><br/>Abandon changes?"

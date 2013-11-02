@@ -36,25 +36,6 @@
             </Items>
         </x:SimpleForm>
     </form>
-    <script type="text/javascript">
-        function onReady() {
 
-            //X.util.setHiddenFieldValue('X_STATE', JSON.stringify(X.ajax.getXState()));
-            // document.write(Ext.get("X_STATE").dom.value);
-
-            //document.write(JSON.stringify(X.ajax.getXState()));
-            //document.write(Ext.encode(X.ajax.getXState()));
-
-            //X.util.setHiddenFieldValue("TestNode1", '{"X_Items":[["Value1","选项 1",1],["Value2","选项 2（不可选择）",0],["Value3","选项 3（不可选择）",0],["Value4","选项 4",1],["Value5","选项 5",1],["Value6","选项 6",1],["Value7","选项 7",1],["Value8","选项 8",1],["Value9","选项 9",1]],"SelectedValue":"Value1"}');
-            //var nodeValue = Ext.get("TestNode1").dom.value;
-            //document.write("nodeValue:" + nodeValue + " encodeURIComponent(nodeValue):" + encodeURIComponent(nodeValue));
-
-            // 
-
-            // document.write(Ext.lib.Ajax.serializeForm('form1')); //encodeURIComponent('\u9009')
-            //document.write(encodeURIComponent('Value1","选项 1",1],["Value2"'));
-            //document.write(encodeURIComponent('{"X_Items":[["Value1","选项 1",1],["Value2","选项 2（不可选择）",0],["Value3","选项 3（不可选择）",0],["Value4","选项 4",1],["Value5","选项 5",1],["Value6","选项 6",1],["Value7","选项 7",1],["Value8","选项 8",1],["Value9","选项 9",1]],"SelectedValue":"Value1"}'));
-        }
-    </script>
 </body>
 </html>

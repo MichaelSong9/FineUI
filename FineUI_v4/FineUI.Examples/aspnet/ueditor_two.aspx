@@ -74,14 +74,14 @@
     <script type="text/javascript">
         window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/ueditor/") %>';
     </script>
-    <script src="../jqueryui/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="../ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
         var editor1, editor2;
         var formClientID = '<%= SimpleForm1.ClientID %>';
 
-        function onReady() {
+        F.ready(function () {
             editor1 = new UE.ui.Editor({
                 initialFrameWidth: '100%',
                 initialFrameHeight: 100,
@@ -100,8 +100,8 @@
             editor2.render("UEditor2");
 
             updateLayout();
-            
-        }
+
+        });
 
 
         function editorPromise(editor) {
@@ -120,18 +120,18 @@
 
 
         // 提交数据之前同步到表单隐藏字段
-        X.util.beforeAjaxPostBackScript = function () {
+        F.beforeAjax(function () {
             editor1.sync();
             editor2.sync();
-        };
+        });
 
         // 更新外部容器的布局
         function updateLayout() {
             $.when(editorPromise(editor1), editorPromise(editor2)).then(function () {
                 window.setTimeout(function () {
-                    X(formClientID).updateLayout();
+                    F(formClientID).updateLayout();
                 }, 100);
-            }); 
+            });
         }
 
         // 更新编辑器内容

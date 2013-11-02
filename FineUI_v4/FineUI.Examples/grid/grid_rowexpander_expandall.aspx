@@ -67,10 +67,11 @@
         <br />
         <br />
         注：请注意如何在重新绑定数据后，保持所有扩展列的展开状态。
-    <br />
+        <br />
         这个示例演示了如何通过编写JavaScript脚本来处理不常见的逻辑，如果你对JavaScript不熟悉请参考下一个完成相同功能的示例（一个属性搞定）。
-    <br />
+        <br />
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
 
@@ -84,14 +85,14 @@
         }
 
         // 页面第一个加载完毕后执行的函数
-        function onReady() {
-            var grid = X(gridClientID);
+        F.ready(function () {
+            var grid = F(gridClientID);
             expandAllRows(grid);
-        }
+        });
 
         // 页面AJAX回发后执行的函数
         function onAjaxReady() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
             expandAllRows(grid);
         }
     </script>

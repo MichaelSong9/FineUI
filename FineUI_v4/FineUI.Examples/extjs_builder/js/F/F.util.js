@@ -1,69 +1,73 @@
 
 // FineUI应用程序域
-var X = function (cmpName) {
+var F = function (cmpName) {
     return Ext.getCmp(cmpName);
 };
 
-X.state = function (cmp, state) {
-    X.util.setXState(cmp, state);
+F.state = function (cmp, state) {
+    F.util.setFState(cmp, state);
 };
 
-X.enable = function (id) {
-    X.util.enableSubmitControl(id);
+F.enable = function (id) {
+    F.util.enableSubmitControl(id);
 };
 
-X.disable = function (id) {
-    X.util.disableSubmitControl(id);
+F.disable = function (id) {
+    F.util.disableSubmitControl(id);
 };
 
-X.target = function (target) {
-    return X.util.getTargetWindow(target);
+F.target = function (target) {
+    return F.util.getTargetWindow(target);
 };
 
-X.alert = function () {
-    X.util.alert.apply(window, arguments);
+F.alert = function () {
+    F.util.alert.apply(window, arguments);
 };
 
-X.init = function () {
-    if (typeof (onInit) == 'function') {
-        onInit();
-    }
+//F.init = function () {
+//    if (typeof (onInit) == 'function') {
+//        onInit();
+//    }
+//};
+
+
+F.ready = function () {
+    F.util.ready.apply(window, arguments);
 };
 
-X.ready = function () {
-    if (typeof (onReady) == 'function') {
-        onReady();
-    }
+F.ajaxReady = function () {
+    F.util.ajaxReady.apply(window, arguments);
+    //if (typeof (onAjaxReady) == 'function') {
+    //    onAjaxReady();
+    //}
 };
 
-X.ajaxReady = function () {
-    if (typeof (onAjaxReady) == 'function') {
-        onAjaxReady();
-    }
+F.beforeAjax = function () {
+    F.util.beforeAjax.apply(window, arguments);
 };
 
-X.stop = function () {
+F.stop = function () {
     var event = arguments.callee.caller.arguments[0] || window.event;
-    X.util.stopEventPropagation(event);
+    F.util.stopEventPropagation(event);
 };
 
-X.confirm = function () {
-    X.util.confirm.apply(null, arguments);
+F.confirm = function () {
+    F.util.confirm.apply(null, arguments);
 };
 
-X.toggle = function (el, className) {
+F.toggle = function (el, className) {
     Ext.get(el).toggleCls(className);
 };
 
-X.fieldValue = function (cmp) {
-    return X.util.getFormFieldValue(cmp);
+F.fieldValue = function (cmp) {
+    return F.util.getFormFieldValue(cmp);
 };
 
 (function () {
 
 
     // FineUI常用函数域（Utility）
-    X.util = {
+    F.util = {
 
         alertTitle: "Alert Dialog",
         confirmTitle: "Confirm Dialog",
@@ -83,24 +87,24 @@ X.fieldValue = function (cmp) {
             //Ext.QuickTips.init(false);
             Ext.tip.QuickTipManager.init();
 
-            X.ajax.hookPostBack();
+            F.ajax.hookPostBack();
 
-            X.global_enable_ajax = enableAjax;
+            F.global_enable_ajax = enableAjax;
 
-            X.global_enable_ajax_loading = enableAjaxLoading;
-            X.global_ajax_loading_type = ajaxLoadingType;
+            F.global_enable_ajax_loading = enableAjaxLoading;
+            F.global_ajax_loading_type = ajaxLoadingType;
 
             // 添加Ajax Loading提示节点
-            X.ajaxLoadingDefault = Ext.get(X.util.appendLoadingNode());
-            X.ajaxLoadingMask = Ext.create('Ext.LoadMask', Ext.getBody(), { msg: X.util.loading });
+            F.ajaxLoadingDefault = Ext.get(F.util.appendLoadingNode());
+            F.ajaxLoadingMask = Ext.create('Ext.LoadMask', Ext.getBody(), { msg: F.util.loading });
 
 
-            X.form_upload_file = false;
-            X.global_disable_ajax = false;
-            //X.x_window_manager = new Ext.WindowManager();
-            //X.x_window_manager.zseed = 6000;
+            F.form_upload_file = false;
+            F.global_disable_ajax = false;
+            //F.x_window_manager = new Ext.WindowManager();
+            //F.x_window_manager.zseed = 6000;
 
-            X.util.setHiddenFieldValue('X_CHANGED', 'false');
+            F.util.setHiddenFieldValue('X_CHANGED', 'false');
             document.forms[0].autocomplete = 'off';
 
             // 向document.body添加主题类
@@ -128,9 +132,40 @@ X.fieldValue = function (cmp) {
 
         },
 
+        _readyList: [],
+        _ajaxReadyList: [],
+        _beforeAjaxList: [],
 
-        setXState: function (cmp, state) {
-            if (!cmp || !cmp['x_state']) {
+        ready: function(callback) {
+            F.util._readyList.push(callback);
+        },
+        triggerReady: function () {
+            Ext.Array.each(F.util._readyList, function (item, index) {
+                item.call(window);
+            });
+        },
+
+        ajaxReady: function (callback) {
+            F.util._ajaxReadyList.push(callback);
+        },
+        triggerAjaxReady: function () {
+            Ext.Array.each(F.util._ajaxReadyList, function (item, index) {
+                item.call(window);
+            });
+        },
+
+        beforeAjax: function (callback) {
+            F.util._beforeAjaxList.push(callback);
+        },
+        triggerBeforeAjax: function () {
+            Ext.Array.each(F.util._beforeAjaxList, function (item, index) {
+                item.call(window);
+            });
+        },
+
+
+        setFState: function (cmp, state) {
+            if (!cmp || !cmp['f_state']) {
                 return;
             }
 
@@ -138,7 +173,7 @@ X.fieldValue = function (cmp) {
             // 如果state中包含CssClass，也就是在服务器端修改了CssClass属性，则需要首先删除原来的CssClass属性。
             if (typeof (state['CssClass']) !== 'undefined') {
                 newValue = state['CssClass'];
-                oldValue = cmp['x_state']['CssClass'];
+                oldValue = cmp['f_state']['CssClass'];
                 if (!oldValue) {
                     oldValue = cmp.initialConfig.cls;
                 }
@@ -149,7 +184,7 @@ X.fieldValue = function (cmp) {
 
             //if (typeof (state['FormItemClass']) !== 'undefined') {
             //    newValue = state['FormItemClass'];
-            //    oldValue = cmp['x_state']['FormItemClass'];
+            //    oldValue = cmp['f_state']['FormItemClass'];
             //    if (!oldValue) {
             //        oldValue = cmp.initialConfig.itemCls;
             //    }
@@ -159,7 +194,7 @@ X.fieldValue = function (cmp) {
             //    el.addCls(newValue);
             //}
 
-            Ext.apply(cmp['x_state'], state);
+            Ext.apply(cmp['f_state'], state);
 
         },
 
@@ -213,7 +248,7 @@ X.fieldValue = function (cmp) {
 
         // 弹出Alert对话框
         alert: function (msg, title, icon, okscript) {
-            title = title || X.util.alertTitle;
+            title = title || F.util.alertTitle;
             icon = icon || Ext.MessageBox.INFO;
             Ext.MessageBox.show({
                 title: title,
@@ -232,7 +267,7 @@ X.fieldValue = function (cmp) {
 
         // 向页面添加Loading...节点
         appendLoadingNode: function () {
-            return X.util.appendFormNode({ tag: "div", cls: "x-ajax-loading", html: X.util.loading });
+            return F.util.appendFormNode({ tag: "div", cls: "x-ajax-loading", html: F.util.loading });
         },
 
         // 向页面的 form 节点最后添加新的节点
@@ -249,7 +284,7 @@ X.fieldValue = function (cmp) {
                 // 上面的这个字符串，在IETest的IE8模式下会变成：
                 // {"DropDownList1":{"X_Items":[["Value1","\u9009\u9879 1",1],["Value2","\u9009\u9879 2\uff08\u4e0d\u53ef\u9009\u62e9\uff09",0],["Value3","\u9009\u9879 3\uff08\u4e0d\u53ef\u9009\u62e9\uff09",0],["Value4","\u9009\u9879 4",1],["Value5","\u9009\u9879 5",1],["Value6","\u9009\u9879 6",1],["Value7","\u9009\u9879 7",1],["Value8","\u9009\u9879 8",1],["Value9","\u9009\u9879 9",1]],"SelectedValue":"Value1"}}
 
-                X.util.appendFormNode({ tag: "input", type: "hidden", id: fieldId, name: fieldId });
+                F.util.appendFormNode({ tag: "input", type: "hidden", id: fieldId, name: fieldId });
                 Ext.get(fieldId).dom.value = fieldValue;
             }
             else {
@@ -276,14 +311,14 @@ X.fieldValue = function (cmp) {
 
         // 禁用提交按钮（在回发之前禁用以防止重复提交）
         disableSubmitControl: function (controlClientID) {
-            X(controlClientID).disable();
-            X.util.setHiddenFieldValue('X_TARGET', controlClientID);
+            F(controlClientID).disable();
+            F.util.setHiddenFieldValue('X_TARGET', controlClientID);
         },
 
         // 启用提交按钮（在回发之后启用提交按钮）
         enableSubmitControl: function (controlClientID) {
-            X(controlClientID).enable();
-            X.util.setHiddenFieldValue('X_TARGET', '');
+            F(controlClientID).enable();
+            F.util.setHiddenFieldValue('X_TARGET', '');
         },
 
         // 更新ViewState的值
@@ -298,7 +333,7 @@ X.fieldValue = function (cmp) {
                 viewStateHiddenFiledID = "__VIEWSTATE_GZ";
             }
 
-            var oldValue = X.util.getHiddenFieldValue(viewStateHiddenFiledID);
+            var oldValue = F.util.getHiddenFieldValue(viewStateHiddenFiledID);
             if (Ext.type(startIndex) == "number" && startIndex > 0) {
                 if (startIndex < oldValue.length) {
                     oldValue = oldValue.substr(0, startIndex);
@@ -307,12 +342,12 @@ X.fieldValue = function (cmp) {
                 // Added on 2011-5-2, this is a horrible mistake.
                 oldValue = '';
             }
-            X.util.setHiddenFieldValue(viewStateHiddenFiledID, oldValue + newValue);
+            F.util.setHiddenFieldValue(viewStateHiddenFiledID, oldValue + newValue);
         },
 
         // 更新EventValidation的值
         updateEventValidation: function (newValue) {
-            X.util.setHiddenFieldValue("__EVENTVALIDATION", newValue);
+            F.util.setHiddenFieldValue("__EVENTVALIDATION", newValue);
         },
 
         // 设置页面状态是否改变
@@ -335,11 +370,11 @@ X.fieldValue = function (cmp) {
 
         // 验证多个表单，返回数组[是否验证通过，第一个不通过的表单字段]
         validForms: function (forms, targetName, showBox) {
-            var target = X.util.getTargetWindow(targetName);
+            var target = F.util.getTargetWindow(targetName);
             var valid = true;
             var firstInvalidField = null;
             for (var i = 0; i < forms.length; i++) {
-                var result = X(forms[i]).x_isValid();
+                var result = F(forms[i]).x_isValid();
                 if (!result[0]) {
                     valid = false;
                     if (firstInvalidField == null) {
@@ -350,8 +385,8 @@ X.fieldValue = function (cmp) {
 
             if (!valid) {
                 if (showBox) {
-                    var alertMsg = Ext.String.format(X.util.formAlertMsg, firstInvalidField.fieldLabel);
-                    target.X.util.alert(alertMsg, X.util.formAlertTitle, Ext.MessageBox.INFO);
+                    var alertMsg = Ext.String.format(F.util.formAlertMsg, firstInvalidField.fieldLabel);
+                    target.F.util.alert(alertMsg, F.util.formAlertTitle, Ext.MessageBox.INFO);
                 }
                 return false;
             }
@@ -420,7 +455,7 @@ X.fieldValue = function (cmp) {
         // 取得表单字段的值
         getFormFieldValue: function (cmp) {
             if (typeof (cmp) === 'string') {
-                cmp = X(cmp);
+                cmp = F(cmp);
             }
             var value = cmp.getValue();
             if (cmp.isXType('displayfield')) {
@@ -575,14 +610,14 @@ X.fieldValue = function (cmp) {
             //var href = node.attributes.href;
             if (icon) {
                 iconId = icon.replace(/\W/ig, '_');
-                if (!X.util.hasCSS(iconId)) {
+                if (!F.util.hasCSS(iconId)) {
                     iconCss = [];
                     iconCss.push('.');
                     iconCss.push(iconId);
                     iconCss.push('{background-image:url("');
                     iconCss.push(icon);
                     iconCss.push('")}');
-                    X.util.addCSS(iconId, iconCss.join(''));
+                    F.util.addCSS(iconId, iconCss.join(''));
                 }
             }
             // 动态添加一个带工具栏的标签页
@@ -644,7 +679,7 @@ X.fieldValue = function (cmp) {
                         }
 
                         // 新增Tab节点
-                        X.util.addMainTab(mainTabStrip, record, addTabCallback, refreshWhenExist);
+                        F.util.addMainTab(mainTabStrip, record, addTabCallback, refreshWhenExist);
                     }
                 });
             }
@@ -704,7 +739,7 @@ X.fieldValue = function (cmp) {
                                     path = currentNode.getPath();
                                     treeInstance.expandPath(path); //node.expand();
                                     treeInstance.selectPath(path); // currentNode.select();
-                                    X.util.addMainTab(mainTabStrip, currentNode, addTabCallback);
+                                    F.util.addMainTab(mainTabStrip, currentNode, addTabCallback);
                                     FOUND = true;
                                     return;
                                 }
@@ -786,8 +821,8 @@ X.fieldValue = function (cmp) {
         // 用于 MenuCheckBox 和 RadioButton
         checkGroupLastTime: function (groupName) {
             var checkName = groupName + '_lastupdatetime';
-            var checkValue = X.util[checkName];
-            X.util[checkName] = new Date();
+            var checkValue = F.util[checkName];
+            F.util[checkName] = new Date();
             if (typeof (checkValue) === 'undefined') {
                 return true;
             } else {
@@ -816,10 +851,10 @@ X.fieldValue = function (cmp) {
 
         // 确认对话框
         confirm: function (targetName, title, msg, okScript, cancelScript, iconShortName) {
-            var wnd = X.util.getTargetWindow(targetName);
-            var icon = X.util.getMessageBoxIcon(iconShortName);
+            var wnd = F.util.getTargetWindow(targetName);
+            var icon = F.util.getMessageBoxIcon(iconShortName);
             wnd.Ext.MessageBox.show({
-                title: title || X.util.confirmTitle,
+                title: title || F.util.confirmTitle,
                 msg: msg,
                 buttons: Ext.MessageBox.OKCANCEL,
                 icon: icon,
@@ -845,7 +880,7 @@ X.fieldValue = function (cmp) {
 
         summaryType: function (gridId) {
             return function (records, dataIndex) {
-                var summary = X(gridId).x_state['SummaryData'];
+                var summary = F(gridId).f_state['SummaryData'];
                 if (summary) {
                     var value = summary[dataIndex];
                     if (typeof (value) !== 'undefined') {

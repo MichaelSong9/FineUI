@@ -1,10 +1,10 @@
 
 
-Ext.apply(X.ajax, {
+Ext.apply(F.ajax, {
     errorMsg: "Hata bilgisi: {0} ({1})"
 });
 
-Ext.apply(X.util, {
+Ext.apply(F.util, {
     alertTitle: "Uyarı",
     confirmTitle: "Onay",
     formAlertMsg: "Lütfen {0} alanı için geçerli bir değer giriniz!",
@@ -12,7 +12,7 @@ Ext.apply(X.util, {
     loading: "Yükleniyor..."
 });
 
-Ext.apply(X.wnd, {
+Ext.apply(F.wnd, {
     closeButtonTooltip: "Pencereyi Kapat",
     formModifiedConfirmTitle: "Kapatmak istediğinizden emin misiniz?",
     formModifiedConfirmMsg: "Mevcut sayfadaki bilgiler değiştirildi.<br/><br/>Değişiklikleri iptal et?"

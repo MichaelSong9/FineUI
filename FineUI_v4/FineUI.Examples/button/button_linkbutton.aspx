@@ -25,7 +25,7 @@
     </form>
     <script>
         function clickLinkButton() {
-            top.X.alert("定义在页面中的客户端事件！");
+            top.F.alert("定义在页面中的客户端事件！");
         }
     </script>
 </body>

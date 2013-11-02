@@ -1,5 +1,5 @@
 ﻿
-function onReady() {
+F.ready(function () {
     var btnExpandAll = Ext.getCmp(IDS.btnExpandAll);
     var btnCollapseAll = Ext.getCmp(IDS.btnCollapseAll);
     var mainMenu = Ext.getCmp(IDS.mainMenu);
@@ -100,7 +100,7 @@ function onReady() {
         tabConfig['tbar'] = toolbar;
     }
 
-    
+
 
     // 初始化主框架中的树(或者Accordion+Tree)和选项卡互动，以及地址栏的更新
     // treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例
@@ -109,7 +109,7 @@ function onReady() {
     // updateLocationHash: 切换Tab时，是否更新地址栏Hash值
     // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
     // refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
-    X.util.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, false, false);
+    F.util.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, false, false);
 
 
 
@@ -123,7 +123,7 @@ function onReady() {
         // icon： 选项卡图标
         // addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
         // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
-        X.util.addMainTab(mainTabStrip, id, url, text, icon, null, refreshWhenExist);
+        F.util.addMainTab(mainTabStrip, id, url, text, icon, null, refreshWhenExist);
     };
 
     window.removeActiveTab = function () {
@@ -131,4 +131,4 @@ function onReady() {
         mainTabStrip.removeTab(activeTab.id);
     };
 
-}
+});

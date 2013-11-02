@@ -864,8 +864,8 @@ namespace FineUI
 
             //}
 
-            // 在 X.util.init 中定义
-            OB.AddProperty("manager", "X.window_default_group", true);
+            // 在 F.util.init 中定义
+            OB.AddProperty("manager", "F.window_default_group", true);
 
 
             // 此Window显示的位置
@@ -913,7 +913,7 @@ namespace FineUI
                 {
                     addCSSPrefix = "top.";
                 }
-                string addCSSScript = String.Format("{0}X.util.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
+                string addCSSScript = String.Format("{0}F.util.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
 
 
                 // 这里不需要extWindow渲染之前才添加CSS样式，只需要在页面加载完毕后就能添加此CSS样式
@@ -923,7 +923,7 @@ namespace FineUI
 
                 OB.AddProperty("iconCls", className);
 
-                //AddStartupScript(this, "X.util.addCSS('xxxxxxxxxxxxxxxx','');");
+                //AddStartupScript(this, "F.util.addCSS('xxxxxxxxxxxxxxxx','');");
                 //AddStartupScript(this, "Ext.DomHelper.append(Ext.fly(document.getElementsByTagName('head')[0]),{tag: 'style',type: 'text/css'});");
                 //AddStartupScript(this, "Ext.DomHelper.append(document.getElementsByTagName('head')[0], '<style type=\"text/css\"></style>');");
             }
@@ -983,7 +983,7 @@ namespace FineUI
             /*
              * 隐藏窗体的JS代码在 extender.js 中定义
              * 
-            string hideFunctionScript = String.Format("function(){{X.wnd.hide(this, '{0}', {1}, '{2}', '{3}');}}",
+            string hideFunctionScript = String.Format("function(){{F.wnd.hide(this, '{0}', {1}, '{2}', '{3}');}}",
                 TargetHelper.GetName(Target),
                 EnableIFrame.ToString().ToLower(),
                 HiddenHiddenFieldID,
@@ -1165,7 +1165,7 @@ namespace FineUI
             #endregion
 
             /*
-            string showFunctionScript = String.Format("function(iframeUrl, windowTitle){{X.wnd.show(this, iframeUrl, windowTitle, '{0}', '{1}', {2}, '{3}');}}",
+            string showFunctionScript = String.Format("function(iframeUrl, windowTitle){{F.wnd.show(this, iframeUrl, windowTitle, '{0}', '{1}', {2}, '{3}');}}",
                 Left != Unit.Empty ? Convert.ToInt32(Left.Value).ToString() : "",
                 Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "",
                 WindowPosition == WindowPosition.GoldenSection ? "true" : "false",
@@ -1227,7 +1227,7 @@ namespace FineUI
                 OB.AddProperty("maximizable", true);
 
                 // 这个事件可以处理两种情况，一是点击最大化按钮，二是双击Window标题栏最大化
-                OB.Listeners.AddProperty("maximize", "function(win){X.wnd.fixMaximize(win);}", true);
+                OB.Listeners.AddProperty("maximize", "function(win){F.wnd.fixMaximize(win);}", true);
 
                 //OB.Listeners.AddProperty("resize", "function(win,width,height){console.log(width + ' - ' +height);}", true);
                 //JsObjectBuilder maxObj = new JsObjectBuilder();
@@ -1296,7 +1296,7 @@ namespace FineUI
 
                 //JsObjectBuilder closeObj = new JsObjectBuilder();
                 //closeObj.AddProperty("type", "close");
-                //closeObj.AddProperty("qtip", "X.wnd.closeButtonTooltip", true);
+                //closeObj.AddProperty("qtip", "F.wnd.closeButtonTooltip", true);
                 //if (!String.IsNullOrEmpty(closeScript))
                 //{
                 //    // ESC 按键和右上角的关闭按钮使用相同的事件处理函数
@@ -1322,12 +1322,12 @@ namespace FineUI
                 //// 窗体控件最大化时改变浏览器大小可以自动调整窗体控件的大小
                 //if (EnableMaximize)
                 //{
-                //    windowResizeScript = "Ext.EventManager.onWindowResize(function(){X.wnd.fixMaximize(win);});";
+                //    windowResizeScript = "Ext.EventManager.onWindowResize(function(){F.wnd.fixMaximize(win);});";
                 //}
 
                 OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "win"), true);
 
-                // X('Window1').tools.close.addListener('click', function() {alert('ss');})
+                // F('Window1').tools.close.addListener('click', function() {alert('ss');})
 
             }
             else
@@ -1382,7 +1382,7 @@ namespace FineUI
             string jsContent = String.Format("var {0}=Ext.create('Ext.window.Window',{1});", XID, OB.ToString());
 
             // 通过Javascript的方式向页面添加Window的DIV包裹容器
-            string addWrapperScript = String.Format("X.util.appendFormNode('{0}');", String.Format("<div class=\"x-window-wrapper\" id=\"{0}\"></div>", WrapperID));
+            string addWrapperScript = String.Format("F.util.appendFormNode('{0}');", String.Format("<div class=\"x-window-wrapper\" id=\"{0}\"></div>", WrapperID));
             //addWrapperScript += "\r\n";
 
             // 添加隐藏表单字段的脚本和创建Window对象的脚本
@@ -1602,7 +1602,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHideReference()
         {
-            return String.Format("X.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
+            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
                 ScriptID,
                 GetHideReference());
         }
@@ -1613,7 +1613,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHideRefreshReference()
         {
-            return String.Format("X.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
+            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
                 ScriptID,
                 GetHideRefreshReference());
         }
@@ -1624,7 +1624,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHidePostBackReference()
         {
-            return String.Format("X.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
+            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
                 ScriptID,
                 GetHidePostBackReference());
         }
@@ -1636,7 +1636,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHidePostBackReference(string argument)
         {
-            return String.Format("X.wnd.extWindowIFrameFormModifiedConfirm({0},function(){{{1}}});",
+            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0},function(){{{1}}});",
                 ScriptID,
                 GetHidePostBackReference(argument));
         }
@@ -1645,7 +1645,7 @@ namespace FineUI
         #region oldcode
         //public string GetConfirmFormModifiedCloseRefreshReference()
         //{
-        //    return String.Format("X.wnd.extWindowIFrameFormModifiedConfirm({0}, {1}, '{2}');",
+        //    return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, {1}, '{2}');",
         //        String.Format("{0}", ClientJavascriptID),
         //        ShowInParent.ToString().ToLower(),
         //        GUID);
@@ -1664,7 +1664,7 @@ namespace FineUI
         //    {
         //        panel = String.Format("parent.X.{0}", GUID);
         //    }
-        //    return String.Format("X.wnd.getIFrameWindowObject({0}).X.util.isPageStateChanged()", panel);
+        //    return String.Format("F.wnd.getIFrameWindowObject({0}).F.util.isPageStateChanged()", panel);
         //}
 
         //public string GetIFramePageStateChangedConfirmReference(string confirmTitle, string confirmMsg, string okScript, string cancelScript)

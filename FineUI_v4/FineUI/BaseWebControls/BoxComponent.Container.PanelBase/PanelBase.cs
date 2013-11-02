@@ -627,7 +627,7 @@ namespace FineUI
             {
                 if (PropertyModified("IFrameUrl"))
                 {
-                    sb.AppendFormat("X.wnd.updateIFrameNode({0},{1});", XID, JsHelper.Enquote(IFrameUrl));
+                    sb.AppendFormat("F.wnd.updateIFrameNode({0},{1});", XID, JsHelper.Enquote(IFrameUrl));
                 }
             }
 

@@ -758,8 +758,8 @@ namespace FineUI
                 ////////listenersBuilder.AddProperty("beforeappend", String.Format("function(node,deep,anim){{\r\nif(!node.loaded){{alert(node.id);\r\n}}}}"), true);
 
                 //////// 折叠/展开
-                ////////listenersBuilder.AddProperty(OptionName.Expand, String.Format("function(node){{X.util.addValueToHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
-                ////////listenersBuilder.AddProperty(OptionName.Collapse, String.Format("function(node){{X.util.removeValueFromHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
+                ////////listenersBuilder.AddProperty(OptionName.Expand, String.Format("function(node){{F.util.addValueToHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
+                ////////listenersBuilder.AddProperty(OptionName.Collapse, String.Format("function(node){{F.util.removeValueFromHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
                 //////listenersBuilder.AddProperty("expand", Render_NodeExpandScriptID, true);
                 //////listenersBuilder.AddProperty("collapse", Render_NodeCollapseScriptID, true);
 
@@ -809,7 +809,7 @@ namespace FineUI
                 ////    //if (!node.AutoPostBack)
                 ////    //{
                 ////    //    // 改变CheckBox，不需要自动回发，则将checkchange指向预定义的函数，这有助于减少代码量
-                ////    //    //listenersBuilder.AddProperty("checkchange", String.Format("function(node,checked){{if(checked){{X.util.addValueToHiddenField('{0}',node.id);}}else{{X.util.removeValueFromHiddenField('{0}',node.id);}}}}", CheckedNodesHiddenFieldID), true);
+                ////    //    //listenersBuilder.AddProperty("checkchange", String.Format("function(node,checked){{if(checked){{F.util.addValueToHiddenField('{0}',node.id);}}else{{F.util.removeValueFromHiddenField('{0}',node.id);}}}}", CheckedNodesHiddenFieldID), true);
                 ////    //    listenersBuilder.AddProperty("checkchange", Render_NodeCheckChangeScriptID, true);
                 ////    //}
                 ////    //else
@@ -929,7 +929,7 @@ namespace FineUI
             // 修复Tree的节点，这里可能会修改树节点的属性，从而影响 X_Nodes 的计算结果
             // 在这个地方调用是安全的：
             //      -> 页面第一次加载时，运行到这里 ASPX 上面的标签已经初始化完毕
-            //      -> 页面回发时（包括正常回发或者AJAX回发），此时请求表单中 X_STATE 已经恢复完毕
+            //      -> 页面回发时（包括正常回发或者AJAX回发），此时请求表单中 F_STATE 已经恢复完毕
             FixTreeNodes();
         }
 
@@ -982,8 +982,8 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
-            // 确保 X_Nodes 在页面第一次加载时都存在于 X_STATE 中，因为客户端需要这个数据来渲染树控件
-            // 并且这个代码要放在 base.OnFirstPreRender(); 之前，因为在那里面会生成 X_STATE
+            // 确保 X_Nodes 在页面第一次加载时都存在于 F_STATE 中，因为客户端需要这个数据来渲染树控件
+            // 并且这个代码要放在 base.OnFirstPreRender(); 之前，因为在那里面会生成 F_STATE
             XState.AddModifiedProperty("X_Nodes");
 
             base.OnFirstPreRender();
@@ -1143,9 +1143,9 @@ namespace FineUI
             #region AddStartupScript
             //// 展开,折叠,点击,选中CheckBox事件处理函数，
             //// 因为这些函数会被几乎每个节点使用，所以提取出公共的方法来
-            //scripts.AppendFormat("{0}=function(node){{X.util.addValueToHiddenField('{1}',node.id);}};", Render_NodeExpandScriptID, ExpandedNodesHiddenFieldID);
-            //scripts.AppendFormat("{0}=function(node){{X.util.removeValueFromHiddenField('{1}',node.id);}};", Render_NodeCollapseScriptID, ExpandedNodesHiddenFieldID);
-            //scripts.AppendFormat("{0}=function(node,checked){{if(checked){{X.util.addValueToHiddenField('{1}',node.id);}}else{{X.util.removeValueFromHiddenField('{1}',node.id);}}}};", Render_NodeCheckChangeScriptID, CheckedNodesHiddenFieldID);
+            //scripts.AppendFormat("{0}=function(node){{F.util.addValueToHiddenField('{1}',node.id);}};", Render_NodeExpandScriptID, ExpandedNodesHiddenFieldID);
+            //scripts.AppendFormat("{0}=function(node){{F.util.removeValueFromHiddenField('{1}',node.id);}};", Render_NodeCollapseScriptID, ExpandedNodesHiddenFieldID);
+            //scripts.AppendFormat("{0}=function(node,checked){{if(checked){{F.util.addValueToHiddenField('{1}',node.id);}}else{{F.util.removeValueFromHiddenField('{1}',node.id);}}}};", Render_NodeCheckChangeScriptID, CheckedNodesHiddenFieldID);
             //scripts.AppendFormat("{0}=function(node){{Ext.get('{1}').dom.value=node.id;}};", Render_NodeClickScriptID, SelectedNodeHiddenFieldID);
 
             //scripts.AppendLine(hiddenFieldsScript);
@@ -1280,8 +1280,8 @@ namespace FineUI
                     ////listenersBuilder.AddProperty("beforeappend", String.Format("function(node,deep,anim){{\r\nif(!node.loaded){{alert(node.id);\r\n}}}}"), true);
 
                     //// 折叠/展开
-                    ////listenersBuilder.AddProperty(OptionName.Expand, String.Format("function(node){{X.util.addValueToHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
-                    ////listenersBuilder.AddProperty(OptionName.Collapse, String.Format("function(node){{X.util.removeValueFromHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
+                    ////listenersBuilder.AddProperty(OptionName.Expand, String.Format("function(node){{F.util.addValueToHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
+                    ////listenersBuilder.AddProperty(OptionName.Collapse, String.Format("function(node){{F.util.removeValueFromHiddenField('{0}',node.id);}}", ExpandedNodesHiddenFieldID), true);
                     //listenersBuilder.AddProperty("expand", Render_NodeExpandScriptID, true);
                     //listenersBuilder.AddProperty("collapse", Render_NodeCollapseScriptID, true);
 
@@ -1344,7 +1344,7 @@ namespace FineUI
                         if (!node.AutoPostBack)
                         {
                             // 改变CheckBox，不需要自动回发，则将checkchange指向预定义的函数，这有助于减少代码量
-                            //listenersBuilder.AddProperty("checkchange", String.Format("function(node,checked){{if(checked){{X.util.addValueToHiddenField('{0}',node.id);}}else{{X.util.removeValueFromHiddenField('{0}',node.id);}}}}", CheckedNodesHiddenFieldID), true);
+                            //listenersBuilder.AddProperty("checkchange", String.Format("function(node,checked){{if(checked){{F.util.addValueToHiddenField('{0}',node.id);}}else{{F.util.removeValueFromHiddenField('{0}',node.id);}}}}", CheckedNodesHiddenFieldID), true);
                             listenersBuilder.AddProperty("checkchange", Render_NodeCheckChangeScriptID, true);
                         }
                         else

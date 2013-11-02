@@ -593,7 +593,7 @@ namespace FineUI
                     }
                     else
                     {
-                        OB.AddProperty("summaryType", String.Format("X.util.summaryType('{0}')", Grid.ClientID), true);
+                        OB.AddProperty("summaryType", String.Format("F.util.summaryType('{0}')", Grid.ClientID), true);
                     }
                 }
 
@@ -608,10 +608,18 @@ namespace FineUI
 
         #endregion
 
+        #region AddGridColumnScript
+        
+        /// <summary>
+        /// 添加表格列的渲染脚本
+        /// </summary>
+        /// <param name="jsContent"></param>
         protected void AddGridColumnScript(string jsContent)
         {
             AddStartupScript(jsContent);
-        }
+        } 
+
+        #endregion
 
     }
 }

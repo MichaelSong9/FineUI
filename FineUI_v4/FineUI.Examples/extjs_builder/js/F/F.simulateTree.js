@@ -64,7 +64,7 @@
         return prefix.join('');
     }
 
-    X.simulateTree = {
+    F.simulateTree = {
 
         transform: function(datas) {
             if (!datas.length || datas[0].length < 4) {

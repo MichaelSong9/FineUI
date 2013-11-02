@@ -384,7 +384,7 @@ namespace FineUI
         //{
         //    base.OnBothPreRender();
 
-        //    //// Make sure X_AutoPostBackTabs property exist in X_STATE during page's first load.
+        //    //// Make sure X_AutoPostBackTabs property exist in F_STATE during page's first load.
         //    //if (!Page.IsPostBack)
         //    //{
         //    //    XState.AddModifiedProperties("X_AutoPostBackTabs");
@@ -587,10 +587,10 @@ namespace FineUI
 
             // 如果要激活的Tab含有IFrame，则需要加载IFrame
             // 改变Tab需要回发的脚本
-            // Make sure X_AutoPostBackTabs property exist in X_STATE during page's first load.
+            // Make sure X_AutoPostBackTabs property exist in F_STATE during page's first load.
             //string tabchangeScript2 = String.Format("if(tabPanel.x_autoPostBackTabsContains(tab.id)){{{0}}}", GetPostBackEventReference());
 
-            string tabchangeScript = "X.wnd.updateIFrameNode(tab);";
+            string tabchangeScript = "F.wnd.updateIFrameNode(tab);";
             string postbackScript = String.Empty;
             if (AutoPostBack)
             {
@@ -598,7 +598,7 @@ namespace FineUI
             }
 
             // 如果是动态添加的Tab，不做任何处理（在js/box/extender.js中）
-            //string tabchangeScript = "X.wnd.updateIFrameNode(tab);if(!tab.x_dynamic_added_tab){" + postbackScript + "}";
+            //string tabchangeScript = "F.wnd.updateIFrameNode(tab);if(!tab.x_dynamic_added_tab){" + postbackScript + "}";
             OB.Listeners.AddProperty("tabchange", JsHelper.GetFunction(tabchangeScript, "tabPanel", "tab"), true);
 
             #endregion
@@ -757,7 +757,7 @@ namespace FineUI
             if (!String.IsNullOrEmpty(iconUrl))
             {
                 string className = String.Format("icon_{0}", System.Guid.NewGuid().ToString("N"));
-                iconScript = String.Format("X.util.addCSS('{0}','{1}');", className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(iconUrl)));
+                iconScript = String.Format("F.util.addCSS('{0}','{1}');", className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(iconUrl)));
 
                 options.AddProperty("iconCls", className);
             }

@@ -18,11 +18,11 @@
             </Items>
         </x:SimpleForm>
     </form>
-    <script src="../jqueryui/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="../jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-        function onReady() {
+        F.ready(function () {
             var textbox1ID = '<%= TextBox1.ClientID %>';
 
             var availableTags = [
@@ -55,7 +55,7 @@
                 }
             });
 
-        }
+        });
 
     </script>
 </body>

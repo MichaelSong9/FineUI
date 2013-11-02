@@ -73,17 +73,17 @@
     <script type="text/javascript">
 
         function alertSelectedValue() {
-            var list2 = X('<%= CheckBoxList1.ClientID %>');
+            var list2 = F('<%= CheckBoxList1.ClientID %>');
             var selectedCheckboxs = list2.getValue(), selectedValues, i;
 
             if (Ext.Object.isEmpty(selectedCheckboxs)) {
-                top.X.util.alert("列表一没有选中项！");
+                top.F.util.alert("列表一没有选中项！");
             } else {
                 selectedValues = [];
                 Ext.Object.each(selectedCheckboxs, function (key, value) {
                     selectedValues.push(value);
                 });
-                top.X.util.alert("列表一选中项的值：" + selectedValues.join(','));
+                top.F.util.alert("列表一选中项的值：" + selectedValues.join(','));
             }
         }
 

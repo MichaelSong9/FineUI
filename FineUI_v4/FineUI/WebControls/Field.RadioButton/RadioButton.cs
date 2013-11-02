@@ -245,7 +245,7 @@ namespace FineUI
                 string checkScript = String.Empty;
                 if (!String.IsNullOrEmpty(GroupName))
                 {
-                    checkScript = "if(X.util.checkGroupLastTime('" + GroupName + "')){" + GetPostBackEventReference() + "}";
+                    checkScript = "if(F.util.checkGroupLastTime('" + GroupName + "')){" + GetPostBackEventReference() + "}";
                 }
                 else
                 {

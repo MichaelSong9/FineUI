@@ -12,11 +12,11 @@
 //});
 //}
 
-Ext.apply(X.ajax, {
+Ext.apply(F.ajax, {
     errorMsg: "Запрос текущей страницы не удался!<br /><br />Сообщение об Ошибке: {0} ({1})"
 });
 
-Ext.apply(X.util, {
+Ext.apply(F.util, {
     alertTitle: "Диалог события",
     confirmTitle: "Диалог подтверждения",
     formAlertMsg: "Пожалуйста укажите значение для {0}!",
@@ -24,7 +24,7 @@ Ext.apply(X.util, {
     loading: "Загрузка..."
 });
 
-Ext.apply(X.wnd, {
+Ext.apply(F.wnd, {
     closeButtonTooltip: "Закрывает это окно",
     formModifiedConfirmTitle: "Подтверждение закрытия",
     formModifiedConfirmMsg: "Текущая форма была изменена.<br/><br/>Отменить изменения?"

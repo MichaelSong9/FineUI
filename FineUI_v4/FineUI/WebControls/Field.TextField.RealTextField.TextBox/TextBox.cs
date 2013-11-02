@@ -124,7 +124,7 @@ namespace FineUI
             {
                 //OB.RemoveProperty("value");
                 //OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
-                OB.AddProperty("value", String.Format("{0}.Text", GetXStateScriptID()), true);
+                OB.AddProperty("value", String.Format("{0}.Text", GetFStateScriptID()), true);
             }
 
 

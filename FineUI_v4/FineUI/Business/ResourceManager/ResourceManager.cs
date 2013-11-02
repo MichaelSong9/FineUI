@@ -54,9 +54,9 @@ namespace FineUI
         //public static readonly string SCRIPT_ONREADY_TEMPLATE = "window.box=new (function(){this._onReady=function(){window.boxPage_render_start_time=new Date();Ext.QuickTips.init();#CONTENT#};this._onReady();})();" + DEBUG_LINE_BREAK;
 
         // Ext.onReady(function(){window.startOnReady2=new Date();});
-        //public static readonly string WINDOW_DEFAULT_GROUP_ID = "X.window_default_group";
-        //public static readonly string COOKIE_PROVIDER_ID = "X.cookie_provider";
-        //public static readonly string HIDDEN_FIELDS_ID = "X.hiddenFields";
+        //public static readonly string WINDOW_DEFAULT_GROUP_ID = "F.window_default_group";
+        //public static readonly string COOKIE_PROVIDER_ID = "F.cookie_provider";
+        //public static readonly string HIDDEN_FIELDS_ID = "F.hiddenFields";
 
 
         public static readonly string PAGE_STATE_CHANGED_ID = "X_CHANGED";
@@ -70,7 +70,7 @@ namespace FineUI
 
         //public static readonly string CREATE_EXT_OBJECT_PREFIX = "box_destroyObject(X.{0});";
 
-        //public static readonly string PRELOAD_IMAGES_ID = "X.preload_images";
+        //public static readonly string PRELOAD_IMAGES_ID = "F.preload_images";
 
         #endregion
 
@@ -134,8 +134,8 @@ namespace FineUI
         private Dictionary<string, string> _ajaxShortNameList = new Dictionary<string, string>();
         /// <summary>
         /// AJAX时使用到的所有短名称列表
-        /// 比如：X('SimpleForm1_tbxUserName')  -> cmp0
-        /// X('SimpleForm1_tbxPassword') -> cmp1
+        /// 比如：F('SimpleForm1_tbxUserName')  -> cmp0
+        /// F('SimpleForm1_tbxPassword') -> cmp1
         /// </summary>
         public Dictionary<string, string> AjaxShortNameList
         {
@@ -357,7 +357,7 @@ namespace FineUI
 
             StringBuilder beforeBuilder = new StringBuilder();
 
-            beforeBuilder.Append("X.init();");
+            //beforeBuilder.Append("F.init();");
 
             // ExtJS2.2的BUG，Ext.onReady会被调用两次（在ExtJS 2.2.1中已经修正）
             // Ext.onReady在extjsv3.1.0中依然有问题，在IE下有时会导致页面空白，不能继续执行，只有在点击Stop按钮或者重新刷新后才行。
@@ -369,14 +369,14 @@ namespace FineUI
             // 空白图片，只在 IE6 和 IE7 下设置（默认为 http://www.sencha.com/s.gif ），其他浏览器下使用 data URL
             //beforeBuilder.AppendFormat("if(Ext.isIE6||Ext.isIE7){{Ext.BLANK_IMAGE_URL='{0}';}}", ResourceHelper.GetWebResourceUrl("FineUI.res.img.s.gif"));
 
-            //beforeBuilder.Append("X.util.init();");
+            //beforeBuilder.Append("F.util.init();");
 
             // form 相关配置
             //beforeBuilder.Append("var fieldPro=Ext.form.Base.prototype;");
             //beforeBuilder.AppendFormat("fieldPro.msgTarget='{0}';", MsgTargetHelper.GetName(PageManager.Instance.FormMessageTarget));
             //beforeBuilder.AppendFormat("fieldPro.labelWidth={0};", PageManager.Instance.FormLabelWidth.Value);
             //beforeBuilder.AppendFormat("fieldPro.labelSeparator='{0}';", PageManager.Instance.FormLabelSeparator);
-            beforeBuilder.AppendFormat("X.util.init('{0}',{1},'{2}','{3}',{4},'{5}',{6},'{7}');",
+            beforeBuilder.AppendFormat("F.util.init('{0}',{1},'{2}','{3}',{4},'{5}',{6},'{7}');",
                 MessageTargetHelper.GetName(PageManager.Instance.FormMessageTarget),
                 PageManager.Instance.FormLabelWidth.Value,
                 PageManager.Instance.FormLabelSeparator,
@@ -391,10 +391,10 @@ namespace FineUI
 
             if (PageManager.Instance.BeforeAjaxPostBackScript != String.Empty)
             {
-                beforeBuilder.AppendFormat("X.util.beforeAjaxPostBackScript=function(){{{0}}};", PageManager.Instance.BeforeAjaxPostBackScript);
+                beforeBuilder.AppendFormat("F.util.beforeAjaxPostBackScript=function(){{{0}}};", PageManager.Instance.BeforeAjaxPostBackScript);
             }
 
-            //beforeBuilder.Append("X.ajax.hookPostBack();");
+            //beforeBuilder.Append("F.ajax.hookPostBack();");
 
             if (PageManager.Instance.EnableAjax)
             {
@@ -422,7 +422,7 @@ namespace FineUI
             // 保存页面中可输入的表单字段状态是否发生变化的隐藏字段
             //innderBuilder.AppendFormat("var sn=document.createElement('input');sn.type='hidden';sn.value='false';sn.id=sn.name='{0}';Ext.getBody().query('form')[0].appendChild(sn);", PAGE_STATE_CHANGED_ID);
             //innderBuilder.AppendFormat("Ext.DomHelper.append(document.forms[0],{{tag:'input',type:'hidden',value:'false',id:'{0}',name:'{0}'}});", PAGE_STATE_CHANGED_ID);
-            //beforeBuilder.AppendFormat("X.util.setHiddenFieldValue('{0}','false');", PAGE_STATE_CHANGED_ID);
+            //beforeBuilder.AppendFormat("F.util.setHiddenFieldValue('{0}','false');", PAGE_STATE_CHANGED_ID);
 
             // 5.预加载图片
             //beforeBuilder.AppendFormat("{0}=[];", PRELOAD_IMAGES_ID);
@@ -443,7 +443,7 @@ namespace FineUI
             //afterBuilder.Append("box_alertDEBUG();");
 
             //afterBuilder.Append("if(typeof(onReady)==='function'){onReady.call(window);}");
-            afterBuilder.Append("X.ready();");
+            afterBuilder.Append("F.util.triggerReady();");
             //// 如果是回发并且允许回发注册onReady脚本
             //if (!Page.IsPostBack || (Page.IsPostBack && PageManager.Instance.ExecuteOnReadyWhenPostBack))
             //{
@@ -559,7 +559,7 @@ namespace FineUI
 
             #region 计算渲染时间
 
-            //string timeScript ="X.endDateTime=new Date();";
+            //string timeScript ="F.endDateTime=new Date();";
             //string totalTime = "'FineUI渲染时间：'+X.endDateTime.getElapsed(X.startDateTime)+'ms'";
             //totalTime += "+'['+X.startPageLayoutDateTime.getElapsed(X.startDateTime)+','";
             //totalTime += "+X.endPageLayoutDateTime.getElapsed(X.startPageLayoutDateTime)+']'";
@@ -852,9 +852,9 @@ namespace FineUI
             {
                 if (_requestState == null && Page.IsPostBack)
                 {
-                    //string state = HttpUtility.UrlDecode(HttpContext.Current.Request.Form["X_STATE"]);
-                    string state = HttpContext.Current.Request.Form["X_STATE"];
-                    string xstateURI = HttpContext.Current.Request.Form["X_STATE_URI"];
+                    //string state = HttpUtility.UrlDecode(HttpContext.Current.Request.Form["F_STATE"]);
+                    string state = HttpContext.Current.Request.Form["F_STATE"];
+                    string xstateURI = HttpContext.Current.Request.Form["F_STATE_URI"];
                     if (!String.IsNullOrEmpty(state))
                     {
                         if (String.IsNullOrEmpty(xstateURI))

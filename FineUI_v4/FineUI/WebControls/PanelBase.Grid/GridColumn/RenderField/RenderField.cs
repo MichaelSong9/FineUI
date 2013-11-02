@@ -306,7 +306,7 @@ namespace FineUI
                 {
                     argument = RendererArgument;
                 }
-                return String.Format("X.format.date('{0}')", ExtDateTimeConvertor.ConvertToExtDateFormat(argument));
+                return String.Format("F.format.date('{0}')", ExtDateTimeConvertor.ConvertToExtDateFormat(argument));
             }
             else if (Renderer == Renderer.Ellipsis)
             {
@@ -315,7 +315,7 @@ namespace FineUI
                 {
                     argument = RendererArgument;
                 }
-                return String.Format("X.format.ellipsis({0})", argument);
+                return String.Format("F.format.ellipsis({0})", argument);
             }
             else if (Renderer == Renderer.Number)
             {
@@ -324,11 +324,11 @@ namespace FineUI
                 {
                     argument = RendererArgument;
                 }
-                return String.Format("X.format.number('{0}')", argument);
+                return String.Format("F.format.number('{0}')", argument);
             }
             else
             {
-                return String.Format("X.format.{0}", RendererName.GetName(Renderer));
+                return String.Format("F.format.{0}", RendererName.GetName(Renderer));
             }
 
         } 

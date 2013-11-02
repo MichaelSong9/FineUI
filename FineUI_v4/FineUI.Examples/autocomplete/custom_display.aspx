@@ -8,32 +8,31 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../jqueryui/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
     <style>
-        .autocomplete-item-title
-        {
+        .autocomplete-item-title {
             font-weight: bold;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
-         Title="简单表单">
-        <Items>
-            <x:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 j 试试">
-            </x:TextBox>
-            <x:TextBox ID="TextBox2" Label="值" runat="server">
-            </x:TextBox>
-            <x:TextBox ID="TextBox3" Label="描述" runat="server">
-            </x:TextBox>
-        </Items>
-    </x:SimpleForm>
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+            Title="简单表单">
+            <Items>
+                <x:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 j 试试">
+                </x:TextBox>
+                <x:TextBox ID="TextBox2" Label="值" runat="server">
+                </x:TextBox>
+                <x:TextBox ID="TextBox3" Label="描述" runat="server">
+                </x:TextBox>
+            </Items>
+        </x:SimpleForm>
     </form>
-    <script src="../jqueryui/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="../jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-        function onReady() {
+        F.ready(function () {
             var textbox1ID = '<%= TextBox1.ClientID %>';
             var textbox2ID = '<%= TextBox2.ClientID %>';
             var textbox3ID = '<%= TextBox3.ClientID %>';
@@ -72,8 +71,8 @@
                 .appendTo(ul);
             };
 
-        }
-    
+        });
+
     </script>
 </body>
 </html>

@@ -19,12 +19,12 @@
 //}
 
 
-Ext.apply(X.ajax, {
+Ext.apply(F.ajax, {
     errorMsg: "Mensagem de Erro: {0} ( {1} )"
 });
 
 
-Ext.apply(X.util, {
+Ext.apply(F.util, {
     alertTitle: "Alerta",
     confirmTitle: "Confirma&ccedil;&atilde;o",
     formAlertMsg: "Por favor, insira um valor para o campo {0}!",
@@ -34,7 +34,7 @@ Ext.apply(X.util, {
 
 
 
-Ext.apply(X.wnd, {
+Ext.apply(F.wnd, {
     closeButtonTooltip: "Close this window",
     formModifiedConfirmTitle: "Fechamento Confirmado",
     formModifiedConfirmMsg: "O formul&aacute;rio atual foi modificado.<br/><br/>Cancelar Altera&ccedil;&otilde;es?"

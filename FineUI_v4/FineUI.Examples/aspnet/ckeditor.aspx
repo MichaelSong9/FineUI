@@ -9,7 +9,7 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"> 
         <x:PageManager ID="PageManager1" runat="server" />
         <x:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px" EnableFrame="true" EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Title="内容面板">
@@ -23,16 +23,17 @@
         <x:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
         </x:Button>
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var editorClientID = '<%= CKEditor1.ClientID %>';
         var containerClientID = '<%= ContentPanel1.ClientID %>';
-        function onReady() {
+        F.ready(function () {
 
             window.setTimeout(function () {
-                X(containerClientID).updateLayout();
+                F(containerClientID).updateLayout();
             }, 500);
-            
-        }
+
+        });
 
         // 更新编辑器内容
         function updateCKEditor(content) {

@@ -61,6 +61,7 @@
         </x:RegionPanel>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="./data/menuMail.xml"></asp:XmlDataSource>
     </form>
+    <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>
         var leftTreeID = '<%= leftTree.ClientID %>';
 
@@ -70,7 +71,7 @@
             Ext.select('.menu ul li.' + menuClassName).addCls('selected');
 
             // 展开树的第一个节点，并选中第一个节点下的第一个子节点（在右侧IFrame中打开）
-            var tree = X(leftTreeID);
+            var tree = F(leftTreeID);
             var treeFirstChild = tree.getRootNode().firstChild;
             // 展开第一个节点（如果想要展开全部节点，调用 tree.expandAll();）
             treeFirstChild.expand();
@@ -83,9 +84,9 @@
 
         }
 
-        function onReady() {
+        F.ready(function () {
             selectMenu('menu-mail');
-        }
+        });
     </script>
 </body>
 </html>

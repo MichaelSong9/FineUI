@@ -220,8 +220,8 @@ namespace FineUI
                 //    textAlignClass = "align-" + TextAlignName.GetName(TextAlign);
                 //}
 
-                string onClickScript = "X.toggle(this,'unchecked');";
-                //onClickScript += "X.stop();";
+                string onClickScript = "F.toggle(this,'unchecked');";
+                //onClickScript += "F.stop();";
 
                 //string tooltip = String.Empty;
                 //if (!String.IsNullOrEmpty(HeaderText))
@@ -297,13 +297,13 @@ namespace FineUI
 
                     // string onClickScript = String.Format("{0}_checkbox{1}(event,this,{2});", Grid.XID, ColumnIndex, row.RowIndex);
                     //string onClickScript = "Ext.get(this).toggleClass('unchecked');";
-                    string onClickScript = "X.toggle(this,'unchecked');";
+                    string onClickScript = "F.toggle(this,'unchecked');";
                     if (!ShowHeaderCheckBox && AutoPostBack)
                     {
                         onClickScript += postBackReference;
                     }
 
-                    //onClickScript += "X.stop();";
+                    //onClickScript += "F.stop();";
 
                     if (checkState)
                     {

@@ -177,7 +177,7 @@ namespace FineUI
             // Why panel.layout.layout? Because Form outside layout doesn't has this function, why? I don't know now.
             //OB.Listeners.AddProperty("bodyresize", "function(panel){if(panel.layout.layout){panel.doLayout();}}", true);
 
-            OB.Listeners.AddProperty("change", JsHelper.GetFunction("X.util.setPageStateChanged();"), true);
+            OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true);
 
 
             string formPanelScript = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());

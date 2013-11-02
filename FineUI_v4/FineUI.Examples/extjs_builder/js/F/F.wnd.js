@@ -45,7 +45,7 @@
     }
 
     // FineUI窗口域（Window）
-    X.wnd = {
+    F.wnd = {
 
         closeButtonTooltip: "Close this window",
         formModifiedConfirmTitle: "Close Confrim",
@@ -65,7 +65,7 @@
         // isGoldenSection : 弹出窗体位于页面的黄金分隔位置
         // hiddenHiddenFieldID : 在页面中放置表单字段记录此窗体是否弹出，也页面回发时保持状态用
         show: function (panel, iframeUrl, windowTitle, left, top, isGoldenSection, hiddenHiddenFieldID) {
-            var target = X.util.getTargetWindow(panel['x_property_target']);
+            var target = F.util.getTargetWindow(panel['x_property_target']);
             var guid = panel['x_property_guid'];
             if (window.frameElement && target !== window) {
                 // 当前页面在IFrame中（也即时 window.frameElement 存在）
@@ -74,20 +74,20 @@
                     // 父窗口中已经创建了这个Ext-Window对象
                     var wrapper = guid + '_wrapper';
                     if (!target.Ext.get(wrapper)) {
-                        target.X.util.appendFormNode('<div class="x-window-wrapper" id="' + wrapper + '"></div>');
+                        target.F.util.appendFormNode('<div class="x-window-wrapper" id="' + wrapper + '"></div>');
                     } else {
                         target.Ext.get(wrapper).dom.innerHTML = '';
                     }
                     // Ext.apply 的第三个参数是default obejct
                     var config = Ext.apply({}, {
                         'renderTo': wrapper,
-                        //'manager': target.X.x_window_manager,
+                        //'manager': target.F.x_window_manager,
                         'id': guid,
                         //'box_hide': null,
                         //'box_hide_refresh': null,
                         //'box_hide_postback': null,
                         // 'x_show': null,
-                        // 在 X.wnd.getActiveWindow 中需要用到这个参数
+                        // 在 F.wnd.getActiveWindow 中需要用到这个参数
                         //'box_property_frame_element_name': window.frameElement.name,
                         //'box_property_client_id': panel.getId(),
                         'x_property_window': window,
@@ -103,7 +103,7 @@
                 panel = target.X[guid];
             }
             if (iframeUrl !== '') {
-                X.wnd.updateIFrameNode(panel, iframeUrl);
+                F.wnd.updateIFrameNode(panel, iframeUrl);
             }
             if (windowTitle != '') {
                 panel.setTitle(windowTitle);
@@ -135,12 +135,12 @@
             }
 
             if (panel.maximizable) {
-                X.wnd.fixMaximize(panel);
+                F.wnd.fixMaximize(panel);
 
 
                 // 改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）
                 target.Ext.EventManager.onWindowResize(function () {
-                    X.wnd.fixMaximize(panel);
+                    F.wnd.fixMaximize(panel);
                 });
 
             }
@@ -148,7 +148,7 @@
 
         // 获取真正的Window实例
         getRealWindow: function (panel, targetName, guid) {
-            var target = X.util.getTargetWindow(targetName);
+            var target = F.util.getTargetWindow(targetName);
             if (window.frameElement && target !== window) {
                 // 从父页面中查找幻影Ext-Window对象
                 panel = target.X[guid];
@@ -158,7 +158,7 @@
 
         // 隐藏Ext-Window（比如用户点击了关闭按钮）
         hide: function (panel, targetName, enableIFrame, hiddenHiddenFieldID, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = F.wnd.getRealWindow(panel, targetName, guid);
             // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
             Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
@@ -173,19 +173,19 @@
 
         // 最大化
         maximize: function (panel, targetName, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = F.wnd.getRealWindow(panel, targetName, guid);
             wnd.maximize();
         },
 
         // 最小化
         minimize: function (panel, targetName, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = F.wnd.getRealWindow(panel, targetName, guid);
             wnd.minimize();
         },
 
         // 恢复窗体大小
         restore: function (panel, targetName, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = F.wnd.getRealWindow(panel, targetName, guid);
             wnd.restore();
         },
 
@@ -193,7 +193,7 @@
         // 现在的 Window 控件时渲染在 from 表单里面的一个 DIV 中的
         fixMaximize: function (panel) {
             if (panel.maximized) {
-                var target = X.util.getTargetWindow(panel['x_property_target']);
+                var target = F.util.getTargetWindow(panel['x_property_target']);
                 var bodySize = target.window.Ext.getBody().getViewSize();
                 panel.setSize(bodySize.width, bodySize.height);
                 // 不要忘记左上角坐标
@@ -229,10 +229,10 @@
 
         // 处理表单中有任何字段发生变化时，关闭当前窗口时的提示
         confirmFormModified: function (closeFn) {
-            if (X.util.isPageStateChanged()) {
+            if (F.util.isPageStateChanged()) {
                 Ext.MessageBox.show({
-                    title: X.wnd.formModifiedConfirmTitle,
-                    msg: X.wnd.formModifiedConfirmMsg,
+                    title: F.wnd.formModifiedConfirmTitle,
+                    msg: F.wnd.formModifiedConfirmMsg,
                     buttons: Ext.MessageBox.OKCANCEL,
                     icon: 'ext-mb-warning',
                     fn: function (btn) {
@@ -252,11 +252,11 @@
         // Ext-Window中IFrame里页面中的表单发生变化时弹出确认消息
         extWindowIFrameFormModifiedConfirm: function (panel, closeFn) {
             // 这个页面所在的Window对象
-            var pageWindow = X.wnd.getIFrameWindowObject(panel);
+            var pageWindow = F.wnd.getIFrameWindowObject(panel);
             // 如果弹出的页面没能正常加载（比如说网络暂时连接中断）
             // 则直接关闭弹出的Ext-Window，而不会去检查页面表单变化，因为页面对象不存在
             if (pageWindow.X) {
-                pageWindow.X.wnd.confirmFormModified(closeFn);
+                pageWindow.F.wnd.confirmFormModified(closeFn);
             }
             else {
                 panel.x_hide();
@@ -287,11 +287,11 @@
         // 注意
         // 1. 如果是在当前页面弹出窗口的话，“实际的Ext-Window对象”存在于父页面（parent.box）中
         // 2. 如果是在父页面弹出窗口的话，“实际的Ext-Window对象”存在于父页面（parent）下面的IFrame页面中
-        // 3. 通过判断当前的Ext-Window是否存在“box_property_frame_element_name”属性，可知当前的Ext-Window是否幻影（即时实际Ext-Window对象在父页面的一个拷贝），在X.wnd.show中设置的属性
+        // 3. 通过判断当前的Ext-Window是否存在“box_property_frame_element_name”属性，可知当前的Ext-Window是否幻影（即时实际Ext-Window对象在父页面的一个拷贝），在F.wnd.show中设置的属性
         /*
         getActiveWindow: function () {
         var activeWindow = parent.window;
-        var activeExtWindow = parent.X.x_window_manager.getActive();
+        var activeExtWindow = parent.F.x_window_manager.getActive();
         if (activeExtWindow['box_property_frame_element_name']) {
         var iframeParentWindow = activeExtWindow['box_property_parent_window'];
         activeWindow = iframeParentWindow.Ext.query('iframe[name=' + activeExtWindow['box_property_frame_element_name'] + ']')[0].contentWindow;
@@ -304,7 +304,7 @@
 
         getActiveWindow: function () {
             var activeWindow = parent.window;
-            var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.X.x_window_manager.getActive();
+            var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.x_window_manager.getActive();
             if (activeExtWindow['x_property_window']) {
                 activeWindow = activeExtWindow['x_property_window'];
                 activeExtWindow = activeExtWindow['x_property_ext_window'];
@@ -337,7 +337,7 @@
         //            aw = parent.window.Ext.getCmp(parentClientID);
         //            if (aw.box_property_frame_element_name) {
         //                window2 = parent.Ext.query('iframe[name=' + aw.box_property_frame_element_name + ']')[0].contentWindow;
-        //                aw = eval('window2.X.' + aw.id);
+        //                aw = eval('window2.F.' + aw.id);
         //            }
         //        }
 
@@ -351,7 +351,7 @@
 
         // 向弹出此Ext-Window的页面写入值
         writeBackValue: function () {
-            var aw = X.wnd.getActiveWindow();
+            var aw = F.wnd.getActiveWindow();
             var controlIds = aw[0]['x_property_save_state_control_client_ids'];
             var controlCount = Math.min(controlIds.length, arguments.length);
             for (var i = 0; i < controlCount; i++) {
@@ -359,7 +359,7 @@
             }
             //        var controlClientIds = (function() {
             //            if (aw) {
-            //                return eval('aw[1].X.' + aw[0].id + '.box_string_state');
+            //                return eval('aw[1].F.' + aw[0].id + '.box_string_state');
             //            }
             //        })();
             //        if (typeof (controlClientIds) == 'string') {
@@ -372,7 +372,7 @@
             //                aw[1].Ext.getCmp(controlClientIds[i + 1]).setValue(controlValues[i]);
             //            }
             //        }
-            //        var aw = X.wnd.getActiveWindow();
+            //        var aw = F.wnd.getActiveWindow();
             //        if (aw) {
             //            aw[0].box_hide();
             //        }

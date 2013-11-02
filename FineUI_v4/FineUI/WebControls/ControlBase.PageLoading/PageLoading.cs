@@ -191,7 +191,7 @@ namespace FineUI
             {
                 string jsContent = String.Empty;
 
-                jsContent = String.Format("X.util.removePageLoading({0});", EnableFadeOut.ToString().ToLower());
+                jsContent = String.Format("F.util.removePageLoading({0});", EnableFadeOut.ToString().ToLower());
                 //if (EnableFadeOut)
                 //{
                 //    jsContent = "Ext.get('loading').remove();Ext.get('loading-mask').fadeOut({remove:true});";

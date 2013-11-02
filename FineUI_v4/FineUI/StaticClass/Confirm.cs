@@ -134,7 +134,7 @@ namespace FineUI
             /*
                 if (String.IsNullOrEmpty(title))
                 {
-                    title = "X.util.confirmTitle";
+                    title = "F.util.confirmTitle";
                 }
                 else
                 {
@@ -182,16 +182,16 @@ namespace FineUI
             {
                 if (scriptCancel == "''")
                 {
-                    return String.Format("X.confirm({0},{1},{2},{3});", scriptTargetName, scriptTitle, scriptMessage, scriptOK);
+                    return String.Format("F.confirm({0},{1},{2},{3});", scriptTargetName, scriptTitle, scriptMessage, scriptOK);
                 }
                 else
                 {
-                    return String.Format("X.confirm({0},{1},{2},{3},{4});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel);
+                    return String.Format("F.confirm({0},{1},{2},{3},{4});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel);
                 }
             }
             else
             {
-                return String.Format("X.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel, scriptIconName);
+                return String.Format("F.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel, scriptIconName);
             }
 
         }

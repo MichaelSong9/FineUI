@@ -1,7 +1,7 @@
 ﻿
 (function () {
 
-    X.ajax = {
+    F.ajax = {
 
         timeoutErrorMsg: "Request timeout, please refresh the page and try again!",
         errorMsg: "Error! {0} ({1})",
@@ -16,55 +16,56 @@
     };
 
     function enableAjax() {
-        if (typeof (X.control_enable_ajax) === 'undefined') {
-            return X.global_enable_ajax;
+        if (typeof (F.control_enable_ajax) === 'undefined') {
+            return F.global_enable_ajax;
         }
-        return X.control_enable_ajax;
+        return F.control_enable_ajax;
     }
 
     function enableAjaxLoading() {
-        if (typeof (X.control_enable_ajax_loading) === 'undefined') {
-            return X.global_enable_ajax_loading;
+        if (typeof (F.control_enable_ajax_loading) === 'undefined') {
+            return F.global_enable_ajax_loading;
         }
-        return X.control_enable_ajax_loading;
+        return F.control_enable_ajax_loading;
     }
 
     function ajaxLoadingType() {
-        if (typeof (X.control_ajax_loading_type) === 'undefined') {
-            return X.global_ajax_loading_type;
+        if (typeof (F.control_ajax_loading_type) === 'undefined') {
+            return F.global_ajax_loading_type;
         }
-        return X.control_ajax_loading_type;
+        return F.control_ajax_loading_type;
     }
 
 
     function x__doPostBack_internal() {
-        if (typeof (X.util.beforeAjaxPostBackScript) === 'function') {
-            X.util.beforeAjaxPostBackScript();
-        }
+        //if (typeof (F.util.beforeAjaxPostBackScript) === 'function') {
+        //    F.util.beforeAjaxPostBackScript();
+        //}
+        F.util.triggerBeforeAjax();
 
         // Ext.encode will convert Chinese characters. Ext.encode({a:"你好"}) => '{"a":"\u4f60\u597d"}'
         // We will include the official JSON object from http://json.org/
         // 现在还是用的 Ext.encode，在 IETester的 IE8下 JSON.stringify 生成的中文是\u9009\u9879形式。
-        //X.util.setHiddenFieldValue('X_STATE', encodeURIComponent(JSON.stringify(getXState())));
+        //F.util.setHiddenFieldValue('F_STATE', encodeURIComponent(JSON.stringify(getFState())));
 
-        var xstate = Ext.encode(getXState());
+        var fstate = Ext.encode(getFState());
         if (Ext.isIE6 || Ext.isIE7) {
-            X.util.setHiddenFieldValue('X_STATE_URI', 'true');
-            xstate = encodeURIComponent(xstate);
+            F.util.setHiddenFieldValue('F_STATE_URI', 'true');
+            fstate = encodeURIComponent(fstate);
         } else {
-            xstate = Base64.encode(xstate);
+            fstate = Base64.encode(fstate);
         }
-        X.util.setHiddenFieldValue('X_STATE', xstate);
-        //X.util.setHiddenFieldValue('X_STATE', encodeURIComponent(Ext.encode(getXState())));
+        F.util.setHiddenFieldValue('F_STATE', fstate);
+        //F.util.setHiddenFieldValue('F_STATE', encodeURIComponent(Ext.encode(getFState())));
         if (!enableAjax()) {
-            // 当前请求结束后必须重置 X.control_enable_ajax
-            X.control_enable_ajax = undefined;
-            X.util.setHiddenFieldValue('X_AJAX', 'false');
+            // 当前请求结束后必须重置 F.control_enable_ajax
+            F.control_enable_ajax = undefined;
+            F.util.setHiddenFieldValue('X_AJAX', 'false');
             theForm.submit();
         } else {
-            // 当前请求结束后必须重置 X.control_enable_ajax
-            X.control_enable_ajax = undefined;
-            X.util.setHiddenFieldValue('X_AJAX', 'true');
+            // 当前请求结束后必须重置 F.control_enable_ajax
+            F.control_enable_ajax = undefined;
+            F.util.setHiddenFieldValue('X_AJAX', 'true');
             var url = document.location.href;
             var urlHashIndex = url.indexOf('#');
             if (urlHashIndex >= 0) {
@@ -73,12 +74,12 @@
             Ext.Ajax.request({
                 form: theForm.id,
                 url: url,
-                isUpload: X.form_upload_file,
+                isUpload: F.form_upload_file,
                 //params: serializeForm(theForm) + '&X_AJAX=true',
                 success: function (data) {
                     var scripts = data.responseText;
                     if (scripts) {
-                        if (X.form_upload_file) {
+                        if (F.form_upload_file) {
                             // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
                             //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
                             scripts = decodeURIComponent(scripts);
@@ -90,22 +91,22 @@
                             createErrorWindow({
                                 statusText: "Unexpected Response",
                                 status: -1,
-                                responseText: X.util.htmlEncode(scripts)
+                                responseText: F.util.htmlEncode(scripts)
                             });
                         }
                     }
-                    X.ajaxReady();
+                    F.util.triggerAjaxReady();
                 },
                 failure: function (data) {
-                    var lastDisabledButtonId = X.util.getHiddenFieldValue('X_TARGET');
+                    var lastDisabledButtonId = F.util.getHiddenFieldValue('X_TARGET');
                     if (lastDisabledButtonId) {
-                        X.enable(lastDisabledButtonId);
+                        F.enable(lastDisabledButtonId);
                     }
                     createErrorWindow(data);
                 },
                 callback: function (options, success, response) {
                     // AJAX结束时需要清空此字段，否则下一次的type=submit提交（ASP.NET回发方式之一）会被误认为是AJAX提交
-                    X.util.setHiddenFieldValue('X_AJAX', 'false');
+                    F.util.setHiddenFieldValue('X_AJAX', 'false');
                 }
             });
         }
@@ -144,18 +145,18 @@
     function createErrorWindow(data) {
         // 如果是请求超时错误，则弹出简单提醒对话框
         if (data.isTimeout) {
-            X.util.alert(X.ajax.timeoutErrorMsg);
+            F.util.alert(F.ajax.timeoutErrorMsg);
             return;
         }
 
         // 如果响应正文为空，则弹出简单提醒对话框
         if (!data.responseText) {
-            X.util.alert(Ext.String.format(X.ajax.errorMsg, data.statusText, data.status));
+            F.util.alert(Ext.String.format(F.ajax.errorMsg, data.statusText, data.status));
             return;
         }
 
-        if (!X.ajax.errorWindow) {
-            X.ajax.errorWindow = Ext.create('Ext.window.Window', {
+        if (!F.ajax.errorWindow) {
+            F.ajax.errorWindow = Ext.create('Ext.window.Window', {
                 id: "FINEUI_ERROR",
                 renderTo: window.body,
                 width: 550,
@@ -177,10 +178,10 @@
             });
         }
 
-        X.ajax.errorWindow.show();
-        X.ajax.errorWindow.body.dom.innerHTML = X.wnd.createIFrameHtml('about:blank', 'FINEUI_ERROR');
-        X.ajax.errorWindow.setTitle(Ext.String.format(X.ajax.errorMsg, data.statusText, data.status));
-        writeContentToIFrame(X.ajax.errorWindow.body.query('iframe')[0], data.responseText);
+        F.ajax.errorWindow.show();
+        F.ajax.errorWindow.body.dom.innerHTML = F.wnd.createIFrameHtml('about:blank', 'FINEUI_ERROR');
+        F.ajax.errorWindow.setTitle(Ext.String.format(F.ajax.errorMsg, data.statusText, data.status));
+        writeContentToIFrame(F.ajax.errorWindow.body.query('iframe')[0], data.responseText);
     }
 
     // 序列化表单为 URL 编码字符串，除去 <input type="submit" /> 的按钮
@@ -202,16 +203,16 @@
     };
 
 
-    function getXState() {
+    function getFState() {
         var state = {};
         Ext.ComponentManager.each(function (key, cmp) {
             if (cmp.isXType) {
                 // x_props store the properties which has been changed on server-side or client-side.
                 // Every FineUI control should has this property.
-                var xstate = cmp['x_state'];
-                if (xstate && Ext.isObject(xstate)) {
-                    var cmpState = getXStateViaCmp(cmp, xstate);
-                    if (!X.util.isObjectEmpty(cmpState)) {
+                var fstate = cmp['f_state'];
+                if (fstate && Ext.isObject(fstate)) {
+                    var cmpState = getFStateViaCmp(cmp, fstate);
+                    if (!F.util.isObjectEmpty(cmpState)) {
                         state[cmp.id] = cmpState;
                     }
                 }
@@ -220,19 +221,19 @@
         return state;
     }
 
-    X.ajax.getXState = getXState;
+    F.ajax.getFState = getFState;
 
-    function getXStateViaCmp(cmp, xstate) {
+    function getFStateViaCmp(cmp, fstate) {
         var state = {};
 
-        Ext.apply(state, xstate);
+        Ext.apply(state, fstate);
 
         function saveInHiddenField(property, currentValue) {
             // Save this client-changed property in a form hidden field. 
-            X.util.setHiddenFieldValue(cmp.id + '_' + property, currentValue);
+            F.util.setHiddenFieldValue(cmp.id + '_' + property, currentValue);
         }
         function removeHiddenField(property) {
-            X.util.removeHiddenField(cmp.id + '_' + property);
+            F.util.removeHiddenField(cmp.id + '_' + property);
         }
 
         // 如果存在Gzip压缩的属性，就删除原来的属性
@@ -377,10 +378,10 @@
         if (_requestCount > 0) {
 
             if (ajaxLoadingType === "default") {
-                X.ajaxLoadingDefault.setStyle('left', (Ext.getBody().getWidth() - X.ajaxLoadingDefault.getWidth()) / 2 + 'px');
-                X.ajaxLoadingDefault.show();
+                F.ajaxLoadingDefault.setStyle('left', (Ext.getBody().getWidth() - F.ajaxLoadingDefault.getWidth()) / 2 + 'px');
+                F.ajaxLoadingDefault.show();
             } else {
-                X.ajaxLoadingMask.show();
+                F.ajaxLoadingMask.show();
             }
 
         }
@@ -392,9 +393,9 @@
             _requestCount = 0;
 
             if (ajaxLoadingType === "default") {
-                X.ajaxLoadingDefault.hide();
+                F.ajaxLoadingDefault.hide();
             } else {
-                X.ajaxLoadingMask.hide();
+                F.ajaxLoadingMask.hide();
             }
 
         }
@@ -423,8 +424,8 @@
         } else {
             Ext.defer(_hideAjaxLoading, 100, window, [ajaxLoadingType()]);
         }
-        X.control_enable_ajax_loading = undefined;
-        X.control_ajax_loading_type = undefined;
+        F.control_enable_ajax_loading = undefined;
+        F.control_ajax_loading_type = undefined;
     });
 
     // Ajax 请求发生异常
@@ -436,8 +437,8 @@
         } else {
             Ext.defer(_hideAjaxLoading, 100, window, [ajaxLoadingType()]);
         }
-        X.control_enable_ajax_loading = undefined;
-        X.control_ajax_loading_type = undefined;
+        F.control_enable_ajax_loading = undefined;
+        F.control_ajax_loading_type = undefined;
     });
 
 

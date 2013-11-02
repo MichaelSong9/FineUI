@@ -12,6 +12,7 @@
             font-weight: bold;
             color: red;
         }
+
         .mygrid-row-summary .x-grid-cell-row-checker .x-grid-cell-inner, .mygrid-row-summary .x-grid-cell-row-numberer .x-grid-cell-inner {
             display: none;
         }
@@ -47,6 +48,7 @@
         <x:Label ID="labResult" EncodeText="false" runat="server">
         </x:Label>
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>
 
         var gridClientID = '<%= Grid1.ClientID %>';
@@ -83,8 +85,8 @@
         }
 
         // 页面第一个加载完毕后执行的函数
-        function onReady() {
-            var grid = X(gridClientID);
+        F.ready(function () {
+            var grid = F(gridClientID);
             calcGridSummary(grid);
 
             // 防止选中合计行
@@ -94,11 +96,11 @@
                 }
                 return true;
             });
-        }
+        });
 
         // 页面AJAX回发后执行的函数
         function onAjaxReady() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
             calcGridSummary(grid);
         }
     </script>

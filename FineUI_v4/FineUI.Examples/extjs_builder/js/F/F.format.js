@@ -3,7 +3,7 @@
 
     var F = Ext.util.Format;
 
-    X.format = {
+    F.format = {
 
         capitalize: F.capitalize,
 

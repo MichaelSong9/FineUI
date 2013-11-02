@@ -97,12 +97,13 @@
             </Items>
         </x:Panel>
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
 
 
         function registerAutoSaveEvent() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
 
             grid.el.on("keypress", function (evt, el) {
 
@@ -124,11 +125,11 @@
         }
 
         // 页面第一次加载完成后调用的函数
-        function onReady() {
-            var grid = X(gridClientID);
+        F.ready(function () {
+            var grid = F(gridClientID);
 
             registerAutoSaveEvent();
-        }
+        });
 
     </script>
 </body>

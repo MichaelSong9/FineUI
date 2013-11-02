@@ -53,6 +53,7 @@
         <br />
         注：本示例尚未完成！
     </form>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>
 
         var gridClientID = '<%= Grid1.ClientID %>';
@@ -67,7 +68,7 @@
             }
 
             // 从隐藏字段获取全部数据的汇总
-            var summaryJSON = JSON.parse(X(gridSummaryID).getValue());
+            var summaryJSON = JSON.parse(F(gridSummaryID).getValue());
 
             store.add({
                 'major': '全部合计：',
@@ -98,8 +99,8 @@
         }
 
         // 页面第一个加载完毕后执行的函数
-        function onReady() {
-            var grid = X(gridClientID);
+        F.ready(function () {
+            var grid = F(gridClientID);
             calcGridSummary(grid);
 
             // 防止选中合计行
@@ -109,11 +110,11 @@
                 }
                 return true;
             });
-        }
+        });
 
         // 页面AJAX回发后执行的函数
         function onAjaxReady() {
-            var grid = X(gridClientID);
+            var grid = F(gridClientID);
             calcGridSummary(grid);
         }
     </script>

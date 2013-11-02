@@ -11,7 +11,7 @@ namespace FineUI
     /// <summary>
     /// FineUI控件的状态保持机制
     /// </summary>
-    public class XState
+    public class FState
     {
         #region Constructor
         
@@ -21,7 +21,7 @@ namespace FineUI
         /// 构造函数
         /// </summary>
         /// <param name="control">控件</param>
-        public XState(ControlBase control)
+        public FState(ControlBase control)
         {
             _control = control;
         }
@@ -82,7 +82,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 增加在当前请求中改变的属性列表（控件可以自己手工设置，以便保存在 X_STATE 中）
+        /// 增加在当前请求中改变的属性列表（控件可以自己手工设置，以便保存在 F_STATE 中）
         /// </summary>
         /// <param name="property"></param>
         public void AddModifiedProperty(string property)

@@ -73,12 +73,12 @@
     <script type="text/javascript">
 
         function alertSelectedValue() {
-            var list2 = X('<%= RadioButtonList1.ClientID %>');
+            var list2 = F('<%= RadioButtonList1.ClientID %>');
             var selectedRadio = list2.getValue();
             if (Ext.Object.isEmpty(selectedRadio)) {
-                top.X.util.alert("列表一没有选中项！");
+                top.F.util.alert("列表一没有选中项！");
             } else {
-                top.X.util.alert("列表一选中项的值：" + selectedRadio[list2.name]);
+                top.F.util.alert("列表一选中项的值：" + selectedRadio[list2.name]);
             }
         }
 

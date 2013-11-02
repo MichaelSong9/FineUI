@@ -25,13 +25,13 @@
     <script type="text/javascript">
         window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/ueditor/") %>';
     </script>
-    <script src="../jqueryui/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="../ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
         var editor;
         var containerClientID = '<%= ContentPanel1.ClientID %>';
-        function onReady() {
+        F.ready(function () {
             editor = new UE.ui.Editor({
                 initialFrameWidth: '100%',
                 initialFrameHeight: 300,
@@ -41,13 +41,13 @@
             editor.render("UEditor1");
 
             updateLayout();
-        }
+        });
 
         // 更新外部容器的布局
         function updateLayout() {
             editorPromise(editor).then(function () {
                 window.setTimeout(function () {
-                    X(containerClientID).updateLayout();
+                    F(containerClientID).updateLayout();
                 }, 100);
             });
         }
@@ -68,9 +68,9 @@
 
 
         // 提交数据之前同步到表单隐藏字段
-        X.util.beforeAjaxPostBackScript = function () {
+        F.beforeAjax(function () {
             editor.sync();
-        };
+        });
 
         // 更新编辑器内容
         function updateUEditor(content) {
