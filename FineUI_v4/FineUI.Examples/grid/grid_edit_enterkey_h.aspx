@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_edit_enterkey_v.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_edit_enterkey_v" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_edit_enterkey_h.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_edit_enterkey_h" %>
 
 <!DOCTYPE html>
 <html>
@@ -35,17 +35,17 @@
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                 <x:TemplateField HeaderText="语文" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxYuwen" CssClass="group1" runat="server" Width="80px" TabIndex="<%# Container.DataItemIndex + 10 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
+                        <asp:TextBox ID="tbxYuwen" CssClass="group1" runat="server" Width="80px" TabIndex="<%# (Container.DataItemIndex * 3) + 10 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
                 <x:TemplateField HeaderText="数学" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxShuxue" CssClass="group2" runat="server" Width="80px" TabIndex="<%# Container.DataItemIndex + 10 + GetDataSourceCount() %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
+                        <asp:TextBox ID="tbxShuxue" CssClass="group2" runat="server" Width="80px" TabIndex="<%# (Container.DataItemIndex * 3) + 11 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
                 <x:TemplateField HeaderText="英语" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxYingyu" CssClass="group2" runat="server" Width="80px" TabIndex="<%# Container.DataItemIndex + 10 + GetDataSourceCount() * 2 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
+                        <asp:TextBox ID="tbxYingyu" CssClass="group2" runat="server" Width="80px" TabIndex="<%# (Container.DataItemIndex * 3) + 12 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
             </Columns>
@@ -55,7 +55,7 @@
         <ul>
             <li>使用Tab键遍历一列当中所有的文本输入框（通过TextBox的TabIndex属性）</li>
             <li>使用Enter键遍历一列当中所有的文本输入框（JavaScript函数registerEnterEvent）</li>
-            <li>Tab/Enter遍历文本框时，先遍历一列的文本框，然后再遍历下一列的文本框</li>
+            <li>Tab/Enter遍历文本框时，先遍历一行的文本框，然后再遍历下一行的文本框</li>
         </ul>
         <br />
         <x:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="获取用户输入的分组值">
@@ -82,7 +82,7 @@
 
         function registerEnterEvent() {
             var grid = F(gridClientID);
-            
+
             $(grid.el.dom).delegate(inputselector, 'keydown', function (evt) {
                 // 13 - Enter Key
                 if (evt.keyCode === 13) {
@@ -93,20 +93,20 @@
                     var inputCount = inputs.length;
                     // 当前输入框在本行中的序号（用来标示那一列）
                     var inputIndex = inputs.index(this);
-                    
-                    // 查找下一行
-                    var nextRow = row.next();
-                    if (nextRow.length) {
-                        // 选中下一行同列的的输入框
-                        nextRow.find(inputselector).get(inputIndex).select();
+                    inputIndex++;
+
+                    if (inputIndex <= inputCount - 1) {
+                        // 选中本行下一列中的输入框
+                        inputs.eq(inputIndex).select();
                     } else {
-                        // 如果本行是最后一行，则选择下一列第一行的输入框
-                        inputIndex++;
-                        if (inputIndex >= inputCount) {
-                            inputIndex = 0;
+                        var nextRow = row.next();
+                        if (nextRow.length) {
+                            // 选中下一行第一列的的输入框
+                            nextRow.find(inputselector).get(0).select();
+                        } else {
+                            // 如果本行是最后一行，则选择第一行第一列的输入框
+                            row.prevAll(':last').find(inputselector).eq(0).select();
                         }
-                        //row.parent().find('.x-grid-row:first').find(inputselector).eq(inputIndex).select();
-                        row.prevAll(':last').find(inputselector).eq(inputIndex).select();
                     }
                 }
             });

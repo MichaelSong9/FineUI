@@ -193,6 +193,7 @@
     <Content Include="grid\grid_excel_selectcolumns.aspx" />
     <Content Include="grid\grid_summary2.aspx" />
     <Content Include="grid\grid_edit_enterkey_v.aspx" />
+    <Content Include="grid\grid_edit_enterkey_h.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -827,6 +828,13 @@
     </Compile>
     <Compile Include="grid\grid_edit_enterkey_v.aspx.designer.cs">
       <DependentUpon>grid_edit_enterkey_v.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_enterkey_h.aspx.cs">
+      <DependentUpon>grid_edit_enterkey_h.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_enterkey_h.aspx.designer.cs">
+      <DependentUpon>grid_edit_enterkey_h.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

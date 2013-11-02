@@ -242,6 +242,10 @@
       </TreeNode>
       <TreeNode Text="手动保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_manual.aspx" >
       </TreeNode>
+      <TreeNode Text="遍历表格内所有输入框（纵向）" NavigateUrl="~/grid/grid_edit_enterkey_v.aspx" >
+      </TreeNode>
+      <TreeNode Text="遍历表格内所有输入框（横向）" NavigateUrl="~/grid/grid_edit_enterkey_h.aspx" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="多表头">
       <TreeNode Text="多表头" NavigateUrl="~/grid/grid_groupheader.aspx" >
@@ -290,12 +294,16 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="合计行">
+      <TreeNode Text="合计行" NavigateUrl="~/grid/grid_summary2.aspx" >
+      </TreeNode>
+      <!--
       <TreeNode Text="客户端分页合计" NavigateUrl="~/grid/grid_summary.aspx" >
       </TreeNode>
       <TreeNode Text="服务器端全部合计" NavigateUrl="~/grid/grid_summary_serverside.aspx" >
       </TreeNode>
       <TreeNode Text="服务器端分页合计" NavigateUrl="~/grid/grid_summary_serverside_paged.aspx" >
       </TreeNode>
+      -->
       <!--<TreeNode Text="服务器端全部合计（绝对定位）" NavigateUrl="~/grid/grid_summary_absolute.aspx" >
       </TreeNode>-->
     </TreeNode>
