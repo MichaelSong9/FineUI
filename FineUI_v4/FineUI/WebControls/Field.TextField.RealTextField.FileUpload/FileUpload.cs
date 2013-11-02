@@ -90,12 +90,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ButtonText"];
+                object obj = FState["ButtonText"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ButtonText"] = value;
+                FState["ButtonText"] = value;
             }
         }
 
@@ -109,12 +109,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ButtonOnly"];
+                object obj = FState["ButtonOnly"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ButtonOnly"] = value;
+                FState["ButtonOnly"] = value;
             }
         }
 
@@ -130,12 +130,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ButtonIcon"];
+                object obj = FState["ButtonIcon"];
                 return obj == null ? Icon.None : (Icon)obj;
             }
             set
             {
-                XState["ButtonIcon"] = value;
+                FState["ButtonIcon"] = value;
             }
         }
 
@@ -150,12 +150,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ButtonIconUrl"];
+                object obj = FState["ButtonIconUrl"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ButtonIconUrl"] = value;
+                FState["ButtonIconUrl"] = value;
             }
         }
 

@@ -81,12 +81,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Layout"];
+                object obj = FState["Layout"];
                 return obj == null ? Layout.Container : (Layout)obj;
             }
             set
             {
-                XState["Layout"] = value;
+                FState["Layout"] = value;
             }
         } 
 

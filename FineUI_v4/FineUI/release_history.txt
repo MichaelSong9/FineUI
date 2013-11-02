@@ -40,7 +40,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-函数onAjaxReady更改为F.ajaxReady(fn)。
 		-函数X.util.beforeAjaxPostBackScript更改为F.beforeAjax(fn)。
 		-删除PageManager的ExecuteOnReadyWhenPostBack属性。
-	-需要客户端脚本的示例，改为jQuery实现。
+	-更新需要JavaScript参与的示例，DOM相关操作改为jQuery实现。
+	-增加示例grid/grid_edit_enterkey_v.aspx，演示如果使用回车键遍历表格中所有文本框（⑥阿太⑥）。
+
 
 
 

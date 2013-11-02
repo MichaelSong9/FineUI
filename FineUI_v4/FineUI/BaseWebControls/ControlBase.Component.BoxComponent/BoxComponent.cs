@@ -64,12 +64,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Width"];
+                object obj = FState["Width"];
                 return obj == null ? Unit.Empty : (Unit)obj;
             }
             set
             {
-                XState["Width"] = value;
+                FState["Width"] = value;
             }
         }
 
@@ -84,12 +84,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Height"];
+                object obj = FState["Height"];
                 return obj == null ? Unit.Empty : (Unit)obj;
             }
             set
             {
-                XState["Height"] = value;
+                FState["Height"] = value;
             }
         }
 
@@ -108,12 +108,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AnchorValue"];
+                object obj = FState["AnchorValue"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["AnchorValue"] = value;
+                FState["AnchorValue"] = value;
             }
         }
 
@@ -128,12 +128,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ColumnWidth"];
+                object obj = FState["ColumnWidth"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ColumnWidth"] = value;
+                FState["ColumnWidth"] = value;
             }
         }
 
@@ -148,12 +148,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RowHeight"];
+                object obj = FState["RowHeight"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["RowHeight"] = value;
+                FState["RowHeight"] = value;
             }
         }
 
@@ -168,12 +168,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AbsoluteX"];
+                object obj = FState["AbsoluteX"];
                 return obj == null ? Unit.Empty : (Unit)obj;
             }
             set
             {
-                XState["AbsoluteX"] = value;
+                FState["AbsoluteX"] = value;
             }
         }
 
@@ -188,12 +188,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AbsoluteY"];
+                object obj = FState["AbsoluteY"];
                 return obj == null ? Unit.Empty : (Unit)obj;
             }
             set
             {
-                XState["AbsoluteY"] = value;
+                FState["AbsoluteY"] = value;
             }
         }
 
@@ -208,12 +208,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TableConfigColumns"];
+                object obj = FState["TableConfigColumns"];
                 return obj == null ? 3 : (int)obj;
             }
             set
             {
-                XState["TableConfigColumns"] = value;
+                FState["TableConfigColumns"] = value;
             }
         }
 
@@ -227,12 +227,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TableRowspan"];
+                object obj = FState["TableRowspan"];
                 return obj == null ? 1 : (int)obj;
             }
             set
             {
-                XState["TableRowspan"] = value;
+                FState["TableRowspan"] = value;
             }
         }
 
@@ -246,12 +246,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TableColspan"];
+                object obj = FState["TableColspan"];
                 return obj == null ? 1 : (int)obj;
             }
             set
             {
-                XState["TableColspan"] = value;
+                FState["TableColspan"] = value;
             }
         }
 
@@ -265,12 +265,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxConfigAlign"];
+                object obj = FState["BoxConfigAlign"];
                 return obj == null ? BoxLayoutAlign.Start : (BoxLayoutAlign)obj;
             }
             set
             {
-                XState["BoxConfigAlign"] = value;
+                FState["BoxConfigAlign"] = value;
             }
         }
 
@@ -284,12 +284,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxConfigPosition"];
+                object obj = FState["BoxConfigPosition"];
                 return obj == null ? BoxLayoutPosition.Start : (BoxLayoutPosition)obj;
             }
             set
             {
-                XState["BoxConfigPosition"] = value;
+                FState["BoxConfigPosition"] = value;
             }
         }
 
@@ -303,12 +303,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxConfigPadding"];
+                object obj = FState["BoxConfigPadding"];
                 return obj == null ? "0" : (string)obj;
             }
             set
             {
-                XState["BoxConfigPadding"] = value;
+                FState["BoxConfigPadding"] = value;
             }
         }
 
@@ -322,12 +322,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxConfigChildMargin"];
+                object obj = FState["BoxConfigChildMargin"];
                 return obj == null ? "0" : (string)obj;
             }
             set
             {
-                XState["BoxConfigChildMargin"] = value;
+                FState["BoxConfigChildMargin"] = value;
             }
         }
 
@@ -341,12 +341,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxFlex"];
+                object obj = FState["BoxFlex"];
                 return obj == null ? 0 : (int)obj;
             }
             set
             {
-                XState["BoxFlex"] = value;
+                FState["BoxFlex"] = value;
             }
         }
 
@@ -361,12 +361,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxMargin"];
+                object obj = FState["BoxMargin"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["BoxMargin"] = value;
+                FState["BoxMargin"] = value;
             }
         }
 

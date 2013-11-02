@@ -60,10 +60,10 @@ namespace FineUI
         /// </summary>
         public RadioButtonList()
         {
-            AddServerAjaxProperties("X_Items");
+            AddServerAjaxProperties("F_Items");
             AddClientAjaxProperties("SelectedValue");
 
-            AddGzippedAjaxProperties("X_Items");
+            AddGzippedAjaxProperties("F_Items");
         }
 
         #endregion
@@ -117,12 +117,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Required"];
+                object obj = FState["Required"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Required"] = value;
+                FState["Required"] = value;
             }
         }
 
@@ -136,12 +136,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RequiredMessage"];
+                object obj = FState["RequiredMessage"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["RequiredMessage"] = value;
+                FState["RequiredMessage"] = value;
             }
         }
 
@@ -156,12 +156,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoPostBack"];
+                object obj = FState["AutoPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AutoPostBack"] = value;
+                FState["AutoPostBack"] = value;
             }
         }
 
@@ -175,12 +175,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["Checked"];
+        //        object obj = FState["Checked"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["Checked"] = value;
+        //        FState["Checked"] = value;
         //    }
         //}
 
@@ -194,12 +194,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ColumnNumber"];
+                object obj = FState["ColumnNumber"];
                 return obj == null ? 0 : (int)obj;
             }
             set
             {
-                XState["ColumnNumber"] = value;
+                FState["ColumnNumber"] = value;
             }
         }
 
@@ -213,12 +213,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ColumnVertical"];
+                object obj = FState["ColumnVertical"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ColumnVertical"] = value;
+                FState["ColumnVertical"] = value;
             }
         }
 
@@ -236,12 +236,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataTextField"];
+                object obj = FState["DataTextField"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataTextField"] = value;
+                FState["DataTextField"] = value;
             }
         }
 
@@ -255,12 +255,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataTextFormatString"];
+                object obj = FState["DataTextFormatString"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataTextFormatString"] = value;
+                FState["DataTextFormatString"] = value;
             }
         }
 
@@ -274,12 +274,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataValueField"];
+                object obj = FState["DataValueField"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataValueField"] = value;
+                FState["DataValueField"] = value;
             }
         }
 
@@ -448,7 +448,7 @@ namespace FineUI
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public JArray X_Items
+        public JArray F_Items
         {
             get
             {
@@ -496,7 +496,7 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
 
-            if (PropertyModified("X_Items"))
+            if (PropertyModified("F_Items"))
             {
                 sb.AppendFormat("{0}.x_reloadData('{1}',true);", XID, UniqueID); //, GetItemsJArray().ToString(Formatting.None));
 
@@ -573,9 +573,9 @@ namespace FineUI
 
             string jsState = String.Format("var {0}={1};", xstateName, xstate);
 
-            if (!XState.ModifiedProperties.Contains("X_Items"))
+            if (!FState.ModifiedProperties.Contains("F_Items"))
             {
-                xstate = ConvertPropertiesToJObject(new List<string> { "X_Items", "SelectedValue" }).ToString(Formatting.None);
+                xstate = ConvertPropertiesToJObject(new List<string> { "F_Items", "SelectedValue" }).ToString(Formatting.None);
                 jsState += String.Format("var {0}={1};", xitemsName, xstate);
                 hasDataName = xitemsName;
             }
@@ -730,10 +730,10 @@ namespace FineUI
                     throw new Exception("DataSource doesn't support data type: " + _dataSource.GetType().ToString());
                 }
 
-                // X_Items属性不是ServerAjaxProperty，所以只在页面第一次加载时判断是否改变
+                // F_Items属性不是ServerAjaxProperty，所以只在页面第一次加载时判断是否改变
                 if (!Page.IsPostBack)
                 {
-                    XState.AddModifiedProperty("X_Items");
+                    FState.AddModifiedProperty("F_Items");
                 }
             }
         }
@@ -915,7 +915,7 @@ namespace FineUI
             if (SelectedValue != postValue)
             {
                 SelectedValue = postValue;
-                XState.BackupPostDataProperty("SelectedValue");
+                FState.BackupPostDataProperty("SelectedValue");
                 return true;
             }
             return false;

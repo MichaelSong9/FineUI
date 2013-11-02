@@ -65,12 +65,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ImageUrl"];
+                object obj = FState["ImageUrl"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ImageUrl"] = value;
+                FState["ImageUrl"] = value;
             }
         }
 
@@ -86,12 +86,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowOnPostBack"];
+                object obj = FState["ShowOnPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ShowOnPostBack"] = value;
+                FState["ShowOnPostBack"] = value;
             }
         }
 
@@ -106,12 +106,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableFadeOut"];
+                object obj = FState["EnableFadeOut"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableFadeOut"] = value;
+                FState["EnableFadeOut"] = value;
             }
         }
 

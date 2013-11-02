@@ -61,12 +61,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowLabel"];
+                object obj = FState["ShowLabel"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ShowLabel"] = value;
+                FState["ShowLabel"] = value;
             }
         }
 
@@ -80,12 +80,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowEmptyLabel"];
+                object obj = FState["ShowEmptyLabel"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ShowEmptyLabel"] = value;
+                FState["ShowEmptyLabel"] = value;
             }
         }
 
@@ -100,12 +100,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Label"];
+                object obj = FState["Label"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Label"] = value;
+                FState["Label"] = value;
             }
         }
 
@@ -119,7 +119,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["LabelSeparator"];
+                object obj = FState["LabelSeparator"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -136,7 +136,7 @@ namespace FineUI
             }
             set
             {
-                XState["LabelSeparator"] = value;
+                FState["LabelSeparator"] = value;
             }
         }
 
@@ -150,12 +150,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowRedStar"];
+                object obj = FState["ShowRedStar"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ShowRedStar"] = value;
+                FState["ShowRedStar"] = value;
             }
         }
 
@@ -210,12 +210,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Readonly"];
+                object obj = FState["Readonly"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Readonly"] = value;
+                FState["Readonly"] = value;
             }
         }
 
@@ -229,12 +229,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["Enabled"];
+        //        object obj = FState["Enabled"];
         //        return obj == null ? true : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["Enabled"] = value;
+        //        FState["Enabled"] = value;
         //    }
         //}
 
@@ -248,12 +248,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TabIndex"];
+                object obj = FState["TabIndex"];
                 return obj == null ? null : (short?)obj;
             }
             set
             {
-                XState["TabIndex"] = value;
+                FState["TabIndex"] = value;
             }
         }
 
@@ -267,7 +267,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["OffsetRight"];
+                object obj = FState["OffsetRight"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -283,7 +283,7 @@ namespace FineUI
             }
             set
             {
-                XState["OffsetRight"] = value;
+                FState["OffsetRight"] = value;
             }
         }
 

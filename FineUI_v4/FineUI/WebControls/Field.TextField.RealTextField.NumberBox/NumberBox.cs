@@ -60,12 +60,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["NoDecimal"];
+                object obj = FState["NoDecimal"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["NoDecimal"] = value;
+                FState["NoDecimal"] = value;
             }
         }
 
@@ -80,12 +80,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["NoNegative"];
+                object obj = FState["NoNegative"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["NoNegative"] = value;
+                FState["NoNegative"] = value;
             }
         }
 
@@ -99,12 +99,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MaxValue"];
+                object obj = FState["MaxValue"];
                 return obj == null ? null : (double?)obj;
             }
             set
             {
-                XState["MaxValue"] = value;
+                FState["MaxValue"] = value;
             }
         }
 
@@ -118,12 +118,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MinValue"];
+                object obj = FState["MinValue"];
                 return obj == null ? null : (double?)obj;
             }
             set
             {
-                XState["MinValue"] = value;
+                FState["MinValue"] = value;
             }
         }
 
@@ -138,12 +138,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DecimalPrecision"];
+                object obj = FState["DecimalPrecision"];
                 return obj == null ? 2 : (int)obj;
             }
             set
             {
-                XState["DecimalPrecision"] = value;
+                FState["DecimalPrecision"] = value;
             }
         }
 

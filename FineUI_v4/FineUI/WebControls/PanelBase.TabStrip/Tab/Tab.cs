@@ -111,12 +111,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableClose"];
+                object obj = FState["EnableClose"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableClose"] = value;
+                FState["EnableClose"] = value;
             }
         }
 
@@ -130,12 +130,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["AutoHeight"];
+        //        object obj = FState["AutoHeight"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["AutoHeight"] = value;
+        //        FState["AutoHeight"] = value;
         //    }
         //}
 
@@ -149,12 +149,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["AutoWidth"];
+        //        object obj = FState["AutoWidth"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["AutoWidth"] = value;
+        //        FState["AutoWidth"] = value;
         //    }
         //}
 
@@ -169,12 +169,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnablePostBack"];
+        //        object obj = FState["EnablePostBack"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnablePostBack"] = value;
+        //        FState["EnablePostBack"] = value;
         //    }
         //}
 
@@ -185,12 +185,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["IFrameDelayLoad"];
+        //        object obj = FState["IFrameDelayLoad"];
         //        return obj == null ? true : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["IFrameDelayLoad"] = value;
+        //        FState["IFrameDelayLoad"] = value;
         //    }
         //}
 
@@ -327,7 +327,7 @@ namespace FineUI
             if (Hidden != postHidden)
             {
                 Hidden = postHidden;
-                XState.BackupPostDataProperty("Hidden");
+                FState.BackupPostDataProperty("Hidden");
                 return true;
             }
 

@@ -155,7 +155,7 @@ namespace FineUI
         {
             get
             {
-                return "box-grid-cell-inner-image";
+                return "f-grid-cell-inner-image";
             }
         }
 
@@ -229,7 +229,7 @@ namespace FineUI
                 //    tooltip = String.Format(" ext:qtip=\"{0}\" ", HeaderText);
                 //}
 
-                result = String.Format("<div class=\"box-grid-checkbox unchecked\" onclick=\"{0}\">{1}</div>", 
+                result = String.Format("<div class=\"f-grid-checkbox unchecked\" onclick=\"{0}\">{1}</div>", 
                     onClickScript, HeaderText);
 
                 return result;
@@ -281,11 +281,11 @@ namespace FineUI
                 {
                     if (checkState)
                     {
-                        result = String.Format("<img class=\"box-grid-static-checkbox\" src=\"{0}\"/>", emptyImageUrl);
+                        result = String.Format("<img class=\"f-grid-static-checkbox\" src=\"{0}\"/>", emptyImageUrl);
                     }
                     else
                     {
-                        result = String.Format("<img class=\"box-grid-static-checkbox unchecked\" src=\"{0}\"/>", emptyImageUrl);
+                        result = String.Format("<img class=\"f-grid-static-checkbox unchecked\" src=\"{0}\"/>", emptyImageUrl);
                     }
                 }
                 else
@@ -309,22 +309,22 @@ namespace FineUI
                     {
                         if (Enabled)
                         {
-                            result = String.Format("<img class=\"box-grid-checkbox\" src=\"{0}\" onclick=\"{1}\"/>", emptyImageUrl, onClickScript);
+                            result = String.Format("<img class=\"f-grid-checkbox\" src=\"{0}\" onclick=\"{1}\"/>", emptyImageUrl, onClickScript);
                         }
                         else
                         {
-                            result = String.Format("<img class=\"box-grid-checkbox disabled\" src=\"{0}\"/>", emptyImageUrl);
+                            result = String.Format("<img class=\"f-grid-checkbox disabled\" src=\"{0}\"/>", emptyImageUrl);
                         }
                     }
                     else
                     {
                         if (Enabled)
                         {
-                            result = String.Format("<img class=\"box-grid-checkbox unchecked\" src=\"{0}\" onclick=\"{1}\"/>", emptyImageUrl, onClickScript);
+                            result = String.Format("<img class=\"f-grid-checkbox unchecked\" src=\"{0}\" onclick=\"{1}\"/>", emptyImageUrl, onClickScript);
                         }
                         else
                         {
-                            result = String.Format("<img class=\"box-grid-checkbox unchecked disabled\" src=\"{0}\"/>", emptyImageUrl);
+                            result = String.Format("<img class=\"f-grid-checkbox unchecked disabled\" src=\"{0}\"/>", emptyImageUrl);
                         }
                     }
                 }

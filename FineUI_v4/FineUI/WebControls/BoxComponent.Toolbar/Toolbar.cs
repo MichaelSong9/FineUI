@@ -85,12 +85,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Position"];
+                object obj = FState["Position"];
                 return obj == null ? ToolbarPosition.Top : (ToolbarPosition)obj;
             }
             set
             {
-                XState["Position"] = value;
+                FState["Position"] = value;
             }
         }
 

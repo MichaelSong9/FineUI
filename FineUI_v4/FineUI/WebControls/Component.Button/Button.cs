@@ -74,12 +74,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DisableControlBeforePostBack"];
+                object obj = FState["DisableControlBeforePostBack"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["DisableControlBeforePostBack"] = value;
+                FState["DisableControlBeforePostBack"] = value;
             }
         }
 
@@ -93,12 +93,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnablePostBack"];
+                object obj = FState["EnablePostBack"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnablePostBack"] = value;
+                FState["EnablePostBack"] = value;
             }
         }
 
@@ -113,12 +113,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Pressed"];
+                object obj = FState["Pressed"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Pressed"] = value;
+                FState["Pressed"] = value;
             }
         }
 
@@ -132,12 +132,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnablePress"];
+                object obj = FState["EnablePress"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnablePress"] = value;
+                FState["EnablePress"] = value;
             }
         }
 
@@ -151,12 +151,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["OnClientClick"];
+                object obj = FState["OnClientClick"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["OnClientClick"] = value;
+                FState["OnClientClick"] = value;
             }
         }
 
@@ -170,12 +170,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Icon"];
+                object obj = FState["Icon"];
                 return obj == null ? Icon.None : (Icon)obj;
             }
             set
             {
-                XState["Icon"] = value;
+                FState["Icon"] = value;
             }
         }
 
@@ -189,12 +189,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Size"];
+                object obj = FState["Size"];
                 return obj == null ? ButtonSize.Small : (ButtonSize)obj;
             }
             set
             {
-                XState["Size"] = value;
+                FState["Size"] = value;
             }
         }
 
@@ -209,12 +209,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IconUrl"];
+                object obj = FState["IconUrl"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["IconUrl"] = value;
+                FState["IconUrl"] = value;
             }
         }
 
@@ -228,12 +228,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IconAlign"];
+                object obj = FState["IconAlign"];
                 return obj == null ? IconAlign.Left : (IconAlign)obj;
             }
             set
             {
-                XState["IconAlign"] = value;
+                FState["IconAlign"] = value;
             }
         }
 
@@ -248,12 +248,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Text"];
+                object obj = FState["Text"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Text"] = value;
+                FState["Text"] = value;
             }
         }
 
@@ -267,12 +267,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ToolTip"];
+                object obj = FState["ToolTip"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ToolTip"] = value;
+                FState["ToolTip"] = value;
             }
         }
 
@@ -287,12 +287,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ToolTipType"];
+                object obj = FState["ToolTipType"];
                 return obj == null ? ToolTipType.Qtip : (ToolTipType)obj;
             }
             set
             {
-                XState["ToolTipType"] = value;
+                FState["ToolTipType"] = value;
             }
         }
 
@@ -308,12 +308,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TabIndex"];
+                object obj = FState["TabIndex"];
                 return obj == null ? null : (short?)obj;
             }
             set
             {
-                XState["TabIndex"] = value;
+                FState["TabIndex"] = value;
             }
         }
 
@@ -327,12 +327,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ButtonType"];
+                object obj = FState["ButtonType"];
                 return obj == null ? ButtonType.Button : (ButtonType)obj;
             }
             set
             {
-                XState["ButtonType"] = value;
+                FState["ButtonType"] = value;
             }
         }
 
@@ -352,12 +352,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ValidateForms"];
+                object obj = FState["ValidateForms"];
                 return obj == null ? null : (string[])obj;
             }
             set
             {
-                XState["ValidateForms"] = value;
+                FState["ValidateForms"] = value;
             }
         }
 
@@ -371,12 +371,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ValidateTarget"];
+                object obj = FState["ValidateTarget"];
                 return obj == null ? Target.Self : (Target)obj;
             }
             set
             {
-                XState["ValidateTarget"] = value;
+                FState["ValidateTarget"] = value;
             }
         }
 
@@ -391,12 +391,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ValidateMessageBox"];
+                object obj = FState["ValidateMessageBox"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ValidateMessageBox"] = value;
+                FState["ValidateMessageBox"] = value;
             }
         }
 
@@ -414,12 +414,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ConfirmTitle"];
+                object obj = FState["ConfirmTitle"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ConfirmTitle"] = value;
+                FState["ConfirmTitle"] = value;
             }
         }
 
@@ -433,12 +433,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ConfirmText"];
+                object obj = FState["ConfirmText"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["ConfirmText"] = value;
+                FState["ConfirmText"] = value;
             }
         }
 
@@ -453,12 +453,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ConfirmIcon"];
+                object obj = FState["ConfirmIcon"];
                 return obj == null ? MessageBoxIcon.Warning : (MessageBoxIcon)obj;
             }
             set
             {
-                XState["ConfirmIcon"] = value;
+                FState["ConfirmIcon"] = value;
             }
         }
 
@@ -472,12 +472,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ConfirmTarget"];
+                object obj = FState["ConfirmTarget"];
                 return obj == null ? Target.Self : (Target)obj;
             }
             set
             {
-                XState["ConfirmTarget"] = value;
+                FState["ConfirmTarget"] = value;
             }
         }
 
@@ -837,7 +837,7 @@ namespace FineUI
                 if (pressed != Pressed)
                 {
                     Pressed = pressed;
-                    XState.BackupPostDataProperty("Pressed");
+                    FState.BackupPostDataProperty("Pressed");
                     return true;
                 }
             }

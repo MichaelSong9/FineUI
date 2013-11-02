@@ -69,12 +69,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["AutoHeight"];
+        //        object obj = FState["AutoHeight"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["AutoHeight"] = value;
+        //        FState["AutoHeight"] = value;
         //    }
         //}
 
@@ -89,12 +89,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["AutoWidth"];
+        //        object obj = FState["AutoWidth"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["AutoWidth"] = value;
+        //        FState["AutoWidth"] = value;
         //    }
         //}
 
@@ -109,12 +109,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoScroll"];
+                object obj = FState["AutoScroll"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AutoScroll"] = value;
+                FState["AutoScroll"] = value;
             }
         }
 
@@ -132,12 +132,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["FooterBarAlign"];
+                object obj = FState["FooterBarAlign"];
                 return obj == null ? FooterBarAlign.Right : (FooterBarAlign)obj;
             }
             set
             {
-                XState["FooterBarAlign"] = value;
+                FState["FooterBarAlign"] = value;
             }
         }
 
@@ -151,12 +151,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableFrame"];
+                object obj = FState["EnableFrame"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableFrame"] = value;
+                FState["EnableFrame"] = value;
             }
         }
 
@@ -170,12 +170,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableLargeHeader"];
+        //        object obj = FState["EnableLargeHeader"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableLargeHeader"] = value;
+        //        FState["EnableLargeHeader"] = value;
         //    }
         //}
 
@@ -190,12 +190,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableLightBackgroundColor"];
+        //        object obj = FState["EnableLightBackgroundColor"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableLightBackgroundColor"] = value;
+        //        FState["EnableLightBackgroundColor"] = value;
         //    }
         //}
 
@@ -211,12 +211,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableBackgroundColor"];
+                object obj = FState["EnableBackgroundColor"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableBackgroundColor"] = value;
+                FState["EnableBackgroundColor"] = value;
             }
         }
 
@@ -249,12 +249,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BodyStyle"];
+                object obj = FState["BodyStyle"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["BodyStyle"] = value;
+                FState["BodyStyle"] = value;
             }
         }
 
@@ -269,12 +269,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BodyPadding"];
+                object obj = FState["BodyPadding"];
                 return obj == null ? String.Empty : (string)obj;
             }
             set
             {
-                XState["BodyPadding"] = value;
+                FState["BodyPadding"] = value;
             }
         }
 
@@ -289,12 +289,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowBorder"];
+                object obj = FState["ShowBorder"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ShowBorder"] = value;
+                FState["ShowBorder"] = value;
             }
         }
 
@@ -374,12 +374,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RenderChildrenAsContent"];
+                object obj = FState["RenderChildrenAsContent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["RenderChildrenAsContent"] = value;
+                FState["RenderChildrenAsContent"] = value;
             }
         }
         #endregion
@@ -397,7 +397,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IFrameUrl"];
+                object obj = FState["IFrameUrl"];
                 if (obj == null)
                 {
                     return String.Empty;
@@ -410,7 +410,7 @@ namespace FineUI
             }
             set
             {
-                XState["IFrameUrl"] = value;
+                FState["IFrameUrl"] = value;
             }
         }
 
@@ -425,7 +425,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IFrameName"];
+                object obj = FState["IFrameName"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -441,7 +441,7 @@ namespace FineUI
             }
             set
             {
-                XState["IFrameName"] = value;
+                FState["IFrameName"] = value;
             }
         }
 
@@ -456,12 +456,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableIFrame"];
+                object obj = FState["EnableIFrame"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableIFrame"] = value;
+                FState["EnableIFrame"] = value;
             }
         }
 
@@ -883,7 +883,7 @@ namespace FineUI
 
             //if (EnableLargeHeader)
             //{
-            //    OB.AddProperty("cls", "box-panel-big-header");
+            //    OB.AddProperty("cls", "f-panel-big-header");
             //}
 
 

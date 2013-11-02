@@ -88,12 +88,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Collapsed"];
+                object obj = FState["Collapsed"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Collapsed"] = value;
+                FState["Collapsed"] = value;
             }
         }
 
@@ -108,12 +108,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableCollapse"];
+                object obj = FState["EnableCollapse"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableCollapse"] = value;
+                FState["EnableCollapse"] = value;
             }
         }
 
@@ -127,12 +127,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Title"];
+                object obj = FState["Title"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Title"] = value;
+                FState["Title"] = value;
             }
         }
 
@@ -146,12 +146,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowHeader"];
+                object obj = FState["ShowHeader"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ShowHeader"] = value;
+                FState["ShowHeader"] = value;
             }
         }
 
@@ -201,7 +201,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IconUrl"];
+                object obj = FState["IconUrl"];
                 if (obj == null)
                 {
                     if (!DesignMode)
@@ -216,7 +216,7 @@ namespace FineUI
             }
             set
             {
-                XState["IconUrl"] = value;
+                FState["IconUrl"] = value;
             }
         }
 
@@ -231,12 +231,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Icon"];
+                object obj = FState["Icon"];
                 return obj == null ? Icon.None : (Icon)obj;
             }
             set
             {
-                XState["Icon"] = value;
+                FState["Icon"] = value;
             }
         }
 
@@ -263,7 +263,7 @@ namespace FineUI
 
         #endregion
 
-        // 这个值在 X.ajax.js 中和 getXStateViaCmp 函数相呼应
+        // 这个值在 X.ajax.js 中和 getFStateViaCmp 函数相呼应
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string CollapsedHiddenFieldID
@@ -332,7 +332,7 @@ namespace FineUI
             {
                 // Window控件的特殊处理在Window控件中
                 // 添加CSS样式
-                string className = String.Format("box-{0}-panelbase-icon", XID);
+                string className = String.Format("f-{0}-panelbase-icon", XID);
                 AddStartupCSS(className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
 
                 OB.AddProperty("iconCls", className);
@@ -395,7 +395,7 @@ namespace FineUI
             if (Collapsed != postCollapsed)
             {
                 Collapsed = postCollapsed;
-                XState.BackupPostDataProperty("Collapsed");
+                FState.BackupPostDataProperty("Collapsed");
                 return true;
             }
 

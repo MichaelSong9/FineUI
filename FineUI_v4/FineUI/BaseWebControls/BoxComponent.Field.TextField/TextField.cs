@@ -64,12 +64,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Required"];
+                object obj = FState["Required"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Required"] = value;
+                FState["Required"] = value;
             }
         }
 
@@ -83,12 +83,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RequiredMessage"];
+                object obj = FState["RequiredMessage"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["RequiredMessage"] = value;
+                FState["RequiredMessage"] = value;
             }
         }
 
@@ -102,12 +102,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MaxLength"];
+                object obj = FState["MaxLength"];
                 return obj == null ? null : (int?)obj;
             }
             set
             {
-                XState["MaxLength"] = value;
+                FState["MaxLength"] = value;
             }
         }
 
@@ -121,12 +121,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MaxLengthMessage"];
+                object obj = FState["MaxLengthMessage"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["MaxLengthMessage"] = value;
+                FState["MaxLengthMessage"] = value;
             }
         }
 
@@ -141,12 +141,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MinLength"];
+                object obj = FState["MinLength"];
                 return obj == null ? null : (int?)obj;
             }
             set
             {
-                XState["MinLength"] = value;
+                FState["MinLength"] = value;
             }
         }
 
@@ -161,12 +161,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MinLengthMessage"];
+                object obj = FState["MinLengthMessage"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["MinLengthMessage"] = value;
+                FState["MinLengthMessage"] = value;
             }
         }
 
@@ -180,12 +180,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RegexPattern"];
+                object obj = FState["RegexPattern"];
                 return obj == null ? RegexPattern.None : (RegexPattern)obj;
             }
             set
             {
-                XState["RegexPattern"] = value;
+                FState["RegexPattern"] = value;
             }
         }
 
@@ -201,12 +201,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Regex"];
+                object obj = FState["Regex"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Regex"] = value;
+                FState["Regex"] = value;
             }
         }
 
@@ -220,12 +220,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RegexMessage"];
+                object obj = FState["RegexMessage"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["RegexMessage"] = value;
+                FState["RegexMessage"] = value;
             }
         }
 
@@ -241,12 +241,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RegexIgnoreCase"];
+                object obj = FState["RegexIgnoreCase"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["RegexIgnoreCase"] = value;
+                FState["RegexIgnoreCase"] = value;
             }
         }
 
@@ -264,12 +264,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CompareControl"];
+                object obj = FState["CompareControl"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["CompareControl"] = value;
+                FState["CompareControl"] = value;
             }
         }
 
@@ -285,12 +285,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CompareValue"];
+                object obj = FState["CompareValue"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["CompareValue"] = value;
+                FState["CompareValue"] = value;
             }
         }
 
@@ -305,12 +305,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CompareOperator"];
+                object obj = FState["CompareOperator"];
                 return obj == null ? Operator.Equal : (Operator)obj;
             }
             set
             {
-                XState["CompareOperator"] = value;
+                FState["CompareOperator"] = value;
             }
         }
 
@@ -324,12 +324,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CompareType"];
+                object obj = FState["CompareType"];
                 return obj == null ? CompareType.String : (CompareType)obj;
             }
             set
             {
-                XState["CompareType"] = value;
+                FState["CompareType"] = value;
             }
         }
 
@@ -343,12 +343,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CompareMessage"];
+                object obj = FState["CompareMessage"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["CompareMessage"] = value;
+                FState["CompareMessage"] = value;
             }
         }
 
@@ -366,12 +366,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["NextFocusControl"];
+                object obj = FState["NextFocusControl"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["NextFocusControl"] = value;
+                FState["NextFocusControl"] = value;
             }
         }
 

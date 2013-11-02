@@ -495,7 +495,7 @@ namespace FineUI
             // Icon 或者 IconUrl 不为空
             if (!String.IsNullOrEmpty(resolvedIconUrl))
             {
-                string className = String.Format("box-{0}-alert-icon", System.Guid.NewGuid().ToString("N"));
+                string className = String.Format("f-{0}-alert-icon", System.Guid.NewGuid().ToString("N"));
 
                 var addCSSPrefix = String.Empty;
                 if (target == Target.Parent)

@@ -162,12 +162,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoPostBack"];
+                object obj = FState["AutoPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AutoPostBack"] = value;
+                FState["AutoPostBack"] = value;
             }
         }
 
@@ -181,12 +181,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableTitleBackgroundColor"];
+                object obj = FState["EnableTitleBackgroundColor"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableTitleBackgroundColor"] = value;
+                FState["EnableTitleBackgroundColor"] = value;
             }
         }
 
@@ -200,12 +200,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableTabCloseMenu"];
+                object obj = FState["EnableTabCloseMenu"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableTabCloseMenu"] = value;
+                FState["EnableTabCloseMenu"] = value;
             }
         }
 
@@ -240,12 +240,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TabPosition"];
+                object obj = FState["TabPosition"];
                 return obj == null ? TabPosition.Top : (TabPosition)obj;
             }
             set
             {
-                XState["TabPosition"] = value;
+                FState["TabPosition"] = value;
             }
         }
 
@@ -260,12 +260,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableDeferredRender"];
+                object obj = FState["EnableDeferredRender"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableDeferredRender"] = value;
+                FState["EnableDeferredRender"] = value;
             }
         }
 
@@ -281,12 +281,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ActiveTabIndex"];
+                object obj = FState["ActiveTabIndex"];
                 return obj == null ? 0 : (int)obj;
             }
             set
             {
-                XState["ActiveTabIndex"] = value;
+                FState["ActiveTabIndex"] = value;
             }
         }
 
@@ -360,11 +360,11 @@ namespace FineUI
 
         #endregion
 
-        #region old code - LoadXState/SaveXState
+        #region old code - LoadFState/SaveFState
 
-        //protected override void LoadXState(JObject state, string property)
+        //protected override void LoadFState(JObject state, string property)
         //{
-        //    base.LoadXState(state, property);
+        //    base.LoadFState(state, property);
 
         //    // This property is persisted inside every Tabs.
         //    //if (property == "X_AutoPostBackTabs")
@@ -387,19 +387,19 @@ namespace FineUI
         //    //// Make sure X_AutoPostBackTabs property exist in F_STATE during page's first load.
         //    //if (!Page.IsPostBack)
         //    //{
-        //    //    XState.AddModifiedProperties("X_AutoPostBackTabs");
+        //    //    FState.AddModifiedProperties("X_AutoPostBackTabs");
         //    //}
         //    //else
         //    //{
         //    //    // Items has been changed in server-side code after onInit.
         //    //    if (XPropertyModified("X_AutoPostBackTabs", AutoPostBackTabsToJSON().ToString()))
         //    //    {
-        //    //        XState.AddModifiedProperties("X_AutoPostBackTabs");
+        //    //        FState.AddModifiedProperties("X_AutoPostBackTabs");
         //    //    }
         //    //}
         //}
 
-        //protected override void SaveXState(JObject state, string property)
+        //protected override void SaveFState(JObject state, string property)
         //{
         //    //if (property == "X_AutoPostBackTabs")
         //    //{
@@ -651,7 +651,7 @@ namespace FineUI
             if (ActiveTabIndex != postActiveTabIndex)
             {
                 ActiveTabIndex = postActiveTabIndex;
-                XState.BackupPostDataProperty("ActiveTabIndex");
+                FState.BackupPostDataProperty("ActiveTabIndex");
                 return true;
             }
             return false;

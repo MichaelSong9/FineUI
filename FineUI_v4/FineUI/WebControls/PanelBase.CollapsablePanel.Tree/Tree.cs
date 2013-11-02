@@ -62,9 +62,9 @@ namespace FineUI
         public Tree()
         {
             AddServerAjaxProperties();
-            AddClientAjaxProperties("X_Nodes", "SelectedNodeIDArray");
+            AddClientAjaxProperties("F_Nodes", "SelectedNodeIDArray");
 
-            AddGzippedAjaxProperties("X_Nodes");
+            AddGzippedAjaxProperties("F_Nodes");
         }
 
         //internal int NodeIDIncrement = 0;
@@ -156,12 +156,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableSingleClickExpand"];
+        //        object obj = FState["EnableSingleClickExpand"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableSingleClickExpand"] = value;
+        //        FState["EnableSingleClickExpand"] = value;
         //    }
         //}
 
@@ -175,12 +175,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableArrows"];
+                object obj = FState["EnableArrows"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableArrows"] = value;
+                FState["EnableArrows"] = value;
             }
         }
 
@@ -194,12 +194,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAnimate"];
+                object obj = FState["EnableAnimate"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableAnimate"] = value;
+                FState["EnableAnimate"] = value;
             }
         }
 
@@ -213,12 +213,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableSingleExpand"];
+                object obj = FState["EnableSingleExpand"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableSingleExpand"] = value;
+                FState["EnableSingleExpand"] = value;
             }
         }
 
@@ -233,12 +233,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableLines"];
+                object obj = FState["EnableLines"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableLines"] = value;
+                FState["EnableLines"] = value;
             }
         }
 
@@ -252,12 +252,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableIcons"];
+                object obj = FState["EnableIcons"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableIcons"] = value;
+                FState["EnableIcons"] = value;
             }
         }
 
@@ -271,12 +271,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoLeafIdentification"];
+                object obj = FState["AutoLeafIdentification"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["AutoLeafIdentification"] = value;
+                FState["AutoLeafIdentification"] = value;
             }
         }
 
@@ -291,12 +291,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableMultiSelect"];
+                object obj = FState["EnableMultiSelect"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableMultiSelect"] = value;
+                FState["EnableMultiSelect"] = value;
             }
         }
 
@@ -400,13 +400,13 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SelectedNodeIDArray"];
+                object obj = FState["SelectedNodeIDArray"];
                 return obj == null ? new string[] { } : (string[])obj;
             }
             set
             {
                 // 排序主要是为了拿两次的值做比较
-                XState["SelectedNodeIDArray"] = GetSortedArray(value).ToArray();
+                FState["SelectedNodeIDArray"] = GetSortedArray(value).ToArray();
             }
         }
 
@@ -491,14 +491,14 @@ namespace FineUI
 
         #endregion
 
-        #region X_Nodes
+        #region F_Nodes
 
         /// <summary>
         /// 树节点集合的 JSON 表示（内部使用）
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public JArray X_Nodes
+        public JArray F_Nodes
         {
             get
             {
@@ -926,7 +926,7 @@ namespace FineUI
         {
             base.OnInitControl();
 
-            // 修复Tree的节点，这里可能会修改树节点的属性，从而影响 X_Nodes 的计算结果
+            // 修复Tree的节点，这里可能会修改树节点的属性，从而影响 F_Nodes 的计算结果
             // 在这个地方调用是安全的：
             //      -> 页面第一次加载时，运行到这里 ASPX 上面的标签已经初始化完毕
             //      -> 页面回发时（包括正常回发或者AJAX回发），此时请求表单中 F_STATE 已经恢复完毕
@@ -954,7 +954,7 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
 
             bool reloaded = false;
-            if (PropertyModified("X_Nodes"))
+            if (PropertyModified("F_Nodes"))
             {
                 sb.AppendFormat("{0}.x_loadData();", XID);
                 reloaded = true;
@@ -982,9 +982,9 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
-            // 确保 X_Nodes 在页面第一次加载时都存在于 F_STATE 中，因为客户端需要这个数据来渲染树控件
+            // 确保 F_Nodes 在页面第一次加载时都存在于 F_STATE 中，因为客户端需要这个数据来渲染树控件
             // 并且这个代码要放在 base.OnFirstPreRender(); 之前，因为在那里面会生成 F_STATE
-            XState.AddModifiedProperty("X_Nodes");
+            FState.AddModifiedProperty("F_Nodes");
 
             base.OnFirstPreRender();
 
@@ -1604,7 +1604,7 @@ namespace FineUI
             if (!StringUtil.CompareStringArray(SelectedNodeIDArray, selectedNodeIDArray))
             {
                 SelectedNodeIDArray = selectedNodeIDArray;
-                XState.BackupPostDataProperty("SelectedNodeIDArray");
+                FState.BackupPostDataProperty("SelectedNodeIDArray");
             }
 
 
@@ -1645,7 +1645,7 @@ namespace FineUI
                 FindNode(nodeID).Checked = true;
             }
 
-            XState.BackupPostDataProperty("X_Nodes");
+            FState.BackupPostDataProperty("F_Nodes");
 
 
             return false;

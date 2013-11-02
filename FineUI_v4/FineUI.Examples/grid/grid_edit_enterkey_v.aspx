@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
         <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true"
-            Width="900px" Height="500px" runat="server"
+            Width="900px" runat="server"
             DataKeyNames="Id,Name">
             <Columns>
                 <x:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
@@ -35,17 +35,17 @@
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                 <x:TemplateField HeaderText="语文" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxYuwen" CssClass="group1" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'></asp:TextBox>
+                        <asp:TextBox ID="tbxYuwen" CssClass="group1" runat="server" Width="80px" TabIndex="<%# Container.DataItemIndex + 10 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
                 <x:TemplateField HeaderText="数学" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxShuxue" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 + GetDataSourceCount() %>'></asp:TextBox>
+                        <asp:TextBox ID="tbxShuxue" CssClass="group2" runat="server" Width="80px" TabIndex="<%# Container.DataItemIndex + 10 + GetDataSourceCount() %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
                 <x:TemplateField HeaderText="英语" Width="100px">
                     <ItemTemplate>
-                        <asp:TextBox ID="tbxYingyu" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 + GetDataSourceCount() * 2 %>'></asp:TextBox>
+                        <asp:TextBox ID="tbxYingyu" CssClass="group2" runat="server" Width="80px" TabIndex="<%# Container.DataItemIndex + 10 + GetDataSourceCount() * 2 %>" Text="<%# GetRandomNumber() %>"></asp:TextBox>
                     </ItemTemplate>
                 </x:TemplateField>
             </Columns>
@@ -70,59 +70,48 @@
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
+        var inputselector = '.x-grid-tpl input';
 
         function registerSelectEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on('click', function (evt, el) {
-                el.select();
-            }, { delegate: '.x-grid-tpl input' });
+            $(grid.el.dom).delegate(inputselector, 'click', function () {
+                $(this).select();
+            });
         }
 
         function registerEnterEvent() {
             var grid = F(gridClientID);
-
-            grid.el.on("keydown", function (evt, el) {
-                if (evt.getKey() == evt.ENTER) {
-                    var nextRow = Ext.get(el).parent('.x-grid-row').next();
-                    if (nextRow) {
-                        nextRow.query('.x-grid-tpl input.group1')[0].select();
+            
+            $(grid.el.dom).delegate(inputselector, 'keydown', function (evt) {
+                // 13 - Enter Key
+                if (evt.keyCode === 13) {
+                    var row = $(this).parents('.x-grid-row');
+                    // 当前输入框在本行中的序号（用来标示那一列）
+                    var inputs = row.find(inputselector);
+                    var inputCount = inputs.length;
+                    var inputIndex = inputs.index(this);
+                    var nextRow = row.next();
+                    if (nextRow.length) {
+                        // 选中下一行同列的的输入框
+                        nextRow.find(inputselector).get(inputIndex).select();
+                    } else {
+                        // 如果本行是最后一行，则选择下一列第一行的输入框
+                        inputIndex++;
+                        if (inputIndex >= inputCount) {
+                            inputIndex = 0;
+                        }
+                        //row.parent().find('.x-grid-row:first').find(inputselector).eq(inputIndex).select();
+                        row.prevAll(':last').find(inputselector).eq(inputIndex).select();
                     }
                 }
-            }, { delegate: '.x-grid-tpl input' });
+            });
         }
 
-        function registerCompareEvent() {
-            var grid = F(gridClientID);
-
-            grid.el.on("keydown", function (evt, el) {
-
-                window.setTimeout(function () {
-
-                    var row = Ext.get(el).parent('.x-grid-row');
-                    var num1 = row.query('.x-grid-tpl input.group1')[0].value;
-                    var num2 = row.query('.x-grid-tpl input.group2')[0].value;
-                    var resultNode = Ext.get(row.query('.x-grid-tpl span.result'));
-                    resultNode.removeCls(['success', 'error']);
-                    if (num1 == num2) {
-                        resultNode.addCls('success');
-                        resultNode.update('两组录入一致');
-                    } else {
-                        resultNode.addCls('error');
-                        resultNode.update('两组录入不一致！');
-                    }
-
-                }, 500);
-            }, { delegate: '.x-grid-tpl input' });
-
-        }
 
         F.ready(function () {
-            var grid = F(gridClientID);
-
             registerSelectEvent();
             registerEnterEvent();
-            registerCompareEvent();
         });
 
     </script>

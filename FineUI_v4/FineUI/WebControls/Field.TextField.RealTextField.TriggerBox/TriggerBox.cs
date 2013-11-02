@@ -59,12 +59,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableEdit"];
+                object obj = FState["EnableEdit"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableEdit"] = value;
+                FState["EnableEdit"] = value;
             }
         }
 
@@ -78,12 +78,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowTrigger"];
+                object obj = FState["ShowTrigger"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ShowTrigger"] = value;
+                FState["ShowTrigger"] = value;
             }
         }
 
@@ -98,12 +98,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnablePostBack"];
+                object obj = FState["EnablePostBack"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnablePostBack"] = value;
+                FState["EnablePostBack"] = value;
             }
         }
 
@@ -118,12 +118,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TriggerIconUrl"];
+                object obj = FState["TriggerIconUrl"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["TriggerIconUrl"] = value;
+                FState["TriggerIconUrl"] = value;
             }
         }
 
@@ -138,12 +138,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["TriggerIcon"];
+                object obj = FState["TriggerIcon"];
                 return obj == null ? TriggerIcon.None : (TriggerIcon)obj;
             }
             set
             {
-                XState["TriggerIcon"] = value;
+                FState["TriggerIcon"] = value;
             }
         }
 
@@ -158,12 +158,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["OnClientTriggerClick"];
+                object obj = FState["OnClientTriggerClick"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["OnClientTriggerClick"] = value;
+                FState["OnClientTriggerClick"] = value;
             }
         }
 

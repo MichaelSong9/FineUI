@@ -69,12 +69,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Interval"];
+                object obj = FState["Interval"];
                 return obj == null ? 30 : (int)obj;
             }
             set
             {
-                XState["Interval"] = value;
+                FState["Interval"] = value;
             }
         }
 

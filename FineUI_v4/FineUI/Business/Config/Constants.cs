@@ -59,7 +59,7 @@ namespace FineUI
         public const string EXTJSBASEPATH = "ExtjsBasePath";
         public const string CUSTOMTHEMEBASEPATH = "CustomThemeBasePath";
         public const string CUSTOMTHEME = "CustomTheme";
-        public const string ENABLEXSTATECOMPRESS = "EnableXStateCompress";
+        public const string ENABLEXSTATECOMPRESS = "EnableFStateCompress";
     }
 
     /// <summary>

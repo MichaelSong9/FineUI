@@ -43,6 +43,17 @@ namespace FineUI.Examples.grid
             return 0;
         }
 
+        private Random rd;
+
+        protected int GetRandomNumber()
+        {
+            if (rd == null)
+            {
+                rd = new Random();
+            }
+            return rd.Next(60, 100);
+        }
+
         #endregion
 
         #region Events

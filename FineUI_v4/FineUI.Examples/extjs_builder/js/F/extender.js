@@ -332,7 +332,7 @@ if (Ext.form.field.ComboBox) {
         },
 
         x_loadData: function (data) {
-            data = data || this.f_state['X_Items'];
+            data = data || this.f_state['F_Items'];
             if (data) {
                 this.store.loadData(F.simulateTree.transform(data));
             }
@@ -340,7 +340,7 @@ if (Ext.form.field.ComboBox) {
 
 
         x_getTextByValue: function (value, data) {
-            data = data || this.f_state['X_Items'];
+            data = data || this.f_state['F_Items'];
             value += ''; // 把Value转换为字符串
             for (var i = 0, count = data.length; i < count; i++) {
                 var item = data[i];
@@ -411,7 +411,7 @@ if (Ext.grid.Panel) {
     Ext.override(Ext.grid.Panel, {
 
         x_getData: function () {
-            var $this = this, data = this.f_state['X_Rows']['Values'];
+            var $this = this, data = this.f_state['F_Rows']['Values'];
 
             //////////////////////////////////////////////////
             var tpls = this.x_getTpls(this.x_tpls);
@@ -424,7 +424,7 @@ if (Ext.grid.Panel) {
                 tplsHash[item.id] = item.outerHTML.replace(/\r?\n\s*/ig, '');
             });
 
-            // 不要改变 X_Rows -> Values 的原始数据，因为这个值会被POST到后台
+            // 不要改变 F_Rows.Values 的原始数据，因为这个值会被POST到后台
             var newdata = [], newdataitem;
             Ext.Array.each(data, function (row, rowIndex) {
                 newdataitem = [];
@@ -732,7 +732,7 @@ if (Ext.grid.Panel) {
         var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.f_state['f_states'] || [];
 
         function setCheckBoxStates(columnIndex, stateColumnIndex) {
-        var checkboxRows = gridEl.select('.x-grid-body .x-grid-row .x-grid-td-' + columns[columnIndex].id + ' .box-grid-checkbox');
+        var checkboxRows = gridEl.select('.x-grid-body .x-grid-row .x-grid-td-' + columns[columnIndex].id + ' .f-grid-checkbox');
         checkboxRows.each(function (row, rows, index) {
         if (states[index][stateColumnIndex]) {
         if (row.hasCls('box-grid-checkbox-unchecked-disabled')) {
@@ -767,7 +767,7 @@ if (Ext.grid.Panel) {
             var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = [];
 
             function getCheckBoxStates(columnIndex) {
-                var checkboxRows = gridEl.select('.x-grid-row .x-grid-cell-' + columns[columnIndex].id + ' .box-grid-checkbox');
+                var checkboxRows = gridEl.select('.x-grid-row .x-grid-cell-' + columns[columnIndex].id + ' .f-grid-checkbox');
                 var columnStates = [];
                 checkboxRows.each(function (row, index) {
                     if (row.hasCls('unchecked')) {
@@ -954,7 +954,7 @@ if (Ext.tree.Panel) {
     Ext.override(Ext.tree.Panel, {
 
         x_loadData: function () {
-            var datas = this.f_state['X_Nodes'];
+            var datas = this.f_state['F_Nodes'];
             var nodes = this.x_tranformData(datas);
             var root = this.getRootNode();
             if (root) {
@@ -1136,7 +1136,7 @@ if (Ext.tab.Panel) {
     Ext.override(Ext.tab.Panel, {
 
         x_autoPostBackTabsContains: function (tabId) {
-            var tabs = this.f_state['X_AutoPostBackTabs'];
+            var tabs = this.f_state['F_AutoPostBackTabs'];
             return tabs.indexOf(tabId) !== -1;
         },
 

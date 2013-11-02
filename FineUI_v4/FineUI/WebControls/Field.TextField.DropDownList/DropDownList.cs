@@ -61,10 +61,10 @@ namespace FineUI
         /// </summary>
         public DropDownList()
         {
-            AddServerAjaxProperties("X_Items");
+            AddServerAjaxProperties("F_Items");
             AddClientAjaxProperties("SelectedValue", "Text");
 
-            AddGzippedAjaxProperties("X_Items");
+            AddGzippedAjaxProperties("F_Items");
         }
 
         #endregion
@@ -81,12 +81,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Text"];
+                object obj = FState["Text"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Text"] = value;
+                FState["Text"] = value;
             }
         }
 
@@ -223,12 +223,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ForceSelection"];
+                object obj = FState["ForceSelection"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ForceSelection"] = value;
+                FState["ForceSelection"] = value;
             }
         }
 
@@ -243,12 +243,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableEdit"];
+                object obj = FState["EnableEdit"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableEdit"] = value;
+                FState["EnableEdit"] = value;
             }
         }
 
@@ -263,12 +263,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableSimulateTree"];
+                object obj = FState["EnableSimulateTree"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableSimulateTree"] = value;
+                FState["EnableSimulateTree"] = value;
             }
         }
 
@@ -282,12 +282,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataSimulateTreeLevelField"];
+                object obj = FState["DataSimulateTreeLevelField"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataSimulateTreeLevelField"] = value;
+                FState["DataSimulateTreeLevelField"] = value;
                 //// 如果设置了DataSimulateTreeLevelField，则设置EnableSimulateTree=true
                 //if (!String.IsNullOrEmpty(value))
                 //{
@@ -306,12 +306,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataEnableSelectField"];
+                object obj = FState["DataEnableSelectField"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataEnableSelectField"] = value;
+                FState["DataEnableSelectField"] = value;
             }
         }
 
@@ -325,12 +325,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoPostBack"];
+                object obj = FState["AutoPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AutoPostBack"] = value;
+                FState["AutoPostBack"] = value;
             }
         }
 
@@ -345,12 +345,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["Resizable"];
+        //        object obj = FState["Resizable"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["Resizable"] = value;
+        //        FState["Resizable"] = value;
         //    }
         //}
 
@@ -479,12 +479,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataTextField"];
+                object obj = FState["DataTextField"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataTextField"] = value;
+                FState["DataTextField"] = value;
             }
         }
 
@@ -499,12 +499,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataTextFormatString"];
+                object obj = FState["DataTextFormatString"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataTextFormatString"] = value;
+                FState["DataTextFormatString"] = value;
             }
         }
 
@@ -518,12 +518,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataValueField"];
+                object obj = FState["DataValueField"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["DataValueField"] = value;
+                FState["DataValueField"] = value;
             }
         }
 
@@ -557,7 +557,7 @@ namespace FineUI
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public JArray X_Items
+        public JArray F_Items
         {
             get
             {
@@ -626,13 +626,13 @@ namespace FineUI
         }
         #endregion
 
-        #region LoadXState/SaveXState
+        #region LoadFState/SaveFState
         //private string lastSelectedValue = null;
-        //protected override void LoadXState(JObject state, string property)
+        //protected override void LoadFState(JObject state, string property)
         //{
-        //    base.LoadXState(state, property);
+        //    base.LoadFState(state, property);
 
-        //    if (property == "X_Items")
+        //    if (property == "F_Items")
         //    {
         //        XItemsFromJSON(state.getJArray(property));
         //        // After recover Items property, we should recover SelectedValue according to Items.
@@ -650,7 +650,7 @@ namespace FineUI
         //{
         //    base.OnInit(e);
 
-        //    SaveXProperty("X_Items", XItemsToJSON().ToString());
+        //    SaveXProperty("F_Items", XItemsToJSON().ToString());
         //    SaveXProperty("X_SelectedValue", SelectedValue);
         //}
 
@@ -659,23 +659,23 @@ namespace FineUI
         //    base.OnBothPreRender();
 
         //    // Items has been changed in server-side code after onInit.
-        //    if (XPropertyModified("X_Items", XItemsToJSON().ToString()))
+        //    if (XPropertyModified("F_Items", XItemsToJSON().ToString()))
         //    {
-        //        XState.AddModifiedProperty("X_Items");
+        //        FState.AddModifiedProperty("F_Items");
         //        // If Items have been changed, then we must reset the SelectedValue.
-        //        XState.AddModifiedProperty("X_SelectedValue");
+        //        FState.AddModifiedProperty("X_SelectedValue");
         //    }
 
         //    if (XPropertyModified("X_SelectedValue", SelectedValue))
         //    {
-        //        XState.AddModifiedProperty("X_SelectedValue");
+        //        FState.AddModifiedProperty("X_SelectedValue");
         //    }
 
         //}
 
-        //protected override void SaveXState(JObject state, string property)
+        //protected override void SaveFState(JObject state, string property)
         //{
-        //    if (property == "X_Items")
+        //    if (property == "F_Items")
         //    {
         //        state.put(property, XItemsToJSON());
         //    }
@@ -745,7 +745,7 @@ namespace FineUI
             base.OnAjaxPreRender();
 
             StringBuilder sb = new StringBuilder();
-            if (PropertyModified("X_Items"))
+            if (PropertyModified("F_Items"))
             {
                 sb.AppendFormat("{0}.x_loadData();", XID);
 
@@ -768,9 +768,9 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
-            // 确保 X_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
-            XState.AddModifiedProperty("X_Items");
-            XState.AddModifiedProperty("SelectedValue");
+            // 确保 F_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
+            FState.AddModifiedProperty("F_Items");
+            FState.AddModifiedProperty("SelectedValue");
 
             base.OnFirstPreRender();
 
@@ -832,7 +832,7 @@ namespace FineUI
 
             JsObjectBuilder storeBuilder = new JsObjectBuilder();
             storeBuilder.AddProperty("fields", "['value','text','enabled','prefix']", true);
-            storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.X_Items)", GetFStateScriptID()), true);
+            storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.F_Items)", GetFStateScriptID()), true);
             OB.AddProperty("store", String.Format("Ext.create('Ext.data.ArrayStore',{0})", storeBuilder), true);
 
             OB.AddProperty("value", String.Format("{0}.SelectedValue", GetFStateScriptID()), true);
@@ -885,7 +885,7 @@ namespace FineUI
 
             // 不管是不是disableSelectFields.Count > 0，都要执行下面的语句，因为可能页面加载时为0，在Ajax后不为零
             //if (disableSelectFields.Count > 0)
-            //OB.AddProperty(OptionName.Tpl, String.Format("'<tpl for=\".\"><div class=\"x-combo-list-item {{[F.util.isHiddenFieldContains(\"{0}\",xindex-1) ? \"box-combo-list-item-disable-select\" : \"\"]}}\">{{text}}</div></tpl>'", DisableSelectRowIndexsHiddenID), true);
+            //OB.AddProperty(OptionName.Tpl, String.Format("'<tpl for=\".\"><div class=\"x-combo-list-item {{[F.util.isHiddenFieldContains(\"{0}\",xindex-1) ? \"f-combo-list-item-disable-select\" : \"\"]}}\">{{text}}</div></tpl>'", DisableSelectRowIndexsHiddenID), true);
             //var tplStr = "'<tpl for=\".\"><div class=\"x-combo-list-item\">{text}</div></tpl>'";
             //var tplStr = "new Ext.XTemplate('<tpl for=\".\"><div class=\"x-combo-list-item\">{text}</div></tpl>')";
 
@@ -1001,15 +1001,15 @@ namespace FineUI
             AddStartupScript(contentScript);
 
             #region old code
-            //List<string> totalModifiedProperties = XState.GetTotalModifiedProperties();
+            //List<string> totalModifiedProperties = FState.GetTotalModifiedProperties();
             //StringBuilder loadDataSB = new StringBuilder();
-            //if (totalModifiedProperties.Contains("X_Items"))
+            //if (totalModifiedProperties.Contains("F_Items"))
             //{
             //    loadDataSB.AppendFormat("{0}.x_loadData();", XID);
             //}
             //else
             //{
-            //    loadDataSB.AppendFormat("{0}.store.loadData({1});", XID, X_Items.ToString());
+            //    loadDataSB.AppendFormat("{0}.store.loadData({1});", XID, F_Items.ToString());
             //}
 
             //if (totalModifiedProperties.Contains("SelectedValue"))
@@ -1387,17 +1387,17 @@ namespace FineUI
                 if (SelectedValue != postValue)
                 {
                     SelectedValue = postValue;
-                    XState.BackupPostDataProperty("SelectedValue");
+                    FState.BackupPostDataProperty("SelectedValue");
                     return true;
                 }
             }
             else
             {
                 SelectedValue = null;
-                XState.BackupPostDataProperty("SelectedValue");
+                FState.BackupPostDataProperty("SelectedValue");
 
                 Text = postText;
-                XState.BackupPostDataProperty("Text");
+                FState.BackupPostDataProperty("Text");
                 return true;
             }
 

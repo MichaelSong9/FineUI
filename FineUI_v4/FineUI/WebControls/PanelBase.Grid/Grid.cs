@@ -76,9 +76,9 @@ namespace FineUI
             // 严格的说，PageIndex、SortField、SortDirection这三个属性不可能在客户端被改变，而是向服务器发出改变的请求，然后服务器处理。
             // 因为这些属性的改变不会影响客户端的UI，必须服务器端发出UI改变的指令才行，所以它们算是服务器端属性。
             AddServerAjaxProperties("PageIndex", "PageSize", "RecordCount", "SortField", "SortDirection", "SummaryData", "SummaryHidden");
-            AddClientAjaxProperties("X_Rows", "HiddenColumns", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
+            AddClientAjaxProperties("F_Rows", "HiddenColumns", "SelectedRowIndexArray", "SelectedCell", "ExpandAllRowExpanders");
 
-            AddGzippedAjaxProperties("X_Rows");
+            AddGzippedAjaxProperties("F_Rows");
         }
 
         // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
@@ -171,12 +171,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AllowCellEditing"];
+                object obj = FState["AllowCellEditing"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AllowCellEditing"] = value;
+                FState["AllowCellEditing"] = value;
             }
         }
 
@@ -191,12 +191,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ClicksToEdit"];
+                object obj = FState["ClicksToEdit"];
                 return obj == null ? 2 : (int)obj;
             }
             set
             {
-                XState["ClicksToEdit"] = value;
+                FState["ClicksToEdit"] = value;
             }
         }
 
@@ -215,12 +215,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AllowPaging"];
+                object obj = FState["AllowPaging"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AllowPaging"] = value;
+                FState["AllowPaging"] = value;
             }
         }
 
@@ -234,12 +234,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IsDatabasePaging"];
+                object obj = FState["IsDatabasePaging"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["IsDatabasePaging"] = value;
+                FState["IsDatabasePaging"] = value;
             }
         }
 
@@ -254,12 +254,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ClearSelectedRowsAfterPaging"];
+                object obj = FState["ClearSelectedRowsAfterPaging"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ClearSelectedRowsAfterPaging"] = value;
+                FState["ClearSelectedRowsAfterPaging"] = value;
             }
         }
 
@@ -274,12 +274,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["PageSize"];
+                object obj = FState["PageSize"];
                 return obj == null ? 20 : (int)obj;
             }
             set
             {
-                XState["PageSize"] = value;
+                FState["PageSize"] = value;
             }
         }
 
@@ -294,12 +294,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["PageIndex"];
+                object obj = FState["PageIndex"];
                 return obj == null ? 0 : (int)obj;
             }
             set
             {
-                XState["PageIndex"] = value;
+                FState["PageIndex"] = value;
             }
         }
 
@@ -332,12 +332,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RecordCount"];
+                object obj = FState["RecordCount"];
                 return obj == null ? 0 : (int)obj;
             }
             set
             {
-                XState["RecordCount"] = value;
+                FState["RecordCount"] = value;
             }
         }
 
@@ -355,12 +355,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AllowSorting"];
+                object obj = FState["AllowSorting"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AllowSorting"] = value;
+                FState["AllowSorting"] = value;
             }
         }
 
@@ -377,12 +377,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SortDirection"];
+                object obj = FState["SortDirection"];
                 return obj == null ? "ASC" : (string)obj;
             }
             set
             {
-                XState["SortDirection"] = value;
+                FState["SortDirection"] = value;
             }
         }
 
@@ -399,10 +399,10 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SortField"];
+                object obj = FState["SortField"];
                 return obj == null ? "" : (string)obj;
 
-                //object obj = XState["SortField"];
+                //object obj = FState["SortField"];
                 //if (obj == null)
                 //{
                 //    if (SortColumnIndex >= 0 && SortColumnIndex < AllColumns.Count)
@@ -418,7 +418,7 @@ namespace FineUI
             }
             set
             {
-                XState["SortField"] = value;
+                FState["SortField"] = value;
             }
         }
 
@@ -440,7 +440,7 @@ namespace FineUI
         //        }
         //        else
         //        {
-        //            object obj = XState["SortColumnIndex"];
+        //            object obj = FState["SortColumnIndex"];
         //            if (obj == null)
         //            {
         //                if (!String.IsNullOrEmpty(SortColumn))
@@ -460,7 +460,7 @@ namespace FineUI
         //    }
         //    set
         //    {
-        //        XState["SortColumnIndex"] = value;
+        //        FState["SortColumnIndex"] = value;
         //    }
         //}
 
@@ -475,12 +475,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["SortColumn"];
+        //        object obj = FState["SortColumn"];
         //        return obj == null ? "" : (string)obj;
         //    }
         //    set
         //    {
-        //        XState["SortColumn"] = value;
+        //        FState["SortColumn"] = value;
         //    }
         //}
 
@@ -498,12 +498,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableSummary"];
+                object obj = FState["EnableSummary"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableSummary"] = value;
+                FState["EnableSummary"] = value;
             }
         }
 
@@ -516,12 +516,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SummaryData"];
+                object obj = FState["SummaryData"];
                 return obj == null ? new JObject() : (JObject)obj;
             }
             set
             {
-                XState["SummaryData"] = value;
+                FState["SummaryData"] = value;
             }
         }
 
@@ -535,12 +535,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SummaryPosition"];
+                object obj = FState["SummaryPosition"];
                 return obj == null ? SummaryPosition.Flow : (SummaryPosition)obj;
             }
             set
             {
-                XState["SummaryPosition"] = value;
+                FState["SummaryPosition"] = value;
             }
         }
 
@@ -554,12 +554,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["SummaryHidden"];
+        //        object obj = FState["SummaryHidden"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["SummaryHidden"] = value;
+        //        FState["SummaryHidden"] = value;
         //    }
         //}
 
@@ -577,12 +577,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EmptyText"];
+                object obj = FState["EmptyText"];
                 return obj == null ? String.Empty : (string)obj;
             }
             set
             {
-                XState["EmptyText"] = value;
+                FState["EmptyText"] = value;
             }
         }
 
@@ -597,12 +597,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["RowVerticalAlign"];
+                object obj = FState["RowVerticalAlign"];
                 return obj == null ? VerticalAlign.Middle : (VerticalAlign)obj;
             }
             set
             {
-                XState["RowVerticalAlign"] = value;
+                FState["RowVerticalAlign"] = value;
             }
         }
 
@@ -617,12 +617,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["RowNumberWidth"];
+        //        object obj = FState["RowNumberWidth"];
         //        return obj == null ? Unit.Empty : (Unit)obj;
         //    }
         //    set
         //    {
-        //        XState["RowNumberWidth"] = value;
+        //        FState["RowNumberWidth"] = value;
         //    }
         //}
 
@@ -637,12 +637,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableDelayRender"];
+                object obj = FState["EnableDelayRender"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableDelayRender"] = value;
+                FState["EnableDelayRender"] = value;
             }
         }
 
@@ -657,12 +657,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ExpandAllRowExpanders"];
+                object obj = FState["ExpandAllRowExpanders"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ExpandAllRowExpanders"] = value;
+                FState["ExpandAllRowExpanders"] = value;
             }
         }
 
@@ -677,12 +677,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableTextSelection"];
+                object obj = FState["EnableTextSelection"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableTextSelection"] = value;
+                FState["EnableTextSelection"] = value;
             }
         }
 
@@ -757,12 +757,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableRowNumber"];
+        //        object obj = FState["EnableRowNumber"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableRowNumber"] = value;
+        //        FState["EnableRowNumber"] = value;
         //    }
         //}
 
@@ -777,12 +777,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableRowNumberPaging"];
+        //        object obj = FState["EnableRowNumberPaging"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableRowNumberPaging"] = value;
+        //        FState["EnableRowNumberPaging"] = value;
         //    }
         //}
 
@@ -796,12 +796,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowGridHeader"];
+                object obj = FState["ShowGridHeader"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ShowGridHeader"] = value;
+                FState["ShowGridHeader"] = value;
             }
         }
 
@@ -815,12 +815,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableHeaderMenu"];
+                object obj = FState["EnableHeaderMenu"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableHeaderMenu"] = value;
+                FState["EnableHeaderMenu"] = value;
             }
         }
 
@@ -834,12 +834,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableColumnHide"];
+        //        object obj = FState["EnableColumnHide"];
         //        return obj == null ? true : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableColumnHide"] = value;
+        //        FState["EnableColumnHide"] = value;
         //    }
         //}
 
@@ -853,12 +853,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableColumnLines"];
+                object obj = FState["EnableColumnLines"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableColumnLines"] = value;
+                FState["EnableColumnLines"] = value;
             }
         }
 
@@ -873,12 +873,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAlternateRowStyle"];
+                object obj = FState["EnableAlternateRowStyle"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableAlternateRowStyle"] = value;
+                FState["EnableAlternateRowStyle"] = value;
             }
         }
 
@@ -892,12 +892,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableMouseOverColor"];
+                object obj = FState["EnableMouseOverColor"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableMouseOverColor"] = value;
+                FState["EnableMouseOverColor"] = value;
             }
         }
 
@@ -994,12 +994,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableRowSelectEvent"];
+                object obj = FState["EnableRowSelectEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableRowSelectEvent"] = value;
+                FState["EnableRowSelectEvent"] = value;
             }
         }
 
@@ -1014,12 +1014,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableRowClickEvent"];
+                object obj = FState["EnableRowClickEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableRowClickEvent"] = value;
+                FState["EnableRowClickEvent"] = value;
             }
         }
 
@@ -1034,12 +1034,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableRowDoubleClickEvent"];
+                object obj = FState["EnableRowDoubleClickEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableRowDoubleClickEvent"] = value;
+                FState["EnableRowDoubleClickEvent"] = value;
             }
         }
 
@@ -1053,12 +1053,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAfterEditEvent"];
+                object obj = FState["EnableAfterEditEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableAfterEditEvent"] = value;
+                FState["EnableAfterEditEvent"] = value;
             }
         }
 
@@ -1076,12 +1076,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["MinColumnWidth"];
+        //        object obj = FState["MinColumnWidth"];
         //        return obj == null ? Unit.Empty : (Unit)obj;
         //    }
         //    set
         //    {
-        //        XState["MinColumnWidth"] = value;
+        //        FState["MinColumnWidth"] = value;
         //    }
         //}
 
@@ -1095,12 +1095,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoExpandColumn"];
+                object obj = FState["AutoExpandColumn"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["AutoExpandColumn"] = value;
+                FState["AutoExpandColumn"] = value;
             }
         }
 
@@ -1114,12 +1114,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["AutoExpandColumnMax"];
+        //        object obj = FState["AutoExpandColumnMax"];
         //        return obj == null ? Unit.Empty : (Unit)obj;
         //    }
         //    set
         //    {
-        //        XState["AutoExpandColumnMax"] = value;
+        //        FState["AutoExpandColumnMax"] = value;
         //    }
         //}
 
@@ -1133,12 +1133,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["AutoExpandColumnMin"];
+        //        object obj = FState["AutoExpandColumnMin"];
         //        return obj == null ? Unit.Empty : (Unit)obj;
         //    }
         //    set
         //    {
-        //        XState["AutoExpandColumnMin"] = value;
+        //        FState["AutoExpandColumnMin"] = value;
         //    }
         //}
 
@@ -1152,12 +1152,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["ForceFitFirstTime"];
+        //        object obj = FState["ForceFitFirstTime"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["ForceFitFirstTime"] = value;
+        //        FState["ForceFitFirstTime"] = value;
         //    }
         //}
 
@@ -1171,12 +1171,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ForceFitAllTime"];
+                object obj = FState["ForceFitAllTime"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ForceFitAllTime"] = value;
+                FState["ForceFitAllTime"] = value;
             }
         }
 
@@ -1190,12 +1190,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["VerticalScrollWidth"];
+        //        object obj = FState["VerticalScrollWidth"];
         //        return obj == null ? Unit.Empty : (Unit)obj;
         //    }
         //    set
         //    {
-        //        XState["VerticalScrollWidth"] = value;
+        //        FState["VerticalScrollWidth"] = value;
         //    }
         //}
 
@@ -1235,12 +1235,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableCheckBoxSelect"];
+                object obj = FState["EnableCheckBoxSelect"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableCheckBoxSelect"] = value;
+                FState["EnableCheckBoxSelect"] = value;
             }
         }
 
@@ -1254,12 +1254,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CheckBoxSelectOnly"];
+                object obj = FState["CheckBoxSelectOnly"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["CheckBoxSelectOnly"] = value;
+                FState["CheckBoxSelectOnly"] = value;
             }
         }
 
@@ -1274,12 +1274,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableMultiSelect"];
+                object obj = FState["EnableMultiSelect"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableMultiSelect"] = value;
+                FState["EnableMultiSelect"] = value;
             }
         }
 
@@ -1316,18 +1316,18 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SelectedCell"];
+                object obj = FState["SelectedCell"];
                 return obj == null ? null : (int[])obj;
             }
             set
             {
                 if (value == null || value.Length != 2)
                 {
-                    XState["SelectedCell"] = null;
+                    FState["SelectedCell"] = null;
                 }
                 else
                 {
-                    XState["SelectedCell"] = value;
+                    FState["SelectedCell"] = value;
                 }
             }
         }
@@ -1342,12 +1342,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SelectedRowIndexArray"];
+                object obj = FState["SelectedRowIndexArray"];
                 return obj == null ? new int[] { } : (int[])obj;
             }
             set
             {
-                XState["SelectedRowIndexArray"] = GetSortedArray(value).ToArray();
+                FState["SelectedRowIndexArray"] = GetSortedArray(value).ToArray();
             }
         }
 
@@ -1501,12 +1501,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DataKeyNames"];
+                object obj = FState["DataKeyNames"];
                 return obj == null ? null : (string[])obj;
             }
             set
             {
-                XState["DataKeyNames"] = value;
+                FState["DataKeyNames"] = value;
             }
         }
 
@@ -1706,14 +1706,14 @@ namespace FineUI
         }
         #endregion
 
-        #region X_Rows
+        #region F_Rows
 
         /// <summary>
         /// 保存的行数据（内部使用）
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public JObject X_Rows
+        public JObject F_Rows
         {
             get
             {
@@ -1737,7 +1737,7 @@ namespace FineUI
             set
             {
                 // 注意，此时不能清空 SelectedRowIndexArray 
-                // 现在只是从XState中恢复数据，如果清空 SelectedRowIndexArray ，可能会导致 SelectedRowIndexArray 状态不对
+                // 现在只是从FState中恢复数据，如果清空 SelectedRowIndexArray ，可能会导致 SelectedRowIndexArray 状态不对
                 ClearRows();
 
                 JArray valuesArray = value.Value<JArray>("Values"); // value.getJArray("Values");
@@ -1768,11 +1768,11 @@ namespace FineUI
 
         #region oldcode
 
-        //protected override void LoadXState(JObject state, string property)
+        //protected override void LoadFState(JObject state, string property)
         //{
-        //    base.LoadXState(state, property);
+        //    base.LoadFState(state, property);
 
-        //    if (property == "X_Rows")
+        //    if (property == "F_Rows")
         //    {
         //        XRowsFromJSON(state.getJObject(property));
         //    }
@@ -1791,7 +1791,7 @@ namespace FineUI
         //        columnIndex++;
         //    }
 
-        //    SaveXProperty("X_Rows", XRowsToJSON().ToString());
+        //    SaveXProperty("F_Rows", XRowsToJSON().ToString());
         //    //SaveXProperty("SelectedRowIndexArray", new JArray(SelectedRowIndexArray).ToString());
         //}
 
@@ -1800,30 +1800,30 @@ namespace FineUI
         //    base.OnBothPreRender();
 
         //    // Rows has been changed in server-side code after onInit.
-        //    if (XPropertyModified("X_Rows", XRowsToJSON().ToString()))
+        //    if (XPropertyModified("F_Rows", XRowsToJSON().ToString()))
         //    {
-        //        XState.AddModifiedProperty("X_Rows");
+        //        FState.AddModifiedProperty("F_Rows");
         //    }
 
         //    // Make sure SelectedRowIndexArray property exist in F_STATE during page's first load.
         //    if (!Page.IsPostBack)
         //    {
-        //        XState.AddModifiedProperty("SelectedRowIndexArray");
+        //        FState.AddModifiedProperty("SelectedRowIndexArray");
         //    }
 
         //    //if (XPropertyModified("SelectedRowIndexArray", new JArray(SelectedRowIndexArray).ToString()))
         //    //{
-        //    //    XState.AddModifiedProperties("SelectedRowIndexArray");
+        //    //    FState.AddModifiedProperties("SelectedRowIndexArray");
         //    //}
         //    //else
         //    //{
-        //    //    XState.RemoveModifiedProperties("SelectedRowIndexArray");
+        //    //    FState.RemoveModifiedProperties("SelectedRowIndexArray");
         //    //}
         //}
 
-        //protected override void SaveXState(JObject state, string property)
+        //protected override void SaveFState(JObject state, string property)
         //{
-        //    if (property == "X_Rows")
+        //    if (property == "F_Rows")
         //    {
         //        state.put(property, XRowsToJSON());
         //    }
@@ -1947,12 +1947,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["NeedPersistStateColumnIndexArray"];
+        //        object obj = FState["NeedPersistStateColumnIndexArray"];
         //        return obj == null ? null : (int[])obj;
         //    }
         //    set
         //    {
-        //        XState["NeedPersistStateColumnIndexArray"] = value;
+        //        FState["NeedPersistStateColumnIndexArray"] = value;
         //    }
         //}
 
@@ -2067,7 +2067,7 @@ namespace FineUI
             if (AllowPaging)
             {
                 // 不论这三个属性是在客户端还是在服务器端被改变，都需要执行grid.getBottomToolbar().load函数
-                // 如果不是数据库分页，则X_Rows不会变化，但是必须执行x_loadData
+                // 如果不是数据库分页，则F_Rows不会变化，但是必须执行x_loadData
                 if (PropertyModified("PageIndex", "PageSize", "RecordCount"))
                 {
                     sb.AppendFormat("{0}.x_getPaging().x_update({1});", XID, GetPagingBuilder());
@@ -2079,9 +2079,9 @@ namespace FineUI
                 }
             }
 
-            if (PropertyModified("X_Rows"))
+            if (PropertyModified("F_Rows"))
             {
-                //if (ClientPropertyModifiedInServer("X_Rows"))
+                //if (ClientPropertyModifiedInServer("F_Rows"))
                 if (!dataReloaded)
                 {
                     sb.AppendFormat("{0}.x_loadData();", XID);
@@ -2091,7 +2091,7 @@ namespace FineUI
                     dataReloaded = true;
                 }
 
-                // 如果X_Rows改变了，则每行的模版列内容应该也要变化
+                // 如果F_Rows改变了，则每行的模版列内容应该也要变化
                 PageManager.Instance.AddAjaxGridClientID(ClientID);
             }
 
@@ -2193,11 +2193,11 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
-            // 确保 X_Rows 在页面第一次加载时都存在于f_state中
-            XState.AddModifiedProperty("X_Rows");
+            // 确保 F_Rows 在页面第一次加载时都存在于f_state中
+            FState.AddModifiedProperty("F_Rows");
 
             // 不需要手工添加 SelectedRowIndexArray 属性，是因为只能通过代码设置此属性
-            // 只要通过代码设置了 SelectedRowIndexArray 属性，则一定会存在于 X_States
+            // 只要通过代码设置了 SelectedRowIndexArray 属性，则一定会存在于 F_States
 
             base.OnFirstPreRender();
 
@@ -2459,7 +2459,7 @@ namespace FineUI
 
             StringBuilder viewreadySB = new StringBuilder();
 
-            // Note: this.f_state['X_Rows']['Values'] will always rendered to the client side.
+            // Note: this.f_state['F_Rows']['Values'] will always rendered to the client side.
             //viewreadySB.Append("cmp.x_updateTpls();");
 
             if (AllowSorting)
@@ -2565,7 +2565,7 @@ namespace FineUI
 
             #region old code
 
-            ////List<string> totalModifiedProperties = XState.GetTotalModifiedProperties();
+            ////List<string> totalModifiedProperties = FState.GetTotalModifiedProperties();
             ////if (SelectedRowIndexArray.Length > 0)
             ////{
             ////    string selectScript = String.Empty;
@@ -3427,7 +3427,7 @@ namespace FineUI
             if (!StringUtil.CompareStringArray(HiddenColumns, hiddenColumns))
             {
                 HiddenColumns = hiddenColumns;
-                XState.BackupPostDataProperty("HiddenColumns");
+                FState.BackupPostDataProperty("HiddenColumns");
             }
 
 
@@ -3445,7 +3445,7 @@ namespace FineUI
                 }
                 Rows[i].FromShortStates(shortStates.ToArray());
             }
-            XState.BackupPostDataProperty("X_Rows");
+            FState.BackupPostDataProperty("F_Rows");
             */
 
             // 列状态（目前只有CheckBoxField用到）
@@ -3463,7 +3463,7 @@ namespace FineUI
 
                         Rows[i].FromShortStates(states[index].ToObject<List<object>>().ToArray());
                     }
-                    XState.BackupPostDataProperty("X_Rows");
+                    FState.BackupPostDataProperty("F_Rows");
                 }
             }
 
@@ -3555,7 +3555,7 @@ namespace FineUI
 
                     }
 
-                    XState.BackupPostDataProperty("X_Rows");
+                    FState.BackupPostDataProperty("F_Rows");
                 }
 
 
@@ -3564,7 +3564,7 @@ namespace FineUI
                 if (!StringUtil.CompareIntArray(SelectedCell, selectedCell))
                 {
                     SelectedCell = selectedCell;
-                    XState.BackupPostDataProperty("SelectedCell");
+                    FState.BackupPostDataProperty("SelectedCell");
                 }
 
             }
@@ -3576,7 +3576,7 @@ namespace FineUI
                 if (!StringUtil.CompareIntArray(SelectedRowIndexArray, selectedRowIndexArray))
                 {
                     SelectedRowIndexArray = selectedRowIndexArray;
-                    XState.BackupPostDataProperty("SelectedRowIndexArray");
+                    FState.BackupPostDataProperty("SelectedRowIndexArray");
                 }
 
             }

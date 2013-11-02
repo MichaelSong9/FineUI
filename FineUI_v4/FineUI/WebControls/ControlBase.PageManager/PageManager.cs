@@ -201,12 +201,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoSizePanelID"];
+                object obj = FState["AutoSizePanelID"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["AutoSizePanelID"] = value;
+                FState["AutoSizePanelID"] = value;
             }
         }
 
@@ -240,12 +240,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["HideScrollbars"];
+                object obj = FState["HideScrollbars"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["HideScrollbars"] = value;
+                FState["HideScrollbars"] = value;
             }
         }
 
@@ -259,12 +259,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableAspnetSubmitButtonAjax"];
+        //        object obj = FState["EnableAspnetSubmitButtonAjax"];
         //        return obj == null ? true : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableAspnetSubmitButtonAjax"] = value;
+        //        FState["EnableAspnetSubmitButtonAjax"] = value;
         //    }
         //}
 
@@ -279,12 +279,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ExecuteOnReadyWhenPostBack"];
+                object obj = FState["ExecuteOnReadyWhenPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["ExecuteOnReadyWhenPostBack"] = value;
+                FState["ExecuteOnReadyWhenPostBack"] = value;
             }
         }
 
@@ -299,12 +299,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnablePageLoading"];
+                object obj = FState["EnablePageLoading"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnablePageLoading"] = value;
+                FState["EnablePageLoading"] = value;
             }
         }
 
@@ -320,12 +320,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AjaxAspnetControls"];
+                object obj = FState["AjaxAspnetControls"];
                 return obj == null ? null : (string[])obj;
             }
             set
             {
-                XState["AjaxAspnetControls"] = value;
+                FState["AjaxAspnetControls"] = value;
             }
         }
 
@@ -396,7 +396,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Theme"];
+                object obj = FState["Theme"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -412,7 +412,7 @@ namespace FineUI
             }
             set
             {
-                XState["Theme"] = value;
+                FState["Theme"] = value;
             }
         }
 
@@ -426,7 +426,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CustomThemeBasePath"];
+                object obj = FState["CustomThemeBasePath"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -442,7 +442,7 @@ namespace FineUI
             }
             set
             {
-                XState["CustomThemeBasePath"] = value;
+                FState["CustomThemeBasePath"] = value;
             }
         }
 
@@ -457,7 +457,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CustomTheme"];
+                object obj = FState["CustomTheme"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -473,7 +473,7 @@ namespace FineUI
             }
             set
             {
-                XState["CustomTheme"] = value;
+                FState["CustomTheme"] = value;
             }
         }
 
@@ -488,7 +488,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Language"];
+                object obj = FState["Language"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -504,7 +504,7 @@ namespace FineUI
             }
             set
             {
-                XState["Language"] = value;
+                FState["Language"] = value;
             }
         }
 
@@ -519,7 +519,7 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableBigFont"];
+        //        object obj = FState["EnableBigFont"];
         //        if (obj == null)
         //        {
         //            if (DesignMode)
@@ -535,7 +535,7 @@ namespace FineUI
         //    }
         //    set
         //    {
-        //        XState["EnableBigFont"] = value;
+        //        FState["EnableBigFont"] = value;
         //    }
         //}
 
@@ -550,7 +550,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAjax"];
+                object obj = FState["EnableAjax"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -566,7 +566,7 @@ namespace FineUI
             }
             set
             {
-                XState["EnableAjax"] = value;
+                FState["EnableAjax"] = value;
             }
         }
 
@@ -582,7 +582,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAjaxLoading"];
+                object obj = FState["EnableAjaxLoading"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -598,7 +598,7 @@ namespace FineUI
             }
             set
             {
-                XState["EnableAjaxLoading"] = value;
+                FState["EnableAjaxLoading"] = value;
             }
         }
 
@@ -613,7 +613,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AjaxLoadingType"];
+                object obj = FState["AjaxLoadingType"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -629,7 +629,7 @@ namespace FineUI
             }
             set
             {
-                XState["AjaxLoadingType"] = value;
+                FState["AjaxLoadingType"] = value;
             }
         }
 
@@ -644,7 +644,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AjaxTimeout"];
+                object obj = FState["AjaxTimeout"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -660,22 +660,22 @@ namespace FineUI
             }
             set
             {
-                XState["AjaxTimeout"] = value;
+                FState["AjaxTimeout"] = value;
             }
         }
 
 
         /// <summary>
-        /// 是否启用XState压缩（默认为true）
+        /// 是否启用FState压缩（默认为true）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
-        [Description("是否启用XState压缩（默认为true）")]
-        public new bool EnableXStateCompress
+        [Description("是否启用FState压缩（默认为true）")]
+        public new bool EnableFStateCompress
         {
             get
             {
-                object obj = XState["EnableXStateCompress"];
+                object obj = FState["EnableFStateCompress"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -684,14 +684,14 @@ namespace FineUI
                     }
                     else
                     {
-                        return GlobalConfig.GetEnableXStateCompress();
+                        return GlobalConfig.GetEnableFStateCompress();
                     }
                 }
                 return (bool)obj;
             }
             set
             {
-                XState["EnableXStateCompress"] = value;
+                FState["EnableFStateCompress"] = value;
             }
         }
 
@@ -709,7 +709,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["FormMessageTarget"];
+                object obj = FState["FormMessageTarget"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -725,7 +725,7 @@ namespace FineUI
             }
             set
             {
-                XState["FormMessageTarget"] = value;
+                FState["FormMessageTarget"] = value;
             }
         }
 
@@ -740,7 +740,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["FormLabelAlign"];
+                object obj = FState["FormLabelAlign"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -756,7 +756,7 @@ namespace FineUI
             }
             set
             {
-                XState["FormLabelAlign"] = value;
+                FState["FormLabelAlign"] = value;
             }
         }
 
@@ -770,7 +770,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["FormOffsetRight"];
+                object obj = FState["FormOffsetRight"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -786,7 +786,7 @@ namespace FineUI
             }
             set
             {
-                XState["FormOffsetRight"] = value;
+                FState["FormOffsetRight"] = value;
             }
         }
 
@@ -801,7 +801,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["FormLabelWidth"];
+                object obj = FState["FormLabelWidth"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -817,7 +817,7 @@ namespace FineUI
             }
             set
             {
-                XState["FormLabelWidth"] = value;
+                FState["FormLabelWidth"] = value;
             }
         }
 
@@ -831,7 +831,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["FormLabelSeparator"];
+                object obj = FState["FormLabelSeparator"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -847,7 +847,7 @@ namespace FineUI
             }
             set
             {
-                XState["FormLabelSeparator"] = value;
+                FState["FormLabelSeparator"] = value;
             }
         }
 

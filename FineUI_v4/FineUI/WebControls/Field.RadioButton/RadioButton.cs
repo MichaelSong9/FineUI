@@ -70,12 +70,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Text"];
+                object obj = FState["Text"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Text"] = value;
+                FState["Text"] = value;
             }
         }
 
@@ -89,12 +89,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Checked"];
+                object obj = FState["Checked"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Checked"] = value;
+                FState["Checked"] = value;
 
                 ProcessOthersInGroup();
             }
@@ -134,12 +134,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["GroupName"];
+                object obj = FState["GroupName"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["GroupName"] = value;
+                FState["GroupName"] = value;
             }
         }
 
@@ -154,12 +154,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoPostBack"];
+                object obj = FState["AutoPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AutoPostBack"] = value;
+                FState["AutoPostBack"] = value;
             }
         }
 
@@ -278,7 +278,7 @@ namespace FineUI
             if (Checked != postChecked)
             {
                 Checked = postChecked;
-                XState.BackupPostDataProperty("Checked");
+                FState.BackupPostDataProperty("Checked");
                 return true;
             }
 
@@ -290,7 +290,7 @@ namespace FineUI
             //    if (Checked != postChecked)
             //    {
             //        Checked = postChecked;
-            //        XState.BackupPostDataProperty("Checked");
+            //        FState.BackupPostDataProperty("Checked");
             //        return true;
             //    }
             //}
@@ -304,7 +304,7 @@ namespace FineUI
             //        if (Checked != postChecked)
             //        {
             //            Checked = postChecked;
-            //            XState.BackupPostDataProperty("Checked");
+            //            FState.BackupPostDataProperty("Checked");
             //            return true;
             //        }
             //    }

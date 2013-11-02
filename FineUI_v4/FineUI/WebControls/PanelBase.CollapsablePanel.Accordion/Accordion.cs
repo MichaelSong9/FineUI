@@ -149,12 +149,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["ShowCollapseTool"];
+                object obj = FState["ShowCollapseTool"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["ShowCollapseTool"] = value;
+                FState["ShowCollapseTool"] = value;
             }
         }
 
@@ -169,12 +169,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableActiveOnTop"];
+                object obj = FState["EnableActiveOnTop"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableActiveOnTop"] = value;
+                FState["EnableActiveOnTop"] = value;
             }
         }
 
@@ -188,12 +188,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableFill"];
+                object obj = FState["EnableFill"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableFill"] = value;
+                FState["EnableFill"] = value;
             }
         }
 
@@ -382,7 +382,7 @@ namespace FineUI
             //{
             //    // 删除对CtCls的定义
             //    OB.RemoveProperty(OptionName.CtCls);
-            //    configBuilder.AddProperty(OptionName.ExtraCls, "box-panel-big-header");
+            //    configBuilder.AddProperty(OptionName.ExtraCls, "f-panel-big-header");
             //}
 
             OB.AddProperty("layoutConfig", configBuilder);

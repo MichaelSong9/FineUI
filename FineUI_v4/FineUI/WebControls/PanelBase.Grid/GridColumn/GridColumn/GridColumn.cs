@@ -309,12 +309,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["BoxFlex"];
+                object obj = FState["BoxFlex"];
                 return obj == null ? 0 : (int)obj;
             }
             set
             {
-                XState["BoxFlex"] = value;
+                FState["BoxFlex"] = value;
             }
         }
 

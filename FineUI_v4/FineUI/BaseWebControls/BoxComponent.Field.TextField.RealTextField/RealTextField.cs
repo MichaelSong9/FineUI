@@ -65,12 +65,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EmptyText"];
+                object obj = FState["EmptyText"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["EmptyText"] = value;
+                FState["EmptyText"] = value;
             }
         }
 
@@ -85,12 +85,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Text"];
+                object obj = FState["Text"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Text"] = value;
+                FState["Text"] = value;
             }
         }
 
@@ -104,12 +104,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AutoPostBack"];
+                object obj = FState["AutoPostBack"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["AutoPostBack"] = value;
+                FState["AutoPostBack"] = value;
             }
         }
 
@@ -123,12 +123,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableBlurEvent"];
+                object obj = FState["EnableBlurEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableBlurEvent"] = value;
+                FState["EnableBlurEvent"] = value;
             }
         }
 
@@ -252,7 +252,7 @@ namespace FineUI
                 if (Text != postValue)
                 {
                     Text = postValue;
-                    XState.BackupPostDataProperty("Text");
+                    FState.BackupPostDataProperty("Text");
                     return true;
                 }
             }

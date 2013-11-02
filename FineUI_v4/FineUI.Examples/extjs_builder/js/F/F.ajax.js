@@ -60,12 +60,12 @@
         if (!enableAjax()) {
             // 当前请求结束后必须重置 F.control_enable_ajax
             F.control_enable_ajax = undefined;
-            F.util.setHiddenFieldValue('X_AJAX', 'false');
+            F.util.setHiddenFieldValue('F_AJAX', 'false');
             theForm.submit();
         } else {
             // 当前请求结束后必须重置 F.control_enable_ajax
             F.control_enable_ajax = undefined;
-            F.util.setHiddenFieldValue('X_AJAX', 'true');
+            F.util.setHiddenFieldValue('F_AJAX', 'true');
             var url = document.location.href;
             var urlHashIndex = url.indexOf('#');
             if (urlHashIndex >= 0) {
@@ -98,7 +98,7 @@
                     F.util.triggerAjaxReady();
                 },
                 failure: function (data) {
-                    var lastDisabledButtonId = F.util.getHiddenFieldValue('X_TARGET');
+                    var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
                     if (lastDisabledButtonId) {
                         F.enable(lastDisabledButtonId);
                     }
@@ -106,7 +106,7 @@
                 },
                 callback: function (options, success, response) {
                     // AJAX结束时需要清空此字段，否则下一次的type=submit提交（ASP.NET回发方式之一）会被误认为是AJAX提交
-                    F.util.setHiddenFieldValue('X_AJAX', 'false');
+                    F.util.setHiddenFieldValue('F_AJAX', 'false');
                 }
             });
         }
@@ -336,13 +336,13 @@
             }
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
-            resolveGZProperty('X_Rows');
+            resolveGZProperty('F_Rows');
         }
 
         if (cmp.isXType('combo') || cmp.isXType('checkboxgroup') || cmp.isXType('radiogroup')) {
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
-            resolveGZProperty('X_Items');
+            resolveGZProperty('F_Items');
         }
 
         if (cmp.isXType('field')) {
@@ -357,7 +357,7 @@
             saveInHiddenField('SelectedNodeIDArray', cmp.x_getSelectedNodes().join(','));
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
-            resolveGZProperty('X_Nodes');
+            resolveGZProperty('F_Nodes');
         }
 
         if (cmp.isXType('tabpanel')) {

@@ -72,7 +72,7 @@ namespace FineUI.Examples.data
                     else
                     {
                         // 处理CheckBox
-                        if (html.Contains("box-grid-static-checkbox"))
+                        if (html.Contains("f-grid-static-checkbox"))
                         {
                             if (html.Contains("uncheck"))
                             {

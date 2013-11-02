@@ -267,11 +267,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 是否启用XState压缩
+        /// 是否启用FState压缩
         /// </summary>
-        public static bool GetEnableXStateCompress()
+        public static bool GetEnableFStateCompress()
         {
-            return Convert.ToBoolean(section.EnableXStateCompress);
+            return Convert.ToBoolean(section.EnableFStateCompress);
         }
 
 

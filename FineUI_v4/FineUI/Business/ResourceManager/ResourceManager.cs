@@ -59,10 +59,10 @@ namespace FineUI
         //public static readonly string HIDDEN_FIELDS_ID = "F.hiddenFields";
 
 
-        public static readonly string PAGE_STATE_CHANGED_ID = "X_CHANGED";
+        public static readonly string PAGE_STATE_CHANGED_ID = "F_CHANGED";
 
         // 在FineUI-Utility.js中被使用，不要修改
-        public static readonly string DISABLED_CONTROL_BEFORE_POSTBACK = "X_TARGET";
+        public static readonly string DISABLED_CONTROL_BEFORE_POSTBACK = "F_TARGET";
 
 
 
@@ -897,7 +897,7 @@ namespace FineUI
         {
             get
             {
-                return HttpContext.Current.Request.Form["X_AJAX"] == "true";
+                return HttpContext.Current.Request.Form["F_AJAX"] == "true";
             }
         }
 

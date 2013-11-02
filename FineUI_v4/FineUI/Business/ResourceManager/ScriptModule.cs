@@ -20,7 +20,7 @@ namespace FineUI
 
             if (response.StatusCode == 302)
             {
-                if (application.Request.Form["X_AJAX"] == "true")
+                if (application.Request.Form["F_AJAX"] == "true")
                 {
                     string redirectLocation = response.RedirectLocation;
                     List<HttpCookie> cookies = new List<HttpCookie>(response.Cookies.Count);

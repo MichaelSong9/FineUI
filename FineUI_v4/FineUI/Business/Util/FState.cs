@@ -33,7 +33,7 @@ namespace FineUI
         private Dictionary<string, object> _state = new Dictionary<string, object>();
 
         /// <summary>
-        /// 获取设置 XState 属性值
+        /// 获取设置 FState 属性值
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
@@ -54,7 +54,7 @@ namespace FineUI
             {
                 _state[key] = value;
 
-                // 如果是页面第一次加载（页面初始化时那些不是AjaxProperties的属性的更改，也要保存到XState中）
+                // 如果是页面第一次加载（页面初始化时那些不是AjaxProperties的属性的更改，也要保存到FState中）
                 // _control.Page == null, 是在初始化页面控件的属性的时候
                 if (_control.Page != null && !_control.Page.IsPostBack && _control.InitialComplete)
                 {

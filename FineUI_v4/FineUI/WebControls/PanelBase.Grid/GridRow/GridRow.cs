@@ -267,7 +267,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 表格行中模板列控件列表（数据绑定时自动生成每个模板列控件ID，回发时从XState中回发模板列控件ID）
+        /// 表格行中模板列控件列表（数据绑定时自动生成每个模板列控件ID，回发时从FState中回发模板列控件ID）
         /// </summary>
         public void InitTemplateContainers()
         {
@@ -286,7 +286,7 @@ namespace FineUI
 
                     if (DataItem == null)
                     {
-                        // 回发时恢复XState阶段（非数据绑定阶段），从Values中读取模板列的服务器ID（在第一次加载时自动生成的）
+                        // 回发时恢复FState阶段（非数据绑定阶段），从Values中读取模板列的服务器ID（在第一次加载时自动生成的）
                         string fieldValue = Values[i];
                         if (fieldValue.StartsWith(Grid.TEMPLATE_PLACEHOLDER_PREFIX))
                         {

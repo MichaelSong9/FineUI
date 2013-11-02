@@ -97,12 +97,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Split"];
+                object obj = FState["Split"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Split"] = value;
+                FState["Split"] = value;
             }
         }
 
@@ -117,12 +117,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["EnableSplitTip"];
+        //        object obj = FState["EnableSplitTip"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["EnableSplitTip"] = value;
+        //        FState["EnableSplitTip"] = value;
         //    }
         //}
 
@@ -137,12 +137,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["SplitTip"];
+        //        object obj = FState["SplitTip"];
         //        return obj == null ? "" : (string)obj;
         //    }
         //    set
         //    {
-        //        XState["SplitTip"] = value;
+        //        FState["SplitTip"] = value;
         //    }
         //}
 
@@ -156,12 +156,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["CollapsibleSplitTip"];
+        //        object obj = FState["CollapsibleSplitTip"];
         //        return obj == null ? "" : (string)obj;
         //    }
         //    set
         //    {
-        //        XState["CollapsibleSplitTip"] = value;
+        //        FState["CollapsibleSplitTip"] = value;
         //    }
         //}
 
@@ -176,12 +176,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Margins"];
+                object obj = FState["Margins"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["Margins"] = value;
+                FState["Margins"] = value;
             }
         }
 
@@ -195,12 +195,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["CMargins"];
+        //        object obj = FState["CMargins"];
         //        return obj == null ? "" : (string)obj;
         //    }
         //    set
         //    {
-        //        XState["CMargins"] = value;
+        //        FState["CMargins"] = value;
         //    }
         //}
 
@@ -215,12 +215,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["PositionType"];
+                object obj = FState["PositionType"];
                 return obj == null ? Position.Center : (Position)obj;
             }
             set
             {
-                XState["PositionType"] = value;
+                FState["PositionType"] = value;
             }
         }
 
@@ -234,12 +234,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["CollapseMode"];
+        //        object obj = FState["CollapseMode"];
         //        return obj == null ? CollapseMode.Default : (CollapseMode)obj;
         //    }
         //    set
         //    {
-        //        XState["CollapseMode"] = value;
+        //        FState["CollapseMode"] = value;
         //    }
         //}
 

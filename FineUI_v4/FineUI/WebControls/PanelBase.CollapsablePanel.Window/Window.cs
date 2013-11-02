@@ -215,10 +215,10 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["GUID"];
+                object obj = FState["GUID"];
                 if (obj == null)
                 {
-                    obj = XState["GUID"] = String.Format("{0}_{1}", XID, System.Guid.NewGuid().ToString("N"));
+                    obj = FState["GUID"] = String.Format("{0}_{1}", XID, System.Guid.NewGuid().ToString("N"));
                 }
 
                 return (string)obj;
@@ -254,12 +254,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["WindowPosition"];
+                object obj = FState["WindowPosition"];
                 return obj == null ? WindowPosition.Center : (WindowPosition)obj;
             }
             set
             {
-                XState["WindowPosition"] = value;
+                FState["WindowPosition"] = value;
             }
         }
 
@@ -294,12 +294,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["Maximized"];
+        //        object obj = FState["Maximized"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["Maximized"] = value;
+        //        FState["Maximized"] = value;
         //    }
         //}
 
@@ -314,12 +314,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Top"];
+                object obj = FState["Top"];
                 return obj == null ? Unit.Empty : (Unit)obj;
             }
             set
             {
-                XState["Top"] = value;
+                FState["Top"] = value;
             }
         }
 
@@ -334,12 +334,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Left"];
+                object obj = FState["Left"];
                 return obj == null ? Unit.Empty : (Unit)obj;
             }
             set
             {
-                XState["Left"] = value;
+                FState["Left"] = value;
             }
         }
 
@@ -354,12 +354,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableClose"];
+                object obj = FState["EnableClose"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableClose"] = value;
+                FState["EnableClose"] = value;
             }
         }
 
@@ -374,12 +374,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableDrag"];
+                object obj = FState["EnableDrag"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["EnableDrag"] = value;
+                FState["EnableDrag"] = value;
             }
         }
 
@@ -394,12 +394,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableMaximize"];
+                object obj = FState["EnableMaximize"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableMaximize"] = value;
+                FState["EnableMaximize"] = value;
             }
         }
 
@@ -414,12 +414,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableMinimize"];
+                object obj = FState["EnableMinimize"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableMinimize"] = value;
+                FState["EnableMinimize"] = value;
             }
         }
 
@@ -434,12 +434,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MinHeight"];
+                object obj = FState["MinHeight"];
                 return obj == null ? (Unit)100 : (Unit)obj;
             }
             set
             {
-                XState["MinHeight"] = value;
+                FState["MinHeight"] = value;
             }
         }
 
@@ -454,12 +454,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MinWidth"];
+                object obj = FState["MinWidth"];
                 return obj == null ? (Unit)200 : (Unit)obj;
             }
             set
             {
-                XState["MinWidth"] = value;
+                FState["MinWidth"] = value;
             }
         }
 
@@ -473,12 +473,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["IsModal"];
+                object obj = FState["IsModal"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["IsModal"] = value;
+                FState["IsModal"] = value;
             }
         }
 
@@ -492,12 +492,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableResize"];
+                object obj = FState["EnableResize"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableResize"] = value;
+                FState["EnableResize"] = value;
             }
         }
 
@@ -512,12 +512,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["OnClientCloseButtonClick"];
+                object obj = FState["OnClientCloseButtonClick"];
                 return obj == null ? "" : (string)obj;
             }
             set
             {
-                XState["OnClientCloseButtonClick"] = value;
+                FState["OnClientCloseButtonClick"] = value;
             }
         }
 
@@ -532,12 +532,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableConfirmOnClose"];
+                object obj = FState["EnableConfirmOnClose"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableConfirmOnClose"] = value;
+                FState["EnableConfirmOnClose"] = value;
             }
         }
 
@@ -551,12 +551,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["CloseAction"];
+                object obj = FState["CloseAction"];
                 return obj == null ? CloseAction.Hide : (CloseAction)obj;
             }
             set
             {
-                XState["CloseAction"] = value;
+                FState["CloseAction"] = value;
             }
         }
 
@@ -590,12 +590,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Target"];
+                object obj = FState["Target"];
                 return obj == null ? Target.Self : (Target)obj;
             }
             set
             {
-                XState["Target"] = value;
+                FState["Target"] = value;
             }
         }
 
@@ -609,12 +609,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Plain"];
+                object obj = FState["Plain"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["Plain"] = value;
+                FState["Plain"] = value;
             }
         }
 
@@ -708,12 +708,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["Constrain"];
+        //        object obj = FState["Constrain"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["Constrain"] = value;
+        //        FState["Constrain"] = value;
         //    }
         //}
 
@@ -727,12 +727,12 @@ namespace FineUI
         //{
         //    get
         //    {
-        //        object obj = XState["ConstrainHeader"];
+        //        object obj = FState["ConstrainHeader"];
         //        return obj == null ? false : (bool)obj;
         //    }
         //    set
         //    {
-        //        XState["ConstrainHeader"] = value;
+        //        FState["ConstrainHeader"] = value;
         //    }
         //}
 
@@ -900,9 +900,9 @@ namespace FineUI
                 // Modified by sanshi.ustc@gamil.com at 2009-8-1
 
                 // 首先删除已经添加的CSS样式
-                RemoveStartupCSS(String.Format("box-{0}-panelbase-icon", XID));
+                RemoveStartupCSS(String.Format("f-{0}-panelbase-icon", XID));
 
-                string className = String.Format("box-{0}-window-icon", GUID);
+                string className = String.Format("f-{0}-window-icon", GUID);
 
                 var addCSSPrefix = String.Empty;
                 if (Target == Target.Parent)
@@ -1702,7 +1702,7 @@ namespace FineUI
             if (Hidden != postHidden)
             {
                 Hidden = postHidden;
-                XState.BackupPostDataProperty("Hidden");
+                FState.BackupPostDataProperty("Hidden");
                 return true;
             }
 

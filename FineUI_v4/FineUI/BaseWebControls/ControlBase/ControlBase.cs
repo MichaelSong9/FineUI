@@ -70,9 +70,9 @@ namespace FineUI
         private FState _state = null;
 
         /// <summary>
-        /// XState用来在服务器和客户端之间持久化控件状态。
+        /// FState用来在服务器和客户端之间持久化控件状态。
         /// </summary>
-        protected FState XState
+        protected FState FState
         {
             get
             {
@@ -285,8 +285,8 @@ namespace FineUI
                         _postBackState = new JObject();
                     }
 
-                    // 启用XState压缩
-                    if (EnableXStateCompress)
+                    // 启用FState压缩
+                    if (EnableFStateCompress)
                     {
                         foreach (string property in _gzippedAjaxProperties)
                         {
@@ -423,17 +423,17 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Attributes"];
+                object obj = FState["Attributes"];
                 if (obj == null)
                 {
-                    XState["Attributes"] = new JObject();
-                    obj = XState["Attributes"];
+                    FState["Attributes"] = new JObject();
+                    obj = FState["Attributes"];
                 }
                 return (JObject)obj;
             }
             set
             {
-                XState["Attributes"] = value;
+                FState["Attributes"] = value;
             }
         }
 
@@ -466,12 +466,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Enabled"];
+                object obj = FState["Enabled"];
                 return obj == null ? true : (bool)obj;
             }
             set
             {
-                XState["Enabled"] = value;
+                FState["Enabled"] = value;
             }
         }
 
@@ -505,12 +505,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["Hidden"];
+                object obj = FState["Hidden"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["Hidden"] = value;
+                FState["Hidden"] = value;
             }
         }
 
@@ -524,12 +524,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["HideMode"];
+                object obj = FState["HideMode"];
                 return obj == null ? HideMode.Display : (HideMode)obj;
             }
             set
             {
-                XState["HideMode"] = value;
+                FState["HideMode"] = value;
             }
         }
 
@@ -544,7 +544,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAjax"];
+                object obj = FState["EnableAjax"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -560,22 +560,22 @@ namespace FineUI
             }
             set
             {
-                XState["EnableAjax"] = value;
+                FState["EnableAjax"] = value;
             }
         }
 
 
         /// <summary>
-        /// 是否启用XState压缩（默认为true）
+        /// 是否启用FState压缩（默认为true）
         /// </summary>
         [Category(CategoryName.BASEOPTIONS)]
         [DefaultValue(true)]
-        [Description("是否启用XState压缩（默认为true）")]
-        public virtual bool EnableXStateCompress
+        [Description("是否启用FState压缩（默认为true）")]
+        public virtual bool EnableFStateCompress
         {
             get
             {
-                object obj = XState["EnableXStateCompress"];
+                object obj = FState["EnableFStateCompress"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -584,14 +584,14 @@ namespace FineUI
                     }
                     else
                     {
-                        return PageManager.Instance.EnableXStateCompress;
+                        return PageManager.Instance.EnableFStateCompress;
                     }
                 }
                 return (bool)obj;
             }
             set
             {
-                XState["EnableXStateCompress"] = value;
+                FState["EnableFStateCompress"] = value;
             }
         }
 
@@ -606,7 +606,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableAjaxLoading"];
+                object obj = FState["EnableAjaxLoading"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -622,7 +622,7 @@ namespace FineUI
             }
             set
             {
-                XState["EnableAjaxLoading"] = value;
+                FState["EnableAjaxLoading"] = value;
             }
         }
 
@@ -637,7 +637,7 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["AjaxLoadingType"];
+                object obj = FState["AjaxLoadingType"];
                 if (obj == null)
                 {
                     if (DesignMode)
@@ -653,7 +653,7 @@ namespace FineUI
             }
             set
             {
-                XState["AjaxLoadingType"] = value;
+                FState["AjaxLoadingType"] = value;
             }
         }
 
@@ -703,7 +703,7 @@ namespace FineUI
                 OnInitControl();
 
                 // 备份初始化属性值
-                XState.BackupInitializedProperties();
+                FState.BackupInitializedProperties();
 
                 // 标识初始化完成
                 InitialComplete = true;
@@ -802,7 +802,7 @@ namespace FineUI
             OnBothPreRender();
 
             // 计算被修改的属性列表
-            XState.CalculateModifiedProperties();
+            FState.CalculateModifiedProperties();
 
             if (IsFineUIAjaxPostBack)
             {
@@ -840,12 +840,12 @@ namespace FineUI
             #region old code
             // There are new properties need to be persisted during the next postback.
             // Re-write the "x_props" property of the component instance.
-            //if (XState.TotalModifiedProperties.Count > PostBackState.Count)
+            //if (FState.TotalModifiedProperties.Count > PostBackState.Count)
             //{
-            //    sb.AppendFormat("{0}.x_props={1};", XID, new JArray(XState.TotalModifiedProperties));
+            //    sb.AppendFormat("{0}.x_props={1};", XID, new JArray(FState.TotalModifiedProperties));
             //}
 
-            //foreach (string property in XState.ModifiedProperties)
+            //foreach (string property in FState.ModifiedProperties)
             //{
             //    string propertyValue = String.Empty;
 
@@ -869,7 +869,7 @@ namespace FineUI
             //} 
             #endregion
 
-            List<string> currentModifiedProperties = XState.ModifiedProperties;
+            List<string> currentModifiedProperties = FState.ModifiedProperties;
             if (currentModifiedProperties.Count > 0)
             {
                 // 更新当前控件的 F_STATE 状态
@@ -889,7 +889,7 @@ namespace FineUI
         protected virtual void OnFirstPreRender()
         {
             #region old code
-            //foreach (string property in XState.TotalModifiedProperties)
+            //foreach (string property in FState.TotalModifiedProperties)
             //{
             //    object propertyValue = null;
 
@@ -913,11 +913,11 @@ namespace FineUI
 
             //// These properties has been modified in the past postbacks.
             //// Every FineUI control should has this property.
-            //OB.AddProperty("x_props", new JArray(XState.TotalModifiedProperties), true);
+            //OB.AddProperty("x_props", new JArray(FState.TotalModifiedProperties), true);
 
             #endregion
 
-            List<string> totalModifiedProperties = XState.GetTotalModifiedProperties();
+            List<string> totalModifiedProperties = FState.GetTotalModifiedProperties();
             if (totalModifiedProperties.Count > 0)
             {
                 string xstate = ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None);
@@ -979,7 +979,7 @@ namespace FineUI
 
 
         /// <summary>
-        /// 获取XState的JS变量
+        /// 获取FState的JS变量
         /// </summary>
         /// <returns></returns>
         protected string GetFStateScriptID()
@@ -1000,12 +1000,12 @@ namespace FineUI
         /// <returns></returns>
         protected bool PropertyModified(string propertyName)
         {
-            bool modified = XState.ModifiedProperties.Contains(propertyName);
+            bool modified = FState.ModifiedProperties.Contains(propertyName);
             if (modified)
             {
                 if (ClientAjaxProperties.Contains(propertyName))
                 {
-                    if (XState.ClientPropertiesModifiedInServer.Contains(propertyName))
+                    if (FState.ClientPropertiesModifiedInServer.Contains(propertyName))
                     {
                         return true;
                     }
@@ -1042,7 +1042,7 @@ namespace FineUI
 
         //protected bool ClientPropertyModifiedInServer(string propertyName)
         //{
-        //    return XState.ClientPropertiesModifiedInServer.Contains(propertyName);
+        //    return FState.ClientPropertiesModifiedInServer.Contains(propertyName);
         //}
 
 
@@ -1054,7 +1054,7 @@ namespace FineUI
         ///// <returns></returns>
         //protected bool TotalPropertyModified(string propertyName)
         //{
-        //    return XState.TotalModifiedProperties.Contains(propertyName);
+        //    return FState.TotalModifiedProperties.Contains(propertyName);
         //}
 
         ///// <summary>
@@ -1070,7 +1070,7 @@ namespace FineUI
 
         #endregion
 
-        #region RecoverPropertiesFromXState ConvertPropertiesToXState
+        #region RecoverPropertiesFromFState ConvertPropertiesToFState
 
         /// <summary>
         /// 从JObject恢复控件的属性
@@ -1164,7 +1164,7 @@ namespace FineUI
             foreach (string property in propertyList)
             {
                 bool propertyGzippped = false;
-                if (EnableXStateCompress)
+                if (EnableFStateCompress)
                 {
                     propertyGzippped = _gzippedAjaxProperties.Contains(property);
                 }

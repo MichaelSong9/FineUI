@@ -104,7 +104,7 @@ F.fieldValue = function (cmp) {
             //F.x_window_manager = new Ext.WindowManager();
             //F.x_window_manager.zseed = 6000;
 
-            F.util.setHiddenFieldValue('X_CHANGED', 'false');
+            F.util.setHiddenFieldValue('F_CHANGED', 'false');
             document.forms[0].autocomplete = 'off';
 
             // 向document.body添加主题类
@@ -312,13 +312,13 @@ F.fieldValue = function (cmp) {
         // 禁用提交按钮（在回发之前禁用以防止重复提交）
         disableSubmitControl: function (controlClientID) {
             F(controlClientID).disable();
-            F.util.setHiddenFieldValue('X_TARGET', controlClientID);
+            F.util.setHiddenFieldValue('F_TARGET', controlClientID);
         },
 
         // 启用提交按钮（在回发之后启用提交按钮）
         enableSubmitControl: function (controlClientID) {
             F(controlClientID).enable();
-            F.util.setHiddenFieldValue('X_TARGET', '');
+            F.util.setHiddenFieldValue('F_TARGET', '');
         },
 
         // 更新ViewState的值
@@ -352,7 +352,7 @@ F.fieldValue = function (cmp) {
 
         // 设置页面状态是否改变
         setPageStateChanged: function () {
-            var pageState = Ext.get("X_CHANGED");
+            var pageState = Ext.get("F_CHANGED");
             if (pageState && pageState.getValue() == "false") {
                 pageState.dom.value = "true";
             }
@@ -360,7 +360,7 @@ F.fieldValue = function (cmp) {
 
         // 页面状态是否改变
         isPageStateChanged: function () {
-            var pageState = Ext.get("X_CHANGED");
+            var pageState = Ext.get("F_CHANGED");
             if (pageState && pageState.getValue() == "true") {
                 return true;
             }
@@ -777,7 +777,7 @@ F.fieldValue = function (cmp) {
         resolveCheckBoxGroup: function (name, xstateContainer, isradiogroup) {
             var items = [], i, count, xitem, xitemvalue, xitems, xselectedarray, xselected, xchecked, xitemname;
 
-            xitems = xstateContainer.X_Items;
+            xitems = xstateContainer.F_Items;
             xselectedarray = xstateContainer.SelectedValueArray;
             xselected = xstateContainer.SelectedValue;
 

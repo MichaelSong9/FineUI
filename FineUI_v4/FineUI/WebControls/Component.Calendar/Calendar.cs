@@ -73,19 +73,19 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["SelectedDate"];
+                object obj = FState["SelectedDate"];
                 return obj == null ? null : (DateTime?)obj;
             }
             set
             {
                 if (DesignMode)
                 {
-                    XState["SelectedDate"] = value;
+                    FState["SelectedDate"] = value;
                 }
                 else
                 {
                     // 传入的值可能包含时间信息，这里就是为了把时间信息去掉，只保留日期信息
-                    XState["SelectedDate"] = DateTime.ParseExact(value.Value.ToString(DateFormatString), DateFormatString, CultureInfo.InvariantCulture);
+                    FState["SelectedDate"] = DateTime.ParseExact(value.Value.ToString(DateFormatString), DateFormatString, CultureInfo.InvariantCulture);
                 }
             }
         }
@@ -101,12 +101,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["DateFormatString"];
+                object obj = FState["DateFormatString"];
                 return obj == null ? "yyyy-MM-dd" : (string)obj;
             }
             set
             {
-                XState["DateFormatString"] = value;
+                FState["DateFormatString"] = value;
             }
         }
 
@@ -121,12 +121,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MaxDate"];
+                object obj = FState["MaxDate"];
                 return obj == null ? null : (DateTime?)obj;
             }
             set
             {
-                XState["MaxDate"] = value;
+                FState["MaxDate"] = value;
             }
         }
 
@@ -141,12 +141,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["MinDate"];
+                object obj = FState["MinDate"];
                 return obj == null ? null : (DateTime?)obj;
             }
             set
             {
-                XState["MinDate"] = value;
+                FState["MinDate"] = value;
             }
         }
 
@@ -161,12 +161,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableDateSelect"];
+                object obj = FState["EnableDateSelect"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableDateSelect"] = value;
+                FState["EnableDateSelect"] = value;
             }
         }
 
@@ -180,12 +180,12 @@ namespace FineUI
         {
             get
             {
-                object obj = XState["EnableDateSelectEvent"];
+                object obj = FState["EnableDateSelectEvent"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                XState["EnableDateSelectEvent"] = value;
+                FState["EnableDateSelectEvent"] = value;
             }
         }
 
@@ -338,7 +338,7 @@ namespace FineUI
                 if (currentSelectedDate != SelectedDate)
                 {
                     SelectedDate = currentSelectedDate;
-                    XState.BackupPostDataProperty("SelectedDate");
+                    FState.BackupPostDataProperty("SelectedDate");
                     return true;
                 }
             }

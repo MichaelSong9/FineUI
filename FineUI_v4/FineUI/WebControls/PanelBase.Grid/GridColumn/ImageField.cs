@@ -136,7 +136,7 @@ namespace FineUI
         {
             get
             {
-                return "box-grid-cell-inner-image";
+                return "f-grid-cell-inner-image";
             }
         }
 
@@ -183,7 +183,7 @@ namespace FineUI
 
 
 
-                result = String.Format("<img src=\"{0}\" class=\"box-grid-imagefield\"{1}/>",
+                result = String.Format("<img src=\"{0}\" class=\"f-grid-imagefield\"{1}/>",
                     Grid.ResolveUrl(imageUrl),
                     cssStyle);
             }
