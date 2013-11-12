@@ -596,7 +596,11 @@ X.toggle = function (el, className) {
 				if(refreshWhenExist) {
 					var iframeNode = currentTab.body.query('iframe')[0];
 					if(iframeNode) {
-						iframeNode.contentWindow.location.reload();
+						if(url) {
+							iframeNode.contentWindow.location.href = url;
+						} else {
+							iframeNode.contentWindow.location.reload();
+						}
 					}
 				}
 				

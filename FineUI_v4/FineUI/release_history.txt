@@ -42,7 +42,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-删除PageManager的ExecuteOnReadyWhenPostBack属性。
 	-更新需要JavaScript参与的示例，DOM相关操作改为jQuery实现。
 	-增加示例grid/grid_edit_enterkey_v.aspx，演示如果使用回车键遍历表格中所有文本框（⑥阿太⑥）。
-
+	-更新X.util.addMainTab方法，如果refreshWhenExist为true，则尝试更新iframe的url，而不是调用location.reload（KITTEN）。
+	
 
 
 
@@ -121,7 +122,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正表格列绑定的数据库字段值为空时出错的问题（欧志辉）。
 	-修正引入样式文件的标签笔误，应为type=text/css（是梦~`）。
 	-DropDownList的ForceSelection属性默认为false，更新示例dropdownlist/dropdownlist_forceselection.aspx。
-
+	-更新X.util.addMainTab方法，如果refreshWhenExist为true，则尝试更新iframe的url，而不是调用location.reload（KITTEN）。
 
 
 +2013-07-29 v3.3.1
