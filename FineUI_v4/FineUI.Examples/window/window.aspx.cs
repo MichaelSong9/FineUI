@@ -18,6 +18,7 @@ namespace FineUI.Examples.window
                 btnHideInClient.OnClientClick = Window2.GetHideReference();
                 btnHideInClient2.OnClientClick = Window2.GetHidePostBackReference("btnHideInClient2");
 
+                //PageContext.RegisterStartupScript(Window2.GetShowReference(300, 300));
 
                 PageContext.RegisterStartupScript(Window2.GetShowReference() + Window2.GetMaximizeReference());
 

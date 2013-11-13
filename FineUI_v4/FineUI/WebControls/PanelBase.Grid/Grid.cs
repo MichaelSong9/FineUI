@@ -2070,8 +2070,8 @@ namespace FineUI
                 // 如果不是数据库分页，则F_Rows不会变化，但是必须执行x_loadData
                 if (PropertyModified("PageIndex", "PageSize", "RecordCount"))
                 {
-                    sb.AppendFormat("{0}.x_getPaging().x_update({1});", XID, GetPagingBuilder());
-                    sb.AppendFormat("{0}.x_loadData();", XID);
+                    sb.AppendFormat("{0}.f_getPaging().f_update({1});", XID, GetPagingBuilder());
+                    sb.AppendFormat("{0}.f_loadData();", XID);
 
                     //needUpdateSortIcon = true;
 
@@ -2084,7 +2084,7 @@ namespace FineUI
                 //if (ClientPropertyModifiedInServer("F_Rows"))
                 if (!dataReloaded)
                 {
-                    sb.AppendFormat("{0}.x_loadData();", XID);
+                    sb.AppendFormat("{0}.f_loadData();", XID);
 
                     //needUpdateSortIcon = true;
 
@@ -2111,7 +2111,7 @@ namespace FineUI
             // 客户端已经改变了排序状态，无需再次设置
             //if (needUpdateSortIcon)
             //{
-            //    sb.AppendFormat("{0}.x_setSortIcon('{1}','{2}');", XID, GetSortColummID(), SortDirection);
+            //    sb.AppendFormat("{0}.f_setSortIcon('{1}','{2}');", XID, GetSortColummID(), SortDirection);
             //}
 
             bool selectRowsScriptRegistered = false;
@@ -2119,14 +2119,14 @@ namespace FineUI
             {
                 if (PropertyModified("SelectedCell"))
                 {
-                    sb.AppendFormat("{0}.x_selectCell();", XID);
+                    sb.AppendFormat("{0}.f_selectCell();", XID);
                 }
             }
             else
             {
                 if (PropertyModified("SelectedRowIndexArray"))
                 {
-                    sb.AppendFormat("{0}.x_selectRows();", XID);
+                    sb.AppendFormat("{0}.f_selectRows();", XID);
                     selectRowsScriptRegistered = true;
                 }
             }
@@ -2134,7 +2134,7 @@ namespace FineUI
 
             if (PropertyModified("HiddenColumns"))
             {
-                sb.AppendFormat("{0}.x_updateColumnsHiddenStatus();", XID);
+                sb.AppendFormat("{0}.f_updateColumnsHiddenStatus();", XID);
             }
 
 
@@ -2143,11 +2143,11 @@ namespace FineUI
             {
                 if (ExpandAllRowExpanders)
                 {
-                    sb.AppendFormat("{0}.x_expandAllRows();", XID);
+                    sb.AppendFormat("{0}.f_expandAllRows();", XID);
                 }
                 else
                 {
-                    sb.AppendFormat("{0}.x_collapseAllRows();", XID);
+                    sb.AppendFormat("{0}.f_collapseAllRows();", XID);
                 }
                 rowExpandersScriptRegistered = true;
             }
@@ -2160,18 +2160,18 @@ namespace FineUI
                     // 数据重新加载了，如果没有注册行扩展列的脚本，需要注册展开所有行扩展列的脚本
                     if (ExpandAllRowExpanders)
                     {
-                        sb.AppendFormat("{0}.x_expandAllRows();", XID);
+                        sb.AppendFormat("{0}.f_expandAllRows();", XID);
                     }
                     else
                     {
-                        sb.AppendFormat("{0}.x_collapseAllRows();", XID);
+                        sb.AppendFormat("{0}.f_collapseAllRows();", XID);
                     }
                 }
 
                 //// 数据重新加载了，检查是否启用文本选择
                 //if (EnableTextSelection)
                 //{
-                //    sb.AppendFormat("{0}.x_enableTextSelection();", XID);
+                //    sb.AppendFormat("{0}.f_enableTextSelection();", XID);
                 //}
 
                 if (!AllowCellEditing)
@@ -2179,7 +2179,7 @@ namespace FineUI
                     // 数据重新加载了，如果没有注册选中行的脚本，需要注册重新选中行的脚本
                     if (!selectRowsScriptRegistered)
                     {
-                        sb.AppendFormat("{0}.x_selectRows();", XID);
+                        sb.AppendFormat("{0}.f_selectRows();", XID);
                     }
                 }
 
@@ -2366,7 +2366,7 @@ namespace FineUI
 
                 pagingBuilder.AddProperty("store", Render_GridStoreID, true);
                 //// Hide refresh button, we don't implement this logic now.
-                //pagingBuilder.Listeners.AddProperty("beforerender", JsHelper.GetFunction("this.x_hideRefresh();"), true);
+                //pagingBuilder.Listeners.AddProperty("beforerender", JsHelper.GetFunction("this.f_hideRefresh();"), true);
 
                 string postbackScript = String.Empty;
                 postbackScript = GetPostBackEventReference("#PLACEHOLDER#");
@@ -2460,16 +2460,16 @@ namespace FineUI
             StringBuilder viewreadySB = new StringBuilder();
 
             // Note: this.f_state['F_Rows']['Values'] will always rendered to the client side.
-            //viewreadySB.Append("cmp.x_updateTpls();");
+            //viewreadySB.Append("cmp.f_updateTpls();");
 
             if (AllowSorting)
             {
-                viewreadySB.AppendFormat("cmp.x_initSortHeaders();");
+                viewreadySB.AppendFormat("cmp.f_initSortHeaders();");
             }
 
             if (!AllowCellEditing)
             {
-                viewreadySB.Append("cmp.x_selectRows();");
+                viewreadySB.Append("cmp.f_selectRows();");
             }
 
 
@@ -2477,13 +2477,13 @@ namespace FineUI
             //{
             //    cls += " x-grid-selectable";
 
-            //    viewreadySB.Append("cmp.x_enableTextSelection();");
+            //    viewreadySB.Append("cmp.f_enableTextSelection();");
             //}
 
             // 展开所有的行扩展列
             if (ExpandAllRowExpanders)
             {
-                viewreadySB.Append("cmp.x_expandAllRows();");
+                viewreadySB.Append("cmp.f_expandAllRows();");
             }
 
 
@@ -2514,12 +2514,12 @@ namespace FineUI
             StringBuilder renderSB = new StringBuilder();
 
             // 加载表格数据
-            renderSB.Append("cmp.x_loadData();");
+            renderSB.Append("cmp.f_loadData();");
 
             //// 隐藏列
             //if (HiddenColumnIndexArray != null && HiddenColumnIndexArray.Length > 0)
             //{
-            //    renderSB.Append("cmp.x_updateColumnsHiddenStatus();");
+            //    renderSB.Append("cmp.f_updateColumnsHiddenStatus();");
             //}
 
             OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderSB.ToString(), "cmp"), true);
@@ -2541,7 +2541,7 @@ namespace FineUI
 
                 //OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
 
-                //OB.AddProperty("x_newAddedRows", "[]", true);
+                //OB.AddProperty("f_newAddedRows", "[]", true);
 
                 if (EnableAfterEditEvent)
                 {
@@ -2571,7 +2571,7 @@ namespace FineUI
             ////    string selectScript = String.Empty;
             ////    if (totalModifiedProperties.Contains("SelectedRowIndexArray"))
             ////    {
-            ////        selectScript = String.Format("{0}.x_selectRows();", XID);
+            ////        selectScript = String.Format("{0}.f_selectRows();", XID);
             ////    }
             ////    else
             ////    {
@@ -2581,7 +2581,7 @@ namespace FineUI
             ////}
 
             //// Make sure SelectedRowIndexArray property exist in F_STATE during page's first load.
-            //sb.Append(JsHelper.GetDeferScript(String.Format("{0}.x_selectRows();", XID), 200));
+            //sb.Append(JsHelper.GetDeferScript(String.Format("{0}.f_selectRows();", XID), 200));
 
             #endregion
         }
@@ -2603,21 +2603,21 @@ namespace FineUI
         private OptionBuilder GetPagingBuilder()
         {
             OptionBuilder pagingBuilder = new OptionBuilder();
-            pagingBuilder.AddProperty("x_pageSize", PageSize);
-            pagingBuilder.AddProperty("x_pageIndex", PageIndex);
-            pagingBuilder.AddProperty("x_recordCount", RecordCount);
-            pagingBuilder.AddProperty("x_pageCount", PageCount);
+            pagingBuilder.AddProperty("f_pageSize", PageSize);
+            pagingBuilder.AddProperty("f_pageIndex", PageIndex);
+            pagingBuilder.AddProperty("f_recordCount", RecordCount);
+            pagingBuilder.AddProperty("f_pageCount", PageCount);
 
             int startRowIndex, endRowIndex;
             ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
             if (IsDatabasePaging)
             {
-                pagingBuilder.AddProperty("x_databasePaging", true);
+                pagingBuilder.AddProperty("f_databasePaging", true);
             }
             else
             {
-                pagingBuilder.AddProperty("x_startRowIndex", startRowIndex);
-                pagingBuilder.AddProperty("x_endRowIndex", endRowIndex);
+                pagingBuilder.AddProperty("f_startRowIndex", startRowIndex);
+                pagingBuilder.AddProperty("f_endRowIndex", endRowIndex);
             }
 
             return pagingBuilder;
@@ -2664,11 +2664,11 @@ namespace FineUI
             //    }
             //    if (AllowPaging)
             //    {
-            //        rowNumberBuilder.AddProperty("x_paging", Render_PagingID, true);
+            //        rowNumberBuilder.AddProperty("f_paging", Render_PagingID, true);
             //    }
             //    if (EnableRowNumberPaging)
             //    {
-            //        rowNumberBuilder.AddProperty("x_paging_enabled", EnableRowNumberPaging);
+            //        rowNumberBuilder.AddProperty("f_paging_enabled", EnableRowNumberPaging);
             //    }
 
             //    columnsBuilder.AddProperty(String.Format("Ext.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
@@ -3618,7 +3618,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetCommitChangesReference()
         {
-            return String.Format("{0}.x_commitChanges();", ScriptID);
+            return String.Format("{0}.f_commitChanges();", ScriptID);
         }
 
 
@@ -3695,7 +3695,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetAddNewRecordReference(JObject defaultObject, bool appendToEnd)
         {
-            return String.Format("{0}.x_addNewRecord({1},{2});", ScriptID, defaultObject.ToString(Formatting.None), appendToEnd.ToString().ToLower());
+            return String.Format("{0}.f_addNewRecord({1},{2});", ScriptID, defaultObject.ToString(Formatting.None), appendToEnd.ToString().ToLower());
         }
 
 
@@ -3713,7 +3713,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetDeleteSelectedReference()
         {
-            return String.Format("{0}.x_deleteSelected();", ScriptID);
+            return String.Format("{0}.f_deleteSelected();", ScriptID);
         }
 
         #endregion
@@ -3747,7 +3747,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetSelectedCountReference()
         {
-            return String.Format("{0}.x_getSelectedCount()", ScriptID);
+            return String.Format("{0}.f_getSelectedCount()", ScriptID);
         }
 
         /// <summary>
@@ -3756,7 +3756,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetSelectedCellReference()
         {
-            return String.Format("{0}.x_getSelectedCell()", ScriptID);
+            return String.Format("{0}.f_getSelectedCell()", ScriptID);
         }
 
 
@@ -3910,7 +3910,7 @@ namespace FineUI
             SelectedRowIndexArray = rowIndexs.ToArray();
             */
 
-            PageContext.RegisterStartupScript(String.Format("{0}.x_selectAllRows();", ScriptID));
+            PageContext.RegisterStartupScript(String.Format("{0}.f_selectAllRows();", ScriptID));
         }
 
         /// <summary>
@@ -3921,7 +3921,7 @@ namespace FineUI
             _registerScriptRowExpanders = true;
 
             ExpandAllRowExpanders = true;
-            //PageContext.RegisterStartupScript(String.Format("{0}.x_expandAllRows();", ScriptID));
+            //PageContext.RegisterStartupScript(String.Format("{0}.f_expandAllRows();", ScriptID));
         }
 
         /// <summary>
@@ -3932,7 +3932,7 @@ namespace FineUI
             _registerScriptRowExpanders = true;
 
             ExpandAllRowExpanders = false;
-            //PageContext.RegisterStartupScript(String.Format("{0}.x_collapseAllRows();", ScriptID));
+            //PageContext.RegisterStartupScript(String.Format("{0}.f_collapseAllRows();", ScriptID));
         }
 
         #endregion

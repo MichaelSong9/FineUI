@@ -118,11 +118,11 @@ namespace FineUI
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendFormat("window.clearInterval({0}.x_timer);", XID);
+            sb.AppendFormat("window.clearInterval({0}.f_timer);", XID);
 
             if (Enabled)
             {
-                sb.AppendFormat("{0}.x_timer=window.setInterval(function(){{{1}}}, {2});", XID, GetPostBackEventReference(), Interval * 1000);
+                sb.AppendFormat("{0}.f_timer=window.setInterval(function(){{{1}}}, {2});", XID, GetPostBackEventReference(), Interval * 1000);
             }
 
             return sb.ToString();

@@ -1,11 +1,11 @@
 ﻿
 Ext.override(Ext.Component, {
 
-    x_setDisabled: function () {
+    f_setDisabled: function () {
         this.setDisabled(!this.f_state['Enabled']);
     },
 
-    x_setVisible: function () {
+    f_setVisible: function () {
         this.setVisible(!this.f_state['Hidden']);
     }
 
@@ -14,7 +14,7 @@ Ext.override(Ext.Component, {
 // 验证一个表单是否有效，会递归查询表单中每个字段
 // 如果表单隐藏或者字段隐藏，则不进行有效性校验
 Ext.override(Ext.container.Container, {
-    x_isValid: function () {
+    f_isValid: function () {
         var valid = true;
         var firstInvalidField = null;
         if (!this.hidden) {
@@ -28,7 +28,7 @@ Ext.override(Ext.container.Container, {
                             }
                         }
                     } else if (f.items) {
-                        var validResult = f.x_isValid();
+                        var validResult = f.f_isValid();
                         if (!validResult[0]) {
                             valid = false;
                             if (firstInvalidField == null) {
@@ -42,12 +42,12 @@ Ext.override(Ext.container.Container, {
         return [valid, firstInvalidField];
     },
 
-    x_reset: function () {
+    f_reset: function () {
         this.items.each(function (f) {
             if (f.isXType('field')) {
                 f.reset();
             } else if (f.items) {
-                validResult = this.x_reset();
+                validResult = this.f_reset();
             }
         });
     }
@@ -55,7 +55,7 @@ Ext.override(Ext.container.Container, {
 });
 
 Ext.override(Ext.panel.Panel, {
-    x_setCollapse: function () {
+    f_setCollapse: function () {
         var collapsed = this.f_state['Collapsed'];
         if (collapsed) {
             this.collapse();
@@ -64,7 +64,7 @@ Ext.override(Ext.panel.Panel, {
         }
     },
 
-    x_isCollapsed: function () {
+    f_isCollapsed: function () {
         var collapsed = false;
         var state = this.getState();
         if (state && state.collapsed) {
@@ -73,14 +73,14 @@ Ext.override(Ext.panel.Panel, {
         return collapsed;
     },
 
-    x_setTitle: function () {
+    f_setTitle: function () {
         this.setTitle(this.f_state['Title']);
     }
 
 });
 
 Ext.override(Ext.form.FieldSet, {
-    x_setCollapse: function () {
+    f_setCollapse: function () {
         var collapsed = this.f_state['Collapsed'];
         if (collapsed) {
             this.collapse();
@@ -89,7 +89,7 @@ Ext.override(Ext.form.FieldSet, {
         }
     },
 
-    x_isCollapsed: function () {
+    f_isCollapsed: function () {
         var collapsed = false;
         var state = this.getState();
         if (state && state.collapsed) {
@@ -98,7 +98,7 @@ Ext.override(Ext.form.FieldSet, {
         return collapsed;
     },
 
-    x_setTitle: function () {
+    f_setTitle: function () {
         this.setTitle(this.f_state['Title']);
     }
 
@@ -107,7 +107,7 @@ Ext.override(Ext.form.FieldSet, {
 if (Ext.menu.CheckItem) {
     Ext.override(Ext.menu.CheckItem, {
 
-        x_setChecked: function () {
+        f_setChecked: function () {
             this.setChecked(this.f_state['Checked'], true);
         }
 
@@ -169,14 +169,14 @@ if (Ext.form.field.Base) {
         },
         */
 
-        x_setValue: function (value) {
+        f_setValue: function (value) {
             if (typeof (value) === 'undefined') {
                 value = this.f_state['Text'];
             }
             this.setValue(value);
         },
 
-        x_setLabel: function (text) {
+        f_setLabel: function (text) {
             if (this.label && this.label.update) {
                 this.label.update(text || this.f_state['Label']);
             }
@@ -189,7 +189,7 @@ if (Ext.form.field.Time) {
     Ext.override(Ext.form.field.Time, {
 
         // Time 继承自 ComboBox，这个函数被覆盖了，因此需要重新定义
-        x_setValue: function (value) {
+        f_setValue: function (value) {
             if (typeof (value) === 'undefined') {
                 value = this.f_state['Text'];
             }
@@ -203,7 +203,7 @@ if (Ext.form.field.Time) {
 if (Ext.form.field.HtmlEditor) {
     Ext.override(Ext.form.field.HtmlEditor, {
 
-        x_setValue: function (text) {
+        f_setValue: function (text) {
             if (typeof (text) === 'undefined') {
                 text = this.f_state['Text'];
             }
@@ -217,7 +217,7 @@ if (Ext.form.field.HtmlEditor) {
 if (Ext.form.field.Checkbox) {
     Ext.override(Ext.form.field.Checkbox, {
 
-        x_setValue: function () {
+        f_setValue: function () {
             this.setValue(this.f_state['Checked']);
         }
 
@@ -228,12 +228,12 @@ if (Ext.form.field.Checkbox) {
 if (Ext.form.RadioGroup) {
     Ext.override(Ext.form.RadioGroup, {
 
-        x_setValue: function (value) {
+        f_setValue: function (value) {
             value = value || this.f_state['SelectedValue'];
             var selectedObj = {};
             selectedObj[this.name] = value;
             this.setValue(selectedObj);
-            //Ext.form.CheckboxGroup.prototype.x_setValue.apply(this, [value]);
+            //Ext.form.CheckboxGroup.prototype.f_setValue.apply(this, [value]);
         }
 
     });
@@ -243,7 +243,7 @@ if (Ext.form.RadioGroup) {
 if (Ext.form.CheckboxGroup) {
     Ext.override(Ext.form.CheckboxGroup, {
 
-        x_reloadData: function (name, isradiogroup) {
+        f_reloadData: function (name, isradiogroup) {
             var container = this.ownerCt;
             var newConfig = Ext.apply(this.initialConfig, {
                 "f_state": this.f_state,
@@ -272,7 +272,7 @@ if (Ext.form.CheckboxGroup) {
         },
 
         /*
-        x_toBeDeleted: function () {
+        f_toBeDeleted: function () {
             var tobedeleted = this.items.items[0];
             if (tobedeleted && tobedeleted.inputValue === 'tobedeleted') {
                 tobedeleted.destroy();
@@ -282,10 +282,10 @@ if (Ext.form.CheckboxGroup) {
         */
 
         // 选中项
-        x_setValue: function (values) {
+        f_setValue: function (values) {
             // valueArray：["value1", "value2", "value3"]
             var values = values || this.f_state['SelectedValueArray'];
-            
+
             var selectedObj = {};
             this.items.each(function (item) {
                 var itemSelected = false;
@@ -299,7 +299,7 @@ if (Ext.form.CheckboxGroup) {
         },
 
         // 返回 ["value1", "value2", "value3"]
-        x_getSelectedValues: function () {
+        f_getSelectedValues: function () {
             var selectedValues = [];
             var values = this.getValue();
             Ext.Object.each(values, function (key, value) {
@@ -323,7 +323,7 @@ if (Ext.form.field.ComboBox) {
         // These variables are in the Ext.form.ComboBox.prototype, therefore all instance will refer to the same store instance.
         //store: new Ext.data.ArrayStore({ fields: ['value', 'text', 'enabled', 'prefix'] }),
 
-        x_setValue: function (value) {
+        f_setValue: function (value) {
             // value 可以是空字符串
             if (typeof (value) === 'undefined') {
                 value = this.f_state['SelectedValue'];
@@ -331,7 +331,7 @@ if (Ext.form.field.ComboBox) {
             this.setValue(value);
         },
 
-        x_loadData: function (data) {
+        f_loadData: function (data) {
             data = data || this.f_state['F_Items'];
             if (data) {
                 this.store.loadData(F.simulateTree.transform(data));
@@ -339,7 +339,7 @@ if (Ext.form.field.ComboBox) {
         },
 
 
-        x_getTextByValue: function (value, data) {
+        f_getTextByValue: function (value, data) {
             data = data || this.f_state['F_Items'];
             value += ''; // 把Value转换为字符串
             for (var i = 0, count = data.length; i < count; i++) {
@@ -358,15 +358,15 @@ if (Ext.form.field.ComboBox) {
 if (Ext.button.Button) {
     Ext.override(Ext.button.Button, {
 
-        x_setTooltip: function () {
+        f_setTooltip: function () {
             this.setTooltip(this.f_state['ToolTip']);
         },
 
-        x_toggle: function () {
+        f_toggle: function () {
             this.toggle(this.f_state['Pressed']);
         },
 
-        x_setText: function () {
+        f_setText: function () {
             this.setText(this.f_state['Text']);
         }
 
@@ -384,10 +384,10 @@ if (Ext.grid.column.RowNumberer) {
 
             var number = F.originalRowNumbererRenderer.apply(this, arguments);
 
-            if (this.x_paging) {
-                var pagingBar = F(this.x_paging_grid).x_getPaging();
+            if (this.f_paging) {
+                var pagingBar = F(this.f_paging_grid).f_getPaging();
                 if (pagingBar) {
-                    number += pagingBar.x_pageIndex * pagingBar.x_pageSize;
+                    number += pagingBar.f_pageIndex * pagingBar.f_pageSize;
                 }
             }
 
@@ -410,11 +410,11 @@ if (Ext.data.Store) {
 if (Ext.grid.Panel) {
     Ext.override(Ext.grid.Panel, {
 
-        x_getData: function () {
+        f_getData: function () {
             var $this = this, data = this.f_state['F_Rows']['Values'];
 
             //////////////////////////////////////////////////
-            var tpls = this.x_getTpls(this.x_tpls);
+            var tpls = this.f_getTpls(this.f_tpls);
 
             // 将Grid1_ctl37与对应的outHTML放在哈希表中
             var tplsHash = {};
@@ -443,7 +443,7 @@ if (Ext.grid.Panel) {
             return newdata;
         },
 
-        x_getTpls: function (paramTpls) {
+        f_getTpls: function (paramTpls) {
             var tpls;
             if (typeof (paramTpls) !== 'undefined') {
                 // 1. 如果Tpls存在于函数参数中
@@ -470,8 +470,8 @@ if (Ext.grid.Panel) {
         },
 
 
-        x_updateTpls: function (tpls) {
-            tpls = this.x_getTpls(tpls);
+        f_updateTpls: function (tpls) {
+            tpls = this.f_getTpls(tpls);
 
             var e = document.createElement('div');
             e.innerHTML = tpls;
@@ -486,20 +486,20 @@ if (Ext.grid.Panel) {
             });
         },
 
-        x_getPaging: function () {
+        f_getPaging: function () {
             var toolbar = this.getDockedItems('toolbar[dock="bottom"]');
             return toolbar.length ? toolbar[0] : undefined;
         },
 
-        x_loadData: function () {
-            var datas = this.x_getData();
-            var pagingBar = this.x_getPaging();
+        f_loadData: function () {
+            var datas = this.f_getData();
+            var pagingBar = this.f_getPaging();
             if (pagingBar) {
                 var pagingDatas = [];
-                if (pagingBar.x_databasePaging) {
+                if (pagingBar.f_databasePaging) {
                     pagingDatas = datas;
                 } else {
-                    for (var i = pagingBar.x_startRowIndex; i <= pagingBar.x_endRowIndex; i++) {
+                    for (var i = pagingBar.f_startRowIndex; i <= pagingBar.f_endRowIndex; i++) {
                         pagingDatas.push(datas[i]);
                     }
                 }
@@ -515,28 +515,28 @@ if (Ext.grid.Panel) {
             //store.rejectChanges();
 
             // 重新加载数据前清空之前的改变
-            //this.x_newAddedRows = [];
-            //this.x_deletedRows = [];
+            //this.f_newAddedRows = [];
+            //this.f_deletedRows = [];
 
             store.loadData(datas);
 
-            
 
-            this.x_initRecordIDs();
+
+            this.f_initRecordIDs();
 
         },
 
         // 初始化所有记录的ID列表
-        x_initRecordIDs: function () {
+        f_initRecordIDs: function () {
             var $this = this;
-            this.x_recordIDs = [];
+            this.f_recordIDs = [];
             this.getStore().each(function (record, index) {
-                $this.x_recordIDs.push(record.id);
+                $this.f_recordIDs.push(record.id);
             });
         },
 
         // 展开所有的行扩展列
-        x_expandAllRows: function () {
+        f_expandAllRows: function () {
             var expander = this.getPlugin(this.id + '_rowexpander');
             if (expander) {
                 var store = this.getStore();
@@ -550,7 +550,7 @@ if (Ext.grid.Panel) {
         },
 
         // 隐藏所有的行扩展列
-        x_collapseAllRows: function () {
+        f_collapseAllRows: function () {
             var expander = this.getPlugin(this.id + '_rowexpander');
             if (expander) {
                 var store = this.getStore();
@@ -566,7 +566,7 @@ if (Ext.grid.Panel) {
         // http://evilcroco.name/2010/10/making-extjs-grid-content-selectable/
         // IE下允许选中表格中的文本
         /*
-        x_enableTextSelection: function () {
+        f_enableTextSelection: function () {
             var elems = Ext.DomQuery.select("div[unselectable=on]", this.el.dom);
             for (var i = 0, len = elems.length; i < len; i++) {
                 Ext.get(elems[i]).set({ 'unselectable': 'off' }).removeCls('x-unselectable');
@@ -575,7 +575,7 @@ if (Ext.grid.Panel) {
         */
 
         // 获取选中的行数，或者单元格数（单元格编辑模式）
-        x_getSelectedCount: function () {
+        f_getSelectedCount: function () {
             var selectedCount = 0;
             var sm = this.getSelectionModel();
             if (sm.hasSelection()) {
@@ -590,7 +590,7 @@ if (Ext.grid.Panel) {
         },
 
         // 选中某些行
-        x_selectRows: function (rows) {
+        f_selectRows: function (rows) {
             rows = rows || this.f_state['SelectedRowIndexArray'] || [];
             var sm = this.getSelectionModel();
             if (sm.select) {
@@ -603,7 +603,7 @@ if (Ext.grid.Panel) {
         },
 
         // 选中全部行
-        x_selectAllRows: function() {
+        f_selectAllRows: function () {
             var sm = this.getSelectionModel();
             if (sm.selectAll) {
                 sm.selectAll(true);
@@ -611,7 +611,7 @@ if (Ext.grid.Panel) {
         },
 
         // 获取选中的行
-        x_getSelectedRows: function () {
+        f_getSelectedRows: function () {
             var selectedRows = [];
             var sm = this.getSelectionModel();
             if (sm.getSelection) {
@@ -628,7 +628,7 @@ if (Ext.grid.Panel) {
 
 
         // 选中单元格（AllowCellEditing）
-        x_selectCell: function (cell) {
+        f_selectCell: function (cell) {
             cell = cell || this.f_state['SelectedCell'] || [];
             var sm = this.getSelectionModel();
             if (sm.select) {
@@ -641,7 +641,7 @@ if (Ext.grid.Panel) {
         },
 
         // 获取选中的单元格（AllowCellEditing）
-        x_getSelectedCell: function () {
+        f_getSelectedCell: function () {
             var selectedCell = [];
             var sm = this.getSelectionModel();
             if (sm.getSelectedCell) {
@@ -655,7 +655,7 @@ if (Ext.grid.Panel) {
 
 
         // 获取隐藏列的名称列表
-        x_getHiddenColumns: function () {
+        f_getHiddenColumns: function () {
             var hiddens = [], columns = this.columns;
             Ext.Array.each(columns, function (column, index) {
                 if (column.isHidden()) {
@@ -666,7 +666,7 @@ if (Ext.grid.Panel) {
         },
 
         // 隐藏需要隐藏的列，显示不需要隐藏的列
-        x_updateColumnsHiddenStatus: function (hiddens) {
+        f_updateColumnsHiddenStatus: function (hiddens) {
             hiddens = hiddens || this.f_state['HiddenColumns'] || [];
             var columns = this.columns;
             Ext.Array.each(columns, function (column, index) {
@@ -679,8 +679,8 @@ if (Ext.grid.Panel) {
         },
 
         // 初始化排序列头
-        x_initSortHeaders: function() {
-            var gridEl = Ext.get(this.id), columns = this.x_getColumns();
+        f_initSortHeaders: function () {
+            var gridEl = Ext.get(this.id), columns = this.f_getColumns();
 
             // 为所有可排序列添加手型光标
             Ext.Array.each(columns, function (item, index) {
@@ -691,8 +691,8 @@ if (Ext.grid.Panel) {
         },
 
         // 设置表格标题栏的排序图标
-        x_setSortIcon: function (sortColumnID, sortDirection) {
-            var gridEl = Ext.get(this.id), columns = this.x_getColumns(), headers = gridEl.select('.x-column-header');
+        f_setSortIcon: function (sortColumnID, sortDirection) {
+            var gridEl = Ext.get(this.id), columns = this.f_getColumns(), headers = gridEl.select('.x-column-header');
 
             // 清空所有可排序列的排序箭头
             headers.removeCls(['x-column-header-sort-DESC', 'x-column-header-sort-ASC']);
@@ -712,12 +712,12 @@ if (Ext.grid.Panel) {
         },
 
         // 获取表格列
-        x_getColumns: function () {
+        f_getColumns: function () {
             /*
             var columns = [];
             var configColumns = this.getColumnModel().config;
             Ext.Array.each(configColumns, function (item, index) {
-                // expander也属于表格列的一种类型，否则设置x_setSortIcon会出错
+                // expander也属于表格列的一种类型，否则设置f_setSortIcon会出错
                 if (item.id !== 'numberer' && item.id !== 'checker') { // && item.id !== 'expander'
                     columns.push(item);
                 }
@@ -728,8 +728,8 @@ if (Ext.grid.Panel) {
 
         // 这个方法用不到了，现在对States的更新会导致Values的改变，进而促使表格的重新加载
         /*
-        x_setRowStates: function (states) {
-        var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = states || this.f_state['f_states'] || [];
+        f_setRowStates: function (states) {
+        var gridEl = Ext.get(this.id), columns = this.f_getColumns(), states = states || this.f_state['f_states'] || [];
 
         function setCheckBoxStates(columnIndex, stateColumnIndex) {
         var checkboxRows = gridEl.select('.x-grid-body .x-grid-row .x-grid-td-' + columns[columnIndex].id + ' .f-grid-checkbox');
@@ -752,8 +752,8 @@ if (Ext.grid.Panel) {
 
         var stateColumnIndex = 0;
         Ext.Array.each(columns, function (column, index) {
-        if (column['x_persistState']) {
-        if (column['x_persistStateType'] === 'checkbox') {
+        if (column['f_persistState']) {
+        if (column['f_persistStateType'] === 'checkbox') {
         setCheckBoxStates(index, stateColumnIndex);
         stateColumnIndex++;
         }
@@ -763,8 +763,8 @@ if (Ext.grid.Panel) {
         */
 
         // 获取列状态（目前只有CheckBoxField用到）
-        x_getStates: function () {
-            var gridEl = Ext.get(this.id), columns = this.x_getColumns(), states = [];
+        f_getStates: function () {
+            var gridEl = Ext.get(this.id), columns = this.f_getColumns(), states = [];
 
             function getCheckBoxStates(columnIndex) {
                 var checkboxRows = gridEl.select('.x-grid-row .x-grid-cell-' + columns[columnIndex].id + ' .f-grid-checkbox');
@@ -780,8 +780,8 @@ if (Ext.grid.Panel) {
             }
 
             Ext.Array.each(columns, function (column, index) {
-                if (column['x_persistState']) {
-                    if (column['x_persistStateType'] === 'checkbox') {
+                if (column['f_persistState']) {
+                    if (column['f_persistStateType'] === 'checkbox') {
                         states.push(getCheckBoxStates(index));
                     }
                 }
@@ -804,17 +804,17 @@ if (Ext.grid.Panel) {
         },
 
         // 提交客户端改变
-        x_commitChanges: function () {
+        f_commitChanges: function () {
 
             this.getStore().commitChanges();
 
-            //this.x_newAddedRows = [];
-            //this.x_deletedRows = [];
-            this.x_initRecordIDs();
+            //this.f_newAddedRows = [];
+            //this.f_deletedRows = [];
+            this.f_initRecordIDs();
         },
 
         // 从Store中删除选中的行（或者单元格）
-        x_deleteSelected: function () {
+        f_deleteSelected: function () {
             var $this = this;
             var store = this.getStore();
 
@@ -831,7 +831,7 @@ if (Ext.grid.Panel) {
         },
 
         // 添加一条新纪录
-        x_addNewRecord: function (defaultObj, appendToEnd) {
+        f_addNewRecord: function (defaultObj, appendToEnd) {
             var i, count, store = this.getStore();
             var recordType = store.recordType;
             var newRecord = new recordType(defaultObj);
@@ -841,27 +841,27 @@ if (Ext.grid.Panel) {
                 store.add(newRecord);
 
                 // 新增客户端改变的行索引
-                //this.x_newAddedRows.push(store.getCount() - 1);
+                //this.f_newAddedRows.push(store.getCount() - 1);
 
             } else {
                 store.insert(0, newRecord);
 
                 // 新增客户端改变的行索引
-                //for (i = 0, count = this.x_newAddedRows.length; i < count; i++) {
-                //    this.x_newAddedRows[i]++;
+                //for (i = 0, count = this.f_newAddedRows.length; i < count; i++) {
+                //    this.f_newAddedRows[i]++;
                 //}
-                //this.x_newAddedRows.push(0);
+                //this.f_newAddedRows.push(0);
 
             }
             this.startEditing(0, 0);
         },
 
         // 获取新增的行索引（在修改后的列表中）
-        x_getNewAddedRows: function () {
+        f_getNewAddedRows: function () {
             var $this = this;
             var newAddedRows = [];
             this.getStore().each(function (record, index) {
-                if ($this.x_recordIDs.indexOf(record.id) < 0) {
+                if ($this.f_recordIDs.indexOf(record.id) < 0) {
                     newAddedRows.push(index);
                 }
             });
@@ -869,18 +869,18 @@ if (Ext.grid.Panel) {
         },
 
         // 获取删除的行索引（在原始的列表中）
-        x_getDeletedRows: function () {
+        f_getDeletedRows: function () {
             var currentRecordIDs = [], deletedRows = [];
             this.getStore().each(function (record, index) {
                 currentRecordIDs.push(record.id);
             });
 
             // 快速判断是否存在行被删除的情况
-            if (currentRecordIDs.join('') === this.x_recordIDs.join('')) {
+            if (currentRecordIDs.join('') === this.f_recordIDs.join('')) {
                 return deletedRows;
             }
 
-            Ext.Array.each(this.x_recordIDs, function (recordID, index) {
+            Ext.Array.each(this.f_recordIDs, function (recordID, index) {
                 if (currentRecordIDs.indexOf(recordID) < 0) {
                     deletedRows.push(index);
                 }
@@ -889,8 +889,8 @@ if (Ext.grid.Panel) {
         },
 
         // 获取用户修改的单元格值
-        x_getModifiedData: function () {
-            var i, j, count, columns = this.x_getColumns(), columnMap = {};
+        f_getModifiedData: function () {
+            var i, j, count, columns = this.f_getColumns(), columnMap = {};
 
             Ext.Array.each(columns, function (column, index) {
                 columnMap[column.id] = column;
@@ -918,7 +918,7 @@ if (Ext.grid.Panel) {
                 }
 
                 // 本行数据在原始数据集合中的行索引
-                rowIndexOriginal = this.x_recordIDs.indexOf(recordID);
+                rowIndexOriginal = this.f_recordIDs.indexOf(recordID);
                 if (rowIndexOriginal < 0) {
                     // 删除那些不能编辑的列
                     for (var columnID in rowData) {
@@ -953,9 +953,9 @@ if (Ext.grid.Panel) {
 if (Ext.tree.Panel) {
     Ext.override(Ext.tree.Panel, {
 
-        x_loadData: function () {
+        f_loadData: function () {
             var datas = this.f_state['F_Nodes'];
-            var nodes = this.x_tranformData(datas);
+            var nodes = this.f_tranformData(datas);
             var root = this.getRootNode();
             if (root) {
                 root.removeAll();
@@ -967,7 +967,7 @@ if (Ext.tree.Panel) {
             });
         },
 
-        x_tranformData: function (datas) {
+        f_tranformData: function (datas) {
             var that = this, i = 0, nodes = [];
             for (i = 0; i < datas.length; i++) {
                 var data = datas[i], node = {};
@@ -999,7 +999,7 @@ if (Ext.tree.Panel) {
                 if (!!data[4]) {
                     node.checked = !!data[5];
                     if (!!data[16]) {
-                        node.x_autopostback = true;
+                        node.f_autopostback = true;
                     }
                 }
                 if (!data[1]) {
@@ -1015,17 +1015,17 @@ if (Ext.tree.Panel) {
                 node.qtip = data[13];
 
                 if (data[14]) {
-                    node.x_clientclick = data[14];
+                    node.f_clientclick = data[14];
                 }
-                node.x_enablepostback = !!data[15];
-                node.x_commandname = data[17];
-                node.x_commandargument = data[18];
-                
+                node.f_enablepostback = !!data[15];
+                node.f_commandname = data[17];
+                node.f_commandargument = data[18];
+
                 if (data[19] && data[19].length > 0) {
-                    node.children = that.x_tranformData(data[19]);
+                    node.children = that.f_tranformData(data[19]);
                 }
 
-                
+
                 /*
                 node.listeners = {};
 
@@ -1056,7 +1056,7 @@ if (Ext.tree.Panel) {
 
 
                 if (data[20] && data[20].length > 0) {
-                    node.children = that.x_tranformData(data[20]);
+                    node.children = that.f_tranformData(data[20]);
                 }
                 */
 
@@ -1065,7 +1065,7 @@ if (Ext.tree.Panel) {
             return nodes;
         },
 
-        x_getExpandedNodes: function (nodes) {
+        f_getExpandedNodes: function (nodes) {
             var i = 0, that = this, expandedNodes = [];
 
             for (; i < nodes.length; i++) {
@@ -1074,14 +1074,14 @@ if (Ext.tree.Panel) {
                     expandedNodes.push(node.getId());
                 }
                 if (node.hasChildNodes()) {
-                    expandedNodes = expandedNodes.concat(that.x_getExpandedNodes(node.childNodes));
+                    expandedNodes = expandedNodes.concat(that.f_getExpandedNodes(node.childNodes));
                 }
             }
 
             return expandedNodes;
         },
 
-        x_getCheckedNodes: function () {
+        f_getCheckedNodes: function () {
             var checkedIDs = [], checkedArray = this.getChecked();
             Ext.Array.each(checkedArray, function (node, index) {
                 checkedIDs.push(node.getId());
@@ -1089,12 +1089,12 @@ if (Ext.tree.Panel) {
             return checkedIDs;
         },
 
-        x_getSelectedNodes: function () {
+        f_getSelectedNodes: function () {
             var selectedNodeIDs = [];
             var sm = this.getSelectionModel();
             if (sm.getSelection) {
                 var selection = sm.getSelection();
-                
+
                 Ext.Array.each(selection, function (node, index) {
                     selectedNodeIDs.push(node.getId());
                 });
@@ -1103,7 +1103,7 @@ if (Ext.tree.Panel) {
             return selectedNodeIDs;
         },
 
-        x_selectNodes: function () {
+        f_selectNodes: function () {
             var nodeIDs = this.f_state['SelectedNodeIDArray'] || [];
             var model = this.getSelectionModel(), store = this.getStore(), nodes = [];
             Ext.Array.each(nodeIDs, function (nodeID, index) {
@@ -1122,7 +1122,7 @@ if (Ext.PagingToolbar) {
     // We don't use this Class in current version.
     Ext.override(Ext.PagingToolbar, {
 
-        x_hideRefresh: function () {
+        f_hideRefresh: function () {
             var index = this.items.indexOf(this.refresh);
             this.items.get(index - 1).hide();
             this.refresh.hide();
@@ -1135,17 +1135,17 @@ if (Ext.PagingToolbar) {
 if (Ext.tab.Panel) {
     Ext.override(Ext.tab.Panel, {
 
-        x_autoPostBackTabsContains: function (tabId) {
+        f_autoPostBackTabsContains: function (tabId) {
             var tabs = this.f_state['F_AutoPostBackTabs'];
             return tabs.indexOf(tabId) !== -1;
         },
 
-        x_setActiveTab: function () {
+        f_setActiveTab: function () {
             var tabIndex = this.f_state['ActiveTabIndex'];
             this.setActiveTab(tabIndex);
         },
 
-        x_getActiveTabIndex: function () {
+        f_getActiveTabIndex: function () {
             return this.items.indexOf(this.getActiveTab());
         },
 
@@ -1194,7 +1194,7 @@ if (Ext.tab.Panel) {
                 Ext.apply(options, id);
             }
             Ext.apply(options, {
-                'x_dynamic_added_tab': true,
+                'f_dynamic_added_tab': true,
                 'html': '<iframe id="' + options.id + '" name="' + options.id + '" src="' + options.url + '" frameborder="0" style="height:100%;width:100%;overflow:auto;"\></iframe\>'
             });
             var tab = this.add(options);
@@ -1221,46 +1221,46 @@ if (Ext.Window) {
 
     Ext.override(Ext.Window, {
 
-        // 此函数为了兼容考虑，请使用 x_hide 函数
-        box_hide: function () {
-            this.x_hide();
+        /*
+        bof_hide: function () {
+            this.f_hide();
         },
-        box_hide_refresh: function () {
-            this.x_hide_refresh();
+        bof_hide_refresh: function () {
+            this.f_hide_refresh();
         },
-        box_hide_postback: function (argument) {
-            this.x_hide_postback(argument);
+        bof_hide_postback: function (argument) {
+            this.f_hide_postback(argument);
         },
-        box_show: function (iframeUrl, windowTitle) {
-            this.x_show(iframeUrl, windowTitle);
+        bof_show: function (iframeUrl, windowTitle) {
+            this.f_show(iframeUrl, windowTitle);
         },
+        */
 
-
-        x_hide: function () {
-            F.wnd.hide(this, this.x_property_target, this.x_iframe, this.id + '_Hidden', this.x_property_guid);
+        f_hide: function () {
+            F.wnd.hide(this, this.f_property_target, this.f_iframe, this.id + '_Hidden', this.f_property_guid);
         },
-        x_hide_refresh: function () {
-            this.x_hide();
+        f_hide_refresh: function () {
+            this.f_hide();
             window.location.reload();
         },
-        x_hide_postback: function (argument) {
+        f_hide_postback: function (argument) {
             // 如果argument为undefined，则传入__doPostBack应为空字符串
             argument = argument || '';
-            this.x_hide();
+            this.f_hide();
             __doPostBack(this.name, argument);
         },
-        x_show: function (iframeUrl, windowTitle) {
-            F.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
+        f_show: function (iframeUrl, windowTitle, width, height) {
+            F.wnd.show(this, iframeUrl, windowTitle, this.f_property_left, this.f_property_top, this.f_property_position, this.id + '_Hidden', width, height);
         },
 
-        x_maximize: function () {
-            F.wnd.maximize(this, this.x_property_target, this.x_property_guid);
+        f_maximize: function () {
+            F.wnd.maximize(this, this.f_property_target, this.f_property_guid);
         },
-        x_minimize: function () {
-            F.wnd.minimize(this, this.x_property_target, this.x_property_guid);
+        f_minimize: function () {
+            F.wnd.minimize(this, this.f_property_target, this.f_property_guid);
         },
-        x_restore: function () {
-            F.wnd.restore(this, this.x_property_target, this.x_property_guid);
+        f_restore: function () {
+            F.wnd.restore(this, this.f_property_target, this.f_property_guid);
         }
 
     });

@@ -78,7 +78,7 @@
         var ddlGenderID = '<%= ddlGender.ClientID %>';
 
         function renderGender(value, metadata, record, rowIndex, colIndex) {
-            return F(ddlGenderID).x_getTextByValue(value);
+            return F(ddlGenderID).f_getTextByValue(value);
         }
 
 

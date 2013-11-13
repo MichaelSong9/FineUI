@@ -452,7 +452,7 @@ namespace FineUI
             //afterBuilder.Append("\r\n");
 
             //#if DEBUG
-            //            afterBuilder.Append("window.x_render_end_time = new Date();");
+            //            afterBuilder.Append("window.f_render_end_time = new Date();");
             //#endif
             #endregion
 

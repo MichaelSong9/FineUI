@@ -69,7 +69,7 @@
             // activeWindow = [当前活动的Ext-Window对象，当前活动的Ext-Window对象所在的window对象]
             var activeWindow = F.wnd.getActiveWindow();
             activeWindow[1].selectProvince(provinceName);
-            activeWindow[0].x_hide();
+            activeWindow[0].f_hide();
         }
 
         var imgClientID = '<%= imgChina.ClientID %>';

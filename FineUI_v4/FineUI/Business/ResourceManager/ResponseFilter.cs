@@ -192,7 +192,7 @@ namespace FineUI
                     {
                         PageManager.Instance.AjaxGridClientIDs.Remove(clientId);
 
-                        gridTplsBuilder.AppendFormat("{0}.x_tpls={1};", xid, GetGridTpls(doc, clientId));
+                        gridTplsBuilder.AppendFormat("{0}.f_tpls={1};", xid, GetGridTpls(doc, clientId));
 
                     }
 
@@ -205,7 +205,7 @@ namespace FineUI
             {
                 foreach (string clientId in PageManager.Instance.AjaxGridClientIDs)
                 {
-                    gridTplsBuilder.AppendFormat("F('{0}').x_updateTpls({1});", clientId, GetGridTpls(doc, clientId));
+                    gridTplsBuilder.AppendFormat("F('{0}').f_updateTpls({1});", clientId, GetGridTpls(doc, clientId));
                 }
             }
 

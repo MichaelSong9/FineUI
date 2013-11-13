@@ -61,7 +61,7 @@ F.ready(function () {
             icon: "./icon/page_white_code.png",
             listeners: {
                 click: function (button, e) {
-                    windowSourceCode.x_show('./common/source.aspx?files=' + getCurrentIframeNode(button).attributes['src'].value, '源代码');
+                    windowSourceCode.f_show('./common/source.aspx?files=' + getCurrentIframeNode(button).attributes['src'].value, '源代码');
                     e.stopEvent();
                 }
             }

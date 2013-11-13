@@ -839,10 +839,10 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             #region old code
             // There are new properties need to be persisted during the next postback.
-            // Re-write the "x_props" property of the component instance.
+            // Re-write the "f_props" property of the component instance.
             //if (FState.TotalModifiedProperties.Count > PostBackState.Count)
             //{
-            //    sb.AppendFormat("{0}.x_props={1};", XID, new JArray(FState.TotalModifiedProperties));
+            //    sb.AppendFormat("{0}.f_props={1};", XID, new JArray(FState.TotalModifiedProperties));
             //}
 
             //foreach (string property in FState.ModifiedProperties)
@@ -865,7 +865,7 @@ namespace FineUI
             //        propertyValue = JsHelper.Enquote(StringUtil.GetEnumName((Enum)info.GetValue(this, null)));
             //    }
 
-            //    sb.AppendFormat("{0}.x_p_{1}={2};", XID, property, propertyValue);
+            //    sb.AppendFormat("{0}.f_p_{1}={2};", XID, property, propertyValue);
             //} 
             #endregion
 
@@ -907,13 +907,13 @@ namespace FineUI
             //        propertyValue = StringUtil.GetEnumName((Enum)info.GetValue(this, null));
             //    }
 
-            //    OB.AddProperty("x_p_" + property, propertyValue);
+            //    OB.AddProperty("f_p_" + property, propertyValue);
 
             //}
 
             //// These properties has been modified in the past postbacks.
             //// Every FineUI control should has this property.
-            //OB.AddProperty("x_props", new JArray(FState.TotalModifiedProperties), true);
+            //OB.AddProperty("f_props", new JArray(FState.TotalModifiedProperties), true);
 
             #endregion
 
@@ -1429,7 +1429,7 @@ namespace FineUI
         {
             if (PropertyModified("Hidden"))
             {
-                return String.Format("{0}.x_setVisible();", XID);
+                return String.Format("{0}.f_setVisible();", XID);
             }
             return String.Empty;
         }
@@ -1443,7 +1443,7 @@ namespace FineUI
         {
             if (PropertyModified("Enabled"))
             {
-                return String.Format("{0}.x_setDisabled();", XID);
+                return String.Format("{0}.f_setDisabled();", XID);
             }
             return String.Empty;
         }

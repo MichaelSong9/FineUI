@@ -312,7 +312,7 @@ namespace FineUI
                     newLabel += GetRedStarHtml();
                 }
                 newLabel += LabelSeparator;
-                sb.AppendFormat("{0}.x_setLabel({1});", XID, JsHelper.Enquote(newLabel));
+                sb.AppendFormat("{0}.f_setLabel({1});", XID, JsHelper.Enquote(newLabel));
             }
 
             AddAjaxScript(sb);

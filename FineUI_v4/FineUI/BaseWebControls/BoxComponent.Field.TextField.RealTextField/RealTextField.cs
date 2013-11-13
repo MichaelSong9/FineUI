@@ -165,7 +165,7 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("Text"))
             {
-                sb.AppendFormat("{0}.x_setValue();", XID);
+                sb.AppendFormat("{0}.f_setValue();", XID);
             }
 
             AddAjaxScript(sb);

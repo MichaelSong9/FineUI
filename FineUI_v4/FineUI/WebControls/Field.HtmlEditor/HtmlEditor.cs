@@ -328,7 +328,7 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("Text"))
             {
-                sb.AppendFormat("{0}.x_setValue();", XID);
+                sb.AppendFormat("{0}.f_setValue();", XID);
             }
 
             AddAjaxScript(sb);
@@ -385,7 +385,7 @@ namespace FineUI
             if (FState.ModifiedProperties.Contains("Text"))
             {
                 //OB.RemoveProperty("value");
-                //OB.Listeners.AddProperty("initialize", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
+                //OB.Listeners.AddProperty("initialize", JsHelper.GetFunction("cmp.f_setValue();", "cmp"), true);
                 OB.AddProperty("value", String.Format("{0}.Text", GetFStateScriptID()), true);
 
             }

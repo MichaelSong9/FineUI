@@ -151,7 +151,7 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("Checked"))
             {
-                sb.AppendFormat("{0}.x_setChecked();", XID);
+                sb.AppendFormat("{0}.f_setChecked();", XID);
             }
 
 

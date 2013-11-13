@@ -34,7 +34,7 @@
                 <x:ContentPanel ShowBorder="false" ShowHeader="false" ID="ContentPanel2"
                     BodyPadding="5px" runat="server">
                     <br />
-                    本窗体默认最大化。
+                    这是窗体的内容。
                     <br />
                     <br />
                     <br />

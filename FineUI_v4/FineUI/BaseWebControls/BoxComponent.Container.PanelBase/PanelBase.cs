@@ -653,7 +653,8 @@ namespace FineUI
 
             #region Items
 
-            if (!RenderChildrenAsContent)
+            // 如果是 ContentPanel 或者启用 IFrame，则不生成 items
+            if (!RenderChildrenAsContent && !EnableIFrame)
             {
                 if (Items.Count > 0)
                 {
@@ -823,22 +824,22 @@ namespace FineUI
                 // 注意：
                 // 如下依附于现有对象的属性名称的定义规则：x_property1
                 // 存储于当前对象实例中
-                OB.AddProperty("x_iframe", true);
-                OB.AddProperty("x_iframe_url", IFrameUrl);
-                OB.AddProperty("x_iframe_name", IFrameName);
+                OB.AddProperty("f_iframe", true);
+                OB.AddProperty("f_iframe_url", IFrameUrl);
+                OB.AddProperty("f_iframe_name", IFrameName);
 
                 // 如果定义了IFrameUrl，则直接写到页面中，否则先缓存到此对象中
                 if (!String.IsNullOrEmpty(IFrameUrl))
                 {
                     //_writeIframeToHtmlDocument = true;
-                    OB.AddProperty("x_iframe_loaded", true);
+                    OB.AddProperty("f_iframe_loaded", true);
                     // 直接添加iframe属性
                     OB.AddProperty("html", String.Format("<iframe src=\"{0}\" name=\"{1}\" frameborder=\"0\" style=\"height:100%;width:100%;overflow:auto;\"></iframe>", IFrameUrl, IFrameName));
                 }
                 else
                 {
                     //_writeIframeToHtmlDocument = false;
-                    OB.AddProperty("x_iframe_loaded", false);
+                    OB.AddProperty("f_iframe_loaded", false);
                 }
 
                 #region old code
@@ -1077,7 +1078,7 @@ namespace FineUI
         /// <returns></returns>
         public virtual string GetResetReference()
         {
-            return String.Format("{0}.x_reset();", ScriptID);
+            return String.Format("{0}.f_reset();", ScriptID);
         }
 
         #endregion

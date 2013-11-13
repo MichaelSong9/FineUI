@@ -652,7 +652,8 @@ namespace FineUI
 
             #region Items
 
-            if (!RenderChildrenAsContent)
+            // 如果是 ContentPanel 或者启用 IFrame，则不生成 items
+            if (!RenderChildrenAsContent && !EnableIFrame)
             {
                 if (Items.Count > 0)
                 {

@@ -542,7 +542,7 @@ namespace FineUI
 
             if (PropertyModified("Text"))
             {
-                sb.AppendFormat("{0}.x_setText();", XID);
+                sb.AppendFormat("{0}.f_setText();", XID);
             }
 
             if (EnablePress)
@@ -551,7 +551,7 @@ namespace FineUI
                 {
                     //if (ClientPropertyModifiedInServer("Pressed"))
 
-                    sb.AppendFormat("{0}.x_toggle();", XID);
+                    sb.AppendFormat("{0}.f_toggle();", XID);
 
                 }
             }
@@ -567,7 +567,7 @@ namespace FineUI
 
             if (PropertyModified("ToolTip"))
             {
-                sb.AppendFormat("{0}.x_setTooltip();", XID);
+                sb.AppendFormat("{0}.f_setTooltip();", XID);
             }
 
             if (PropertyModified("OnClientClick", "ConfirmTitle", "ConfirmText", "ConfirmTarget", "ConfirmIcon"))

@@ -498,14 +498,14 @@ namespace FineUI
 
             if (PropertyModified("F_Items"))
             {
-                sb.AppendFormat("{0}.x_reloadData('{1}',true);", XID, UniqueID); //, GetItemsJArray().ToString(Formatting.None));
+                sb.AppendFormat("{0}.f_reloadData('{1}',true);", XID, UniqueID); //, GetItemsJArray().ToString(Formatting.None));
 
                 // 注意，在x_reloadData中重新创建了列表实例，所以要重新赋值
                 sb.AppendFormat("{0}=F('{1}');", XID, ClientID);
 
                 //if (Items.Count == 0)
                 //{
-                //    sb.AppendFormat("{0}.x_toBeDeleted();", XID);
+                //    sb.AppendFormat("{0}.f_toBeDeleted();", XID);
                 //}
 
                 dataReloaded = true;
@@ -516,7 +516,7 @@ namespace FineUI
             {
                 if (PropertyModified("SelectedValue"))
                 {
-                    sb.AppendFormat("{0}.x_setValue();", XID);
+                    sb.AppendFormat("{0}.f_setValue();", XID);
 
                 }
             }
@@ -591,7 +591,7 @@ namespace FineUI
 
             //if (Items.Count == 0)
             //{
-            //    OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction("cmp.x_toBeDeleted();", "cmp"), true);
+            //    OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction("cmp.f_toBeDeleted();", "cmp"), true);
             //}
 
             #endregion

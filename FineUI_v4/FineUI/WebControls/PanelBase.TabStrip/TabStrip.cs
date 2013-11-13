@@ -469,7 +469,7 @@ namespace FineUI
             {
                 //if (ClientPropertyModifiedInServer("ActiveTabIndex"))
 
-                sb.AppendFormat("{0}.x_setActiveTab();", XID);
+                sb.AppendFormat("{0}.f_setActiveTab();", XID);
 
             }
 
@@ -588,17 +588,17 @@ namespace FineUI
             // 如果要激活的Tab含有IFrame，则需要加载IFrame
             // 改变Tab需要回发的脚本
             // Make sure X_AutoPostBackTabs property exist in F_STATE during page's first load.
-            //string tabchangeScript2 = String.Format("if(tabPanel.x_autoPostBackTabsContains(tab.id)){{{0}}}", GetPostBackEventReference());
+            //string tabchangeScript2 = String.Format("if(tabPanel.f_autoPostBackTabsContains(tab.id)){{{0}}}", GetPostBackEventReference());
 
             string tabchangeScript = "F.wnd.updateIFrameNode(tab);";
             string postbackScript = String.Empty;
             if (AutoPostBack)
             {
-                tabchangeScript += "if(!tab.x_dynamic_added_tab){" + GetPostBackEventReference() + "}";
+                tabchangeScript += "if(!tab.f_dynamic_added_tab){" + GetPostBackEventReference() + "}";
             }
 
             // 如果是动态添加的Tab，不做任何处理（在js/box/extender.js中）
-            //string tabchangeScript = "F.wnd.updateIFrameNode(tab);if(!tab.x_dynamic_added_tab){" + postbackScript + "}";
+            //string tabchangeScript = "F.wnd.updateIFrameNode(tab);if(!tab.f_dynamic_added_tab){" + postbackScript + "}";
             OB.Listeners.AddProperty("tabchange", JsHelper.GetFunction(tabchangeScript, "tabPanel", "tab"), true);
 
             #endregion

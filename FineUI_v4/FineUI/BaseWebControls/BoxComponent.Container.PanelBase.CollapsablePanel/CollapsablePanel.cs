@@ -288,11 +288,11 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("Collapsed"))
             {
-                sb.AppendFormat("{0}.x_setCollapse();", XID);
+                sb.AppendFormat("{0}.f_setCollapse();", XID);
             }
             if (ShowHeader && PropertyModified("Title"))
             {
-                sb.AppendFormat("{0}.x_setTitle();", XID);
+                sb.AppendFormat("{0}.f_setTitle();", XID);
             }
 
             AddAjaxScript(sb);

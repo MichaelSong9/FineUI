@@ -64,7 +64,7 @@
         // left/top : 弹出窗体的左上角坐标（如果为空字符串，则使用中间位置或黄金分隔位置）
         // isGoldenSection : 弹出窗体位于页面的黄金分隔位置
         // hiddenHiddenFieldID : 在页面中放置表单字段记录此窗体是否弹出，也页面回发时保持状态用
-        show: function (panel, iframeUrl, windowTitle, left, top, isGoldenSection, hiddenHiddenFieldID) {
+        show: function (panel, iframeUrl, windowTitle, left, top, isGoldenSection, hiddenHiddenFieldID, width, height) {
             var target = X.util.getTargetWindow(panel['x_property_target']);
             var guid = panel['x_property_guid'];
             if (window.frameElement && target !== window) {
@@ -107,6 +107,10 @@
             }
             if (windowTitle != '') {
                 panel.setTitle(windowTitle);
+            }
+
+            if (width && height) {
+                panel.setSize(width, height);
             }
 
             var bodySize = target.window.Ext.getBody().getViewSize();

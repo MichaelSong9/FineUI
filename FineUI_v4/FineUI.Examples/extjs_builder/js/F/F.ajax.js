@@ -9,7 +9,7 @@
 
         hookPostBack: function () {
             if (typeof (__doPostBack) != 'undefined') {
-                __doPostBack = x__doPostBack;
+                __doPostBack = f__doPostBack;
             }
         }
 
@@ -37,7 +37,7 @@
     }
 
 
-    function x__doPostBack_internal() {
+    function f__doPostBack_internal() {
         //if (typeof (F.util.beforeAjaxPostBackScript) === 'function') {
         //    F.util.beforeAjaxPostBackScript();
         //}
@@ -114,7 +114,7 @@
 
 
     // 如果启用 Ajax，则所有对 __doPostBack 的调用都会到这里来
-    function x__doPostBack(eventTarget, eventArgument) {
+    function f__doPostBack(eventTarget, eventArgument) {
         // 回发页面之前延时 100 毫秒，确保页面上的操作完成（比如选中复选框的动作）
         window.setTimeout(function () {
             // theForm variable will always exist, because we invoke the GetPostBackEventReference in PageManager.
@@ -122,7 +122,7 @@
                 theForm.__EVENTTARGET.value = eventTarget;
                 theForm.__EVENTARGUMENT.value = eventArgument;
 
-                x__doPostBack_internal();
+                f__doPostBack_internal();
             }
         }, 100);
     }
@@ -207,7 +207,7 @@
         var state = {};
         Ext.ComponentManager.each(function (key, cmp) {
             if (cmp.isXType) {
-                // x_props store the properties which has been changed on server-side or client-side.
+                // f_props store the properties which has been changed on server-side or client-side.
                 // Every FineUI control should has this property.
                 var fstate = cmp['f_state'];
                 if (fstate && Ext.isObject(fstate)) {
@@ -259,7 +259,7 @@
         }
 
         if (cmp.isXType('checkboxgroup')) {
-            var selected = cmp.x_getSelectedValues();
+            var selected = cmp.f_getSelectedValues();
             if (selected.length > 0) {
                 saveInHiddenField('SelectedValueArray', selected.join(','));
             } else {
@@ -268,7 +268,7 @@
         }
 
         if (cmp.isXType('panel') || cmp.isXType('fieldset')) {
-            saveInHiddenField('Collapsed', cmp.x_isCollapsed());
+            saveInHiddenField('Collapsed', cmp.f_isCollapsed());
         }
 
         if (cmp.isXType('datepicker')) {
@@ -286,10 +286,10 @@
             if (cmp.isXType('editorgrid')) {
                 // 可编辑单元格的表格
                 // 选中单元格
-                saveInHiddenField('SelectedCell', cmp.x_getSelectedCell().join(','));
+                saveInHiddenField('SelectedCell', cmp.f_getSelectedCell().join(','));
 
                 // 新增行
-                var newAddedRows = cmp.x_getNewAddedRows();
+                var newAddedRows = cmp.f_getNewAddedRows();
                 if (newAddedRows.length > 0) {
                     saveInHiddenField('NewAddedRows', newAddedRows.join(','));
                 } else {
@@ -297,7 +297,7 @@
                 }
 
                 // 修改的数据
-                var modifiedData = cmp.x_getModifiedData();
+                var modifiedData = cmp.f_getModifiedData();
                 if (modifiedData.length > 0) {
                     saveInHiddenField('ModifiedData', Ext.encode(modifiedData));
                 } else {
@@ -305,7 +305,7 @@
                 }
 
                 // 删除的行索引列表
-                var deletedRows = cmp.x_getDeletedRows();
+                var deletedRows = cmp.f_getDeletedRows();
                 if (deletedRows.length > 0) {
                     saveInHiddenField('DeletedRows', deletedRows.join(','));
                 } else {
@@ -315,12 +315,12 @@
             } else {
                 // 普通的表格
                 // 选中行索引列表
-                saveInHiddenField('SelectedRowIndexArray', cmp.x_getSelectedRows().join(','));
+                saveInHiddenField('SelectedRowIndexArray', cmp.f_getSelectedRows().join(','));
             }
 
             
             // 隐藏的列索引列表
-            var gridHiddenColumns = cmp.x_getHiddenColumns();
+            var gridHiddenColumns = cmp.f_getHiddenColumns();
             if (gridHiddenColumns.length > 0) {
                 saveInHiddenField('HiddenColumns', gridHiddenColumns.join(','));
             } else {
@@ -328,7 +328,7 @@
             }
 
             // 目前States仅用于CheckBoxField
-            var gridStates = cmp.x_getStates();
+            var gridStates = cmp.f_getStates();
             if (gridStates.length > 0) {
                 saveInHiddenField('States', Ext.encode(gridStates));
             } else {
@@ -352,19 +352,19 @@
         }
 
         if (cmp.isXType('treepanel')) {
-            saveInHiddenField('ExpandedNodes', cmp.x_getExpandedNodes(cmp.getRootNode().childNodes).join(','));
-            saveInHiddenField('CheckedNodes', cmp.x_getCheckedNodes().join(','));
-            saveInHiddenField('SelectedNodeIDArray', cmp.x_getSelectedNodes().join(','));
+            saveInHiddenField('ExpandedNodes', cmp.f_getExpandedNodes(cmp.getRootNode().childNodes).join(','));
+            saveInHiddenField('CheckedNodes', cmp.f_getCheckedNodes().join(','));
+            saveInHiddenField('SelectedNodeIDArray', cmp.f_getSelectedNodes().join(','));
 
             // 如果存在 GZIPPED 的属性，就用 GZIPPED 属性
             resolveGZProperty('F_Nodes');
         }
 
         if (cmp.isXType('tabpanel')) {
-            saveInHiddenField('ActiveTabIndex', cmp.x_getActiveTabIndex());
+            saveInHiddenField('ActiveTabIndex', cmp.f_getActiveTabIndex());
         }
 
-        if (cmp['x_type'] && cmp['x_type'] === 'tab') {
+        if (cmp['f_type'] && cmp['f_type'] === 'tab') {
             saveInHiddenField('Hidden', cmp.tab.isHidden());
         }
 

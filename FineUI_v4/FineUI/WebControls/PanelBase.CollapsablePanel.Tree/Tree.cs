@@ -956,20 +956,20 @@ namespace FineUI
             bool reloaded = false;
             if (PropertyModified("F_Nodes"))
             {
-                sb.AppendFormat("{0}.x_loadData();", XID);
+                sb.AppendFormat("{0}.f_loadData();", XID);
                 reloaded = true;
             }
 
             if (reloaded)
             {
                 // 如果重新加载了数据，则要重新设置选中项
-                sb.AppendFormat("{0}.x_selectNodes();", XID);
+                sb.AppendFormat("{0}.f_selectNodes();", XID);
             }
             else
             {
                 if (PropertyModified("SelectedNodeIDArray"))
                 {
-                    sb.AppendFormat("{0}.x_selectNodes();", XID);
+                    sb.AppendFormat("{0}.f_selectNodes();", XID);
                 }
             }
 
@@ -1063,16 +1063,16 @@ namespace FineUI
             //    OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
             //}
 
-            string itemclickScript = "var args='Command$'+node.getId()+'$'+node.raw.x_commandname+'$'+node.raw.x_commandargument;";
+            string itemclickScript = "var args='Command$'+node.getId()+'$'+node.raw.f_commandname+'$'+node.raw.f_commandargument;";
             itemclickScript += GetPostBackEventReference("#Click#").Replace("'#Click#'", "args");
-            itemclickScript = String.Format("if(node.raw.x_enablepostback){{{0}}}", itemclickScript);
-            itemclickScript = "if(node.raw.x_clientclick){eval(node.raw.x_clientclick);}" + itemclickScript; // new Function(node.raw.x_clientclick)();
+            itemclickScript = String.Format("if(node.raw.f_enablepostback){{{0}}}", itemclickScript);
+            itemclickScript = "if(node.raw.f_clientclick){eval(node.raw.f_clientclick);}" + itemclickScript; // new Function(node.raw.f_clientclick)();
             OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(itemclickScript, "view", "node", "item", "index"), true);
 
 
             string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";
             checkchangeScript += GetPostBackEventReference("#CheckChange#").Replace("'#CheckChange#'", "args");
-            checkchangeScript = String.Format("if(node.raw.x_autopostback){{{0}}}", checkchangeScript);
+            checkchangeScript = String.Format("if(node.raw.f_autopostback){{{0}}}", checkchangeScript);
             OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkchangeScript, "node", "checked"), true);
 
 
@@ -1122,7 +1122,7 @@ namespace FineUI
             #region renderScript
 
             //string renderScript = String.Empty;
-            ////renderScript += "cmp.x_loadData();";
+            ////renderScript += "cmp.f_loadData();";
             //if (SelectedNodeIDArray.Length > 0)
             //{
             //    renderScript += "var model=cmp.getSelectionModel();";
@@ -1132,11 +1132,11 @@ namespace FineUI
             //    }
             //}
 
-            ////renderScript = "function(cmp){window.setTimeout(function(){ cmp.x_loadData(); },1000);}";
+            ////renderScript = "function(cmp){window.setTimeout(function(){ cmp.f_loadData(); },1000);}";
 
-            OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_loadData();", "cmp"), true);
+            OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.f_loadData();", "cmp"), true);
 
-            OB.Listeners.AddProperty("viewready", JsHelper.GetFunction("cmp.x_selectNodes();", "cmp"), true);
+            OB.Listeners.AddProperty("viewready", JsHelper.GetFunction("cmp.f_selectNodes();", "cmp"), true);
 
             #endregion
 

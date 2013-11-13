@@ -530,8 +530,8 @@ namespace FineUI
 
                 if (PersistState)
                 {
-                    OB.AddProperty("x_persistState", true);
-                    OB.AddProperty("x_persistStateType", "checkbox");
+                    OB.AddProperty("f_persistState", true);
+                    OB.AddProperty("f_persistStateType", "checkbox");
                 }
 
 

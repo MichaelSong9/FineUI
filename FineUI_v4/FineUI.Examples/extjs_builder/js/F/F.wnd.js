@@ -57,16 +57,16 @@
 
         // 显示一个弹出窗体
         // 在 panel 实例中，定义了几个自定义属性，用于标示此实例的状态（在PanelBase中定义）
-        // 属性 - x_iframe/x_iframe_url/x_iframe_name/x_iframe_loaded
+        // 属性 - f_iframe/f_iframe_url/f_iframe_name/f_iframe_loaded
         // panel : 当前弹出的窗体（Ext-Window）
         // iframeUrl : 弹出窗体中包含的IFrame的地址
         // windowTitle : 弹出窗体的标题
         // left/top : 弹出窗体的左上角坐标（如果为空字符串，则使用中间位置或黄金分隔位置）
         // isGoldenSection : 弹出窗体位于页面的黄金分隔位置
-        // hiddenHiddenFieldID : 在页面中放置表单字段记录此窗体是否弹出，也页面回发时保持状态用
-        show: function (panel, iframeUrl, windowTitle, left, top, isGoldenSection, hiddenHiddenFieldID) {
-            var target = F.util.getTargetWindow(panel['x_property_target']);
-            var guid = panel['x_property_guid'];
+        // hiddenHiddenFieldID : 隐藏表单字段记录此窗体是否弹出，也页面回发时保持状态用
+        show: function (panel, iframeUrl, windowTitle, left, top, isGoldenSection, hiddenHiddenFieldID, width, height) {
+            var target = F.util.getTargetWindow(panel['f_property_target']);
+            var guid = panel['f_property_guid'];
             if (window.frameElement && target !== window) {
                 // 当前页面在IFrame中（也即时 window.frameElement 存在）
                 // 此弹出窗体需要在父窗口中弹出
@@ -81,23 +81,23 @@
                     // Ext.apply 的第三个参数是default obejct
                     var config = Ext.apply({}, {
                         'renderTo': wrapper,
-                        //'manager': target.F.x_window_manager,
+                        //'manager': target.F.f_window_manager,
                         'id': guid,
-                        //'box_hide': null,
-                        //'box_hide_refresh': null,
-                        //'box_hide_postback': null,
-                        // 'x_show': null,
+                        //'bof_hide': null,
+                        //'bof_hide_refresh': null,
+                        //'bof_hide_postback': null,
+                        // 'f_show': null,
                         // 在 F.wnd.getActiveWindow 中需要用到这个参数
-                        //'box_property_frame_element_name': window.frameElement.name,
-                        //'box_property_client_id': panel.getId(),
-                        'x_property_window': window,
-                        'x_property_ext_window': panel
+                        //'bof_property_frame_element_name': window.frameElement.name,
+                        //'bof_property_client_id': panel.getId(),
+                        'f_property_window': window,
+                        'f_property_ext_window': panel
                     }, panel.initialConfig);
 
                     // 在父页面中创建一个Ext-Window的幻影（拷贝）
-                    // 在这个幻影中，通过“x_property_frame_element_name”属性标示这是一个幻影
-                    // x_property_frame_element_name: 并且真正的Ext-Window在当前页面中的哪个IFrame中
-                    // x_property_client_id: 并且真正的Ext-Window在所在页面中的客户端ID
+                    // 在这个幻影中，通过“f_property_frame_element_name”属性标示这是一个幻影
+                    // f_property_frame_element_name: 并且真正的Ext-Window在当前页面中的哪个IFrame中
+                    // f_property_client_id: 并且真正的Ext-Window在所在页面中的客户端ID
                     target.X[guid] = target.Ext.create('Ext.window.Window', config);
                 }
                 panel = target.X[guid];
@@ -109,14 +109,9 @@
                 panel.setTitle(windowTitle);
             }
 
-            var bodySize = target.window.Ext.getBody().getViewSize();
-
-            //            // Update container's width and height
-            //            var wrapperNode = _getWrapperNode(panel);
-            //            wrapperNode.setWidth(bodySize.width).setHeight(bodySize.height);
-            //            
-            //            // 显示窗体之前，记着显示外部的容器
-            //            wrapperNode.show();
+            if (width && height) {
+                panel.setSize(width, height);
+            }
 
             Ext.get(hiddenHiddenFieldID).dom.value = 'false';
             panel.show();
@@ -124,6 +119,7 @@
             if (left !== '' && top !== '') {
                 panel.setPosition(parseInt(left, 10), parseInt(top, 10));
             } else {
+                var bodySize = target.window.Ext.getBody().getViewSize();
                 var panelSize = panel.getSize(), leftTop;
                 if (isGoldenSection) {
                     leftTop = _calculateGoldenPosition(bodySize, panelSize);
@@ -164,8 +160,8 @@
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
             if (enableIFrame) {
                 //wnd.body.query('iframe')[0].src = 'about:blank';
-                //wnd['x_iframe_url'] = 'about:blank';
-                wnd['x_iframe_loaded'] = false;
+                //wnd['f_iframe_url'] = 'about:blank';
+                wnd['f_iframe_loaded'] = false;
                 wnd.update("");
             }
             wnd.hide();
@@ -193,7 +189,7 @@
         // 现在的 Window 控件时渲染在 from 表单里面的一个 DIV 中的
         fixMaximize: function (panel) {
             if (panel.maximized) {
-                var target = F.util.getTargetWindow(panel['x_property_target']);
+                var target = F.util.getTargetWindow(panel['f_property_target']);
                 var bodySize = target.window.Ext.getBody().getViewSize();
                 panel.setSize(bodySize.width, bodySize.height);
                 // 不要忘记左上角坐标
@@ -205,22 +201,22 @@
         updateIFrameNode: function (panel, iframeUrl) {
             var iframeUrlChanged = false;
             // 如果此Panel中包含有IFrame
-            if (panel && panel['x_iframe']) {
-                if (iframeUrl && panel['x_iframe_url'] !== iframeUrl) {
-                    panel['x_iframe_url'] = iframeUrl;
+            if (panel && panel['f_iframe']) {
+                if (iframeUrl && panel['f_iframe_url'] !== iframeUrl) {
+                    panel['f_iframe_url'] = iframeUrl;
                     iframeUrlChanged = true;
                 }
                 // 如果此Panel中包含的IFrame还没有加载
-                if (!panel['x_iframe_loaded']) {
+                if (!panel['f_iframe_loaded']) {
                     window.setTimeout(function () {
                         // 如果此Panel已经创建完毕，但有时Panel可能是延迟创建的（比如TabStrip中的Tab，只有点击这个Tab时才创建Tab的内容）
-                        panel['x_iframe_loaded'] = true;
-                        panel.update(_createIFrameHtml(panel['x_iframe_url'], panel['x_iframe_name']));
+                        panel['f_iframe_loaded'] = true;
+                        panel.update(_createIFrameHtml(panel['f_iframe_url'], panel['f_iframe_name']));
                     }, 0);
                 }
                 else {
                     if (iframeUrlChanged) {
-                        panel.body.query('iframe')[0].src = panel['x_iframe_url'];
+                        panel.body.query('iframe')[0].src = panel['f_iframe_url'];
                     }
                 }
             }
@@ -259,7 +255,7 @@
                 pageWindow.F.wnd.confirmFormModified(closeFn);
             }
             else {
-                panel.x_hide();
+                panel.f_hide();
             }
         },
 
@@ -267,8 +263,8 @@
         getIFrameWindowObject: function (panel) {
             // 当前页面在IFrame中（也即时 window.frameElement 存在）
             // 此Ext-Window需要在父窗口中弹出
-            if (window.frameElement && panel['x_property_show_in_parent']) {
-                panel = parent.X[panel['x_property_guid']];
+            if (window.frameElement && panel['f_property_show_in_parent']) {
+                panel = parent.X[panel['f_property_guid']];
             }
             var iframeNode = Ext.query('iframe', panel.body.dom);
             if (iframeNode.length === 0) {
@@ -287,15 +283,15 @@
         // 注意
         // 1. 如果是在当前页面弹出窗口的话，“实际的Ext-Window对象”存在于父页面（parent.box）中
         // 2. 如果是在父页面弹出窗口的话，“实际的Ext-Window对象”存在于父页面（parent）下面的IFrame页面中
-        // 3. 通过判断当前的Ext-Window是否存在“box_property_frame_element_name”属性，可知当前的Ext-Window是否幻影（即时实际Ext-Window对象在父页面的一个拷贝），在F.wnd.show中设置的属性
+        // 3. 通过判断当前的Ext-Window是否存在“bof_property_frame_element_name”属性，可知当前的Ext-Window是否幻影（即时实际Ext-Window对象在父页面的一个拷贝），在F.wnd.show中设置的属性
         /*
         getActiveWindow: function () {
         var activeWindow = parent.window;
-        var activeExtWindow = parent.F.x_window_manager.getActive();
-        if (activeExtWindow['box_property_frame_element_name']) {
-        var iframeParentWindow = activeExtWindow['box_property_parent_window'];
-        activeWindow = iframeParentWindow.Ext.query('iframe[name=' + activeExtWindow['box_property_frame_element_name'] + ']')[0].contentWindow;
-        activeExtWindow = activeWindow.Ext.getCmp(activeExtWindow['box_property_client_id']);
+        var activeExtWindow = parent.F.f_window_manager.getActive();
+        if (activeExtWindow['bof_property_frame_element_name']) {
+        var iframeParentWindow = activeExtWindow['bof_property_parent_window'];
+        activeWindow = iframeParentWindow.Ext.query('iframe[name=' + activeExtWindow['bof_property_frame_element_name'] + ']')[0].contentWindow;
+        activeExtWindow = activeWindow.Ext.getCmp(activeExtWindow['bof_property_client_id']);
         }
 
         return [activeExtWindow, activeWindow];
@@ -304,39 +300,39 @@
 
         getActiveWindow: function () {
             var activeWindow = parent.window;
-            var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.x_window_manager.getActive();
-            if (activeExtWindow['x_property_window']) {
-                activeWindow = activeExtWindow['x_property_window'];
-                activeExtWindow = activeExtWindow['x_property_ext_window'];
+            var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.f_window_manager.getActive();
+            if (activeExtWindow['f_property_window']) {
+                activeWindow = activeExtWindow['f_property_window'];
+                activeExtWindow = activeExtWindow['f_property_ext_window'];
             }
 
             return [activeExtWindow, activeWindow];
         },
 
 
-        //    // 从url中提取box_parent_client_id参数的值
-        //    window.box_getParentClientIdFromUrl = function() {
+        //    // 从url中提取bof_parent_client_id参数的值
+        //    window.bof_getParentClientIdFromUrl = function() {
         //        var result = '';
         //        var url = window.location.href;
-        //        var startIndex = url.indexOf('box_parent_client_id');
+        //        var startIndex = url.indexOf('bof_parent_client_id');
         //        if (startIndex >= 0) {
-        //            result = url.substr(startIndex + 'box_parent_client_id'.length + 1);
+        //            result = url.substr(startIndex + 'bof_parent_client_id'.length + 1);
         //        }
 
         //        return result;
         //    };
 
         //    // 取得当前页面所在窗口，返回数组[当前窗口对象，当前窗口所在的window对象]
-        //    window.box_getActiveWindow = function() {
+        //    window.bof_getActiveWindow = function() {
         //        var aw = null;
         //        var window2 = null;
 
-        //        var parentClientID = box_getParentClientIdFromUrl();
+        //        var parentClientID = bof_getParentClientIdFromUrl();
         //        if (parentClientID) {
         //            window2 = parent.window;
         //            aw = parent.window.Ext.getCmp(parentClientID);
-        //            if (aw.box_property_frame_element_name) {
-        //                window2 = parent.Ext.query('iframe[name=' + aw.box_property_frame_element_name + ']')[0].contentWindow;
+        //            if (aw.bof_property_frame_element_name) {
+        //                window2 = parent.Ext.query('iframe[name=' + aw.bof_property_frame_element_name + ']')[0].contentWindow;
         //                aw = eval('window2.F.' + aw.id);
         //            }
         //        }
@@ -352,14 +348,14 @@
         // 向弹出此Ext-Window的页面写入值
         writeBackValue: function () {
             var aw = F.wnd.getActiveWindow();
-            var controlIds = aw[0]['x_property_save_state_control_client_ids'];
+            var controlIds = aw[0]['f_property_save_state_control_client_ids'];
             var controlCount = Math.min(controlIds.length, arguments.length);
             for (var i = 0; i < controlCount; i++) {
                 aw[1].Ext.getCmp(controlIds[i]).setValue(arguments[i]);
             }
             //        var controlClientIds = (function() {
             //            if (aw) {
-            //                return eval('aw[1].F.' + aw[0].id + '.box_string_state');
+            //                return eval('aw[1].F.' + aw[0].id + '.bof_string_state');
             //            }
             //        })();
             //        if (typeof (controlClientIds) == 'string') {
@@ -374,7 +370,7 @@
             //        }
             //        var aw = F.wnd.getActiveWindow();
             //        if (aw) {
-            //            aw[0].box_hide();
+            //            aw[0].bof_hide();
             //        }
         }
 

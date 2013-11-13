@@ -193,7 +193,7 @@ namespace FineUI
             if (FState.ModifiedProperties.Contains("Text"))
             {
                 //OB.RemoveProperty("value");
-                //OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.x_setValue();", "cmp"), true);
+                //OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.f_setValue();", "cmp"), true);
                 OB.AddProperty("value", String.Format("{0}.Text", GetFStateScriptID()), true);
             }
 

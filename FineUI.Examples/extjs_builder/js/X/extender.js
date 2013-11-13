@@ -1225,8 +1225,8 @@ if (Ext.Window) {
             this.x_hide();
             __doPostBack(this.name, argument);
         },
-        x_show: function (iframeUrl, windowTitle) {
-            X.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden');
+        x_show: function (iframeUrl, windowTitle, width, height) {
+            X.wnd.show(this, iframeUrl, windowTitle, this.x_property_left, this.x_property_top, this.x_property_position, this.id + '_Hidden', width, height);
         },
 
         x_maximize: function () {

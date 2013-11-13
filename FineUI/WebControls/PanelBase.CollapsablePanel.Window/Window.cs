@@ -1503,7 +1503,6 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetShowReference(string iframeUrl)
         {
-
             return GetShowReference(iframeUrl, Title);
         }
 
@@ -1515,12 +1514,79 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetShowReference(string iframeUrl, string windowTitle)
         {
+            return GetShowReference(iframeUrl, windowTitle, Unit.Empty, Unit.Empty);
+        }
+
+        /// <summary>
+        /// 获取显示窗体的客户端脚本
+        /// </summary>
+        /// <param name="width">窗体宽度</param>
+        /// <param name="height">窗体高度</param>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference(Unit width, Unit height)
+        {
+            string iframeUrl = String.Empty;
+            if (EnableIFrame)
+            {
+                iframeUrl = IFrameUrl;
+            }
+
+            return GetShowReference(iframeUrl, Title, width, height);
+        }
+
+        /// <summary>
+        /// 获取显示窗体的客户端脚本
+        /// </summary>
+        /// <param name="windowTitle">窗体标题</param>
+        /// <param name="width">窗体宽度</param>
+        /// <param name="height">窗体高度</param>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference(string windowTitle, Unit width, Unit height)
+        {
+            string iframeUrl = String.Empty;
+            if (EnableIFrame)
+            {
+                iframeUrl = IFrameUrl;
+            }
+
+            return GetShowReference(iframeUrl, windowTitle, width, height);
+        }
+
+
+
+        /// <summary>
+        /// 获取显示窗体的客户端脚本
+        /// </summary>
+        /// <param name="iframeUrl">IFrame地址</param>
+        /// <param name="windowTitle">窗体标题</param>
+        /// <param name="width">窗体宽度</param>
+        /// <param name="height">窗体高度</param>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference(string iframeUrl, string windowTitle, Unit width, Unit height)
+        {
             if (!String.IsNullOrEmpty(iframeUrl))
             {
                 iframeUrl = ResolveIFrameUrl(iframeUrl);
             }
 
-            return String.Format("{0}.x_show({1},{2});", ScriptID, JsHelper.GetJsStringWithScriptTag(iframeUrl), JsHelper.GetJsString(windowTitle));
+            iframeUrl = JsHelper.GetJsStringWithScriptTag(iframeUrl);
+            windowTitle = JsHelper.GetJsString(windowTitle);
+
+            if (width != Unit.Empty && height != Unit.Empty)
+            {
+                return String.Format("{0}.x_show({1},{2},{3},{4});", ScriptID,
+                    iframeUrl,
+                    windowTitle,
+                    width.Value,
+                    height.Value);
+            }
+            else
+            {
+                return String.Format("{0}.x_show({1},{2});", ScriptID,
+                   iframeUrl,
+                   windowTitle);
+            }
+            
         }
 
         /// <summary>

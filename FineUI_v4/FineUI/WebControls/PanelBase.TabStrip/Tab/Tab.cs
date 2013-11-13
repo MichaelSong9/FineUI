@@ -261,12 +261,12 @@ namespace FineUI
                 if (this != tabStrip.Tabs[tabStrip.ActiveTabIndex])
                 {
                     OB.RemoveProperty("html");
-                    OB.RemoveProperty("x_iframe_loaded");
-                    OB.AddProperty("x_iframe_loaded", false);
+                    OB.RemoveProperty("f_iframe_loaded");
+                    OB.AddProperty("f_iframe_loaded", false);
                 }
             }
 
-            OB.AddProperty("x_type", "tab");
+            OB.AddProperty("f_type", "tab");
 
             //OB.AddProperty("__box_hidden_field_id", HiddenHiddenFieldID);
 

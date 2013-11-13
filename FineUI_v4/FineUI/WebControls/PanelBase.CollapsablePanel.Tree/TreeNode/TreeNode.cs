@@ -312,7 +312,7 @@ namespace FineUI
             {
                 if (String.IsNullOrEmpty(_nodeID))
                 {
-                    //_nodeID = String.Format("x_{0}", TreeInstance.NodeIDIncrement++); // ClientJavascriptIDManager.Instance.GetNextJavascriptID();
+                    //_nodeID = String.Format("f_{0}", TreeInstance.NodeIDIncrement++); // ClientJavascriptIDManager.Instance.GetNextJavascriptID();
                     _nodeID = TreeNodeIDManager.Instance.GetNextTreeNodeID();
                 }
                 return _nodeID;

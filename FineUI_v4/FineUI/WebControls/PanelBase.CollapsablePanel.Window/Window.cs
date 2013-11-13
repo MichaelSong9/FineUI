@@ -851,7 +851,7 @@ namespace FineUI
             OB.AddProperty("resizable", EnableResize);
 
             //OB.AddProperty("maximized", Maximized);
-            
+
 
             //// 如果定义了左上角的位置
             //if (Top != Unit.Empty && Left != Unit.Empty)
@@ -870,11 +870,11 @@ namespace FineUI
 
             // 此Window显示的位置
             //OB.AddProperty("box_property_show_in_parent", ShowInParent);
-            OB.AddProperty("x_property_target", TargetHelper.GetName(Target));
-            OB.AddProperty("x_property_guid", GUID);
-            OB.AddProperty("x_property_left", Left != Unit.Empty ? Convert.ToInt32(Left.Value).ToString() : "");
-            OB.AddProperty("x_property_top", Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "");
-            OB.AddProperty("x_property_position", WindowPosition == WindowPosition.GoldenSection ? "true" : "false", true);
+            OB.AddProperty("f_property_target", TargetHelper.GetName(Target));
+            OB.AddProperty("f_property_guid", GUID);
+            OB.AddProperty("f_property_left", Left != Unit.Empty ? Convert.ToInt32(Left.Value).ToString() : "");
+            OB.AddProperty("f_property_top", Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "");
+            OB.AddProperty("f_property_position", WindowPosition == WindowPosition.GoldenSection ? "true" : "false", true);
 
             //if (Constrain)
             //{
@@ -1170,7 +1170,7 @@ namespace FineUI
                 Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "",
                 WindowPosition == WindowPosition.GoldenSection ? "true" : "false",
                 HiddenHiddenFieldID);
-            OB.AddProperty("x_show", showFunctionScript, true);
+            OB.AddProperty("f_show", showFunctionScript, true);
             */
 
             #endregion
@@ -1466,7 +1466,7 @@ namespace FineUI
 
             string valuesJS = JsHelper.GetJsStringArray(values);
 
-            return String.Format("{0}.x_property_save_state_control_client_ids={1};", ScriptID, valuesJS);
+            return String.Format("{0}.f_property_save_state_control_client_ids={1};", ScriptID, valuesJS);
         }
 
         ///// <summary>
@@ -1503,7 +1503,6 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetShowReference(string iframeUrl)
         {
-
             return GetShowReference(iframeUrl, Title);
         }
 
@@ -1515,12 +1514,77 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetShowReference(string iframeUrl, string windowTitle)
         {
+            return GetShowReference(iframeUrl, windowTitle, Unit.Empty, Unit.Empty);
+        }
+
+        /// <summary>
+        /// 获取显示窗体的客户端脚本
+        /// </summary>
+        /// <param name="width">窗体宽度</param>
+        /// <param name="height">窗体高度</param>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference(Unit width, Unit height)
+        {
+            string iframeUrl = String.Empty;
+            if (EnableIFrame)
+            {
+                iframeUrl = IFrameUrl;
+            }
+
+            return GetShowReference(iframeUrl, Title, width, height);
+        }
+
+        /// <summary>
+        /// 获取显示窗体的客户端脚本
+        /// </summary>
+        /// <param name="windowTitle">窗体标题</param>
+        /// <param name="width">窗体宽度</param>
+        /// <param name="height">窗体高度</param>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference(string windowTitle, Unit width, Unit height)
+        {
+            string iframeUrl = String.Empty;
+            if (EnableIFrame)
+            {
+                iframeUrl = IFrameUrl;
+            }
+
+            return GetShowReference(iframeUrl, windowTitle, width, height);
+        }
+
+        /// <summary>
+        /// 获取显示窗体的客户端脚本
+        /// </summary>
+        /// <param name="iframeUrl">IFrame地址</param>
+        /// <param name="windowTitle">窗体标题</param>
+        /// <param name="width">窗体宽度</param>
+        /// <param name="height">窗体高度</param>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference(string iframeUrl, string windowTitle, Unit width, Unit height)
+        {
             if (!String.IsNullOrEmpty(iframeUrl))
             {
                 iframeUrl = ResolveIFrameUrl(iframeUrl);
             }
 
-            return String.Format("{0}.x_show({1},{2});", ScriptID, JsHelper.GetJsStringWithScriptTag(iframeUrl), JsHelper.GetJsString(windowTitle));
+            iframeUrl = JsHelper.GetJsStringWithScriptTag(iframeUrl);
+            windowTitle = JsHelper.GetJsString(windowTitle);
+
+            if (width != Unit.Empty && height != Unit.Empty)
+            {
+                return String.Format("{0}.f_show({1},{2},{3},{4});", ScriptID,
+                    iframeUrl,
+                    windowTitle,
+                    width.Value,
+                    height.Value);
+            }
+            else
+            {
+                return String.Format("{0}.f_show({1},{2});", ScriptID,
+                   iframeUrl,
+                   windowTitle);
+            }
+            
         }
 
         /// <summary>
@@ -1529,7 +1593,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetMaximizeReference()
         {
-            return String.Format("{0}.x_maximize();", ScriptID);
+            return String.Format("{0}.f_maximize();", ScriptID);
         }
 
         /// <summary>
@@ -1538,7 +1602,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetRestoreReference()
         {
-            return String.Format("{0}.x_restore();", ScriptID);
+            return String.Format("{0}.f_restore();", ScriptID);
         }
 
         /// <summary>
@@ -1547,7 +1611,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetMinimizeReference()
         {
-            return String.Format("{0}.x_minimize();", ScriptID);
+            return String.Format("{0}.f_minimize();", ScriptID);
         }
 
 
@@ -1561,7 +1625,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetHideReference()
         {
-            return String.Format("{0}.x_hide();", ScriptID);
+            return String.Format("{0}.f_hide();", ScriptID);
         }
 
         /// <summary>
@@ -1570,7 +1634,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetHideRefreshReference()
         {
-            return String.Format("{0}.x_hide_refresh();", ScriptID);
+            return String.Format("{0}.f_hide_refresh();", ScriptID);
         }
 
         /// <summary>
@@ -1579,7 +1643,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetHidePostBackReference()
         {
-            return String.Format("{0}.x_hide_postback();", ScriptID);
+            return String.Format("{0}.f_hide_postback();", ScriptID);
         }
 
         /// <summary>
@@ -1589,7 +1653,7 @@ namespace FineUI
         public string GetHidePostBackReference(string argument)
         {
             //return String.Format("{0}.box_hide_postback('{1}');", ScriptID, argument.Replace("'", "\""));
-            return String.Format("{0}.x_hide_postback({1});", ScriptID, JsHelper.GetJsString(argument));
+            return String.Format("{0}.f_hide_postback({1});", ScriptID, JsHelper.GetJsString(argument));
         }
 
         #endregion

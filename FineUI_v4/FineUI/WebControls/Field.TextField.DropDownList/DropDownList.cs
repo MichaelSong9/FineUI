@@ -747,7 +747,7 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("F_Items"))
             {
-                sb.AppendFormat("{0}.x_loadData();", XID);
+                sb.AppendFormat("{0}.f_loadData();", XID);
 
                 // TODO: 修改Items记录后要更新SelectedValue
             }
@@ -756,7 +756,7 @@ namespace FineUI
             {
                 //if (ClientPropertyModifiedInServer("SelectedValue"))
 
-                sb.AppendFormat("{0}.x_setValue();", XID);
+                sb.AppendFormat("{0}.f_setValue();", XID);
 
             }
 
@@ -954,9 +954,9 @@ namespace FineUI
 
             if (AutoPostBack)
             {
-                beforeselectSB.Append("cmp.x_tmp_lastvalue=cmp.getValue();");
+                beforeselectSB.Append("cmp.f_tmp_lastvalue=cmp.getValue();");
 
-                string selectScript = "if(cmp.x_tmp_lastvalue!==cmp.getValue()){" + GetPostBackEventReference() + "}";
+                string selectScript = "if(cmp.f_tmp_lastvalue!==cmp.getValue()){" + GetPostBackEventReference() + "}";
                 OB.Listeners.AddProperty("select", JsHelper.GetFunction(selectScript, "cmp"), true);
             }
 
@@ -988,7 +988,7 @@ namespace FineUI
 
             #region Listeners - render
 
-            //string renderScript = "cmp.x_loadData();cmp.x_setValue();";
+            //string renderScript = "cmp.f_loadData();cmp.f_setValue();";
 
             //OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript, "cmp"), true);
 
@@ -1005,7 +1005,7 @@ namespace FineUI
             //StringBuilder loadDataSB = new StringBuilder();
             //if (totalModifiedProperties.Contains("F_Items"))
             //{
-            //    loadDataSB.AppendFormat("{0}.x_loadData();", XID);
+            //    loadDataSB.AppendFormat("{0}.f_loadData();", XID);
             //}
             //else
             //{
@@ -1014,11 +1014,11 @@ namespace FineUI
 
             //if (totalModifiedProperties.Contains("SelectedValue"))
             //{
-            //    loadDataSB.AppendFormat("{0}.x_setValue();", XID);
+            //    loadDataSB.AppendFormat("{0}.f_setValue();", XID);
             //}
             //else
             //{
-            //    loadDataSB.AppendFormat("{0}.x_setValue({1});", XID, JsHelper.Enquote(SelectedValue));
+            //    loadDataSB.AppendFormat("{0}.f_setValue({1});", XID, JsHelper.Enquote(SelectedValue));
             //} 
             #endregion
 

@@ -127,8 +127,8 @@ namespace FineUI
 
             if (EnablePagingNumber)
             {
-                OB.AddProperty("x_paging", true);
-                OB.AddProperty("x_paging_grid", Grid.ClientID);
+                OB.AddProperty("f_paging", true);
+                OB.AddProperty("f_paging_grid", Grid.ClientID);
             }
 
             string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
