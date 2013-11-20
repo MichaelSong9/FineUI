@@ -290,28 +290,35 @@ namespace FineUI
                     {
                         foreach (string property in _gzippedAjaxProperties)
                         {
-                            string gzippedString = _postBackState.Value<string>(property + "_GZ");
-                            if (!String.IsNullOrEmpty(gzippedString))
+                            string gzPropertyName = property + "_GZ";
+                            JToken gzToken = _postBackState[gzPropertyName];
+                            if (gzToken != null)
                             {
-                                // 从压缩后的Gzip字符串恢复属性的值（可能为JObject/JArray/String）
-                                PropertyInfo info = this.GetType().GetProperty(property);
-                                if (info != null)
+                                string gzippedString = gzToken.Value<string>();
+                                if (!String.IsNullOrEmpty(gzippedString))
                                 {
-                                    string ungzippedString = StringUtil.Ungzip(gzippedString);
-                                    if (info.PropertyType == typeof(String))
+                                    // 从压缩后的Gzip字符串恢复属性的值（可能为JObject/JArray/String）
+                                    PropertyInfo info = this.GetType().GetProperty(property);
+                                    if (info != null)
                                     {
-                                        _postBackState[property] = ungzippedString;
-                                    }
-                                    else if (info.PropertyType == typeof(JObject))
-                                    {
-                                        _postBackState[property] = JObject.Parse(ungzippedString);
-                                    }
-                                    else if (info.PropertyType == typeof(JArray))
-                                    {
-                                        _postBackState[property] = JArray.Parse(ungzippedString);
+                                        string ungzippedString = StringUtil.Ungzip(gzippedString);
+                                        if (info.PropertyType == typeof(String))
+                                        {
+                                            _postBackState[property] = ungzippedString;
+                                        }
+                                        else if (info.PropertyType == typeof(JObject))
+                                        {
+                                            _postBackState[property] = JObject.Parse(ungzippedString);
+                                        }
+                                        else if (info.PropertyType == typeof(JArray))
+                                        {
+                                            _postBackState[property] = JArray.Parse(ungzippedString);
+                                        }
                                     }
                                 }
 
+                                // 从回发的PostBackState中删除GZ属性，已经还原了压缩之前的属性
+                                _postBackState.Remove(gzPropertyName);
                             }
                         }
                     }
@@ -1149,6 +1156,13 @@ namespace FineUI
             JObject jo = new JObject();
             foreach (string property in propertyList)
             {
+                // 如果包含压缩后的属性，则忽略
+                if (property.EndsWith("_GZ"))
+                {
+                    continue;
+                }
+
+                string propertyStringValueUsedInGzipped = String.Empty;
                 bool propertyGzippped = false;
                 if (EnableXStateCompress)
                 {
@@ -1157,7 +1171,7 @@ namespace FineUI
 
                 object propertyValue = GetPropertyJSONValue(property);
 
-                string propertyStringValueUsedInGzipped = String.Empty;
+                
 
                 if (propertyValue is JToken)
                 {
@@ -1221,7 +1235,7 @@ namespace FineUI
 
                     // 无论 propertyGzippedValue 是否为空字符串，都要输出来覆盖上次的结果（因为并非每一次的GZipped都有值）
                     jo.Add(property + "_GZ", propertyGzippedValue);
-                    
+
                 }
 
 
@@ -1523,7 +1537,7 @@ namespace FineUI
             return String.Format("X.util.setHiddenFieldValue('{0}','{1}');", id, value);
         }
 
-        
+
         /// <summary>
         /// 获取修改隐藏表单字段值的脚本（如果此隐藏表单字段不存在，则添加）
         /// </summary>
