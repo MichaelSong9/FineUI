@@ -100,34 +100,33 @@
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
-
+        var inputselector = '.x-grid-tpl input';
 
         function registerAutoSaveEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on("keypress", function (evt, el) {
+            $(grid.el.dom).delegate(inputselector, 'keypress', function (evt) {
+                var $this = $(this);
 
                 window.setTimeout(function () {
 
-                    var row = Ext.get(el).parent('.x-grid-row');
-                    var num1 = row.query('input.ChineseScore')[0].value;
-                    var num2 = row.query('input.MathScore')[0].value;
-                    var resultNode = Ext.get(row.query('span.TotalScore'));
-                    resultNode.update(parseInt(num1, 10) + parseInt(num2, 10));
+                    var row = $this.parents('.x-grid-row');
+                    var num1 = row.find(inputselector + '.ChineseScore').val();
+                    var num2 = row.find(inputselector + '.MathScore').val();
+                    var resultNode = row.find('.x-grid-tpl span.TotalScore');
 
-                    var rowIndex = row.parent().query('>tr').indexOf(row.dom);
+                    resultNode.text(parseInt(num1, 10) + parseInt(num2, 10));
 
+                    var rowIndex = row.index();
                     __doPostBack(gridClientID, 'AutoSave$' + rowIndex);
 
                 }, 500);
-            }, { delegate: '.x-grid-tpl input' });
+            });
 
         }
 
         // 页面第一次加载完成后调用的函数
         F.ready(function () {
-            var grid = F(gridClientID);
-
             registerAutoSaveEvent();
         });
 

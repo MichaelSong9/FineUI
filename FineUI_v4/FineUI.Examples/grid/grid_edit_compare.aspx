@@ -79,56 +79,60 @@
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
+        var inputselector = '.x-grid-tpl input';
 
         function registerSelectEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on('click', function (evt, el) {
-                el.select();
-            }, { delegate: '.x-grid-tpl input' });
+            $(grid.el.dom).delegate(inputselector, 'click', function (evt) {
+                $(this).select();
+            });
         }
 
         function registerEnterEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on("keydown", function (evt, el) {
-                if (evt.getKey() == evt.ENTER) {
-                    var nextRow = Ext.get(el).parent('.x-grid-row').next();
-                    if (nextRow) {
-                        nextRow.query('.x-grid-tpl input.group1')[0].select();
+            $(grid.el.dom).delegate(inputselector, 'keypress', function (evt) {
+                var $this = $(this);
+                // Enter Key - 13
+                if (evt.keyCode === 13) {
+                    var inputCls = $this.hasClass('group1') ? 'group1' : 'group2';
+                    var nextRow = $this.parents('.x-grid-row').next();
+                    if (nextRow.length) {
+                        nextRow.find(inputselector + '.' + inputCls).select();
                     }
                 }
-            }, { delegate: '.x-grid-tpl input' });
+            });
         }
 
         function registerCompareEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on("keydown", function (evt, el) {
+            $(grid.el.dom).delegate(inputselector, 'keypress', function (evt) {
+                var $this = $(this);
 
+                // 延时以确保文本输入框得到了用户输入的值
                 window.setTimeout(function () {
 
-                    var row = Ext.get(el).parent('.x-grid-row');
-                    var num1 = row.query('.x-grid-tpl input.group1')[0].value;
-                    var num2 = row.query('.x-grid-tpl input.group2')[0].value;
-                    var resultNode = Ext.get(row.query('.x-grid-tpl span.result'));
-                    resultNode.removeCls(['success', 'error']);
+                    var row = $this.parents('.x-grid-row');
+                    var num1 = row.find(inputselector + '.group1').val();
+                    var num2 = row.find(inputselector + '.group2').val();
+                    var resultNode = row.find('.x-grid-tpl span.result');
+                    resultNode.removeClass('success error');
                     if (num1 == num2) {
-                        resultNode.addCls('success');
-                        resultNode.update('两组录入一致');
+                        resultNode.addClass('success');
+                        resultNode.text('两组录入一致');
                     } else {
-                        resultNode.addCls('error');
-                        resultNode.update('两组录入不一致！');
+                        resultNode.addClass('error');
+                        resultNode.text('两组录入不一致！');
                     }
 
                 }, 500);
-            }, { delegate: '.x-grid-tpl input' });
+            });
 
         }
 
         F.ready(function () {
-            var grid = F(gridClientID);
-
             registerSelectEvent();
             registerEnterEvent();
             registerCompareEvent();

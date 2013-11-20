@@ -23,14 +23,16 @@
                 </x:TextBox>
             </Items>
         </x:SimpleForm>
+        <br />
+        参考：http://jqueryui.com/autocomplete/#remote-with-cache
     </form>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="../jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+        var textbox1ID = '<%= TextBox1.ClientID %>';
 
         F.ready(function () {
-            var textbox1ID = '<%= TextBox1.ClientID %>';
-
+        
             var cache = {};
 
             $('#' + textbox1ID + ' input').autocomplete({

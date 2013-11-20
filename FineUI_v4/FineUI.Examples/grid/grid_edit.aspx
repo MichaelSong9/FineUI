@@ -59,26 +59,28 @@
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
+        var inputselector = '.x-grid-tpl input';
 
         function registerSelectEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on('click', function (evt, el) {
-                el.select();
-            }, { delegate: '.x-grid-tpl input' });
+            $(grid.el.dom).delegate(inputselector, 'click', function (evt) {
+                $(this).select();
+            });
         }
 
         function registerEnterEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on("keydown", function (evt, el) {
-                if (evt.getKey() == evt.ENTER) {
-                    var nextRow = Ext.get(el).parent('.x-grid-row').next();
-                    if (nextRow) {
-                        nextRow.query('.x-grid-tpl input')[0].select();
+            $(grid.el.dom).delegate(inputselector, 'keypress', function (evt) {
+                // Enter Key - 13
+                if (evt.keyCode === 13) {
+                    var nextRow = $(this).parents('.x-grid-row').next();
+                    if (nextRow.length) {
+                        nextRow.find(inputselector).eq(0).select();
                     }
                 }
-            }, { delegate: '.x-grid-tpl input' });
+            });
         }
 
         F.ready(function () {

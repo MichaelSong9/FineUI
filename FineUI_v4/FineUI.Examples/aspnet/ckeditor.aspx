@@ -27,6 +27,7 @@
     <script type="text/javascript">
         var editorClientID = '<%= CKEditor1.ClientID %>';
         var containerClientID = '<%= ContentPanel1.ClientID %>';
+
         F.ready(function () {
 
             window.setTimeout(function () {

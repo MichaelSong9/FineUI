@@ -27,15 +27,18 @@
                 </x:TextBox>
             </Items>
         </x:SimpleForm>
+        <br />
+        参考：http://jqueryui.com/autocomplete/#custom-data
     </form>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="../jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
+        var textbox1ID = '<%= TextBox1.ClientID %>';
+        var textbox2ID = '<%= TextBox2.ClientID %>';
+        var textbox3ID = '<%= TextBox3.ClientID %>';
+
         F.ready(function () {
-            var textbox1ID = '<%= TextBox1.ClientID %>';
-            var textbox2ID = '<%= TextBox2.ClientID %>';
-            var textbox3ID = '<%= TextBox3.ClientID %>';
 
             var projects = [
                 {
@@ -61,14 +64,14 @@
                 select: function (event, ui) {
                     var $this = $(this);
                     $this.val(ui.item.label);
-                    $('#' + textbox2ID).val(ui.item.value);
-                    $('#' + textbox3ID).val(ui.item.desc);
+                    $('#' + textbox2ID + ' input').val(ui.item.value);
+                    $('#' + textbox3ID + ' input').val(ui.item.desc);
                     return false;
                 }
             }).data("autocomplete")._renderItem = function (ul, item) {
-                return $("<li>").data("item.autocomplete", item)
-                .append("<a><span class='autocomplete-item-title'>" + item.label + "</span><br/>" + item.desc + "</a>")
-                .appendTo(ul);
+                return $("<li>")
+                    .append("<a><span class='autocomplete-item-title'>" + item.label + "</span><br/>" + item.desc + "</a>")
+                    .appendTo(ul);
             };
 
         });

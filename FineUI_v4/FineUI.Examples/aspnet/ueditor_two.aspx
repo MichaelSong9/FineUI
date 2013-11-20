@@ -103,7 +103,7 @@
 
         });
 
-
+        // 编辑器准备完毕的异步处理函数（只有在编辑器准备完毕后，才能对编辑器进行操作）
         function editorPromise(editor) {
             var dfd = $.Deferred();
 

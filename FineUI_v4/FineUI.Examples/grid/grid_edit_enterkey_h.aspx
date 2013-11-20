@@ -83,7 +83,7 @@
         function registerEnterEvent() {
             var grid = F(gridClientID);
 
-            $(grid.el.dom).delegate(inputselector, 'keydown', function (evt) {
+            $(grid.el.dom).delegate(inputselector, 'keypress', function (evt) {
                 // 13 - Enter Key
                 if (evt.keyCode === 13) {
                     var row = $(this).parents('.x-grid-row');
@@ -102,7 +102,7 @@
                         var nextRow = row.next();
                         if (nextRow.length) {
                             // 选中下一行第一列的的输入框
-                            nextRow.find(inputselector).get(0).select();
+                            nextRow.find(inputselector).eq(0).select();
                         } else {
                             // 如果本行是最后一行，则选择第一行第一列的输入框
                             row.prevAll(':last').find(inputselector).eq(0).select();

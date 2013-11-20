@@ -75,7 +75,8 @@
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
 
-        function expandAllRows(grid) {
+        function expandAllRows() {
+            var grid = F(gridClientID);
             var store = grid.getStore();
             var expander = grid.getPlugin(gridClientID + '_rowexpander');
             for (var i = 0, count = store.getCount() ; i < count; i++) {
@@ -86,15 +87,13 @@
 
         // 页面第一个加载完毕后执行的函数
         F.ready(function () {
-            var grid = F(gridClientID);
-            expandAllRows(grid);
+            expandAllRows();
         });
 
         // 页面AJAX回发后执行的函数
-        function onAjaxReady() {
-            var grid = F(gridClientID);
-            expandAllRows(grid);
-        }
+        F.ajaxReady(function () {
+            expandAllRows();
+        });
     </script>
 </body>
 </html>

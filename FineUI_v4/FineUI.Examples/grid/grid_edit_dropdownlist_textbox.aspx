@@ -47,22 +47,21 @@
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
+        var genderselector = '.x-grid-tpl select.gender';
 
         function registerSyncEvent() {
             var grid = F(gridClientID);
 
-            grid.el.on("change", function (evt, el) {
+            $(grid.el.dom).delegate(genderselector, 'change', function () {
+                var $this = $(this);
+                var row = $this.parents('.x-grid-row');
+                row.find('input.gender').val($this.val());
 
-                var row = Ext.get(el).parent('.x-grid-row');
-                row.query('input.gender')[0].value = el.value;
-
-            }, { delegate: '.x-grid-tpl select.gender' });
+            });
 
         }
 
         F.ready(function () {
-            var grid = F(gridClientID);
-
             registerSyncEvent();
         });
 

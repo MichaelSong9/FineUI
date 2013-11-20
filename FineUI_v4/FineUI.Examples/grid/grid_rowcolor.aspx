@@ -56,6 +56,7 @@
         <br />
         <br />
         <br />
+
         <x:HiddenField ID="highlightRows" runat="server">
         </x:HiddenField>
     </form>
@@ -68,12 +69,12 @@
             var highlightRows = F(highlightRowsClientID);
             var grid = F(gridClientID);
 
-            grid.el.select('.x-grid-row table.highlight').removeCls('highlight');
+            $(grid.el.dom).find('.x-grid-row.highlight').removeClass('highlight');
 
-            Ext.Array.each(highlightRows.getValue().split(','), function (item, index) {
+            $.each(highlightRows.getValue().split(','), function (index, item) {
                 if (item !== '') {
                     var row = grid.getView().getNode(parseInt(item, 10));
-                    Ext.get(row).addCls('highlight');
+                    $(row).addClass('highlight');
                 }
             });
 
@@ -85,9 +86,9 @@
         });
 
         // 页面AJAX回发后执行的函数
-        function onAjaxReady() {
+        F.ajaxReady(function () {
             highlightRows();
-        }
+        });
     </script>
 </body>
 </html>

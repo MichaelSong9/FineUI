@@ -93,10 +93,10 @@
         });
 
         // 页面AJAX回发后执行的函数
-        function onAjaxReady() {
+        F.ajaxReady(function () {
             var grid = F(gridClientID);
             calcGridSummary(grid);
-        }
+        });
     </script>
 </body>
 </html>
