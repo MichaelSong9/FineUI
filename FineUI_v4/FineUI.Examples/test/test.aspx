@@ -4,34 +4,45 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title><%= GetGender(1) %></title>
+    <title></title>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" AutoSizePanelID="Panel1" />
-        <x:Panel ID="Panel1" runat="server" ShowBorder="False" ShowHeader="false" BodyPadding="5px"
-            EnableBackgroundColor="true" Layout="VBox" BoxConfigAlign="Middle" BoxConfigChildMargin="0 0 10 0 "
-            BoxConfigPadding="5px" BoxConfigPosition="Start">
+         <x:PageManager ID="PageManager1" runat="server" />
+        <x:SimpleForm ID="SimpleForm1" runat="server">
             <Items>
-                <%--1--%>
-                <x:Panel ID="Panel2" Title="Panel2" runat="server" Height="150px" Width="750px" EnableBackgroundColor="true"
-                    ShowBorder="True" ShowHeader="True">
-                </x:Panel>
-                <%--2--%>
-                <x:Panel ID="Panel3" Title="Panel3" runat="server" BoxFlex="1" Width="750px" EnableBackgroundColor="true"
-                    ShowBorder="True" ShowHeader="True">
-                </x:Panel>
-                <%--3--%>
-                <x:Panel ID="Panel4" Title="Panel4" runat="server" BoxFlex="1" Width="750px" EnableBackgroundColor="true"
-                    ShowBorder="True" ShowHeader="True">
-                </x:Panel>
-                <%--4--%>
-                <x:Panel ID="Panel5" Title="Panel5" runat="server" BoxFlex="1" Width="750px" EnableBackgroundColor="true"
-                    ShowBorder="True" ShowHeader="True">
-                </x:Panel>
+                <x:DropDownList ID="ddlStartMonth" runat="server" Label="起始月份" CompareControl="ddlEndMonth" CompareOperator="LessThanEqual" CompareType="Int">
+                    <x:ListItem Text="1月" Value="1" Selected="true" />
+                    <x:ListItem Text="2月" Value="2" />
+                    <x:ListItem Text="3月" Value="3" />
+                    <x:ListItem Text="4月" Value="4" />
+                    <x:ListItem Text="5月" Value="5" />
+                    <x:ListItem Text="6月" Value="6" />
+                    <x:ListItem Text="7月" Value="7" />
+                    <x:ListItem Text="8月" Value="8" />
+                    <x:ListItem Text="9月" Value="9" />
+                    <x:ListItem Text="10月" Value="10" />
+                    <x:ListItem Text="11月" Value="11" />
+                    <x:ListItem Text="12月" Value="12" />
+                </x:DropDownList>
+                <x:DropDownList ID="ddlEndMonth" runat="server" Label="截止月份">
+                    <x:ListItem Text="1月" Value="1" />
+                    <x:ListItem Text="2月" Value="2" Selected="true" />
+                    <x:ListItem Text="3月" Value="3" />
+                    <x:ListItem Text="4月" Value="4" />
+                    <x:ListItem Text="5月" Value="5" />
+                    <x:ListItem Text="6月" Value="6" />
+                    <x:ListItem Text="7月" Value="7" />
+                    <x:ListItem Text="8月" Value="8" />
+                    <x:ListItem Text="9月" Value="9" />
+                    <x:ListItem Text="10月" Value="10" />
+                    <x:ListItem Text="11月" Value="11" />
+                    <x:ListItem Text="12月" Value="12" />
+                </x:DropDownList>
             </Items>
-        </x:Panel>
+
+        </x:SimpleForm>
     </form>
 </body>
 </html>

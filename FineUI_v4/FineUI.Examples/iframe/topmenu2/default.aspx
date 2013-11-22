@@ -51,14 +51,15 @@
     <script>
 
         F.ready(function () {
-            var menuLis = Ext.select('.menu ul li');
-            menuLis.on('click', function (evt, el) {
-                var classNames = /menu\-(\w+)/.exec(this.className);
+            var menuLis = $('.menu ul li');
+            menuLis.click(function (e) {
+                var $this = $(this);
+                var classNames = /menu\-(\w+)/.exec($this.attr('class'));
                 if (classNames.length == 2) {
                     var menuType = classNames[1];
 
-                    menuLis.removeCls('selected');
-                    Ext.get(this).addCls('selected');
+                    menuLis.removeClass('selected');
+                    $this.addClass('selected');
 
                     window.frames['leftframe'].location.href = './leftmenu.aspx?menu=' + encodeURIComponent(menuType);
                 }

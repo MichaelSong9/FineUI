@@ -26,8 +26,8 @@
                 </x:FormRow>
                 <x:FormRow ColumnWidths="50% 50%">
                     <Items>
-                        <x:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True">
-                            <x:ListItem Selected="true" Text="可选项 1" Value="0"></x:ListItem>
+                        <x:DropDownList ID="DropDownList1" runat="server" Label="下拉列表">
+                            <x:ListItem Text="可选项 1" Value="0" Selected="true"></x:ListItem>
                             <x:ListItem Text="可选项 2" Value="1"></x:ListItem>
                         </x:DropDownList>
                         <x:TextBox ID="TextBox1" ShowRedStar="true" runat="server" Label="文本框" Required="true"
@@ -70,7 +70,7 @@
                 </x:FormRow>
                 <x:FormRow>
                     <Items>
-                        <x:DropDownList ID="DropDownList3" Label="审批人" runat="server" Required="true" ShowRedStar="True">
+                        <x:DropDownList ID="DropDownList3" Label="审批人" runat="server" ForceSelection="false" Required="true" ShowRedStar="True">
                             <x:ListItem Text="老大甲" Value="0"></x:ListItem>
                             <x:ListItem Text="老大乙" Value="1"></x:ListItem>
                             <x:ListItem Text="老大丙" Value="2"></x:ListItem>

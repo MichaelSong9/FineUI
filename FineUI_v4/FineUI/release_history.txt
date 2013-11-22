@@ -46,8 +46,16 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-如果面板的EnableIFrame为true，则忽略Items属性（purplebolt）。
 	-为窗体控件的GetShowReference增加重载方法，可以在打开窗体时指定宽度和高度（黑冰.cn）。
 	-修正Can not add property X_Rows_GZ to Newtonsoft.Json.Linq.JObject（今夕何夕、treedun、欧志辉）。
+	-增加示例iframe/topmenu4/default.aspx，演示IFrame中的树如何与父窗口中的选项卡控件交互（wolkai-4386）。
 
-	
+
+
++2014-02-** v3.3.3
+	-下拉列表ForceSelection默认值保持为true，否则对现有项目影响很大（蓝色天空-4381）。
+	-下拉列表在页面第一次加载时出现错误提示（牙膏人-4390）。
+
+
+
 	
 +2013-11-21 v3.3.2
 	-修正IE7/IE8下表格的日期列显示错误，IE不能正确解析Date.parse('2015-10-01')（夏雨雪）。

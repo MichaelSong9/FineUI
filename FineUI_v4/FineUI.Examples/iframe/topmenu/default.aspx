@@ -46,7 +46,7 @@
                     </Items>
                 </x:Region>
                 <x:Region ID="Region2" Split="true" Width="200px"
-                    Margins="0 0 0 0" ShowHeader="false" Title="示例菜单" Icon="Outline"
+                    Margins="0 0 0 0" ShowHeader="false" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                     <Items>
                         <x:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
@@ -67,15 +67,15 @@
 
         function selectMenu(menuClassName) {
             // 选中当前菜单
-            Ext.select('.menu ul li').removeCls('selected');
-            Ext.select('.menu ul li.' + menuClassName).addCls('selected');
+            $('.menu ul li').removeClass('selected');
+            $('.menu ul li.' + menuClassName).addClass('selected');
 
             // 展开树的第一个节点，并选中第一个节点下的第一个子节点（在右侧IFrame中打开）
             var tree = F(leftTreeID);
             var treeFirstChild = tree.getRootNode().firstChild;
+
             // 展开第一个节点（如果想要展开全部节点，调用 tree.expandAll();）
             treeFirstChild.expand();
-
 
             // 选中第一个链接节点，并在右侧IFrame中打开此链接
             var treeFirstLink = treeFirstChild.firstChild;

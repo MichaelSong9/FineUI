@@ -229,6 +229,16 @@
     <Content Include="iframe\topmenu\res\images\p.png" />
     <Content Include="iframe\topmenu\res\images\t.png" />
     <Content Include="iframe\topmenu\res\main.css" />
+    <Content Include="iframe\topmenu4\data\menuMail.xml" />
+    <Content Include="iframe\topmenu4\data\menuSMS.xml" />
+    <Content Include="iframe\topmenu4\data\menuSYS.xml" />
+    <Content Include="iframe\topmenu4\default.aspx" />
+    <Content Include="iframe\topmenu4\leftmenu.aspx" />
+    <Content Include="iframe\topmenu4\res\images\admin_tbg.png" />
+    <Content Include="iframe\topmenu4\res\images\menu.png" />
+    <Content Include="iframe\topmenu4\res\images\p.png" />
+    <Content Include="iframe\topmenu4\res\images\t.png" />
+    <Content Include="iframe\topmenu4\res\main.css" />
     <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="other\keydown.aspx" />
@@ -912,6 +922,20 @@
     </Compile>
     <Compile Include="iframe\topmenu\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu4\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu4\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\topmenu4\leftmenu.aspx.cs">
+      <DependentUpon>leftmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\topmenu4\leftmenu.aspx.designer.cs">
+      <DependentUpon>leftmenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\keydown.aspx.cs">
       <DependentUpon>keydown.aspx</DependentUpon>

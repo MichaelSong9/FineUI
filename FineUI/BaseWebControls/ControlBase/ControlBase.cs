@@ -927,7 +927,10 @@ namespace FineUI
             List<string> totalModifiedProperties = XState.GetTotalModifiedProperties();
             if (totalModifiedProperties.Count > 0)
             {
-                OB.AddProperty("x_state", ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None), true);
+                string xstate = ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None);
+                AddStartupScript(String.Format("var {0}={1};", GetXStateScriptID(), xstate));
+                OB.AddProperty("x_state", GetXStateScriptID(), true);
+                //OB.AddProperty("x_state", ConvertPropertiesToJObject(totalModifiedProperties).ToString(Formatting.None), true);
             }
             else
             {
@@ -978,6 +981,15 @@ namespace FineUI
             //} 
 
             #endregion
+        }
+
+        /// <summary>
+        /// 获取XState的JS变量
+        /// </summary>
+        /// <returns></returns>
+        protected string GetXStateScriptID()
+        {
+            return String.Format("{0}_state", XID);
         }
 
         #endregion
@@ -1374,7 +1386,7 @@ namespace FineUI
                 // 合并在基类中注册的脚本，然后整体注册
                 if (ResourceManager.Instance.IsStartupScriptExist(this))
                 {
-                    scriptContent = scriptContent + ResourceManager.Instance.GetStartupScript(this).Script;
+                    scriptContent = ResourceManager.Instance.GetStartupScript(this).Script + scriptContent;
                     ResourceManager.Instance.RemoveStartupScript(this);
                 }
 

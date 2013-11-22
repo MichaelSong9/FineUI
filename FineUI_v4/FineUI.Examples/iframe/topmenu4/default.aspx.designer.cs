@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.test {
+namespace FineUI.Examples.iframe.topmenu4 {
     
     
-    public partial class test {
+    public partial class _default {
         
         /// <summary>
         /// form1 控件。
@@ -31,30 +31,66 @@ namespace FineUI.Examples.test {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// SimpleForm1 控件。
+        /// RegionPanel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.SimpleForm SimpleForm1;
+        protected global::FineUI.RegionPanel RegionPanel1;
         
         /// <summary>
-        /// ddlStartMonth 控件。
+        /// Region1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.DropDownList ddlStartMonth;
+        protected global::FineUI.Region Region1;
         
         /// <summary>
-        /// ddlEndMonth 控件。
+        /// Region2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.DropDownList ddlEndMonth;
+        protected global::FineUI.Region Region2;
+        
+        /// <summary>
+        /// mainRegion 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Region mainRegion;
+        
+        /// <summary>
+        /// mainTabStrip 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TabStrip mainTabStrip;
+        
+        /// <summary>
+        /// Tab1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Tab Tab1;
+        
+        /// <summary>
+        /// ContentPanel1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.ContentPanel ContentPanel1;
     }
 }

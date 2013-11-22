@@ -1,10 +1,10 @@
 ﻿
 F.ready(function () {
-    var btnExpandAll = Ext.getCmp(IDS.btnExpandAll);
-    var btnCollapseAll = Ext.getCmp(IDS.btnCollapseAll);
-    var mainMenu = Ext.getCmp(IDS.mainMenu);
-    var mainTabStrip = Ext.getCmp(IDS.mainTabStrip);
-    var windowSourceCode = Ext.getCmp(IDS.windowSourceCode);
+    var btnExpandAll = F(IDS.btnExpandAll);
+    var btnCollapseAll = F(IDS.btnCollapseAll);
+    var mainMenu = F(IDS.mainMenu);
+    var mainTabStrip = F(IDS.mainTabStrip);
+    var windowSourceCode = F(IDS.windowSourceCode);
 
     // 当前展开的手风琴面板
     function getExpandedPanel() {
@@ -105,7 +105,7 @@ F.ready(function () {
     // 初始化主框架中的树(或者Accordion+Tree)和选项卡互动，以及地址栏的更新
     // treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例
     // mainTabStrip： 选项卡实例
-    // addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
+    // createToolbar： 创建选项卡前的回调函数（接受tabConfig参数）
     // updateLocationHash: 切换Tab时，是否更新地址栏Hash值
     // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
     // refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame

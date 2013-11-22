@@ -374,7 +374,7 @@ F.fieldValue = function (cmp) {
             var valid = true;
             var firstInvalidField = null;
             for (var i = 0; i < forms.length; i++) {
-                var result = F(forms[i]).x_isValid();
+                var result = F(forms[i]).f_isValid();
                 if (!result[0]) {
                     valid = false;
                     if (firstInvalidField == null) {
@@ -593,13 +593,13 @@ F.fieldValue = function (cmp) {
         // icon： 选项卡图标
         // addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
         // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
-        addMainTab: function (mainTabStrip, id, url, text, icon, addTabCallback, refreshWhenExist) {
+        addMainTab: function (mainTabStrip, id, url, text, icon, createToolbar, refreshWhenExist) {
             var iconId, iconCss, tabId, currentTab, tabConfig;
 
             // 兼容 addMainTab(mainTabStrip, treeNode, addTabCallback, refreshWhenExist) 调用方式
             if (typeof (id) !== 'string') {
                 refreshWhenExist = text;
-                addTabCallback = url;
+                createToolbar = url;
                 url = id.data.href;
                 icon = id.data.icon;
                 text = id.data.text;
@@ -635,8 +635,8 @@ F.fieldValue = function (cmp) {
                     tabConfig['iconCls'] = iconId;
                 }
 
-                if (addTabCallback) {
-                    var addTabCallbackResult = addTabCallback.apply(window, [tabConfig]);
+                if (createToolbar) {
+                    var addTabCallbackResult = createToolbar.apply(window, [tabConfig]);
                     // 兼容之前的方法，函数返回值如果不为空，则将返回值作为顶部工具条实例
                     if (addTabCallbackResult) {
                         tabConfig['tbar'] = addTabCallbackResult;
@@ -662,11 +662,15 @@ F.fieldValue = function (cmp) {
         // 初始化左侧树（或者手风琴+树）与右侧选项卡控件的交互
         // treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例
         // mainTabStrip： 选项卡实例
-        // addTabCallback： 创建选项卡前的回调函数（接受tabConfig参数）
+        // createToolbar： 创建选项卡前的回调函数（接受tabConfig参数）
         // updateLocationHash: 切换Tab时，是否更新地址栏Hash值
         // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
         // refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
-        initTreeTabStrip: function (treeMenu, mainTabStrip, addTabCallback, updateLocationHash, refreshWhenExist, refreshWhenTabChange) {
+        // hashWindow：需要更新Hash值的窗口对象，默认为当前window
+        initTreeTabStrip: function (treeMenu, mainTabStrip, createToolbar, updateLocationHash, refreshWhenExist, refreshWhenTabChange, hashWindow) {
+            if (!hashWindow) {
+                hashWindow = window;
+            }
 
             // 注册树的节点点击事件
             function registerTreeClickEvent(treeInstance) {
@@ -679,11 +683,11 @@ F.fieldValue = function (cmp) {
 
                         if (updateLocationHash) {
                             // 修改地址栏
-                            window.location.hash = '#' + href;
+                            hashWindow.location.hash = '#' + href;
                         }
 
                         // 新增Tab节点
-                        F.util.addMainTab(mainTabStrip, record, addTabCallback, refreshWhenExist);
+                        F.util.addMainTab(mainTabStrip, record, createToolbar, refreshWhenExist);
                     }
                 });
             }
@@ -707,10 +711,10 @@ F.fieldValue = function (cmp) {
                 // 只有当浏览器地址栏的Hash值和将要改变的不一样时，才进行如下两步处理：
                 // 1. 更新地址栏Hash值
                 // 2. 刷新Tab内的IFrame
-                if (tabHash !== window.location.hash) {
+                if (tabHash !== hashWindow.location.hash) {
 
                     if (updateLocationHash) {
-                        window.location.hash = tabHash;
+                        hashWindow.location.hash = tabHash;
                     }
 
                     if (refreshWhenTabChange) {
@@ -728,7 +732,7 @@ F.fieldValue = function (cmp) {
 
 
             // 页面第一次加载时，根据URL地址在主窗口加载页面
-            var HASH = window.location.hash.substr(1);
+            var HASH = hashWindow.location.hash.substr(1);
             if (HASH) {
                 var FOUND = false;
 
@@ -743,7 +747,7 @@ F.fieldValue = function (cmp) {
                                     path = currentNode.getPath();
                                     treeInstance.expandPath(path); //node.expand();
                                     treeInstance.selectPath(path); // currentNode.select();
-                                    F.util.addMainTab(mainTabStrip, currentNode, addTabCallback);
+                                    F.util.addMainTab(mainTabStrip, currentNode, createToolbar);
                                     FOUND = true;
                                     return;
                                 }
@@ -771,9 +775,6 @@ F.fieldValue = function (cmp) {
                     initTreeMenu(treeMenu, treeMenu.getRootNode());
                 }
             }
-
-
-
 
         },
 
