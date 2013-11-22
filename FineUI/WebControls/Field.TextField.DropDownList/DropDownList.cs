@@ -221,14 +221,14 @@ namespace FineUI
         /// 是否强制选中项为下拉列表中的项（启用编辑的情况下）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Description("是否强制选中项为下拉列表中的项（启用编辑的情况下）")]
         public bool ForceSelection
         {
             get
             {
                 object obj = XState["ForceSelection"];
-                return obj == null ? false : (bool)obj;
+                return obj == null ? true : (bool)obj;
             }
             set
             {
@@ -805,6 +805,10 @@ namespace FineUI
 			}
 
             if (ForceSelection)
+            {
+                OB.AddProperty("forceSelection", true);
+            }
+            else
             {
                 OB.AddProperty("forceSelection", false);
             }

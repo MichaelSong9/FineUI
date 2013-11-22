@@ -101,18 +101,22 @@ namespace FineUI
             get
             {
                 string value = null;
-                if (SelectedItem != null)
+                if (SelectedItem == null)
+                {
+                    // 如果强制选择一项，我们可能需要选中第一项
+                    if (ForceSelection)
+                    {
+                        if (Items.Count > 0)
+                        {
+                            SelectedIndex = 0;
+                            // If SelectedValue is null, then we select the first item of the list.
+                            value = Items[0].Value;
+                        }
+                    }
+                }
+                else
                 {
                     value = SelectedItem.Value;
-                    //// 如果强制选择一项，我们可能需要选中第一项
-                    //if (ForceSelection)
-                    //{
-                    //    if (Items.Count > 0)
-                    //    {
-                    //        SelectedIndex = 0;
-                    //        value = Items[0].Value;
-                    //    }
-                    //}
                 }
                 return value;
             }
@@ -217,14 +221,14 @@ namespace FineUI
         /// 是否强制选中下拉列表中的项（启用编辑的情况下）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Description("是否强制选中下拉列表中的项（启用编辑的情况下）")]
         public bool ForceSelection
         {
             get
             {
                 object obj = FState["ForceSelection"];
-                return obj == null ? false : (bool)obj;
+                return obj == null ? true : (bool)obj;
             }
             set
             {
@@ -816,10 +820,13 @@ namespace FineUI
             }
 
 
-
             if (ForceSelection)
             {
                 OB.AddProperty("forceSelection", true);
+            }
+            else
+            {
+                OB.AddProperty("forceSelection", false);
             }
 
             //if (Resizable)
