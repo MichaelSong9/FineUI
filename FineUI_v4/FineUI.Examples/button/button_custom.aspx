@@ -7,15 +7,18 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .bgbtn {
-            background: url(../images/login.png) no-repeat;
+            background-image: url(../images/login.png) !important;
             width: 320px;
             height: 50px;
+            border-width: 0;
+            background-color: transparent;
         }
 
-        .bgbtn .x-btn-tl, .bgbtn .x-btn-tr, .bgbtn .x-btn-tc,
-        .bgbtn .x-btn-ml, .bgbtn .x-btn-mr, .bgbtn .x-btn-mc,
-        .bgbtn .x-btn-bl, .bgbtn .x-btn-br, .bgbtn .x-btn-bc {
+        .bgbtn .x-frame-ml, .bgbtn .x-frame-mc, .bgbtn .x-frame-mr,
+        .bgbtn .x-frame-tl, .bgbtn .x-frame-tc, .bgbtn .x-frame-tr,
+        .bgbtn .x-frame-bl, .bgbtn .x-frame-bc, .bgbtn .x-frame-br {
             background-image: none;
+            background-color: transparent;
         }
     </style>
 </head>
