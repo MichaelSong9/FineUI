@@ -289,7 +289,7 @@ if (Ext.form.CheckboxGroup) {
             var selectedObj = {};
             this.items.each(function (item) {
                 var itemSelected = false;
-                if (values.indexOf(item.inputValue) >= 0) {
+                if (Ext.Array.indexOf(values, item.inputValue) >= 0) {
                     itemSelected = true;
                 }
                 selectedObj[item.name] = itemSelected;
@@ -670,7 +670,7 @@ if (Ext.grid.Panel) {
             hiddens = hiddens || this.f_state['HiddenColumns'] || [];
             var columns = this.columns;
             Ext.Array.each(columns, function (column, index) {
-                if (hiddens.indexOf(column.id) !== -1) {
+                if (Ext.Array.indexOf(hiddens, column.id) !== -1) {
                     column.setVisible(false);
                 } else {
                     column.setVisible(true);
@@ -861,7 +861,7 @@ if (Ext.grid.Panel) {
             var $this = this;
             var newAddedRows = [];
             this.getStore().each(function (record, index) {
-                if ($this.f_recordIDs.indexOf(record.id) < 0) {
+                if (Ext.Array.indexOf($this.f_recordIDs, record.id) < 0) {
                     newAddedRows.push(index);
                 }
             });
@@ -881,7 +881,7 @@ if (Ext.grid.Panel) {
             }
 
             Ext.Array.each(this.f_recordIDs, function (recordID, index) {
-                if (currentRecordIDs.indexOf(recordID) < 0) {
+                if (Ext.Array.indexOf(currentRecordIDs, recordID) < 0) {
                     deletedRows.push(index);
                 }
             });
@@ -918,7 +918,7 @@ if (Ext.grid.Panel) {
                 }
 
                 // 本行数据在原始数据集合中的行索引
-                rowIndexOriginal = this.f_recordIDs.indexOf(recordID);
+                rowIndexOriginal = Ext.Array.indexOf(this.f_recordIDs, recordID);
                 if (rowIndexOriginal < 0) {
                     // 删除那些不能编辑的列
                     for (var columnID in rowData) {

@@ -47,6 +47,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-为窗体控件的GetShowReference增加重载方法，可以在打开窗体时指定宽度和高度（黑冰.cn）。
 	-修正Can not add property X_Rows_GZ to Newtonsoft.Json.Linq.JObject（今夕何夕、treedun、欧志辉）。
 	-增加示例iframe/topmenu4/default.aspx，演示IFrame中的树如何与父窗口中的选项卡控件交互（wolkai-4386）。
+	-修正IE8下数组不支持indexOf方法的问题。
 
 
 

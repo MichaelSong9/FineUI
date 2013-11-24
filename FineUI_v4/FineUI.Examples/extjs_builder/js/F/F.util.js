@@ -404,7 +404,7 @@ F.fieldValue = function (cmp) {
             }
             else {
                 var sourceArray = domValue.split(",");
-                return sourceArray.indexOf(testValue) >= 0 ? true : false;
+                return Ext.Array.indexOf(sourceArray, testValue) >= 0 ? true : false;
             }
         },
 
@@ -418,7 +418,7 @@ F.fieldValue = function (cmp) {
             }
             else {
                 var sourceArray = domValue.split(",");
-                if (sourceArray.indexOf(addValue) < 0) {
+                if (Ext.Array.indexOf(sourceArray, addValue) < 0) {
                     sourceArray.push(addValue);
                     Ext.get(domId).dom.value = sourceArray.join(",");
                 }
@@ -432,7 +432,7 @@ F.fieldValue = function (cmp) {
             var domValue = Ext.get(domId).dom.value;
             if (domValue != "") {
                 var sourceArray = domValue.split(",");
-                if (sourceArray.indexOf(addValue) >= 0) {
+                if (Ext.Array.indexOf(sourceArray, addValue) >= 0) {
                     sourceArray = sourceArray.remove(addValue);
                     Ext.get(domId).dom.value = sourceArray.join(",");
                 }
@@ -794,7 +794,7 @@ F.fieldValue = function (cmp) {
                     if (!isradiogroup) {
                         // xselectedarray 可能是undefined, [], ["value1", "value2"]
                         if (xselectedarray) {
-                            xchecked = (xselectedarray.indexOf(xitemvalue) >= 0) ? true : false;
+                            xchecked = (Ext.Array.indexOf(xselectedarray, xitemvalue) >= 0) ? true : false;
                         }
                         xitemname = name + '_' + i;
                     } else {
