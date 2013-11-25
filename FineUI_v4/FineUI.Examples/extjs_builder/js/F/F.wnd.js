@@ -229,6 +229,10 @@
         // 处理表单中有任何字段发生变化时，关闭当前窗口时的提示
         confirmFormModified: function (closeFn) {
             if (F.util.isPageStateChanged()) {
+                F.util.confirm('_self', F.wnd.formModifiedConfirmTitle, F.wnd.formModifiedConfirmMsg, function () {
+                    closeFn.apply(window, arguments);
+                });
+                /*
                 Ext.MessageBox.show({
                     title: F.wnd.formModifiedConfirmTitle,
                     msg: F.wnd.formModifiedConfirmMsg,
@@ -242,6 +246,7 @@
                         }
                     }
                 });
+                */
             } else {
                 closeFn.apply(window, arguments);
             }
@@ -254,7 +259,7 @@
             var pageWindow = F.wnd.getIFrameWindowObject(panel);
             // 如果弹出的页面没能正常加载（比如说网络暂时连接中断）
             // 则直接关闭弹出的Ext-Window，而不会去检查页面表单变化，因为页面对象不存在
-            if (pageWindow.X) {
+            if (pageWindow.F) {
                 pageWindow.F.wnd.confirmFormModified(closeFn);
             }
             else {

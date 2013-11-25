@@ -523,11 +523,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 关闭Window之前弹出确认当前表单改变的对话框
+        /// 关闭窗体之前弹出确认窗体内IFrame中表单改变的对话框
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("关闭Window之前弹出确认当前表单改变的对话框")]
+        [Description("关闭窗体之前弹出确认窗体内IFrame中表单改变的对话框")]
         public bool EnableConfirmOnClose
         {
             get
@@ -1316,31 +1316,17 @@ namespace FineUI
                 string closeFunction = JsHelper.GetFunction(closeScript);
                 OB.AddProperty("onEsc", closeFunction, true);
 
-                string closeButtonScript = String.Format("win.tools.close.addListener('click', function(){{{0}}});", closeScript);
-
-                //string windowResizeScript = String.Empty;
-
-                //// 窗体控件最大化时改变浏览器大小可以自动调整窗体控件的大小
-                //if (EnableMaximize)
-                //{
-                //    windowResizeScript = "Ext.EventManager.onWindowResize(function(){F.wnd.fixMaximize(win);});";
-                //}
-
+                string closeButtonScript = String.Format("win.tools.close.clearListeners();win.tools.close.addListener('click', function(){{{0}}});", closeScript);
                 OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "win"), true);
 
-                // F('Window1').tools.close.addListener('click', function() {alert('ss');})
+
+                //OB.Listeners.AddProperty("beforehide", JsHelper.GetFunction(closeScript, "win"), true);
 
             }
             else
             {
                 OB.AddProperty("closable", false);
             }
-
-            // 现在不用toolsBuilder
-            //if (toolsBuilder.Count > 0)
-            //{
-            //    //OB.AddProperty("tools", String.Format("{0}", toolsBuilder), true);
-            //}
 
             #endregion
 
