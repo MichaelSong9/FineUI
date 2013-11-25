@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_width_forcefitfirsttime {
+    public partial class grid_width_forcefit {
         
         /// <summary>
         /// form1 控件。

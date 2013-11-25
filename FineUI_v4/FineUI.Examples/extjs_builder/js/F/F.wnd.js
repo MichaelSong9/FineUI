@@ -133,12 +133,15 @@
             if (panel.maximizable) {
                 F.wnd.fixMaximize(panel);
 
-
                 // 改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）
+                /*
                 target.Ext.EventManager.onWindowResize(function () {
-                    F.wnd.fixMaximize(panel);
+                    window.setTimeout(function () {
+                        F.wnd.fixMaximize(panel);
+                    }, 500);
+                    
                 });
-
+                */
             }
         },
 

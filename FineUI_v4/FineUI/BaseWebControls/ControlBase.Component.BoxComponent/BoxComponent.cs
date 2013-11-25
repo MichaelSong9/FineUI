@@ -453,20 +453,20 @@ namespace FineUI
                         OB.AddProperty("y", AbsoluteY.Value);
                     }
                 }
-                else if (parentControl.Layout == Layout.Row)
-                {
-                    if (!String.IsNullOrEmpty(RowHeight))
-                    {
-                        string rowHeight = StringUtil.ConvertPercentageToDecimalString(RowHeight);
+                //else if (parentControl.Layout == Layout.Row)
+                //{
+                //    if (!String.IsNullOrEmpty(RowHeight))
+                //    {
+                //        string rowHeight = StringUtil.ConvertPercentageToDecimalString(RowHeight);
 
-                        // 1.00 在IE下会有BUG，把1.00转换为0.999
-                        if (rowHeight == "1.00")
-                        {
-                            rowHeight = "0.999";
-                        }
-                        OB.AddProperty("rowHeight", rowHeight, true);
-                    }
-                }
+                //        // 1.00 在IE下会有BUG，把1.00转换为0.999
+                //        if (rowHeight == "1.00")
+                //        {
+                //            rowHeight = "0.999";
+                //        }
+                //        OB.AddProperty("rowHeight", rowHeight, true);
+                //    }
+                //}
                 else if (parentControl.Layout == Layout.Table)
                 {
                     if (TableRowspan != 1)

@@ -1167,16 +1167,16 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
         [Description("成比例改变表格各列的宽度，以防止出现水平滚动条（第一次加载和之后改变表格宽度时都有效）")]
-        public bool ForceFitAllTime
+        public bool ForceFit
         {
             get
             {
-                object obj = FState["ForceFitAllTime"];
+                object obj = FState["ForceFit"];
                 return obj == null ? false : (bool)obj;
             }
             set
             {
-                FState["ForceFitAllTime"] = value;
+                FState["ForceFit"] = value;
             }
         }
 
@@ -2293,7 +2293,7 @@ namespace FineUI
                 OB.AddProperty("columnLines", true);
             }
 
-            if (ForceFitAllTime)
+            if (ForceFit)
             {
                 OB.AddProperty("forceFit", true);
             }

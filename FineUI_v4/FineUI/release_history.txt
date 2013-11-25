@@ -42,7 +42,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-删除PageManager的ExecuteOnReadyWhenPostBack属性。
 	-更新需要JavaScript参与的示例，DOM相关操作改为jQuery实现。
 	-增加示例grid/grid_edit_enterkey_v.aspx，演示如果使用回车键遍历表格中所有文本框（⑥阿太⑥）。
-	-更新X.util.addMainTab方法，如果refreshWhenExist为true，则尝试更新iframe的url，而不是调用location.reload（KITTEN）。
+	-更新X.util.addMainTab方法，如果refreshWhenExist为true，则尝试更新iframe的url，而不是调用location.reload（KITTEN-4293）。
 	-如果面板的EnableIFrame为true，则忽略Items属性（purplebolt）。
 	-为窗体控件的GetShowReference增加重载方法，可以在打开窗体时指定宽度和高度（黑冰.cn）。
 	-修正Can not add property X_Rows_GZ to Newtonsoft.Json.Linq.JObject（今夕何夕、treedun、欧志辉）。
@@ -55,6 +55,10 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-多行显示补全数据示例问题（慧信-4180）。
 	-示例站点Cookie冲突导致无法访问（石头oswica-4182）。
 	-主题为Access时，表格的序号列背景色异常（死水沼泽-4183）。
+	-最大化窗体不能响应浏览器窗口大小改变事件（老白杨-4403）。
+	-删除行布局（吉吉﹑-4200）。
+	+多表头问题（吉吉﹑-4242）。
+		-表格的ForceFitAllTime改名为ForceFit，此属性暂时不能和多表头一起使用。
 
 
 

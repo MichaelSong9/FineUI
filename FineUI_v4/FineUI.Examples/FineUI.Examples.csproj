@@ -153,8 +153,7 @@
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
-    <Content Include="grid\grid_width_forcefitalltime.aspx" />
-    <Content Include="grid\grid_width_forcefitfirsttime.aspx" />
+    <Content Include="grid\grid_width_forcefit.aspx" />
     <Content Include="grid\grid_width_expandunusedspace.aspx" />
     <Content Include="grid\grid_width.aspx" />
     <Content Include="grid\grid_checkboxfield_checkall.aspx" />
@@ -559,19 +558,12 @@
     <Compile Include="grid\grid_simulate_tree_database_paging.aspx.designer.cs">
       <DependentUpon>grid_simulate_tree_database_paging.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_width_forcefitalltime.aspx.cs">
-      <DependentUpon>grid_width_forcefitalltime.aspx</DependentUpon>
+    <Compile Include="grid\grid_width_forcefit.aspx.cs">
+      <DependentUpon>grid_width_forcefit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_width_forcefitalltime.aspx.designer.cs">
-      <DependentUpon>grid_width_forcefitalltime.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_width_forcefitfirsttime.aspx.cs">
-      <DependentUpon>grid_width_forcefitfirsttime.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_width_forcefitfirsttime.aspx.designer.cs">
-      <DependentUpon>grid_width_forcefitfirsttime.aspx</DependentUpon>
+    <Compile Include="grid\grid_width_forcefit.aspx.designer.cs">
+      <DependentUpon>grid_width_forcefit.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_width_expandunusedspace.aspx.cs">
       <DependentUpon>grid_width_expandunusedspace.aspx</DependentUpon>
@@ -2004,13 +1996,6 @@
     <Compile Include="layout\form.aspx.designer.cs">
       <DependentUpon>form.aspx</DependentUpon>
     </Compile>
-    <Compile Include="layout\row.aspx.cs">
-      <DependentUpon>row.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="layout\row.aspx.designer.cs">
-      <DependentUpon>row.aspx</DependentUpon>
-    </Compile>
     <Compile Include="tabstrip\tabstrip_iframe.aspx.cs">
       <DependentUpon>tabstrip_iframe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2239,7 +2224,6 @@
     <Content Include="layout\column.aspx" />
     <Content Include="layout\fit.aspx" />
     <Content Include="layout\form.aspx" />
-    <Content Include="layout\row.aspx" />
     <Content Include="tabstrip\tabstrip_iframe.aspx" />
     <Content Include="tabstrip\tabstrip.aspx" />
     <Content Include="other\toolbar.aspx" />

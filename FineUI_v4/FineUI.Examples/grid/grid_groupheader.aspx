@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
         <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" runat="server"
-            DataKeyNames="Guid" ForceFitAllTime="true">
+            DataKeyNames="Guid">
             <Columns>
                 <x:GroupField HeaderText="安徽省" TextAlign="Center">
                     <Columns>

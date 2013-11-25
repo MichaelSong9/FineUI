@@ -1217,9 +1217,20 @@ if (Ext.tab.Panel) {
 
 
 
-if (Ext.Window) {
+if (Ext.window.Window) {
 
-    Ext.override(Ext.Window, {
+    Ext.override(Ext.window.Window, {
+
+        // @private
+        onWindowResize: function () {
+            var me = this;
+            if (me.maximized) {
+                // 改变浏览器大小可以自动调整窗体控件的大小（窗体控件最大化时）
+                F.wnd.fixMaximize(me);
+            } else {
+                me.callParent();
+            }
+        },
 
         /*
         bof_hide: function () {

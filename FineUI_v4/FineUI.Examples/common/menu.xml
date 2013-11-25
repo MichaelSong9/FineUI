@@ -282,10 +282,8 @@
       </TreeNode>
       <TreeNode Text="自适应列" NavigateUrl="~/grid/grid_width_expandunusedspace.aspx" >
       </TreeNode>
-      <TreeNode Text="列宽度自适应" NavigateUrl="~/grid/grid_width_forcefitalltime.aspx" >
+      <TreeNode Text="列宽度自适应" NavigateUrl="~/grid/grid_width_forcefit.aspx" >
       </TreeNode>
-      <!--<TreeNode Text="列宽度自适应（仅第一次加载）" NavigateUrl="~/grid/grid_width_forcefitfirsttime.aspx" >
-      </TreeNode>-->
     </TreeNode>
     <TreeNode Text="标题栏菜单">
       <TreeNode Text="显示隐藏列" NavigateUrl="~/grid/grid_hdmenu_hidecolumn.aspx" >
@@ -393,8 +391,6 @@
   <TreeNode Text="手风琴控件">
     <TreeNode Text="基本用法" NavigateUrl="~/accordion/accordion.aspx" >
     </TreeNode>
-    <!--<TreeNode Text="Links" NavigateUrl="~/accordion/accordion_links.aspx" >
-    </TreeNode>-->
     <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
     </TreeNode>
   </TreeNode>
@@ -414,8 +410,6 @@
     <TreeNode Text="布局 - Anchor" NavigateUrl="~/layout/anchor.aspx" >
     </TreeNode>
     <TreeNode Text="布局 - Column" NavigateUrl="~/layout/column.aspx" >
-    </TreeNode>
-    <TreeNode Text="布局 - Row" NavigateUrl="~/layout/row.aspx" >
     </TreeNode>
     <TreeNode Text="布局 - Absolute" NavigateUrl="~/layout/absolute.aspx"  >
     </TreeNode>

@@ -12,7 +12,7 @@
         <x:PageManager ID="PageManager1" runat="server" />
         <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" runat="server"
             DataKeyNames="Guid" AllowSorting="true" SortField="HZData1"
-            SortDirection="ASC" OnSort="Grid1_Sort" ForceFitAllTime="true" EnableHeaderMenu="true">
+            SortDirection="ASC" OnSort="Grid1_Sort" EnableHeaderMenu="true">
             <Columns>
                 <x:RowNumberField />
                 <x:GroupField HeaderText="安徽省" TextAlign="Center">

@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_width_forcefitalltime : PageBase
+    public partial class grid_width_forcefit : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

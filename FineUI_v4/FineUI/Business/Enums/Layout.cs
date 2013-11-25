@@ -70,10 +70,6 @@ namespace FineUI
         /// </summary>
         Absolute,
         /// <summary>
-        /// 行布局
-        /// </summary>
-        Row,
-        /// <summary>
         /// 表格布局
         /// </summary>
         Table,
@@ -124,12 +120,6 @@ namespace FineUI
                     break;
                 case Layout.Absolute:
                     result = "absolute";
-                    break;
-                //case LayoutType.Center:
-                //    result = "ux.center";
-                //    break;
-                case Layout.Row:
-                    result = "ux.row";
                     break;
                 case Layout.Table:
                     result = "table";
