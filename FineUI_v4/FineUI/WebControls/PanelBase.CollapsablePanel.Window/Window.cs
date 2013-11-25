@@ -1252,11 +1252,12 @@ namespace FineUI
                 OB.AddProperty("maximizable", false);
             }
 
+            string closeScript = String.Empty;
+
             if (EnableClose)
             {
                 OB.AddProperty("closable", true);
 
-                string closeScript = String.Empty;
                 if (!String.IsNullOrEmpty(OnClientCloseButtonClick))
                 {
                     closeScript = OnClientCloseButtonClick;
@@ -1313,14 +1314,16 @@ namespace FineUI
 
 
                 // ESC 按键和右上角的关闭按钮使用相同的事件处理函数
-                string closeFunction = JsHelper.GetFunction(closeScript);
-                OB.AddProperty("onEsc", closeFunction, true);
+                string closeFN = XID + "_close";
+                closeScript = String.Format("var {0}={1}", closeFN, JsHelper.GetFunction(closeScript + "return false;"));
 
-                string closeButtonScript = String.Format("win.tools.close.clearListeners();win.tools.close.addListener('click', function(){{{0}}});", closeScript);
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "win"), true);
+                // 用户按ESC键关闭窗口
+                OB.AddProperty("onEsc", closeFN, true);
+                // 用户点击右上角关闭按钮关闭窗口
+                OB.Listeners.AddProperty("beforeclose", closeFN, true);
 
-
-                //OB.Listeners.AddProperty("beforehide", JsHelper.GetFunction(closeScript, "win"), true);
+                //string closeButtonScript = String.Format("win.tools.close.clearListeners();win.tools.close.addListener('click', function(){{{0}}});", closeScript);
+                //OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "win"), true);
 
             }
             else
@@ -1373,7 +1376,7 @@ namespace FineUI
             //addWrapperScript += "\r\n";
 
             // 添加隐藏表单字段的脚本和创建Window对象的脚本
-            jsContent = addWrapperScript + hiddenFieldsScript + jsContent;
+            jsContent = addWrapperScript + hiddenFieldsScript + closeScript + jsContent;
             AddStartupScript(jsContent);
 
             #endregion

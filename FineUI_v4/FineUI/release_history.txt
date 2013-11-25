@@ -61,6 +61,10 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-表格的ForceFitAllTime改名为ForceFit，此属性暂时不能和多表头一起使用。
 	+按钮的Type=Submit无效（Herb-4192）。
 		-删除Button的Type属性，更新示例basic/login.aspx和form/form_reset.aspx。
+	+如何启用窗体IFrame内表单改变提醒，防止录入数据未保存即关闭弹出窗体的误操作。
+		-窗体启用EnableConfirmOnClose，EnableIFrame。
+		-窗体IFrame里面的关闭按钮通过ActiveWindow.GetConfirmHideReference等函数注册客户端事件。
+
 
 
 +2014-02-** v3.3.3

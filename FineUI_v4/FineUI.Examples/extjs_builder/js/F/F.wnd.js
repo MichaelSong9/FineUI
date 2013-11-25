@@ -70,7 +70,7 @@
             if (window.frameElement && target !== window) {
                 // 当前页面在IFrame中（也即时 window.frameElement 存在）
                 // 此弹出窗体需要在父窗口中弹出
-                if (!target.X[guid]) {
+                if (!target.F[guid]) {
                     // 父窗口中已经创建了这个Ext-Window对象
                     var wrapper = guid + '_wrapper';
                     if (!target.Ext.get(wrapper)) {
@@ -98,9 +98,9 @@
                     // 在这个幻影中，通过“f_property_frame_element_name”属性标示这是一个幻影
                     // f_property_frame_element_name: 并且真正的Ext-Window在当前页面中的哪个IFrame中
                     // f_property_client_id: 并且真正的Ext-Window在所在页面中的客户端ID
-                    target.X[guid] = target.Ext.create('Ext.window.Window', config);
+                    target.F[guid] = target.Ext.create('Ext.window.Window', config);
                 }
-                panel = target.X[guid];
+                panel = target.F[guid];
             }
             if (iframeUrl !== '') {
                 F.wnd.updateIFrameNode(panel, iframeUrl);
@@ -150,7 +150,7 @@
             var target = F.util.getTargetWindow(targetName);
             if (window.frameElement && target !== window) {
                 // 从父页面中查找幻影Ext-Window对象
-                panel = target.X[guid];
+                panel = target.F[guid];
             }
             return panel;
         },
@@ -272,7 +272,7 @@
             // 当前页面在IFrame中（也即时 window.frameElement 存在）
             // 此Ext-Window需要在父窗口中弹出
             if (window.frameElement && panel['f_property_show_in_parent']) {
-                panel = parent.X[panel['f_property_guid']];
+                panel = parent.F[panel['f_property_guid']];
             }
             var iframeNode = Ext.query('iframe', panel.body.dom);
             if (iframeNode.length === 0) {

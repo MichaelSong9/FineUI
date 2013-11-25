@@ -866,13 +866,21 @@ F.fieldValue = function (cmp) {
                 fn: function (btn) {
                     if (btn == 'cancel') {
                         if (cancelScript) {
-                            new Function(cancelScript)();
+                            if (typeof (cancelScript) === 'string') {
+                                new Function(cancelScript)();
+                            } else {
+                                cancelScript.apply(wnd);
+                            }
                         } else {
                             return false;
                         }
                     } else {
                         if (okScript) {
-                            new Function(okScript)();
+                            if (typeof (okScript) === 'string') {
+                                new Function(okScript)();
+                            } else {
+                                okScript.apply(wnd);
+                            }
                         } else {
                             return false;
                         }
