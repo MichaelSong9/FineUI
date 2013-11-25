@@ -19,15 +19,21 @@ namespace FineUI.Examples.form
             }
         }
 
+        private void UpdateResult()
+        {
+            labResult1.Text = String.Format("选择的日期：{0}", Calendar1.SelectedDate.Value.ToString(Calendar1.DateFormatString));
+        }
 
         protected void Calendar1_DateSelect(object sender, EventArgs e)
         {
-            labResult1.Text = String.Format("选择的日期：{0}", Calendar1.SelectedDate.Value.ToString(Calendar1.DateFormatString));
+            UpdateResult();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Calendar1.SelectedDate = DateTime.Now.AddDays(2);
+
+            UpdateResult();
         }
     }
 }

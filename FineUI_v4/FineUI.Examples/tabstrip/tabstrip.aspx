@@ -7,7 +7,6 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .highlight {
-            
             color: red;
         }
     </style>
@@ -16,7 +15,7 @@
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
         <x:TabStrip ID="TabStrip1" Width="850px" Height="350px" ShowBorder="true" TabPosition="Top" EnableFrame="true"
-            EnableTabCloseMenu="false" EnableTitleBackgroundColor="true" ActiveTabIndex="1"
+            EnableTabCloseMenu="false" EnableTitleBackgroundColor="true" ActiveTabIndex="0"
             runat="server">
             <Tabs>
                 <x:Tab Title="标签一" BodyPadding="5px" Layout="Fit"
@@ -32,7 +31,7 @@
                                 <x:DatePicker ID="DatePicker1" runat="server" Label="日期选择器"
                                     Required="true" ShowRedStar="true">
                                 </x:DatePicker>
-                                <x:TextArea ID="TextArea2" Label="多行文本输入框" runat="server" Required="True" ShowRedStar="true" />
+                                <x:TextArea ID="TextArea2" Label="多行文本输入框" runat="server" Required="True" Height="100px" ShowRedStar="true" />
                             </Items>
                         </x:SimpleForm>
                     </Items>

@@ -14,7 +14,7 @@
             Title="简单表单" LabelAlign="Top" Width="550px" ShowHeader="True">
             <Items>
                 <x:TextArea runat="server" ID="TextArea1" EmptyText="文本框的高度会自动扩展" Label="自动扩展高度的文本输入框"
-                    AutoGrowHeight="true" AutoGrowHeightMin="50" AutoGrowHeightMax="200">
+                    AutoGrowHeight="true" AutoGrowHeightMin="100" AutoGrowHeightMax="200">
                 </x:TextArea>
                 <x:Label ID="labResult" runat="server">
                 </x:Label>

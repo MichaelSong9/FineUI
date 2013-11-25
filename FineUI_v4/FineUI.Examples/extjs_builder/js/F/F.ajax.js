@@ -272,7 +272,7 @@
         }
 
         if (cmp.isXType('datepicker')) {
-            saveInHiddenField('SelectedDate', cmp.getValue().format(cmp.initialConfig.format));
+            saveInHiddenField('SelectedDate', Ext.Date.format(cmp.getValue(), cmp.initialConfig.format));
         }
 
         if (cmp.isXType('button')) {
