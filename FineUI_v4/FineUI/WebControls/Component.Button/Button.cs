@@ -317,24 +317,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 按钮类型
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(ButtonType.Button)]
-        [Description("按钮类型")]
-        public virtual ButtonType Type
-        {
-            get
-            {
-                object obj = FState["ButtonType"];
-                return obj == null ? ButtonType.Button : (ButtonType)obj;
-            }
-            set
-            {
-                FState["ButtonType"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 按钮类型
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(ButtonType.Button)]
+        //[Description("按钮类型")]
+        //public virtual ButtonType Type
+        //{
+        //    get
+        //    {
+        //        object obj = FState["ButtonType"];
+        //        return obj == null ? ButtonType.Button : (ButtonType)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["ButtonType"] = value;
+        //    }
+        //}
 
 
         #endregion
@@ -621,11 +621,10 @@ namespace FineUI
                 //OB.Listeners.AddProperty(OptionName.Toggle, toggleScript, true);
             }
 
-            if (Type != ButtonType.Button)
-            {
-                OB.AddProperty("type", ButtonTypeName.GetName(Type));
-
-            }
+            //if (Type != ButtonType.Button)
+            //{
+            //    OB.AddProperty("type", ButtonTypeName.GetName(Type));
+            //}
 
             if (Size != ButtonSize.Small)
             {
@@ -735,19 +734,14 @@ namespace FineUI
                 disableControlJavascriptID = String.Empty;
             }
 
-            string clientScript = OnClientClick;
-            if (Type == ButtonType.Reset)
-            {
-                clientScript += "document.forms[0].reset();";
-            }
+            //string clientScript = OnClientClick;
+            //if (Type == ButtonType.Reset)
+            //{
+            //    clientScript += "document.forms[0].reset();";
+            //}
 
             return ResolveClientScript(ValidateForms, ValidateTarget, ValidateMessageBox, EnablePostBack, GetPostBackEventReference(),
-                ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, clientScript, disableControlJavascriptID);
-
-
-            // e.stopEvent(); is needed, otherwise there will be an error under IE6 (modified by 30372245@qq.com 2008-08-13)
-            //return JsHelper.GetFunction(clickScript, "btn", "e");
-            //return String.Format("function(button,e){{{0}e.stopEvent();}}", clickScript);
+                ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, OnClientClick, disableControlJavascriptID);
         }
 
 

@@ -1961,13 +1961,6 @@
     <Compile Include="layout\anchor.aspx.designer.cs">
       <DependentUpon>anchor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="layout\border.aspx.cs">
-      <DependentUpon>border.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="layout\border.aspx.designer.cs">
-      <DependentUpon>border.aspx</DependentUpon>
-    </Compile>
     <Compile Include="layout\card.aspx.cs">
       <DependentUpon>card.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1988,13 +1981,6 @@
     </Compile>
     <Compile Include="layout\fit.aspx.designer.cs">
       <DependentUpon>fit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="layout\form.aspx.cs">
-      <DependentUpon>form.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="layout\form.aspx.designer.cs">
-      <DependentUpon>form.aspx</DependentUpon>
     </Compile>
     <Compile Include="tabstrip\tabstrip_iframe.aspx.cs">
       <DependentUpon>tabstrip_iframe.aspx</DependentUpon>
@@ -2219,11 +2205,9 @@
     <Content Include="layout\absolute.aspx" />
     <Content Include="accordion\accordion.aspx" />
     <Content Include="layout\anchor.aspx" />
-    <Content Include="layout\border.aspx" />
     <Content Include="layout\card.aspx" />
     <Content Include="layout\column.aspx" />
     <Content Include="layout\fit.aspx" />
-    <Content Include="layout\form.aspx" />
     <Content Include="tabstrip\tabstrip_iframe.aspx" />
     <Content Include="tabstrip\tabstrip.aspx" />
     <Content Include="other\toolbar.aspx" />

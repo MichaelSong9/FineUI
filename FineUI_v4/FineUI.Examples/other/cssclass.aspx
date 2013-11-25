@@ -41,7 +41,7 @@
                 <x:TextBox runat="server" Label="密码" CssClass="red" TextMode="Password"
                     ID="tbxPassword">
                 </x:TextBox>
-                <x:Button ID="btnSwitchClass" Text="切换样式" Type="Submit" runat="server" OnClick="btnSwitchClass_Click">
+                <x:Button ID="btnSwitchClass" Text="切换样式" runat="server" OnClick="btnSwitchClass_Click">
                 </x:Button>
             </Items>
         </x:SimpleForm>

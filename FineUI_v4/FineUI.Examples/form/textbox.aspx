@@ -20,7 +20,7 @@
                 <x:Button ID="btnSubmit" CssClass="inline" runat="server" OnClick="btnSubmit_Click" ValidateForms="SimpleForm1"
                     Text="登录">
                 </x:Button>
-                <x:Button ID="Button1" runat="server" EnablePostBack="false" Type="Reset" Text="重置">
+                <x:Button ID="btnReset" runat="server" EnablePostBack="false" Text="重置">
                 </x:Button>
                 <x:Label ID="labResult" ShowLabel="false" runat="server">
                 </x:Label>

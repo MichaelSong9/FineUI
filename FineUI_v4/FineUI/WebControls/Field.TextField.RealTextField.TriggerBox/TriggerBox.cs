@@ -258,7 +258,6 @@ namespace FineUI
                 //OB.AddProperty("enableKeyEvents", true);
                 OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}}}", XID), true);
 
-                //OB.Listeners.AddProperty("keydown", JsHelper.GetFunction("var i=0;"), true);
             }
 
             #endregion

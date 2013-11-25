@@ -351,10 +351,10 @@ F.fieldValue = function (cmp) {
         },
 
         // 设置页面状态是否改变
-        setPageStateChanged: function () {
+        setPageStateChanged: function (changed) {
             var pageState = Ext.get("F_CHANGED");
-            if (pageState && pageState.getValue() == "false") {
-                pageState.dom.value = "true";
+            if (pageState) {
+                pageState.dom.value = changed;
             }
         },
 

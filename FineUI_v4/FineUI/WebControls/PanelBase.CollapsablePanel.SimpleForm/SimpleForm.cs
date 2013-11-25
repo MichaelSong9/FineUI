@@ -109,8 +109,11 @@ namespace FineUI
 
             #endregion
 
-            
-            OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true); //this.doLayout();
+            //OptionBuilder defaultsOB = new OptionBuilder();
+            //defaultsOB.Listeners.AddProperty("click", JsHelper.GetFunction("alert('ss');F.util.setPageStateChanged();"), true);
+            //OB.AddProperty("defaults", defaultsOB);
+
+            OB.Listeners.AddProperty("dirtychange", JsHelper.GetFunction("F.util.setPageStateChanged(dirty);", "form", "dirty"), true);
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);

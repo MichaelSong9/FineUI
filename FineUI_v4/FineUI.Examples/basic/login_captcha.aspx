@@ -43,7 +43,7 @@
         <Toolbars>
             <x:Toolbar ID="Toolbar1" runat="server" Position="Footer">
                 <Items>
-                    <x:Button ID="btnLogin" Text="登录" Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
+                    <x:Button ID="btnLogin" Text="登录" ValidateForms="SimpleForm1" ValidateTarget="Top"
                         runat="server" OnClick="btnLogin_Click">
                     </x:Button>
                 </Items>

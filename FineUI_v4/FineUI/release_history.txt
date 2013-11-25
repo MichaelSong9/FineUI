@@ -59,7 +59,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-删除行布局（吉吉﹑-4200）。
 	+多表头问题（吉吉﹑-4242）。
 		-表格的ForceFitAllTime改名为ForceFit，此属性暂时不能和多表头一起使用。
-
+	+按钮的Type=Submit无效（Herb-4192）。
+		-删除Button的Type属性，更新示例basic/login.aspx和form/form_reset.aspx。
 
 
 +2014-02-** v3.3.3

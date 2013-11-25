@@ -172,12 +172,12 @@ namespace FineUI
 
             #endregion
 
-            // This bug has been fixed in extjs v3.4.0.
-            // Do layout when body size changed - I don't know why extjs do it automatically.
-            // Why panel.layout.layout? Because Form outside layout doesn't has this function, why? I don't know now.
-            //OB.Listeners.AddProperty("bodyresize", "function(panel){if(panel.layout.layout){panel.doLayout();}}", true);
+            //OptionBuilder defaultsOB = new OptionBuilder();
+            //defaultsOB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true);
+            //OB.AddProperty("defaults", defaultsOB);
 
-            OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true);
+            //OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true);
+            OB.Listeners.AddProperty("dirtychange", JsHelper.GetFunction("F.util.setPageStateChanged(dirty);", "form", "dirty"), true);
 
 
             string formPanelScript = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());
