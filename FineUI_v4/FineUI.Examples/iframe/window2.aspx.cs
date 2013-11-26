@@ -8,20 +8,23 @@ using System.Text;
 
 namespace FineUI.Examples.iframe
 {
-    public partial class parent_simplepostback : PageBase
+    public partial class window2 : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                if (GetRequestEventArgument() == "param_from_simplepostback2")
-                {
-                    Alert.Show("来自IFrame中的事件！");
-                }
+                Button1.OnClientClick = Window1.GetShowReference("./window2_iframe.aspx");
+
+                btnClose.OnClientClick = Window1.GetConfirmHideReference();
+
+                btnClosePostBack.OnClientClick = Window1.GetIFramePostBackEventReference("SAVE");
             }
 
             labResult.Text = "页面加载时间：" + DateTime.Now.ToLongTimeString();
+
         }
+
 
 
     }

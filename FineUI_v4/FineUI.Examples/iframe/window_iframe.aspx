@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="iframe_iframe_window2.aspx.cs"
-    Inherits="FineUI.Examples.iframe.iframe_iframe_window2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="window_iframe.aspx.cs"
+    Inherits="FineUI.Examples.iframe.window_iframe" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,6 +9,11 @@
     <style>
         body, body.x-body {
             padding: 0;
+        }
+
+        .steps {
+            border: solid 1px red;
+            margin: 10px;
         }
     </style>
 </head>
@@ -20,9 +25,9 @@
             <Toolbars>
                 <x:Toolbar runat="server">
                     <Items>
-                        <x:Button ID="btnClosePostBack" Text="关闭-回发父页面" EnablePostBack="false" runat="server">
+                        <x:Button ID="btnClose" Text="关闭" EnablePostBack="false" runat="server">
                         </x:Button>
-                        <x:Button ID="btnPostBackClosePostBack" Text="回发-关闭-回发父页面" OnClick="btnPostBackClosePostBack_Click"
+                        <x:Button ID="btnClosePostBack" Text="保存数据" OnClick="btnClosePostBack_Click"
                             runat="server">
                         </x:Button>
                     </Items>
@@ -32,7 +37,7 @@
                 <x:SimpleForm ID="SimpleForm1" ShowBorder="false"
                     ShowHeader="false" AutoScroll="true" BodyPadding="5px" runat="server" EnableCollapse="True">
                     <Items>
-                        <x:Label ID="Label2" Label="文本" Text="sanshi" runat="server" />
+                        <x:Label ID="Label2" EncodeText="false" CssClass="steps" ShowEmptyLabel="false" Text="按照如下步骤操作来观察“确认关闭”对话框：<ul><li>编辑本表单（比如选中复选框、修改日期）</li><li>点击窗体右上角关闭图标、点击关闭按钮或者按下ESC键</li><li>弹出确认关闭窗体的对话框</li></ul>" runat="server" />
                         <x:NumberBox ID="NumberBox1" Label="数字输入框" Required="true" ShowRedStar="true" runat="server" />
                         <x:CheckBox ID="CheckBox1" runat="server" Label="复选框">
                         </x:CheckBox>

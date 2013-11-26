@@ -10,7 +10,7 @@
 namespace FineUI.Examples.iframe {
     
     
-    public partial class iframe_iframe_window2 {
+    public partial class window_iframe {
         
         /// <summary>
         /// form1 控件。
@@ -40,6 +40,15 @@ namespace FineUI.Examples.iframe {
         protected global::FineUI.Panel formPanel;
         
         /// <summary>
+        /// btnClose 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnClose;
+        
+        /// <summary>
         /// btnClosePostBack 控件。
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace FineUI.Examples.iframe {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.Button btnClosePostBack;
-        
-        /// <summary>
-        /// btnPostBackClosePostBack 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnPostBackClosePostBack;
         
         /// <summary>
         /// SimpleForm1 控件。

@@ -66,10 +66,10 @@
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>
         function select(provinceName) {
-            // activeWindow = [当前活动的Ext-Window对象，当前活动的Ext-Window对象所在的window对象]
+            // 返回当前活动Window对象（浏览器窗口对象通过F.wnd.getActiveWindow().window获取）
             var activeWindow = F.wnd.getActiveWindow();
-            activeWindow[1].selectProvince(provinceName);
-            activeWindow[0].f_hide();
+            activeWindow.window.selectProvince(provinceName);
+            activeWindow.f_hide();
         }
 
         var imgClientID = '<%= imgChina.ClientID %>';

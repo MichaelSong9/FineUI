@@ -889,6 +889,19 @@ namespace FineUI.Examples
 
         #endregion
 
+        #region 实用函数
+
+        /// <summary>
+        /// 获取回发的参数
+        /// </summary>
+        /// <returns></returns>
+        public string GetRequestEventArgument()
+        {
+            return Request.Form["__EVENTARGUMENT"];
+        }
+
+        #endregion
+
     }
 
 }

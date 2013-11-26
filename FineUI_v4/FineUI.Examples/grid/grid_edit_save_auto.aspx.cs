@@ -19,9 +19,8 @@ namespace FineUI.Examples.grid
             }
             else
             {
-                string eventTarget = Request.Form["__EVENTTARGET"];
-                string eventArgument = Request.Form["__EVENTARGUMENT"];
-                if (eventTarget == Grid1.ClientID && eventArgument.StartsWith("AutoSave$"))
+                string eventArgument = GetRequestEventArgument();
+                if (eventArgument.StartsWith("AutoSave$"))
                 {
                     int rowIndex = Convert.ToInt32(eventArgument.Substring("AutoSave$".Length));
                     System.Web.UI.WebControls.TextBox tbxTableChineseScore = (System.Web.UI.WebControls.TextBox)Grid1.Rows[rowIndex].FindControl("tbxTableChineseScore");

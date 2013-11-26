@@ -36,12 +36,12 @@
             </Items>
         </x:Panel>
         <x:Window ID="Window1" Hidden="true" EnableIFrame="true" runat="server"
-            EnableMaximize="true" EnableResize="true" Height="300px" Width="600px" EnableConfirmOnClose="true"
+            EnableMaximize="true" EnableResize="true" Height="300px" Width="600px"
             Title="窗体三">
         </x:Window>
         <x:Window ID="Window2" Hidden="true" EnableIFrame="true" runat="server"
             EnableMaximize="true" EnableResize="true" Target="Parent" Height="300px" Width="600px"
-            EnableConfirmOnClose="true" CloseAction="HidePostBack" Title="窗体四">
+            CloseAction="HidePostBack" Title="窗体四">
         </x:Window>
 
     </form>

@@ -65,13 +65,30 @@ namespace FineUI
 
         #region Unsupported Properties
 
-        
+
 
         #endregion
 
         #region Properties
 
-       
+        /// <summary>
+        /// 表单字段上按回车键触发的提交按钮
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("表单字段上按回车键触发的提交按钮")]
+        public string SubmitButton
+        {
+            get
+            {
+                object obj = FState["SubmitButton"];
+                return obj == null ? String.Empty : (string)obj;
+            }
+            set
+            {
+                FState["SubmitButton"] = value;
+            }
+        }
 
         #endregion
 
@@ -104,7 +121,7 @@ namespace FineUI
 
             #region Options
 
-            
+
 
 
             #endregion
@@ -114,6 +131,42 @@ namespace FineUI
             //OB.AddProperty("defaults", defaultsOB);
 
             OB.Listeners.AddProperty("dirtychange", JsHelper.GetFunction("F.util.setPageStateChanged(dirty);", "form", "dirty"), true);
+
+            if (!String.IsNullOrEmpty(SubmitButton))
+            {
+                Control control = ControlUtil.FindControl(SubmitButton);
+                if (control != null && control is ControlBase)
+                {
+                    OB.Listeners.AddProperty("render", JsHelper.GetFunction("F.util.formEnterKey(form,'" + control.ClientID + "');", "form"), true);
+                }
+            }
+
+            /*
+            Ext.override(Ext.form.Panel, {
+                listeners: {
+                    render: function () {
+                        Ext.create('Ext.util.KeyNav', this.el, {
+                            "enter": function (e) {
+                                var el = Ext.Element.getActiveElement();
+                                if (el.type != 'textarea') {
+                                    var b = Ext.DomQuery.select('div[id=' + this.getId() + ']');
+                                    var a = Ext.DomQuery.select('*[type=submit]', b[0]);
+                                    if (a[0]) {
+                                        a[0].click();
+                                    }
+                                } else {
+                                    // The user is in a textarea in the form so this feature
+                                    // is diabled to allow for character returns
+                                    // in field data.
+                                }
+                            },
+                            scope: this
+                        });
+                    }
+                }
+            });
+            */
+
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);

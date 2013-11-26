@@ -341,6 +341,7 @@ namespace FineUI
 
         #region ValidateForms/ValidateTarget
 
+
         /// <summary>
         /// 需要验证的表单名称列表（逗号分隔）
         /// </summary>
@@ -625,6 +626,8 @@ namespace FineUI
             //{
             //    OB.AddProperty("type", ButtonTypeName.GetName(Type));
             //}
+           
+            
 
             if (Size != ButtonSize.Small)
             {

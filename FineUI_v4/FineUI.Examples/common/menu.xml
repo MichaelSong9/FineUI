@@ -449,6 +449,10 @@
     </TreeNode>
     <TreeNode Text="顶部菜单框架（右侧选项卡）" NavigateUrl="~/iframe/topmenu4/default.aspx" >
     </TreeNode>
+    <TreeNode Text="窗体关闭前的确认对话框" NavigateUrl="~/iframe/window.aspx" >
+    </TreeNode>
+    <TreeNode Text="保存按钮放在窗体工具栏中" NavigateUrl="~/iframe/window2.aspx" >
+    </TreeNode>
   </TreeNode>
   <TreeNode Text="其它">
     <TreeNode Text="ASP.NET控件">

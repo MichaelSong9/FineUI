@@ -101,7 +101,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetHideReference()
         {
-            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw[0].f_hide();}})();";
+            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide();}})();";
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace FineUI
         {
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){eval('aw[1].X.'+aw[0].id+'_hide_refresh();');}";
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_refresh();}";
-            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw[0].f_hide_refresh();}})();";
+            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_refresh();}})();";
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace FineUI
         {
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){eval('aw[1].X.'+aw[0].id+'_hide_postback();');}";
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_postback();}";
-            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw[0].f_hide_postback();}})();";
+            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_postback();}})();";
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace FineUI
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_postback('" + argument + "');}";
 
             //return "(function(){var aw=F.wnd.getActiveWindow(); if(aw){ aw[0].box_hide_postback('" + argument + "'); }})();";
-            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw[0].f_hide_postback(" + JsHelper.GetJsString(argument) + ");}})();";
+            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_postback(" + JsHelper.GetJsString(argument) + ");}})();";
         }
 
         #endregion
@@ -150,7 +150,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetConfirmHideReference()
         {
-            return String.Format("F.wnd.confirmFormModified(function(){{{0}}});", GetHideReference());
+            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideReference());
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetConfirmHideRefreshReference()
         {
-            return String.Format("F.wnd.confirmFormModified(function(){{{0}}});", GetHideRefreshReference());
+            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideRefreshReference());
         }
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetConfirmHidePostBackReference()
         {
-            return String.Format("F.wnd.confirmFormModified(function(){{{0}}});", GetHidePostBackReference());
+            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference());
         }
 
         /// <summary>
@@ -178,7 +178,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetConfirmHidePostBackReference(string argument)
         {
-            return String.Format("F.wnd.confirmFormModified(function(){{{0}}});", GetHidePostBackReference(argument));
+            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference(argument));
         }
 
         #endregion

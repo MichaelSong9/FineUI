@@ -28,7 +28,7 @@
         </x:Window>
         <x:Window ID="Window2" IconUrl="~/images/16/11.png" runat="server" Hidden="true"
             IsModal="true" Target="Parent" EnableMaximize="true" EnableResize="true" OnClose="Window2_Close"
-            Title="Popup Window 2" EnableConfirmOnClose="true" CloseAction="HidePostBack"
+            Title="Popup Window 2" CloseAction="HidePostBack"
             EnableIFrame="true" Height="500px" Width="650px">
         </x:Window>
     </form>

@@ -87,7 +87,7 @@
 
                         try {
                             new Function(scripts)();
-                        } catch(e){
+                        } catch (e) {
                             createErrorWindow({
                                 statusText: "Unexpected Response",
                                 status: -1,
@@ -95,7 +95,10 @@
                             });
                         }
                     }
-                    F.util.triggerAjaxReady();
+                    // 有可能响应返回后即关闭本窗体
+                    if (F && F.util) {
+                        F.util.triggerAjaxReady();
+                    }
                 },
                 failure: function (data) {
                     var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
@@ -106,7 +109,9 @@
                 },
                 callback: function (options, success, response) {
                     // AJAX结束时需要清空此字段，否则下一次的type=submit提交（ASP.NET回发方式之一）会被误认为是AJAX提交
-                    F.util.setHiddenFieldValue('F_AJAX', 'false');
+                    if (F && F.util) {
+                        F.util.setHiddenFieldValue('F_AJAX', 'false');
+                    }
                 }
             });
         }
@@ -318,7 +323,7 @@
                 saveInHiddenField('SelectedRowIndexArray', cmp.f_getSelectedRows().join(','));
             }
 
-            
+
             // 隐藏的列索引列表
             var gridHiddenColumns = cmp.f_getHiddenColumns();
             if (gridHiddenColumns.length > 0) {

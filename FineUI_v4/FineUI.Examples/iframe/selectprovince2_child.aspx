@@ -68,7 +68,7 @@
         var imgClientID = '<%= imgChina.ClientID %>';
 
         function select(provinceName) {
-            __doPostBack(imgClientID, 'SelectProvince$' + provinceName);
+            __doPostBack('', 'SelectProvince$' + provinceName);
         }
 
     </script>

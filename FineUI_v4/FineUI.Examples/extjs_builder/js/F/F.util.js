@@ -136,7 +136,7 @@ F.fieldValue = function (cmp) {
         _ajaxReadyList: [],
         _beforeAjaxList: [],
 
-        ready: function(callback) {
+        ready: function (callback) {
             F.util._readyList.push(callback);
         },
         triggerReady: function () {
@@ -648,11 +648,11 @@ F.fieldValue = function (cmp) {
                 if (refreshWhenExist) {
                     var iframeNode = currentTab.body.query('iframe')[0];
                     if (iframeNode) {
-                        if(url) {
-							iframeNode.contentWindow.location.href = url;
-						} else {
-							iframeNode.contentWindow.location.reload();
-						}
+                        if (url) {
+                            iframeNode.contentWindow.location.href = url;
+                        } else {
+                            iframeNode.contentWindow.location.reload();
+                        }
                     }
                 }
 
@@ -902,6 +902,19 @@ F.fieldValue = function (cmp) {
                 }
                 return '';
             };
+        },
+
+        // 表单字段内按回车键触发提交按钮
+        formEnterKey: function (form, submitBtnID) {
+            Ext.create('Ext.util.KeyNav', form.el, {
+                enter: function (e) {
+                    var el = Ext.Element.getActiveElement();
+                    if (el.type !== 'textarea') {
+                        F(submitBtnID).el.dom.click();
+                    }
+                },
+                scope: form
+            });
         }
 
 

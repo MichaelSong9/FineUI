@@ -28,7 +28,7 @@
             var textbox1 = F(textbox1ID);
             textbox1.on("specialkey", function (box, e) {
                 if (e.getKey() == e.ENTER) {
-                    __doPostBack(textbox1ID, 'specialkey');
+                    __doPostBack('', 'TextBox1_specialkey');
                 }
             });
         });

@@ -841,7 +841,7 @@ namespace FineUI
             //OB.AddProperty(OptionName.Constrain, Constrain);
             //OB.AddProperty(OptionName.ConstrainHeader, ConstrainHeader);
             OB.AddProperty("plain", Plain);
-            OB.AddProperty("modal", IsModal);
+            
             OB.AddProperty("draggable", EnableDrag);
 
             OB.AddProperty("minimizable", EnableMinimize);
@@ -853,16 +853,9 @@ namespace FineUI
             //OB.AddProperty("maximized", Maximized);
 
 
-            //// 如果定义了左上角的位置
-            //if (Top != Unit.Empty && Left != Unit.Empty)
-            //{
-            //    OB.AddProperty(OptionName.X, Left.Value);
-            //    OB.AddProperty(OptionName.Y, Top.Value);
-            //}
-            //else
-            //{
+            // 由于renderTo不是Ext.getBody，所以modal不能正常工作
+            OB.AddProperty("modal", IsModal);
 
-            //}
 
             // 在 F.util.init 中定义
             OB.AddProperty("manager", "F.window_default_group", true);
@@ -1176,6 +1169,7 @@ namespace FineUI
 
             #endregion
 
+
             #region tools
 
             #region old code
@@ -1432,28 +1426,6 @@ namespace FineUI
         /// </summary>
         public string GetSaveStateReference(params string[] values)
         {
-            #region old code
-
-            //string valuesJS = String.Empty;
-            //if (values == null || values.Length == 0)
-            //{
-            //    valuesJS = String.Format("'{0}'", value);
-            //}
-            //else
-            //{
-            //    string[] tempValues = new string[values.Length + 1];
-            //    tempValues[0] = value;
-            //    for (int i = 0; i < values.Length; i++)
-            //    {
-            //        tempValues[i + 1] = values[i];
-            //    }
-
-            //    valuesJS = JsHelper.GetJsStringArray(tempValues);
-            //}
-            //return String.Format("{0}.box_string_state={1};", ClientJavascriptID, valuesJS); 
-
-            #endregion
-
             string valuesJS = JsHelper.GetJsStringArray(values);
 
             return String.Format("{0}.f_property_save_state_control_client_ids={1};", ScriptID, valuesJS);
@@ -1468,6 +1440,17 @@ namespace FineUI
         //}
 
         #endregion
+
+
+        /// <summary>
+        /// 获取窗体内IFrame回发页面的客户端脚本（比如：__doPostBack('','eventArgument');)
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <returns>客户端脚本</returns>
+        public string GetIFramePostBackEventReference(string eventArgument)
+        {
+            return String.Format("F.wnd.getIFrameWindowObject({0}).__doPostBack('',{1});", ScriptID, JsHelper.Enquote(eventArgument));
+        }
 
         #region GetShowReference
 
@@ -1656,7 +1639,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHideReference()
         {
-            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
+            return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
                 ScriptID,
                 GetHideReference());
         }
@@ -1667,7 +1650,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHideRefreshReference()
         {
-            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
+            return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
                 ScriptID,
                 GetHideRefreshReference());
         }
@@ -1678,7 +1661,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHidePostBackReference()
         {
-            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0}, function(){{{1}}});",
+            return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
                 ScriptID,
                 GetHidePostBackReference());
         }
@@ -1690,7 +1673,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetConfirmHidePostBackReference(string argument)
         {
-            return String.Format("F.wnd.extWindowIFrameFormModifiedConfirm({0},function(){{{1}}});",
+            return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
                 ScriptID,
                 GetHidePostBackReference(argument));
         }

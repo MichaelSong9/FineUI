@@ -162,10 +162,11 @@
             Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
             if (enableIFrame) {
-                //wnd.body.query('iframe')[0].src = 'about:blank';
-                //wnd['f_iframe_url'] = 'about:blank';
-                wnd['f_iframe_loaded'] = false;
-                wnd.update("");
+                // 如果不加延迟，IE下AJAX会出错，因为在success中已经把当前窗体关闭后，而后面还要继续使用本页面上相关对象
+                window.setTimeout(function () {
+                    wnd['f_iframe_loaded'] = false;
+                    wnd.update("");
+                }, 100);
             }
             wnd.hide();
         },
@@ -227,7 +228,7 @@
 
 
         // 处理表单中有任何字段发生变化时，关闭当前窗口时的提示
-        confirmFormModified: function (closeFn) {
+        confirmModified: function (closeFn) {
             if (F.util.isPageStateChanged()) {
                 F.util.confirm('_self', F.wnd.formModifiedConfirmTitle, F.wnd.formModifiedConfirmMsg, function () {
                     closeFn.apply(window, arguments);
@@ -254,13 +255,13 @@
 
 
         // Ext-Window中IFrame里页面中的表单发生变化时弹出确认消息
-        extWindowIFrameFormModifiedConfirm: function (panel, closeFn) {
+        iframeModifiedConfirm: function (panel, closeFn) {
             // 这个页面所在的Window对象
             var pageWindow = F.wnd.getIFrameWindowObject(panel);
             // 如果弹出的页面没能正常加载（比如说网络暂时连接中断）
             // 则直接关闭弹出的Ext-Window，而不会去检查页面表单变化，因为页面对象不存在
             if (pageWindow.F) {
-                pageWindow.F.wnd.confirmFormModified(closeFn);
+                pageWindow.F.wnd.confirmModified(closeFn);
             }
             else {
                 panel.f_hide();
@@ -284,28 +285,7 @@
             }
         },
 
-
-        // 这是老方法，虽然也能正常工作，但是绕了一个弯 => 在幻影ExtWindow中保存当前IFrame的parent.window以及iframe name。
-        // 其实没必要，直接在幻影ExtWindow中保存真实的ExtWindow对象即可（只不过这个对象可能是在其他页面中）。
-        // 取得当前页面所在的Ext-Window实际的对象，返回[实际的Ext-Window对象，实际的Ext-Window对象所在的window对象]
-        // 注意
-        // 1. 如果是在当前页面弹出窗口的话，“实际的Ext-Window对象”存在于父页面（parent.box）中
-        // 2. 如果是在父页面弹出窗口的话，“实际的Ext-Window对象”存在于父页面（parent）下面的IFrame页面中
-        // 3. 通过判断当前的Ext-Window是否存在“bof_property_frame_element_name”属性，可知当前的Ext-Window是否幻影（即时实际Ext-Window对象在父页面的一个拷贝），在F.wnd.show中设置的属性
-        /*
-        getActiveWindow: function () {
-        var activeWindow = parent.window;
-        var activeExtWindow = parent.F.f_window_manager.getActive();
-        if (activeExtWindow['bof_property_frame_element_name']) {
-        var iframeParentWindow = activeExtWindow['bof_property_parent_window'];
-        activeWindow = iframeParentWindow.Ext.query('iframe[name=' + activeExtWindow['bof_property_frame_element_name'] + ']')[0].contentWindow;
-        activeExtWindow = activeWindow.Ext.getCmp(activeExtWindow['bof_property_client_id']);
-        }
-
-        return [activeExtWindow, activeWindow];
-        },
-        */
-
+        // 返回当前活动Window对象（浏览器窗口对象通过F.wnd.getActiveWindow().window获取）
         getActiveWindow: function () {
             var activeWindow = parent.window;
             var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.f_window_manager.getActive();
@@ -314,72 +294,19 @@
                 activeExtWindow = activeExtWindow['f_property_ext_window'];
             }
 
-            return [activeExtWindow, activeWindow];
+            activeExtWindow.window = activeWindow;
+            return activeExtWindow;
         },
 
-
-        //    // 从url中提取bof_parent_client_id参数的值
-        //    window.bof_getParentClientIdFromUrl = function() {
-        //        var result = '';
-        //        var url = window.location.href;
-        //        var startIndex = url.indexOf('bof_parent_client_id');
-        //        if (startIndex >= 0) {
-        //            result = url.substr(startIndex + 'bof_parent_client_id'.length + 1);
-        //        }
-
-        //        return result;
-        //    };
-
-        //    // 取得当前页面所在窗口，返回数组[当前窗口对象，当前窗口所在的window对象]
-        //    window.bof_getActiveWindow = function() {
-        //        var aw = null;
-        //        var window2 = null;
-
-        //        var parentClientID = bof_getParentClientIdFromUrl();
-        //        if (parentClientID) {
-        //            window2 = parent.window;
-        //            aw = parent.window.Ext.getCmp(parentClientID);
-        //            if (aw.bof_property_frame_element_name) {
-        //                window2 = parent.Ext.query('iframe[name=' + aw.bof_property_frame_element_name + ']')[0].contentWindow;
-        //                aw = eval('window2.F.' + aw.id);
-        //            }
-        //        }
-
-        //        if (aw) {
-        //            return [aw, window2];
-        //        }
-        //        else {
-        //            return null;
-        //        }
-        //    };
 
         // 向弹出此Ext-Window的页面写入值
         writeBackValue: function () {
             var aw = F.wnd.getActiveWindow();
-            var controlIds = aw[0]['f_property_save_state_control_client_ids'];
+            var controlIds = aw['f_property_save_state_control_client_ids'];
             var controlCount = Math.min(controlIds.length, arguments.length);
             for (var i = 0; i < controlCount; i++) {
                 aw[1].Ext.getCmp(controlIds[i]).setValue(arguments[i]);
             }
-            //        var controlClientIds = (function() {
-            //            if (aw) {
-            //                return eval('aw[1].F.' + aw[0].id + '.bof_string_state');
-            //            }
-            //        })();
-            //        if (typeof (controlClientIds) == 'string') {
-            //            aw[1].Ext.getCmp(controlClientIds).setValue("哈哈");
-            //        } else {
-            //            aw[1].Ext.getCmp(controlClientIds[0]).setValue("哈哈");
-            //            var controlValues = ['哈哈 的值', '哈哈 的值2'];
-            //            var controlCount = Math.min(controlClientIds.length - 1, controlValues.length);
-            //            for (var i = 0; i < controlCount; i++) {
-            //                aw[1].Ext.getCmp(controlClientIds[i + 1]).setValue(controlValues[i]);
-            //            }
-            //        }
-            //        var aw = F.wnd.getActiveWindow();
-            //        if (aw) {
-            //            aw[0].bof_hide();
-            //        }
         }
 
     };

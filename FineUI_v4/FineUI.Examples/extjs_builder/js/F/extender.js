@@ -1214,12 +1214,37 @@ if (Ext.tab.Panel) {
     });
 }
 
+if (Ext.WindowManager) {
 
+    Ext.override(Ext.WindowManager, {
 
+        // 确保窗体的遮罩层覆盖整个窗口
+        getMaskBox: function () {
+            this.mask.maskTarget = Ext.getBody();
+            return this.callParent(arguments);
+        }
+        
+    });
+}
 
 if (Ext.window.Window) {
 
     Ext.override(Ext.window.Window, {
+        /*
+        hide: function () {
+            this.callParent(arguments);
+            if (this.modal) {
+                Ext.select('.x-mask').setStyle({ top: 0, left: 0, width: '100%', height: '100%' });
+            }
+        },
+
+        show: function(){
+            this.callParent(arguments);
+            if (this.modal) {
+                Ext.select('.x-mask').setStyle({ top: 0, left: 0, width: '100%', height: '100%' });
+            }
+        },
+        */
 
         // @private
         onWindowResize: function () {

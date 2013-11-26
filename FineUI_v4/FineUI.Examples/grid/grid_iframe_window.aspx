@@ -22,10 +22,10 @@
                     <Items>
                         <x:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose">
                         </x:Button>
-                        <x:Button ID="btnSaveContinue" Text="保存-关闭-回发父页面" runat="server" Icon="SystemSaveNew"
+                        <x:Button ID="btnSaveContinue" Text="回发-关闭-回发父页面" runat="server" Icon="SystemSaveNew"
                             OnClick="btnSaveContinue_Click">
                         </x:Button>
-                        <x:Button ID="btnSaveRefresh" Text="保存-关闭-刷新父页面" runat="server" Icon="SystemSaveNew"
+                        <x:Button ID="btnSaveRefresh" Text="回发-关闭-刷新父页面" runat="server" Icon="SystemSaveNew"
                             OnClick="btnSaveRefresh_Click">
                         </x:Button>
                         <x:ToolbarFill ID="ToolbarFill1" runat="server">

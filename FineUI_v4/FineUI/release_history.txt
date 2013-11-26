@@ -60,10 +60,15 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+多表头问题（吉吉﹑-4242）。
 		-表格的ForceFitAllTime改名为ForceFit，此属性暂时不能和多表头一起使用。
 	+按钮的Type=Submit无效（Herb-4192）。
-		-删除Button的Type属性，更新示例basic/login.aspx和form/form_reset.aspx。
-	+如何启用窗体IFrame内表单改变提醒，防止录入数据未保存即关闭弹出窗体的误操作。
+		-删除Button的Type属性，为SimpleForm和Form控件增加属性SubmitButton。
+		-更新示例basic/login.aspx和form/form_reset.aspx。
+	+关闭窗体之前，检查窗体IFrame内表单是否已经改变，如果已经改变则弹出是否关闭的确认对话框以防止用户录入数据丢失。
 		-窗体启用EnableConfirmOnClose，EnableIFrame。
 		-窗体IFrame里面的关闭按钮通过ActiveWindow.GetConfirmHideReference等函数注册客户端事件。
+		-更新客户端函数F.wnd.getActiveWindow，直接返回窗体对象，浏览器窗口对象可以通过F.wnd.getActiveWindow().window来获取。
+		-窗体增加GetIFramePostBackEventReference函数，用来回发窗体内的IFrame页面。
+		-增加示例iframe/window.aspx和iframe/window2.aspx，演示如何使用窗体关闭确认对话框，并且第一次将保持按钮放在窗体的工具栏中。
+	-窗体控件的IsModal属性无效（purplebolt-4209）。
 
 
 

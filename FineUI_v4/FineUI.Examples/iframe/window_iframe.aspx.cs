@@ -6,21 +6,24 @@ using System.Web.UI.WebControls;
 
 namespace FineUI.Examples.iframe
 {
-    public partial class iframe_iframe_window2 : PageBase
+    public partial class window_iframe : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                btnClosePostBack.OnClientClick = ActiveWindow.GetHidePostBackReference();
+                btnClose.OnClientClick = ActiveWindow.GetConfirmHideReference();
             }
 
 
         }
 
 
-        protected void btnPostBackClosePostBack_Click(object sender, EventArgs e)
+        protected void btnClosePostBack_Click(object sender, EventArgs e)
         {
+            // 首先保存数据
+
+            // 然后关闭本窗体
             PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
         }
     }

@@ -118,7 +118,7 @@
                     resultNode.text(parseInt(num1, 10) + parseInt(num2, 10));
 
                     var rowIndex = row.index();
-                    __doPostBack(gridClientID, 'AutoSave$' + rowIndex);
+                    __doPostBack('', 'AutoSave$' + rowIndex);
 
                 }, 500);
             });
