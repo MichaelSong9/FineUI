@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <x:PageManager ID="PageManager1" runat="server" />
         <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
-            Title="简单表单" FooterBarAlign="Left" runat="server">
+            Title="简单表单" runat="server">
             <Items>
                 <x:CheckBox ID="CheckBox2" ShowLabel="false" runat="server" Text="复选框" Checked="True">
                 </x:CheckBox>

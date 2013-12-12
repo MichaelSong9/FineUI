@@ -28,7 +28,7 @@
                         </x:ToolbarText>
                     </Items>
                 </x:Toolbar>
-                <x:Toolbar runat="server" Position="Footer">
+                <x:Toolbar runat="server" Position="Footer" ToolbarAlign="Right">
                     <Items>
                         <x:Button ID="btnChangeContent" runat="server" OnClick="btnChangeContent_Click" Text="改变窗体内容">
                         </x:Button>

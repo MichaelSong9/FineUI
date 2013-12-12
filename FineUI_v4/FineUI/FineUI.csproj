@@ -87,6 +87,7 @@
     <Compile Include="Business\Enums\Grid\Renderer.cs" />
     <Compile Include="Business\Enums\MessageTarget.cs" />
     <Compile Include="Business\Enums\SummaryPosition.cs" />
+    <Compile Include="Business\Enums\ToolbarAlign.cs" />
     <Compile Include="Business\Util\FState.cs" />
     <Compile Include="WebControls\Field.CheckBox\EventArgs\CheckedEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.Grid\Editor\GridColumnEditorCollection.cs" />
@@ -124,7 +125,6 @@
     <Compile Include="Business\Enums\ButtonSize.cs" />
     <Compile Include="Business\Enums\BoxLayoutAlign.cs" />
     <Compile Include="Business\Enums\BoxLayoutPosition.cs" />
-    <Compile Include="Business\Enums\FooterBarAlign.cs" />
     <Compile Include="Business\Enums\AjaxLoadingType.cs" />
     <Compile Include="Business\Enums\TextAlign.cs" />
     <Compile Include="Business\Enums\LabelAlign.cs" />
@@ -292,7 +292,6 @@
     <Compile Include="WebControls\Field.TextField.RealTextField.DatePicker\DatePicker.cs" />
     <Compile Include="WebControls\PanelBase.TabStrip\Tab\TabCollection.cs" />
     <Compile Include="Business\ResourceManager\ScriptBlock.cs" />
-    <Compile Include="Business\Enums\ButtonAlign.cs" />
     <Compile Include="Business\Enums\Layout.cs" />
     <Compile Include="Business\Util\ExtDateTimeConvertor.cs" />
     <Compile Include="WebControls\Field.TextField.RealTextField.NumberBox\NumberBox.cs" />

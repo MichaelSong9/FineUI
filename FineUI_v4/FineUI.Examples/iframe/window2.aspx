@@ -16,7 +16,7 @@
         <x:Window ID="Window1" Hidden="true" EnableIFrame="true" runat="server" EnableConfirmOnClose="true"
             EnableMaximize="true" EnableResize="true" Height="450px" Width="800px" Title="窗体一">
             <Toolbars>
-                <x:Toolbar ID="Toolbar1" runat="server" Position="Footer">
+                <x:Toolbar ID="Toolbar1" runat="server" Position="Footer" ToolbarAlign="Right">
                     <Items>
                         <x:Button ID="btnClose" Text="关闭" EnablePostBack="false" runat="server">
                         </x:Button>

@@ -50,7 +50,7 @@
                 </x:TextBox>
             </Items>
             <Toolbars>
-                <x:Toolbar Position="Footer" CssClass="mytoolbar" runat="server">
+                <x:Toolbar Position="Footer" ToolbarAlign="Right" CssClass="mytoolbar" runat="server">
                     <Items>
                         <x:FileUpload runat="server" ID="filePhoto" ButtonText="上传个人头像" ButtonOnly="true"
                             AutoPostBack="true" OnFileSelected="filePhoto_FileSelected">

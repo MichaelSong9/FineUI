@@ -5,7 +5,7 @@ FineUI的使命
 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
 
 支持的浏览器
-IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
+IE 8.0+、Chrome、Firefox、Opera、Safari
 
 授权协议
 Apache License v2.0
@@ -27,7 +27,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 发布历史
 
-+2013-11-** v4.0 beta2
++2013-12-12 v4.0 beta2
 	+表格合计行重构。
 		-增加属性EnableSummary、SummaryData、SummaryPosition。
 		-增加示例grid/grid_summary.aspx、。
@@ -69,6 +69,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-窗体增加GetIFramePostBackEventReference函数，用来回发窗体内的IFrame页面。
 		-增加示例iframe/window.aspx和iframe/window2.aspx，演示如何使用窗体关闭确认对话框，并且第一次将保持按钮放在窗体的工具栏中。
 	-窗体控件的IsModal属性无效（purplebolt-4209）。
+	-删除面板的FooterBarAlign属性，为Toolbar控件增加ToolbarAlign属性（可能需要为Footer工具栏设置ToolbarAlign="Right"）。
 
 
 

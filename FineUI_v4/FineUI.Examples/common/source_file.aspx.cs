@@ -14,6 +14,12 @@ namespace FineUI.Examples
             if (!IsPostBack)
             {
                 string file = Request.QueryString["file"];
+
+                if (file.StartsWith("http://") || file.StartsWith("https://"))
+                {
+                    desc.Text = String.Format("<br/><br/><a href=\"{0}\" target=\"_blank\">在新窗口打开</a>", file);
+                    return;
+                }
                 
                 string content = File.ReadAllText(Server.MapPath(file));
 

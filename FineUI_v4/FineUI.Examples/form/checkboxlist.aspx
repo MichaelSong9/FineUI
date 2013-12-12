@@ -60,7 +60,7 @@
 
             </Items>
             <Toolbars>
-                <x:Toolbar Position="Footer" runat="server">
+                <x:Toolbar Position="Footer" ToolbarAlign="Right" runat="server">
                     <Items>
                         <x:Button runat="server" ID="btnSubmit" ValidateForms="SimpleForm1" Text="提交表单"
                             OnClick="btnSubmit_Click">

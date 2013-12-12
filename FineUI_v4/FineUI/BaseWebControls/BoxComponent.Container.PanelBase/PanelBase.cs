@@ -122,25 +122,7 @@ namespace FineUI
 
         #region Properties
 
-        /// <summary>
-        /// 页脚工具栏的排列位置
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(FooterBarAlign.Right)]
-        [Description("页脚工具栏的排列位置")]
-        public FooterBarAlign FooterBarAlign
-        {
-            get
-            {
-                object obj = FState["FooterBarAlign"];
-                return obj == null ? FooterBarAlign.Right : (FooterBarAlign)obj;
-            }
-            set
-            {
-                FState["FooterBarAlign"] = value;
-            }
-        }
-
+        
         /// <summary>
         /// 启用自定义的圆角边框
         /// </summary>
@@ -646,11 +628,7 @@ namespace FineUI
                 OB.AddProperty("frame", true);
             }
 
-            if (FooterBarAlign != FooterBarAlign.Right)
-            {
-                OB.AddProperty("buttonAlign", FooterBarAlignHelper.GetName(FooterBarAlign));
-            }
-
+            
             #region Items
 
             // 如果是 ContentPanel 或者启用 IFrame，则不生成 items

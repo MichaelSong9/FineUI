@@ -126,7 +126,7 @@
                                         
                                             <br />
                                             <h2>支持的浏览器</h2>
-                                            IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
+                                            IE 8.0+、Chrome、Firefox、Opera、Safari
                                         
                                             <br />
                                             <h2>授权协议</h2>
