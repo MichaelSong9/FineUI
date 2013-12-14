@@ -27,7 +27,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 发布历史
 
-+2013-12-12 v4.0 beta2
++2013-12-14 v4.0 beta2
 	+表格合计行重构。
 		-增加属性EnableSummary、SummaryData、SummaryPosition。
 		-增加示例grid/grid_summary.aspx、。
