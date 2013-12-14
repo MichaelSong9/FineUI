@@ -70,6 +70,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-增加示例iframe/window.aspx和iframe/window2.aspx，演示如何使用窗体关闭确认对话框，并且第一次将保持按钮放在窗体的工具栏中。
 	-窗体控件的IsModal属性无效（purplebolt-4209）。
 	-删除面板的FooterBarAlign属性，为Toolbar控件增加ToolbarAlign属性（可能需要为Footer工具栏设置ToolbarAlign="Right"）。
+	-修正动态创建模板列无法导出的问题（hroger-4584）。
 
 
 

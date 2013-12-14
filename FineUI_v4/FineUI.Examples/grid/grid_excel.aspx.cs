@@ -36,7 +36,7 @@ namespace FineUI.Examples.data
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.ClearContent();
-            Response.AddHeader("content-disposition", "attachment; filename=MyExcelFile.xls");
+            Response.AddHeader("content-disposition", "attachment; filename=myexcel.xls");
             Response.ContentType = "application/excel";
             Response.Write(GetGridTableHtml(Grid1));
             Response.End();

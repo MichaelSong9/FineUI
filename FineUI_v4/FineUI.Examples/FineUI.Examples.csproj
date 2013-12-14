@@ -152,6 +152,7 @@
     <Content Include="form\fileupload_toolbar.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
+    <Content Include="grid\grid_excel_dynamic_columns.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
     <Content Include="grid\grid_width_forcefit.aspx" />
     <Content Include="grid\grid_width_expandunusedspace.aspx" />
@@ -554,6 +555,13 @@
     </Compile>
     <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.designer.cs">
       <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_excel_dynamic_columns.aspx.cs">
+      <DependentUpon>grid_excel_dynamic_columns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_excel_dynamic_columns.aspx.designer.cs">
+      <DependentUpon>grid_excel_dynamic_columns.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_simulate_tree_database_paging.aspx.cs">
       <DependentUpon>grid_simulate_tree_database_paging.aspx</DependentUpon>

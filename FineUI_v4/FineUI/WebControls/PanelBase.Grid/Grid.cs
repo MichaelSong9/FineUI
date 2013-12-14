@@ -1759,7 +1759,7 @@ namespace FineUI
                     Rows.Add(row);
                     //Controls.Add(row);
 
-                    row.InitTemplateContainers();
+                    //row.InitTemplateContainers();
                 }
             }
         }
@@ -4442,6 +4442,25 @@ namespace FineUI
 
         #endregion
 
+        #region OnLoad
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // 页面回发时，重新初始化每行中的模板列控件
+            if (Page.IsPostBack)
+            {
+                foreach (GridRow row in Rows)
+                {
+                    row.InitTemplateContainers();
+                }
+            }
+
+        }
+
+        #endregion
+
         #region old code
 
         //protected override void OnPreLoad(object sender, EventArgs e)
@@ -4549,5 +4568,7 @@ namespace FineUI
         //}
 
         #endregion
+
+        
     }
 }

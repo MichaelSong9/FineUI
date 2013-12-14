@@ -38,7 +38,7 @@
     </x:Grid>
     <br />
     <x:Button ID="Button1" EnableAjax="false" DisableControlBeforePostBack="false"
-        runat="server" Text="将Grid导出为Excel文件" OnClick="Button1_Click">
+        runat="server" Text="导出为Excel文件" OnClick="Button1_Click">
     </x:Button>
     <br />
     <br />

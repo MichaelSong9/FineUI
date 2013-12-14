@@ -35,7 +35,7 @@
     </asp:GridView>
     <br />
     <br />
-    <asp:Button ID="Button2" runat="server" Text="将GridView导出为Excel文件" OnClick="Button2_Click">
+    <asp:Button ID="Button2" runat="server" Text="导出为Excel文件" OnClick="Button2_Click">
     </asp:Button>
     <br />
     <br />
