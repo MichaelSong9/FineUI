@@ -39,7 +39,7 @@ namespace FineUI
     /// 表格行
     /// </summary>
     [ToolboxItem(false)]
-    public class GridRow //: WebControl
+    public class GridRow // : WebControl
     {
         #region Constructor
 
@@ -281,6 +281,8 @@ namespace FineUI
                 {
                     TemplateField field = column as TemplateField;
                     GridRowControl control = new GridRowControl(DataItem, RowIndex);
+                    
+
                     // 不用指定ID，会自动生成类似 ct123 的唯一ID
                     //control.ID = String.Format("c{0}r{1}", column.ColumnIndex, RowIndex);
 
@@ -294,10 +296,13 @@ namespace FineUI
                         }
                     }
 
+                    
+
                     field.ItemTemplate.InstantiateIn(control);
 
                     _grid.Controls.Add(control);
                     TemplateContainers[column.ColumnIndex] = control;
+
 
                 }
 

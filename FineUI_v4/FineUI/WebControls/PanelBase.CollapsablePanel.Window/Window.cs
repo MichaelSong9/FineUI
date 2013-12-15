@@ -1309,7 +1309,7 @@ namespace FineUI
 
                 // ESC 按键和右上角的关闭按钮使用相同的事件处理函数
                 string closeFN = XID + "_close";
-                closeScript = String.Format("var {0}={1}", closeFN, JsHelper.GetFunction(closeScript + "return false;"));
+                closeScript = String.Format("var {0}={1};", closeFN, JsHelper.GetFunction(closeScript + "return false;"));
 
                 // 用户按ESC键关闭窗口
                 OB.AddProperty("onEsc", closeFN, true);

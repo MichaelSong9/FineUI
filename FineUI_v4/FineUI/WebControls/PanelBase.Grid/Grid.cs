@@ -2199,8 +2199,10 @@ namespace FineUI
             // 不需要手工添加 SelectedRowIndexArray 属性，是因为只能通过代码设置此属性
             // 只要通过代码设置了 SelectedRowIndexArray 属性，则一定会存在于 F_States
 
+
             base.OnFirstPreRender();
 
+            
             //ResourceManager.Instance.AddJavaScriptComponent("grid");
 
             #region selectModel/gridStore/gridColumn
@@ -3431,23 +3433,6 @@ namespace FineUI
             }
 
 
-            /*
-            JArray rowStates = JArray.Parse(postCollection[RowStatesHiddenFieldID]);
-            int startRowIndex, endRowIndex;
-            ResolveStartEndRowIndex(out startRowIndex, out endRowIndex);
-            for (int i = startRowIndex; i <= endRowIndex; i++)
-            {
-                int index = i - startRowIndex;
-                List<object> shortStates = new List<object>();
-                foreach (JArray ja in rowStates)
-                {
-                    shortStates.Add(ja[index]);
-                }
-                Rows[i].FromShortStates(shortStates.ToArray());
-            }
-            FState.BackupPostDataProperty("F_Rows");
-            */
-
             // 列状态（目前只有CheckBoxField用到）
             String statesStr = postCollection[StatesHiddenFieldID];
             if (!String.IsNullOrEmpty(statesStr))
@@ -3488,13 +3473,6 @@ namespace FineUI
                     newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
                 }
 
-                //// 应该从客户端的RowIndex中减去这个数字，这个数字是客户端新增的行数
-                //int addedRowNumbers = 0;
-                //if (newAddedRows.Contains(0))
-                //{
-                //    addedRowNumbers = newAddedRows.Count;
-                //}
-
                 // 根据用户的输入修改每个单元格的Values
                 _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
                 _newAddedList = new List<Dictionary<string, string>>();
@@ -3511,16 +3489,6 @@ namespace FineUI
                         // 修改的数据在原始集合中的行索引，如果是新增行则为-1
                         int originalRowIndex = modifiedItem[1].ToObject<int>();
 
-                        //bool thisRowIsNewAdded = false;
-                        //if (newAddedRows.Count > 0 && newAddedRows.Contains(rowIndex))
-                        //{
-                        //    thisRowIsNewAdded = true;
-                        //}
-                        //else
-                        //{
-                        //    thisRowIsNewAdded = false;
-                        //    rowIndex -= addedRowNumbers;
-                        //}
 
                         // 获取本行（Record）中所有修改的记录（Field），并保存到字典中（rowModifiedDic）
                         Dictionary<string, string> rowModifiedDic = new Dictionary<string, string>();
@@ -3580,15 +3548,8 @@ namespace FineUI
                 }
 
             }
-            //// 需要恢复哪一列的数据
-            //if (NeedPersistStateColumnIndexArray != null && NeedPersistStateColumnIndexArray.Length > 0)
-            //{
-            //    foreach (int columnIndex in NeedPersistStateColumnIndexArray)
-            //    {
-            //        Columns[columnIndex].LoadColumnState(postCollection[GetNeedPersistStateColumnIndexID(columnIndex)]);
-            //    }
-            //}
 
+            
 
             return false;
         }
@@ -4442,11 +4403,14 @@ namespace FineUI
 
         #endregion
 
-        #region OnLoad
+        #region LoadControlState/SaveControlState
 
-        protected override void OnLoad(EventArgs e)
+        // LoadControlState 处于 Page_Init 之后，控件的 LoadPostData 之前
+        // 1. Page_Init 之后，才能保证动态添加的 Columns 存在
+        // 2. LoadPostData 之前，才能保证模板列中的输入控件得到用户输入的值
+        protected override void LoadControlState(object savedState)
         {
-            base.OnLoad(e);
+            base.LoadControlState(((Pair)savedState).First);
 
             // 页面回发时，重新初始化每行中的模板列控件
             if (Page.IsPostBack)
@@ -4456,9 +4420,24 @@ namespace FineUI
                     row.InitTemplateContainers();
                 }
             }
+        }
+
+        // 必须添加值之后，才会在回发时走到 LoadViewState
+        // 使用ControlState而不是ViewState还有一个好处是，ControlState不可被用户关闭
+        protected override object SaveControlState()
+        {
+            return new Pair(base.SaveControlState(), "");
 
         }
 
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            Page.RegisterRequiresControlState(this);
+        }
+
+        
+        
         #endregion
 
         #region old code
@@ -4569,6 +4548,6 @@ namespace FineUI
 
         #endregion
 
-        
+
     }
 }
