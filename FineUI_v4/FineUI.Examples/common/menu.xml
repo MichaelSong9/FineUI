@@ -266,6 +266,8 @@
       </TreeNode>
       <TreeNode Text="Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel.aspx" >
       </TreeNode>
+	  <TreeNode Text="动态列Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="分页工具条">
       <TreeNode Text="重新绑定数据" NavigateUrl="~/grid/grid_pageitems.aspx" >

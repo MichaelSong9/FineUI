@@ -54,13 +54,13 @@
                             DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                         <x:TemplateField HeaderText="语文成绩" Width="80px">
                             <ItemTemplate>
-                                <asp:TextBox runat="server" Width="100%" ID="tbxTableChineseScore" CssClass="ChineseScore"
+                                <asp:TextBox runat="server" Width="98%" ID="tbxTableChineseScore" CssClass="ChineseScore"
                                     TabIndex='<%# Container.DataItemIndex + 10 %>' Text='<%# Eval("ChineseScore") %>'></asp:TextBox>
                             </ItemTemplate>
                         </x:TemplateField>
                         <x:TemplateField HeaderText="数学成绩" Width="80px">
                             <ItemTemplate>
-                                <asp:TextBox runat="server" Width="100%" ID="tbxTableMathScore" CssClass="MathScore"
+                                <asp:TextBox runat="server" Width="98%" ID="tbxTableMathScore" CssClass="MathScore"
                                     TabIndex='<%# Container.DataItemIndex + 100 %>' Text='<%# Eval("MathScore") %>'></asp:TextBox>
                             </ItemTemplate>
                         </x:TemplateField>

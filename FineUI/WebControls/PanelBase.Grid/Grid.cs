@@ -1635,8 +1635,7 @@ namespace FineUI
                     Rows.Add(row);
                     //Controls.Add(row);
 
-                    row.InitTemplateContainers();
-
+                    //row.InitTemplateContainers();
 
                 }
 
@@ -4514,6 +4513,43 @@ namespace FineUI
                 handler(this, e);
             }
         }
+
+        #endregion
+
+        #region LoadControlState/SaveControlState
+
+        // LoadControlState 处于 Page_Init 之后，控件的 LoadPostData 之前
+        // 1. Page_Init 之后，才能保证动态添加的 Columns 存在
+        // 2. LoadPostData 之前，才能保证模板列中的输入控件得到用户输入的值
+        protected override void LoadControlState(object savedState)
+        {
+            base.LoadControlState(((Pair)savedState).First);
+
+            // 页面回发时，重新初始化每行中的模板列控件
+            if (Page.IsPostBack)
+            {
+                foreach (GridRow row in Rows)
+                {
+                    row.InitTemplateContainers();
+                }
+            }
+        }
+
+        // 必须添加值之后，才会在回发时走到 LoadViewState
+        // 使用ControlState而不是ViewState还有一个好处是，ControlState不可被用户关闭
+        protected override object SaveControlState()
+        {
+            return new Pair(base.SaveControlState(), "");
+
+        }
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            Page.RegisterRequiresControlState(this);
+        }
+
+
 
         #endregion
 

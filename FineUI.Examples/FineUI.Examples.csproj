@@ -155,6 +155,7 @@
     <Content Include="form\fileupload_toolbar.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
+    <Content Include="grid\grid_excel_dynamic_columns.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging.aspx" />
     <Content Include="grid\grid_width_forcefitalltime.aspx" />
     <Content Include="grid\grid_width_forcefitfirsttime.aspx" />
@@ -178,7 +179,6 @@
     <Content Include="grid\grid_groupheader_sort_hdmenu.aspx" />
     <Content Include="grid\grid_groupheader_sort.aspx" />
     <Content Include="grid\grid_paging_database_sorting.aspx" />
-    <Content Include="grid\grid_editor_cell2.aspx" />
     <Content Include="grid\grid_checkboxfield_rowcheckall.aspx" />
     <Content Include="grid\grid_editor_cell_new.aspx" />
     <Content Include="grid\grid_editor_cell_delete.aspx" />
@@ -193,6 +193,7 @@
     <Content Include="grid\grid_rowcommand_paging_database.aspx" />
     <Content Include="grid\grid_editor_cell_new_delete.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit.aspx" />
+    <Content Include="grid\grid_editor_cell_databind.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -540,6 +541,13 @@
     <Compile Include="grid\grid_edit_dropdownlist_textbox.aspx.designer.cs">
       <DependentUpon>grid_edit_dropdownlist_textbox.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_excel_dynamic_columns.aspx.cs">
+      <DependentUpon>grid_excel_dynamic_columns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_excel_dynamic_columns.aspx.designer.cs">
+      <DependentUpon>grid_excel_dynamic_columns.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_simulate_tree_database_paging.aspx.cs">
       <DependentUpon>grid_simulate_tree_database_paging.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -701,13 +709,6 @@
     <Compile Include="grid\grid_paging_database_sorting.aspx.designer.cs">
       <DependentUpon>grid_paging_database_sorting.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_editor_cell2.aspx.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_editor_cell2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="grid\grid_checkboxfield_rowcheckall.aspx.cs">
       <DependentUpon>grid_checkboxfield_rowcheckall.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -805,6 +806,13 @@
     </Compile>
     <Compile Include="grid\grid_editor_cell_afteredit.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_afteredit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_databind.aspx.cs">
+      <DependentUpon>grid_editor_cell_databind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_databind.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_databind.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>
