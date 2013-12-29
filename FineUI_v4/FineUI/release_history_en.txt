@@ -1,5 +1,5 @@
 ﻿About FineUI
-ExtJS based professional ASP.NET Controls.
+ExtJS based open source ASP.NET Controls.
 
 FineUI Mission
 Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application.
@@ -20,6 +20,9 @@ PM> Install-Package FineUI
 
 
 Release History
+
+Check chinese version for latest releases.
+
 
 +2012-11-18 v3.2.0
 	-Check the chinese version.
