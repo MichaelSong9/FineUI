@@ -20,33 +20,33 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" Height="350px" PageSize="5" ShowBorder="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" Width="800px" Height="350px" PageSize="5" ShowBorder="true"
             ShowHeader="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
             DataKeyNames="Id,Name" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange">
             <Columns>
-                <x:RowNumberField />
-                <x:BoundField Width="100px" ColumnID="name" DataField="Name" DataFormatString="{0}"
+                <f:RowNumberField />
+                <f:BoundField Width="100px" ColumnID="name" DataField="Name" DataFormatString="{0}"
                     HeaderText="姓名" />
-                <x:TemplateField Width="80px" HeaderText="性别">
+                <f:TemplateField Width="80px" HeaderText="性别">
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                     </ItemTemplate>
-                </x:TemplateField>
-                <x:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
-                <x:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                <x:HyperLinkField HeaderText="所学专业" ColumnID="major" DataToolTipField="Major" DataTextField="Major"
+                </f:TemplateField>
+                <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
+                <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
+                <f:HyperLinkField HeaderText="所学专业" ColumnID="major" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                <x:BoundField Width="100px" DataField="Donate" ColumnID="donate" HeaderText="捐赠金额" />
+                <f:BoundField Width="100px" DataField="Donate" ColumnID="donate" HeaderText="捐赠金额" />
             </Columns>
-        </x:Grid>
+        </f:Grid>
         <br />
-        <x:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
-        </x:Button>
+        <f:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
+        </f:Button>
         <br />
-        <x:Label ID="labResult" EncodeText="false" runat="server">
-        </x:Label>
+        <f:Label ID="labResult" EncodeText="false" runat="server">
+        </f:Label>
     </form>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>

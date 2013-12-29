@@ -8,13 +8,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></x:PageManager>
-        <x:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
+        <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
+        <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <x:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="102px" ShowHeader="false"
+                <f:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="102px" ShowHeader="false"
                     Position="Top" Layout="Fit" runat="server">
                     <Items>
-                        <x:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" runat="server">
+                        <f:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" runat="server">
                             <div class="wrap">
                                 <div class="logos">
                                     XXX 管理系统
@@ -33,33 +33,33 @@
                                     <a href="javascript:;">退出管理</a>
                                 </div>
                             </div>
-                        </x:ContentPanel>
+                        </f:ContentPanel>
                     </Items>
-                </x:Region>
-                <x:Region ID="Region2" Split="true" Width="200px"
+                </f:Region>
+                <f:Region ID="Region2" Split="true" Width="200px"
                     Margins="0 0 0 0" ShowHeader="true" Title="业务菜单" Icon="Outline"
                     EnableCollapse="true" EnableIFrame="true" IFrameName="leftframe" IFrameUrl="about:blank"
                     Position="Left" runat="server">
-                </x:Region>
-                <x:Region ID="mainRegion" ShowHeader="false" Margins="0 0 0 0" Position="Center"
+                </f:Region>
+                <f:Region ID="mainRegion" ShowHeader="false" Margins="0 0 0 0" Position="Center"
                     Layout="Fit" runat="server">
                     <Items>
-                        <x:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
+                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
                             <Tabs>
-                                <x:Tab ID="Tab1" Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
+                                <f:Tab ID="Tab1" Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
                                     <Items>
-                                        <x:ContentPanel ID="ContentPanel1" ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
+                                        <f:ContentPanel ID="ContentPanel1" ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                             runat="server">
                                             首页内容
-                                        </x:ContentPanel>
+                                        </f:ContentPanel>
                                     </Items>
-                                </x:Tab>
+                                </f:Tab>
                             </Tabs>
-                        </x:TabStrip>
+                        </f:TabStrip>
                     </Items>
-                </x:Region>
+                </f:Region>
             </Regions>
-        </x:RegionPanel>
+        </f:RegionPanel>
     </form>
     <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>

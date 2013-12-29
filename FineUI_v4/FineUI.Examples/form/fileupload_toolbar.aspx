@@ -37,33 +37,33 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableFrame="true" EnableCollapse="true"
             ShowBorder="True" Title="表单">
             <Items>
-                <x:Image ID="imgPhoto" CssClass="photo" ImageUrl="~/images/blank.png" ShowEmptyLabel="true" runat="server">
-                </x:Image>
-                <x:TextBox runat="server" Label="用户名" ID="tbxUserName" Required="true" ShowRedStar="true">
-                </x:TextBox>
-                <x:TextBox runat="server" Label="邮箱" ID="tbxEmail" Required="true" RegexPattern="EMAIL"
+                <f:Image ID="imgPhoto" CssClass="photo" ImageUrl="~/images/blank.png" ShowEmptyLabel="true" runat="server">
+                </f:Image>
+                <f:TextBox runat="server" Label="用户名" ID="tbxUserName" Required="true" ShowRedStar="true">
+                </f:TextBox>
+                <f:TextBox runat="server" Label="邮箱" ID="tbxEmail" Required="true" RegexPattern="EMAIL"
                     ShowRedStar="true">
-                </x:TextBox>
+                </f:TextBox>
             </Items>
             <Toolbars>
-                <x:Toolbar Position="Footer" ToolbarAlign="Right" CssClass="mytoolbar" runat="server">
+                <f:Toolbar Position="Footer" ToolbarAlign="Right" CssClass="mytoolbar" runat="server">
                     <Items>
-                        <x:FileUpload runat="server" ID="filePhoto" ButtonText="上传个人头像" ButtonOnly="true"
+                        <f:FileUpload runat="server" ID="filePhoto" ButtonText="上传个人头像" ButtonOnly="true"
                             AutoPostBack="true" OnFileSelected="filePhoto_FileSelected">
-                        </x:FileUpload>
-                        <x:ToolbarFill ID="ToolbarFill1" runat="server">
-                        </x:ToolbarFill>
-                        <x:Button runat="server" Icon="SystemSave" ID="btnSubmit" OnClick="btnSubmit_Click"
+                        </f:FileUpload>
+                        <f:ToolbarFill ID="ToolbarFill1" runat="server">
+                        </f:ToolbarFill>
+                        <f:Button runat="server" Icon="SystemSave" ID="btnSubmit" OnClick="btnSubmit_Click"
                             ValidateForms="SimpleForm1" Text="提交表单">
-                        </x:Button>
+                        </f:Button>
                     </Items>
-                </x:Toolbar>
+                </f:Toolbar>
             </Toolbars>
-        </x:SimpleForm>
+        </f:SimpleForm>
 
     </form>
 </body>

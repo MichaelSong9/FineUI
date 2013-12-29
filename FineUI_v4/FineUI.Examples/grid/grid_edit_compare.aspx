@@ -18,46 +18,46 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px" runat="server"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px" runat="server"
             DataKeyNames="Id,Name">
             <Columns>
-                <x:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
+                <f:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                     </ItemTemplate>
-                </x:TemplateField>
-                <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
-                <x:TemplateField Width="80px" HeaderText="性别">
+                </f:TemplateField>
+                <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
+                <f:TemplateField Width="80px" HeaderText="性别">
                     <ItemTemplate>
                         <%-- Container.DataItem 的类型是 System.Data.DataRowView 或者用户自定义类型 --%>
                         <%--<asp:Label ID="Label2" runat="server" Text='<%# GetGender(DataBinder.Eval(Container.DataItem, "Gender")) %>'></asp:Label>--%>
                         <asp:Label ID="Label3" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                     </ItemTemplate>
-                </x:TemplateField>
-                <x:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
-                <x:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
+                </f:TemplateField>
+                <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
+                <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
+                <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                <x:TemplateField HeaderText="分组一" Width="100px">
+                <f:TemplateField HeaderText="分组一" Width="100px">
                     <ItemTemplate>
                         <asp:TextBox ID="tbxGroupName" CssClass="group1" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 10 %>'
                             Text='<%# Eval("Group") %>'></asp:TextBox>
                     </ItemTemplate>
-                </x:TemplateField>
-                <x:TemplateField HeaderText="分组二" Width="100px">
+                </f:TemplateField>
+                <f:TemplateField HeaderText="分组二" Width="100px">
                     <ItemTemplate>
                         <asp:TextBox ID="TextBox1" CssClass="group2" runat="server" Width="80px" TabIndex='<%# Container.DataItemIndex + 100 %>'></asp:TextBox>
                     </ItemTemplate>
-                </x:TemplateField>
-                <x:TemplateField HeaderText="比较结果" Width="120px">
+                </f:TemplateField>
+                <f:TemplateField HeaderText="比较结果" Width="120px">
                     <ItemTemplate>
                         <asp:Label runat="server" CssClass="result" ID="labCompare"></asp:Label>
                     </ItemTemplate>
-                </x:TemplateField>
+                </f:TemplateField>
             </Columns>
-        </x:Grid>
+        </f:Grid>
         <br />
         请注意如何实现：
     <ul>
@@ -67,13 +67,13 @@
         <li>比较两个输入框的文本是否相同（JavaScript函数registerCompareEvent）</li>
     </ul>
         <br />
-        <x:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="获取用户输入的分组值">
-        </x:Button>
-        <x:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
-        </x:Button>
+        <f:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="获取用户输入的分组值">
+        </f:Button>
+        <f:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
+        </f:Button>
         <br />
-        <x:Label ID="labResult" EncodeText="false" runat="server">
-        </x:Label>
+        <f:Label ID="labResult" EncodeText="false" runat="server">
+        </f:Label>
         <br />
     </form>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>

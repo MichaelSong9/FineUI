@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager2" runat="server" />
+    <f:PageManager ID="PageManager2" runat="server" />
     <asp:Button ID="Button2" Text="Button2" runat="server" UseSubmitBehavior="true"  OnClick="Button2_Click"/>
     <asp:Button ID="Button1" Text="Button1" runat="server" UseSubmitBehavior="true" OnClick="Button1_Click"/>
     </form>

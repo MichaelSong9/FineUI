@@ -8,28 +8,28 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" runat="server" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" runat="server" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
             Title="简单表单">
             <Items>
-                <x:DropDownList ID="ddlSheng" Label="省份" ShowRedStar="true" CompareType="String"
+                <f:DropDownList ID="ddlSheng" Label="省份" ShowRedStar="true" CompareType="String"
                     CompareValue="-1" CompareOperator="NotEqual" CompareMessage="请选择省份！" runat="server"
                     AutoPostBack="true" OnSelectedIndexChanged="ddlSheng_SelectedIndexChanged">
-                </x:DropDownList>
-                <x:DropDownList ID="ddlShi" Label="地区市" ShowRedStar="true" CompareType="String"
+                </f:DropDownList>
+                <f:DropDownList ID="ddlShi" Label="地区市" ShowRedStar="true" CompareType="String"
                     CompareValue="-1" CompareOperator="NotEqual" CompareMessage="请选择地区市！" runat="server"
                     AutoPostBack="true" OnSelectedIndexChanged="ddlShi_SelectedIndexChanged">
-                </x:DropDownList>
-                <x:DropDownList ID="ddlXian" ShowRedStar="true" CompareType="String" CompareValue="-1"
+                </f:DropDownList>
+                <f:DropDownList ID="ddlXian" ShowRedStar="true" CompareType="String" CompareValue="-1"
                     CompareOperator="NotEqual" CompareMessage="请选择县区市！" Label="县区市" runat="server">
-                </x:DropDownList>
-                <x:Button ID="btnSubmit" runat="server" Text="获取选中的省市县" ValidateForms="SimpleForm1"
+                </f:DropDownList>
+                <f:Button ID="btnSubmit" runat="server" Text="获取选中的省市县" ValidateForms="SimpleForm1"
                     ValidateTarget="Top" OnClick="btnSubmit_Click">
-                </x:Button>
-                <x:Label ID="labResult" runat="server" ShowLabel="false" CssStyle="font-weight:bold;">
-                </x:Label>
+                </f:Button>
+                <f:Label ID="labResult" runat="server" ShowLabel="false" CssStyle="font-weight:bold;">
+                </f:Label>
             </Items>
-        </x:SimpleForm>
+        </f:SimpleForm>
         <br />
         <br />
     </form>

@@ -9,10 +9,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Tree ID="Tree1" Width="650px" EnableArrows="false" EnableLines="false" ShowHeader="true" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Tree ID="Tree1" Width="650px" EnableArrows="false" EnableLines="false" ShowHeader="true" EnableFrame="true" EnableCollapse="true"
             Title="树控件（绑定到 XmlDocument）" runat="server">
-        </x:Tree>
+        </f:Tree>
     </form>
 </body>
 </html>

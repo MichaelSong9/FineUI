@@ -64,7 +64,7 @@ namespace FineUI
             #region powered-by
 
             string metaName = "powered-by";
-            string metaContent = String.Format("FineUI v{0} - 基于 ExtJS 的专业 ASP.NET 控件库 - http://fineui.com/", GlobalConfig.ProductVersion);
+            string metaContent = String.Format("FineUI v{0} - 基于 ExtJS 的开源 ASP.NET 控件库 - http://fineui.com/", GlobalConfig.ProductVersion);
             AddContentToHead(page, CONTROL_ID_PREFIX + "comments", String.Format(META_TEMPLATE, metaName, metaContent));
 
             #endregion
@@ -72,7 +72,7 @@ namespace FineUI
             // ExtJS CSS & JS 版本号，只有升级更新CSS或者JS时才需要更新。
             //string extjsCSSJSVersion = "3";
             //string fineuiVersion = GlobalConfig.ProductVersion;
-            string extjsBasePath = page.ResolveUrl(GlobalConfig.GetExtjsBasePath());
+            string extjsBasePath = page.ResolveUrl(GlobalConfig.GetJSBasePath());
 
             #region css
 

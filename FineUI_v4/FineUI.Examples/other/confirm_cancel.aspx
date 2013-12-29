@@ -9,18 +9,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:Button Text="操作一（ConfirmText）" runat="server" ID="btnOperation1" ConfirmText="确认执行操作一？"
+    <f:PageManager ID="PageManager1" runat="server" />
+    <f:Button Text="操作一（ConfirmText）" runat="server" ID="btnOperation1" ConfirmText="确认执行操作一？"
         OnClick="btnOperation1_Click">
-    </x:Button>
+    </f:Button>
     <br />
-    <x:Button Text="操作二（OnClientClick）" runat="server" ID="btnOperation2" EnablePostBack="false"
+    <f:Button Text="操作二（OnClientClick）" runat="server" ID="btnOperation2" EnablePostBack="false"
         OnClick="btnOperation2_Click">
-    </x:Button>
+    </f:Button>
     <br />
-    <x:Button Text="操作三（OnClientClick，点击取消按钮也回发）" runat="server" ID="btnOperation3" EnablePostBack="false"
+    <f:Button Text="操作三（OnClientClick，点击取消按钮也回发）" runat="server" ID="btnOperation3" EnablePostBack="false"
         OnClick="btnOperation3_Click">
-    </x:Button>
+    </f:Button>
     </form>
 </body>
 </html>

@@ -9,17 +9,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
+        <f:PageManager ID="PageManager1" runat="server" />
         页面二：parent_postback_top2.aspx
         <br />
-        <x:Label ID="labResult" runat="server">
-        </x:Label>
+        <f:Label ID="labResult" runat="server">
+        </f:Label>
         <br />
         <br />
-        <x:Window ID="Window1" runat="server" Height="350px" EnableIFrame="true" IFrameUrl="parent_postback_top3.aspx"
+        <f:Window ID="Window1" runat="server" Height="350px" EnableIFrame="true" IFrameUrl="parent_postback_top3.aspx"
             IsModal="true" Popup="true" Width="650px" EnableMaximize="true" EnableResize="true"
             Target="Top" OnClose="Window1_Close" Title="页面二中的弹出对话框">
-        </x:Window>
+        </f:Window>
     </form>
 </body>
 </html>

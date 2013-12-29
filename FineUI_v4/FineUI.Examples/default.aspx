@@ -12,13 +12,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></x:PageManager>
-        <x:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
+        <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
+        <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <x:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="50px" ShowHeader="false"
+                <f:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="50px" ShowHeader="false"
                     Position="Top" Layout="Fit" runat="server">
                     <Items>
-                        <x:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" ID="ContentPanel1"
+                        <f:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" ID="ContentPanel1"
                             runat="server">
                             <div class="title">
                                 <a href="http://fineui.com/" title="FineUI首页" class="logo">
@@ -26,96 +26,96 @@
                                 <a href="./default.aspx">FineUI在线示例</a>
                             </div>
                             <div class="config">
-                                <x:Button ID="Button2" EnablePostBack="false" Icon="Cog" Text="设置" runat="server">
+                                <f:Button ID="Button2" EnablePostBack="false" Icon="Cog" Text="设置" runat="server">
                                     <Menu ID="Menu1" runat="server">
-                                        <x:MenuButton ID="btnExpandAll" IconUrl="~/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
+                                        <f:MenuButton ID="btnExpandAll" IconUrl="~/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
                                             runat="server">
-                                        </x:MenuButton>
-                                        <x:MenuButton ID="btnCollapseAll" IconUrl="~/images/collapse-all.gif" Text="折叠菜单"
+                                        </f:MenuButton>
+                                        <f:MenuButton ID="btnCollapseAll" IconUrl="~/images/collapse-all.gif" Text="折叠菜单"
                                             EnablePostBack="false" runat="server">
-                                        </x:MenuButton>
-                                        <x:MenuSeparator ID="MenuSeparator1" runat="server">
-                                        </x:MenuSeparator>
-                                        <x:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
+                                        </f:MenuButton>
+                                        <f:MenuSeparator ID="MenuSeparator1" runat="server">
+                                        </f:MenuSeparator>
+                                        <f:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
                                             <Menu ID="Menu3" runat="server">
-                                                <x:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle"
+                                                <f:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle"
                                                     AutoPostBack="true" OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
-                                                <x:MenuCheckBox Text="手风琴+树菜单" ID="MenuStyleAccordion" GroupName="MenuStyle" AutoPostBack="true"
+                                                </f:MenuCheckBox>
+                                                <f:MenuCheckBox Text="手风琴+树菜单" ID="MenuStyleAccordion" GroupName="MenuStyle" AutoPostBack="true"
                                                     OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
+                                                </f:MenuCheckBox>
                                             </Menu>
-                                        </x:MenuButton>
-                                        <x:MenuButton EnablePostBack="false" Text="语言" ID="MenuLang" runat="server">
+                                        </f:MenuButton>
+                                        <f:MenuButton EnablePostBack="false" Text="语言" ID="MenuLang" runat="server">
                                             <Menu ID="Menu2" runat="server">
-                                                <x:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang"
+                                                <f:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang"
                                                     AutoPostBack="true" OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
-                                                <x:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" AutoPostBack="true"
+                                                </f:MenuCheckBox>
+                                                <f:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" AutoPostBack="true"
                                                     OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
-                                                <x:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" AutoPostBack="true"
+                                                </f:MenuCheckBox>
+                                                <f:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" AutoPostBack="true"
                                                     OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
+                                                </f:MenuCheckBox>
                                             </Menu>
-                                        </x:MenuButton>
-                                        <x:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
+                                        </f:MenuButton>
+                                        <f:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
                                             <Menu ID="Menu4" runat="server">
-                                                <x:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme"
+                                                <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme"
                                                     AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
-                                                <x:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme"
+                                                </f:MenuCheckBox>
+                                                <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme"
                                                     AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
-                                                <x:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" AutoPostBack="true"
+                                                </f:MenuCheckBox>
+                                                <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" AutoPostBack="true"
                                                     OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
-                                                <x:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" AutoPostBack="true"
+                                                </f:MenuCheckBox>
+                                                <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" AutoPostBack="true"
                                                     OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </x:MenuCheckBox>
+                                                </f:MenuCheckBox>
                                             </Menu>
-                                        </x:MenuButton>
-                                        <x:MenuSeparator ID="MenuSeparator2" runat="server">
-                                        </x:MenuSeparator>
-                                        <x:MenuHyperLink runat="server" Text="转到英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank"></x:MenuHyperLink>
+                                        </f:MenuButton>
+                                        <f:MenuSeparator ID="MenuSeparator2" runat="server">
+                                        </f:MenuSeparator>
+                                        <f:MenuHyperLink runat="server" Text="转到英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank"></f:MenuHyperLink>
                                     </Menu>
-                                </x:Button>
+                                </f:Button>
                             </div>
-                        </x:ContentPanel>
+                        </f:ContentPanel>
                     </Items>
-                </x:Region>
-                <x:Region ID="Region2" Split="true" Width="200px" ShowHeader="true" Title="示例菜单"
+                </f:Region>
+                <f:Region ID="Region2" Split="true" Width="200px" ShowHeader="true" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
-                </x:Region>
-                <x:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" Position="Center"
+                </f:Region>
+                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" Position="Center"
                     runat="server">
                     <Items>
-                        <x:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
+                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
                             <Tabs>
-                                <x:Tab Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
+                                <f:Tab Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
                                     <Toolbars>
-                                        <x:Toolbar runat="server">
+                                        <f:Toolbar runat="server">
                                             <Items>
-                                                <x:ToolbarFill ID="ToolbarFill2" runat="server">
-                                                </x:ToolbarFill>
-                                                <x:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载全部示例" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
+                                                <f:ToolbarFill ID="ToolbarFill2" runat="server">
+                                                </f:ToolbarFill>
+                                                <f:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载全部示例" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
                                                     EnablePostBack="false" runat="server">
-                                                </x:Button>
-                                                <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
-                                                </x:ToolbarSeparator>
-                                                <x:Button Icon="PageGo" Text="官网首页" EnablePostBack="false" OnClientClick="window.open('http://fineui.com/', '_blank');"
+                                                </f:Button>
+                                                <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
+                                                </f:ToolbarSeparator>
+                                                <f:Button Icon="PageGo" Text="官网首页" EnablePostBack="false" OnClientClick="window.open('http://fineui.com/', '_blank');"
                                                     runat="server">
-                                                </x:Button>
-                                                <x:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
-                                                </x:ToolbarSeparator>
-                                                <x:Button ID="Button1" Icon="PageGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
+                                                </f:Button>
+                                                <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
+                                                </f:ToolbarSeparator>
+                                                <f:Button ID="Button1" Icon="PageGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
                                                     EnablePostBack="false" runat="server">
-                                                </x:Button>
+                                                </f:Button>
                                             </Items>
-                                        </x:Toolbar>
+                                        </f:Toolbar>
                                     </Toolbars>
                                     <Items>
-                                        <x:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
+                                        <f:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                             runat="server">
                                             <h2>关于FineUI</h2>
                                             基于 ExtJS 的专业 ASP.NET 控件库。
@@ -148,19 +148,19 @@
                                             <br />
                                             注：FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
 
-                                        </x:ContentPanel>
+                                        </f:ContentPanel>
                                     </Items>
-                                </x:Tab>
+                                </f:Tab>
                             </Tabs>
-                        </x:TabStrip>
+                        </f:TabStrip>
                     </Items>
-                </x:Region>
+                </f:Region>
             </Regions>
-        </x:RegionPanel>
-        <x:Window ID="windowSourceCode" Icon="PageWhiteCode" Title="源代码" Hidden="true" EnableIFrame="true"
+        </f:RegionPanel>
+        <f:Window ID="windowSourceCode" Icon="PageWhiteCode" Title="源代码" Hidden="true" EnableIFrame="true"
             runat="server" IsModal="true" Width="950px" Height="550px" EnableClose="true"
             EnableMaximize="true" EnableResize="true">
-        </x:Window>
+        </f:Window>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
     <img src="images/logo/logo3.png" alt="FineUI 图标" id="logo" />

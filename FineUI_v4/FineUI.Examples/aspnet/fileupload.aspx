@@ -10,8 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" EnableAjax="false" />
-    <x:ContentPanel ID="ContentPanel1" runat="server" Width="800px" BodyPadding="5px"
+    <f:PageManager ID="PageManager1" runat="server" EnableAjax="false" />
+    <f:ContentPanel ID="ContentPanel1" runat="server" Width="800px" BodyPadding="5px"
          ShowHeader="true" Title="内容面板">
         Asp.Net上传控件：
         <asp:FileUpload ID="FileUpload1" runat="server"></asp:FileUpload>
@@ -30,7 +30,7 @@
         <div style="color:Red; font-weight: bold;">
             推荐使用 FineUI 提供的 FileUpload 控件，这样就不需要设置 EnableAjax 为 false 了。
         </div>
-    </x:ContentPanel>
+    </f:ContentPanel>
     </form>
 </body>
 </html>

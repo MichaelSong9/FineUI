@@ -7,10 +7,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" AutoSizePanelID="leftTree" runat="server"></x:PageManager>
-        <x:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
+        <f:PageManager ID="PageManager1" AutoSizePanelID="leftTree" runat="server"></f:PageManager>
+        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
             ID="leftTree">
-        </x:Tree>
+        </f:Tree>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="./data/menuMail.xml"></asp:XmlDataSource>
     </form>
     <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>

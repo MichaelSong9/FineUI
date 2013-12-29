@@ -9,20 +9,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
-    <x:TabStrip ID="TabStrip1" Width="850px" Height="450px" ShowBorder="true" ActiveTabIndex="0"
+    <f:PageManager ID="PageManager1" runat="server" />
+    <f:TabStrip ID="TabStrip1" Width="850px" Height="450px" ShowBorder="true" ActiveTabIndex="0"
         runat="server" EnableTitleBackgroundColor="False">
         <Tabs>
-            <x:Tab ID="Tab1" BodyPadding="5px" Title="标签一" runat="server" EnableIFrame="true" IFrameUrl="./tabstrip_iframe_disabled_tab1.aspx">
-            </x:Tab>
-            <x:Tab ID="Tab2" EnableIFrame="true" BodyPadding="5px" Enabled="false" IFrameUrl="../window/group_panel.aspx"
+            <f:Tab ID="Tab1" BodyPadding="5px" Title="标签一" runat="server" EnableIFrame="true" IFrameUrl="./tabstrip_iframe_disabled_tab1.aspx">
+            </f:Tab>
+            <f:Tab ID="Tab2" EnableIFrame="true" BodyPadding="5px" Enabled="false" IFrameUrl="../window/group_panel.aspx"
                 Title="标签二" runat="server">
-            </x:Tab>
-            <x:Tab ID="Tab3" EnableIFrame="true" BodyPadding="5px" Enabled="false" IFrameUrl="../window/panel.aspx"
+            </f:Tab>
+            <f:Tab ID="Tab3" EnableIFrame="true" BodyPadding="5px" Enabled="false" IFrameUrl="../window/panel.aspx"
                 Title="标签三" runat="server">
-            </x:Tab>
+            </f:Tab>
         </Tabs>
-    </x:TabStrip>
+    </f:TabStrip>
     </form>
 </body>
 </html>

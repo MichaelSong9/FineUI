@@ -8,16 +8,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Tree ID="Tree1" Width="650px" ShowHeader="true" Title="树控件（绑定到 SiteMap）" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Tree ID="Tree1" Width="650px" ShowHeader="true" Title="树控件（绑定到 SiteMap）" EnableFrame="true" EnableCollapse="true"
             runat="server">
             <Mappings>
-                <x:XmlAttributeMapping From="url" To="NavigateUrl" />
-                <x:XmlAttributeMapping From="title" To="Text" />
-                <x:XmlAttributeMapping From="description" To="ToolTip" />
-                <x:XmlAttributeMapping From="target" To="Target" />
+                <f:XmlAttributeMapping From="url" To="NavigateUrl" />
+                <f:XmlAttributeMapping From="title" To="Text" />
+                <f:XmlAttributeMapping From="description" To="ToolTip" />
+                <f:XmlAttributeMapping From="target" To="Target" />
             </Mappings>
-        </x:Tree>
+        </f:Tree>
         <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/tree/databind/Web.sitemap"></asp:XmlDataSource>
     </form>
 </body>

@@ -1,5 +1,5 @@
 ﻿关于FineUI
-基于 ExtJS 的专业 ASP.NET 控件库。
+基于 ExtJS 的开源 ASP.NET 控件库。
 
 FineUI的使命
 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
@@ -29,6 +29,8 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 +2014-01-** v4.0 beta3
 	-修正表格动态创建列与模板列的冲突问题，增加示例grid/grid_excel_dynamic_columns.aspx（气人号-4586）。
+	-配置项ExtjsBasePath改名为JSBasePath，控件标签前缀由x改名为f，配置项删除不再使用的ResourceHandler。
+	-
 
 
 

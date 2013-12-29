@@ -7,10 +7,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" AutoSizePanelID="leftAccordion" runat="server"></x:PageManager>
-        <x:Accordion runat="server" EnableFill="false" ShowBorder="false" ShowHeader="false"
+        <f:PageManager ID="PageManager1" AutoSizePanelID="leftAccordion" runat="server"></f:PageManager>
+        <f:Accordion runat="server" EnableFill="false" ShowBorder="false" ShowHeader="false"
             ID="leftAccordion">
-        </x:Accordion>
+        </f:Accordion>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="./data/menuMail.xml"></asp:XmlDataSource>
     </form>
     <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>

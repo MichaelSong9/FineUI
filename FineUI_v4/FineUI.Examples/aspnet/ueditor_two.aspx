@@ -29,13 +29,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" LabelWidth="80px" Width="900px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" LabelWidth="80px" Width="900px" EnableFrame="true" EnableCollapse="true"
             Title="添加文章" runat="server">
             <Items>
-                <x:TextBox ID="tbxTitle" Label="文章标题" Required="true" runat="server">
-                </x:TextBox>
-                <x:ContentPanel ID="ContentPanel1" runat="server" ShowBorder="false" ShowHeader="false">
+                <f:TextBox ID="tbxTitle" Label="文章标题" Required="true" runat="server">
+                </f:TextBox>
+                <f:ContentPanel ID="ContentPanel1" runat="server" ShowBorder="false" ShowHeader="false">
                     <table class="mytable">
                         <tr>
                             <td class="first">文章正文： </td>
@@ -52,23 +52,23 @@
                             </td>
                         </tr>
                     </table>
-                </x:ContentPanel>
+                </f:ContentPanel>
 
             </Items>
             <Toolbars>
-                <x:Toolbar runat="server" ToolbarAlign="Right" Position="Footer">
+                <f:Toolbar runat="server" ToolbarAlign="Right" Position="Footer">
                     <Items>
-                        <x:Button ID="Button1" runat="server" ValidateForms="SimpleForm1"
+                        <f:Button ID="Button1" runat="server" ValidateForms="SimpleForm1"
                             Text="获取文章内容" OnClick="Button1_Click">
-                        </x:Button>
-                        <x:Button ID="Button2" runat="server" Text="更新文章摘要" OnClick="Button2_Click">
-                        </x:Button>
+                        </f:Button>
+                        <f:Button ID="Button2" runat="server" Text="更新文章摘要" OnClick="Button2_Click">
+                        </f:Button>
                     </Items>
-                </x:Toolbar>
+                </f:Toolbar>
             </Toolbars>
-        </x:SimpleForm>
-        <x:Label runat="server" ID="labResult" EncodeText="false">
-        </x:Label>
+        </f:SimpleForm>
+        <f:Label runat="server" ID="labResult" EncodeText="false">
+        </f:Label>
         <br />
     </form>
     <script type="text/javascript">

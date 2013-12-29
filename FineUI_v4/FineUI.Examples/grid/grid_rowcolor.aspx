@@ -26,39 +26,39 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
             runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
             <Columns>
-                <x:RowNumberField />
-                <x:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
-                <x:TemplateField Width="80px" HeaderText="性别">
+                <f:RowNumberField />
+                <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
+                <f:TemplateField Width="80px" HeaderText="性别">
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
                     </ItemTemplate>
-                </x:TemplateField>
-                <x:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
-                <x:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                <x:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
+                </f:TemplateField>
+                <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
+                <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
+                <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                <x:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
-                    HeaderText="分组"></x:ImageField>
+                <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
+                    HeaderText="分组"></f:ImageField>
             </Columns>
-        </x:Grid>
+        </f:Grid>
         <br />
         注意：这个表格高亮选中了所有“入学年份”大于等于2006的数据行。
     <br />
         <br />
-        <x:Button ID="Button1" runat="server" Text="重新绑定表格" OnClick="Button1_Click">
-        </x:Button>
+        <f:Button ID="Button1" runat="server" Text="重新绑定表格" OnClick="Button1_Click">
+        </f:Button>
         <br />
         <br />
         <br />
         <br />
 
-        <x:HiddenField ID="highlightRows" runat="server">
-        </x:HiddenField>
+        <f:HiddenField ID="highlightRows" runat="server">
+        </f:HiddenField>
     </form>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">

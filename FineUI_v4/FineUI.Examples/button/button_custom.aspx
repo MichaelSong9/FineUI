@@ -24,12 +24,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Button ID="Button1" Text="普通按钮" runat="server" Size="Large" OnClick="Button1_Click" />
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Button ID="Button1" Text="普通按钮" runat="server" Size="Large" OnClick="Button1_Click" />
         <br />
         <br />
 
-        <x:Button ID="Button2" Text="" CssClass="bgbtn" runat="server" OnClick="Button2_Click" />
+        <f:Button ID="Button2" Text="" CssClass="bgbtn" runat="server" OnClick="Button2_Click" />
 
     </form>
 </body>

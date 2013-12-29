@@ -242,11 +242,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Extjs库的根路径
+        /// JS库的根路径
         /// </summary>
-        public static string GetExtjsBasePath()
+        public static string GetJSBasePath()
         {
-            return section.ExtjsBasePath;
+            return section.JSBasePath;
         }
 
         /// <summary>

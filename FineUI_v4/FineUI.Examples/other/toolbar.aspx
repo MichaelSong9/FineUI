@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <x:PageManager ID="PageManager1" runat="server" />
+    <f:PageManager ID="PageManager1" runat="server" />
     </form>
 </body>
 </html>

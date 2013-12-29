@@ -15,18 +15,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
             Title="简单表单">
             <Items>
-                <x:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 j 试试">
-                </x:TextBox>
-                <x:TextBox ID="TextBox2" Label="值" runat="server">
-                </x:TextBox>
-                <x:TextBox ID="TextBox3" Label="描述" runat="server">
-                </x:TextBox>
+                <f:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 j 试试">
+                </f:TextBox>
+                <f:TextBox ID="TextBox2" Label="值" runat="server">
+                </f:TextBox>
+                <f:TextBox ID="TextBox3" Label="描述" runat="server">
+                </f:TextBox>
             </Items>
-        </x:SimpleForm>
+        </f:SimpleForm>
         <br />
         参考：http://jqueryui.com/autocomplete/#custom-data
     </form>

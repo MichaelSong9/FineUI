@@ -242,18 +242,18 @@ namespace FineUI
         }
 
         /// <summary>
-        /// ExtJS文件夹所在的根目录
+        /// JS文件夹所在的根目录
         /// </summary>
-        [ConfigurationProperty(ConfigPropertyName.EXTJSBASEPATH, DefaultValue = ConfigPropertyValue.EXTJS_BASE_PATH_DEFAULT)]
-        public string ExtjsBasePath
+        [ConfigurationProperty(ConfigPropertyName.JSBASEPATH, DefaultValue = ConfigPropertyValue.EXTJS_BASE_PATH_DEFAULT)]
+        public string JSBasePath
         {
             get
             {
-                return (string)base[ConfigPropertyName.EXTJSBASEPATH];
+                return (string)base[ConfigPropertyName.JSBASEPATH];
             }
             set
             {
-                base[ConfigPropertyName.EXTJSBASEPATH] = value;
+                base[ConfigPropertyName.JSBASEPATH] = value;
             }
         }
 

@@ -8,26 +8,26 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Panel ID="Panel1" BodyPadding="5px" runat="server" EnableFrame="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Panel ID="Panel1" BodyPadding="5px" runat="server" EnableFrame="true"
             EnableCollapse="True" Title="面板" Width="600px">
             <Items>
-                <x:GroupPanel runat="server" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True">
+                <f:GroupPanel runat="server" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True">
                     <Items>
-                        <x:SimpleForm ID="SimpleForm1" runat="server" ShowBorder="False"
+                        <f:SimpleForm ID="SimpleForm1" runat="server" ShowBorder="False"
                             ShowHeader="False">
                             <Items>
-                                <x:TextBox ID="TextBox1" Label="名称" runat="server">
-                                </x:TextBox>
-                                <x:TextArea ID="TextArea1" Label="备注" runat="server">
-                                </x:TextArea>
+                                <f:TextBox ID="TextBox1" Label="名称" runat="server">
+                                </f:TextBox>
+                                <f:TextArea ID="TextArea1" Label="备注" runat="server">
+                                </f:TextArea>
                             </Items>
-                        </x:SimpleForm>
+                        </f:SimpleForm>
                     </Items>
-                </x:GroupPanel>
-                <x:GroupPanel ID="GroupPanel2" Title="分组面板二" runat="server" EnableCollapse="True">
+                </f:GroupPanel>
+                <f:GroupPanel ID="GroupPanel2" Title="分组面板二" runat="server" EnableCollapse="True">
                     <Items>
-                        <x:ContentPanel ID="ContentPanel1" ShowBorder="false" ShowHeader="false"
+                        <f:ContentPanel ID="ContentPanel1" ShowBorder="false" ShowHeader="false"
                             runat="server">
                             <a href="http://tech.163.com/special/jobsdead/" rel="&amp;a=7"
                                 style="font-size: 18px" target="_blank"><b>乔布斯</b></a><br />
@@ -39,14 +39,14 @@
                                     遗憾的是，苹果的取得巨大成功还是无法给乔布斯一个健康的身体，乔布斯2003年被发现患有胰脏癌，随后又查出肝癌，危在旦夕的乔布斯在经历了8年的抗癌斗争、3次病休、若干次手术后，于2011年8月25日正式宣布从CEO位置辞职转做公司董事长，原COO库克正式接任乔布斯任CEO。2011年10月6日，乔布斯在苹果发布iPhone 4S后的第二天与世长辞。
                                 </p>
                             </div>
-                        </x:ContentPanel>
+                        </f:ContentPanel>
                     </Items>
-                </x:GroupPanel>
+                </f:GroupPanel>
             </Items>
-        </x:Panel>
+        </f:Panel>
         <br />
-        <x:Button ID="Button2" Text="展开/折叠分组面板二" OnClick="Button2_Click" runat="server">
-        </x:Button>
+        <f:Button ID="Button2" Text="展开/折叠分组面板二" OnClick="Button2_Click" runat="server">
+        </f:Button>
     </form>
 </body>
 </html>

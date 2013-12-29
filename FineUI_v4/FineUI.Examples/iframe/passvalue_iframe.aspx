@@ -9,22 +9,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" Title="表单" BodyPadding="5px" EnableFrame="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" Title="表单" BodyPadding="5px" EnableFrame="true"
             runat="server" Width="650px" EnableCollapse="True">
             <Items>
-                <x:TextBox Label="你所在的省份" ID="TextBox1" runat="server">
-                </x:TextBox>
-                <x:Button ID="Button1" EnablePostBack="false" runat="server" Text="从列表中选择">
-                </x:Button>
+                <f:TextBox Label="你所在的省份" ID="TextBox1" runat="server">
+                </f:TextBox>
+                <f:Button ID="Button1" EnablePostBack="false" runat="server" Text="从列表中选择">
+                </f:Button>
             </Items>
-        </x:SimpleForm>
-        <x:Window ID="Window1" Title="编辑" Hidden="true" EnableIFrame="true" runat="server"
+        </f:SimpleForm>
+        <f:Window ID="Window1" Title="编辑" Hidden="true" EnableIFrame="true" runat="server"
             EnableMaximize="true" EnableResize="true" Target="Parent" OnClose="Window1_Close"
             IsModal="True" Width="850px" Height="450px">
-        </x:Window>
-        <x:Label ID="labResult" CssStyle="font-weight:bold;" runat="server">
-        </x:Label>
+        </f:Window>
+        <f:Label ID="labResult" CssStyle="font-weight:bold;" runat="server">
+        </f:Label>
         <br />
     </form>
 </body>

@@ -9,22 +9,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Panel runat="server" ID="Panel1" Title="面板" Width="600px" Height="450px" EnableIFrame="true" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Panel runat="server" ID="Panel1" Title="面板" Width="600px" Height="450px" EnableIFrame="true" EnableFrame="true" EnableCollapse="true"
             IFrameName="main">
             <Toolbars>
-                <x:Toolbar runat="server" Position="Top">
+                <f:Toolbar runat="server" Position="Top">
                     <Items>
-                        <x:Button runat="server" ID="Button1" Text="打开页面一" EnablePostBack="false"
+                        <f:Button runat="server" ID="Button1" Text="打开页面一" EnablePostBack="false"
                             OnClientClick="window.open('../basic/hello.aspx', 'main');">
-                        </x:Button>
-                        <x:Button runat="server" ID="Button2" Text="打开页面二" EnablePostBack="false"
+                        </f:Button>
+                        <f:Button runat="server" ID="Button2" Text="打开页面二" EnablePostBack="false"
                             OnClientClick="window.open('../basic/hello_aspnet.aspx', 'main');">
-                        </x:Button>
+                        </f:Button>
                     </Items>
-                </x:Toolbar>
+                </f:Toolbar>
             </Toolbars>
-        </x:Panel>
+        </f:Panel>
     </form>
 </body>
 </html>

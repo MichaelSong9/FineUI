@@ -9,16 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Grid ID="Grid1" runat="server" Width="800px" EnableCheckBoxSelect="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Grid ID="Grid1" runat="server" Width="800px" EnableCheckBoxSelect="true"
             Title="表格（动态创建的列）">
-        </x:Grid>
+        </f:Grid>
         <br />
-        <x:Button ID="Button1" runat="server" Text="导出Excel文件" OnClick="ExportExcel" EnableAjax="false" DisableControlBeforePostBack="false">
-        </x:Button>
+        <f:Button ID="Button1" runat="server" Text="导出Excel文件" OnClick="ExportExcel" EnableAjax="false" DisableControlBeforePostBack="false">
+        </f:Button>
         <br />
-        <x:Label ID="labResult" EncodeText="false" runat="server">
-        </x:Label>
+        <f:Label ID="labResult" EncodeText="false" runat="server">
+        </f:Label>
     </form>
 </body>
 </html>

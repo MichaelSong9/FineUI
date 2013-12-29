@@ -9,28 +9,28 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Button ID="Button1" runat="server" EnablePostBack="false" Text="在本页面弹出IFrame窗体">
-        </x:Button>
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Button ID="Button1" runat="server" EnablePostBack="false" Text="在本页面弹出IFrame窗体">
+        </f:Button>
         <br />
         <br />
-        <x:Button ID="Button2" runat="server" EnablePostBack="false" Text="在父页面弹出IFrame窗体">
-        </x:Button>
+        <f:Button ID="Button2" runat="server" EnablePostBack="false" Text="在父页面弹出IFrame窗体">
+        </f:Button>
         <br />
         <br />
-        <x:Label ID="labResult" CssStyle="font-weight:bold;color:red;" runat="server">
-        </x:Label>
+        <f:Label ID="labResult" CssStyle="font-weight:bold;color:red;" runat="server">
+        </f:Label>
         <br />
-        <x:Window ID="Window1" IconUrl="~/images/16/10.png" runat="server" Hidden="true"
+        <f:Window ID="Window1" IconUrl="~/images/16/10.png" runat="server" Hidden="true"
             WindowPosition="Center" IsModal="true" Title="Popup Window 1" EnableMaximize="true"
             EnableResize="true" Target="Self" EnableIFrame="true"
             Height="500px" Width="650px" OnClose="Window1_Close">
-        </x:Window>
-        <x:Window ID="Window2" IconUrl="~/images/16/11.png" runat="server" Hidden="true"
+        </f:Window>
+        <f:Window ID="Window2" IconUrl="~/images/16/11.png" runat="server" Hidden="true"
             IsModal="true" Target="Parent" EnableMaximize="true" EnableResize="true" OnClose="Window2_Close"
             Title="Popup Window 2" CloseAction="HidePostBack"
             EnableIFrame="true" Height="500px" Width="650px">
-        </x:Window>
+        </f:Window>
     </form>
 </body>
 </html>

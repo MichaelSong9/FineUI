@@ -9,16 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
+        <f:PageManager ID="PageManager1" runat="server" />
         页面一：parent_simplepostback.aspx
-        <x:Label ID="labResult" runat="server">
-        </x:Label>
+        <f:Label ID="labResult" runat="server">
+        </f:Label>
         <br />
         <br />
-        <x:Panel ID="Panel1" runat="server" ShowBorder="true" EnableFrame="true" EnableCollapse="true"
+        <f:Panel ID="Panel1" runat="server" ShowBorder="true" EnableFrame="true" EnableCollapse="true"
             Width="600px" Height="250px" EnableIFrame="true" IFrameUrl="parent_simplepostback2.aspx"
             ShowHeader="true" Title="面板一">
-        </x:Panel>
+        </f:Panel>
     </form>
 </body>
 </html>

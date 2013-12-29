@@ -31,20 +31,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
             Title="简单表单" runat="server">
             <Items>
-                <x:TextBox runat="server" Label="用户名" CssClass="red" EmptyText="输入用户名" Text="张三"
+                <f:TextBox runat="server" Label="用户名" CssClass="red" EmptyText="输入用户名" Text="张三"
                     ID="tbxUseraName">
-                </x:TextBox>
-                <x:TextBox runat="server" Label="密码" CssClass="red" TextMode="Password"
+                </f:TextBox>
+                <f:TextBox runat="server" Label="密码" CssClass="red" TextMode="Password"
                     ID="tbxPassword">
-                </x:TextBox>
-                <x:Button ID="btnSwitchClass" Text="切换样式" runat="server" OnClick="btnSwitchClass_Click">
-                </x:Button>
+                </f:TextBox>
+                <f:Button ID="btnSwitchClass" Text="切换样式" runat="server" OnClick="btnSwitchClass_Click">
+                </f:Button>
             </Items>
-        </x:SimpleForm>
+        </f:SimpleForm>
         <br />
     </form>
 </body>

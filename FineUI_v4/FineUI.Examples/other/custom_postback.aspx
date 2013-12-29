@@ -9,16 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
             Title="简单表单">
             <Items>
-                <x:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入一些文字并按 ENTER 键">
-                </x:TextBox>
-                <x:TextBox ID="TextBox2" runat="server" ShowLabel="false">
-                </x:TextBox>
+                <f:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入一些文字并按 ENTER 键">
+                </f:TextBox>
+                <f:TextBox ID="TextBox2" runat="server" ShowLabel="false">
+                </f:TextBox>
             </Items>
-        </x:SimpleForm>
+        </f:SimpleForm>
     </form>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">

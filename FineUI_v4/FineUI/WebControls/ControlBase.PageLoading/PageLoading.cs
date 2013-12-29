@@ -135,7 +135,7 @@ namespace FineUI
                 string imageUrl = String.Empty;
                 if (String.IsNullOrEmpty(ImageUrl))
                 {
-                    imageUrl = ResolveUrl(GlobalConfig.GetExtjsBasePath() + LOADING_IMAGE_PATH); //ResourceHelper.GetWebResourceUrl(Page, LOADING_IMAGE_NAME);
+                    imageUrl = ResolveUrl(GlobalConfig.GetJSBasePath() + LOADING_IMAGE_PATH); //ResourceHelper.GetWebResourceUrl(Page, LOADING_IMAGE_NAME);
                 }
                 else
                 {

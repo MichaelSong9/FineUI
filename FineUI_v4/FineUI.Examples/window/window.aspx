@@ -8,30 +8,30 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Button ID="btnShowInServer" CssClass="inline" Text="显示窗体（服务端代码）" runat="server"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Button ID="btnShowInServer" CssClass="inline" Text="显示窗体（服务端代码）" runat="server"
             OnClick="btnShowInServer_Click">
-        </x:Button>
-        <x:Button ID="btnHideInServer" Text="隐藏窗体（服务端代码）" runat="server" OnClick="btnHideInServer_Click">
-        </x:Button>
+        </f:Button>
+        <f:Button ID="btnHideInServer" Text="隐藏窗体（服务端代码）" runat="server" OnClick="btnHideInServer_Click">
+        </f:Button>
         <br />
         <br />
-        <x:Button ID="btnShowInClient" CssClass="inline" Text="显示窗体（客户端代码）" EnablePostBack="false"
+        <f:Button ID="btnShowInClient" CssClass="inline" Text="显示窗体（客户端代码）" EnablePostBack="false"
             runat="server">
-        </x:Button>
-        <x:Button ID="btnHideInClient" CssClass="inline" Text="隐藏窗体（客户端代码）" EnablePostBack="false"
+        </f:Button>
+        <f:Button ID="btnHideInClient" CssClass="inline" Text="隐藏窗体（客户端代码）" EnablePostBack="false"
             runat="server">
-        </x:Button>
-        <x:Button ID="btnHideInClient2" Text="隐藏窗体，带回发参数（客户端代码）" EnablePostBack="false"
+        </f:Button>
+        <f:Button ID="btnHideInClient2" Text="隐藏窗体，带回发参数（客户端代码）" EnablePostBack="false"
             runat="server">
-        </x:Button>
+        </f:Button>
         <br />
         <br />
-        <x:Window ID="Window2" Width="650px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="true"
+        <f:Window ID="Window2" Width="650px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="true"
             EnableMaximize="true" EnableCollapse="true" runat="server" EnableResize="true"
             IsModal="false" CloseAction="HidePostBack" OnClose="Window2_Close" Layout="Fit">
             <Items>
-                <x:ContentPanel ShowBorder="false" ShowHeader="false" ID="ContentPanel2"
+                <f:ContentPanel ShowBorder="false" ShowHeader="false" ID="ContentPanel2"
                     BodyPadding="5px" runat="server">
                     <br />
                     这是窗体的内容。
@@ -39,9 +39,9 @@
                     <br />
                     <br />
                     <br />
-                </x:ContentPanel>
+                </f:ContentPanel>
             </Items>
-        </x:Window>
+        </f:Window>
     </form>
 </body>
 </html>

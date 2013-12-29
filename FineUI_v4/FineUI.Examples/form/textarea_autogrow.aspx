@@ -9,17 +9,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" EnableFrame="true" EnableCollapse="true"
             Title="简单表单" LabelAlign="Top" Width="550px" ShowHeader="True">
             <Items>
-                <x:TextArea runat="server" ID="TextArea1" EmptyText="文本框的高度会自动扩展" Label="自动扩展高度的文本输入框"
+                <f:TextArea runat="server" ID="TextArea1" EmptyText="文本框的高度会自动扩展" Label="自动扩展高度的文本输入框"
                     AutoGrowHeight="true" AutoGrowHeightMin="100" AutoGrowHeightMax="200">
-                </x:TextArea>
-                <x:Label ID="labResult" runat="server">
-                </x:Label>
+                </f:TextArea>
+                <f:Label ID="labResult" runat="server">
+                </f:Label>
             </Items>
-        </x:SimpleForm>
+        </f:SimpleForm>
     </form>
 </body>
 </html>

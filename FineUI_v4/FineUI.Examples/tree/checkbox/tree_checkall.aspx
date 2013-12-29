@@ -9,30 +9,30 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Tree ID="Tree1" OnNodeCheck="Tree1_NodeCheck" Width="650px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Tree ID="Tree1" OnNodeCheck="Tree1_NodeCheck" Width="650px" EnableFrame="true" EnableCollapse="true"
             ShowHeader="true" Title="树控件" runat="server">
             <Nodes>
-                <x:TreeNode Text="中国" EnableCheckBox="true" AutoPostBack="true" Expanded="true">
-                    <x:TreeNode AutoPostBack="true" Text="河南省" EnableCheckBox="true" Expanded="true">
-                        <x:TreeNode Text="驻马店市" AutoPostBack="true" EnableCheckBox="true" NodeID="zhumadian">
-                            <x:TreeNode Text="遂平县" AutoPostBack="true" EnableCheckBox="true" NodeID="Suiping">
-                            </x:TreeNode>
-                            <x:TreeNode Text="西平县" AutoPostBack="true" EnableCheckBox="true" NodeID="Xiping">
-                            </x:TreeNode>
-                        </x:TreeNode>
-                        <x:TreeNode Text="漯河市" AutoPostBack="true" EnableCheckBox="true" NodeID="luohe" />
-                    </x:TreeNode>
-                    <x:TreeNode AutoPostBack="true" EnableCheckBox="true" Text="安徽省" Expanded="true"
+                <f:TreeNode Text="中国" EnableCheckBox="true" AutoPostBack="true" Expanded="true">
+                    <f:TreeNode AutoPostBack="true" Text="河南省" EnableCheckBox="true" Expanded="true">
+                        <f:TreeNode Text="驻马店市" AutoPostBack="true" EnableCheckBox="true" NodeID="zhumadian">
+                            <f:TreeNode Text="遂平县" AutoPostBack="true" EnableCheckBox="true" NodeID="Suiping">
+                            </f:TreeNode>
+                            <f:TreeNode Text="西平县" AutoPostBack="true" EnableCheckBox="true" NodeID="Xiping">
+                            </f:TreeNode>
+                        </f:TreeNode>
+                        <f:TreeNode Text="漯河市" AutoPostBack="true" EnableCheckBox="true" NodeID="luohe" />
+                    </f:TreeNode>
+                    <f:TreeNode AutoPostBack="true" EnableCheckBox="true" Text="安徽省" Expanded="true"
                         NodeID="Anhui">
-                        <x:TreeNode EnableCheckBox="true" AutoPostBack="true" Text="合肥市" NodeID="Hefei">
-                        </x:TreeNode>
-                        <x:TreeNode EnableCheckBox="true" AutoPostBack="true" Text="黄山市" NodeID="Huangshan">
-                        </x:TreeNode>
-                    </x:TreeNode>
-                </x:TreeNode>
+                        <f:TreeNode EnableCheckBox="true" AutoPostBack="true" Text="合肥市" NodeID="Hefei">
+                        </f:TreeNode>
+                        <f:TreeNode EnableCheckBox="true" AutoPostBack="true" Text="黄山市" NodeID="Huangshan">
+                        </f:TreeNode>
+                    </f:TreeNode>
+                </f:TreeNode>
             </Nodes>
-        </x:Tree>
+        </f:Tree>
     </form>
 </body>
 </html>

@@ -9,21 +9,21 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="450px" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="450px" EnableFrame="true" EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
-                <x:DropDownList runat="server" ID="DropDownList1">
-                </x:DropDownList>
-                <x:Button ID="btnSelectItem6" Text="选中“选项 6”" runat="server" OnClick="btnSelectItem6_Click"
+                <f:DropDownList runat="server" ID="DropDownList1">
+                </f:DropDownList>
+                <f:Button ID="btnSelectItem6" Text="选中“选项 6”" runat="server" OnClick="btnSelectItem6_Click"
                     CssClass="inline">
-                </x:Button>
-                <x:Button ID="btnGetSelection" Text="获取此下拉列表的选中项" runat="server" OnClick="btnGetSelection_Click">
-                </x:Button>
-                <x:Label runat="server" ID="labResult">
-                </x:Label>
+                </f:Button>
+                <f:Button ID="btnGetSelection" Text="获取此下拉列表的选中项" runat="server" OnClick="btnGetSelection_Click">
+                </f:Button>
+                <f:Label runat="server" ID="labResult">
+                </f:Label>
             </Items>
-        </x:SimpleForm>
+        </f:SimpleForm>
         <br />
         <br />
     </form>

@@ -9,11 +9,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
+        <f:PageManager ID="PageManager1" runat="server" />
         页面三：parent_postback_top3.aspx
         <br />
-        <x:Button ID="Button1" runat="server" Text="关闭本窗体，回发父页面" OnClick="Button1_Click">
-        </x:Button>
+        <f:Button ID="Button1" runat="server" Text="关闭本窗体，回发父页面" OnClick="Button1_Click">
+        </f:Button>
     </form>
 </body>
 </html>

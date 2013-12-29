@@ -56,7 +56,7 @@ namespace FineUI
         public const string ENABLEBIGFONT = "EnableBigFont";
         public const string DEBUGMODE = "DebugMode";
         public const string ICONBASEPATH = "IconBasePath";
-        public const string EXTJSBASEPATH = "ExtjsBasePath";
+        public const string JSBASEPATH = "JSBasePath";
         public const string CUSTOMTHEMEBASEPATH = "CustomThemeBasePath";
         public const string CUSTOMTHEME = "CustomTheme";
         public const string ENABLEXSTATECOMPRESS = "EnableFStateCompress";

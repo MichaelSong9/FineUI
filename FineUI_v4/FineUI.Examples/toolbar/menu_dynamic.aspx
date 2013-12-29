@@ -8,14 +8,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager ID="PageManager1" runat="server" />
-        <x:Panel ShowBorder="true" BodyPadding="5px" Height="300px" Width="650px" Title="面板" EnableFrame="true" EnableCollapse="true"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Panel ShowBorder="true" BodyPadding="5px" Height="300px" Width="650px" Title="面板" EnableFrame="true" EnableCollapse="true"
             runat="server">
             <Toolbars>
-                <x:Toolbar ID="Toolbar1" Position="Top" runat="server">
-                </x:Toolbar>
+                <f:Toolbar ID="Toolbar1" Position="Top" runat="server">
+                </f:Toolbar>
             </Toolbars>
-        </x:Panel>
+        </f:Panel>
     </form>
 </body>
 </html>

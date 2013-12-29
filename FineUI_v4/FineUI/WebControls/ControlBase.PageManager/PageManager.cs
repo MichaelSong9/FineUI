@@ -882,7 +882,7 @@ namespace FineUI
                 if (EnablePageLoading)
                 {
                     string content = PageLoading.LOADING_TEMLATE;
-                    content = content.Replace("#LOADING_IMAGE_SRC#", ResolveUrl(GlobalConfig.GetExtjsBasePath() + PageLoading.LOADING_IMAGE_PATH)); // ResourceHelper.GetWebResourceUrlResAxd(Page, PageLoading.LOADING_IMAGE_NAME));
+                    content = content.Replace("#LOADING_IMAGE_SRC#", ResolveUrl(GlobalConfig.GetJSBasePath() + PageLoading.LOADING_IMAGE_PATH)); // ResourceHelper.GetWebResourceUrlResAxd(Page, PageLoading.LOADING_IMAGE_NAME));
 
                     writer.Write(content);
                 }
