@@ -45,16 +45,23 @@
     top: 15px;
 }
 
+.theme-neptune .jumbotron {
+    background-color: #005999;
+    border-bottom: 1px solid #1E95EC;
+}
 
+.theme-neptune .jumbotron .title a {
+    color: #fff;
+}
 
 .theme-blue .jumbotron {
-    background-color: #cbdaf0;
-    border-bottom: 0px solid #a3bde5;
+    background-color: #004BA8;
+    border-bottom: 1px solid #034699;
     
 }
 
 .theme-blue .jumbotron .title a {
-    color: #04408c;
+    color: #fff;
 }
 
 .theme-gray .jumbotron {
@@ -76,14 +83,7 @@
 }
 
 
-.theme-neptune .jumbotron {
-    background-color: #005999;
-    border-bottom: 1px solid #1E95EC;
-}
 
-.theme-neptune .jumbotron .title a {
-    color: #fff;
-}
 
 
 

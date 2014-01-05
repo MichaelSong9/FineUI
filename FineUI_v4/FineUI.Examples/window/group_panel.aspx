@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel1" BodyPadding="5px" runat="server" EnableFrame="true"
+        <f:Panel ID="Panel1" BodyPadding="5px" runat="server"
             EnableCollapse="True" Title="面板" Width="600px">
             <Items>
                 <f:GroupPanel runat="server" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True">
@@ -29,7 +29,7 @@
                     <Items>
                         <f:ContentPanel ID="ContentPanel1" ShowBorder="false" ShowHeader="false"
                             runat="server">
-                            <a href="http://tech.163.com/special/jobsdead/" rel="&amp;a=7"
+                            <a href="http://tech.163.com/special/jobsdead/"
                                 style="font-size: 18px" target="_blank"><b>乔布斯</b></a><br />
                             <div>
                                 <p>

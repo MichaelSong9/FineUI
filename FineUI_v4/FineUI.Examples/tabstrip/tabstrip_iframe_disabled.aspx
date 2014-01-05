@@ -13,7 +13,7 @@
     <f:TabStrip ID="TabStrip1" Width="850px" Height="450px" ShowBorder="true" ActiveTabIndex="0"
         runat="server" EnableTitleBackgroundColor="False">
         <Tabs>
-            <f:Tab ID="Tab1" BodyPadding="5px" Title="标签一" runat="server" EnableIFrame="true" IFrameUrl="./tabstrip_iframe_disabled_tab1.aspx">
+            <f:Tab ID="Tab1" Title="标签一" runat="server" EnableIFrame="true" IFrameUrl="./tabstrip_iframe_disabled_tab1.aspx">
             </f:Tab>
             <f:Tab ID="Tab2" EnableIFrame="true" BodyPadding="5px" Enabled="false" IFrameUrl="../window/group_panel.aspx"
                 Title="标签二" runat="server">
