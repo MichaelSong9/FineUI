@@ -1,11 +1,11 @@
-﻿body, body.x-body
+﻿body.f-body
 {
     height: auto;
 	background-image: url(../images/square.gif);
 	padding: 10px;
 }
 
-body.x-body.theme-access {
+body.f-body.theme-access {
     background-image: none;
 }
 

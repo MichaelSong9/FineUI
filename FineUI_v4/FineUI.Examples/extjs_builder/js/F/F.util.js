@@ -107,6 +107,8 @@ F.fieldValue = function (cmp) {
             F.util.setHiddenFieldValue('F_CHANGED', 'false');
             document.forms[0].autocomplete = 'off';
 
+            Ext.getBody().addCls('f-body');
+
             // 向document.body添加主题类
             if (themeName) {
                 Ext.getBody().addCls('theme-' + themeName);

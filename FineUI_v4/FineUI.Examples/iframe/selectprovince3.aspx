@@ -20,8 +20,8 @@
         </Items>
     </f:SimpleForm>
     <f:Window ID="Window1" Title="编辑" Hidden="true" EnableIFrame="true" runat="server"
-        EnableMaximize="true" EnableResize="true" Target="Parent" IsModal="True" Width="580px"
-        OnClose="Window1_Close" Height="460px">
+        EnableMaximize="true" EnableResize="true" Target="Parent" IsModal="True" Width="650px"
+        OnClose="Window1_Close" Height="500px">
     </f:Window>
     <f:Label ID="labResult" CssStyle="font-weight:bold;" runat="server">
     </f:Label>

@@ -305,7 +305,7 @@
             var controlIds = aw['f_property_save_state_control_client_ids'];
             var controlCount = Math.min(controlIds.length, arguments.length);
             for (var i = 0; i < controlCount; i++) {
-                aw[1].Ext.getCmp(controlIds[i]).setValue(arguments[i]);
+                aw.window.Ext.getCmp(controlIds[i]).setValue(arguments[i]);
             }
         }
 

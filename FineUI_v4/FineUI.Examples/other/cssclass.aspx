@@ -12,9 +12,9 @@
             font-weight: bold;
         }
 
-        .red label.x-form-item-label {
+        .red label {
             color: Red;
-            font-weight: bold;
+            font-weight: normal;
         }
 
 
@@ -23,9 +23,9 @@
             font-weight: bold;
         }
 
-        .blue label.x-form-item-label {
+        .blue label {
             color: Blue;
-            font-weight: bold;
+            font-weight: normal;
         }
     </style>
 </head>
