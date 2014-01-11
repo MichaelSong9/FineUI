@@ -1435,7 +1435,7 @@ namespace FineUI
 
         /// <summary>
         /// 获取 Hidden 属性改变的 JavaScript 脚本
-        /// 有些控件可能需要特别的逻辑，因此这里为虚函数（比如 Window 控件）
+        /// 有些控件可能需要特别的逻辑，因此这里为虚函数（比如 Window 控件、Tab 控件）
         /// </summary>
         /// <returns>客户端脚本</returns>
         protected virtual string GetHiddenPropertyChangedScript()

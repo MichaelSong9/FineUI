@@ -1169,7 +1169,6 @@ namespace FineUI
 
             #endregion
 
-
             #region tools
 
             #region old code
@@ -1378,14 +1377,13 @@ namespace FineUI
         }
 
         /// <summary>
-        /// Override the same method exist in ControlBase, because we have separate logic to hide this control.
+        /// 获取 Hidden 属性改变的 JavaScript 脚本
+        /// Window 控件需要特殊处理，而不是像其他客户端组件一样调用 f_setVisible 函数
         /// </summary>
         protected override string GetHiddenPropertyChangedScript()
         {
             if (PropertyModified("Hidden"))
             {
-                //if (ClientPropertyModifiedInServer("Hidden"))
-
                 return Hidden ? GetHideReference() : GetShowReference();
 
             }
@@ -1441,7 +1439,7 @@ namespace FineUI
 
         #endregion
 
-
+        #region GetIFramePostBackEventReference
         /// <summary>
         /// 获取窗体内IFrame回发页面的客户端脚本（比如：__doPostBack('','eventArgument');)
         /// </summary>
@@ -1450,7 +1448,8 @@ namespace FineUI
         public string GetIFramePostBackEventReference(string eventArgument)
         {
             return String.Format("F.wnd.getIFrameWindowObject({0}).__doPostBack('',{1});", ScriptID, JsHelper.Enquote(eventArgument));
-        }
+        } 
+        #endregion
 
         #region GetShowReference
 

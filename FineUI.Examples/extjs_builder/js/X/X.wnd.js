@@ -151,7 +151,13 @@
         },
 
         // 获取真正的Window实例
-        getRealWindow: function (panel, targetName, guid) {
+        getGhostPanel: function (panel, targetName, guid) {
+            if (typeof (targetName) === 'undefined') {
+                targetName = panel.x_property_target;
+            }
+            if (typeof (guid) === 'undefined') {
+                guid = panel.x_property_guid;
+            }
             var target = X.util.getTargetWindow(targetName);
             if (window.frameElement && target !== window) {
                 // 从父页面中查找幻影Ext-Window对象
@@ -162,7 +168,7 @@
 
         // 隐藏Ext-Window（比如用户点击了关闭按钮）
         hide: function (panel, targetName, enableIFrame, hiddenHiddenFieldID, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = X.wnd.getGhostPanel(panel, targetName, guid);
             // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
             Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
@@ -175,19 +181,19 @@
 
         // 最大化
         maximize: function (panel, targetName, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = X.wnd.getGhostPanel(panel, targetName, guid);
             wnd.maximize();
         },
 
         // 最小化
         minimize: function (panel, targetName, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = X.wnd.getGhostPanel(panel, targetName, guid);
             wnd.minimize();
         },
 
         // 恢复窗体大小
         restore: function (panel, targetName, guid) {
-            var wnd = X.wnd.getRealWindow(panel, targetName, guid);
+            var wnd = X.wnd.getGhostPanel(panel, targetName, guid);
             wnd.restore();
         },
 
@@ -206,6 +212,7 @@
         // 创建或更新IFrame节点，同时更新panel实例中的自定义属性值
         updateIFrameNode: function (panel, iframeUrl) {
             var iframeUrlChanged = false;
+            panel = X.wnd.getGhostPanel(panel);
             // 如果此Panel中包含有IFrame
             if (panel && panel['x_iframe']) {
                 if (iframeUrl && panel['x_iframe_url'] !== iframeUrl) {
@@ -271,9 +278,12 @@
         getIFrameWindowObject: function (panel) {
             // 当前页面在IFrame中（也即时 window.frameElement 存在）
             // 此Ext-Window需要在父窗口中弹出
+            /*
             if (window.frameElement && panel['x_property_show_in_parent']) {
                 panel = parent.X[panel['x_property_guid']];
             }
+            */
+            panel = X.wnd.getGhostPanel(panel);
             var iframeNode = Ext.query('iframe', panel.body.dom);
             if (iframeNode.length === 0) {
                 // 当前panel（Ext-Window）不包含iframe

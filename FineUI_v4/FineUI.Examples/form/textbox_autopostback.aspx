@@ -23,7 +23,11 @@
                 </f:TextBox>
                 <f:Button runat="server" Text="提交">
                 </f:Button>
-                <f:Label ID="labResult" EncodeText="false" runat="server">
+                <f:Label ID="labResult1" EncodeText="false" runat="server">
+                </f:Label>
+                <f:Label ID="labResult2" EncodeText="false" runat="server">
+                </f:Label>
+                <f:Label ID="labResult3" EncodeText="false" runat="server">
                 </f:Label>
             </Items>
         </f:SimpleForm>
