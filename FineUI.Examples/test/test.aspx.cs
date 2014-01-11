@@ -24,7 +24,24 @@ namespace FineUI.Examples.test
 
         }
 
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            // 执行清空动作
+            Alert.ShowInTop("1");
 
+        }
+
+        protected void cboQRealDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 执行清空动作
+            Alert.ShowInTop("2");
+        }
+
+        protected void rboIsWork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 执行清空动作
+            Alert.ShowInTop("3");
+        }
 
     }
 }

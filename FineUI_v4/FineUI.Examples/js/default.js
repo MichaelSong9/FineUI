@@ -1,5 +1,6 @@
 ﻿
 F.ready(function () {
+    // IDS：default.aspx.cs 中向页面输出的控件客户端ID集合
     var btnExpandAll = F(IDS.btnExpandAll);
     var btnCollapseAll = F(IDS.btnCollapseAll);
     var mainMenu = F(IDS.mainMenu);

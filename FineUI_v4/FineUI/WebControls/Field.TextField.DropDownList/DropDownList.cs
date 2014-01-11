@@ -1387,26 +1387,32 @@ namespace FineUI
             string postText = postCollection[postDataKey];
             string postValue = postCollection[SelectedValueHiddenFieldID];
 
-
-            ListItem item = Items.FindByValue(postValue);
-            if (item != null && item.Text == postText)
-            {
-                if (SelectedValue != postValue)
+           
+                ListItem item = Items.FindByValue(postValue);
+                if (item != null && item.Text == postText)
                 {
-                    SelectedValue = postValue;
-                    FState.BackupPostDataProperty("SelectedValue");
-                    return true;
+                    // 本次选中的是下拉项
+                    if (SelectedValue != postValue)
+                    {
+                        SelectedValue = postValue;
+                        FState.BackupPostDataProperty("SelectedValue");
+                        return true;
+                    }
                 }
-            }
-            else
-            {
-                SelectedValue = null;
-                FState.BackupPostDataProperty("SelectedValue");
+                else
+                {
+                    // 本次是用户输入的值
+                    if (Text != postText)
+                    {
+                        SelectedValue = null;
+                        FState.BackupPostDataProperty("SelectedValue");
 
-                Text = postText;
-                FState.BackupPostDataProperty("Text");
-                return true;
-            }
+                        Text = postText;
+                        FState.BackupPostDataProperty("Text");
+                        return true;
+                    }
+                }
+            
 
             return false;
         }

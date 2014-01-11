@@ -3,47 +3,31 @@
 
 <!DOCTYPE html>
 <html>
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <x:PageManager runat="server" />
-        <x:SimpleForm runat="server">
-            <Items>
-                <x:DropDownList ID="ddlStartMonth" runat="server" Label="起始月份" CompareControl="ddlEndMonth" CompareOperator="LessThanEqual" CompareType="Int">
-                    <x:ListItem Text="1月" Value="1" Selected="true" />
-                    <x:ListItem Text="2月" Value="2" />
-                    <x:ListItem Text="3月" Value="3" />
-                    <x:ListItem Text="4月" Value="4" />
-                    <x:ListItem Text="5月" Value="5" />
-                    <x:ListItem Text="6月" Value="6" />
-                    <x:ListItem Text="7月" Value="7" />
-                    <x:ListItem Text="8月" Value="8" />
-                    <x:ListItem Text="9月" Value="9" />
-                    <x:ListItem Text="10月" Value="10" />
-                    <x:ListItem Text="11月" Value="11" />
-                    <x:ListItem Text="12月" Value="12" />
-                </x:DropDownList>
-                <x:DropDownList ID="ddlEndMonth" runat="server" Label="截止月份">
-                    <x:ListItem Text="1月" Value="1" />
-                    <x:ListItem Text="2月" Value="2" Selected="true" />
-                    <x:ListItem Text="3月" Value="3" />
-                    <x:ListItem Text="4月" Value="4" />
-                    <x:ListItem Text="5月" Value="5" />
-                    <x:ListItem Text="6月" Value="6" />
-                    <x:ListItem Text="7月" Value="7" />
-                    <x:ListItem Text="8月" Value="8" />
-                    <x:ListItem Text="9月" Value="9" />
-                    <x:ListItem Text="10月" Value="10" />
-                    <x:ListItem Text="11月" Value="11" />
-                    <x:ListItem Text="12月" Value="12" />
-                </x:DropDownList>
-            </Items>
-
-        </x:SimpleForm>
-
+        <x:PageManager ID="PageManager1" runat="server" />
+        <x:Form ID="Form2" runat="server" Height="36px" BodyPadding="5px" ShowHeader="false"
+            ShowBorder="false" LabelAlign="Right" EnableBackgroundColor="true">
+            <Rows>
+                <x:FormRow ID="FormRow1" runat="server">
+                    <Items>
+                        <x:TwinTriggerBox runat="server" EmptyText="输入要搜索的用工单位" Label="单位名称" ID="txtQUnitName"
+                            ShowTrigger1="false" OnTrigger2Click="btnQuery_Click" Trigger1Icon="Clear" Trigger2Icon="Search" />
+                        <x:DropDownList ID="cboQRealDate" runat="server" Required="true" ShowRedStar="true"
+                            Label="自然月份" AutoPostBack="true" OnSelectedIndexChanged="cboQRealDate_SelectedIndexChanged" />
+                        <x:RadioButtonList ID="rboIsWork" Label="状态" runat="server" AutoPostBack="true"
+                            OnSelectedIndexChanged="rboIsWork_SelectedIndexChanged" Width="200px">
+                            <x:RadioItem Text="当月新增" Value="0" Selected="true" />
+                            <x:RadioItem Text="当月减员" Value="1" />
+                        </x:RadioButtonList>
+                    </Items>
+                </x:FormRow>
+            </Rows>
+        </x:Form>
     </form>
 </body>
 </html>

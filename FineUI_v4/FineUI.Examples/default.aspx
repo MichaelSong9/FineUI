@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>FineUI 在线示例 - 基于 ExtJS 的专业 ASP.NET 控件库</title>
+    <title>FineUI 在线示例 - 基于 ExtJS 的开源 ASP.NET 控件库</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="Title" content="基于 ExtJS 的专业 ASP.NET 控件库，拥有原生的 AJAX 支持和华丽的UI效果 (ExtJS based ASP.NET Controls with native AJAX Support and rich UI effects)" />
+    <meta name="Title" content="基于 ExtJS 的开源 ASP.NET 控件库，拥有原生的 AJAX 支持和华丽的UI效果 (ExtJS based open source ASP.NET Controls)" />
     <meta name="Description" content="FineUI 的使命是创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序" />
     <meta name="Keywords" content="extjs,ext,asp.net,control,asp.net 2.0,ajax,web2.0" />
     <link href="css/default.css" rel="stylesheet" type="text/css" />
@@ -118,11 +118,11 @@
                                         <f:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                             runat="server">
                                             <h2>关于FineUI</h2>
-                                            基于 ExtJS 的专业 ASP.NET 控件库。
+                                            基于 ExtJS 的开源 ASP.NET 控件库
                                         
                                             <br />
                                             <h2>FineUI的使命</h2>
-                                            创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
+                                            创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序
                                         
                                             <br />
                                             <h2>支持的浏览器</h2>
@@ -134,7 +134,7 @@
                                             
                                             <br />
                                             <h2>相关链接</h2>
-                                            首页：<a target="_blank" style="font-weight: bold;" href="http://fineui.com/">http://fineui.com/</a>
+                                            首页：<a target="_blank" href="http://fineui.com/">http://fineui.com/</a>
                                             <br />
                                             论坛：<a target="_blank" href="http://fineui.com/bbs/">http://fineui.com/bbs/</a>
                                             <br />
