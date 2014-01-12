@@ -2549,7 +2549,7 @@ namespace FineUI
                 
                 if (EnableAfterEditEvent)
                 {
-                    string validateScript = "var args='AfterEdit$'+e.row+'$'+e.field;";
+                    string validateScript = "var args='AfterEdit$'+e.rowIdx+'$'+e.field;";
                     validateScript += GetPostBackEventReference("#AfterEdit#").Replace("'#AfterEdit#'", "args");
 
                     string rowClickScript = String.Format("function(editor,e){{{0}}}", validateScript);

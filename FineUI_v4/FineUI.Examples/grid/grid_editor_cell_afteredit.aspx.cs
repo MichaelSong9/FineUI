@@ -39,10 +39,13 @@ namespace FineUI.Examples.grid
         {
             Dictionary<int, Dictionary<string, string>> modifiedDict = Grid1.GetModifiedDict();
 
-            int rowID = Convert.ToInt32(Grid1.DataKeys[e.RowIndex][0]);
-            DataRow row = FindRowByID(rowID);
+            foreach (int rowIndex in modifiedDict.Keys)
+            {
+                int rowID = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
+                DataRow row = FindRowByID(rowID);
 
-            UpdateDataRow(modifiedDict[e.RowIndex], row);
+                UpdateDataRow(modifiedDict[rowIndex], row);
+            }
 
             BindGrid();
 

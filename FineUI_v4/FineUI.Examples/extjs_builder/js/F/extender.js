@@ -397,16 +397,6 @@ if (Ext.grid.column.RowNumberer) {
 
 }
 
-/*
-if (Ext.data.Store) {
-    Ext.override(Ext.data.Store, {
-        // true to clear all modified record information each time the store is loaded or when a record is removed (defaults to false).
-        pruneModifiedRecords: true
-
-    });
-}
-*/
-
 if (Ext.grid.Panel) {
     Ext.override(Ext.grid.Panel, {
 
@@ -519,7 +509,7 @@ if (Ext.grid.Panel) {
             //this.f_deletedRows = [];
 
             store.loadData(datas);
-
+            store.commitChanges();
 
 
             this.f_initRecordIDs();
@@ -633,21 +623,25 @@ if (Ext.grid.Panel) {
             var sm = this.getSelectionModel();
             if (sm.select) {
                 if (cell.length === 2) {
-                    sm.select(cell[0], cell[1]);
+                    sm.setCurrentPosition({
+                        row: cell[0],
+                        column: cell[1]
+                    });
                 } else {
-                    sm.clearSelections();
+                     // TODO:
+                    //sm.deselectAll();
                 }
             }
         },
 
         // 获取选中的单元格（AllowCellEditing）
         f_getSelectedCell: function () {
-            var selectedCell = [];
+            var selectedCell = [], currentPos;
             var sm = this.getSelectionModel();
-            if (sm.getSelectedCell) {
-                selectedCell = sm.getSelectedCell();
-                if (!selectedCell) {
-                    selectedCell = [];
+            if (sm.getCurrentPosition) {
+                currentPos = sm.getCurrentPosition();
+                if (currentPos) {
+                    selectedCell = [currentPos.row, currentPos.column];
                 }
             }
             return selectedCell;
@@ -898,7 +892,7 @@ if (Ext.grid.Panel) {
 
             function checkColumnEditable(columnID) {
                 var column = columnMap[columnID];
-                if (column && (column.editor || column.xtype === 'checkcolumn')) {
+                if (column && (column.hasEditor() || column.xtype === 'checkcolumn')) {
                     return true;
                 }
                 return false;
