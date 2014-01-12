@@ -266,7 +266,7 @@
       </TreeNode>
       <TreeNode Text="Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel.aspx" >
       </TreeNode>
-	  <TreeNode Text="动态列Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
+      <TreeNode Text="动态列Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="分页工具条">
@@ -296,18 +296,10 @@
     <TreeNode Text="合计行">
       <TreeNode Text="合计行" NavigateUrl="~/grid/grid_summary2.aspx" >
       </TreeNode>
-      <!--
-      <TreeNode Text="客户端分页合计" NavigateUrl="~/grid/grid_summary.aspx" >
+      <TreeNode Text="合计行（当前页合计）" NavigateUrl="~/grid/grid_summary2_currentpage.aspx" >
       </TreeNode>
-      <TreeNode Text="服务器端全部合计" NavigateUrl="~/grid/grid_summary_serverside.aspx" >
-      </TreeNode>
-      <TreeNode Text="服务器端分页合计" NavigateUrl="~/grid/grid_summary_serverside_paged.aspx" >
-      </TreeNode>
-      -->
-      <!--<TreeNode Text="服务器端全部合计（绝对定位）" NavigateUrl="~/grid/grid_summary_absolute.aspx" >
-      </TreeNode>-->
     </TreeNode>
-    <!--<TreeNode Text="可编辑表格">
+    <TreeNode Text="可编辑表格">
       <TreeNode Text="可编辑单元格" NavigateUrl="~/grid/grid_editor_cell.aspx" >
       </TreeNode>
       <TreeNode Text="可编辑单元格（客户端获取下拉列表的值）" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
@@ -320,7 +312,7 @@
       </TreeNode>
       <TreeNode Text="可编辑单元格（失去焦点事件）" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
       </TreeNode>
-    </TreeNode>-->
+    </TreeNode>
     <TreeNode Text="其他">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>

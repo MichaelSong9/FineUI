@@ -2204,6 +2204,7 @@ namespace FineUI
 
             
             //ResourceManager.Instance.AddJavaScriptComponent("grid");
+            JsArrayBuilder pluginBuilder = new JsArrayBuilder();
 
             #region selectModel/gridStore/gridColumn
 
@@ -2219,7 +2220,7 @@ namespace FineUI
             OB.AddProperty("selModel", Render_SelectModelID, true);
 
 
-            string gridColumnsScript = GetGridColumnScript();
+            string gridColumnsScript = GetGridColumnScript(pluginBuilder);
             OB.AddProperty("columns", Render_GridColumnsID, true);
 
             string gridStoreScript = GetGridStore();
@@ -2532,35 +2533,44 @@ namespace FineUI
 
             #region AllowCellEditing
 
+            string cellEditScript = String.Empty;
+
             if (AllowCellEditing)
             {
-                if (ClicksToEdit != 2)
-                {
-                    OB.AddProperty("clicksToEdit", ClicksToEdit);
-                }
+                string pluginId = String.Format("{0}_celledit", ClientID);
 
-                //OB.Listeners.AddProperty("beforeedit", JsHelper.GetFunction("console.log(e);", "e"), true);
+                JsObjectBuilder cellEditBuilder = new JsObjectBuilder();
+                cellEditBuilder.AddProperty("pluginId", pluginId);
+                cellEditBuilder.AddProperty("clicksToEdit", ClicksToEdit);
 
-                //OB.Listeners.AddProperty("afteredit", JsHelper.GetFunction("console.log(e);", "e"), true);
+                cellEditScript = String.Format("var {0}=Ext.create('Ext.grid.plugin.CellEditing',{1});", pluginId, cellEditBuilder);
 
-                //OB.AddProperty("f_newAddedRows", "[]", true);
-
+                pluginBuilder.AddProperty(pluginId, true);
+                
                 if (EnableAfterEditEvent)
                 {
                     string validateScript = "var args='AfterEdit$'+e.row+'$'+e.field;";
                     validateScript += GetPostBackEventReference("#AfterEdit#").Replace("'#AfterEdit#'", "args");
 
-                    string rowClickScript = String.Format("function(e){{{0}}}", validateScript);
+                    string rowClickScript = String.Format("function(editor,e){{{0}}}", validateScript);
 
-                    OB.Listeners.AddProperty("afteredit", rowClickScript, true);
+                    OB.Listeners.AddProperty("edit", rowClickScript, true);
                 }
             }
 
             #endregion
 
+            #region pluginBuilder
+            
+            if (pluginBuilder.Count > 0)
+            {
+                OB.AddProperty("plugins", pluginBuilder.ToString(), true);
+            } 
+
+            #endregion
+
             StringBuilder sb = new StringBuilder();
-            sb.Append(gridSelectModelScript + gridStoreScript + pagingScript + gridColumnsScript);
-            //sb.AppendFormat("var {0}=new Ext.grid.{2}({1});", XID, OB, AllowCellEditing ? "EditorGridPanel" : "GridPanel");
+            sb.Append(gridSelectModelScript + gridStoreScript + pagingScript + gridColumnsScript + cellEditScript);
             sb.AppendFormat("var {0}=Ext.create('Ext.grid.Panel',{1});", XID, OB);
 
             AddStartupScript(sb.ToString());
@@ -2649,7 +2659,7 @@ namespace FineUI
         //}
 
 
-        private string GetGridColumnScript()
+        private string GetGridColumnScript(JsArrayBuilder pluginBuilder)
         {
             string selectModelID = Render_SelectModelID;
 
@@ -2701,7 +2711,7 @@ namespace FineUI
             }
 
             // 为Grid添加plugin属性
-            JsArrayBuilder pluginBuilder = new JsArrayBuilder();
+            //JsArrayBuilder pluginBuilder = new JsArrayBuilder();
 
             if (!String.IsNullOrEmpty(expanderXID))
             {
@@ -2713,10 +2723,7 @@ namespace FineUI
             //    pluginBuilder.AddProperty(Render_GridGroupColumnID, true);
             //}
 
-            if (pluginBuilder.Count > 0)
-            {
-                OB.AddProperty("plugins", pluginBuilder.ToString(), true);
-            }
+            
 
             //JsObjectBuilder defaultsBuilder = new JsObjectBuilder();
             //// 这是Extjs默认的客户端排序
@@ -2818,7 +2825,7 @@ namespace FineUI
 
             if (AllowCellEditing)
             {
-                return String.Format("var {0}=new Ext.grid.CellSelectionModel({1});", Render_SelectModelID, selectOB);
+                return String.Format("var {0}=Ext.create('Ext.selection.CellModel',{1});", Render_SelectModelID, selectOB);
             }
             else
             {

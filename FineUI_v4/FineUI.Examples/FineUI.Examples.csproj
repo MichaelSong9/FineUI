@@ -179,12 +179,8 @@
     <Content Include="grid\grid_checkboxfield_rowcheckall.aspx" />
     <Content Include="grid\grid_editor_cell_new.aspx" />
     <Content Include="grid\grid_editor_cell_delete.aspx" />
-    <Content Include="grid\grid_summary.aspx" />
     <Content Include="grid\grid_checkall_only.aspx" />
-    <Content Include="grid\grid_summary_serverside.aspx" />
-    <Content Include="grid\grid_summary_absolute.aspx" />
     <Content Include="grid\grid_line_wrap.aspx" />
-    <Content Include="grid\grid_summary_serverside_paged.aspx" />
     <Content Include="grid\grid_editor_cell_renderfunction.aspx" />
     <Content Include="grid\grid_rowcommand_paging.aspx" />
     <Content Include="grid\grid_rowcommand_paging_database.aspx" />
@@ -194,6 +190,7 @@
     <Content Include="grid\grid_summary2.aspx" />
     <Content Include="grid\grid_edit_enterkey_v.aspx" />
     <Content Include="grid\grid_edit_enterkey_h.aspx" />
+    <Content Include="grid\grid_summary2_currentpage.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -745,13 +742,6 @@
     <Compile Include="grid\grid_editor_cell_delete.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_delete.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_summary.aspx.cs">
-      <DependentUpon>grid_summary.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_summary.aspx.designer.cs">
-      <DependentUpon>grid_summary.aspx</DependentUpon>
-    </Compile>
     <Compile Include="grid\grid_checkall_only.aspx.cs">
       <DependentUpon>grid_checkall_only.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -759,33 +749,12 @@
     <Compile Include="grid\grid_checkall_only.aspx.designer.cs">
       <DependentUpon>grid_checkall_only.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_summary_serverside.aspx.cs">
-      <DependentUpon>grid_summary_serverside.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_summary_serverside.aspx.designer.cs">
-      <DependentUpon>grid_summary_serverside.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_summary_absolute.aspx.cs">
-      <DependentUpon>grid_summary_absolute.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_summary_absolute.aspx.designer.cs">
-      <DependentUpon>grid_summary_absolute.aspx</DependentUpon>
-    </Compile>
     <Compile Include="grid\grid_line_wrap.aspx.cs">
       <DependentUpon>grid_line_wrap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="grid\grid_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_line_wrap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_summary_serverside_paged.aspx.cs">
-      <DependentUpon>grid_summary_serverside_paged.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_summary_serverside_paged.aspx.designer.cs">
-      <DependentUpon>grid_summary_serverside_paged.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_editor_cell_renderfunction.aspx.cs">
       <DependentUpon>grid_editor_cell_renderfunction.aspx</DependentUpon>
@@ -849,6 +818,13 @@
     </Compile>
     <Compile Include="grid\grid_edit_enterkey_h.aspx.designer.cs">
       <DependentUpon>grid_edit_enterkey_h.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_summary2_currentpage.aspx.cs">
+      <DependentUpon>grid_summary2_currentpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_summary2_currentpage.aspx.designer.cs">
+      <DependentUpon>grid_summary2_currentpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

@@ -1,41 +1,41 @@
 ﻿
 (function () {
 
-    var F = Ext.util.Format;
+    var ExtF = Ext.util.Format;
 
     F.format = {
 
-        capitalize: F.capitalize,
+        capitalize: ExtF.capitalize,
 
-        date: F.dateRenderer,
+        date: ExtF.dateRenderer,
 
         ellipsis: function (length) {
             return function (value) {
-                return F.ellipsis(value, length, false);
+                return ExtF.ellipsis(value, length, false);
             };
         },
 
-        fileSize: F.fileSize,
+        fileSize: ExtF.fileSize,
 
-        htmlEncode: F.htmlEncode,
+        htmlEncode: ExtF.htmlEncode,
 
-        htmlDecode: F.htmlDecode,
+        htmlDecode: ExtF.htmlDecode,
 
-        lowercase: F.lowercase,
+        lowercase: ExtF.lowercase,
 
-        uppercase: F.uppercase,
+        uppercase: ExtF.uppercase,
 
-        nl2br: F.nl2br,
+        nl2br: ExtF.nl2br,
 
-        number: F.numberRenderer,
+        number: ExtF.numberRenderer,
 
-        stripScripts: F.stripScripts,
+        stripScripts: ExtF.stripScripts,
 
-        stripTags: F.stripTags,
+        stripTags: ExtF.stripTags,
 
-        trim: F.trim,
+        trim: ExtF.trim,
 
-        usMoney: F.usMoney
+        usMoney: ExtF.usMoney
 
 
 
