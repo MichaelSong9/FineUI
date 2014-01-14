@@ -34,8 +34,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正没有项目的下拉列回发时会触发SelectedIndexChanged事件的问题（purplebolt-4571）。
 	-修正在父页面弹出的窗体在显示时加载两次的问题（Gunu40-4725）。
 	-更新示例form/textbox_autopostback.aspx，增加示例grid/grid_summary2.aspx。
-	-
-
+	+表格增强。
+		-单元格编辑支持。
+		-更新之前的6个示例；增加示例grid/grid_editor_cell_databind.aspx。
 
 
 

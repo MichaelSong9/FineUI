@@ -288,7 +288,8 @@
 
         if (cmp.isXType('grid')) {
 
-            if (cmp.getPlugin(cmp.id + '_celledit')) {
+            //if (cmp.getPlugin(cmp.id + '_celledit')) {
+            if(cmp.f_cellEditing) {
                 // 可编辑单元格的表格
                 // 选中单元格
                 saveInHiddenField('SelectedCell', cmp.f_getSelectedCell().join(','));

@@ -25,7 +25,7 @@
                     </f:TextBox>
                 </Editor>
             </f:RenderField>
-            <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="Int"
+            <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="String"
                 RendererFunction="renderGender" HeaderText="性别">
                 <Editor>
                     <f:DropDownList ID="ddlGender" Required="true" runat="server">
@@ -51,7 +51,7 @@
             </f:RenderField>
             <f:RenderCheckField Width="100px" ColumnID="AtSchool" DataField="AtSchool" HeaderText="是否在校" />
             <f:RenderField ExpandUnusedSpace="true" ColumnID="Major" DataField="Major" FieldType="String"
-                HeaderText="所学专业">
+                HeaderText="所学专业" RendererFunction="renderMajor">
                 <Editor>
                     <f:DropDownList ID="ddlMajor" Required="true" runat="server">
                         <f:ListItem Text="材料科学与工程系" Value="材料科学与工程系"></f:ListItem>
@@ -76,9 +76,14 @@
     <script>
 
         var ddlGenderID = '<%= ddlGender.ClientID %>';
-
-        function renderGender(value, metadata, record, rowIndex, colIndex) {
+        function renderGender(value) {
             return F(ddlGenderID).f_getTextByValue(value);
+        }
+
+
+        var ddlMajorID = '<%= ddlMajor.ClientID %>';
+        function renderMajor(value) {
+            return F(ddlMajorID).f_getTextByValue(value);
         }
 
 

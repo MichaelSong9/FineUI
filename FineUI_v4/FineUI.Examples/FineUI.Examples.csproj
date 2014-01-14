@@ -150,6 +150,7 @@
     <Content Include="form\form_hide_field.aspx" />
     <Content Include="form\form_center_button.aspx" />
     <Content Include="form\fileupload_toolbar.aspx" />
+    <Content Include="grid\grid_editor_cell_databind.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
     <Content Include="grid\grid_excel_dynamic_columns.aspx" />
@@ -175,7 +176,6 @@
     <Content Include="grid\grid_groupheader_sort_hdmenu.aspx" />
     <Content Include="grid\grid_groupheader_sort.aspx" />
     <Content Include="grid\grid_paging_database_sorting.aspx" />
-    <Content Include="grid\grid_editor_cell2.aspx" />
     <Content Include="grid\grid_checkboxfield_rowcheckall.aspx" />
     <Content Include="grid\grid_editor_cell_new.aspx" />
     <Content Include="grid\grid_editor_cell_delete.aspx" />
@@ -539,6 +539,13 @@
     <Compile Include="form\fileupload_toolbar.aspx.designer.cs">
       <DependentUpon>fileupload_toolbar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_editor_cell_databind.aspx.cs">
+      <DependentUpon>grid_editor_cell_databind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_databind.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_databind.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_edit_compare.aspx.cs">
       <DependentUpon>grid_edit_compare.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -713,13 +720,6 @@
     </Compile>
     <Compile Include="grid\grid_paging_database_sorting.aspx.designer.cs">
       <DependentUpon>grid_paging_database_sorting.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_editor_cell2.aspx.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_editor_cell2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_checkboxfield_rowcheckall.aspx.cs">
       <DependentUpon>grid_checkboxfield_rowcheckall.aspx</DependentUpon>

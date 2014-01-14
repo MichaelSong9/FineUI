@@ -299,18 +299,20 @@
       <TreeNode Text="合计行（当前页合计）" NavigateUrl="~/grid/grid_summary2_currentpage.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="可编辑表格">
-      <TreeNode Text="可编辑单元格" NavigateUrl="~/grid/grid_editor_cell.aspx" >
+    <TreeNode Text="单元格编辑">
+      <TreeNode Text="单元格编辑" NavigateUrl="~/grid/grid_editor_cell.aspx" >
       </TreeNode>
-      <TreeNode Text="可编辑单元格（客户端获取下拉列表的值）" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
+      <TreeNode Text="单元格编辑（客户端获取下拉列表的值）" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
       </TreeNode>
-      <TreeNode Text="可编辑单元格（删除行）" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
+      <TreeNode Text="单元格编辑（后台绑定下拉列表）" NavigateUrl="~/grid/grid_editor_cell_databind.aspx" >
       </TreeNode>
-      <TreeNode Text="可编辑单元格（新增行）" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
+      <TreeNode Text="单元格编辑（删除行）" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
       </TreeNode>
-      <TreeNode Text="可编辑单元格（新增行+删除行）" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
+      <TreeNode Text="单元格编辑（新增行）" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
       </TreeNode>
-      <TreeNode Text="可编辑单元格（失去焦点事件）" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
+      <TreeNode Text="单元格编辑（新增行+删除行）" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
+      </TreeNode>
+      <TreeNode Text="单元格编辑（失去焦点事件）" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="其他">

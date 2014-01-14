@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_editor_cell_afteredit {
+    public partial class grid_editor_cell_databind {
         
         /// <summary>
         /// form1 控件。
@@ -85,13 +85,22 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.DatePicker DatePicker1;
         
         /// <summary>
-        /// tbxEditorMajor 控件。
+        /// ddlMajor 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox tbxEditorMajor;
+        protected global::FineUI.DropDownList ddlMajor;
+        
+        /// <summary>
+        /// Button2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button Button2;
         
         /// <summary>
         /// labResult 控件。

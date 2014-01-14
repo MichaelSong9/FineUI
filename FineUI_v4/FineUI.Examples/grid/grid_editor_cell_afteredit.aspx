@@ -26,7 +26,7 @@
                     </f:TextBox>
                 </Editor>
             </f:RenderField>
-            <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="Int"
+            <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="String"
                 RendererFunction="renderGender" HeaderText="性别">
                 <Editor>
                     <f:DropDownList ID="ddlGender" Required="true" runat="server">
@@ -68,13 +68,8 @@
     </form>
     <script>
 
-        function renderGender(value, metadata, record, rowIndex, colIndex) {
-            return value == 1 ? '男' : '女';
-        }
-
-
-        function renderAtSchool(value, metadata, record, rowIndex, colIndex) {
-            return value ? '<img src="../extjs/res/images/tick.png" alt="YES"/>' : '<img src="../extjs/res/images/bullet_cross.png" alt="NO"/>';
+        function renderGender(value) {
+            return value === '1' ? '男' : '女';
         }
 
 

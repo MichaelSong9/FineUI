@@ -13,6 +13,8 @@ namespace FineUI.Examples.grid
 {
     public partial class grid_editor_cell_new_delete : PageBase
     {
+        private bool AppendToEnd = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,7 +25,7 @@ namespace FineUI.Examples.grid
                 // 新增数据初始值
                 JObject defaultObj = new JObject();
                 defaultObj.Add("Name", "用户名");
-                defaultObj.Add("Gender", 1);
+                defaultObj.Add("Gender", "1");
                 defaultObj.Add("EntranceYear", "2015");
                 defaultObj.Add("EntranceDate", "2015-09-01");
                 defaultObj.Add("AtSchool", false);
@@ -31,7 +33,7 @@ namespace FineUI.Examples.grid
                 defaultObj.Add("Delete", String.Format("<a href=\"javascript:;\" onclick=\"{0}\"><img src=\"{1}\"/></a>", deleteScript, IconHelper.GetResolvedIconUrl(Icon.Delete)));
 
                 // 在第一行新增一条数据
-                btnNew.OnClientClick = Grid1.GetAddNewRecordReference(defaultObj, false);
+                btnNew.OnClientClick = Grid1.GetAddNewRecordReference(defaultObj, AppendToEnd);
 
                 // 重置表格
                 btnReset.OnClientClick = Grid1.GetRejectChangesReference();
@@ -75,6 +77,16 @@ namespace FineUI.Examples.grid
             deleteField.OnClientClick = GetDeleteScript();
         }
 
+        private DataRow CreateNewData(DataTable table, Dictionary<string, string> newAddedData)
+        {
+            DataRow rowData = table.NewRow();
+
+            // 设置行ID（模拟数据库的自增长列）
+            rowData["Id"] = GetNextRowID();
+            UpdateDataRow(newAddedData, rowData);
+
+            return rowData;
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -99,16 +111,22 @@ namespace FineUI.Examples.grid
 
             // 新增数据
             List<Dictionary<string, string>> newAddedList = Grid1.GetNewAddedList();
-            for (int i = newAddedList.Count - 1; i >= 0; i--)
+            DataTable table = GetSourceData();
+            if (AppendToEnd)
             {
-                DataTable table = GetSourceData();
-                DataRow rowData = table.NewRow();
-
-                // 设置行ID（模拟数据库的自增长列）
-                rowData["Id"] = GetNextRowID();
-                UpdateDataRow(newAddedList[i], rowData);
-
-                table.Rows.InsertAt(rowData, 0);
+                for (int i = 0; i < newAddedList.Count; i++)
+                {
+                    DataRow rowData = CreateNewData(table, newAddedList[i]);
+                    table.Rows.Add(rowData);
+                }
+            }
+            else
+            {
+                for (int i = newAddedList.Count - 1; i >= 0; i--)
+                {
+                    DataRow rowData = CreateNewData(table, newAddedList[i]);
+                    table.Rows.InsertAt(rowData, 0);
+                }
             }
             
 

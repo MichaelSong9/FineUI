@@ -24,7 +24,8 @@
                     </f:TextBox>
                 </Editor>
             </f:RenderField>
-            <f:RenderField Width="100px" DataField="Gender" FieldType="Int" RendererFunction="renderGender" HeaderText="性别">
+            <f:RenderField Width="100px" DataField="Gender" FieldType="String" 
+                RendererFunction="renderGender" HeaderText="性别">
                 <Editor>
                     <f:DropDownList runat="server">
                         <f:ListItem Text="男" Value="1" />
@@ -75,8 +76,8 @@
     </form>
     <script>
 
-        function renderGender(value, metadata, record, rowIndex, colIndex) {
-            return value == 1 ? '男' : '女';
+        function renderGender(value) {
+            return value === '1' ? '男' : '女';
         }
 
     </script>

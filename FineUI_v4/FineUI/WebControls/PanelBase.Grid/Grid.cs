@@ -2537,7 +2537,7 @@ namespace FineUI
 
             if (AllowCellEditing)
             {
-                string pluginId = String.Format("{0}_celledit", ClientID);
+                string pluginId = String.Format("{0}_cellEditing", XID);
 
                 JsObjectBuilder cellEditBuilder = new JsObjectBuilder();
                 cellEditBuilder.AddProperty("pluginId", pluginId);
@@ -2556,6 +2556,8 @@ namespace FineUI
 
                     OB.Listeners.AddProperty("edit", rowClickScript, true);
                 }
+
+                OB.AddProperty("f_cellEditing", pluginId, true);
             }
 
             #endregion

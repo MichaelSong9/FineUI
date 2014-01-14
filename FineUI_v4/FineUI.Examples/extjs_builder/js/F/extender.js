@@ -628,7 +628,7 @@ if (Ext.grid.Panel) {
                         column: cell[1]
                     });
                 } else {
-                     // TODO:
+                    // TODO:
                     //sm.deselectAll();
                 }
             }
@@ -798,14 +798,14 @@ if (Ext.grid.Panel) {
         },
 
         // 提交客户端改变
+        /*
         f_commitChanges: function () {
 
             this.getStore().commitChanges();
 
-            //this.f_newAddedRows = [];
-            //this.f_deletedRows = [];
             this.f_initRecordIDs();
         },
+        */
 
         // 从Store中删除选中的行（或者单元格）
         f_deleteSelected: function () {
@@ -813,41 +813,38 @@ if (Ext.grid.Panel) {
             var store = this.getStore();
 
             var sm = this.getSelectionModel();
-            if (sm.getSelections) {
-                var selections = sm.getSelections();
-                Ext.Array.each(selections, function (record, index) {
-                    store.remove(record);
+            if (sm.getSelection) {
+                var rows = this.f_getSelectedRows();
+                Ext.Array.each(rows, function (rowIndex, index) {
+                    store.removeAt(rowIndex);
                 });
             } else if (sm.getSelectedCell) {
-                var selectedCell = sm.getSelectedCell();
-                store.removeAt(selectedCell[0]);
+                var selectedCell = this.f_getSelectedCell();
+                if (selectedCell.length) {
+                    store.removeAt(selectedCell[0]);
+                }
             }
         },
 
         // 添加一条新纪录
         f_addNewRecord: function (defaultObj, appendToEnd) {
             var i, count, store = this.getStore();
-            var recordType = store.recordType;
-            var newRecord = new recordType(defaultObj);
+            var newRecord = defaultObj; //new Ext.data.Model(defaultObj);
 
-            this.stopEditing();
+            this.f_cellEditing.cancelEdit();
+
+            var rowIndex = 0;
             if (appendToEnd) {
                 store.add(newRecord);
-
-                // 新增客户端改变的行索引
-                //this.f_newAddedRows.push(store.getCount() - 1);
-
+                rowIndex = store.getCount() - 1;
             } else {
                 store.insert(0, newRecord);
-
-                // 新增客户端改变的行索引
-                //for (i = 0, count = this.f_newAddedRows.length; i < count; i++) {
-                //    this.f_newAddedRows[i]++;
-                //}
-                //this.f_newAddedRows.push(0);
-
+                rowIndex = 0;
             }
-            this.startEditing(0, 0);
+            this.f_cellEditing.startEditByPosition({
+                row: rowIndex,
+                column: this.f_firstEditableColumnIndex()
+            });
         },
 
         // 获取新增的行索引（在修改后的列表中）
@@ -882,10 +879,37 @@ if (Ext.grid.Panel) {
             return deletedRows;
         },
 
+        f_firstEditableColumnIndex: function () {
+            var i = 0, count = this.columns.length, column;
+            for (; i < count; i++) {
+                column = this.columns[i];
+                if (column.getEditor() || column.xtype === 'checkcolumn') {
+                    return i;
+                }
+            }
+            return 0;
+        },
+
+        f_columnEditable: function (columnID) {
+            var i = 0, count = this.columns.length, column;
+            for (; i < count; i++) {
+                column = this.columns[i];
+                if (column.id === columnID) {
+                    if (column.getEditor() || column.xtype === 'checkcolumn') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            return false;
+        },
+
         // 获取用户修改的单元格值
         f_getModifiedData: function () {
-            var i, j, count, columns = this.f_getColumns(), columnMap = {};
+            var me = this, i, j, count, columns = this.f_getColumns();
 
+            /*
             Ext.Array.each(columns, function (column, index) {
                 columnMap[column.id] = column;
             });
@@ -897,6 +921,7 @@ if (Ext.grid.Panel) {
                 }
                 return false;
             }
+            */
 
             var modifiedRows = [];
             var store = this.getStore();
@@ -916,7 +941,7 @@ if (Ext.grid.Panel) {
                 if (rowIndexOriginal < 0) {
                     // 删除那些不能编辑的列
                     for (var columnID in rowData) {
-                        if (!checkColumnEditable(columnID)) {
+                        if (!this.f_columnEditable(columnID)) {
                             delete rowData[columnID];
                         }
                     }
@@ -925,7 +950,7 @@ if (Ext.grid.Panel) {
                 } else {
                     var rowModifiedObj = {};
                     for (var columnID in modifiedRecord.modified) {
-                        if (checkColumnEditable(columnID)) {
+                        if (this.f_columnEditable(columnID)) {
                             newData = rowData[columnID];
                             rowModifiedObj[columnID] = newData;
                         }
@@ -933,7 +958,6 @@ if (Ext.grid.Panel) {
                     // 修改现有数据行
                     modifiedRows.push([rowIndex, rowIndexOriginal, rowModifiedObj]);
                 }
-
             }
 
             // 结果按照 rowIndex 升序排序
@@ -1217,7 +1241,7 @@ if (Ext.WindowManager) {
             this.mask.maskTarget = Ext.getBody();
             return this.callParent(arguments);
         }
-        
+
     });
 }
 
