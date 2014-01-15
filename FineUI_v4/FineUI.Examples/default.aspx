@@ -5,9 +5,9 @@
 <head runat="server">
     <title>FineUI 在线示例 - 基于 ExtJS 的开源 ASP.NET 控件库</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="Title" content="基于 ExtJS 的开源 ASP.NET 控件库，拥有原生的 AJAX 支持和华丽的UI效果 (ExtJS based open source ASP.NET Controls)" />
+    <meta name="Title" content="基于 ExtJS 的开源 ASP.NET 控件库(ExtJS based open source ASP.NET Controls)" />
     <meta name="Description" content="FineUI 的使命是创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序" />
-    <meta name="Keywords" content="extjs,ext,asp.net,control,asp.net 2.0,ajax,web2.0" />
+    <meta name="Keywords" content="开源,ASP.NET,控件库,ExtJS,AJAX,Web2.0" />
     <link href="css/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

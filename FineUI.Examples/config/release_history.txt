@@ -1,11 +1,11 @@
 ﻿关于FineUI
-基于 ExtJS 的专业 ASP.NET 控件库。
+基于 ExtJS 的开源 ASP.NET 控件库。
 
 FineUI的使命
 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
 
 支持的浏览器
-IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
+IE 8.0+、Chrome、Firefox、Opera、Safari
 
 授权协议
 Apache License v2.0

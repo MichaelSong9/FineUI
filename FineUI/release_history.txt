@@ -1,11 +1,11 @@
 ﻿关于FineUI
-基于 ExtJS 的专业 ASP.NET 控件库。
+基于 ExtJS 的开源 ASP.NET 控件库。
 
 FineUI的使命
 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。
 
 支持的浏览器
-IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
+IE 8.0+、Chrome、Firefox、Opera、Safari
 
 授权协议
 Apache License v2.0
@@ -22,17 +22,21 @@ Apache License v2.0
 
 FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，请通过如下两个途径获取ExtJS库：
 1. 获取适用于 FineUI 的 ExtJS 库：http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218 
-2. 基于 FineUI 的空项目（Net2.0 和 Net4.0 两个版本）：http://fineui.com/bbs/forum.php?mod=viewthread&tid=2123
+2. 基于 FineUI 的空项目（Net2.0 和 Net4.5 两个版本）：http://fineui.com/bbs/forum.php?mod=viewthread&tid=2123
 
 
 发布历史
 
-+2014-02-** v3.3.3
++2014-01-20 v3.3.3
 	-下拉列表ForceSelection默认值保持为true，否则对现有项目影响很大（蓝色天空-4381）。
 	-下拉列表在页面第一次加载时出现错误提示（牙膏人-4390）。
+	-修正在父页面弹出的窗体在显示时加载两次的问题（Gunu40-4725）。
 	-修正表格动态创建列与模板列的冲突问题，增加示例grid/grid_excel_dynamic_columns.aspx（气人号-4586）。
 	+新增示例grid/grid_editor_cell_databind.aspx，演示在后台绑定可编辑表格中的下拉列表。
 		-注意与模板列中的下拉列表的后台绑定对比：grid/grid_edit_dropdownlist2.aspx。
+	+修正向表格末尾添加行时，不能默认选中第一个单元格的问题（奋斗~-4658）。
+		-更新示例grid/grid_editor_cell_new.aspx和grid/grid_editor_cell_new_delete.aspx。
+
 
 
 +2013-11-21 v3.3.2

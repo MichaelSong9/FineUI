@@ -25,7 +25,7 @@
                         </td>
                         <td style="padding-right: 22px;">
                             <textarea name="UEditor1" id="UEditor1">
-                                &lt;p&gt;关于FineUI&lt;br /&gt;基于 ExtJS 的专业 ASP.NET 2.0 控件库。&lt;br /&gt;&lt;br /&gt;FineUI的使命&lt;br /&gt;创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。&lt;br /&gt;&lt;br /&gt;支持的浏览器&lt;br /&gt;IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+&lt;br /&gt;&lt;br /&gt;授权协议&lt;br /&gt;Apache License 2.0 (Apache)&lt;br /&gt;&lt;br /&gt;相关链接&lt;br /&gt;论坛：http://fineui.com/bbs/&lt;br /&gt;示例：http://fineui.com/demo/&lt;br /&gt;文档：http://fineui.com/doc/&lt;br /&gt;下载：http://fineui.codeplex.com/&lt;/p&gt;
+                                &lt;p&gt;关于FineUI&lt;br /&gt;基于 ExtJS 的开源 ASP.NET 控件库。&lt;br /&gt;&lt;br /&gt;FineUI的使命&lt;br /&gt;创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。&lt;br /&gt;&lt;br /&gt;支持的浏览器&lt;br /&gt;IE 8.0+、Chrome、Firefox、Opera、Safari&lt;br /&gt;&lt;br /&gt;授权协议&lt;br /&gt;Apache License 2.0 (Apache)&lt;br /&gt;&lt;br /&gt;相关链接&lt;br /&gt;论坛：http://fineui.com/bbs/&lt;br /&gt;示例：http://fineui.com/demo/&lt;br /&gt;文档：http://fineui.com/doc/&lt;br /&gt;下载：http://fineui.codeplex.com/&lt;/p&gt;
                             </textarea>
                         </td>
                     </tr>

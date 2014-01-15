@@ -28,7 +28,7 @@ namespace FineUI.Examples.aspnet
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            string content = "<p><strong>FineUI</strong> - 基于 ExtJS 的专业 ASP.NET 控件库，拥有完善的 AJAX 支持和丰富的界面效果。</p>";
+            string content = "<p><strong>FineUI</strong> - 基于 ExtJS 的开源 ASP.NET 控件库。</p>";
 
             PageContext.RegisterStartupScript(String.Format("updateUEditor({0});", JsHelper.Enquote(content)));
         }

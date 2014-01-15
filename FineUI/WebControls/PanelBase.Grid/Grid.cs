@@ -4521,6 +4521,10 @@ namespace FineUI
         // LoadControlState 处于 Page_Init 之后，控件的 LoadPostData 之前
         // 1. Page_Init 之后，才能保证动态添加的 Columns 存在
         // 2. LoadPostData 之前，才能保证模板列中的输入控件得到用户输入的值
+        /// <summary>
+        /// 装载控件状态
+        /// </summary>
+        /// <param name="savedState"></param>
         protected override void LoadControlState(object savedState)
         {
             base.LoadControlState(((Pair)savedState).First);
@@ -4537,12 +4541,20 @@ namespace FineUI
 
         // 必须添加值之后，才会在回发时走到 LoadViewState
         // 使用ControlState而不是ViewState还有一个好处是，ControlState不可被用户关闭
+        /// <summary>
+        /// 保存控件状态
+        /// </summary>
+        /// <returns></returns>
         protected override object SaveControlState()
         {
             return new Pair(base.SaveControlState(), "");
 
         }
 
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);

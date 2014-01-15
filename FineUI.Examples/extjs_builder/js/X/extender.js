@@ -797,23 +797,16 @@ if (Ext.grid.GridPanel) {
             var newRecord = new recordType(defaultObj);
 
             this.stopEditing();
+
+            var rowIndex = 0;
             if (appendToEnd) {
                 store.add(newRecord);
-
-                // 新增客户端改变的行索引
-                //this.x_newAddedRows.push(store.getCount() - 1);
-
+                rowIndex = store.getCount() - 1;
             } else {
                 store.insert(0, newRecord);
-
-                // 新增客户端改变的行索引
-                //for (i = 0, count = this.x_newAddedRows.length; i < count; i++) {
-                //    this.x_newAddedRows[i]++;
-                //}
-                //this.x_newAddedRows.push(0);
-
+                rowIndex = 0;
             }
-            this.startEditing(0, 0);
+            this.startEditing(rowIndex, this.x_firstEditableColumnIndex());
         },
 
         // 获取新增的行索引（在修改后的列表中）
@@ -848,10 +841,36 @@ if (Ext.grid.GridPanel) {
             return deletedRows;
         },
 
+        x_firstEditableColumnIndex: function () {
+            var i = 0, columns = this.x_getColumns(), count = columns.length, column;
+            for (; i < count; i++) {
+                column = columns[i];
+                if (column.editor || column.xtype === 'checkcolumn') {
+                    return i;
+                }
+            }
+            return 0;
+        },
+
+        x_columnEditable: function (columnID) {
+            var i = 0, columns = this.x_getColumns(), count = columns.length, column;
+            for (; i < count; i++) {
+                column = columns[i];
+                if (column.id === columnID) {
+                    if (column.editor || column.xtype === 'checkcolumn') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            return false;
+        },
+
         // 获取用户修改的单元格值
         x_getModifiedData: function () {
-            var i, j, count, columns = this.x_getColumns(), columnMap = {};
-
+            var i, j, count, columns = this.x_getColumns(); //, columnMap = {};
+            /*
             Ext.each(columns, function (column, index) {
                 columnMap[column.id] = column;
             });
@@ -863,6 +882,7 @@ if (Ext.grid.GridPanel) {
                 }
                 return false;
             }
+            */
 
             var modifiedRows = [];
             var store = this.getStore();
@@ -882,7 +902,7 @@ if (Ext.grid.GridPanel) {
                 if (rowIndexOriginal < 0) {
                     // 删除那些不能编辑的列
                     for (var columnID in rowData) {
-                        if (!checkColumnEditable(columnID)) {
+                        if (!this.x_columnEditable(columnID)) {
                             delete rowData[columnID];
                         }
                     }
@@ -891,7 +911,7 @@ if (Ext.grid.GridPanel) {
                 } else {
                     var rowModifiedObj = {};
                     for (var columnID in modifiedRecord.modified) {
-                        if (checkColumnEditable(columnID)) {
+                        if (this.x_columnEditable(columnID)) {
                             newData = rowData[columnID];
                             rowModifiedObj[columnID] = newData;
                         }

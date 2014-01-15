@@ -13,6 +13,8 @@ namespace FineUI.Examples.grid
 {
     public partial class grid_editor_cell_new : PageBase
     {
+        private bool AppendToEnd = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,7 +28,7 @@ namespace FineUI.Examples.grid
                 defaultObj.Add("Major", "化学系");
 
                 // 第一行新增一条数据
-                btnNew.OnClientClick = Grid1.GetAddNewRecordReference(defaultObj, false);
+                btnNew.OnClientClick = Grid1.GetAddNewRecordReference(defaultObj, AppendToEnd);
 
                 btnReset.OnClientClick = Grid1.GetRejectChangesReference();
 
@@ -50,6 +52,16 @@ namespace FineUI.Examples.grid
 
         #region Events
 
+        private DataRow CreateNewData(DataTable table, Dictionary<string, string> newAddedData)
+        {
+            DataRow rowData = table.NewRow();
+
+            // 设置行ID（模拟数据库的自增长列）
+            rowData["Id"] = GetNextRowID();
+            UpdateDataRow(newAddedData, rowData);
+
+            return rowData;
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -66,16 +78,22 @@ namespace FineUI.Examples.grid
 
             // 新增数据
             List<Dictionary<string, string>> newAddedList = Grid1.GetNewAddedList();
-            for (int i = newAddedList.Count - 1; i >= 0; i--)
+            DataTable table = GetSourceData();
+            if (AppendToEnd)
             {
-                DataTable table = GetSourceData();
-                DataRow rowData = table.NewRow();
-
-                // 设置行ID（模拟数据库的自增长列）
-                rowData["Id"] = GetNextRowID();
-                UpdateDataRow(newAddedList[i], rowData);
-
-                table.Rows.InsertAt(rowData, 0);
+                for (int i = 0; i < newAddedList.Count; i++)
+                {
+                    DataRow rowData = CreateNewData(table, newAddedList[i]);
+                    table.Rows.Add(rowData);
+                }
+            }
+            else
+            {
+                for (int i = newAddedList.Count - 1; i >= 0; i--)
+                {
+                    DataRow rowData = CreateNewData(table, newAddedList[i]);
+                    table.Rows.InsertAt(rowData, 0);
+                }
             }
 
 
