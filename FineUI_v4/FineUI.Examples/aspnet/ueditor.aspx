@@ -48,7 +48,7 @@
             editorPromise(editor).then(function () {
                 window.setTimeout(function () {
                     F(containerClientID).updateLayout();
-                }, 100);
+                }, 200);
             });
         }
 

@@ -1393,7 +1393,6 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
 
 // 修正IE7/IE8下Date.parse('2015-10-01')出错的问题
 // http://jibbering.com/faq/#parseDate
-/*
 (function () {
     function parseISO8601(dateStr) {
         var isoExp = /(\d{2,4})-(\d\d?)-(\d\d?)/,
@@ -1420,4 +1419,4 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
     }
 
 })();
-*/
+

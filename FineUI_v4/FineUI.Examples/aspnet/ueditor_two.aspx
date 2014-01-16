@@ -130,7 +130,7 @@
             $.when(editorPromise(editor1), editorPromise(editor2)).then(function () {
                 window.setTimeout(function () {
                     F(formClientID).updateLayout();
-                }, 100);
+                }, 200);
             });
         }
 
