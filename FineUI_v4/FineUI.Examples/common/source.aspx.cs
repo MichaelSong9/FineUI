@@ -22,15 +22,17 @@ namespace FineUI.Examples
             {"iframe/parent_postback_top.aspx", "~/iframe/parent_postback_top2.aspx;~/iframe/parent_postback_top3.aspx"},
             {"iframe/triggerbox_iframe.aspx", "~/iframe/triggerbox_iframe_iframe.aspx"},
             {"iframe/passvalue_iframe.aspx", "~/iframe/passvalue_iframe_iframe.aspx"},
-            {"other/accordion_links.aspx", "~/other/accordion_links_iframe.htm"},
-            {"usercontrol/userinfo.aspx", "~/usercontrol/UserInfoControl.ascx"},
-            {"usercontrol/userinfo2.aspx", "~/usercontrol/UserInfoControl.ascx"},
-            {"usercontrol/userinfo_dynamic.aspx", "~/usercontrol/UserInfoControl.ascx"},
             {"iframe/selectprovince1.aspx", "~/iframe/selectprovince1_child.aspx"},
             {"iframe/selectprovince2.aspx", "~/iframe/selectprovince2_child.aspx"},
             {"iframe/selectprovince3.aspx", "~/iframe/selectprovince3_child.aspx"},
             {"iframe/topmenu2/default.aspx", "~/iframe/topmenu2/default.aspx;~/iframe/topmenu2/leftmenu.aspx"},
 			{"iframe/topmenu3/default.aspx", "~/iframe/topmenu3/default.aspx;~/iframe/topmenu3/leftmenu.aspx"},
+            {"iframe/window2.aspx", "~/iframe/window2_iframe.aspx"},
+            {"iframe/window.aspx", "~/iframe/window_iframe.aspx"},
+            {"other/accordion_links.aspx", "~/other/accordion_links_iframe.htm"},
+            {"usercontrol/userinfo.aspx", "~/usercontrol/UserInfoControl.ascx"},
+            {"usercontrol/userinfo2.aspx", "~/usercontrol/UserInfoControl.ascx"},
+            {"usercontrol/userinfo_dynamic.aspx", "~/usercontrol/UserInfoControl.ascx"},
             {"tabstrip/tabstrip_iframe_disabled.aspx", "~/tabstrip/tabstrip_iframe_disabled_tab1.aspx"}
             
         };
