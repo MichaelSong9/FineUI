@@ -142,6 +142,18 @@ F.customEvent = function (argument, validate) {
                 Ext.BLANK_IMAGE_URL = blankImageUrl;
             }
 
+            // Submit
+            F.ready(function () {
+                if (F.submitbutton) {
+                    Ext.ComponentManager.each(function (key, cmp) {
+                        if (cmp.isXType && cmp.isXType('panel') && cmp.renderTo) {
+                            F.util.registerPanelEnterKey(cmp);
+                        }
+                    });
+                }
+
+            });
+
         },
 
         _readyList: [],
@@ -917,15 +929,25 @@ F.customEvent = function (argument, validate) {
         },
 
         // 表单字段内按回车键触发提交按钮
-        formEnterKey: function (form, submitBtnID) {
-            Ext.create('Ext.util.KeyNav', form.el, {
-                enter: function (e) {
-                    var el = Ext.Element.getActiveElement();
-                    if (el.type !== 'textarea') {
-                        F(submitBtnID).el.dom.click();
-                    }
-                },
-                scope: form
+        registerPanelEnterKey: function (panel) {
+            if (F.submitbutton) {
+                Ext.create('Ext.util.KeyNav', panel.el, {
+                    enter: function (e) {
+                        var el = Ext.Element.getActiveElement();
+                        if (el.type !== 'textarea') {
+                            F(F.submitbutton).el.dom.click();
+                        }
+                    },
+                    scope: panel
+                });
+            }
+        },
+
+        reset: function () {
+            Ext.ComponentManager.each(function (key, cmp) {
+                if (cmp.isXType && cmp.isXType('panel') && cmp.renderTo) {
+                    cmp.f_reset();
+                }
             });
         }
 

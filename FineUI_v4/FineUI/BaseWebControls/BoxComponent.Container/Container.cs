@@ -92,8 +92,6 @@ namespace FineUI
 
         #endregion
 
-        
-
         #region OnPreRender
 
 
@@ -167,7 +165,6 @@ namespace FineUI
 
             }
 
-            
         }
 
         #endregion

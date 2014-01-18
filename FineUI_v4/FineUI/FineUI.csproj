@@ -83,6 +83,7 @@
     <Compile Include="BaseWebControls\BoxComponent.Container\Container.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field.TextField.RealTextField\RealTextField.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field.TextField\TextField.cs" />
+    <Compile Include="Business\Enums\ButtonType.cs" />
     <Compile Include="Business\Enums\Grid\FieldType.cs" />
     <Compile Include="Business\Enums\Grid\Renderer.cs" />
     <Compile Include="Business\Enums\MessageTarget.cs" />

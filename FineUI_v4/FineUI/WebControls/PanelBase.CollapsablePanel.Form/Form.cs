@@ -85,24 +85,24 @@ namespace FineUI
 
         #region Properties
 
-        /// <summary>
-        /// 表单字段上按回车键触发的提交按钮
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("表单字段上按回车键触发的提交按钮")]
-        public string SubmitButton
-        {
-            get
-            {
-                object obj = FState["SubmitButton"];
-                return obj == null ? String.Empty : (string)obj;
-            }
-            set
-            {
-                FState["SubmitButton"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 表单字段上按回车键触发的提交按钮
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("表单字段上按回车键触发的提交按钮")]
+        //public string SubmitButton
+        //{
+        //    get
+        //    {
+        //        object obj = FState["SubmitButton"];
+        //        return obj == null ? String.Empty : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["SubmitButton"] = value;
+        //    }
+        //}
 
         #endregion
 
@@ -196,14 +196,14 @@ namespace FineUI
             //OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true);
             OB.Listeners.AddProperty("dirtychange", JsHelper.GetFunction("F.util.setPageStateChanged(dirty);", "form", "dirty"), true);
 
-            if (!String.IsNullOrEmpty(SubmitButton))
-            {
-                Control control = ControlUtil.FindControl(SubmitButton);
-                if (control != null && control is ControlBase)
-                {
-                    OB.Listeners.AddProperty("render", JsHelper.GetFunction("F.util.formEnterKey(form,'" + control.ClientID + "');", "form"), true);
-                }
-            }
+            //if (!String.IsNullOrEmpty(SubmitButton))
+            //{
+            //    Control control = ControlUtil.FindControl(SubmitButton);
+            //    if (control != null && control is ControlBase)
+            //    {
+            //        OB.Listeners.AddProperty("render", JsHelper.GetFunction("F.util.formEnterKey(form,'" + control.ClientID + "');", "form"), true);
+            //    }
+            //}
 
 
             string formPanelScript = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());

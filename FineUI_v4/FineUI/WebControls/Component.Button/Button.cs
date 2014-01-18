@@ -317,24 +317,24 @@ namespace FineUI
             }
         }
 
-        ///// <summary>
-        ///// 按钮类型
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue(ButtonType.Button)]
-        //[Description("按钮类型")]
-        //public virtual ButtonType Type
-        //{
-        //    get
-        //    {
-        //        object obj = FState["ButtonType"];
-        //        return obj == null ? ButtonType.Button : (ButtonType)obj;
-        //    }
-        //    set
-        //    {
-        //        FState["ButtonType"] = value;
-        //    }
-        //}
+        /// <summary>
+        /// 按钮类型
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(ButtonType.Button)]
+        [Description("按钮类型")]
+        public virtual ButtonType Type
+        {
+            get
+            {
+                object obj = FState["ButtonType"];
+                return obj == null ? ButtonType.Button : (ButtonType)obj;
+            }
+            set
+            {
+                FState["ButtonType"] = value;
+            }
+        }
 
 
         #endregion
@@ -707,8 +707,22 @@ namespace FineUI
 
             #endregion
 
+            #region Type
+            
+            string submitButtonScript = String.Empty;
+            if (Type == ButtonType.Submit)
+            {
+                submitButtonScript = String.Format("F.submitbutton='{0}';", ClientID);
+            }
+            else if (Type == ButtonType.Reset)
+            {
+                OB.AddProperty("handler", JsHelper.GetFunction("F.util.reset();"), true);
+            }
+
+            #endregion
+            
             string createScript = String.Format("var {0}=Ext.create('Ext.button.Button',{1});", XID, OB.ToString());
-            AddStartupScript(createScript);
+            AddStartupScript(submitButtonScript + createScript);
         }
 
         private string GetClickScript()

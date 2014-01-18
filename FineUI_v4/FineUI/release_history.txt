@@ -46,6 +46,9 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-为Window增加重载方法GetIFrameCustomEventReference方法。
 		-更新示例iframe/window2.aspx，在保存之前首先验证IFrame中的表单。
 		-增加示例other/confirm_cancel2.aspx，演示如何在后台响应确认对话框的确定和取消按钮事件。
+	+根据网友反馈，删除Form和SimpleForm的SubmitButton属性，恢复按钮的Type属性（Submit/Reset）。
+		-尽管新版ExtJS不支持按钮的Submit属性，我们还是手工实现，为了和正常的HTML表单兼容。
+		-更新示例basic/login.aspx和basic/login_captcha.aspx。
 
 
 
