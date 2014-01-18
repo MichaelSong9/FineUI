@@ -350,6 +350,7 @@
     <Content Include="other\button_in_form.aspx" />
     <Content Include="other\confirm_cancel.aspx" />
     <Content Include="other\cssclass.aspx" />
+    <Content Include="other\confirm_cancel2.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
     <Content Include="test\start.aspx" />
@@ -1640,6 +1641,13 @@
     </Compile>
     <Compile Include="other\cssclass.aspx.designer.cs">
       <DependentUpon>cssclass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="other\confirm_cancel2.aspx.cs">
+      <DependentUpon>confirm_cancel2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\confirm_cancel2.aspx.designer.cs">
+      <DependentUpon>confirm_cancel2.aspx</DependentUpon>
     </Compile>
     <Compile Include="tabstrip\tabstrip_iframe_disabled.aspx.cs">
       <DependentUpon>tabstrip_iframe_disabled.aspx</DependentUpon>

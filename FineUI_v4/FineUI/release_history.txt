@@ -40,7 +40,13 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-新增示例grid/grid_editor_cell_databind.aspx，演示在后台绑定可编辑表格中的下拉列表。
 		+修正向表格末尾添加行时，不能默认选中第一个单元格的问题（奋斗~-4658）。
 			-更新示例grid/grid_editor_cell_new.aspx和grid/grid_editor_cell_new_delete.aspx。
-	
+	+为PageManager增加CustomEvent事件。
+		-为PageManager增加ValidateForms、ValidateTarget、ValidateMessageBox属性。
+		-为PageManager增加重载方法GetCustomEventReference。
+		-为Window增加重载方法GetIFrameCustomEventReference方法。
+		-更新示例iframe/window2.aspx，在保存之前首先验证IFrame中的表单。
+		-增加示例other/confirm_cancel2.aspx，演示如何在后台响应确认对话框的确定和取消按钮事件。
+
 
 
 +2014-01-20 v3.3.3

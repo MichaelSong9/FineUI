@@ -63,6 +63,16 @@ F.fieldValue = function (cmp) {
     return F.util.getFormFieldValue(cmp);
 };
 
+F.customEvent = function (argument, validate) {
+    var pmv = F.pagemanager.validate;
+    if (validate && pmv) {
+        if(!F.util.validForms(pmv.forms,pmv.target,pmv.messagebox)){
+            return false;
+        }
+    }
+    __doPostBack(F.pagemanager.name, argument);
+};
+
 (function () {
 
 

@@ -68,6 +68,25 @@ namespace FineUI
 
         #endregion
 
+        /// <summary>
+        /// 获得服务器控件ID的客户端ID数组
+        /// </summary>
+        /// <param name="serverIDs"></param>
+        /// <returns></returns>
+        public static JsArrayBuilder GetControlClientIDs(string[] serverIDs)
+        {
+            JsArrayBuilder array = new JsArrayBuilder();
+            foreach (string controlID in serverIDs)
+            {
+                Control control = ControlUtil.FindControl(controlID);
+                if (control != null && control is ControlBase)
+                {
+                    array.AddProperty((control as ControlBase).ClientID);
+                }
+            }
+            return array;
+        }
+
         #region FindControl
 
         /// <summary>

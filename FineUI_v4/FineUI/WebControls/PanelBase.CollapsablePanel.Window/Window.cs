@@ -1448,7 +1448,28 @@ namespace FineUI
         public string GetIFramePostBackEventReference(string eventArgument)
         {
             return String.Format("F.wnd.getIFrameWindowObject({0}).__doPostBack('',{1});", ScriptID, JsHelper.Enquote(eventArgument));
-        } 
+        }
+
+        /// <summary>
+        /// 获取窗体内IFrame回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <returns>客户端脚本</returns>
+        public string GetIFrameCustomEventReference(string eventArgument)
+        {
+            return GetIFrameCustomEventReference(eventArgument, false);
+        }
+
+        /// <summary>
+        /// 获取窗体内IFrame回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <param name="validateForms">是否在回发前验证表单（在PageManager上进行表单配置）</param>
+        /// <returns>客户端脚本</returns>
+        public string GetIFrameCustomEventReference(string eventArgument, bool validateForms)
+        {
+            return String.Format("F.wnd.getIFrameWindowObject({0}).F.customEvent({1}, {2});", ScriptID, JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
+        }
         #endregion
 
         #region GetShowReference

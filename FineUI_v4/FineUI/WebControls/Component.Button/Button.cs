@@ -339,7 +339,7 @@ namespace FineUI
 
         #endregion
 
-        #region ValidateForms/ValidateTarget
+        #region ValidateForms/ValidateTarget/ValidateMessageBox
 
 
         /// <summary>
@@ -711,24 +711,6 @@ namespace FineUI
             AddStartupScript(createScript);
         }
 
-        ///// <summary>
-        ///// Get resolved icon url (Can be used in client side) from both Icon and IconUrl properties.
-        ///// </summary>
-        ///// <returns></returns>
-        //private string GetResolvedIconUrl()
-        //{
-        //    string iconUrl = IconUrl;
-        //    if (String.IsNullOrEmpty(iconUrl))
-        //    {
-        //        if (Icon != Icon.None)
-        //        {
-        //            iconUrl = IconHelper.GetIconUrl(Icon);
-        //        }
-        //    }
-
-        //    return ResolveUrl(iconUrl);
-        //}
-
         private string GetClickScript()
         {
             string disableControlJavascriptID = ClientID;
@@ -774,15 +756,17 @@ namespace FineUI
             string validateScript = String.Empty;
             if (validateForms != null && validateForms.Length > 0)
             {
-                JsArrayBuilder array = new JsArrayBuilder();
-                foreach (string formID in validateForms)
-                {
-                    Control control = ControlUtil.FindControl(formID);
-                    if (control != null && control is ControlBase)
-                    {
-                        array.AddProperty((control as ControlBase).ClientID);
-                    }
-                }
+                //JsArrayBuilder array = new JsArrayBuilder();
+                //foreach (string formID in validateForms)
+                //{
+                //    Control control = ControlUtil.FindControl(formID);
+                //    if (control != null && control is ControlBase)
+                //    {
+                //        array.AddProperty((control as ControlBase).ClientID);
+                //    }
+                //}
+
+                JsArrayBuilder array = ControlUtil.GetControlClientIDs(validateForms);
 
                 validateScript = String.Format("if(!F.util.validForms({0},'{1}',{2})){{return false;}}", array.ToString(), TargetHelper.GetName(validateTarget), validateMessageBox.ToString().ToLower());
             }

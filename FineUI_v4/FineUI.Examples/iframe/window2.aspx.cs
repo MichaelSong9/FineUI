@@ -18,7 +18,7 @@ namespace FineUI.Examples.iframe
 
                 btnClose.OnClientClick = Window1.GetConfirmHideReference();
 
-                btnClosePostBack.OnClientClick = Window1.GetIFramePostBackEventReference("SAVE");
+                btnClosePostBack.OnClientClick = Window1.GetIFrameCustomEventReference("SAVE", true);
             }
 
             labResult.Text = "页面加载时间：" + DateTime.Now.ToLongTimeString();

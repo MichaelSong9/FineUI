@@ -14,16 +14,14 @@ namespace FineUI.Examples.iframe
             {
                 
             }
-            else
-            {
-                string eventArgument = GetRequestEventArgument();
-                if (eventArgument.StartsWith("SAVE"))
-                {
-                    SaveAndClose();
-                }
-            }
-
-
+            //else
+            //{
+            //    string eventArgument = GetRequestEventArgument();
+            //    if (eventArgument.StartsWith("SAVE"))
+            //    {
+            //        SaveAndClose();
+            //    }
+            //}
         }
 
 
@@ -33,6 +31,14 @@ namespace FineUI.Examples.iframe
 
             // 然后关闭本窗体
             PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
+        }
+
+        protected void PageManager1_CustomEvent(object sender, CustomEventArgs e)
+        {
+            if (e.EventArgument == "SAVE")
+            {
+                SaveAndClose();
+            }
         }
     }
 }

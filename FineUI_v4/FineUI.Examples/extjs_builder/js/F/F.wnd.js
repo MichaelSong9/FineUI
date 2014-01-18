@@ -261,7 +261,7 @@
             }
         },
 
-        // 返回当前活动Window对象（浏览器窗口对象通过F.wnd.getActiveWindow().window获取）
+        // 返回当前活动Window组件对象（浏览器窗口对象通过F.wnd.getActiveWindow().window获取）
         getActiveWindow: function () {
             var activeWindow = parent.window;
             var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.f_window_manager.getActive();

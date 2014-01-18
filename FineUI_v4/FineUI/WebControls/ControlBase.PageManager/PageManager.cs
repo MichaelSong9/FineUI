@@ -42,7 +42,7 @@ namespace FineUI
     [Description("页面配置管理器（每个页面必须包含一个 PageManager 控件）")]
     [ParseChildren(true)]
     [PersistChildren(false)]
-    public class PageManager : ControlBase
+    public class PageManager : ControlBase, IPostBackEventHandler
     {
         #region Unsupported Properties
 
@@ -697,6 +697,70 @@ namespace FineUI
 
         #endregion
 
+        #region ValidateForms/ValidateTarget/ValidateMessageBox
+
+
+        /// <summary>
+        /// 需要验证的表单名称列表（逗号分隔）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(null)]
+        [Description("需要验证的表单名称列表（逗号分隔）")]
+        [TypeConverter(typeof(StringArrayConverter))]
+        public string[] ValidateForms
+        {
+            get
+            {
+                object obj = FState["ValidateForms"];
+                return obj == null ? null : (string[])obj;
+            }
+            set
+            {
+                FState["ValidateForms"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 验证失败时提示对话框弹出位置
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(Target.Self)]
+        [Description("验证失败时提示对话框弹出位置")]
+        public Target ValidateTarget
+        {
+            get
+            {
+                object obj = FState["ValidateTarget"];
+                return obj == null ? Target.Self : (Target)obj;
+            }
+            set
+            {
+                FState["ValidateTarget"] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 验证失败时是否出现提示对话框
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("验证失败时是否出现提示对话框")]
+        public bool ValidateMessageBox
+        {
+            get
+            {
+                object obj = FState["ValidateMessageBox"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["ValidateMessageBox"] = value;
+            }
+        }
+
+        #endregion
+
         #region Form Settings
 
         /// <summary>
@@ -1037,6 +1101,23 @@ namespace FineUI
             // AddStartupAbsoluteScript("F.util.makeAspnetSubmitButtonAjax();");
 
             #endregion
+
+            JsObjectBuilder job = new JsObjectBuilder();
+
+            job.AddProperty("name", UniqueID);
+
+            if (ValidateForms != null && ValidateForms.Length > 0)
+            {
+                JsObjectBuilder validate = new JsObjectBuilder();
+                validate.AddProperty("forms", ControlUtil.GetControlClientIDs(ValidateForms));
+                validate.AddProperty("target", TargetHelper.GetName(ValidateTarget));
+                validate.AddProperty("messagebox", ValidateMessageBox.ToString().ToLower());
+                job.AddProperty("validate", validate);
+
+            }
+
+            string createScript = String.Format("F.pagemanager={1};", XID, job);
+            AddStartupScript(createScript);
         }
 
         #region old code
@@ -1153,5 +1234,77 @@ namespace FineUI
         }
 
         #endregion
+
+        #region GetIFramePostBackEventReference
+
+        /// <summary>
+        /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <returns>客户端脚本</returns>
+        public string GetCustomEventReference(string eventArgument)
+        {
+            return GetCustomEventReference(eventArgument, false);
+        }
+
+        /// <summary>
+        /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <param name="validateForms">是否在回发前验证表单（在PageManager上进行表单配置）</param>
+        /// <returns>客户端脚本</returns>
+        public string GetCustomEventReference(string eventArgument, bool validateForms)
+        {
+            return String.Format("F.customEvent({0}, {1});", JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
+        }
+
+        #endregion
+
+        #region IPostBackEventHandler
+
+        /// <summary>
+        /// 处理回发事件
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        public void RaisePostBackEvent(string eventArgument)
+        {
+            OnCustomEvent(new CustomEventArgs(eventArgument));
+        }
+
+
+        private static readonly object _handlerKey = new object();
+
+        /// <summary>
+        /// 自定义事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("自定义事件")]
+        public event EventHandler<CustomEventArgs> CustomEvent
+        {
+            add
+            {
+                Events.AddHandler(_handlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_handlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发自定义事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnCustomEvent(CustomEventArgs e)
+        {
+            EventHandler<CustomEventArgs> handler = Events[_handlerKey] as EventHandler<CustomEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
     }
 }
