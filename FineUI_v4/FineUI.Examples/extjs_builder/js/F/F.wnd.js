@@ -265,12 +265,13 @@
         getActiveWindow: function () {
             var activeWindow = parent.window;
             var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.f_window_manager.getActive();
-            if (activeExtWindow['f_property_window']) {
-                activeWindow = activeExtWindow['f_property_window'];
-                activeExtWindow = activeExtWindow['f_property_ext_window'];
+            if (activeExtWindow) {
+                if (activeExtWindow['f_property_window']) {
+                    activeWindow = activeExtWindow['f_property_window'];
+                    activeExtWindow = activeExtWindow['f_property_ext_window'];
+                }
+                activeExtWindow.window = activeWindow;
             }
-
-            activeExtWindow.window = activeWindow;
             return activeExtWindow;
         },
 
