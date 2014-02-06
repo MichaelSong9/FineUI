@@ -50,7 +50,6 @@ namespace FineUI
     [PersistChildren(false)]
     public abstract class MenuItem : BaseMenuItem
     {
-
         #region Properties
 
         /// <summary>
@@ -144,7 +143,6 @@ namespace FineUI
 
         #endregion
 
-
         #region Menu
 
         private Menu _menu;
@@ -215,7 +213,7 @@ namespace FineUI
         {
             base.CreateChildControls();
 
-            Menu.RenderWrapperNode = false;
+            //Menu.RenderWrapperNode = false;
             Controls.Add(Menu);
         }
 

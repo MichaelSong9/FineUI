@@ -6,12 +6,14 @@ F.ready(function () {
     var mainMenu = F(IDS.mainMenu);
     var mainTabStrip = F(IDS.mainTabStrip);
     var windowSourceCode = F(IDS.windowSourceCode);
+    var leftRegion = F(IDS.leftRegion);
+    var menuSettings = F(IDS.menuSettings);
 
     // 当前展开的手风琴面板
     function getExpandedPanel() {
         var panel = null;
         mainMenu.items.each(function (item) {
-            if (!item.collapsed) {
+            if (!item.getCollapsed()) {
                 panel = item;
             }
         });
@@ -45,6 +47,7 @@ F.ready(function () {
             }
         }
     });
+
 
     function createToolbar(tabConfig) {
 
@@ -114,7 +117,7 @@ F.ready(function () {
 
 
 
-    // 公开添加示例标签页的方法
+    // 添加示例标签页
     window.addExampleTab = function (id, url, text, icon, refreshWhenExist) {
         // 动态添加一个标签页
         // mainTabStrip： 选项卡实例
@@ -127,9 +130,22 @@ F.ready(function () {
         F.util.addMainTab(mainTabStrip, id, url, text, icon, null, refreshWhenExist);
     };
 
+    // 移除选中标签页
     window.removeActiveTab = function () {
         var activeTab = mainTabStrip.getActiveTab();
         mainTabStrip.removeTab(activeTab.id);
     };
+
+
+    leftRegion.addTool({
+        type: 'gear',
+        tooltip: '系统设置',
+        regionTool: true,
+        handler: function (event, toolEl, panelHeader) {
+            menuSettings.showBy(this);
+        }
+    });
+
+    
 
 });

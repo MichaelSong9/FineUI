@@ -503,7 +503,7 @@ namespace FineUI
                 {
                     _menu = new Menu();
 
-                    _menu.RenderWrapperNode = false;
+                    //_menu.RenderWrapperNode = false;
                     Controls.Add(_menu);
 
                 }

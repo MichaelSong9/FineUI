@@ -26,65 +26,12 @@
                                 <a href="./default.aspx">FineUI在线示例</a>
                             </div>
                             <div class="config">
-                                <f:Button ID="Button2" EnablePostBack="false" Icon="Cog" Text="设置" runat="server">
-                                    <Menu ID="Menu1" runat="server">
-                                        <f:MenuButton ID="btnExpandAll" IconUrl="~/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
-                                            runat="server">
-                                        </f:MenuButton>
-                                        <f:MenuButton ID="btnCollapseAll" IconUrl="~/images/collapse-all.gif" Text="折叠菜单"
-                                            EnablePostBack="false" runat="server">
-                                        </f:MenuButton>
-                                        <f:MenuSeparator ID="MenuSeparator1" runat="server">
-                                        </f:MenuSeparator>
-                                        <f:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
-                                            <Menu ID="Menu3" runat="server">
-                                                <f:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle"
-                                                    AutoPostBack="true" OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                                <f:MenuCheckBox Text="手风琴+树菜单" ID="MenuStyleAccordion" GroupName="MenuStyle" AutoPostBack="true"
-                                                    OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                            </Menu>
-                                        </f:MenuButton>
-                                        <f:MenuButton EnablePostBack="false" Text="语言" ID="MenuLang" runat="server">
-                                            <Menu ID="Menu2" runat="server">
-                                                <f:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang"
-                                                    AutoPostBack="true" OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                                <f:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" AutoPostBack="true"
-                                                    OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                                <f:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" AutoPostBack="true"
-                                                    OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                            </Menu>
-                                        </f:MenuButton>
-                                        <f:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
-                                            <Menu ID="Menu4" runat="server">
-                                                <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme"
-                                                    AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                                <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme"
-                                                    AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                                <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" AutoPostBack="true"
-                                                    OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                                <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" AutoPostBack="true"
-                                                    OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
-                                                </f:MenuCheckBox>
-                                            </Menu>
-                                        </f:MenuButton>
-                                        <f:MenuSeparator ID="MenuSeparator2" runat="server">
-                                        </f:MenuSeparator>
-                                        <f:MenuHyperLink runat="server" Text="转到英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank"></f:MenuHyperLink>
-                                    </Menu>
-                                </f:Button>
+                                
                             </div>
                         </f:ContentPanel>
                     </Items>
                 </f:Region>
-                <f:Region ID="Region2" Split="true" Width="200px" ShowHeader="true" Title="示例菜单"
+                <f:Region ID="leftRegion" Split="true" Width="200px" ShowHeader="true" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                 </f:Region>
                 <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" Position="Center"
@@ -161,6 +108,58 @@
             runat="server" IsModal="true" Width="950px" Height="550px" EnableClose="true"
             EnableMaximize="true" EnableResize="true">
         </f:Window>
+        <f:Menu ID="menuSettings" runat="server">
+            <f:MenuButton ID="btnExpandAll" IconUrl="~/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
+                runat="server">
+            </f:MenuButton>
+            <f:MenuButton ID="btnCollapseAll" IconUrl="~/images/collapse-all.gif" Text="折叠菜单"
+                EnablePostBack="false" runat="server">
+            </f:MenuButton>
+            <f:MenuSeparator ID="MenuSeparator1" runat="server">
+            </f:MenuSeparator>
+            <f:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
+                <Menu ID="Menu3" runat="server">
+                    <f:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle"
+                        AutoPostBack="true" OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="手风琴+树菜单" ID="MenuStyleAccordion" GroupName="MenuStyle" AutoPostBack="true"
+                        OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                </Menu>
+            </f:MenuButton>
+            <f:MenuButton EnablePostBack="false" Text="语言" ID="MenuLang" runat="server">
+                <Menu ID="Menu2" runat="server">
+                    <f:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang"
+                        AutoPostBack="true" OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" AutoPostBack="true"
+                        OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" AutoPostBack="true"
+                        OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                </Menu>
+            </f:MenuButton>
+            <f:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
+                <Menu ID="Menu4" runat="server">
+                    <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme"
+                        AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme"
+                        AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" AutoPostBack="true"
+                        OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" AutoPostBack="true"
+                        OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    </f:MenuCheckBox>
+                </Menu>
+            </f:MenuButton>
+            <f:MenuSeparator ID="MenuSeparator2" runat="server">
+            </f:MenuSeparator>
+            <f:MenuHyperLink ID="MenuHyperLink1" runat="server" Text="转到英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank"></f:MenuHyperLink>
+        </f:Menu>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
     <img src="images/logo/logo3.png" alt="FineUI 图标" id="logo" />

@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Tree>
-  <TreeNode Text="配置信息">
-    <TreeNode Text="发布历史" NavigateUrl="http://fineui.com/version/index.html?from=demo">
-    </TreeNode>
-    <TreeNode Text="版本发布周期" NavigateUrl="~/config/release_time_chart.htm" >
-    </TreeNode>
-    <TreeNode Text="配置 Web.config" NavigateUrl="~/config/modify_webconfig.htm" >
-    </TreeNode>
-    <TreeNode Text="内置图标" NavigateUrl="~/config/icons.htm" >
-    </TreeNode>
-    <TreeNode Text="安装工具箱" NavigateUrl="~/config/install_toolbox.htm" >
-    </TreeNode>
-    <TreeNode Text="IIS6中启用GZIP压缩" NavigateUrl="~/config/enable_gzip_iis6.htm" >
-    </TreeNode>
-    <TreeNode Text="AJAX 属性列表" NavigateUrl="~/config/ajax.aspx" >
-    </TreeNode>
-  </TreeNode>
   <TreeNode Text="基本用法">
+    <TreeNode Text="配置信息">
+      <TreeNode Text="发布历史" NavigateUrl="http://fineui.com/version/index.html?from=demo">
+      </TreeNode>
+      <TreeNode Text="版本发布周期" NavigateUrl="~/config/release_time_chart.htm" >
+      </TreeNode>
+      <TreeNode Text="配置 Web.config" NavigateUrl="~/config/modify_webconfig.htm" >
+      </TreeNode>
+      <TreeNode Text="内置图标" NavigateUrl="~/config/icons.htm" >
+      </TreeNode>
+      <TreeNode Text="安装工具箱" NavigateUrl="~/config/install_toolbox.htm" >
+      </TreeNode>
+      <TreeNode Text="IIS6中启用GZIP压缩" NavigateUrl="~/config/enable_gzip_iis6.htm" >
+      </TreeNode>
+      <TreeNode Text="AJAX 属性列表" NavigateUrl="~/config/ajax.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="你好 FineUI" NavigateUrl="~/basic/hello.aspx" >
     </TreeNode>
     <TreeNode Text="你好 AspNet" NavigateUrl="~/basic/hello_aspnet.aspx">

@@ -24,7 +24,7 @@ namespace FineUI.Examples
             }
 
             // 注册客户端脚本，服务器端控件ID和客户端ID的映射关系
-            JObject ids = GetClientIDS(btnExpandAll, btnCollapseAll, windowSourceCode, mainTabStrip);
+            JObject ids = GetClientIDS(btnExpandAll, btnCollapseAll, windowSourceCode, mainTabStrip, leftRegion, menuSettings);
 
             if (menuType == "accordion")
             {
@@ -56,7 +56,7 @@ namespace FineUI.Examples
             accordionMenu.EnableFill = true;
             accordionMenu.ShowBorder = false;
             accordionMenu.ShowHeader = false;
-            Region2.Items.Add(accordionMenu);
+            leftRegion.Items.Add(accordionMenu);
 
 
             XmlDocument xmlDoc = XmlDataSource1.GetXmlDocument();
@@ -106,7 +106,7 @@ namespace FineUI.Examples
             treeMenu.EnableIcons = false;
             treeMenu.AutoScroll = true;
             treeMenu.EnableSingleClickExpand = true;
-            Region2.Items.Add(treeMenu);
+            leftRegion.Items.Add(treeMenu);
 
             // 绑定 XML 数据源到树控件
             treeMenu.DataSource = XmlDataSource1;
