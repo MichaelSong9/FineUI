@@ -22,8 +22,8 @@
                         </f:ToolbarText>
                         <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
                         </f:ToolbarSeparator>
-                        <f:ToolbarText runat="server" Text="工具条文本三" ID="ToolbarText3">
-                        </f:ToolbarText>
+                        <f:Button ID="Button1" Text="工具条按钮" runat="server" EnablePostBack="false">
+                        </f:Button>
                         <f:ToolbarFill ID="ToolbarFill1" runat="server">
                         </f:ToolbarFill>
                         <f:ToolbarText Text="工具条文本四" ID="ToolbarText4" runat="server">
@@ -42,9 +42,10 @@
         <br />
         <f:Button ID="Button2" CssClass="inline" Text="检查面板的折叠状态" runat="server" OnClick="Button2_Click">
         </f:Button>
-        <f:Button ID="Button3" CssClass="inline" Text="展开/折叠内容面板" runat="server" OnClick="Button3_Click">
-        </f:Button>
         <f:Button ID="Button4" Text="更新面板的标题" runat="server" OnClick="Button4_Click">
+        </f:Button>
+        <br />
+        <f:Button ID="Button3" Text="展开/折叠内容面板" runat="server" OnClick="Button3_Click">
         </f:Button>
         <br />
         <f:Button ID="Button5" CssClass="inline" Text="更新工具条文本一的值" runat="server" OnClick="Button5_Click">

@@ -23,12 +23,12 @@
                     <f:Button ID="btnClose" Text="关闭" EnablePostBack="false" runat="server" Icon="SystemClose">
                     </f:Button>
                     <f:Button ID="btnClosePostBack" OnClick="btnClosePostBack_Click" runat="server"
-                        Text="关闭-回发父页面" Icon="SystemSaveNew">
+                        Text="关闭-回发父页面" Icon="SystemSave">
                     </f:Button>
                     <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
                     </f:ToolbarSeparator>
                     <f:Button ID="btnSelect" OnClick="btnSelect_Click" runat="server" Text="选择文本输入框的值"
-                        Icon="SystemSaveNew">
+                        Icon="SystemSave">
                     </f:Button>
                 </Items>
             </f:Toolbar>

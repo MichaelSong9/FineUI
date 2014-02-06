@@ -26,6 +26,10 @@
                         </f:ToolbarSeparator>
                         <f:ToolbarText Text="工具条文本二" ID="ToolbarText4" runat="server">
                         </f:ToolbarText>
+                        <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
+                        </f:ToolbarSeparator>
+                        <f:Button ID="Button1" runat="server" EnablePostBack="false" Text="工具栏按钮">
+                        </f:Button>
                     </Items>
                 </f:Toolbar>
                 <f:Toolbar runat="server" Position="Footer" ToolbarAlign="Right">

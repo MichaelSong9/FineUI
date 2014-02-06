@@ -19,15 +19,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="formPanel" runat="server" />
+        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" runat="server" />
         <f:Panel ID="Panel1" ShowBorder="false" ShowHeader="false" Layout="Fit" BodyPadding="5px"
             runat="server">
             <Toolbars>
                 <f:Toolbar runat="server">
                     <Items>
-                        <f:Button ID="btnClose" Text="关闭" EnablePostBack="false" runat="server">
+                        <f:Button ID="btnClose" Text="关闭" EnablePostBack="false" Icon="SystemClose" runat="server">
                         </f:Button>
-                        <f:Button ID="btnClosePostBack" Text="保存数据" ValidateForms="SimpleForm1" OnClick="btnClosePostBack_Click"
+                        <f:Button ID="btnClosePostBack" Text="保存数据" ValidateForms="SimpleForm1" OnClick="btnClosePostBack_Click" Icon="SystemSave"
                             runat="server">
                         </f:Button>
                     </Items>

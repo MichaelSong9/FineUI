@@ -65,12 +65,15 @@ Ext.override(Ext.panel.Panel, {
     },
 
     f_isCollapsed: function () {
+        /*
         var collapsed = false;
         var state = this.getState();
         if (state && state.collapsed) {
             collapsed = true;
         }
         return collapsed;
+        */
+        return !!this.getCollapsed();
     },
 
     f_setTitle: function () {

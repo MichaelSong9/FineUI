@@ -18,10 +18,10 @@
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server" Position="Footer" ToolbarAlign="Right">
                     <Items>
-                        <f:Button ID="btnClosePostBack" Text="保存" EnablePostBack="false"
+                        <f:Button ID="btnClosePostBack" Text="保存" Icon="SystemSave" EnablePostBack="false"
                             runat="server">
                         </f:Button>
-                        <f:Button ID="btnClose" Text="关闭" EnablePostBack="false" runat="server">
+                        <f:Button ID="btnClose" Text="关闭" Icon="SystemClose" EnablePostBack="false" runat="server">
                         </f:Button>
                     </Items>
                 </f:Toolbar>

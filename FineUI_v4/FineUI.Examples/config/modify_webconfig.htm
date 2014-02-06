@@ -15,17 +15,17 @@
 </head>
 <body class="f-body">
     <div>
-        在开发项目之前一定要配置好 Web.config：
+        在开发项目之前请配置好 Web.config：
     </div>
-    <ul>
-        <li>打开 web.config，在 configuration 配置节:
+    <ol>
+        <li><strong>设置 configuration 配置节：</strong>
             <br />
             <pre style="font-style: italic;">
     &lt;configSections&gt;
         &lt;section name="FineUI" type="FineUI.ConfigSection, FineUI"/&gt;
     &lt;/configSections&gt;
 
-    &lt;!-- 可用的配置项（这里列的都是默认值）:Language="zh_CN" AjaxTimeout="60" EnableAjax="true" Theme="blue" FormMessageTarget="qtip" FormOffsetRight="20" FormLabelWidth="100" FormLabelSeparator="：" IconBasePath="~/icon" EnableAjaxLoading="true" AjaxLoadingType="default" CustomTheme="" CustomThemeBasePath="~/theme" --&gt;
+    &lt;!-- 可用的配置项（这里列的都是默认值）:Language="zh_CN" AjaxTimeout="60" EnableAjax="true" Theme="blue" FormMessageTarget="qtip" FormOffsetRight="20" FormLabelWidth="100" FormLabelSeparator="：" IconBasePath="~/icon" EnableAjaxLoading="true" AjaxLoadingType="default" CustomTheme="" CustomThemeBasePath="~/theme" JSBasePath="~/extjs" --&gt;
     &lt;FineUI DebugMode="false" /&gt;
             </pre>
             FineUI 配置节中的参数：
@@ -47,7 +47,7 @@
             <br />
             <br />
         </li>
-        <li>在 system.web 配置节：
+        <li><strong>设置 system.web 配置节：</strong>
             <pre style="font-style: italic;">
     &lt;pages&gt;
       &lt;controls&gt;
@@ -59,13 +59,10 @@
       &lt;add name="FineUIScriptModule" type="FineUI.ScriptModule, FineUI"/&gt;
     &lt;/httpModules&gt;
 
-    &lt;httpHandlers&gt;
-        &lt;add verb="GET" path="res.axd" type="FineUI.ResourceHandler, FineUI"/&gt;
-    &lt;/httpHandlers&gt;
         </pre>
         </li>
-        <li>完成。</li>
-    </ul>
+        <li><strong>完成。</strong></li>
+    </ol>
     <br />
     <div style="font-weight: bold; color: Red;">
         特别提醒
@@ -84,7 +81,7 @@
         注意引用的Newtonsoft.Json.dll版本
     </div>
     <br />
-    FineUI.dll只有一个For Net2.0的版本，无论你的项目是2.0、3.5、4.0、4.5，都只需要引用同一个FineUI.dll即可。
+    FineUI.dll只有一个版本，无论你的项目是2.0、3.5、4.0、4.5，都只需要引用同一个FineUI.dll即可。
     <br />
     <br />
     Newtonsoft.Json.dll为每个.Net版本创建不同的DLL，比如你的项目是基于.Net 2.0的，就要引用json.net\Net20\Newtonsoft.Json.dll，如果你的项目是基于.Net

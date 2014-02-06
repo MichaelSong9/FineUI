@@ -3,6 +3,8 @@
 Ext.define('Ext.ux.SimplePagingToolbar', {
     extend: 'Ext.toolbar.Paging',
 
+    cls: 'x-toolbar-paging',
+
     // Override parent
     initComponent: function () {
         var me = this;

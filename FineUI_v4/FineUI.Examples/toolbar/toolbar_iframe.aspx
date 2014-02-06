@@ -10,8 +10,9 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel runat="server" ID="Panel1" Title="面板" Width="600px" Height="450px" EnableIFrame="true" EnableFrame="true" EnableCollapse="true"
-            IFrameName="main">
+        <f:Panel runat="server" ID="Panel1" Title="面板" Width="600px" Height="450px" 
+            EnableIFrame="true" IFrameName="main" IFrameUrl="about:blank"
+            EnableFrame="true" EnableCollapse="true">
             <Toolbars>
                 <f:Toolbar runat="server" Position="Top">
                     <Items>
