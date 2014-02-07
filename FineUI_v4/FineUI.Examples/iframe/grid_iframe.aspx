@@ -37,52 +37,47 @@
                         </f:FormRow>
                     </Rows>
                 </f:Form>
-                <f:Panel ID="Panel8" ShowBorder="True" ShowHeader="false" BoxFlex="1" Layout="Fit"
-                    runat="server">
+                <f:Grid ID="Grid2" Title="Grid2" PageSize="80" ShowBorder="true" BoxFlex="1" AllowPaging="true"
+                    OnPageIndexChange="Grid2_PageIndexChange" ShowHeader="false" runat="server" EnableCheckBoxSelect="True"
+                    DataKeyNames="Id,Name" OnSort="Grid2_Sort">
                     <Toolbars>
                         <f:Toolbar ID="Toolbar2" runat="server">
                             <Items>
                                 <f:Button ID="btnPopupWindow" Text="弹出对话框" runat="server">
                                 </f:Button>
-                                <f:ToolbarSeparator runat="server">
+                                <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
                                 </f:ToolbarSeparator>
                                 <f:Button ID="btnCheckSelection" Text="检查选中项状态" runat="server">
                                 </f:Button>
-                                <f:ToolbarSeparator runat="server">
+                                <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
                                 </f:ToolbarSeparator>
                                 <f:Button ID="btnConfirmButton" Text="删除选中行" runat="server">
                                 </f:Button>
                             </Items>
                         </f:Toolbar>
                     </Toolbars>
-                    <Items>
-                        <f:Grid ID="Grid2" Title="Grid2" PageSize="80" ShowBorder="false" AllowPaging="true"
-                            OnPageIndexChange="Grid2_PageIndexChange" ShowHeader="False" runat="server" EnableCheckBoxSelect="True"
-                            DataKeyNames="Id,Name" OnSort="Grid2_Sort">
-                            <Columns>
-                                <f:RowNumberField />
-                                <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
-                                <f:TemplateField Width="80px" HeaderText="性别">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
-                                    </ItemTemplate>
-                                </f:TemplateField>
-                                <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
-                                <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                                <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
-                                    DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                                    DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                                <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
-                                    HeaderText="分组"></f:ImageField>
-                                <f:WindowField TextAlign="Center" Width="80px" WindowID="Window1" Icon="Pencil"
-                                    ToolTip="编辑" DataIFrameUrlFields="Id,Name" DataIFrameUrlFormatString="../grid/grid_iframe_window.aspx?id={0}&name={1}"
-                                    Title="编辑" IFrameUrl="~/alert.aspx" />
-                                <f:LinkButtonField TextAlign="Center" Width="80px" Icon="Delete" ToolTip="删除" ConfirmText="确认删除？（功能未实现）"
-                                    CommandName="LinkButtonMyText" />
-                            </Columns>
-                        </f:Grid>
-                    </Items>
-                </f:Panel>
+                    <Columns>
+                        <f:RowNumberField />
+                        <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
+                        <f:TemplateField Width="80px" HeaderText="性别">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# GetGender(Eval("Gender")) %>'></asp:Label>
+                            </ItemTemplate>
+                        </f:TemplateField>
+                        <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
+                        <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
+                        <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
+                            DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
+                            DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
+                        <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
+                            HeaderText="分组"></f:ImageField>
+                        <f:WindowField TextAlign="Center" Width="80px" WindowID="Window1" Icon="Pencil"
+                            ToolTip="编辑" DataIFrameUrlFields="Id,Name" DataIFrameUrlFormatString="../grid/grid_iframe_window.aspx?id={0}&name={1}"
+                            Title="编辑" IFrameUrl="~/alert.aspx" />
+                        <f:LinkButtonField TextAlign="Center" Width="80px" Icon="Delete" ToolTip="删除" ConfirmText="确认删除？（功能未实现）"
+                            CommandName="LinkButtonMyText" />
+                    </Columns>
+                </f:Grid>
             </Items>
         </f:Panel>
         <f:Window ID="Window1" Title="弹出窗体" Hidden="true" EnableIFrame="true"

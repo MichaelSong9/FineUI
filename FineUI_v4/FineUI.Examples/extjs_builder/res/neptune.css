@@ -1,13 +1,17 @@
 
 .x-toolbar.x-toolbar-default.x-docked-top {
-    border-bottom-color: #3892d3!important;
+    border-bottom-color: #ccc!important;
     border-bottom-width: 1px!important;
     background-color: #dfeaf2;
 }
 
+.x-grid .x-toolbar.x-toolbar-default.x-docked-top {
+    border-bottom-width: 0!important;
+}
+
 
 .x-toolbar.x-toolbar-default.x-docked-bottom {
-    border-top-color: #3892d3!important;
+    border-top-color: #ccc!important;
     border-top-width: 1px!important;
     background-color: #dfeaf2;
 }
@@ -18,14 +22,14 @@
 }
 
 .x-toolbar.x-toolbar-default.x-docked-left {
-    border-right-color: #3892d3!important;
+    border-right-color: #ccc!important;
     border-right-width: 1px!important;
     background-color: #dfeaf2;
 }
 
 
 .x-toolbar.x-toolbar-default.x-docked-right {
-    border-left-color: #3892d3!important;
+    border-left-color: #ccc!important;
     border-left-width: 1px!important;
     background-color: #dfeaf2;
 }
