@@ -417,7 +417,7 @@
         if (!enableAjaxLoading()) {
             // Do nothing
         } else {
-            Ext.defer(_showAjaxLoading, 100, window, [ajaxLoadingType()]);
+            Ext.defer(_showAjaxLoading, 50, window, [ajaxLoadingType()]);
         }
     });
 
@@ -428,7 +428,7 @@
         if (!enableAjaxLoading()) {
             // ...
         } else {
-            Ext.defer(_hideAjaxLoading, 100, window, [ajaxLoadingType()]);
+            Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
         }
         F.control_enable_ajax_loading = undefined;
         F.control_ajax_loading_type = undefined;
@@ -441,7 +441,7 @@
         if (!enableAjaxLoading()) {
             // ...
         } else {
-            Ext.defer(_hideAjaxLoading, 100, window, [ajaxLoadingType()]);
+            Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
         }
         F.control_enable_ajax_loading = undefined;
         F.control_ajax_loading_type = undefined;
