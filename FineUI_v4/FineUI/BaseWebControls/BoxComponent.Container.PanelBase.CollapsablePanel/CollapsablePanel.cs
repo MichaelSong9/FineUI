@@ -42,7 +42,7 @@ namespace FineUI
     /// <summary>
     /// 可折叠面板控件基类（抽象类）
     /// </summary>
-    public abstract class CollapsablePanel : PanelBase, IPostBackDataHandler
+    public abstract class CollapsablePanel : PanelBase, IPostBackDataHandler, IPostBackEventHandler
     {
         #region Constructor
 
@@ -439,5 +439,53 @@ namespace FineUI
 
         #endregion
 
+        #region IPostBackEventHandler
+
+        /// <summary>
+        /// 处理回发事件
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        public virtual void RaisePostBackEvent(string eventArgument)
+        {
+            if (eventArgument == "Collapse")
+            {
+                OnCollapse(EventArgs.Empty);
+            }
+        }
+
+
+        private static readonly object _handlerKey = new object();
+
+        /// <summary>
+        /// 折叠展开事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("折叠展开事件")]
+        public event EventHandler Collapse
+        {
+            add
+            {
+                Events.AddHandler(_handlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_handlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发折叠展开事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnCollapse(EventArgs e)
+        {
+            EventHandler handler = Events[_handlerKey] as EventHandler;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        } 
+
+        #endregion
     }
 }

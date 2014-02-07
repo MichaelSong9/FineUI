@@ -514,8 +514,6 @@ namespace FineUI
 
         #endregion
 
-        #region OnAjaxPreRender OnFirstPreRender
-
         #region PressedHiddenFieldID
 
         //[Browsable(false)]
@@ -584,6 +582,7 @@ namespace FineUI
 
         #endregion
 
+        #region OnFirstPreRender
 
         /// <summary>
         /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
@@ -626,8 +625,8 @@ namespace FineUI
             //{
             //    OB.AddProperty("type", ButtonTypeName.GetName(Type));
             //}
-           
-            
+
+
 
             if (Size != ButtonSize.Small)
             {
@@ -708,7 +707,7 @@ namespace FineUI
             #endregion
 
             #region Type
-            
+
             string submitButtonScript = String.Empty;
             if (Type == ButtonType.Submit)
             {
@@ -720,7 +719,7 @@ namespace FineUI
             }
 
             #endregion
-            
+
             string createScript = String.Format("var {0}=Ext.create('Ext.button.Button',{1});", XID, OB.ToString());
             AddStartupScript(submitButtonScript + createScript);
         }
@@ -742,7 +741,6 @@ namespace FineUI
             return ResolveClientScript(ValidateForms, ValidateTarget, ValidateMessageBox, EnablePostBack, GetPostBackEventReference(),
                 ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, OnClientClick, disableControlJavascriptID);
         }
-
 
         #endregion
 

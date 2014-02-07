@@ -32,8 +32,11 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-树控件增加EnableSingleClickExpand属性，实现单击展开树节点功能（erp8@live.cn）。
 	-修复手风琴控件首次加载后无法获取展开状态的问题（asdfsdgd）。
 	-将在线示例的设置按钮移到左侧面板的顶部。
-	-修正表格无法多选的问题。
+	+修正表格无法多选的问题。
+		-更新示例grid/grid_checkboxfield_rowcheckall.aspx。
+		-增加示例grid/grid_checkboxfield_rowcheckall_clientside.aspx。
 	-面板的展开折叠事件，手风琴控件的激活面板改变事件。
+	-eventArgument == "Collapse" 
 
 
 

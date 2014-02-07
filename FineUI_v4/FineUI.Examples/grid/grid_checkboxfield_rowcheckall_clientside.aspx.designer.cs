@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_checkboxfield_rowcheckall {
+    public partial class grid_checkboxfield_rowcheckall_clientside {
         
         /// <summary>
         /// form1 控件。

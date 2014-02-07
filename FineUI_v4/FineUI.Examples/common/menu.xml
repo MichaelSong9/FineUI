@@ -178,9 +178,9 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="扩展列">
-      <TreeNode Text="复选列" NavigateUrl="~/grid/grid_checkall.aspx" >
+      <TreeNode Text="全选列" NavigateUrl="~/grid/grid_checkall.aspx" >
       </TreeNode>
-      <TreeNode Text="复选列（只能通过复选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
+      <TreeNode Text="全选列（只能通过全选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
       </TreeNode>
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
       </TreeNode>
@@ -218,7 +218,9 @@
       </TreeNode>
       <TreeNode Text="复选框列（自动回发）" NavigateUrl="~/grid/grid_checkboxfield_autopostback.aspx" >
       </TreeNode>
-      <TreeNode Text="全选行复选框" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall.aspx" >
+      <TreeNode Text="全选复选框列" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall.aspx" >
+      </TreeNode>
+      <TreeNode Text="全选复选框列（客户端实现）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_clientside.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="模板列">

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_checkboxfield_rowcheckall : PageBase
+    public partial class grid_checkboxfield_rowcheckall_clientside : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -68,36 +68,8 @@ namespace FineUI.Examples.grid
         }
 
 
-        
-
-        private void ChangeCheckBoxStatus(bool checkedState)
-        {
-            CheckBoxField field1 = (CheckBoxField)Grid1.FindColumn("CheckBoxField1");
-            CheckBoxField field2 = (CheckBoxField)Grid1.FindColumn("CheckBoxField2");
-            CheckBoxField field3 = (CheckBoxField)Grid1.FindColumn("CheckBoxField3");
-
-
-            foreach (int rowIndex in Grid1.SelectedRowIndexArray)
-            {
-                field1.SetCheckedState(rowIndex, checkedState);
-                field2.SetCheckedState(rowIndex, checkedState);
-                field3.SetCheckedState(rowIndex, checkedState);
-            }
-
-        }
-
-
-        protected void btnSelectRows_Click(object sender, EventArgs e)
-        {
-            ChangeCheckBoxStatus(true);
-        }
-
-        protected void btnUnselectRows_Click(object sender, EventArgs e)
-        {
-            ChangeCheckBoxStatus(false);
-        }
-
         #endregion
+
 
     }
 }

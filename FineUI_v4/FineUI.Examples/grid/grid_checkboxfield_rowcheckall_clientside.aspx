@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_checkboxfield_rowcheckall.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_checkboxfield_rowcheckall" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_checkboxfield_rowcheckall_clientside.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_checkboxfield_rowcheckall_clientside" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,13 +17,12 @@
                     <Items>
                         <f:Button ID="Button2" EnablePostBack="false" runat="server" Text="全选/取消">
                             <Menu ID="Menu1" runat="server">
-                                <f:MenuButton ID="btnSelectRows" OnClick="btnSelectRows_Click" runat="server" Text="全选选中行">
+                                <f:MenuButton ID="btnSelectRows" EnablePostBack="false" runat="server" Text="全选选中行">
                                 </f:MenuButton>
-                                <f:MenuButton ID="btnUnselectRows" OnClick="btnUnselectRows_Click" runat="server" Text="取消选中行">
+                                <f:MenuButton ID="btnUnselectRows" EnablePostBack="false" runat="server" Text="取消选中行">
                                 </f:MenuButton>
                             </Menu>
                         </f:Button>
-
                     </Items>
                 </f:Toolbar>
             </Toolbars>
@@ -54,5 +53,23 @@
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
     </form>
+    <script>
+
+        var selectRowsID = '<%= btnSelectRows.ClientID %>';
+        var unselectRowsID = '<%= btnUnselectRows.ClientID %>';
+
+        F.ready(function () {
+
+            F(selectRowsID).on('click', function () {
+                Ext.select('.x-grid-row-selected img.f-grid-checkbox').removeCls('unchecked').addCls('checked');
+            });
+
+            F(unselectRowsID).on('click', function () {
+                Ext.select('.x-grid-row-selected img.f-grid-checkbox').removeCls('checked').addCls('unchecked');
+            });
+
+        });
+
+    </script>
 </body>
 </html>

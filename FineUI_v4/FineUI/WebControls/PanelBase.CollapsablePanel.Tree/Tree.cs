@@ -1088,7 +1088,7 @@ namespace FineUI
             }
             else
             {
-                selectModelScript = "Ext.create('Ext.selection.TreeModel')";
+                selectModelScript = "Ext.create('Ext.selection.TreeModel',{mode:'SINGLE'})";
             }
             OB.AddProperty("selModel", selectModelScript, true);
 
@@ -1665,8 +1665,10 @@ namespace FineUI
         /// 处理回发事件
         /// </summary>
         /// <param name="eventArgument">事件参数</param>
-        public void RaisePostBackEvent(string eventArgument)
+        public override void RaisePostBackEvent(string eventArgument)
         {
+            base.RaisePostBackEvent(eventArgument);
+
             if (eventArgument.StartsWith("Command$"))
             {
                 string[] commandArgs = eventArgument.Split('$');

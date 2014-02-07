@@ -1784,9 +1784,14 @@ namespace FineUI
         /// 处理回发事件
         /// </summary>
         /// <param name="eventArgument">事件参数</param>
-        public void RaisePostBackEvent(string eventArgument)
+        public override void RaisePostBackEvent(string eventArgument)
         {
-            OnClose(new WindowCloseEventArgs(eventArgument));
+            base.RaisePostBackEvent(eventArgument);
+
+            if (eventArgument.StartsWith("Close$"))
+            {
+                OnClose(new WindowCloseEventArgs(eventArgument.Substring("Close$".Length)));
+            }
         }
 
         #endregion
