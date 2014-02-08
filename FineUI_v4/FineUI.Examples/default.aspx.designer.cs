@@ -292,6 +292,15 @@ namespace FineUI.Examples {
         protected global::FineUI.MenuSeparator MenuSeparator2;
         
         /// <summary>
+        /// MenuHyperLink2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.MenuHyperLink MenuHyperLink2;
+        
+        /// <summary>
         /// MenuHyperLink1 控件。
         /// </summary>
         /// <remarks>

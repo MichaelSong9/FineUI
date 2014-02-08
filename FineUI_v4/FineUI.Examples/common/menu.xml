@@ -184,9 +184,9 @@
       </TreeNode>
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
       </TreeNode>
-      <TreeNode Text="行扩展列（展开全部扩展列）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
+      <TreeNode Text="行扩展列（展开全部）" NavigateUrl="~/grid/grid_rowexpander_expandall2.aspx" >
       </TreeNode>
-      <TreeNode Text="行扩展列（ExpandAllRowExpanders）" NavigateUrl="~/grid/grid_rowexpander_expandall2.aspx" >
+      <TreeNode Text="行扩展列（展开全部，客户端实现）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
       </TreeNode>
       <TreeNode Text="弹出窗体列" NavigateUrl="~/grid/grid_iframe.aspx" >
       </TreeNode>
@@ -221,6 +221,8 @@
       <TreeNode Text="全选复选框列" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall.aspx" >
       </TreeNode>
       <TreeNode Text="全选复选框列（客户端实现）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_clientside.aspx" >
+      </TreeNode>
+      <TreeNode Text="全选复选框列（右键菜单）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_contextmenu.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="模板列">

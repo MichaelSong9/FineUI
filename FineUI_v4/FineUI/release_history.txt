@@ -31,10 +31,13 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-为Neptune主题下的工具条添加背景色（szjazz）。
 	-树控件增加EnableSingleClickExpand属性，实现单击展开树节点功能（erp8@live.cn）。
 	-修复手风琴控件首次加载后无法获取展开状态的问题（asdfsdgd）。
-	-将在线示例的设置按钮移到左侧面板的顶部。
+	+将在线示例的设置按钮移到左侧面板的顶部。
+		-演示如何为面板添加工具图标。
+		-演示如何使用使用JS来显示上下文菜单。
 	+修正表格无法多选的问题。
 		-更新示例grid/grid_checkboxfield_rowcheckall.aspx。
 		-增加示例grid/grid_checkboxfield_rowcheckall_clientside.aspx。
+		-增加示例grid/grid_checkboxfield_rowcheckall_contextmenu.aspx，演示如何在表格中使用右键菜单。
 	+面板增加展开折叠事件（asdfsdgd）。
 		-增加EnableCollapseEvent属性和Collapse事件。
 		-增加EnableExpandEvent属性和Expand事件。
@@ -45,11 +48,6 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-增加属性AutoPostBack和PaneIndexChanged事件。
 		-更新示例accordion/accordion.aspx。
 		-增加示例accordion/accordion_autopostback.aspx。
-	-tab切换时，左侧树。
-	-左侧accordion，只能选中一个树中一个节点
-	-右下角弹出
-
-
 
 
 

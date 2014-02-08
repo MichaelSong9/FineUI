@@ -137,6 +137,7 @@ F.ready(function () {
     };
 
 
+    // 添加工具图标，并在点击时显示上下文菜单
     leftRegion.addTool({
         type: 'gear',
         tooltip: '系统设置',
