@@ -339,7 +339,6 @@ namespace FineUI
                 {
                     SelectedDate = currentSelectedDate;
                     FState.BackupPostDataProperty("SelectedDate");
-                    return true;
                 }
             }
             

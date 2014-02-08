@@ -2530,7 +2530,6 @@ namespace FineUI
 
             #endregion
 
-
             #region AllowCellEditing
 
             string cellEditScript = String.Empty;

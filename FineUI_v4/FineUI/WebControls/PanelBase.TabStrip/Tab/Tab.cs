@@ -327,7 +327,6 @@ namespace FineUI
             {
                 Hidden = postHidden;
                 FState.BackupPostDataProperty("Hidden");
-                return true;
             }
 
             return false;

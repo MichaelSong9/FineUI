@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="accordion.aspx.cs" Inherits="FineUI.Examples.accordion.accordion2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="accordion_autopostback.aspx.cs" Inherits="FineUI.Examples.accordion.accordion_autopostback" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Accordion ID="Accordion1" Title="手风琴控件" runat="server" Width="300px" Height="450px"
             EnableFill="true" EnableActiveOnTop="false" ShowCollapseTool="true"
-            ShowBorder="True" ActivePaneIndex="1" EnableFrame="true" EnableCollapse="true">
+            ShowBorder="True" ActivePaneIndex="1" AutoPostBack="true" OnPaneIndexChanged="Accordion1_PaneIndexChanged" EnableFrame="true" EnableCollapse="true">
             <Panes>
                 <f:AccordionPane ID="AccordionPane1" runat="server" Title="面板一" IconUrl="../images/16/1.png"
                     BodyPadding="2px 5px" ShowBorder="false">
@@ -38,9 +38,6 @@
         </f:Accordion>
         <br />
         <f:Button ID="Button1" Text="获取当前展开的面板" runat="server" OnClick="Button1_Click">
-        </f:Button>
-        <br />
-        <f:Button ID="Button2" Text="展开下一个面板" runat="server" OnClick="Button2_Click">
         </f:Button>
     </form>
 </body>

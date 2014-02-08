@@ -320,13 +320,7 @@ namespace FineUI
             return false;
         }
 
-        /// <summary>
-        /// 触发回发数据改变事件
-        /// </summary>
-        public override void RaisePostDataChangedEvent()
-        {
-            
-        }
+       
 
         #endregion
 

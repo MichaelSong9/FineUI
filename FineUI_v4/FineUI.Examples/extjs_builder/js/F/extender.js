@@ -78,6 +78,17 @@ Ext.override(Ext.panel.Panel, {
 
     f_setTitle: function () {
         this.setTitle(this.f_state['Title']);
+    },
+
+    f_getActiveIndex: function () {
+        var activeIndex = -1;
+        this.items.each(function (item, index) {
+            if (item.f_isCollapsed && !item.f_isCollapsed()) {
+                activeIndex = index;
+                return false;
+            }
+        });
+        return activeIndex;
     }
 
 });
@@ -93,12 +104,15 @@ Ext.override(Ext.form.FieldSet, {
     },
 
     f_isCollapsed: function () {
+        /*
         var collapsed = false;
         var state = this.getState();
         if (state && state.collapsed) {
             collapsed = true;
         }
         return collapsed;
+        */
+        return !!this.getCollapsed();
     },
 
     f_setTitle: function () {

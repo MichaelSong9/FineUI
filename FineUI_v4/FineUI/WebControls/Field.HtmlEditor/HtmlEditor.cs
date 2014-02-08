@@ -427,6 +427,14 @@ namespace FineUI
         }
 
         /// <summary>
+        /// 触发回发数据改变事件
+        /// </summary>
+        public void RaisePostDataChangedEvent()
+        {
+            OnTextChanged(EventArgs.Empty);
+        }
+
+        /// <summary>
         /// 文本改变事件
         /// </summary>
         [Category(CategoryName.ACTION)]
@@ -459,13 +467,7 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 触发回发数据改变事件
-        /// </summary>
-        public void RaisePostDataChangedEvent()
-        {
-            OnTextChanged(EventArgs.Empty);
-        }
+        
 
         #endregion
     }

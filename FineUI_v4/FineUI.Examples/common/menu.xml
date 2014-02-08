@@ -389,6 +389,8 @@
   <TreeNode Text="手风琴控件">
     <TreeNode Text="基本用法" NavigateUrl="~/accordion/accordion.aspx" >
     </TreeNode>
+    <TreeNode Text="自动回发" NavigateUrl="~/accordion/accordion_autopostback.aspx" >
+    </TreeNode>
     <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
     </TreeNode>
   </TreeNode>
@@ -396,6 +398,8 @@
     <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
     </TreeNode>
     <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
+    </TreeNode>
+    <TreeNode Text="面板的折叠事件" NavigateUrl="~/window/panel_collapse.aspx" >
     </TreeNode>
     <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
     </TreeNode>

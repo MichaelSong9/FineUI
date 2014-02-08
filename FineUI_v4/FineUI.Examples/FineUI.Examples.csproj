@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="accordion\accordion_tree_index.htm" />
+    <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="aspnet\test.aspx" />
     <Content Include="aspnet\TestWindow.aspx" />
@@ -382,8 +383,16 @@
     <Content Include="window\panel.aspx" />
     <Content Include="window\window.aspx" />
     <Content Include="window\window_toolbar.aspx" />
+    <Content Include="window\panel_collapse.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accordion\accordion_autopostback.aspx.cs">
+      <DependentUpon>accordion_autopostback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="accordion\accordion_autopostback.aspx.designer.cs">
+      <DependentUpon>accordion_autopostback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="aspnet\aspnet.aspx.cs">
       <DependentUpon>aspnet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2187,6 +2196,13 @@
     </Compile>
     <Compile Include="window\window_toolbar.aspx.designer.cs">
       <DependentUpon>window_toolbar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\panel_collapse.aspx.cs">
+      <DependentUpon>panel_collapse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\panel_collapse.aspx.designer.cs">
+      <DependentUpon>panel_collapse.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

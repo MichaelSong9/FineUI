@@ -1760,21 +1760,19 @@ namespace FineUI
             {
                 Hidden = postHidden;
                 FState.BackupPostDataProperty("Hidden");
-                return true;
             }
 
             return false;
         }
 
-        /// <summary>
-        /// 触发回发数据改变事件
-        /// </summary>
-        public override void RaisePostDataChangedEvent()
-        {
-            base.RaisePostDataChangedEvent();
+        ///// <summary>
+        ///// 触发回发数据改变事件
+        ///// </summary>
+        //public override void RaisePostDataChangedEvent()
+        //{
+        //    base.RaisePostDataChangedEvent();
 
-            //OnCollapsedChanged(EventArgs.Empty);
-        }
+        //}
 
         #endregion
 

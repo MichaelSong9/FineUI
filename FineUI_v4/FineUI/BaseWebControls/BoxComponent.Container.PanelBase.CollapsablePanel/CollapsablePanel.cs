@@ -60,6 +60,44 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 是否启用折叠事件
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否启用折叠事件")]
+        public bool EnableCollapseEvent
+        {
+            get
+            {
+                object obj = FState["EnableCollapseEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["EnableCollapseEvent"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 是否启用展开事件
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否启用展开事件")]
+        public bool EnableExpandEvent
+        {
+            get
+            {
+                object obj = FState["EnableExpandEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["EnableExpandEvent"] = value;
+            }
+        }
+
+        /// <summary>
         /// 是否展开
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -276,7 +314,7 @@ namespace FineUI
 
         #endregion
 
-        #region OnPreRender
+        #region OnPreRender|OnFirstPreRender
 
         /// <summary>
         /// 渲染 HTML 之前调用（AJAX回发）
@@ -377,6 +415,21 @@ namespace FineUI
 
             #endregion
 
+            #region EnableCollapseEvent
+
+            if (EnableCollapseEvent)
+            {
+                string collapseScript = JsHelper.GetFunction(GetPostBackEventReference("Collapse"));
+                OB.Listeners.AddProperty("collapse", collapseScript, true);
+            }
+
+            if (EnableExpandEvent)
+            {
+                string expandScript = JsHelper.GetFunction(GetPostBackEventReference("Expand"));
+                OB.Listeners.AddProperty("expand", expandScript, true);
+            } 
+
+            #endregion
         }
 
         #endregion
@@ -396,7 +449,6 @@ namespace FineUI
             {
                 Collapsed = postCollapsed;
                 FState.BackupPostDataProperty("Collapsed");
-                return true;
             }
 
             return false;
@@ -451,41 +503,86 @@ namespace FineUI
             {
                 OnCollapse(EventArgs.Empty);
             }
+            else if (eventArgument == "Expand")
+            {
+                OnExpand(EventArgs.Empty);
+            } 
+
         }
 
+        #endregion
 
-        private static readonly object _handlerKey = new object();
+        #region OnCollapse
+
+        private static readonly object _collapseHandlerKey = new object();
 
         /// <summary>
-        /// 折叠展开事件
+        /// 折叠事件
         /// </summary>
         [Category(CategoryName.ACTION)]
-        [Description("折叠展开事件")]
+        [Description("折叠事件")]
         public event EventHandler Collapse
         {
             add
             {
-                Events.AddHandler(_handlerKey, value);
+                Events.AddHandler(_collapseHandlerKey, value);
             }
             remove
             {
-                Events.RemoveHandler(_handlerKey, value);
+                Events.RemoveHandler(_collapseHandlerKey, value);
             }
         }
 
         /// <summary>
-        /// 触发折叠展开事件
+        /// 触发折叠事件
         /// </summary>
         /// <param name="e">事件参数</param>
         protected virtual void OnCollapse(EventArgs e)
         {
-            EventHandler handler = Events[_handlerKey] as EventHandler;
+            EventHandler handler = Events[_collapseHandlerKey] as EventHandler;
             if (handler != null)
             {
                 handler(this, e);
             }
-        } 
+        }
 
         #endregion
+
+        #region OnExpand
+
+        private static readonly object _expandHandlerKey = new object();
+
+        /// <summary>
+        /// 展开事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("展开事件")]
+        public event EventHandler Expand
+        {
+            add
+            {
+                Events.AddHandler(_expandHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_expandHandlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发展开事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnExpand(EventArgs e)
+        {
+            EventHandler handler = Events[_expandHandlerKey] as EventHandler;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
     }
 }

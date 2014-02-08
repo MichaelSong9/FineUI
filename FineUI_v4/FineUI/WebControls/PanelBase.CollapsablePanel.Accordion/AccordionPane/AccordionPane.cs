@@ -197,6 +197,13 @@ namespace FineUI
             {
                 throw new Exception("AccordionPane must inside the control Accordion!");
             }
+
+            
+            if (parentControl.AutoPostBack)
+            {
+                OB.Listeners.AddProperty("expand", JsHelper.GetFunction(parentControl.GetPostBackEventReference("PaneIndexChanged")), true);
+            }
+
             #endregion
 
 

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FineUI.Examples.accordion
 {
-    public partial class accordion2 : PageBase
+    public partial class accordion_autopostback : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,15 +20,9 @@ namespace FineUI.Examples.accordion
             Alert.ShowInTop(String.Format("当前展开的是第 {0} 个面板", Accordion1.ActivePaneIndex + 1));
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Accordion1_PaneIndexChanged(object sender, EventArgs e)
         {
-            var nextIndex = Accordion1.ActivePaneIndex + 1;
-            if (nextIndex >= Accordion1.Panes.Count)
-            {
-                nextIndex = 0;
-            }
-
-            Accordion1.ActivePaneIndex = nextIndex;
+            Alert.ShowInTop(String.Format("当前展开的是第 {0} 个面板", Accordion1.ActivePaneIndex + 1));
         }
     }
 }

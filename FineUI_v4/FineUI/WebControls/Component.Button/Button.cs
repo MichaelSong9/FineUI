@@ -831,7 +831,6 @@ namespace FineUI
                 {
                     Pressed = pressed;
                     FState.BackupPostDataProperty("Pressed");
-                    return true;
                 }
             }
 
@@ -843,8 +842,7 @@ namespace FineUI
         /// </summary>
         public void RaisePostDataChangedEvent()
         {
-            // If someday we need public a OnPressChanged event, we can return ture here.
-            //throw new NotImplementedException();
+            
         }
 
         #endregion

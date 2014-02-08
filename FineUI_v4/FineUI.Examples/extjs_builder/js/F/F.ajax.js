@@ -370,6 +370,10 @@
             saveInHiddenField('ActiveTabIndex', cmp.f_getActiveTabIndex());
         }
 
+        if (cmp.isXType('panel') && cmp.getLayout().type === 'accordion') {
+            saveInHiddenField('ActivePaneIndex', cmp.f_getActiveIndex());
+        }
+
         if (cmp['f_type'] && cmp['f_type'] === 'tab') {
             saveInHiddenField('Hidden', cmp.tab.isHidden());
         }

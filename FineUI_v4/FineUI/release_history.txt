@@ -35,8 +35,19 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	+修正表格无法多选的问题。
 		-更新示例grid/grid_checkboxfield_rowcheckall.aspx。
 		-增加示例grid/grid_checkboxfield_rowcheckall_clientside.aspx。
-	-面板的展开折叠事件，手风琴控件的激活面板改变事件。
-	-eventArgument == "Collapse" 
+	+面板增加展开折叠事件（asdfsdgd）。
+		-增加EnableCollapseEvent属性和Collapse事件。
+		-增加EnableExpandEvent属性和Expand事件。
+		-增加示例window/panel_collapse.aspx。
+	+Accordion增强（asdfsdgd）。
+		-修正Accordion的EnableFill,ShowCollapseTool等属性失效的问题。
+		-ActiveIndex改名为ActivePaneIndex，并更新为AJAX属性。
+		-增加属性AutoPostBack和PaneIndexChanged事件。
+		-更新示例accordion/accordion.aspx。
+		-增加示例accordion/accordion_autopostback.aspx。
+	-tab切换时，左侧树。
+	-左侧accordion，只能选中一个树中一个节点
+	-右下角弹出
 
 
 

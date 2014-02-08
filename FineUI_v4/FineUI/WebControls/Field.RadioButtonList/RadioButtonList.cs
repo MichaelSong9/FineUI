@@ -920,6 +920,17 @@ namespace FineUI
             }
             return false;
         }
+        
+        
+        /// <summary>
+        /// 触发回发数据改变事件
+        /// </summary>
+        public virtual void RaisePostDataChangedEvent()
+        {
+            OnSelectedIndexChanged(EventArgs.Empty);
+        }
+
+
 
         private object _handlerKey = new object();
 
@@ -953,13 +964,7 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 触发回发数据改变事件
-        /// </summary>
-        public virtual void RaisePostDataChangedEvent()
-        {
-            OnSelectedIndexChanged(EventArgs.Empty);
-        }
+        
 
         #endregion
     }

@@ -272,11 +272,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// [AJAX属性]当前激活选项卡的索引
+        /// [AJAX属性]激活选项卡的索引
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(0)]
-        [Description("[AJAX属性]当前激活选项卡的索引")]
+        [Description("[AJAX属性]激活选项卡的索引")]
         public int ActiveTabIndex
         {
             get
@@ -467,8 +467,6 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("ActiveTabIndex"))
             {
-                //if (ClientPropertyModifiedInServer("ActiveTabIndex"))
-
                 sb.AppendFormat("{0}.f_setActiveTab();", XID);
 
             }
@@ -594,7 +592,7 @@ namespace FineUI
             string postbackScript = String.Empty;
             if (AutoPostBack)
             {
-                tabchangeScript += "if(!tab.f_dynamic_added_tab){" + GetPostBackEventReference() + "}";
+                tabchangeScript += "if(!tab.f_dynamic_added_tab){" + GetPostBackEventReference("TabIndexChanged") + "}";
             }
 
             // 如果是动态添加的Tab，不做任何处理（在js/box/extender.js中）
@@ -643,7 +641,7 @@ namespace FineUI
         /// <param name="postDataKey">回发数据键</param>
         /// <param name="postCollection">回发数据集</param>
         /// <returns>回发数据是否改变</returns>
-        public bool LoadPostData(string postDataKey, System.Collections.Specialized.NameValueCollection postCollection)
+        public virtual bool LoadPostData(string postDataKey, System.Collections.Specialized.NameValueCollection postCollection)
         {
             string postValue = postCollection[ActiveTabIndexHiddenFieldID];
 
@@ -652,8 +650,8 @@ namespace FineUI
             {
                 ActiveTabIndex = postActiveTabIndex;
                 FState.BackupPostDataProperty("ActiveTabIndex");
-                return true;
             }
+
             return false;
         }
 
@@ -662,7 +660,7 @@ namespace FineUI
         /// </summary>
         public void RaisePostDataChangedEvent()
         {
-            OnTabIndexChanged(EventArgs.Empty);
+            //OnTabIndexChanged(EventArgs.Empty);
         }
 
         #endregion
@@ -675,7 +673,10 @@ namespace FineUI
         /// <param name="eventArgument">事件参数</param>
         public void RaisePostBackEvent(string eventArgument)
         {
-            OnTabIndexChanged(EventArgs.Empty);
+            if (eventArgument == "TabIndexChanged")
+            {
+                OnTabIndexChanged(EventArgs.Empty);
+            }
         }
 
         #endregion

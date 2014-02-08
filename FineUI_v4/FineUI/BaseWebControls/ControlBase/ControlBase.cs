@@ -1297,7 +1297,7 @@ namespace FineUI
         /// AJAX 回发阶段，添加反映属性改变的 JavaScript 脚本
         /// </summary>
         /// <param name="script"></param>
-        protected void AddAjaxScript(string script)
+        internal void AddAjaxScript(string script)
         {
             if (!String.IsNullOrEmpty(script))
             {
@@ -1309,7 +1309,7 @@ namespace FineUI
         /// AJAX 回发阶段，添加反映属性改变的 JavaScript 脚本
         /// </summary>
         /// <param name="sb"></param>
-        protected void AddAjaxScript(StringBuilder sb)
+        internal void AddAjaxScript(StringBuilder sb)
         {
             if (sb.Length > 0)
             {
