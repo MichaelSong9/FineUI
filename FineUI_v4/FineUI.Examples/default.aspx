@@ -158,9 +158,9 @@
             </f:MenuButton>
             <f:MenuSeparator ID="MenuSeparator2" runat="server">
             </f:MenuSeparator>
-            <f:MenuHyperLink ID="MenuHyperLink2" runat="server" Text="v3.x 中文示例" NavigateUrl="http://fineui.com/demo_v3/" Target="_blank">
+            <f:MenuHyperLink ID="MenuHyperLink2" runat="server" Text="转到 v3.x 中文示例" NavigateUrl="http://fineui.com/demo_v3/" Target="_blank">
             </f:MenuHyperLink>
-            <f:MenuHyperLink ID="MenuHyperLink1" runat="server" Text="v3.x 英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank">
+            <f:MenuHyperLink ID="MenuHyperLink1" runat="server" Text="转到 v3.x 英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank">
             </f:MenuHyperLink>
         </f:Menu>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
