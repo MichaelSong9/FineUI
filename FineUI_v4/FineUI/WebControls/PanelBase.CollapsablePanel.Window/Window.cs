@@ -1328,13 +1328,16 @@ namespace FineUI
 
             #region Show Window
 
+            string showWindowScript = String.Empty;
+
             // 我们不依赖于extjs的hidden配置属性，而是手工调用
             OB.RemoveProperty("hidden");
 
             // 如果页面第一次加载或者非原生回发，需要显示窗体
             if (!Hidden)
             {
-                AddStartupAbsoluteScript(GetShowReference());
+                showWindowScript = GetShowReference().Replace(ScriptID + ".", XID + ".");
+                //AddStartupAbsoluteScript(GetShowReference());
             }
 
 
@@ -1369,7 +1372,7 @@ namespace FineUI
             //addWrapperScript += "\r\n";
 
             // 添加隐藏表单字段的脚本和创建Window对象的脚本
-            jsContent = addWrapperScript + hiddenFieldsScript + closeScript + jsContent;
+            jsContent = addWrapperScript + hiddenFieldsScript + closeScript + jsContent + showWindowScript;
             AddStartupScript(jsContent);
 
             #endregion
@@ -1486,7 +1489,7 @@ namespace FineUI
                 iframeUrl = IFrameUrl;
             }
 
-            return GetShowReference(iframeUrl, Title);
+            return GetShowReference(iframeUrl, String.Empty);
         }
 
         /// <summary>
@@ -1496,7 +1499,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetShowReference(string iframeUrl)
         {
-            return GetShowReference(iframeUrl, Title);
+            return GetShowReference(iframeUrl, String.Empty);
         }
 
         /// <summary>
@@ -1524,7 +1527,7 @@ namespace FineUI
                 iframeUrl = IFrameUrl;
             }
 
-            return GetShowReference(iframeUrl, Title, width, height);
+            return GetShowReference(iframeUrl, String.Empty, width, height);
         }
 
         /// <summary>
@@ -1577,7 +1580,6 @@ namespace FineUI
                    iframeUrl,
                    windowTitle);
             }
-            
         }
 
         /// <summary>

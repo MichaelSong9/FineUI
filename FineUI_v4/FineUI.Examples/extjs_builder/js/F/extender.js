@@ -194,9 +194,15 @@ if (Ext.form.field.Base) {
         },
 
         f_setLabel: function (text) {
+			/*
             if (this.label && this.label.update) {
                 this.label.update(text || this.f_state['Label']);
             }
+			*/
+			var text = text || this.f_state['Label'];
+			if(this.setFieldLabel) {
+				this.setFieldLabel(text);
+			}
         }
 
     });

@@ -200,11 +200,6 @@ namespace FineUI
         /// <param name="scriptContent">客户端脚本</param>
         public static void RegisterStartupScript(string scriptContent)
         {
-            //Page page = HttpContext.Current.CurrentHandler as Page;
-            //if (page != null)
-            //{
-            //    ResourceManager.Instance.AddAbsoluteStartupScript(scriptContent);
-            //}
             ResourceManager manager = ResourceManager.Instance;
             if (manager.IsFineUIAjaxPostBack)
             {
