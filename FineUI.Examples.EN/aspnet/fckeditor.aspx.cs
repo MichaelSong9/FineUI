@@ -25,7 +25,7 @@ namespace FineUI.Examples.aspnet
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            FCKeditor1.Value = "<strong>FineUI</strong> - ExtJS based ASP.NET 2.0 Controls with native AJAX support and rich UI effects";
+            FCKeditor1.Value = "<strong>FineUI</strong> - ExtJS based open source ASP.NET Controls";
         }
 
 

@@ -12,7 +12,7 @@ namespace FineUI.Examples.form
         {
             if (!IsPostBack)
             {
-                HtmlEditor1.Text = "<br /><strong>Product: </strong>&nbsp;<font color=#ff0000><strong>FineUI</strong></font><br /><br /><strong>Description:</strong> ExtJS based ASP.NET 2.0 Controls with native AJAX support and rich UI effects. <br />";
+                HtmlEditor1.Text = "<br /><strong>Product: </strong>&nbsp;<font color=#ff0000><strong>FineUI</strong></font><br /><br /><strong>Description:</strong> ExtJS based open source ASP.NET Controls <br />";
             }
         }
 

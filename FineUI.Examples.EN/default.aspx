@@ -119,6 +119,8 @@
                                         <br />
                                         <br />
                                         <h2>Links</h2>
+                                            Homepage: <a target="_blank" href="http://fineui.com/">http://fineui.com/</a>
+                                        <br />
                                             Demo: <a target="_blank" href="http://fineui.com/demo_en/">http://fineui.com/demo_en/</a>
                                         <br />
                                             Download: <a target="_blank" href="http://fineui.codeplex.com/">http://fineui.codeplex.com/</a>
