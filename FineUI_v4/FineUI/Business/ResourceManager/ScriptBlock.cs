@@ -11,13 +11,12 @@ namespace FineUI
     /// </summary>
     internal class ScriptBlock
     {
-
-        private Control _control;
+        private ControlBase _control;
 
         /// <summary>
         /// 要注册脚本的控件
         /// </summary>
-        public Control Control
+        public ControlBase Control
         {
             get { return _control; }
             set { _control = value; }
@@ -55,7 +54,7 @@ namespace FineUI
         }
 
 
-        public ScriptBlock(Control control, string script)
+        public ScriptBlock(ControlBase control, string script)
         {
             _control = control;
             _script = script;

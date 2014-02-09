@@ -510,9 +510,6 @@ namespace FineUI
 
                 if (controlScript.Level < 0)
                 {
-                    //#if DEBUG
-                    //                    controlScript.Script = controlScript.Script;
-                    //#endif
                     result.Add(new ScriptBlock(null, controlScript.Script));
                 }
                 else
@@ -544,13 +541,6 @@ namespace FineUI
                 //                controlScript.Script = GetLineBreakString(insertIndex, result) + controlScript.Script;
                 //#endif 
                 #endregion
-
-
-                //#if DEBUG
-                //                if (!String.IsNullOrEmpty(controlScript.Script)) controlScript.Script = "\r\n" + controlScript.Script;
-                //                if (!String.IsNullOrEmpty(controlScript.ExtraScript)) controlScript.ExtraScript = "\r\n" + controlScript.ExtraScript;
-                //#endif
-
 
                 result.Insert(insertIndex, controlScript);
             }
@@ -640,35 +630,41 @@ namespace FineUI
 
         /// <summary>
         /// 取得应该将Script插入的位置
-        /// modified by 30372245@qq.com, 要能够向上回溯，因为控件A的父的父控件可能不存在列表中
+        /// 要能够向上回溯，因为控件的父控件可能不存在列表中，而父控件的父控件存在列表中
         /// </summary>
         /// <param name="testControl"></param>
-        /// <param name="testList"></param>
+        /// <param name="checkList"></param>
         /// <returns></returns>
-        private int GetInsertIndex(Control testControl, List<ScriptBlock> testList)
+        private int GetInsertIndex(ControlBase testControl, List<ScriptBlock> checkList)
         {
-            int returnIndex = testList.Count;
+            int returnIndex = checkList.Count;
 
-            Control parentControl = testControl.Parent;
-            // 如果父控件不是HtmlForm
-            while (parentControl != null && !(parentControl is System.Web.UI.HtmlControls.HtmlForm))
+            ControlBase parentControl = testControl.Parent as ControlBase;
+            
+            while (parentControl != null)
             {
-                for (int i = 0, count = testList.Count; i < count; i++)
+                for (int i = 0, count = checkList.Count; i < count; i++)
                 {
-                    Control existControl = testList[i].Control;
+                    ControlBase checkControl = checkList[i].Control as ControlBase;
 
-                    // 如果existControl不为空
-                    if (existControl != null && parentControl.ID == existControl.ID)
+                    if (checkControl != null && parentControl == checkControl)
                     {
                         return i;
                     }
                 }
 
-                parentControl = parentControl.Parent;
+                parentControl = parentControl.Parent as ControlBase;
             }
 
-
-            return returnIndex;
+            if (testControl is Menu)
+            {
+                // 如果菜单控件没有上级，则默认将脚本放在最前面
+                return 0;
+            }
+            else
+            {
+                return returnIndex;
+            }
         }
 
         ///// <summary>
@@ -766,7 +762,7 @@ namespace FineUI
 
         #region AddStartupScript/IsStartupScriptExist
 
-        public void AddStartupScript(Control control, string script)
+        public void AddStartupScript(ControlBase control, string script)
         {
             AddStartupScript(control, script, String.Empty);
         }
@@ -778,7 +774,7 @@ namespace FineUI
         /// <param name="control"></param>
         /// <param name="script"></param>
         /// <param name="extraScript"></param>
-        public void AddStartupScript(Control control, string script, string extraScript)
+        public void AddStartupScript(ControlBase control, string script, string extraScript)
         {
             ScriptBlock cs = new ScriptBlock(control, script);
 
@@ -800,7 +796,7 @@ namespace FineUI
         /// </summary>
         /// <param name="control"></param>
         /// <returns></returns>
-        public bool IsStartupScriptExist(Control control)
+        public bool IsStartupScriptExist(ControlBase control)
         {
             foreach (ScriptBlock cs in _startupScriptBlockList)
             {
@@ -814,7 +810,7 @@ namespace FineUI
         }
 
 
-        public ScriptBlock GetStartupScript(Control control)
+        public ScriptBlock GetStartupScript(ControlBase control)
         {
             foreach (ScriptBlock cs in _startupScriptBlockList)
             {
@@ -828,7 +824,7 @@ namespace FineUI
         }
 
 
-        public void RemoveStartupScript(Control control)
+        public void RemoveStartupScript(ControlBase control)
         {
             for (int i = 0; i < _startupScriptBlockList.Count; i++)
             {

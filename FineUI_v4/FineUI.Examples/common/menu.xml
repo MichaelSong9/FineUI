@@ -38,6 +38,8 @@
       </TreeNode>
       <TreeNode Text="菜单按钮" NavigateUrl="~/button/button_menu.aspx" >
       </TreeNode>
+      <TreeNode Text="菜单按钮（MenuID属性）" NavigateUrl="~/button/button_menu_menuid.aspx" >
+      </TreeNode>
       <TreeNode Text="自定义按钮" NavigateUrl="~/button/button_custom.aspx" >
       </TreeNode>
     </TreeNode>

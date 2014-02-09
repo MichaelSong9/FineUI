@@ -22,13 +22,13 @@
                         <f:ToolbarSeparator runat="server">
                         </f:ToolbarSeparator>
                         <f:Button EnablePostBack="false" Text="中国科学技术大学" runat="server">
-                            <Menu runat="server">
+                            <Menu ID="Menu1" runat="server">
                                 <f:MenuHyperLink ID="MenuHyperLink1" runat="server" Target="_blank" NavigateUrl="http://scms.ustc.edu.cn/"
                                     Text="化学与材料科学学院">
                                 </f:MenuHyperLink>
                                 <f:MenuHyperLink ID="MenuHyperLink2" runat="server" Target="_blank" NavigateUrl="http://business.ustc.edu.cn/zh_CN/"
                                     Text="管理学院">
-                                    <Menu runat="server">
+                                    <Menu ID="Menu2" runat="server">
                                         <f:MenuHyperLink ID="MenuHyperLink3" runat="server" Target="_blank" NavigateUrl="http://is.ustc.edu.cn/"
                                             Text="工商管理系">
                                         </f:MenuHyperLink>
@@ -43,6 +43,7 @@
                 </f:Toolbar>
             </Toolbars>
         </f:Panel>
+
     </form>
 </body>
 </html>

@@ -486,6 +486,27 @@ namespace FineUI
 
         #region Menu
 
+        /// <summary>
+        /// 按钮的上下文菜单
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("按钮的上下文菜单")]
+        public string MenuID
+        {
+            get
+            {
+                object obj = FState["MenuID"];
+                return obj == null ? "" : (string)obj;
+            }
+            set
+            {
+                FState["MenuID"] = value;
+            }
+        }
+
+
+
         private Menu _menu;
 
         /// <summary>
@@ -700,7 +721,15 @@ namespace FineUI
 
             if (_menu != null && Menu.Items.Count > 0)
             {
-                OB.AddProperty("menu", String.Format("{0}", Menu.XID), true);
+                OB.AddProperty("menu", Menu.XID, true);
+            }
+            else if (!String.IsNullOrEmpty(MenuID))
+            {
+                Menu contextMenu = ControlUtil.FindControl(this.Page, MenuID) as Menu;
+                if (contextMenu != null)
+                {
+                    OB.AddProperty("menu", contextMenu.XID, true);
+                }
             }
 
 

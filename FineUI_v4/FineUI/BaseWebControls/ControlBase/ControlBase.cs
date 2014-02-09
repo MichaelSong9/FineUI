@@ -192,6 +192,19 @@ namespace FineUI
 
         #region Internal Properties
 
+        //private ControlBase _virtualParent;
+
+        ///// <summary>
+        ///// 虚拟的父控件，为了保证生产JS脚本的顺序（比如在处理按钮的MenuID属性时使用）
+        ///// </summary>
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //internal ControlBase VirtualParent
+        //{
+        //    get { return _virtualParent; }
+        //    set { _virtualParent = value; }
+        //}
+
 
         private string _xid = String.Empty;
 

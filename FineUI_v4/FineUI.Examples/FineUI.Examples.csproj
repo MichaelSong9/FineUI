@@ -85,6 +85,7 @@
     <Content Include="autocomplete\remote_with_cache.aspx" />
     <Content Include="autocomplete\email.aspx" />
     <Content Include="button\button_custom.aspx" />
+    <Content Include="button\button_menu_menuid.aspx" />
     <Content Include="common\menu.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -508,6 +509,13 @@
     </Compile>
     <Compile Include="button\button_custom.aspx.designer.cs">
       <DependentUpon>button_custom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="button\button_menu_menuid.aspx.cs">
+      <DependentUpon>button_menu_menuid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="button\button_menu_menuid.aspx.designer.cs">
+      <DependentUpon>button_menu_menuid.aspx</DependentUpon>
     </Compile>
     <Compile Include="common\source.aspx.cs">
       <DependentUpon>source.aspx</DependentUpon>
