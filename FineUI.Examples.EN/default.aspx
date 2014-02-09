@@ -3,11 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>FineUI Online Examples - ExtJS based ASP.NET Controls with native AJAX support and rich UI effects</title>
+    <title>FineUI Online Examples - ExtJS based open source ASP.NET Controls</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="Title" content="ExtJS based ASP.NET Controls with native AJAX Support and rich UI effects" />
-    <meta name="Description" content="FineUI Mission: Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application." />
-    <meta name="Keywords" content="extjs,ext,asp.net,control,asp.net 2.0,ajax,web2.0" />
+    <meta name="Title" content="ExtJS based open source ASP.NET Controls" />
+    <meta name="Description" content="Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application" />
+    <meta name="Keywords" content="开源,ASP.NET,控件库,ExtJS,AJAX,Web2.0" />
     <link href="css/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -66,7 +66,7 @@
                             <a href="./default.aspx" style="color:#fff;">FineUI Online Examples</a>
                         </div>
                         <div class="version">
-                            <a href="http://fineui.com/demo/" target="_blank" style="color:#fff;">中文版</a>
+                            <a href="http://fineui.com/demo/" target="_blank" style="color:#fff;">最新版示例</a>
                         </div>
                     </x:ContentPanel>
                 </Items>
@@ -91,7 +91,7 @@
                                             </x:Button>
                                             <x:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
                                             </x:ToolbarSeparator>
-                                            <x:Button ID="Button1" Icon="TabGo" Text="Download" OnClientClick="window.open('http://extaspnet.codeplex.com/', '_blank');"
+                                            <x:Button ID="Button1" Icon="TabGo" Text="Download" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
                                                 EnablePostBack="false" runat="server">
                                             </x:Button>
                                         </Items>
@@ -101,15 +101,15 @@
                                     <x:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                         CssClass="intro" runat="server">
                                         <h2>About FineUI</h2>
-                                        ExtJS based ASP.NET Controls with native AJAX support and rich UI effects.
+                                        ExtJS based open source ASP.NET Controls
                                         <br />
                                         <br />
                                         <h2>FineUI Mission</h2>
-                                           Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application.
+                                           Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application
                                         <br />
                                         <br />
                                         <h2>Support Browsers</h2>
-                                            IE 7.0+、Firefox 3.6+、Chrome 3.0+、Opera 10.5+、Safari 3.0+
+                                            IE 8.0+、Chrome、Firefox、Opera、Safari
                                         <br />
                                         <br />
                                         <h2>License</h2>
@@ -119,7 +119,7 @@
                                         <br />
                                         <br />
                                         <h2>Links</h2>
-                                            Demo: <a target="_blank" href="http://fineui.com/demo/en/">http://fineui.com/demo/en/</a>
+                                            Demo: <a target="_blank" href="http://fineui.com/demo_en/">http://fineui.com/demo_en/</a>
                                         <br />
                                             Download: <a target="_blank" href="http://fineui.codeplex.com/">http://fineui.codeplex.com/</a>
                                         <br />

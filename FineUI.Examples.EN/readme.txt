@@ -2,10 +2,10 @@
 
 
 First, copy the following folders to current folder:
-1. ..\ExtAspNet.Examples\images
-2. ..\ExtAspNet.Examples\icon
-3. ..\ExtAspNet.Examples\theme
-4. ..\ExtAspNet.Examples\fckeditor
+1. ..\FineUI.Examples\images
+2. ..\FineUI.Examples\icon
+3. ..\FineUI.Examples\theme
+4. ..\FineUI.Examples\fckeditor
 
 
 Second, we need build extjs folder by ourselves:
