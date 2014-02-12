@@ -182,25 +182,25 @@ namespace FineUI
         //}
 
 
-        /// <summary>
-        /// 废弃EnableBackgroundColor属性，以便和ExtJS保持一致。
-        /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue(false)]
-        [Description("废弃EnableBackgroundColor属性，以便和ExtJS保持一致。")]
-        [Obsolete("此属性已废除，可以使用BodyStyle来达到想要的效果")]
-        public virtual bool EnableBackgroundColor
-        {
-            get
-            {
-                object obj = FState["EnableBackgroundColor"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableBackgroundColor"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 废弃EnableBackgroundColor属性，以便和ExtJS保持一致。
+        ///// </summary>
+        //[Category(CategoryName.BASEOPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("废弃EnableBackgroundColor属性，以便和ExtJS保持一致。")]
+        //[Obsolete("此属性已废除，可以使用BodyStyle来达到想要的效果")]
+        //public virtual bool EnableBackgroundColor
+        //{
+        //    get
+        //    {
+        //        object obj = FState["EnableBackgroundColor"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["EnableBackgroundColor"] = value;
+        //    }
+        //}
 
         //private bool RoundBorder_Default = false;
 

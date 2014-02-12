@@ -32,9 +32,9 @@
             </Columns>
         </f:Grid>
         <f:Menu id="Menu1" runat="server">
-            <f:MenuButton ID="btnSelectRows" EnablePostBack="false" runat="server" Text="全选选中行">
+            <f:MenuButton ID="btnSelectRows" EnablePostBack="false" runat="server" Text="全选行">
             </f:MenuButton>
-            <f:MenuButton ID="btnUnselectRows" EnablePostBack="false" runat="server" Text="取消选中行">
+            <f:MenuButton ID="btnUnselectRows" EnablePostBack="false" runat="server" Text="取消行">
             </f:MenuButton>
         </f:Menu>
         <br />
