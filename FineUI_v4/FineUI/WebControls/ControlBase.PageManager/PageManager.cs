@@ -701,11 +701,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 需要验证的表单名称列表（逗号分隔）
+        /// 需要验证的表单名称列表（逗号分隔），需配合CustomEvent使用
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(null)]
-        [Description("需要验证的表单名称列表（逗号分隔）")]
+        [Description("需要验证的表单名称列表（逗号分隔），需配合CustomEvent使用")]
         [TypeConverter(typeof(StringArrayConverter))]
         public string[] ValidateForms
         {
@@ -721,11 +721,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 验证失败时提示对话框弹出位置
+        /// 验证失败时提示对话框弹出位置，需配合CustomEvent使用
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(Target.Self)]
-        [Description("验证失败时提示对话框弹出位置")]
+        [Description("验证失败时提示对话框弹出位置，需配合CustomEvent使用")]
         public Target ValidateTarget
         {
             get
@@ -741,11 +741,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 验证失败时是否出现提示对话框
+        /// 验证失败时是否出现提示对话框，需配合CustomEvent使用
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
-        [Description("验证失败时是否出现提示对话框")]
+        [Description("验证失败时是否出现提示对话框，需配合CustomEvent使用")]
         public bool ValidateMessageBox
         {
             get
