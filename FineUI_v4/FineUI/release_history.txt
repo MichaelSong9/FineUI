@@ -52,7 +52,15 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-为Button增加MenuID属性，增加示例button/button_menu_menuid.aspx。
 	-修正页面第一次加载时Window控件遮挡Alert对话框的问题。
 	-修正无法修改表单字段Label的问题。
-
+	+删除所有之前版本标记为废除的方法和属性。
+		-PanelBase: EnableBackgroundColor
+		-Calendar: EnableDateSelect
+		-PageManager: HideScrollbar
+		-DatePicker: EnableDateSelect
+		-TimePicker: EnableTimeSelect
+		-Window: Popup
+		-Grid: AutoPostBack, EnableRowSelect, EnableRowDoubleClick, EnableRowClick, GetSelectCountReference
+		-GlobalConfig: GetDefaultBackgroundColor
 
 
 

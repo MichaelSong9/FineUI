@@ -210,24 +210,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 是否隐藏滚动条
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否隐藏滚动条")]
-        [Obsolete("请使用 HideScrollbars 属性")]
-        public bool HideScrollbar
-        {
-            get
-            {
-                return HideScrollbars;
-            }
-            set
-            {
-                HideScrollbars = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否隐藏滚动条
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否隐藏滚动条")]
+        //[Obsolete("请使用 HideScrollbars 属性")]
+        //public bool HideScrollbar
+        //{
+        //    get
+        //    {
+        //        return HideScrollbars;
+        //    }
+        //    set
+        //    {
+        //        HideScrollbars = value;
+        //    }
+        //}
 
 
         /// <summary>

@@ -287,24 +287,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 选择时间是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("选择时间是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableTimeSelectEvent属性")]
-        public bool EnableTimeSelect
-        {
-            get
-            {
-                return EnableTimeSelectEvent;
-            }
-            set
-            {
-                EnableTimeSelectEvent = value;
-            }
-        }
+        ///// <summary>
+        ///// 选择时间是否自动回发
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("选择时间是否自动回发")]
+        //[Obsolete("此属性已废除，请使用EnableTimeSelectEvent属性")]
+        //public bool EnableTimeSelect
+        //{
+        //    get
+        //    {
+        //        return EnableTimeSelectEvent;
+        //    }
+        //    set
+        //    {
+        //        EnableTimeSelectEvent = value;
+        //    }
+        //}
 
         #endregion
 

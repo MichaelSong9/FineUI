@@ -905,82 +905,82 @@ namespace FineUI
 
         #region EnableRowClickEvent/EnableRowClickEvent
 
-        /// <summary>
-        /// 点击行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("点击行是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableRowClickEvent属性")]
-        public bool AutoPostBack
-        {
-            get
-            {
-                return EnableRowClickEvent;
-            }
-            set
-            {
-                EnableRowClickEvent = value;
-            }
-        }
+        ///// <summary>
+        ///// 点击行是否自动回发
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("点击行是否自动回发")]
+        //[Obsolete("此属性已废除，请使用EnableRowClickEvent属性")]
+        //public bool AutoPostBack
+        //{
+        //    get
+        //    {
+        //        return EnableRowClickEvent;
+        //    }
+        //    set
+        //    {
+        //        EnableRowClickEvent = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// 选中行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("选中行是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableRowSelectEvent属性")]
-        public bool EnableRowSelect
-        {
-            get
-            {
-                return EnableRowSelectEvent;
-            }
-            set
-            {
-                EnableRowSelectEvent = value;
-            }
-        }
+        ///// <summary>
+        ///// 选中行是否自动回发
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("选中行是否自动回发")]
+        //[Obsolete("此属性已废除，请使用EnableRowSelectEvent属性")]
+        //public bool EnableRowSelect
+        //{
+        //    get
+        //    {
+        //        return EnableRowSelectEvent;
+        //    }
+        //    set
+        //    {
+        //        EnableRowSelectEvent = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// 双击行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("双击行是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableRowDoubleClickEvent属性")]
-        public bool EnableRowDoubleClick
-        {
-            get
-            {
-                return EnableRowDoubleClickEvent;
-            }
-            set
-            {
-                EnableRowDoubleClickEvent = value;
-            }
-        }
+        ///// <summary>
+        ///// 双击行是否自动回发
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("双击行是否自动回发")]
+        //[Obsolete("此属性已废除，请使用EnableRowDoubleClickEvent属性")]
+        //public bool EnableRowDoubleClick
+        //{
+        //    get
+        //    {
+        //        return EnableRowDoubleClickEvent;
+        //    }
+        //    set
+        //    {
+        //        EnableRowDoubleClickEvent = value;
+        //    }
+        //}
 
 
-        /// <summary>
-        /// 点击行是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("点击行是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableRowClickEvent属性")]
-        public bool EnableRowClick
-        {
-            get
-            {
-                return EnableRowClickEvent;
-            }
-            set
-            {
-                EnableRowClickEvent = value;
-            }
-        }
+        ///// <summary>
+        ///// 点击行是否自动回发
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("点击行是否自动回发")]
+        //[Obsolete("此属性已废除，请使用EnableRowClickEvent属性")]
+        //public bool EnableRowClick
+        //{
+        //    get
+        //    {
+        //        return EnableRowClickEvent;
+        //    }
+        //    set
+        //    {
+        //        EnableRowClickEvent = value;
+        //    }
+        //}
 
 
 
@@ -3710,15 +3710,15 @@ namespace FineUI
             return String.Format("{0}.getSelectionModel().hasSelection()", ScriptID);
         }
 
-        /// <summary>
-        /// 获取表格选中项数的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        [Obsolete("此方法已废除，请使用GetSelectedCountReference方法")]
-        public string GetSelectCountReference()
-        {
-            return GetSelectedCountReference();
-        }
+        ///// <summary>
+        ///// 获取表格选中项数的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //[Obsolete("此方法已废除，请使用GetSelectedCountReference方法")]
+        //public string GetSelectCountReference()
+        //{
+        //    return GetSelectedCountReference();
+        //}
 
         /// <summary>
         /// 获取表格选中项数的客户端脚本

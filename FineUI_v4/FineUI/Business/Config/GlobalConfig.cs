@@ -284,32 +284,32 @@ namespace FineUI
         //}
         #endregion
 
-        #region GetDefaultBackgroundColor
+        #region oldcode
 
-        /// <summary>
-        /// 获取默认的背景颜色
-        /// </summary>
-        /// <returns>用于CSS的背景颜色值</returns>
-        [Obsolete("此方法已废除")]
-        public static string GetDefaultBackgroundColor()
-        {
-            string backgroundColor = String.Empty;
+        ///// <summary>
+        ///// 获取默认的背景颜色
+        ///// </summary>
+        ///// <returns>用于CSS的背景颜色值</returns>
+        //[Obsolete("此方法已废除")]
+        //public static string GetDefaultBackgroundColor()
+        //{
+        //    string backgroundColor = String.Empty;
 
-            if (String.IsNullOrEmpty(PageManager.Instance.CustomTheme))
-            {
-                string theme = PageManager.Instance.Theme.ToString();
-                if (theme.ToLower() == ThemeHelper.GetName(Theme.Blue))
-                {
-                    backgroundColor = "#DFE8F6";
-                }
-                else if (theme.ToLower() == ThemeHelper.GetName(Theme.Gray))
-                {
-                    backgroundColor = "#efefef";
-                }
-            }
+        //    if (String.IsNullOrEmpty(PageManager.Instance.CustomTheme))
+        //    {
+        //        string theme = PageManager.Instance.Theme.ToString();
+        //        if (theme.ToLower() == ThemeHelper.GetName(Theme.Blue))
+        //        {
+        //            backgroundColor = "#DFE8F6";
+        //        }
+        //        else if (theme.ToLower() == ThemeHelper.GetName(Theme.Gray))
+        //        {
+        //            backgroundColor = "#efefef";
+        //        }
+        //    }
 
-            return backgroundColor;
-        }
+        //    return backgroundColor;
+        //}
 
         //public static string GetLightBackgroundColor(string theme)
         //{

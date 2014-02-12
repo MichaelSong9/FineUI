@@ -150,25 +150,25 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 选择日期是否自动回发
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("选择日期是否自动回发")]
-        [Obsolete("此属性已废除，请使用EnableDateSelectEvent属性")]
-        public bool EnableDateSelect
-        {
-            get
-            {
-                object obj = FState["EnableDateSelect"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableDateSelect"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 选择日期是否自动回发
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("选择日期是否自动回发")]
+        //[Obsolete("此属性已废除，请使用EnableDateSelectEvent属性")]
+        //public bool EnableDateSelect
+        //{
+        //    get
+        //    {
+        //        object obj = FState["EnableDateSelect"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["EnableDateSelect"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 选择日期是否自动回发

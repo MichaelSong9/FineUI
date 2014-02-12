@@ -264,24 +264,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 是否弹出窗体
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("是否弹出窗体")]
-        [Obsolete("请使用Hidden属性来标记是否弹出窗口")]
-        public bool Popup
-        {
-            get
-            {
-                return !Hidden;
-            }
-            set
-            {
-                Hidden = !value;
-            }
-        }
+        ///// <summary>
+        ///// 是否弹出窗体
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(true)]
+        //[Description("是否弹出窗体")]
+        //[Obsolete("请使用Hidden属性来标记是否弹出窗口")]
+        //public bool Popup
+        //{
+        //    get
+        //    {
+        //        return !Hidden;
+        //    }
+        //    set
+        //    {
+        //        Hidden = !value;
+        //    }
+        //}
 
 
         ///// <summary>
