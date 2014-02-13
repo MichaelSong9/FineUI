@@ -204,10 +204,9 @@ namespace FineUI
             // 如果是 FineUI 的Ajax
             if (IsFineUIAjaxPostBack)
             {
-                // 注意：这里不能设置 text/html，因为有上传控件时，会把返回的内容放在IFRAME中模拟Ajax过程。
-                //HttpContext.Current.Response.ContentType = "text/plain";
+                // The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the Content-Type header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.
                 HttpContext.Current.Trace.IsEnabled = false;
-                HttpContext.Current.Response.ContentType = "text/plain";
+                HttpContext.Current.Response.ContentType = "text/html";
                 //HttpContext.Current.Response.ContentEncoding = Encoding.UTF8;
                 //HttpContext.Current.Response.Charset = "UTF-8";
                 HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);

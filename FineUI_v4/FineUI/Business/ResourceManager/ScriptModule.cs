@@ -37,7 +37,7 @@ namespace FineUI
                         response.AppendCookie(cookies[i]);
                     }
                     response.Cache.SetCacheability(HttpCacheability.NoCache);
-                    response.ContentType = "text/plain";
+                    response.ContentType = "text/html";
                     response.Write(String.Format("window.location.href='{0}';", redirectLocation));
                 }
             }
