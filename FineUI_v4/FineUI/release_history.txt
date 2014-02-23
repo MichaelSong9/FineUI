@@ -62,6 +62,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-GlobalConfig: GetDefaultBackgroundColor
 	-修正IE8下无法上传文件的问题（猫咪君）。
 	-修正Window控件不支持EnableAjax的问题，增加示例grid/grid_excel_selectcolumns.aspx（◆◇_提拉米苏℡）。
+	-将控件的Visible属性设为只读，如果想隐藏控件并在随后的请求中显示出来，请使用Hidden属性。
 
 
 

@@ -495,14 +495,12 @@ namespace FineUI
             }
         }
 
-
         /// <summary>
-        /// 指示控件是否被渲染出来（如果想要显示隐藏控件，请使用Hidden属性）
+        /// 指示控件是否被渲染出来（显示隐藏控件，请使用Hidden属性）
         /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue(true)]
-        [Description("指示控件是否被渲染出来（如果想要显示隐藏控件，请使用Hidden属性）")]
-        public override bool Visible
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool RenderToClient
         {
             get
             {
@@ -511,6 +509,21 @@ namespace FineUI
             set
             {
                 base.Visible = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 只读属性，指示控件是否被渲染出来（显示隐藏控件，请使用Hidden属性）
+        /// </summary>
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue(true)]
+        [Description("只读属性，指示控件是否被渲染出来（显示隐藏控件，请使用Hidden属性）")]
+        public override bool Visible
+        {
+            get
+            {
+                return base.Visible;
             }
         }
 
