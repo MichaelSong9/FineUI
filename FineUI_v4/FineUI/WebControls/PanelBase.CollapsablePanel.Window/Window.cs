@@ -869,6 +869,11 @@ namespace FineUI
             OB.AddProperty("f_property_top", Top != Unit.Empty ? Convert.ToInt32(Top.Value).ToString() : "");
             OB.AddProperty("f_property_position", WindowPosition == WindowPosition.GoldenSection ? "true" : "false", true);
 
+            if (!EnableAjax)
+            {
+                OB.AddProperty("f_property_enable_ajax", false);
+            }
+
             //if (Constrain)
             //{
             //    OB.AddProperty("constrain", true);

@@ -272,7 +272,9 @@
       </TreeNode>
       <TreeNode Text="Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel.aspx" >
       </TreeNode>
-      <TreeNode Text="动态列Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
+      <TreeNode Text="Grid导出为Excel文件（动态创建的模版列）" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
+      </TreeNode>
+      <TreeNode Text="Grid导出为Excel文件（选择需要导出的列）" NavigateUrl="~/grid/grid_excel_selectcolumns.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="分页工具条">

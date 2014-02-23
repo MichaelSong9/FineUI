@@ -61,6 +61,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-Grid: AutoPostBack, EnableRowSelect, EnableRowDoubleClick, EnableRowClick, GetSelectCountReference
 		-GlobalConfig: GetDefaultBackgroundColor
 	-修正IE8下无法上传文件的问题（猫咪君）。
+	-修正Window控件不支持EnableAjax的问题，增加示例grid/grid_excel_selectcolumns.aspx（◆◇_提拉米苏℡）。
 
 
 
@@ -155,7 +156,6 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-在更改每页显示数目（PageSize）时，防止PageIndex越界。
 	-UEditor更新为1.2.6.1。
 	-增加自定义图片按钮示例button/button_custom.aspx（簫今Shawgin）。
-	-修正Window控件不支持EnableAjax的问题，增加示例grid/grid_excel_selectcolumns.aspx（◆◇_提拉米苏℡）。
 	+修正Collapsed属性在客户端改变后状态同步问题。
 		-重现步骤：window/group_panel.aspx示例，折叠分组面板二，点击下面的按钮，不能展开分组面板二。
 	+修正树控件的SelectedNodeIDArray属性在客户端改变后状态同步问题。

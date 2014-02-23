@@ -1324,7 +1324,11 @@ if (Ext.window.Window) {
             // 如果argument为undefined，则传入__doPostBack应为空字符串
             argument = argument || '';
             this.f_hide();
+            if (typeof (this.f_property_enable_ajax) !== 'undefined' && !this.f_property_enable_ajax) {
+                F.control_enable_ajax = false;
+            }
             __doPostBack(this.name, 'Close$' + argument);
+
         },
         f_show: function (iframeUrl, windowTitle, width, height) {
             F.wnd.show(this, iframeUrl, windowTitle, this.f_property_left, this.f_property_top, this.f_property_position, this.id + '_Hidden', width, height);

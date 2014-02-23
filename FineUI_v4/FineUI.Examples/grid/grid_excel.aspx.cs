@@ -38,6 +38,7 @@ namespace FineUI.Examples.data
             Response.ClearContent();
             Response.AddHeader("content-disposition", "attachment; filename=myexcel.xls");
             Response.ContentType = "application/excel";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
             Response.Write(GetGridTableHtml(Grid1));
             Response.End();
         }

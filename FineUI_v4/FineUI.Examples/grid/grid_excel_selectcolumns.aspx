@@ -37,29 +37,31 @@
             </Columns>
         </f:Grid>
         <br />
-        <f:Button ID="btnSelectColumns" runat="server" Text="选择需要导出的列" EnablePostBack="false">
+        <f:Button ID="btnSelectColumns" runat="server" Text="选择需要导出的列（注意Window控件的EnableAjax属性）" EnablePostBack="false">
         </f:Button>
         <f:Window ID="Window1" Title="选择需要导出的列" Hidden="true" EnableIFrame="true"
             EnableMaximize="true" Target="Top" EnableResize="true" runat="server" OnClose="Window1_Close"
-            IsModal="true" Width="850px" Height="550px">
+            IsModal="true" Width="450px" Height="250px" EnableAjax="false">
         </f:Window>
         <br />
         <br />
         <br />
 
     </form>
+    <%--
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script>
         var windowID = '<%= Window1.ClientID %>';
 
         F.ready(function () {
             var window = F(windowID);
-            var oldHidePostback = window.x_hide_postback;
-            window.x_hide_postback = function () {
+            var oldHidePostback = window.f_hide_postback;
+            window.f_hide_postback = function () {
                 F.control_enable_ajax = false;
                 oldHidePostback.apply(this, arguments);
             };
         });
     </script>
+    --%>
 </body>
 </html>

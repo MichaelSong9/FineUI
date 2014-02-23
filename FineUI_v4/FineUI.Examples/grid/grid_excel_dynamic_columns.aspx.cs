@@ -88,7 +88,8 @@ namespace FineUI.Examples.data
 
         #endregion
 
-       
+        #region Events
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             labResult.Text = HowManyRowsAreSelected(Grid1);
@@ -99,6 +100,7 @@ namespace FineUI.Examples.data
             Response.ClearContent();
             Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
             Response.ContentType = "application/excel";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
             Response.Write(GetGridTableHtml(Grid1));
             Response.End();
         }
@@ -193,7 +195,9 @@ namespace FineUI.Examples.data
         public override void VerifyRenderingInServerForm(Control control)
         {
 
-        } 
+        }  
+
+        #endregion
 
     }
 
