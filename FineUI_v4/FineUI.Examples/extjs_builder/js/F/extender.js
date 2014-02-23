@@ -1222,7 +1222,7 @@ if (Ext.tab.Panel) {
         },
 
         addTab: function (id, url, title, closable) {
-            var options = {};
+            var options = {}, tab;
             if (typeof (id) === 'string') {
                 Ext.apply(options, {
                     'id': id,
@@ -1234,11 +1234,16 @@ if (Ext.tab.Panel) {
                 // 如果id不是字符串，则id为对象并且只有一个参数
                 Ext.apply(options, id);
             }
-            Ext.apply(options, {
-                'f_dynamic_added_tab': true,
-                'html': '<iframe id="' + options.id + '" name="' + options.id + '" src="' + options.url + '" frameborder="0" style="height:100%;width:100%;overflow:auto;"\></iframe\>'
-            });
-            var tab = this.add(options);
+
+            tab = this.getTab(options.id);
+            if (!tab) {
+                Ext.apply(options, {
+                    'f_dynamic_added_tab': true,
+                    'html': '<iframe id="' + options.id + '" name="' + options.id + '" src="' + options.url + '" frameborder="0" style="height:100%;width:100%;overflow:auto;"\></iframe\>'
+                });
+                tab = this.add(options);
+            }
+
             this.setActiveTab(tab);
 
             return tab;

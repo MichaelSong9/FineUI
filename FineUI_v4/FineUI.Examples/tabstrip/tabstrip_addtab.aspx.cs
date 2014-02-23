@@ -15,9 +15,9 @@ namespace FineUI.Examples.tabstrip
             if (!IsPostBack)
             {
                 btnAddBaidu1.OnClientClick = TabStrip1.GetAddTabReference("dynamic_tab_baidu1", "http://www.baidu.com/", "Baidu1", IconHelper.GetIconUrl(Icon.Application), true);
-                btnAddCnblogs1.OnClientClick = TabStrip1.GetAddTabReference("dynamic_tab_Cnblogs1", "http://www.cnblogs.com/", "Cnblogs1", IconHelper.GetIconUrl(Icon.ApplicationAdd), true);
+                btnAddCnblogs1.OnClientClick = TabStrip1.GetAddTabReference("dynamic_tab_cnblogs1", "http://www.cnblogs.com/", "Cnblogs1", IconHelper.GetIconUrl(Icon.ApplicationAdd), true);
                 btnRemoveBaidu1.OnClientClick = TabStrip1.GetRemoveTabReference("dynamic_tab_baidu1");
-                btnRemoveCnblogs1.OnClientClick = TabStrip1.GetRemoveTabReference("dynamic_tab_Cnblogs1");
+                btnRemoveCnblogs1.OnClientClick = TabStrip1.GetRemoveTabReference("dynamic_tab_cnblogs1");
 
             }
         }
@@ -29,7 +29,7 @@ namespace FineUI.Examples.tabstrip
 
         protected void btnAddCnblogs2_Click(object sender, EventArgs e)
         {
-            PageContext.RegisterStartupScript(TabStrip1.GetAddTabReference("dynamic_tab_Cnblogs2", "http://www.cnblogs.com/", "Cnblogs2", IconHelper.GetIconUrl(Icon.ApplicationAdd), true));
+            PageContext.RegisterStartupScript(TabStrip1.GetAddTabReference("dynamic_tab_cnblogs2", "http://www.cnblogs.com/", "Cnblogs2", IconHelper.GetIconUrl(Icon.ApplicationAdd), true));
         }
 
         protected void btnRemoveBaidu2_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace FineUI.Examples.tabstrip
 
         protected void btnRemoveCnblogs2_Click(object sender, EventArgs e)
         {
-            PageContext.RegisterStartupScript(TabStrip1.GetRemoveTabReference("dynamic_tab_Cnblogs2"));
+            PageContext.RegisterStartupScript(TabStrip1.GetRemoveTabReference("dynamic_tab_cnblogs2"));
         }
 
     }

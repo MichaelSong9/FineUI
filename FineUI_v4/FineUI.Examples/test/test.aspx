@@ -11,7 +11,21 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Form ID="Form2" runat="server" Height="36px" BodyPadding="5px" ShowHeader="false"
-            ShowBorder="false" LabelAlign="Right" EnableBackgroundColor="true">
+            ShowBorder="false" LabelAlign="Right">
+            <Toolbars>
+                <f:Toolbar ID="Toolbar3" runat="server">
+                    <Items>
+                        <f:RadioButtonList ID="RadioButtonList1" Width="200px" runat="server">
+                            <f:RadioItem Text="未付清" Value="0" Selected="true" />
+                            <f:RadioItem Text="付清" Value="1" />
+                        </f:RadioButtonList>
+                        <f:ToolbarFill runat="server">
+                        </f:ToolbarFill>
+                        <f:Button ID="Button1" runat="server" Text="增加">
+                        </f:Button>
+                    </Items>
+                </f:Toolbar>
+            </Toolbars>
             <Rows>
                 <f:FormRow ID="FormRow1" runat="server">
                     <Items>
