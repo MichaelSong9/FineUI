@@ -1146,9 +1146,12 @@ if (Ext.tree.Panel) {
 
         f_selectNodes: function () {
             var nodeIDs = this.f_state['SelectedNodeIDArray'] || [];
-            var model = this.getSelectionModel(), store = this.getStore(), nodes = [];
+            var model = this.getSelectionModel(), store = this.getStore(), nodes = [], node;
             Ext.Array.each(nodeIDs, function (nodeID, index) {
-                nodes.push(store.getNodeById(nodeID));
+                node = store.getNodeById(nodeID);
+                if (node) {
+                    nodes.push(node);
+                }
             });
             model.deselectAll(true);
             model.select(nodes);

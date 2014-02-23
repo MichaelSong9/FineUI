@@ -1072,9 +1072,12 @@ if (Ext.tree.TreePanel) {
 
         x_selectNodes: function () {
             var datas = this.x_state['SelectedNodeIDArray'] || [];
-            var model = this.getSelectionModel(), i = 0;
+            var model = this.getSelectionModel(), i = 0, node;
             for (i = 0; i < datas.length; i++) {
-                model.select(this.getNodeById(datas[i]), null, true);
+				node = this.getNodeById(datas[i]);
+				if(node) {
+					model.select(node, null, true);
+				}
             }
         }
 
@@ -1177,7 +1180,7 @@ if (Ext.TabPanel) {
 
 
         addTab: function (id, url, title, closable) {
-            var options = {};
+            var options = {}, tab;
             if (typeof (id) === 'string') {
                 Ext.apply(options, {
                     'id': id,
@@ -1189,11 +1192,16 @@ if (Ext.TabPanel) {
                 // id is not a string, then there should be only one argument.
                 Ext.apply(options, id);
             }
-            Ext.apply(options, {
-                'x_dynamic_added_tab': true,
-                'html': '<iframe id="' + options.id + '" name="' + options.id + '" src="' + options.url + '" frameborder="0" style="height:100%;width:100%;overflow:auto;"\></iframe\>'
-            });
-            var tab = this.add(options);
+			
+			tab = this.getTab(options.id);
+            if (!tab) {
+				Ext.apply(options, {
+					'x_dynamic_added_tab': true,
+					'html': '<iframe id="' + options.id + '" name="' + options.id + '" src="' + options.url + '" frameborder="0" style="height:100%;width:100%;overflow:auto;"\></iframe\>'
+				});
+				tab = this.add(options);
+			}
+			
             this.activate(tab);
 
             return tab;

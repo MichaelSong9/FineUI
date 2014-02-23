@@ -60,10 +60,11 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 		-Window: Popup
 		-Grid: AutoPostBack, EnableRowSelect, EnableRowDoubleClick, EnableRowClick, GetSelectCountReference
 		-GlobalConfig: GetDefaultBackgroundColor
-	-修正IE8下无法上传文件的问题（猫咪君）。
+	-修正IE8下无法上传文件的问题（猫咪君、asdfsdgd）。
 	-修正Window控件不支持EnableAjax的问题，增加示例grid/grid_excel_selectcolumns.aspx（◆◇_提拉米苏℡）。
 	-将控件的Visible属性设为只读，如果想隐藏控件并在随后的请求中显示出来，请使用Hidden属性。
 	-修正tabstrip/tabstrip_addtab.aspx示例中相同ID可以多次添加的问题（春节）。
+	-修正删除选中树节点后重新绑定出错的问题（Panda）。
 
 
 
