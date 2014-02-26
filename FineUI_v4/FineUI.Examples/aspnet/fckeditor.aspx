@@ -24,9 +24,19 @@
         </f:Button>
     </form>
     <script type="text/javascript">
+        var editorUniqueID = '<%= FCKeditor1.UniqueID  %>';
+
+
+        // 提交数据之前同步到表单隐藏字段
+        F.beforeAjax(function () {
+            var editor = FCKeditorAPI.GetInstance(editorUniqueID);
+            editor.UpdateLinkedField();
+        });
+
+
         // 更新编辑器内容
         function updateFCKEditor(content) {
-            var editor = FCKeditorAPI.GetInstance('<%= FCKeditor1.UniqueID %>');
+            var editor = FCKeditorAPI.GetInstance(editorUniqueID);
             editor.SetData(content);
         }
     </script>
