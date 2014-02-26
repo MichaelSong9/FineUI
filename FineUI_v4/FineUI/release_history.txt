@@ -66,7 +66,7 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 	-修正tabstrip/tabstrip_addtab.aspx示例中相同ID可以多次添加的问题（春节）。
 	-修正删除选中树节点后重新绑定出错的问题（Panda）。
 	-修正aspnet/fckeditor.aspx示例无法获取用户输入值的问题（xie_g_j）。
-
+	-添加extjs缺少提醒，避免初学者走弯路。
 
 
 
