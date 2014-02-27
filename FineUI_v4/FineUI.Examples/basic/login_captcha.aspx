@@ -27,12 +27,12 @@
                         </f:TextBox>
                         <f:TextBox ID="tbxCaptcha" Label="验证码" Required="true" runat="server">
                         </f:TextBox>
-                        <f:Panel CssStyle="padding-left:65px;" ShowBorder="false" ShowHeader="false"
+						<f:Panel CssStyle="padding-left:65px;" ShowBorder="false" ShowHeader="false"
                             runat="server">
                             <Items>
-                                <f:Image ID="imgCaptcha" CssStyle="float:left;width:160px;" runat="server" ShowEmptyLabel="true">
+                                <f:Image ID="imgCaptcha" CssStyle="float:left;width:160px;" runat="server">
                                 </f:Image>
-                                <f:LinkButton CssStyle="float:left;padding-top:8px;" ID="btnRefresh" Text="看不清？"
+                                <f:LinkButton CssStyle="float:left;margin-top:8px;" ID="btnRefresh" Text="看不清？"
                                     runat="server" OnClick="btnRefresh_Click">
                                 </f:LinkButton>
                             </Items>
