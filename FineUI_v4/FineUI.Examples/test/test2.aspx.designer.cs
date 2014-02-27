@@ -31,21 +31,48 @@ namespace FineUI.Examples {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// triggerBox 控件。
+        /// gpAdvancedSet 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TriggerBox triggerBox;
+        protected global::FineUI.GroupPanel gpAdvancedSet;
         
         /// <summary>
-        /// Window1 控件。
+        /// txtSendTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Window Window1;
+        protected global::FineUI.RadioButtonList txtSendTime;
+        
+        /// <summary>
+        /// txtSetSendTimeDate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.DatePicker txtSetSendTimeDate;
+        
+        /// <summary>
+        /// txtSetSendTimeTime 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TimePicker txtSetSendTimeTime;
+        
+        /// <summary>
+        /// txtSendLevel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.RadioButtonList txtSendLevel;
     }
 }

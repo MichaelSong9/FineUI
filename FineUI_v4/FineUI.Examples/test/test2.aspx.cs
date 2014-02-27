@@ -19,11 +19,6 @@ namespace FineUI.Examples
             }
         }
 
-        protected void triggerBox_TriggerClick(object sender, EventArgs e)
-        {
-            Window1.IFrameUrl = "test.aspx";
-            Window1.Hidden = false;
-        }
-
+        
     }
 }
