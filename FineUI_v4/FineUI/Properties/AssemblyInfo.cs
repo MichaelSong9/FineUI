@@ -30,7 +30,7 @@ using System.Web.UI;
 [assembly: Guid("e5b98f13-3bde-4009-bc43-82267c23c5f6")]
 
 
-[assembly: TagPrefix("FineUI", "x")]   
+[assembly: TagPrefix("FineUI", "f")]   
 
 // Version information for an assembly consists of the following four values:
 //

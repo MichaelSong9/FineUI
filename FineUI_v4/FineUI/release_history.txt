@@ -29,7 +29,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 发布历史
 
-+2014-02-** v4.0.4
++2014-02-28 v4.0.4
 	-为Neptune主题下的工具条添加背景色（szjazz）。
 	-树控件增加EnableSingleClickExpand属性，实现单击展开树节点功能（erp8@live.cn）。
 	-修复手风琴控件首次加载后无法获取展开状态的问题（asdfsdgd）。
