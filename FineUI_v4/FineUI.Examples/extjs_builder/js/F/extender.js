@@ -532,11 +532,12 @@ if (Ext.grid.Panel) {
             //this.f_deletedRows = [];
 
             store.loadData(datas);
-            store.commitChanges();
 
 
-            this.f_initRecordIDs();
-
+            if (this.f_cellEditing) {
+                store.commitChanges();
+                this.f_initRecordIDs();
+            }
         },
 
         // 初始化所有记录的ID列表
@@ -906,7 +907,7 @@ if (Ext.grid.Panel) {
             var i = 0, count = this.columns.length, column;
             for (; i < count; i++) {
                 column = this.columns[i];
-                if (column.getEditor() || column.xtype === 'checkcolumn') {
+                if ((column.getEditor && column.getEditor()) || column.xtype === 'checkcolumn') {
                     return i;
                 }
             }
@@ -918,7 +919,7 @@ if (Ext.grid.Panel) {
             for (; i < count; i++) {
                 column = this.columns[i];
                 if (column.id === columnID) {
-                    if (column.getEditor() || column.xtype === 'checkcolumn') {
+                    if ((column.getEditor && column.getEditor()) || column.xtype === 'checkcolumn') {
                         return true;
                     } else {
                         return false;

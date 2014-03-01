@@ -2202,7 +2202,7 @@ namespace FineUI
 
             base.OnFirstPreRender();
 
-            
+
             //ResourceManager.Instance.AddJavaScriptComponent("grid");
             JsArrayBuilder pluginBuilder = new JsArrayBuilder();
 
@@ -2373,7 +2373,7 @@ namespace FineUI
 
                 string postbackScript = String.Empty;
                 postbackScript = GetPostBackEventReference("#PLACEHOLDER#");
-                string loadPageScript = JsHelper.GetFunction(postbackScript.Replace("'#PLACEHOLDER#'", "'Page$'+(pageNum-1)"), "bar", "pageNum");
+                string loadPageScript = JsHelper.GetFunction(postbackScript.Replace("'#PLACEHOLDER#'", "'Page$'+(pageNum-1)") + "return false;", "bar", "pageNum");
 
                 pagingBuilder.Listeners.AddProperty("beforechange", loadPageScript, true);
 
@@ -2545,7 +2545,7 @@ namespace FineUI
                 cellEditScript = String.Format("var {0}=Ext.create('Ext.grid.plugin.CellEditing',{1});", pluginId, cellEditBuilder);
 
                 pluginBuilder.AddProperty(pluginId, true);
-                
+
                 if (EnableAfterEditEvent)
                 {
                     string validateScript = "var args='AfterEdit$'+e.rowIdx+'$'+e.field;";
@@ -2562,11 +2562,11 @@ namespace FineUI
             #endregion
 
             #region pluginBuilder
-            
+
             if (pluginBuilder.Count > 0)
             {
                 OB.AddProperty("plugins", pluginBuilder.ToString(), true);
-            } 
+            }
 
             #endregion
 
@@ -2724,7 +2724,7 @@ namespace FineUI
             //    pluginBuilder.AddProperty(Render_GridGroupColumnID, true);
             //}
 
-            
+
 
             //JsObjectBuilder defaultsBuilder = new JsObjectBuilder();
             //// 这是Extjs默认的客户端排序
@@ -3244,6 +3244,7 @@ namespace FineUI
             BeforeDataBind();
 
             int rowIndex = 0;
+
             foreach (object rowObj in list)
             {
                 DataBindRow(rowIndex, rowObj);
@@ -3567,7 +3568,7 @@ namespace FineUI
 
             }
 
-            
+
 
             return false;
         }
@@ -4468,8 +4469,8 @@ namespace FineUI
             Page.RegisterRequiresControlState(this);
         }
 
-        
-        
+
+
         #endregion
 
         #region old code
