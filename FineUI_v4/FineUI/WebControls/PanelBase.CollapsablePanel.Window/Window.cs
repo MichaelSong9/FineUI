@@ -833,6 +833,15 @@ namespace FineUI
 
             #endregion
 
+            #region 验证EnableIFrame和Target是否冲突
+            
+            if (!EnableIFrame && Target != Target.Self)
+            {
+                Target = Target.Self;
+            } 
+
+            #endregion
+
             #region Properties
 
             OB.AddProperty("closeAction", "hide");

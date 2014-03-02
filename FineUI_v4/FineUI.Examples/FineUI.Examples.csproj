@@ -352,7 +352,6 @@
     <Content Include="layout\hbox.aspx" />
     <Content Include="layout\vbox.aspx" />
     <Content Include="other\alert.aspx" />
-    <Content Include="other\button_in_form.aspx" />
     <Content Include="other\confirm_cancel.aspx" />
     <Content Include="other\cssclass.aspx" />
     <Content Include="other\confirm_cancel2.aspx" />
@@ -1661,13 +1660,6 @@
     </Compile>
     <Compile Include="other\alert.aspx.designer.cs">
       <DependentUpon>alert.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="other\button_in_form.aspx.cs">
-      <DependentUpon>button_in_form.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="other\button_in_form.aspx.designer.cs">
-      <DependentUpon>button_in_form.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\confirm_cancel.aspx.cs">
       <DependentUpon>confirm_cancel.aspx</DependentUpon>

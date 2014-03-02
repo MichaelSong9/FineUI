@@ -8,9 +8,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <f:PageManager ID="PageManager2" runat="server" />
-    <asp:Button ID="Button2" Text="Button2" runat="server" UseSubmitBehavior="true"  OnClick="Button2_Click"/>
-    <asp:Button ID="Button1" Text="Button1" runat="server" UseSubmitBehavior="true" OnClick="Button1_Click"/>
+        <f:PageManager ID="PageManager2" runat="server" />
+        <asp:Button ID="Button2" Text="Button2" runat="server" UseSubmitBehavior="true" OnClick="Button2_Click" />
+        <asp:Button ID="Button1" Text="Button1" runat="server" UseSubmitBehavior="true" OnClick="Button1_Click" />
+
+        <f:Window ID="windowSourceCode" Icon="PageWhiteCode" Title="源代码" Hidden="true" EnableIFrame="false"
+            runat="server" IsModal="true" Width="950px" Height="550px" EnableClose="true" Target="Top"
+            EnableMaximize="true" EnableResize="true">
+        </f:Window>
     </form>
 </body>
 </html>
