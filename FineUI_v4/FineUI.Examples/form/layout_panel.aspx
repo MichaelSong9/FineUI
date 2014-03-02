@@ -8,7 +8,8 @@
     <style>
         .btn-in-form
         {
-            margin-bottom: 4px;
+            margin-bottom: 5px;
+            display: table;
         }
     </style>
 </head>
