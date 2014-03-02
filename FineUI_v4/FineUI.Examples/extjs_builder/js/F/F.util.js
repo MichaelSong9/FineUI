@@ -131,6 +131,13 @@ F.customEvent = function (argument, validate) {
                 fieldPro.labelSeparator = labelSeparator;
                 fieldPro.autoFitErrors = true;
             }
+            if (Ext.form.CheckboxGroup) {
+                var checkboxgroupPro = Ext.form.CheckboxGroup.prototype;
+                checkboxgroupPro.msgTarget = msgTarget;
+                checkboxgroupPro.labelWidth = labelWidth;
+                checkboxgroupPro.labelSeparator = labelSeparator;
+                checkboxgroupPro.autoFitErrors = true;
+            }
 
 
             //if (enableBigFont) {

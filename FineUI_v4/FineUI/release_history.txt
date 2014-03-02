@@ -33,10 +33,12 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正表格在AJAX更新时加载慢的问题。
 	-修正表格在分页和排序同时存在，分页时会发送两次AJAX请求的问题（Gunu40）。
 	-修正表格在特殊情况下出现getEditor未定义的错误（yygy）。
-	-修正示例form/layout_panel.aspx的布局错位（死水沼泽）。
+	-修正示例form/layout_panel.aspx的布局错位（隨風往事、死水沼泽）。
 	-修正合计行在Blue主题下的样式问题（yygy）。
 	-修正示例form/layout_panel2.aspx的布局错位。
 	-修正basic/login_captcha.aspx的布局错位。
+	-修正复选框列表的标签分隔符为半角冒号的问题（highong）。
+
 
 
 
