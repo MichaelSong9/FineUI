@@ -1,4 +1,1 @@
-doxygen -w html D:\Document\BaiduCloud\Program\Fine
-UI\doc\header.html D:\Document\BaiduCloud\Program\FineUI\doc\footer.html D:\Docu
-ment\BaiduCloud\Program\FineUI\doc\customdoxygen.css D:\Document\BaiduCloud\Prog
-ram\FineUI\doc\Doxyfile
+doxygen -w html d:\test\header.html d:\test\footer.html d:\test\customdoxygen.css 
