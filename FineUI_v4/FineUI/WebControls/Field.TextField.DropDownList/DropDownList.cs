@@ -1387,28 +1387,32 @@ namespace FineUI
             string postText = postCollection[postDataKey];
             string postValue = postCollection[SelectedValueHiddenFieldID];
 
-            ListItem item = Items.FindByValue(postValue);
-            if (item != null && item.Text == postText)
+            // 如果下拉列表被禁用，则postText为null。由于Enabled只能在服务器端被改变，所以被禁用时，不处理回发数据即可
+            if (Enabled)
             {
-                // 本次选中的是下拉项
-                if (SelectedValue != postValue)
+                ListItem item = Items.FindByValue(postValue);
+                if (item != null && item.Text == postText)
                 {
-                    SelectedValue = postValue;
-                    FState.BackupPostDataProperty("SelectedValue");
-                    return true;
+                    // 本次选中的是下拉项
+                    if (SelectedValue != postValue)
+                    {
+                        SelectedValue = postValue;
+                        FState.BackupPostDataProperty("SelectedValue");
+                        return true;
+                    }
                 }
-            }
-            else
-            {
-                // 本次是用户输入的值
-                if (Text != postText)
+                else
                 {
-                    SelectedValue = null;
-                    FState.BackupPostDataProperty("SelectedValue");
+                    // 本次是用户输入的值
+                    if (Text != postText)
+                    {
+                        SelectedValue = null;
+                        FState.BackupPostDataProperty("SelectedValue");
 
-                    Text = postText;
-                    FState.BackupPostDataProperty("Text");
-                    return true;
+                        Text = postText;
+                        FState.BackupPostDataProperty("Text");
+                        return true;
+                    }
                 }
             }
 
