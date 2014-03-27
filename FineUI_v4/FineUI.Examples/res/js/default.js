@@ -9,6 +9,13 @@ F.ready(function () {
     var leftRegion = F(IDS.leftRegion);
     var menuSettings = F(IDS.menuSettings);
 
+    var BTN;
+    if (window.Ext) {
+        BTN = Ext.Button;
+    } else {
+        BTN = F.Button;
+    }
+
     // 当前展开的手风琴面板
     function getExpandedPanel() {
         var panel = null;
@@ -22,7 +29,7 @@ F.ready(function () {
 
     // 点击展开菜单
     btnExpandAll.on('click', function () {
-        if (IDS.menuType == "menu") {
+        if (IDS.menuType == 'menu') {
             // 左侧为树控件
             mainMenu.expandAll();
         } else {
@@ -36,7 +43,7 @@ F.ready(function () {
 
     // 点击折叠菜单
     btnCollapseAll.on('click', function () {
-        if (IDS.menuType == "menu") {
+        if (IDS.menuType == 'menu') {
             // 左侧为树控件
             mainMenu.collapseAll();
         } else {
@@ -52,47 +59,49 @@ F.ready(function () {
     function createToolbar(tabConfig) {
 
         // 由工具栏上按钮获得当前标签页中的iframe节点
-        function getCurrentIframeNode(button) {
-            // 注意：button.ownerCt 是工具栏，button.ownerCt.ownerCt 就是当前激活的标签页。
-            return Ext.DomQuery.selectNode('iframe', button.ownerCt.ownerCt.el.dom);
+        function getCurrentIFrameNode(btn) {
+            return $('#' + btn.id).parents('.f-tab').find('iframe');
         }
 
-        // 动态创建按钮
-        var sourcecodeButton = new Ext.Button({
-            text: "源代码",
-            type: "button",
-            cls: "x-btn-text-icon",
-            icon: "./icon/page_white_code.png",
+        var sourcecodeButton = new BTN({
+            text: '源代码',
+            type: 'button',
+            icon: './icon/page_white_code.png',
             listeners: {
-                click: function (button, e) {
-                    windowSourceCode.f_show('./common/source.aspx?files=' + getCurrentIframeNode(button).attributes['src'].value, '源代码');
-                    e.stopEvent();
+                click: function () {
+                    var iframeNode = getCurrentIFrameNode(this);
+                    var iframeWnd = iframeNode[0].contentWindow
+
+                    var files = [iframeNode.attr('src')];
+                    var sourcefilesNode = $(iframeWnd.document).find('head meta[name=sourcefiles]');
+                    if (sourcefilesNode.length) {
+                        $.merge(files, sourcefilesNode.attr('content').split(';'));
+                    }
+                    windowSourceCode.f_show('./common/source.aspx?files=' + encodeURIComponent(files.join(';')));
                 }
             }
         });
 
-        var openNewWindowButton = new Ext.Button({
+        var openNewWindowButton = new BTN({
             text: '新标签页中打开',
-            type: "button",
-            cls: "x-btn-text-icon",
-            icon: "./icon/tab_go.png",
+            type: 'button',
+            icon: './icon/tab_go.png',
             listeners: {
-                click: function (button, e) {
-                    window.open(getCurrentIframeNode(button).src, "_blank");
-                    e.stopEvent();
+                click: function () {
+                    var iframeNode = getCurrentIFrameNode(this);
+                    window.open(iframeNode.attr('src'), '_blank');
                 }
             }
         });
 
-        var refreshButton = new Ext.Button({
+        var refreshButton = new BTN({
             text: '刷新',
-            type: "button",
-            cls: "x-btn-text-icon",
-            icon: "./icon/reload.png",
+            type: 'button',
+            icon: './icon/reload.png',
             listeners: {
-                click: function (button, e) {
-                    getCurrentIframeNode(button).contentWindow.location.reload(); //.replace(href);
-                    e.stopEvent();
+                click: function () {
+                    var iframeNode = getCurrentIFrameNode(this);
+                    iframeNode[0].contentWindow.location.reload();
                 }
             }
         });
@@ -147,6 +156,6 @@ F.ready(function () {
         }
     });
 
-    
+
 
 });

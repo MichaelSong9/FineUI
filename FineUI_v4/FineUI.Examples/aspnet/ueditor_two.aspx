@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../ueditor/themes/default/ueditor.css" />
+    <link rel="stylesheet" href="../res/ueditor/themes/default/ueditor.css" />
     <style>
         table.mytable {
             width: 100%;
@@ -72,11 +72,11 @@
         <br />
     </form>
     <script type="text/javascript">
-        window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/ueditor/") %>';
+        window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/res/ueditor/") %>';
     </script>
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" src="../ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="../res/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="../res/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
         var editor1, editor2;
         var formClientID = '<%= SimpleForm1.ClientID %>';

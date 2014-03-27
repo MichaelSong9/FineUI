@@ -1226,7 +1226,9 @@ if (Ext.tab.Panel) {
         },
 
         addTab: function (id, url, title, closable) {
-            var options = {}, tab;
+            var options = {
+                'cls': 'f-tab'
+            }, tab;
             if (typeof (id) === 'string') {
                 Ext.apply(options, {
                     'id': id,
@@ -1340,6 +1342,12 @@ if (Ext.window.Window) {
 
         },
         f_show: function (iframeUrl, windowTitle, width, height) {
+            if (typeof (iframeUrl) === 'undefined') {
+                iframeUrl = this.f_iframe_url;
+            }
+            if (typeof (windowTitle) === 'undefined') {
+                windowTitle = this.title;
+            }
             F.wnd.show(this, iframeUrl, windowTitle, this.f_property_left, this.f_property_top, this.f_property_position, this.id + '_Hidden', width, height);
         },
 

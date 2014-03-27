@@ -64,10 +64,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="Wilco.SyntaxHighlighter, Version=0.5.0.0, Culture=neutral, PublicKeyToken=fb87150479c2990b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>library\Wilco.SyntaxHighlighter.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="accordion\accordion_tree_index.htm" />
@@ -245,8 +241,6 @@
     <Content Include="iframe\window_iframe.aspx" />
     <Content Include="iframe\window2.aspx" />
     <Content Include="iframe\window2_iframe.aspx" />
-    <Content Include="js\jquery-1.10.2.js" />
-    <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="other\keydown.aspx" />
     <Content Include="basic\login_captcha.aspx" />
     <Content Include="button\button.aspx" />
@@ -347,7 +341,7 @@
     <Content Include="iframe\parent_postback_top3.aspx" />
     <Content Include="iframe\parent_simplepostback.aspx" />
     <Content Include="iframe\parent_simplepostback2.aspx" />
-    <Content Include="js\default.js" />
+    <Content Include="res\js\default.js" />
     <Content Include="layout\table.aspx" />
     <Content Include="layout\hbox.aspx" />
     <Content Include="layout\vbox.aspx" />
@@ -355,6 +349,7 @@
     <Content Include="other\confirm_cancel.aspx" />
     <Content Include="other\cssclass.aspx" />
     <Content Include="other\confirm_cancel2.aspx" />
+    <Content Include="res\js\jquery.min.js" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
     <Content Include="test\start.aspx" />
@@ -2156,7 +2151,6 @@
     <Compile Include="tree\select\tree_multi_select.aspx.designer.cs">
       <DependentUpon>tree_multi_select.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ueditor\net\Uploader.cs" />
     <Compile Include="usercontrol\UserInfoControl.ascx.cs">
       <DependentUpon>UserInfoControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2259,9 +2253,6 @@
   <ItemGroup>
     <Content Include="config\ajax_properties.txt" />
     <Content Include="aspnet\fckeditor.aspx" />
-    <Content Include="fckeditor\editor\filemanager\connectors\aspx\config.ascx" />
-    <Content Include="fckeditor\editor\filemanager\connectors\aspx\connector.aspx" />
-    <Content Include="fckeditor\editor\filemanager\connectors\aspx\upload.aspx" />
     <Content Include="config\icons.aspx" />
     <Content Include="toolbar\menu_dynamic2.aspx" />
     <Content Include="toolbar\menu.xml" />
@@ -2278,8 +2269,8 @@
     <Content Include="basic\hello.aspx" />
     <Content Include="basic\login.aspx" />
     <Content Include="config\icons.htm" />
-    <Content Include="css\default.css" />
-    <Content Include="css\main.css" />
+    <Content Include="res\css\default.css" />
+    <Content Include="res\css\main.css" />
     <Content Include="tree\checkbox\tree_checkall.aspx" />
     <Content Include="dropdownlist\shengshixian.aspx" />
     <Content Include="dropdownlist\dropdownlist.aspx" />
@@ -2301,15 +2292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="autocomplete\search.ashx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ueditor\net\fileUp.ashx" />
-    <Content Include="ueditor\net\getContent.ashx" />
-    <Content Include="ueditor\net\getMovie.ashx" />
-    <Content Include="ueditor\net\getRemoteImage.ashx" />
-    <Content Include="ueditor\net\imageManager.ashx" />
-    <Content Include="ueditor\net\imageUp.ashx" />
-    <Content Include="ueditor\net\scrawlUp.ashx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extjs_builder\build.bat" />
