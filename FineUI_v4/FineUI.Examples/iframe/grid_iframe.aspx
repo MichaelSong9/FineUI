@@ -4,6 +4,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta name="sourcefiles" content="~/grid/grid_iframe_window.aspx" />
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <style>
         body.x-body {

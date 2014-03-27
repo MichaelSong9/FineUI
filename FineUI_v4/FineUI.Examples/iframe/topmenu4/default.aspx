@@ -4,6 +4,7 @@
 <html>
 <head runat="server">
     <title>顶部菜单框架（四）</title>
+    <meta name="sourcefiles" content="~/iframe/topmenu4/leftmenu.aspx" />
     <link type="text/css" rel="stylesheet" href="./res/main.css" />
 </head>
 <body>
@@ -38,7 +39,7 @@
                 </f:Region>
                 <f:Region ID="Region2" Split="true" Width="200px"
                     Margins="0 0 0 0" ShowHeader="true" Title="业务菜单" Icon="Outline"
-                    EnableCollapse="true" EnableIFrame="true" IFrameName="leftframe" IFrameUrl="./leftmenu.aspx?menu=mail"
+                    EnableCollapse="true" EnableIFrame="true" IFrameName="leftframe" IFrameUrl="about:blank"
                     Position="Left" runat="server">
                 </f:Region>
                 <f:Region ID="mainRegion" ShowHeader="false" Margins="0 0 0 0" Position="Center"

@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta name="sourcefiles" content="~/usercontrol/UserInfoControl.ascx" />
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

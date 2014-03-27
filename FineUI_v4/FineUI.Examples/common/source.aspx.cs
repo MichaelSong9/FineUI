@@ -48,8 +48,6 @@ namespace FineUI.Examples
                     return;
                 }
 
-                files = ResolveQueryString(files);
-
                 if (!String.IsNullOrEmpty(files))
                 {
                     string[] fileNames = files.Split(';');
@@ -60,7 +58,7 @@ namespace FineUI.Examples
                         string shortFileName = GetShortFileName(fileName);
                         string iframeUrl = "./source_file.aspx?file=" + fileName;
 
-                        FineUI.Tab tab = new FineUI.Tab();
+                        Tab tab = new Tab();
                         tab.Title = shortFileName;
                         tab.EnableIFrame = true;
                         tab.IFrameUrl = iframeUrl;
@@ -120,20 +118,6 @@ namespace FineUI.Examples
             //{
             //    fileName = "vs_htm.png";
             //}
-        }
-
-        private string ResolveQueryString(string files)
-        {
-            string result = files;
-            foreach (string key in SOURCE_FILES.Keys)
-            {
-                if (files.EndsWith(key))
-                {
-                    result += ';' + SOURCE_FILES[key];
-                    break;
-                }
-            }
-            return result;
         }
 
         private string GetShortFileName(string fileName)

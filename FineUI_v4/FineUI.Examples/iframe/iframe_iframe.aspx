@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta name="sourcefiles" content="~/iframe/iframe_iframe_window1.aspx;~/iframe/iframe_iframe_window2.aspx" />
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

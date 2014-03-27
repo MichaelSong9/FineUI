@@ -4,6 +4,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta name="sourcefiles" content="~/tree/databind/Web.sitemap" />
     <link href="../../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

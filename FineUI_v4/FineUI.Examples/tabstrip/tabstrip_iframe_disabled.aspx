@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta name="sourcefiles" content="~/tabstrip/tabstrip_iframe_disabled_tab1.aspx" />
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

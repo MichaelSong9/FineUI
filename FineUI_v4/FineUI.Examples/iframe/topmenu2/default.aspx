@@ -4,6 +4,7 @@
 <html>
 <head runat="server">
     <title>顶部菜单框架（二）</title>
+    <meta name="sourcefiles" content="~/iframe/topmenu2/leftmenu.aspx" />
     <link type="text/css" rel="stylesheet" href="./res/main.css" />
 </head>
 <body>
