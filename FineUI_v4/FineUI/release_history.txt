@@ -35,6 +35,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-IE的问题：外部页面使用已关闭IFrame页面的数据（或回调）时发生。
 		-修正方法是将initTreeTabStrip的调用放在父页面，这样mainTabStrip的回调存在于父页面，而不可能来自已关闭的IFrame。
 	-使用google-code-prettify对示例源代码进行着色。
+	-添加到页面上的主题样式类由theme-neptune改名为f-theme-neptune。
 	
 
 +2014-03-03 v4.0.5

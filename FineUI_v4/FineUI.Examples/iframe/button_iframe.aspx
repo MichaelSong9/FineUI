@@ -6,7 +6,7 @@
 <head id="head1" runat="server">
     <title></title>
     <meta name="sourcefiles" content="~/grid/grid_iframe_window.aspx" />
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,12 +22,12 @@
         <f:Label ID="labResult" CssStyle="font-weight:bold;color:red;" runat="server">
         </f:Label>
         <br />
-        <f:Window ID="Window1" IconUrl="~/images/16/10.png" runat="server" Hidden="true"
+        <f:Window ID="Window1" IconUrl="~/res/images/16/10.png" runat="server" Hidden="true"
             WindowPosition="Center" IsModal="true" Title="Popup Window 1" EnableMaximize="true"
             EnableResize="true" Target="Self" EnableIFrame="true"
             Height="500px" Width="650px" OnClose="Window1_Close">
         </f:Window>
-        <f:Window ID="Window2" IconUrl="~/images/16/11.png" runat="server" Hidden="true"
+        <f:Window ID="Window2" IconUrl="~/res/images/16/11.png" runat="server" Hidden="true"
             IsModal="true" Target="Parent" EnableMaximize="true" EnableResize="true" OnClose="Window2_Close"
             Title="Popup Window 2" CloseAction="HidePostBack"
             EnableIFrame="true" Height="500px" Width="650px">

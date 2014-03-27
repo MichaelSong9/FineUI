@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         /* .x-grid-hd-ct4
         {
@@ -37,7 +37,7 @@
                     DataTextField="Major" DataTextFormatString="{0}" DataNavigateUrlFields="Major"
                     DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}" DataNavigateUrlFieldsEncode="true"
                     Target="_blank" ExpandUnusedSpace="True" />
-                <f:ImageField Width="150px" TextAlign="Right" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
+                <f:ImageField Width="150px" TextAlign="Right" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组（靠右）"></f:ImageField>
             </Columns>
         </f:Grid>

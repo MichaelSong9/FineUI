@@ -121,7 +121,7 @@ F.customEvent = function (argument, validate) {
 
             // 向document.body添加主题类
             if (themeName) {
-                Ext.getBody().addCls('theme-' + themeName);
+                Ext.getBody().addCls('f-theme-' + themeName);
             }
 
             if (Ext.form.field) {

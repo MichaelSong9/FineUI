@@ -15,7 +15,7 @@ namespace FineUI.Examples.button
 
         protected void btnCustomIcon_Click(object sender, EventArgs e)
         {
-            btnCustomIcon.IconUrl = "~/images/16/8.png";
+            btnCustomIcon.IconUrl = "~/res/images/16/8.png";
         }
     }
 }

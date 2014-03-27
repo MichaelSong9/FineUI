@@ -4,7 +4,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,9 +17,9 @@
     <f:Image ID="Image2" runat="server" ImageUrl="../icon/world.png">
     </f:Image>
     <br />
-    ImageUrl="../images/logo/favicon.gif" ImageCssStyle="border:solid 1px #ccc;padding:5px;"：
+    ImageUrl="~/res/images/logo/favicon.gif" ImageCssStyle="border:solid 1px #ccc;padding:5px;"：
     <f:Image ID="Image3" runat="server" ImageWidth="32" ImageHeight="32" ImageCssStyle="border:solid 1px #ccc;padding:5px;"
-        ImageUrl="../images/logo/favicon.gif">
+        ImageUrl="~/res/images/logo/favicon.gif">
     </f:Image>
     <br />
     <f:Button runat="server" Text="改变图片的大小" ID="Button1" OnClick="Button1_Click">

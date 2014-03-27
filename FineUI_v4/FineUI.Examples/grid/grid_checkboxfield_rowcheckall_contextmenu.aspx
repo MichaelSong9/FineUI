@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -46,7 +46,7 @@
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
     </form>
-    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script>
 
         var gridID = '<%= Grid1.ClientID %>';

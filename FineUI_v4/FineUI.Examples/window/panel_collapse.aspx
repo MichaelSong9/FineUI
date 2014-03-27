@@ -4,13 +4,13 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Panel ID="Panel1" runat="server" Title="面板一" Width="650px" EnableFrame="true"
-            BodyPadding="10px" EnableCollapse="True" IconUrl="~/images/16/8.png" 
+            BodyPadding="10px" EnableCollapse="True" IconUrl="~/res/images/16/8.png" 
             EnableCollapseEvent="true" OnCollapse="Panel1_CollapseExpand"
             EnableExpandEvent="true" OnExpand="Panel1_CollapseExpand" >
             <Items>

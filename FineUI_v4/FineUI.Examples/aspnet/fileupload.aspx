@@ -7,7 +7,7 @@
 <head runat="server">
     <title></title>
     <meta name="sourcefiles" content="~/aspnet/fileupload_iframe.aspx" />
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">

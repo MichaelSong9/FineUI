@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
         body.x-body {
             padding: 0;
@@ -22,14 +22,14 @@
                     <Items>
                         <f:Accordion runat="server" ShowBorder="false" ShowHeader="false" ShowCollapseTool="true">
                             <Panes>
-                                <f:AccordionPane runat="server" Title="面板一" IconUrl="~/images/16/1.png" BodyPadding="2px 5px"
+                                <f:AccordionPane runat="server" Title="面板一" IconUrl="~/res/images/16/1.png" BodyPadding="2px 5px"
                                     Layout="Fit" ShowBorder="false">
                                     <Items>
                                         <f:Tree runat="server" EnableArrows="true" ShowBorder="false" ShowHeader="false" ID="treeMenu">
                                         </f:Tree>
                                     </Items>
                                 </f:AccordionPane>
-                                <f:AccordionPane runat="server" Title="面板二" IconUrl="~/images/16/4.png" BodyPadding="2px 5px"
+                                <f:AccordionPane runat="server" Title="面板二" IconUrl="~/res/images/16/4.png" BodyPadding="2px 5px"
                                     ShowBorder="false">
                                     <Items>
                                         <f:Label Text="面板二中的文本" runat="server">

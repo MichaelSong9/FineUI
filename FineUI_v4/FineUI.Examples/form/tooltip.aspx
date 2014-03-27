@@ -4,7 +4,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,7 +22,7 @@
     </f:Image>
     <br />
     <f:Image ID="Image2" runat="server" ImageWidth="32" ImageHeight="32" ImageCssStyle="border:solid 1px #ccc;padding:5px;"
-        ImageUrl="../images/logo/favicon.gif" ToolTipAutoHide="false" ToolTipTitle="不会自动消失的提示框"
+        ImageUrl="~/res/images/logo/favicon.gif" ToolTipAutoHide="false" ToolTipTitle="不会自动消失的提示框"
         ToolTip="这个提示不会自动消失，点击其他地方才会消失">
     </f:Image>
     </form>

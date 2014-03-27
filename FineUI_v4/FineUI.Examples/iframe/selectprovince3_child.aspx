@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
         body.f-body {
             padding: 0;
@@ -18,7 +18,7 @@
     <f:Panel ID="Panel1" runat="server" ShowBorder="False" ShowHeader="false" BodyPadding="5px"
         >
         <Items>
-            <f:Image runat="server" ID="imgChina" ImageUrl="~/images/china.gif">
+            <f:Image runat="server" ID="imgChina" ImageUrl="~/res/images/china.gif">
             </f:Image>
             <f:Label runat="server" EncodeText="false" ID="labNote">
             </f:Label>

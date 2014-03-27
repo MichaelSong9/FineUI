@@ -6,7 +6,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server"> 
@@ -23,7 +23,7 @@
         <f:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
         </f:Button>
     </form>
-    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var editorClientID = '<%= CKEditor1.ClientID %>';
         var containerClientID = '<%= ContentPanel1.ClientID %>';

@@ -62,7 +62,7 @@
             </Regions>
         </f:RegionPanel>
     </form>
-    <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../../res/js/jquery.min.js" type="text/javascript"></script>
     <script>
         var mainTabStripClientID = '<%= mainTabStrip.ClientID %>';
 

@@ -5,7 +5,7 @@
 <head runat="server">
     <title></title>
     <meta name="sourcefiles" content="~/grid/grid_iframe_window.aspx" />
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,7 +36,7 @@
                 <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
+                <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组"></f:ImageField>
                 <f:WindowField ColumnID="myWindowField" Width="80px" WindowID="Window1" HeaderText="窗口列"
                     Icon="Pencil" ToolTip="编辑" DataTextFormatString="{0}" DataIFrameUrlFields="Id"

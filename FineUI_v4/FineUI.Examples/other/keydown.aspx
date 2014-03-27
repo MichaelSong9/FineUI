@@ -4,7 +4,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,7 +19,7 @@
             </Items>
         </f:SimpleForm>
     </form>
-    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         F.ready(function () {

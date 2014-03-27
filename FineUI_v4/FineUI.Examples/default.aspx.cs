@@ -142,9 +142,6 @@ namespace FineUI.Examples
                 InitLangMenuButton();
                 InitThemeMenuButton();
 
-                //// 显示源代码按钮
-                //btnSourceCode.OnClientClick = windowSourceCode.GetShowReference("./common/source.aspx?files=~/default.aspx;~/common/menu.xml;~/Web.config;~/Code/PageBase.cs;~/js/default.js;~/css/default.css");
-
             }
         }
 
@@ -393,18 +390,18 @@ namespace FineUI.Examples
 
             string fileType = url;
 
-            string iconUrl = "~/images/filetype/vs_unknow.png";
+            string iconUrl = "~/res/images/filetype/vs_unknow.png";
             if (fileType == "txt")
             {
-                iconUrl = "~/images/filetype/vs_txt.png";
+                iconUrl = "~/res/images/filetype/vs_txt.png";
             }
             else if (fileType == "aspx")
             {
-                iconUrl = "~/images/filetype/vs_aspx.png";
+                iconUrl = "~/res/images/filetype/vs_aspx.png";
             }
             else if (fileType == "htm" || fileType == "html")
             {
-                iconUrl = "~/images/filetype/vs_htm.png";
+                iconUrl = "~/res/images/filetype/vs_htm.png";
             }
 
             return iconUrl;

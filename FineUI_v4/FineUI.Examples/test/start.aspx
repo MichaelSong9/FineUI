@@ -23,11 +23,11 @@
     <f:Tree runat="server" EnableArrows="true" OnNodeCommand="Tree1_NodeCommand" ShowBorder="false"
         ShowHeader="false" AutoScroll="true" ID="tree2">
         <Nodes>
-            <f:TreeNode Text="添加企业" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+            <f:TreeNode Text="添加企业" CommandArgument="info.aspx" IconUrl="~/res/images/16/1.png" EnablePostBack="true">
             </f:TreeNode>
-            <f:TreeNode Text="企业查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+            <f:TreeNode Text="企业查询" CommandArgument="info.aspx" IconUrl="~/res/images/16/1.png" EnablePostBack="true">
             </f:TreeNode>
-            <f:TreeNode Text="企业业务信息查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png"
+            <f:TreeNode Text="企业业务信息查询" CommandArgument="info.aspx" IconUrl="~/res/images/16/1.png"
                 EnablePostBack="true">
             </f:TreeNode>
         </Nodes>
@@ -35,17 +35,17 @@
     <f:Accordion ID="Accordion1" runat="server" ShowBorder="false" ShowHeader="false"
         ShowCollapseTool="true">
         <Panes>
-            <f:AccordionPane ID="AccordionPane1" runat="server" Title="企业业务" IconUrl="~/images/16/1.png"
+            <f:AccordionPane ID="AccordionPane1" runat="server" Title="企业业务" IconUrl="~/res/images/16/1.png"
                 BodyPadding="2px 5px" Layout="Fit" ShowBorder="false">
                 <Items>
                     <f:Tree runat="server" EnableArrows="true" OnNodeCommand="Tree1_NodeCommand" ShowBorder="false"
                         ShowHeader="false" AutoScroll="true" ID="tree1">
                         <Nodes>
-                            <f:TreeNode Text="添加企业" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+                            <f:TreeNode Text="添加企业" CommandArgument="info.aspx" IconUrl="~/res/images/16/1.png" EnablePostBack="true">
                             </f:TreeNode>
-                            <f:TreeNode Text="企业查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png" EnablePostBack="true">
+                            <f:TreeNode Text="企业查询" CommandArgument="info.aspx" IconUrl="~/res/images/16/1.png" EnablePostBack="true">
                             </f:TreeNode>
-                            <f:TreeNode Text="企业业务信息查询" CommandArgument="info.aspx" IconUrl="~/images/16/1.png"
+                            <f:TreeNode Text="企业业务信息查询" CommandArgument="info.aspx" IconUrl="~/res/images/16/1.png"
                                 EnablePostBack="true">
                             </f:TreeNode>
                         </Nodes>

@@ -13,7 +13,7 @@
         </f:Accordion>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="./data/menuMail.xml"></asp:XmlDataSource>
     </form>
-    <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../../res/js/jquery.min.js" type="text/javascript"></script>
     <script>
         var leftAccordionID = '<%= leftAccordion.ClientID %>';
 

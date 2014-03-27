@@ -4,10 +4,10 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .bgbtn {
-            background-image: url(../images/login.png) !important;
+            background-image: url(../res/images/login.png) !important;
             width: 320px;
             height: 50px;
             border-width: 0;

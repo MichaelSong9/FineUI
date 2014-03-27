@@ -45,40 +45,40 @@
     top: 15px;
 }
 
-.theme-neptune .jumbotron {
+.f-theme-neptune .jumbotron {
     background-color: #005999;
     border-bottom: 1px solid #1E95EC;
 }
 
-.theme-neptune .jumbotron .title a {
+.f-theme-neptune .jumbotron .title a {
     color: #fff;
 }
 
-.theme-blue .jumbotron {
+.f-theme-blue .jumbotron {
     background-color: #004BA8;
     border-bottom: 1px solid #034699;
     
 }
 
-.theme-blue .jumbotron .title a {
+.f-theme-blue .jumbotron .title a {
     color: #fff;
 }
 
-.theme-gray .jumbotron {
+.f-theme-gray .jumbotron {
     background-color: #d3d3d3;
     border-bottom: 1px solid #bab9b9;
 }
 
-.theme-gray .jumbotron .title a {
+.f-theme-gray .jumbotron .title a {
     color: #333;
 }
 
-.theme-access .jumbotron {
+.f-theme-access .jumbotron {
     background-color: #343b48;
     border-bottom: 1px solid #1f232b;
 }
 
-.theme-access .jumbotron .title a {
+.f-theme-access .jumbotron .title a {
     color: #fff;
 }
 
@@ -116,7 +116,7 @@
 }
 
 
-.theme-access .maincontent .x-panel-body {
+.f-theme-access .maincontent .x-panel-body {
     
     background-image: none;
 }

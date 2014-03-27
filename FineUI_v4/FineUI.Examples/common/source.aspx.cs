@@ -88,7 +88,7 @@ namespace FineUI.Examples
         private string GetIconUrl(string url)
         {
             string suffix = url.Substring(url.LastIndexOf('.') + 1);
-            return "~/images/filetype/vs_" + suffix + ".png";
+            return "~/res/images/filetype/vs_" + suffix + ".png";
             //string fileName = "vs_unknow.png";
             //if (url.EndsWith(".aspx"))
             //{

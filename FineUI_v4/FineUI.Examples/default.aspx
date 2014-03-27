@@ -8,7 +8,7 @@
     <meta name="Title" content="基于 ExtJS 的开源 ASP.NET 控件库(ExtJS based open source ASP.NET Controls)" />
     <meta name="Description" content="FineUI 的使命是创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序" />
     <meta name="Keywords" content="开源,ASP.NET,控件库,ExtJS,AJAX,Web2.0" />
-    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <link href="./res/css/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,7 +22,7 @@
                             runat="server">
                             <div class="title">
                                 <a href="http://fineui.com/" title="FineUI首页" class="logo">
-                                    <img src="./images/logo/logo2.gif" alt="FineUI Logo" /></a>
+                                    <img src="./res/images/logo/logo2.gif" alt="FineUI Logo" /></a>
                                 <a href="./default.aspx">FineUI在线示例</a>
                             </div>
                             <div class="config">
@@ -109,10 +109,10 @@
             EnableMaximize="true" EnableResize="true">
         </f:Window>
         <f:Menu ID="menuSettings" runat="server">
-            <f:MenuButton ID="btnExpandAll" IconUrl="~/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
+            <f:MenuButton ID="btnExpandAll" IconUrl="~/res/images/expand-all.gif" Text="展开菜单" EnablePostBack="false"
                 runat="server">
             </f:MenuButton>
-            <f:MenuButton ID="btnCollapseAll" IconUrl="~/images/collapse-all.gif" Text="折叠菜单"
+            <f:MenuButton ID="btnCollapseAll" IconUrl="~/res/images/collapse-all.gif" Text="折叠菜单"
                 EnablePostBack="false" runat="server">
             </f:MenuButton>
             <f:MenuSeparator ID="MenuSeparator1" runat="server">
@@ -166,6 +166,6 @@
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
     <img src="images/logo/logo3.png" alt="FineUI 图标" id="logo" />
-    <script src="./js/default.js" type="text/javascript"></script>
+    <script src="./res/js/default.js" type="text/javascript"></script>
 </body>
 </html>

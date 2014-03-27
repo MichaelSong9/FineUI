@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .x-grid-row.highlight td {
             background-color: lightgreen;
@@ -42,7 +42,7 @@
                 <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
-                <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/images/16/{0}.png"
+                <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组"></f:ImageField>
             </Columns>
         </f:Grid>
@@ -60,7 +60,7 @@
         <f:HiddenField ID="highlightRows" runat="server">
         </f:HiddenField>
     </form>
-    <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var highlightRowsClientID = '<%= highlightRows.ClientID %>';
         var gridClientID = '<%= Grid1.ClientID %>';
