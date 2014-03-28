@@ -9,12 +9,12 @@ F.ready(function () {
     var leftRegion = F(IDS.leftRegion);
     var menuSettings = F(IDS.menuSettings);
 
-    var BTN;
+    
     if (window.Ext) {
-        BTN = Ext.Button;
-    } else {
-        BTN = F.Button;
+        F.Button = Ext.Button;
+        F.Toolbar = Ext.Toolbar;
     }
+
 
     // 当前展开的手风琴面板
     function getExpandedPanel() {
@@ -63,7 +63,7 @@ F.ready(function () {
             return $('#' + btn.id).parents('.f-tab').find('iframe');
         }
 
-        var sourcecodeButton = new BTN({
+        var sourcecodeButton = new F.Button({
             text: '源代码',
             type: 'button',
             icon: './icon/page_white_code.png',
@@ -82,7 +82,7 @@ F.ready(function () {
             }
         });
 
-        var openNewWindowButton = new BTN({
+        var openNewWindowButton = new F.Button({
             text: '新标签页中打开',
             type: 'button',
             icon: './icon/tab_go.png',
@@ -94,7 +94,7 @@ F.ready(function () {
             }
         });
 
-        var refreshButton = new BTN({
+        var refreshButton = new F.Button({
             text: '刷新',
             type: 'button',
             icon: './icon/reload.png',
@@ -106,7 +106,7 @@ F.ready(function () {
             }
         });
 
-        var toolbar = new Ext.Toolbar({
+        var toolbar = new F.Toolbar({
             items: ['->', sourcecodeButton, '-', refreshButton, '-', openNewWindowButton]
         });
 
