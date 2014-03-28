@@ -92,6 +92,7 @@
     <Compile Include="Business\Util\FState.cs" />
     <Compile Include="WebControls\ControlBase.PageManager\CustomEventArgs.cs" />
     <Compile Include="WebControls\Field.CheckBox\EventArgs\CheckedEventArgs.cs" />
+    <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\EventArgs\TreeNodeEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.Grid\Editor\GridColumnEditorCollection.cs" />
     <Compile Include="BaseWebControls\BoxComponent.Field\Field.cs" />
     <Compile Include="BaseWebControls\ControlBase.Component.BoxComponent\BoxComponent.cs" />

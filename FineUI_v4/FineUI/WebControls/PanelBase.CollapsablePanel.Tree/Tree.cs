@@ -147,6 +147,45 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 是否启用节点折叠事件
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否启用节点折叠事件")]
+        public bool EnableNodeCollapseEvent
+        {
+            get
+            {
+                object obj = FState["EnableNodeCollapseEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["EnableNodeCollapseEvent"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 是否启用节点展开事件
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否启用节点展开事件")]
+        public bool EnableNodeExpandEvent
+        {
+            get
+            {
+                object obj = FState["EnableNodeExpandEvent"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["EnableNodeExpandEvent"] = value;
+            }
+        }
+
+
+        /// <summary>
         /// 单击切换节点的折叠展开状态
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -1035,7 +1074,7 @@ namespace FineUI
 
             JsObjectBuilder listenersBuilder = new JsObjectBuilder();
 
-            string paramStr = String.Format("Expand${0}", "#ID#");
+            string paramStr = String.Format("LazyLoad${0}", "#ID#");
             string postBackScript = GetPostBackEventReference(paramStr);
             postBackScript = postBackScript.Replace("#ID#'", "'+op.id");
             listenersBuilder.AddProperty("beforeload", String.Format("function(store,op){{if(op.action==='read'&&op.id!=='root'){{{0}}}return false;}}", postBackScript), true);
@@ -1677,12 +1716,28 @@ namespace FineUI
                     OnNodeCommand(new TreeCommandEventArgs(FindNode(commandArgs[1]), commandArgs[2], commandArgs[3]));
                 }
             }
-            else if (eventArgument.StartsWith("Expand$"))
+            else if (eventArgument.StartsWith("LazyLoad$"))
             {
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 2)
                 {
-                    OnNodeExpand(new TreeExpandEventArgs(FindNode(commandArgs[1])));
+                    OnNodeLazyLoad(new TreeNodeEventArgs(FindNode(commandArgs[1])));
+                }
+            }
+            else if (eventArgument.StartsWith("NodeExpand$"))
+            {
+                string[] commandArgs = eventArgument.Split('$');
+                if (commandArgs.Length == 2)
+                {
+                    OnNodeExpand(new TreeNodeEventArgs(FindNode(commandArgs[1])));
+                }
+            }
+            else if (eventArgument.StartsWith("NodeCollapse$"))
+            {
+                string[] commandArgs = eventArgument.Split('$');
+                if (commandArgs.Length == 2)
+                {
+                    OnNodeCollapse(new TreeNodeEventArgs(FindNode(commandArgs[1])));
                 }
             }
             else if (eventArgument.StartsWith("Check$"))
@@ -1779,7 +1834,7 @@ namespace FineUI
         /// </summary>
         [Category(CategoryName.ACTION)]
         [Description("节点展开事件")]
-        public event EventHandler<TreeExpandEventArgs> NodeExpand
+        public event EventHandler<TreeNodeEventArgs> NodeExpand
         {
             add
             {
@@ -1795,9 +1850,81 @@ namespace FineUI
         /// 触发节点展开事件
         /// </summary>
         /// <param name="e">事件参数</param>
-        protected virtual void OnNodeExpand(TreeExpandEventArgs e)
+        protected virtual void OnNodeExpand(TreeNodeEventArgs e)
         {
-            EventHandler<TreeExpandEventArgs> handler = Events[_nodeExpandHandlerKey] as EventHandler<TreeExpandEventArgs>;
+            EventHandler<TreeNodeEventArgs> handler = Events[_nodeExpandHandlerKey] as EventHandler<TreeNodeEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
+        #region OnNodeCollapse
+
+        private static readonly object _nodeCollapseHandlerKey = new object();
+
+        /// <summary>
+        /// 节点展开事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("节点展开事件")]
+        public event EventHandler<TreeNodeEventArgs> NodeCollapse
+        {
+            add
+            {
+                Events.AddHandler(_nodeCollapseHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_nodeCollapseHandlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发节点展开事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnNodeCollapse(TreeNodeEventArgs e)
+        {
+            EventHandler<TreeNodeEventArgs> handler = Events[_nodeCollapseHandlerKey] as EventHandler<TreeNodeEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
+        #region OnNodeLazyLoad
+
+        private static readonly object _nodeLazyLoadHandlerKey = new object();
+
+        /// <summary>
+        /// 节点延迟加载事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("节点延迟加载事件")]
+        public event EventHandler<TreeNodeEventArgs> NodeLazyLoad
+        {
+            add
+            {
+                Events.AddHandler(_nodeLazyLoadHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_nodeLazyLoadHandlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发节点延迟加载事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnNodeLazyLoad(TreeNodeEventArgs e)
+        {
+            EventHandler<TreeNodeEventArgs> handler = Events[_nodeLazyLoadHandlerKey] as EventHandler<TreeNodeEventArgs>;
             if (handler != null)
             {
                 handler(this, e);
