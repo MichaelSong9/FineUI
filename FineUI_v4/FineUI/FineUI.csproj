@@ -222,7 +222,6 @@
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Accordion\Accordion.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Accordion\AccordionPane\AccordionPane.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Accordion\AccordionPane\AccordionPaneCollection.cs" />
-    <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\EventArgs\TreeExpandEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\EventArgs\TreeCommandEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\EventArgs\TreeCheckEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\TreeNode\TreeNode.cs" />
