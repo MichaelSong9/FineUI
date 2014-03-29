@@ -1029,20 +1029,22 @@ if (Ext.tree.Panel) {
                 // 12 - iconUrl
                 // 13 - ToolTip
                 // 14 - OnClientClick
-                // 15 - EnablePostBack
-                // 16 - AutoPostBack
-                // 17 - CommandName
-                // 18 - CommandArgument
-                // 19 - Nodes
+                // 15 - EnableClickEvent
+                // 16 - CommandName
+                // 17 - CommandArgument
+
+                // 18 - EnableCheckEvent
+                // 19 - EnableExpandEvent
+                // 20 - EnableCollapseEvent
+                
+                // 21 - Nodes
                 node.text = data[0];
                 node.leaf = !!data[1];
                 node.id = data[2];
                 node.disabled = !data[3];
                 if (!!data[4]) {
+                    // node.checked === undefined, no checkbox
                     node.checked = !!data[5];
-                    if (!!data[16]) {
-                        node.f_autopostback = true;
-                    }
                 }
                 if (!data[1]) {
                     node.expanded = !!data[6];
@@ -1059,48 +1061,19 @@ if (Ext.tree.Panel) {
                 if (data[14]) {
                     node.f_clientclick = data[14];
                 }
-                node.f_enablepostback = !!data[15];
-                node.f_commandname = data[17];
-                node.f_commandargument = data[18];
+                node.f_enableclickevent = !!data[15];
+                node.f_commandname = data[16];
+                node.f_commandargument = data[17];
 
-                if (data[19] && data[19].length > 0) {
-                    node.children = that.f_tranformData(data[19]);
-                }
+                node.f_enablecheckevent = !!data[18];
 
-
-                /*
-                node.listeners = {};
-
-                if (!data[3]) {
-                    node.listeners.beforeclick = function () {
-                        return false;
-                    };
-                }
-                
-                if (!!data[4] && !!data[17]) {
-                    node.listeners.checkchange = function (node, checked) {
-                        var args = 'Check$' + node.id + '$' + checked;
-                        __doPostBack(that.name, args);
-                    };
-                }
-                
-
-                var clickScript = '';
-                if (data[15]) {
-                    clickScript += data[15] + ';';
-                }
-                if (!!data[16]) {
-                    clickScript += "__doPostBack('" + that.name + "', 'Command$" + node.id + "$" + data[18] + "$" + data[19] + "');";
-                }
-                if (clickScript) {
-                    node.listeners.click = new Function('node', clickScript);
-                }
+                node.f_enableexpandevent = !!data[19];
+                node.f_enablecollapseevent = !!data[20];
 
 
-                if (data[20] && data[20].length > 0) {
-                    node.children = that.f_tranformData(data[20]);
+                if (data[21] && data[21].length > 0) {
+                    node.children = that.f_tranformData(data[21]);
                 }
-                */
 
                 nodes.push(node);
             }

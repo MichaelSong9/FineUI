@@ -108,7 +108,49 @@ namespace FineUI
 
         #endregion
 
-        #region EnablePostBack|OnClientClick
+        #region EnableExpandEvent
+
+        private bool _enableExpandEvent = false;
+        /// <summary>
+        /// 展开树节点是否回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("展开树节点是否回发")]
+        public bool EnableExpandEvent
+        {
+            get
+            {
+                return _enableExpandEvent;
+            }
+            set
+            {
+                _enableExpandEvent = value;
+            }
+        }
+
+        private bool _enableCollapseEvent = false;
+        /// <summary>
+        /// 折叠树节点是否回发
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("折叠树节点是否回发")]
+        public bool EnableCollapseEvent
+        {
+            get
+            {
+                return _enableCollapseEvent;
+            }
+            set
+            {
+                _enableCollapseEvent = value;
+            }
+        } 
+
+        #endregion
+
+        #region EnableClickEvent|OnClientClick
 
         private bool _enablePostBack = false;
         /// <summary>
@@ -117,7 +159,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
         [Description("单击树节点是否回发")]
-        public bool EnablePostBack
+        public bool EnableClickEvent
         {
             get
             {
@@ -193,7 +235,7 @@ namespace FineUI
 
         #endregion
 
-        #region EnableCheckBox|Checked|AutoPostBack
+        #region EnableCheckBox|Checked|EnableCheckEvent
 
         private bool _checked = false;
         /// <summary>
@@ -233,29 +275,7 @@ namespace FineUI
             }
         }
 
-        /*
-        private bool _autoPostBack = false;
-
-        /// <summary>
-        /// 是否自动回发（改变复选框状态）
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否自动回发（改变复选框状态）")]
-        public bool AutoPostBack
-        {
-            get
-            {
-                return _autoPostBack;
-            }
-            set
-            {
-                _autoPostBack = value;
-            }
-        }
-        */
-
-        private bool _enableCheckChangeEvent = false;
+        private bool _enableCheckEvent = false;
 
         /// <summary>
         /// 改变复选框状态是否自动回发
@@ -263,15 +283,15 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
         [Description("改变复选框状态是否自动回发")]
-        public bool AutoPostBack
+        public bool EnableCheckEvent
         {
             get
             {
-                return _enableCheckChangeEvent;
+                return _enableCheckEvent;
             }
             set
             {
-                _enableCheckChangeEvent = value;
+                _enableCheckEvent = value;
             }
         }
 

@@ -146,45 +146,7 @@ namespace FineUI
 
         #region Properties
 
-        /// <summary>
-        /// 是否启用节点折叠事件
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否启用节点折叠事件")]
-        public bool EnableNodeCollapseEvent
-        {
-            get
-            {
-                object obj = FState["EnableNodeCollapseEvent"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableNodeCollapseEvent"] = value;
-            }
-        }
-
-        /// <summary>
-        /// 是否启用节点展开事件
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否启用节点展开事件")]
-        public bool EnableNodeExpandEvent
-        {
-            get
-            {
-                object obj = FState["EnableNodeExpandEvent"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableNodeExpandEvent"] = value;
-            }
-        }
-
-
+        
         /// <summary>
         /// 单击切换节点的折叠展开状态
         /// </summary>
@@ -575,11 +537,15 @@ namespace FineUI
                 // 12 - iconUrl - 这个是客户端用来生成图标的
                 // 13 - ToolTip
                 // 14 - OnClientClick
-                // 15 - EnablePostBack
-                // 16 - AutoPostBack
-                // 17 - CommandName
-                // 18 - CommandArgument
-                // 19 - Nodes
+                // 15 - EnableClickEvent
+                // 16 - CommandName
+                // 17 - CommandArgument
+
+                // 18 - EnableCheckEvent
+                // 19 - EnableExpandEvent
+                // 20 - EnableCollapseEvent
+
+                // 21 - Nodes
                 treeNode.Text = ja2[0].Value<string>(); //ja2.getString(0);
                 treeNode.Leaf = ja2[1].Value<int>() == 1 ? true : false;
                 treeNode.NodeID = ja2[2].Value<string>(); ;
@@ -599,13 +565,19 @@ namespace FineUI
                 treeNode.ToolTip = ja2[13].Value<string>(); 
 
                 treeNode.OnClientClick = ja2[14].Value<string>();
-                treeNode.EnablePostBack = ja2[15].Value<int>() == 1 ? true : false;
-                treeNode.AutoPostBack = ja2[16].Value<int>() == 1 ? true : false;
-                treeNode.CommandName = ja2[17].Value<string>();
-                treeNode.CommandArgument = ja2[18].Value<string>();
+                treeNode.EnableClickEvent = ja2[15].Value<int>() == 1 ? true : false;
+                treeNode.CommandName = ja2[16].Value<string>();
+                treeNode.CommandArgument = ja2[17].Value<string>();
+                
+
+                treeNode.EnableCheckEvent = ja2[18].Value<int>() == 1 ? true : false;
+
+                treeNode.EnableExpandEvent = ja2[19].Value<int>() == 1 ? true : false;
+                treeNode.EnableCollapseEvent = ja2[20].Value<int>() == 1 ? true : false;
+                
 
 
-                JArray childNodes = ja2[19].Value<JArray>(); // ja2.getJArray(20);
+                JArray childNodes = ja2[21].Value<JArray>();
                 if (childNodes != null && childNodes.Count > 0)
                 {
                     FromNodesJArray(childNodes, treeNode.Nodes);
@@ -635,11 +607,15 @@ namespace FineUI
                 // 12 - iconUrl - 这个是客户端用来生成图标的
                 // 13 - ToolTip
                 // 14 - OnClientClick
-                // 15 - EnablePostBack
-                // 16 - AutoPostBack
-                // 17 - CommandName
-                // 18 - CommandArgument
-                // 19 - Nodes
+                // 15 - EnableClickEvent
+                // 16 - CommandName
+                // 17 - CommandArgument
+
+                // 18 - EnableCheckEvent
+                // 19 - EnableExpandEvent
+                // 20 - EnableCollapseEvent
+
+                // 21 - Nodes
                 ja2.Add(node.Text);
                 ja2.Add(node.Leaf ? 1 : 0);
                 ja2.Add(node.NodeID);
@@ -659,11 +635,16 @@ namespace FineUI
                 ja2.Add(String.IsNullOrEmpty(node.ToolTip) ? "" : node.ToolTip);
 
                 ja2.Add(node.OnClientClick);
-                ja2.Add(node.EnablePostBack ? 1 : 0);
-
-                ja2.Add(node.AutoPostBack ? 1 : 0);
+                ja2.Add(node.EnableClickEvent ? 1 : 0);
                 ja2.Add(node.CommandName);
                 ja2.Add(node.CommandArgument);
+
+
+                ja2.Add(node.EnableCheckEvent ? 1 : 0);
+
+                ja2.Add(node.EnableExpandEvent ? 1 : 0);
+                ja2.Add(node.EnableCollapseEvent ? 1 : 0);
+                
 
                 if (node.Nodes != null && node.Nodes.Count > 0)
                 {
@@ -1105,15 +1086,26 @@ namespace FineUI
 
             string itemclickScript = "var args='Command$'+node.getId()+'$'+node.raw.f_commandname+'$'+node.raw.f_commandargument;";
             itemclickScript += GetPostBackEventReference("#Click#").Replace("'#Click#'", "args");
-            itemclickScript = String.Format("if(node.raw.f_enablepostback){{{0}}}", itemclickScript);
+            itemclickScript = String.Format("if(node.raw.f_enableclickevent){{{0}}}", itemclickScript);
             itemclickScript = "if(node.raw.f_clientclick){eval(node.raw.f_clientclick);}" + itemclickScript; // new Function(node.raw.f_clientclick)();
             OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(singleclickexpandScript + itemclickScript, "view", "node", "item", "index"), true);
 
 
             string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";
             checkchangeScript += GetPostBackEventReference("#CheckChange#").Replace("'#CheckChange#'", "args");
-            checkchangeScript = String.Format("if(node.raw.f_autopostback){{{0}}}", checkchangeScript);
+            checkchangeScript = String.Format("if(node.raw.f_enablecheckevent){{{0}}}", checkchangeScript);
             OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkchangeScript, "node", "checked"), true);
+
+            string expandScript = "var args='Expand$'+node.getId();";
+            expandScript += GetPostBackEventReference("#Expand#").Replace("'#Expand#'", "args");
+            expandScript = String.Format("if(node.raw.f_enableexpandevent){{{0}}}", expandScript);
+            OB.Listeners.AddProperty("itemexpand", JsHelper.GetFunction(expandScript, "node"), true);
+
+
+            string collapseScript = "var args='Collapse$'+node.getId();";
+            collapseScript += GetPostBackEventReference("#Collapse#").Replace("'#Collapse#'", "args");
+            collapseScript = String.Format("if(node.raw.f_enablecollapseevent){{{0}}}", collapseScript);
+            OB.Listeners.AddProperty("itemcollapse", JsHelper.GetFunction(collapseScript, "node"), true);
 
 
             #endregion
@@ -1724,7 +1716,7 @@ namespace FineUI
                     OnNodeLazyLoad(new TreeNodeEventArgs(FindNode(commandArgs[1])));
                 }
             }
-            else if (eventArgument.StartsWith("NodeExpand$"))
+            else if (eventArgument.StartsWith("Expand$"))
             {
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 2)
@@ -1732,7 +1724,7 @@ namespace FineUI
                     OnNodeExpand(new TreeNodeEventArgs(FindNode(commandArgs[1])));
                 }
             }
-            else if (eventArgument.StartsWith("NodeCollapse$"))
+            else if (eventArgument.StartsWith("Collapse$"))
             {
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 2)

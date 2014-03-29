@@ -37,8 +37,10 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-使用google-code-prettify对示例源代码进行着色。
 	-添加到页面上的主题样式类由theme-neptune改名为f-theme-neptune。
 	+树控件增强。
+		-TreeNode的AutoPostBack改名为EnableCheckEvent，EnablePostBack改名为EnableClickEvent。
 		-NodeExpand事件改名为NodeLazyLoad，TreeExpandEventArgs改名为TreeNodeEventArgs。
-		-增加属性EnableNodeExpandEvent和EnableNodeExpandEvent，事件NodeExpand和NodeCollapse。
+		-TreeNode增加属性EnableExpandEvent和EnableCollapseEvent，Tree增加事件NodeExpand和NodeCollapse。
+		-增加示例tree/tree_expand.aspx，更新示例tree/tree_ajax.aspx。
 
 	
 

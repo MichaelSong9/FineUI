@@ -15,10 +15,10 @@
             <Nodes>
                 <f:TreeNode Text="中国" Expanded="true">
                     <f:TreeNode Text="河南省" Expanded="true">
-                        <f:TreeNode Text="驻马店市（点击回发）" EnablePostBack="true" Expanded="true" NodeID="Zhumadian">
-                            <f:TreeNode Text="遂平县（点击回发）" EnablePostBack="true" NodeID="Suiping">
+                        <f:TreeNode Text="驻马店市（点击回发）" EnableClickEvent="true" Expanded="true" NodeID="Zhumadian">
+                            <f:TreeNode Text="遂平县（点击回发）" EnableClickEvent="true" NodeID="Suiping">
                             </f:TreeNode>
-                            <f:TreeNode Text="西平县（点击回发，OnClientClick）" OnClientClick="if(!confirm('确定回发？')){return false;}" EnablePostBack="true" NodeID="Xiping">
+                            <f:TreeNode Text="西平县（点击回发，OnClientClick）" OnClientClick="if(!confirm('确定回发？')){return false;}" EnableClickEvent="true" NodeID="Xiping">
                             </f:TreeNode>
                         </f:TreeNode>
                         <f:TreeNode Text="漯河市" Enabled="true" NodeID="Luohe" />

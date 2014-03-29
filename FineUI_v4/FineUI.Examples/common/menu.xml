@@ -353,6 +353,8 @@
     </TreeNode>
     <TreeNode Text="延迟加载的树控件" NavigateUrl="~/tree/tree_ajax.aspx" >
     </TreeNode>
+    <TreeNode Text="展开折叠事件" NavigateUrl="~/tree/tree_expand.aspx" >
+    </TreeNode>
     <TreeNode Text="数据绑定">
       <TreeNode Text="绑定到 XmlDocument" NavigateUrl="~/tree/databind/tree_document.aspx" >
       </TreeNode>

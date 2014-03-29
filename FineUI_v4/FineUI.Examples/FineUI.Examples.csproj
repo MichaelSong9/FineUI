@@ -369,6 +369,7 @@
     <Content Include="tree\databind\tree_datasource.aspx" />
     <Content Include="tree\databind\tree_document.aspx" />
     <Content Include="tree\tree.aspx" />
+    <Content Include="tree\tree_expand.aspx" />
     <Content Include="usercontrol\UserInfoControl.ascx" />
     <Content Include="usercontrol\userinfo.aspx" />
     <Content Include="usercontrol\userinfo2.aspx" />
@@ -2150,6 +2151,13 @@
     </Compile>
     <Compile Include="tree\select\tree_multi_select.aspx.designer.cs">
       <DependentUpon>tree_multi_select.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tree\tree_expand.aspx.cs">
+      <DependentUpon>tree_expand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\tree_expand.aspx.designer.cs">
+      <DependentUpon>tree_expand.aspx</DependentUpon>
     </Compile>
     <Compile Include="usercontrol\UserInfoControl.ascx.cs">
       <DependentUpon>UserInfoControl.ascx</DependentUpon>
