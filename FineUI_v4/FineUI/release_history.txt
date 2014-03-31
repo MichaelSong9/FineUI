@@ -41,8 +41,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-NodeExpand事件改名为NodeLazyLoad，TreeExpandEventArgs改名为TreeNodeEventArgs。
 		-TreeNode增加属性EnableExpandEvent和EnableCollapseEvent，Tree增加事件NodeExpand和NodeCollapse。
 		-增加示例tree/tree_expand.aspx，更新示例tree/tree_ajax.aspx。
-
+	-支持Server.Transfer，需要设置EnableAjax=false（chwentao）。
 	
+
 
 +2014-03-03 v4.0.5
 	-修正表格在AJAX更新时加载慢的问题。

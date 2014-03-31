@@ -157,8 +157,13 @@ namespace FineUI
         #region Instance
 
         public ResourceManager()
+            : this(HttpContext.Current.Handler as Page)
         {
-            _page = HttpContext.Current.Handler as Page;
+        }
+
+        public ResourceManager(Page page)
+        {
+            _page = page;
             _page.PreRenderComplete += new EventHandler(Page_PreRenderComplete);
         }
 
@@ -189,6 +194,23 @@ namespace FineUI
                 return rm;
             }
         }
+
+        /// <summary>
+        /// 确保ResourceManager实例的Page和当前页面一致
+        /// </summary>
+        /// <param name="page"></param>
+        internal static void EnsureResourceManagerInstance(Page page)
+        {
+            ResourceManager rm = ResourceManager.Instance;
+
+            // 在 Server.Transfer 时会进入此分支
+            if (rm.Page != page)
+            {
+                rm = new ResourceManager(page);
+                HttpContext.Current.Items[ResourceManager.RESOURCE_MANAGER_CONTEXT_NAME] = rm;
+            }
+        }
+
 
         #endregion
 

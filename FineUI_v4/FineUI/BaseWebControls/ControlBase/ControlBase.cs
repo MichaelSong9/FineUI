@@ -725,6 +725,10 @@ namespace FineUI
                 // 如果控件没有设置 ID，则自动创建一个（比如：ct100）
                 base.EnsureID();
 
+                // 确保ResourceManager实例的Page和当前页面一致
+                ResourceManager.EnsureResourceManagerInstance(Page);
+
+
                 // 此时，ASPX 页面上标签定义的控件已经初始化完毕
                 // 如果当前是页面回发，则从 HTTP 请求的表单数据中（F_STATE）恢复当前控件的状态
                 if (Page.IsPostBack)
