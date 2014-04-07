@@ -22,17 +22,7 @@
 		var basePath = '<%= ResolveUrl("~/") %>';
 		
         function openHelloFineUI() {
-            /*
-            var node = {
-                attributes: {
-                    href: "/basic/hello.aspx"
-                },
-                text: "你好 FineUI",
-                id: "hello_fineui_example"
-            };
-            */
-            
-            parent.addExampleTab.apply(null, ['hello_fineui_example', basePath + 'basic/hello.aspx', '你好 FineUI', basePath + 'images/filetype/vs_aspx.png', true]);
+            parent.addExampleTab.apply(null, ['hello_fineui_tab', basePath + 'basic/hello.aspx', '你好 FineUI', basePath + 'res/images/filetype/vs_aspx.png', true]);
         }
 
         function closeActiveTab() {
