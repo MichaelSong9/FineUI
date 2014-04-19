@@ -662,13 +662,13 @@ namespace FineUI
         {
             int returnIndex = checkList.Count;
 
-            ControlBase parentControl = testControl.Parent as ControlBase;
-            
+            // 这个地方不能是ControlBase，比如用户控件中控件，要能向上回溯到UserControlConnector
+            Control parentControl = testControl.Parent;        
             while (parentControl != null)
             {
                 for (int i = 0, count = checkList.Count; i < count; i++)
                 {
-                    ControlBase checkControl = checkList[i].Control as ControlBase;
+                    Control checkControl = checkList[i].Control;
 
                     if (checkControl != null && parentControl == checkControl)
                     {
@@ -676,7 +676,7 @@ namespace FineUI
                     }
                 }
 
-                parentControl = parentControl.Parent as ControlBase;
+                parentControl = parentControl.Parent;
             }
 
             if (testControl is Menu)

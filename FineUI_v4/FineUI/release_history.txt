@@ -45,6 +45,8 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正TriggerBox的TriggerIcon无效的问题。
 	+增加FineUI与My97DatePicker整合的示例（aspnet/my97.aspx）。
 		-自定义皮肤neptune，以便和FineUIv4.x的Neptune主题兼容。
+	-修正UserControlConnector无效的问题。
+
 
 
 

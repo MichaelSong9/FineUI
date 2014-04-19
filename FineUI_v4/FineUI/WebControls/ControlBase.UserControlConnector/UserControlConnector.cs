@@ -45,7 +45,7 @@ namespace FineUI
     public class UserControlConnector : ControlBase
     {
         #region Properties
-        
+
         /// <summary>
         /// 不向页面输出控件的外部容器
         /// </summary>
@@ -55,7 +55,7 @@ namespace FineUI
             {
                 return false;
             }
-        } 
+        }
 
         #endregion
 
@@ -88,6 +88,8 @@ namespace FineUI
             //RenderWrapperNode = false;
             AddStartupScript(String.Empty);
 
+
+
             // 一个UserControlConnector里面可能放多个UserControl，
             // 每个UserControl中的所有直接子节点都不要即时渲染
             StringBuilder sb = new StringBuilder();
@@ -109,6 +111,7 @@ namespace FineUI
                     }
                 }
             }
+
 
             // 重新设置父节点的注册脚本
             ControlBase parentControl = Parent as ControlBase;
