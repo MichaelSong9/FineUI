@@ -484,6 +484,10 @@
         <TreeNode Text="多个UEditor控件" NavigateUrl="~/aspnet/ueditor_two.aspx" >
         </TreeNode>
       </TreeNode>
+      <TreeNode Text="My97控件">
+        <TreeNode Text="My97控件" NavigateUrl="~/aspnet/my97.aspx" >
+        </TreeNode>
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="用户控件">
       <TreeNode Text="用户控件" NavigateUrl="~/usercontrol/userinfo.aspx" >

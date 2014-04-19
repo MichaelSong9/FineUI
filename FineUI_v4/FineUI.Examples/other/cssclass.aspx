@@ -32,7 +32,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单" runat="server">
             <Items>
                 <f:TextBox runat="server" Label="用户名" CssClass="red" EmptyText="输入用户名" Text="张三"

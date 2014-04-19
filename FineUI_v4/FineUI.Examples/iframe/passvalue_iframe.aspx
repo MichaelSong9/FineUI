@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" Title="表单" BodyPadding="5px" EnableFrame="true"
+        <f:SimpleForm ID="SimpleForm1" Title="表单" BodyPadding="5px" EnableFrame="false"
             runat="server" Width="650px" EnableCollapse="True">
             <Items>
                 <f:TextBox Label="你所在的省份" ID="TextBox1" runat="server">

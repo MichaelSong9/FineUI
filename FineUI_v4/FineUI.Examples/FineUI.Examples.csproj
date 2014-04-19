@@ -72,6 +72,7 @@
     <Content Include="aspnet\test.aspx" />
     <Content Include="aspnet\TestWindow.aspx" />
     <Content Include="aspnet\ckeditor.aspx" />
+    <Content Include="aspnet\my97.aspx" />
     <Content Include="aspnet\ueditor.aspx" />
     <Content Include="aspnet\ueditor_two.aspx" />
     <Content Include="autocomplete\inline.aspx" />
@@ -439,6 +440,13 @@
     </Compile>
     <Compile Include="aspnet\ckeditor.aspx.designer.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet\my97.aspx.cs">
+      <DependentUpon>my97.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspnet\my97.aspx.designer.cs">
+      <DependentUpon>my97.aspx</DependentUpon>
     </Compile>
     <Compile Include="aspnet\ueditor.aspx.cs">
       <DependentUpon>ueditor.aspx</DependentUpon>

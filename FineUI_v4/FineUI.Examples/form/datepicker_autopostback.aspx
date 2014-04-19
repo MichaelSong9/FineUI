@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单（AutoPostBack）" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" AutoPostBack="true" OnTextChanged="DatePicker1_TextChanged"
@@ -28,7 +28,7 @@
             </Items>
         </f:SimpleForm>
         <br />
-        <f:SimpleForm ID="SimpleForm2" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm2" BodyPadding="5px" Width="550px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单（EnableDateSelectEvent）" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" EnableDateSelectEvent="true" OnDateSelect="DatePicker3_DateSelect"
@@ -45,7 +45,7 @@
             </Items>
         </f:SimpleForm>
         <br />
-        <f:SimpleForm ID="SimpleForm3" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm3" BodyPadding="5px" Width="550px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单（EnableDateSelectEvent）" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" EnableBlurEvent="true" OnBlur="DatePicker5_Blur"

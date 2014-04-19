@@ -215,7 +215,7 @@ namespace FineUI
 
             if (TriggerIcon != TriggerIcon.None)
             {
-                OB.AddProperty("triggerClass", TriggerIconHelper.GetName(TriggerIcon));
+                OB.AddProperty("triggerCls", TriggerIconHelper.GetName(TriggerIcon));
             }
             else if (!String.IsNullOrEmpty(TriggerIconUrl))
             {
@@ -223,7 +223,7 @@ namespace FineUI
                 string selector = String.Format(".x-form-field-wrap .{0}", className);
                 AddStartupCSS(className, StyleUtil.GetBackgroundStyle(selector, ResolveUrl(TriggerIconUrl)));
 
-                OB.AddProperty("triggerClass", className);
+                OB.AddProperty("triggerCls", className);
             }
 
 

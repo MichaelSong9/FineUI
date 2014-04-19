@@ -42,7 +42,10 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-TreeNode增加属性EnableExpandEvent和EnableCollapseEvent，Tree增加事件NodeExpand和NodeCollapse。
 		-增加示例tree/tree_expand.aspx，更新示例tree/tree_ajax.aspx。
 	-支持Server.Transfer，需要设置EnableAjax=false（chwentao）。
-	
+	-修正TriggerBox的TriggerIcon无效的问题。
+	+增加FineUI与My97DatePicker整合的示例（aspnet/my97.aspx）。
+		-自定义皮肤neptune，以便和FineUIv4.x的Neptune主题兼容。
+
 
 
 +2014-03-03 v4.0.5

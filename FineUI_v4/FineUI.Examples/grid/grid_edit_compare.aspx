@@ -19,7 +19,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="true" EnableCollapse="true" Width="900px" runat="server"
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="false" EnableCollapse="true" Width="900px" runat="server"
             DataKeyNames="Id,Name">
             <Columns>
                 <f:TemplateField Width="60px" EnableColumnHide="false" EnableHeaderMenu="false">

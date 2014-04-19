@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" runat="server" Width="600px" BodyPadding="5px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单">
             <Items>
                 <f:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="随便输入个字母试试">

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <f:PageManager ID="PageManager1" runat="server" />
-    <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelWidth="180px" EnableFrame="true" EnableCollapse="true"
+    <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelWidth="180px" EnableFrame="false" EnableCollapse="true"
         runat="server"  ShowBorder="True" ShowHeader="True"
         Title="简单表单">
         <Items>

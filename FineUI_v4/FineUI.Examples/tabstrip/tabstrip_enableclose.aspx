@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" EnableTabCloseMenu="true" EnableFrame="true"
+        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" EnableTabCloseMenu="true" EnableFrame="false"
             ShowBorder="true" ActiveTabIndex="1" runat="server">
             <Tabs>
                 <f:Tab ID="Tab1" Title="标签一" EnableClose="false" BodyPadding="5px" runat="server">

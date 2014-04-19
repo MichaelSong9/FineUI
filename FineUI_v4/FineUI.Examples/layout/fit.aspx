@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel3" Title="面板一（未设置Layout属性）" runat="server" Height="300px" Width="850px" EnableFrame="true" EnableCollapse="true"
+        <f:Panel ID="Panel3" Title="面板一（未设置Layout属性）" runat="server" Height="300px" Width="850px" EnableFrame="false" EnableCollapse="true"
             BodyPadding="5px" ShowBorder="True" ShowHeader="True">
             <Items>
                 <f:Form ID="Form3" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
@@ -33,7 +33,7 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Panel ID="Panel1" Title="面板二（Layout=Fit）" runat="server" Layout="Fit" Height="300px" EnableFrame="true" EnableCollapse="true"
+        <f:Panel ID="Panel1" Title="面板二（Layout=Fit）" runat="server" Layout="Fit" Height="300px" EnableFrame="false" EnableCollapse="true"
             BodyPadding="5px" Width="850px" ShowBorder="True"
             ShowHeader="True">
             <Items>
@@ -58,7 +58,7 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Panel ID="Panel2" Title="面板三（Layout=Fit）" runat="server" Layout="Fit" Height="300px" EnableFrame="true" EnableCollapse="true"
+        <f:Panel ID="Panel2" Title="面板三（Layout=Fit）" runat="server" Layout="Fit" Height="300px" EnableFrame="false" EnableCollapse="true"
             BodyPadding="5px" Width="850px" ShowBorder="True"
             ShowHeader="True">
             <Toolbars>

@@ -20,7 +20,7 @@
         <f:Button ID="Button2" runat="server" EnablePostBack="false" Text="刷新面板一中的IFrame">
         </f:Button>
         <br />
-        <f:Panel ID="Panel1" runat="server" ShowBorder="true" EnableFrame="true" EnableCollapse="true"
+        <f:Panel ID="Panel1" runat="server" ShowBorder="true" EnableFrame="false" EnableCollapse="true"
             Width="800px" Height="450px" EnableIFrame="true" IFrameUrl="parent_postback2.aspx"
             ShowHeader="true" Title="面板一">
         </f:Panel>

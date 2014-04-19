@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Tree ID="Tree1" Width="650px" ShowHeader="true" Title="树控件（绑定到 SiteMap）" EnableFrame="true" EnableCollapse="true"
+        <f:Tree ID="Tree1" Width="650px" ShowHeader="true" Title="树控件（绑定到 SiteMap）" EnableFrame="false" EnableCollapse="true"
             runat="server">
             <Mappings>
                 <f:XmlAttributeMapping From="url" To="NavigateUrl" />

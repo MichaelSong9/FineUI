@@ -14,7 +14,7 @@
 <body>
     <form id="_form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form Width="600px" LabelWidth="100px" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+        <f:Form Width="600px" LabelWidth="100px" BodyPadding="5px" EnableFrame="false" EnableCollapse="true"
             ID="Form2" runat="server" Title="表单">
             <Rows>
                 <f:FormRow>

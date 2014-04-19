@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Tree ID="Tree1" EnableArrows="true" OnNodeLazyLoad="Tree1_NodeLazyLoad" Width="650px" EnableFrame="true" EnableCollapse="true"
+        <f:Tree ID="Tree1" EnableArrows="true" OnNodeLazyLoad="Tree1_NodeLazyLoad" Width="650px" EnableFrame="false" EnableCollapse="true"
             ShowHeader="true" Title="延迟加载的树控件" AutoLeafIdentification="false" runat="server">
             <Nodes>
                 <f:TreeNode Text="中国" Expanded="true">

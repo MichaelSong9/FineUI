@@ -30,7 +30,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" LabelWidth="80px" Width="900px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" LabelWidth="80px" Width="900px" EnableFrame="false" EnableCollapse="true"
             Title="添加文章" runat="server">
             <Items>
                 <f:TextBox ID="tbxTitle" Label="文章标题" Required="true" runat="server">

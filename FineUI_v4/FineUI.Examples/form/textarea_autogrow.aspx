@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单" LabelAlign="Top" Width="550px" ShowHeader="True">
             <Items>
                 <f:TextArea runat="server" ID="TextArea1" EmptyText="文本框的高度会自动扩展" Label="自动扩展高度的文本输入框"

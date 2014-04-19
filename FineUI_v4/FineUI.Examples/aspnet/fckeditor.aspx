@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableFrame="true" EnableCollapse="true"
+        <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableFrame="false" EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Width="850px" Title="内容面板">
             <FCKeditorV2:FCKeditor ID="FCKeditor1" BasePath="~/res/fckeditor/" Height="300px" Value="" runat="server">
             </FCKeditorV2:FCKeditor>

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格" EnableFrame="true" EnableCollapse="true" AllowSorting="true" SortField="Gender" SortDirection="ASC"
+        <f:Grid ID="Grid1" Title="表格" EnableFrame="false" EnableCollapse="true" AllowSorting="true" SortField="Gender" SortDirection="ASC"
             Width="850px" runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name,AtSchool"
             OnSort="Grid1_Sort">
             <Columns>

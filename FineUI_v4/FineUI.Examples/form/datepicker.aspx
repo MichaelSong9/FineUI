@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="true" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableFrame="false" EnableCollapse="true"
             Title="简单表单" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" Label="开始日期" EmptyText="请选择开始日期"
