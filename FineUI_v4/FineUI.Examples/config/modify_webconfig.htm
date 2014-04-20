@@ -58,6 +58,10 @@
     &lt;httpModules&gt;
       &lt;add name="FineUIScriptModule" type="FineUI.ScriptModule, FineUI"/&gt;
     &lt;/httpModules&gt;
+	
+	&lt;httpHandlers&gt;
+      &lt;add verb="GET" path="res.axd" type="FineUI.ResourceHandler, FineUI" validate="false"/&gt;
+    &lt;/httpHandlers&gt;
 
         </pre>
         </li>
