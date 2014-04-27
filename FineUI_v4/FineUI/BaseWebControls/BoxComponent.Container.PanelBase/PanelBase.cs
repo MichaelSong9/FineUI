@@ -122,7 +122,7 @@ namespace FineUI
 
         #region Properties
 
-        
+
         /// <summary>
         /// 启用自定义的圆角边框
         /// </summary>
@@ -349,6 +349,26 @@ namespace FineUI
 
         #region internal RenderChildrenAsContent
 
+        private ITemplate content = null;
+
+        [Browsable(false)]
+        [DefaultValue(null)]
+        [NotifyParentProperty(true)]
+        [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Description("子控件")]
+        public virtual ITemplate Content
+        {
+            get
+            {
+                return content;
+            }
+            set
+            {
+                content = value;
+            }
+        }
+
+
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
         [Description("渲染子控件为容器内容")]
@@ -457,7 +477,7 @@ namespace FineUI
         {
             get
             {
-                return String.Format("{0}_content", ClientID);
+                return String.Format("{0}_Content", ClientID);
             }
         }
 
@@ -574,24 +594,22 @@ namespace FineUI
         }
         #endregion
 
-        #region AddParsedSubObject
+        #region CreateChildControls
 
-        //protected override void AddParsedSubObject(object obj)
-        //{
-        //    if (RenderChildrenAsContent)
-        //    {
-        //        base.AddParsedSubObject(obj);
-        //    }
-        //    else
-        //    {
-        //        ControlBase c = obj as ControlBase;
-        //        if (c != null)
-        //        {
-        //            c.RenderWrapperNode = false;
-        //            base.AddParsedSubObject(c);
-        //        }
-        //    }
-        //}
+        protected override void CreateChildControls()
+        {
+            base.CreateChildControls();
+
+            if (Content != null)
+            {
+                WebControl ctrl = new WebControl(HtmlTextWriterTag.Div);
+                ctrl.ID = "Content";
+                Content.InstantiateIn(ctrl);
+
+                Controls.Add(ctrl);
+            }
+        }
+
 
         #endregion
 
@@ -628,11 +646,19 @@ namespace FineUI
                 OB.AddProperty("frame", true);
             }
 
-            
+
             #region Items
 
-            // 如果是 ContentPanel 或者启用 IFrame，则不生成 items
-            if (!RenderChildrenAsContent && !EnableIFrame)
+            // 如果是 ContentPanel, 启用 IFrame 或者包含 Content, 则不生成 items
+            if (RenderChildrenAsContent || EnableIFrame || (Content != null))
+            {
+                if (RenderChildrenAsContent || (Content != null))
+                {
+                    OB.AddProperty("contentEl", String.Format("{0}", ContentID));
+
+                }
+            }
+            else
             {
                 if (Items.Count > 0)
                 {
@@ -685,7 +711,7 @@ namespace FineUI
             //        }
             //    }
             //}
-           
+
             OB.AddProperty("bodyStyle", bodyStyleStr);
 
             OB.AddProperty("border", ShowBorder);
@@ -705,7 +731,7 @@ namespace FineUI
             //{
             //    OB.AddProperty("autoHeight", true);
             //}
-            
+
 
             //// 如果父控件是容器控件（不是ContentPanel），并且Layout != LayoutType.Container，
             //// 则设置AutoWidth/AutoHeight都为false
@@ -1036,7 +1062,7 @@ namespace FineUI
         public string GetRefreshIFrameReference()
         {
             return String.Format("{0}.body.query('iframe')[0].contentWindow.location.reload();", ScriptID);
-        } 
+        }
 
         #endregion
 

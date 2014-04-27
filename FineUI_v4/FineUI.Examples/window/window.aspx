@@ -30,17 +30,14 @@
         <f:Window ID="Window2" Width="650px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="true"
             EnableMaximize="true" EnableCollapse="true" runat="server" EnableResize="true"
             IsModal="false" CloseAction="HidePostBack" OnClose="Window2_Close" Layout="Fit">
-            <Items>
-                <f:ContentPanel ShowBorder="false" ShowHeader="false" ID="ContentPanel2"
-                    BodyPadding="5px" runat="server">
+            <Content>
+                <br />
+                这是窗体的内容。
                     <br />
-                    这是窗体的内容。
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                </f:ContentPanel>
-            </Items>
+                <br />
+                <br />
+                <br />
+            </Content>
         </f:Window>
     </form>
 </body>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>FineUI 在线示例 - 基于 ExtJS 的开源 ASP.NET 控件库</title>
+    <title>FineUI（开源版）在线示例 - 基于 ExtJS 的开源 ASP.NET 控件库</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <meta name="Title" content="基于 ExtJS 的开源 ASP.NET 控件库(ExtJS based open source ASP.NET Controls)" />
     <meta name="Description" content="FineUI 的使命是创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序" />
@@ -15,21 +15,24 @@
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <f:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="50px" ShowHeader="false"
+                <f:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" ShowHeader="false"
                     Position="Top" Layout="Fit" runat="server">
-                    <Items>
-                        <f:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" ID="ContentPanel1"
-                            runat="server">
-                            <div class="title">
-                                <a href="http://fineui.com/" title="FineUI首页" class="logo">
-                                    <img src="./res/images/logo/logo2.gif" alt="FineUI Logo" /></a>
-                                <a href="./default.aspx">FineUI在线示例</a>
-                            </div>
-                            <div class="config">
-                                
-                            </div>
-                        </f:ContentPanel>
-                    </Items>
+                    <Content>
+                        <div id="header">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a class="logo" href="http://fineui.com/pro/" title="FineUI首页">
+                                            <img src="./res/images/logo/logo2.gif" alt="FineUI Logo" />
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="title" href="./default.aspx">FineUI（开源版）在线示例</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </Content>
                 </f:Region>
                 <f:Region ID="leftRegion" Split="true" Width="200px" ShowHeader="true" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
@@ -64,7 +67,7 @@
                                     <Items>
                                         <f:ContentPanel ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
                                             runat="server">
-                                            <h2>关于FineUI</h2>
+                                            <h2>FineUI（开源版）</h2>
                                             基于 ExtJS 的开源 ASP.NET 控件库
                                         
                                             <br />
