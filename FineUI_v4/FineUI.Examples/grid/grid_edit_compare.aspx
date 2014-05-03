@@ -79,7 +79,7 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
-        var inputselector = '.x-grid-tpl input';
+        var inputselector = '.f-grid-tpl input';
 
         function registerSelectEvent() {
             var grid = F(gridClientID);
@@ -117,7 +117,7 @@
                     var row = $this.parents('.x-grid-row');
                     var num1 = row.find(inputselector + '.group1').val();
                     var num2 = row.find(inputselector + '.group2').val();
-                    var resultNode = row.find('.x-grid-tpl span.result');
+                    var resultNode = row.find('.f-grid-tpl span.result');
                     resultNode.removeClass('success error');
                     if (num1 == num2) {
                         resultNode.addClass('success');

@@ -10,7 +10,9 @@
     -webkit-user-select: auto;
 }*/
 
-
+.f-hidden {
+	display: none;
+}
 
 
 .cursor-pointer {

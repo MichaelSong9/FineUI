@@ -70,7 +70,7 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
-        var inputselector = '.x-grid-tpl input';
+        var inputselector = '.f-grid-tpl input';
 
         function registerSelectEvent() {
             var grid = F(gridClientID);

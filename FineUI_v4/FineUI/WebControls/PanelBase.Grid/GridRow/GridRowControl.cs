@@ -81,7 +81,7 @@ namespace FineUI
         {
             //base.RenderBeginTag(writer);
 
-            writer.Write(String.Format("<div class=\"x-grid-tpl\" id=\"{0}\">", ClientID));
+            writer.Write(String.Format("<div class=\"f-grid-tpl x-grid-tpl\" id=\"{0}\">", ClientID));
         }
 
         /// <summary>

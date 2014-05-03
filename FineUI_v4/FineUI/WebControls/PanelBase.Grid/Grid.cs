@@ -2294,6 +2294,9 @@ namespace FineUI
                 viewBuilder.AddProperty("enableTextSelection", true);
             }
 
+            viewBuilder.AddProperty("getRowClass", JsHelper.GetFunction("return 'f-grid-row';"), true);
+            //viewBuilder.AddProperty("selectedItemCls", "x-grid-row-selected f-grid-row-selected");
+
             if (viewBuilder.Count > 0)
             {
                 OB.AddProperty("viewConfig", viewBuilder);
@@ -3143,7 +3146,7 @@ namespace FineUI
         {
             base.RenderBeginTag(writer);
 
-            writer.Write(String.Format("<div id=\"{0}_tpls\" class=\"x-grid-tpls x-hide-display\">", ClientID));
+            writer.Write(String.Format("<div id=\"{0}_tpls\" class=\"f-grid-tpls f-hidden x-grid-tpls\">", ClientID));
         }
 
         /// <summary>

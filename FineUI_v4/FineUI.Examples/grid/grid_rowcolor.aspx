@@ -7,21 +7,16 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
+        
         .x-grid-row.highlight td {
             background-color: lightgreen;
-        }
-
-        .x-grid-row.highlight .x-grid-col {
             background-image: none;
         }
-
         .x-grid-row-selected.highlight td {
             background-color: yellow;
-        }
-
-        .x-grid-row-selected.highlight .x-grid-col {
             background-image: none;
         }
+
     </style>
 </head>
 <body>

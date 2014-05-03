@@ -7,11 +7,11 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .x-grid-tpl .hobby input
+        .f-grid-tpl .hobby input
         {
             vertical-align: middle;
         }
-        .x-grid-tpl .hobby label
+        .f-grid-tpl .hobby label
         {
             margin-left: 5px;
             margin-right: 10px;

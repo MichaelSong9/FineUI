@@ -7,11 +7,11 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .x-grid-tpl .gender input {
+        .f-grid-tpl .gender input {
             vertical-align: middle;
         }
 
-        .x-grid-tpl .gender label {
+        .f-grid-tpl .gender label {
             margin-left: 5px;
             margin-right: 10px;
         }

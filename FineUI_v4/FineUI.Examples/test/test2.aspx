@@ -5,11 +5,9 @@
 <head runat="server">
     <title></title>
     <style>
-        body.x-body {
+        body.f-body {
             background-color: #fff;
         }
-        
-
     </style>
 </head>
 <body>

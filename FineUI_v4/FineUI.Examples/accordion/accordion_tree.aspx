@@ -7,7 +7,7 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        body.x-body {
+        body.f-body {
             padding: 0;
         }
     </style>

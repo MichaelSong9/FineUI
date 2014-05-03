@@ -47,7 +47,7 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
-        var genderselector = '.x-grid-tpl select.gender';
+        var genderselector = '.f-grid-tpl select.gender';
 
         function registerSyncEvent() {
             var grid = F(gridClientID);

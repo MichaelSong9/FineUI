@@ -100,7 +100,7 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
-        var inputselector = '.x-grid-tpl input';
+        var inputselector = '.f-grid-tpl input';
 
         function registerAutoSaveEvent() {
             var grid = F(gridClientID);
@@ -113,7 +113,7 @@
                     var row = $this.parents('.x-grid-row');
                     var num1 = row.find(inputselector + '.ChineseScore').val();
                     var num2 = row.find(inputselector + '.MathScore').val();
-                    var resultNode = row.find('.x-grid-tpl span.TotalScore');
+                    var resultNode = row.find('.f-grid-tpl span.TotalScore');
 
                     resultNode.text(parseInt(num1, 10) + parseInt(num2, 10));
 

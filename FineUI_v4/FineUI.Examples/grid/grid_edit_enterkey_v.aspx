@@ -70,7 +70,7 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var gridClientID = '<%= Grid1.ClientID %>';
-        var inputselector = '.x-grid-tpl input';
+        var inputselector = '.f-grid-tpl input';
 
         function registerSelectEvent() {
             var grid = F(gridClientID);
@@ -105,7 +105,6 @@
                         if (inputIndex >= inputCount) {
                             inputIndex = 0;
                         }
-                        //row.parent().find('.x-grid-row:first').find(inputselector).eq(inputIndex).select();
                         row.prevAll(':last').find(inputselector).eq(inputIndex).select();
                     }
                 }

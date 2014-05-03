@@ -7,18 +7,7 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .x-grid-row-body .expander
-        {
-            padding: 5px;
-        }
-        .x-grid-row-body .expander p
-        {
-            padding: 5px;
-        }
-        .x-grid-row-body .expander strong
-        {
-            font-weight: bold;
-        }
+        
     </style>
 </head>
 <body>

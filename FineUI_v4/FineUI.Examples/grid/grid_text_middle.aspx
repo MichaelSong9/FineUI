@@ -7,7 +7,8 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .x-grid-row td, .x-grid-summary-row td {
+        .x-grid-row td, 
+        .x-grid-summary-row td {
             vertical-align: middle;
         }
     </style>

@@ -14,10 +14,6 @@
         .mright {
             margin-right: 5px;
         }
-
-        .datecontainer .x-form-field-trigger-wrap {
-            margin-right: 5px;
-        }
     </style>
 </head>
 <body>
@@ -39,7 +35,7 @@
                         </f:Button>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel1" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item datecontainer"
+                <f:Panel ID="Panel1" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
                     runat="server">
                     <Items>
                         <f:Label ID="Label1" runat="server" Width="100px" CssClass="inline" ShowLabel="false"
@@ -52,7 +48,7 @@
                         </f:DatePicker>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel3" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item datecontainer"
+                <f:Panel ID="Panel3" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
                     runat="server">
                     <Items>
                         <f:Label ID="Label3" runat="server" Width="100px" CssClass="inline" ShowLabel="false"
@@ -65,7 +61,7 @@
                         </f:DatePicker>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel4" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item datecontainer"
+                <f:Panel ID="Panel4" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
                     runat="server">
                     <Items>
                         <f:Label ID="Label4" runat="server" Width="100px" CssClass="inline" ShowLabel="false"

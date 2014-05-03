@@ -6,7 +6,7 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .customlabel .x-form-display-field {
+        .customlabel span {
             color: red;
             font-weight: bold;
         }
