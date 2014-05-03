@@ -17,22 +17,6 @@
                 height: 150px;
                 vertical-align: middle;
             }
-
-
-
-        .mytoolbar td {
-            vertical-align: top;
-        }
-
-        .mytoolbar .x-form-field-wrap {
-            /* Only fileupload in toolbar */
-            height: 23px;
-        }
-
-        .mytoolbar .x-form-field {
-            /* fix for IE */
-            float: left;
-        }
     </style>
 </head>
 <body>
@@ -48,15 +32,14 @@
                 <f:TextBox runat="server" Label="邮箱" ID="tbxEmail" Required="true" RegexPattern="EMAIL"
                     ShowRedStar="true">
                 </f:TextBox>
+
             </Items>
             <Toolbars>
-                <f:Toolbar Position="Footer" ToolbarAlign="Right" CssClass="mytoolbar" runat="server">
+                <f:Toolbar Position="Bottom" ToolbarAlign="Right" runat="server">
                     <Items>
-                        <f:FileUpload runat="server" ID="filePhoto" ButtonText="上传个人头像" ButtonOnly="true"
+                        <f:FileUpload runat="server" ID="filePhoto" ButtonText="上传个人头像" AcceptFileTypes="image/*" ButtonOnly="true"
                             AutoPostBack="true" OnFileSelected="filePhoto_FileSelected">
                         </f:FileUpload>
-                        <f:ToolbarFill ID="ToolbarFill1" runat="server">
-                        </f:ToolbarFill>
                         <f:Button runat="server" Icon="SystemSave" ID="btnSubmit" OnClick="btnSubmit_Click"
                             ValidateForms="SimpleForm1" Text="提交表单">
                         </f:Button>
@@ -64,7 +47,8 @@
                 </f:Toolbar>
             </Toolbars>
         </f:SimpleForm>
-
+        <br />
+        注意：上传个人头像通过 AcceptFileTypes="image/*" 来控制默认显示的文件类型。
     </form>
 </body>
 </html>

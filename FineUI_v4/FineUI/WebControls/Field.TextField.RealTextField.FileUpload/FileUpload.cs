@@ -47,6 +47,22 @@ namespace FineUI
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class FileUpload : RealTextField, IPostBackEventHandler
     {
+        #region static readonly
+
+        // http://stackoverflow.com/questions/11832930/html-input-file-accept-attribute-file-type-csv
+
+        public static readonly string FILETYPE_CSV = ".csv";
+        public static readonly string FILETYPE_EXCEL = ".xls,.xlsx";
+        public static readonly string FILETYPE_WORD = ".doc,.docx";
+        public static readonly string FILETYPE_TEXT = ".txt";
+        public static readonly string FILETYPE_IMAGES = "image/*";
+        public static readonly string FILETYPE_HTML = "text/html";
+        public static readonly string FILETYPE_VIDEO = "video/*";
+        public static readonly string FILETYPE_AUDIO = "audio/*";
+        public static readonly string FILETYPE_PDF = ".pdf";
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -79,6 +95,26 @@ namespace FineUI
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// 允许上传的文件类型（仅部分浏览器支持）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("允许上传的文件类型（仅部分浏览器支持）")]
+        public string AcceptFileTypes
+        {
+            get
+            {
+                object obj = FState["AcceptFileTypes"];
+                return obj == null ? "" : (string)obj;
+            }
+            set
+            {
+                FState["AcceptFileTypes"] = value;
+            }
+        }
+
 
         /// <summary>
         /// 按钮文本
@@ -299,6 +335,12 @@ namespace FineUI
             //    OB.Listeners.RemoveProperty("change");
             //    OB.Listeners.AddProperty("fileselected", JsHelper.GetFunction(GetPostBackEventReference()), true);
             //}
+
+            if (!String.IsNullOrEmpty(AcceptFileTypes))
+            {
+                string acceptScript = "cmp.fileInputEl.set({accept:'" + AcceptFileTypes + "'});";
+                OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(acceptScript, "cmp"), true);
+            }
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.File',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);

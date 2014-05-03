@@ -6,7 +6,8 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .highlight {
+        .highlight,
+        .highlight span {
             color: red;
         }
     </style>

@@ -49,6 +49,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+为面板Panel、Tab、Region、GroupPanel、AccordionPane、Window增加Content属性。
 		-可以在一定程度上避免使用ContentPanel，从而减少页面层次结构，加快页面渲染速度。
 		-更新示例window/window.aspx、default.aspx。
+	+为FileUpload控件增加AcceptFileTypes属性，控制默认显示的文件类型（六月寒）。
+		-更新示例form/fileupload_toolbar.aspx。
+
 
 
 
