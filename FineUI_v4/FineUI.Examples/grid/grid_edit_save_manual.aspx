@@ -83,7 +83,7 @@
                     </Columns>
                 </f:Grid>
                 <f:SimpleForm ID="SimpleForm1" runat="server" Width="300px" LabelAlign="Left" LabelWidth="100px" EnableFrame="false" EnableCollapse="true"
-                    Title="详细信息" BodyPadding="5px 10px" BoxMargin="0">
+                    Title="详细信息" BodyPadding="5px 10px" Margin="0">
                     <Items>
                         <f:Label runat="server" ID="labName" Label="姓名" Text="">
                         </f:Label>

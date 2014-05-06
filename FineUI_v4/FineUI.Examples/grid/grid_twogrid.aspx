@@ -17,7 +17,7 @@
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
                 <f:Region ID="Region1" ShowBorder="false" ShowHeader="false" Split="true"
-                    Margins="0 0 0 0" Width="200px" Position="Left" Layout="Fit"
+                     Width="200px" Position="Left" Layout="Fit"
                     runat="server">
                     <Items>
                         <f:Grid ID="Grid2" ShowBorder="true" ShowHeader="true" Title="表格（班级）" runat="server"

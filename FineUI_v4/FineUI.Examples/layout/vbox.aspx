@@ -27,10 +27,10 @@
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel4" Title="面板3" BoxFlex="2" BoxMargin="0"
+                <f:Panel ID="Panel4" Title="面板3" BoxFlex="2" Margin="0"
                     runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label3" runat="server" Text="BoxFlex=2 BoxMargin=0">
+                        <f:Label ID="Label3" runat="server" Text="BoxFlex=2 Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -56,10 +56,10 @@
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel8" Title="面板3" Height="100px" BoxMargin="0"
+                <f:Panel ID="Panel8" Title="面板3" Height="100px" Margin="0"
                     runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label6" runat="server" Text="Height=100px BoxMargin=0">
+                        <f:Label ID="Label6" runat="server" Text="Height=100px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -85,10 +85,10 @@
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel12" Title="面板3" Height="100px" BoxMargin="0"
+                <f:Panel ID="Panel12" Title="面板3" Height="100px" Margin="0"
                     runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label9" runat="server" Text="Height=100px BoxMargin=0">
+                        <f:Label ID="Label9" runat="server" Text="Height=100px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -114,10 +114,10 @@
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel16" Title="面板3" Width="600px" BoxMargin="0"
+                <f:Panel ID="Panel16" Title="面板3" Width="600px" Margin="0"
                     Height="100px" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label12" runat="server" Text="Width=600px Height=100px BoxMargin=0">
+                        <f:Label ID="Label12" runat="server" Text="Width=600px Height=100px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -143,10 +143,10 @@
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel20" Title="面板3" Width="600px" BoxMargin="0"
+                <f:Panel ID="Panel20" Title="面板3" Width="600px" Margin="0"
                     Height="100px" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label15" runat="server" Text="Width=600px Height=100px BoxMargin=0">
+                        <f:Label ID="Label15" runat="server" Text="Width=600px Height=100px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>

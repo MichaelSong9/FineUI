@@ -146,7 +146,7 @@
                         </f:Panel>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel20" BoxFlex="1" BoxMargin="0" ShowBorder="false" ShowHeader="false" runat="server">
+                <f:Panel ID="Panel20" BoxFlex="1" Margin="0" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
                         <f:Panel ID="Panel21" Height="100px" CssClass="rowpanel" runat="server" BodyPadding="5px"
                             ShowBorder="true" ShowHeader="false">

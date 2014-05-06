@@ -15,7 +15,7 @@
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <f:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" ShowHeader="false"
+                <f:Region ID="Region1" ShowBorder="false" ShowHeader="false"
                     Position="Top" Layout="Fit" runat="server">
                     <Content>
                         <div id="header">
@@ -37,7 +37,7 @@
                 <f:Region ID="leftRegion" Split="true" Width="200px" ShowHeader="true" ShowBorder="true" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                 </f:Region>
-                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" ShowBorder="true" Position="Center"
+                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Padding="20px 0 0 10px" ShowBorder="true" Position="Center"
                     runat="server">
                     <Items>
                         <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">

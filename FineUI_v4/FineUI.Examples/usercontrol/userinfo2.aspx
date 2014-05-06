@@ -19,7 +19,7 @@
                     <uc1:UserInfoControl ID="UserInfoControl1" UserName="陈萍萍" UserAge="20" UserCountry="合肥"
                         runat="server" />
                 </f:UserControlConnector>
-                <f:Panel runat="server" ID="Panel3" BodyPadding="5px" BoxFlex="1" BoxMargin="0"
+                <f:Panel runat="server" ID="Panel3" BodyPadding="5px" BoxFlex="1" Margin="0"
                     Title="页面/面板二">
                     <Items>
                         <f:Label runat="server" Text="胡斐今年22岁，住在驻马店。">
@@ -38,7 +38,7 @@
                         runat="server" />
                 </f:UserControlConnector>
                 <f:UserControlConnector ID="UserControlConnector3" runat="server">
-                    <uc1:UserInfoControl ID="UserInfoControl3" Properties="{BoxMargin:'0',BoxFlex:1}" UserName="胡斐" UserAge="22" UserCountry="驻马店"
+                    <uc1:UserInfoControl ID="UserInfoControl3" Properties="{Margin:'0',BoxFlex:1}" UserName="胡斐" UserAge="22" UserCountry="驻马店"
                         runat="server" />
                 </f:UserControlConnector>
             </Items>

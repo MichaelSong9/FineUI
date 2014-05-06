@@ -166,24 +166,24 @@ namespace FineUI
         //}
 
 
-        /// <summary>
-        /// 边距
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("边距")]
-        public string Margins
-        {
-            get
-            {
-                object obj = FState["Margins"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                FState["Margins"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 边距
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("边距")]
+        //public string Margins
+        //{
+        //    get
+        //    {
+        //        object obj = FState["Margins"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["Margins"] = value;
+        //    }
+        //}
 
         ///// <summary>
         ///// 折叠后的边距
@@ -327,10 +327,10 @@ namespace FineUI
             // 必须设置位置
             OB.AddProperty("region", PositionHelper.GetName(Position));
 
-            if (!String.IsNullOrEmpty(Margins))
-            {
-                OB.AddProperty("margins", Margins);
-            }
+            //if (!String.IsNullOrEmpty(Margins))
+            //{
+            //    OB.AddProperty("margins", Margins);
+            //}
 
             if (Split)
             {

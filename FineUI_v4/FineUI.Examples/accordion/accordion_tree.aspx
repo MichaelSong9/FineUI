@@ -17,7 +17,7 @@
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <f:Region ID="Region2" Split="true" Width="200px" Margins="0 0 0 0" ShowHeader="false"
+                <f:Region ID="Region2" Split="true" Width="200px"  ShowHeader="false"
                     Title="目录" EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                     <Items>
                         <f:Accordion runat="server" ShowBorder="false" ShowHeader="false" ShowCollapseTool="true">
@@ -41,7 +41,7 @@
                     </Items>
                 </f:Region>
                 <f:Region ID="Region3" ShowHeader="false" EnableIFrame="true" IFrameUrl="~/accordion/accordion_tree_index.htm"
-                    IFrameName="main" Margins="0 0 0 0" Position="Center" runat="server">
+                    IFrameName="main"  Position="Center" runat="server">
                 </f:Region>
             </Regions>
         </f:RegionPanel>

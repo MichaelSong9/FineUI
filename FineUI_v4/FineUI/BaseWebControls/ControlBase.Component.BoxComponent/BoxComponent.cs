@@ -351,24 +351,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 外边距（当父容器的Layout=VBox或者HBox时有效）
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue("")]
-        [Description("外边距（当父容器的Layout=VBox或者HBox时有效）")]
-        public string BoxMargin
-        {
-            get
-            {
-                object obj = FState["BoxMargin"];
-                return obj == null ? "" : (string)obj;
-            }
-            set
-            {
-                FState["BoxMargin"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 外边距（当父容器的Layout=VBox或者HBox时有效）
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue("")]
+        //[Description("外边距（当父容器的Layout=VBox或者HBox时有效）")]
+        //public string BoxMargin
+        //{
+        //    get
+        //    {
+        //        object obj = FState["BoxMargin"];
+        //        return obj == null ? "" : (string)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["BoxMargin"] = value;
+        //    }
+        //}
 
         #endregion
 
@@ -486,11 +486,11 @@ namespace FineUI
                         OB.AddProperty("flex", BoxFlex);
                     }
 
-                    // 用户可能会设置 BoxMargin="0" 来覆盖 BoxConfigChildMargin 属性。
-                    if (BoxMargin != "")
-                    {
-                        OB.AddProperty("margins", BoxMargin);
-                    }
+                    //// 用户可能会设置 BoxMargin="0" 来覆盖 BoxConfigChildMargin 属性。
+                    //if (BoxMargin != "")
+                    //{
+                    //    OB.AddProperty("margins", BoxMargin);
+                    //}
 
                 }
             }

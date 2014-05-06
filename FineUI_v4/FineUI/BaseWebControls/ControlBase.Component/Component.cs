@@ -151,6 +151,25 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 外边距
+        /// </summary>
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue("")]
+        [Description("外边距")]
+        public string Margin
+        {
+            get
+            {
+                object obj = FState["Margin"];
+                return obj == null ? "" : (string)obj;
+            }
+            set
+            {
+                FState["Margin"] = value;
+            }
+        }
+
         #region old code
         //[Category(CategoryName.OPTIONS)]
         //[DefaultValue("")]
@@ -259,6 +278,19 @@ namespace FineUI
 
             //// 不保持状态
             //OB.AddProperty("stateful", false);
+
+            if (!String.IsNullOrEmpty(Margin))
+            {
+                Container parentControl = Parent as Container;
+                if (parentControl != null && (parentControl.Layout == Layout.HBox || parentControl.Layout == Layout.VBox))
+                {
+                    OB.AddProperty("margins", Margin);
+                }
+                else
+                {
+                    OB.AddProperty("margin", Margin);
+                }
+            }
 
 
             #region old code

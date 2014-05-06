@@ -29,9 +29,9 @@
                     </Items>
                 </f:Panel>
                 <f:Panel ID="Panel4" Title="面板3" BoxFlex="2" runat="server"
-                    BodyPadding="5px" BoxMargin="0" ShowBorder="true" ShowHeader="false">
+                    BodyPadding="5px" Margin="0" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label3" runat="server" Text="BoxFlex=2 BoxMargin=0">
+                        <f:Label ID="Label3" runat="server" Text="BoxFlex=2 Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -58,9 +58,9 @@
                     </Items>
                 </f:Panel>
                 <f:Panel ID="Panel8" Title="面板3" Width="200px"
-                    BoxMargin="0" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
+                    Margin="0" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label6" runat="server" Text="Width=200px BoxMargin=0">
+                        <f:Label ID="Label6" runat="server" Text="Width=200px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -87,9 +87,9 @@
                     </Items>
                 </f:Panel>
                 <f:Panel ID="Panel12" Title="面板3" Width="200px"
-                    BoxMargin="0" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
+                    Margin="0" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label9" runat="server" Text="Width=200px BoxMargin=0">
+                        <f:Label ID="Label9" runat="server" Text="Width=200px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -117,10 +117,10 @@
                     </Items>
                 </f:Panel>
                 <f:Panel ID="Panel16" Title="面板3" Width="200px"
-                    BoxMargin="0" Height="200px" runat="server" BodyPadding="5px" ShowBorder="true"
+                    Margin="0" Height="200px" runat="server" BodyPadding="5px" ShowBorder="true"
                     ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label12" runat="server" Text="Width=200px Height=200px BoxMargin=0">
+                        <f:Label ID="Label12" runat="server" Text="Width=200px Height=200px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -148,10 +148,10 @@
                     </Items>
                 </f:Panel>
                 <f:Panel ID="Panel20" Title="面板3" Width="200px"
-                    BoxMargin="0" Height="200px" runat="server" BodyPadding="5px" ShowBorder="true"
+                    Margin="0" Height="200px" runat="server" BodyPadding="5px" ShowBorder="true"
                     ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label15" runat="server" Text="Width=200px Height=200px BoxMargin=0">
+                        <f:Label ID="Label15" runat="server" Text="Width=200px Height=200px Margin=0">
                         </f:Label>
                     </Items>
                 </f:Panel>

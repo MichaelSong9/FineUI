@@ -52,6 +52,10 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+为FileUpload控件增加AcceptFileTypes属性，控制默认显示的文件类型（六月寒）。
 		-更新示例form/fileupload_toolbar.aspx。
 	+表格中模板列的CSS类名由x-grid-tpl更改为f-grid-tpl。
+	+为Component增加Margin属性。
+		-删除Region上的Margins属性，请使用新增的Margin属性。
+		-删除BoxComponent上的BoxMargin属性，请使用新增的Margin属性。
+	-顶部框架4不显示
 
 
 
