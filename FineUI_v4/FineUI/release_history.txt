@@ -55,10 +55,10 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+为Component增加Margin属性。
 		-删除Region上的Margins属性，请使用新增的Margin属性。
 		-删除BoxComponent上的BoxMargin属性，请使用新增的Margin属性。
-	-顶部框架4不显示
-
-
-
+	+Layout枚举值Border改名为Region，为BoxComponent增加RegionPosition和RegionSplit两个属性。
+		-普通的面板也支持Region布局，可以在一定程度上减少页面上的层次结构。
+		-更新示例iframe/topmenu4/default.aspx。
+	
 
 
 +2014-03-03 v4.0.5

@@ -37,7 +37,7 @@
                 <f:Region ID="leftRegion" Split="true" Width="200px" ShowHeader="true" ShowBorder="true" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                 </f:Region>
-                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Padding="20px 0 0 10px" ShowBorder="true" Position="Center"
+                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" ShowBorder="true" Position="Center"
                     runat="server">
                     <Items>
                         <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">

@@ -351,24 +351,64 @@ namespace FineUI
         }
 
 
-        ///// <summary>
-        ///// 外边距（当父容器的Layout=VBox或者HBox时有效）
-        ///// </summary>
-        //[Category(CategoryName.LAYOUT)]
-        //[DefaultValue("")]
-        //[Description("外边距（当父容器的Layout=VBox或者HBox时有效）")]
-        //public string BoxMargin
-        //{
-        //    get
-        //    {
-        //        object obj = FState["BoxMargin"];
-        //        return obj == null ? "" : (string)obj;
-        //    }
-        //    set
-        //    {
-        //        FState["BoxMargin"] = value;
-        //    }
-        //}
+        /// <summary>
+        /// 外边距
+        /// </summary>
+        [Category(CategoryName.LAYOUT)]
+        [DefaultValue("")]
+        [Description("外边距")]
+        [Obsolete("已废除，请使用Margin属性")]
+        public string BoxMargin
+        {
+            get
+            {
+                return Margin;
+            }
+            set
+            {
+                Margin = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 是否显示分隔条
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否显示分隔条")]
+        public bool RegionSplit
+        {
+            get
+            {
+                object obj = FState["RegionSplit"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["RegionSplit"] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 区域所在的位置
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(Position.Center)]
+        [Description("区域所在的位置")]
+        public Position RegionPosition
+        {
+            get
+            {
+                object obj = FState["RegionPosition"];
+                return obj == null ? Position.Center : (Position)obj;
+            }
+            set
+            {
+                FState["RegionPosition"] = value;
+            }
+        }
 
         #endregion
 
@@ -388,8 +428,8 @@ namespace FineUI
         protected override void OnFirstPreRender()
         {
             base.OnFirstPreRender();
-            
-            
+
+
             if (Width != Unit.Empty)
             {
                 OB.AddProperty("width", Width.Value);
@@ -453,20 +493,6 @@ namespace FineUI
                         OB.AddProperty("y", AbsoluteY.Value);
                     }
                 }
-                //else if (parentControl.Layout == Layout.Row)
-                //{
-                //    if (!String.IsNullOrEmpty(RowHeight))
-                //    {
-                //        string rowHeight = StringUtil.ConvertPercentageToDecimalString(RowHeight);
-
-                //        // 1.00 在IE下会有BUG，把1.00转换为0.999
-                //        if (rowHeight == "1.00")
-                //        {
-                //            rowHeight = "0.999";
-                //        }
-                //        OB.AddProperty("rowHeight", rowHeight, true);
-                //    }
-                //}
                 else if (parentControl.Layout == Layout.Table)
                 {
                     if (TableRowspan != 1)
@@ -492,6 +518,18 @@ namespace FineUI
                     //    OB.AddProperty("margins", BoxMargin);
                     //}
 
+                }
+                else if (parentControl.Layout == Layout.Region)
+                {
+                    if (!(this is Region))
+                    {
+                        OB.AddProperty("region", PositionHelper.GetName(RegionPosition));
+
+                        if (RegionSplit)
+                        {
+                            OB.AddProperty("split", true);
+                        }
+                    }
                 }
             }
 

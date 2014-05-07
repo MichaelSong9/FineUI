@@ -31,22 +31,13 @@ namespace FineUI.Examples.iframe.topmenu4 {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// RegionPanel1 控件。
+        /// Panel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.RegionPanel RegionPanel1;
-        
-        /// <summary>
-        /// Region1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region Region1;
+        protected global::FineUI.Panel Panel1;
         
         /// <summary>
         /// Region2 控件。
@@ -55,16 +46,7 @@ namespace FineUI.Examples.iframe.topmenu4 {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Region Region2;
-        
-        /// <summary>
-        /// mainRegion 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region mainRegion;
+        protected global::FineUI.Panel Region2;
         
         /// <summary>
         /// mainTabStrip 控件。

@@ -88,11 +88,11 @@ namespace FineUI
         //}
 
         /// <summary>
-        /// 是否可以拖动分隔条
+        /// 是否显示分隔条
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否可以拖动分隔条")]
+        [Description("是否显示分隔条")]
         public bool Split
         {
             get
@@ -166,24 +166,24 @@ namespace FineUI
         //}
 
 
-        ///// <summary>
-        ///// 边距
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue("")]
-        //[Description("边距")]
-        //public string Margins
-        //{
-        //    get
-        //    {
-        //        object obj = FState["Margins"];
-        //        return obj == null ? "" : (string)obj;
-        //    }
-        //    set
-        //    {
-        //        FState["Margins"] = value;
-        //    }
-        //}
+        /// <summary>
+        /// 外边距
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("外边距")]
+        [Obsolete("已废除，请使用Margin属性")]
+        public string Margins
+        {
+            get
+            {
+                return Margin;
+            }
+            set
+            {
+                Margin = value;
+            }
+        }
 
         ///// <summary>
         ///// 折叠后的边距

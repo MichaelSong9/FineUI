@@ -42,9 +42,9 @@ namespace FineUI
         /// </summary>
         Anchor,
         /// <summary>
-        /// 边框布局（只用于RegionPanel控件）
+        /// 区域布局
         /// </summary>
-        Border,
+        Region,
         /// <summary>
         /// 自适应布局（用于只有一个子控件的情况）
         /// </summary>
@@ -103,7 +103,7 @@ namespace FineUI
                 case Layout.Anchor:
                     result = "anchor";
                     break;
-                case Layout.Border:
+                case Layout.Region:
                     result = "border";
                     break;
                 case Layout.Card:

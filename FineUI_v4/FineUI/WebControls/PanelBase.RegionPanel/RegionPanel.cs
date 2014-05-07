@@ -123,13 +123,13 @@ namespace FineUI
         /// </summary>
         [ReadOnly(true)]
         [Category(CategoryName.LAYOUT)]
-        [DefaultValue(Layout.Border)]
+        [DefaultValue(Layout.Region)]
         [Description("布局类型")]
         public override Layout Layout
         {
             get
             {
-                return Layout.Border;
+                return Layout.Region;
             }
         }
 
