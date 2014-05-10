@@ -274,6 +274,14 @@ namespace FineUI
             return Convert.ToBoolean(section.EnableFStateCompress);
         }
 
+        /// <summary>
+        /// 是否向页面输出IE=edge标识
+        /// </summary>
+        public static bool GetIEEdge()
+        {
+            return section.IEEdge;
+        }
+
 
         ///// <summary>
         ///// 是否启用Ajax

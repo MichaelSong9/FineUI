@@ -695,6 +695,37 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 是否向页面输出IE=edge标识
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否向页面输出IE=edge标识")]
+        public bool IEEdge
+        {
+            get
+            {
+                object obj = FState["IEEdge"];
+                if (obj == null)
+                {
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return GlobalConfig.GetIEEdge();
+                    }
+                }
+                return (bool)obj;
+            }
+            set
+            {
+                FState["IEEdge"] = value;
+            }
+        }
+
         #endregion
 
         #region ValidateForms/ValidateTarget/ValidateMessageBox

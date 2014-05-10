@@ -321,5 +321,22 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 是否向页面输出IE=edge标识
+        /// </summary>
+        [ConfigurationProperty(ConfigPropertyName.IEEDGE, DefaultValue = true)]
+        public bool IEEdge
+        {
+            get
+            {
+                return (bool)base[ConfigPropertyName.IEEDGE];
+            }
+            set
+            {
+                base[ConfigPropertyName.IEEDGE] = value;
+            }
+        }
+
     }
 }

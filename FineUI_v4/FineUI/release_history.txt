@@ -58,6 +58,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+Layout枚举值Border改名为Region，为BoxComponent增加RegionPosition和RegionSplit两个属性。
 		-普通的面板也支持Region布局，可以在一定程度上减少页面上的层次结构。
 		-更新示例iframe/topmenu4/default.aspx。
+	-为Web.config和PageManager增加IEEdge属性（在IE浏览器中使用最新的渲染模式），默认为true。
+
+
 	
 
 

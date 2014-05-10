@@ -60,6 +60,7 @@ namespace FineUI
         public const string CUSTOMTHEMEBASEPATH = "CustomThemeBasePath";
         public const string CUSTOMTHEME = "CustomTheme";
         public const string ENABLEXSTATECOMPRESS = "EnableFStateCompress";
+        public const string IEEDGE = "IEEdge";
     }
 
     /// <summary>
