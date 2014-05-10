@@ -1,4 +1,4 @@
-﻿关于FineUI
+﻿FineUI（开源版）
 基于 ExtJS 的开源 ASP.NET 控件库
 
 FineUI的使命

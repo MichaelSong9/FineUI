@@ -351,6 +351,32 @@
     <Content Include="other\cssclass.aspx" />
     <Content Include="other\confirm_cancel2.aspx" />
     <Content Include="res\js\jquery.min.js" />
+    <Content Include="res\ueditor\net\upload1\2013-11-06\2f70d6a8-70ae-4ff0-92d8-d0ef6ef22e82.jpg" />
+    <Content Include="res\ueditor\net\upload1\2013-11-14\0c3a7d52-397f-4c2c-9818-74cbdb06b458.jpg" />
+    <Content Include="res\ueditor\net\upload1\2013-11-14\5d0cc057-5fe4-4618-9b2e-aa570dd3da76.jpg" />
+    <Content Include="res\ueditor\net\upload1\2014-01-04\d4b7e54b-fd27-4366-86ea-22f3698db9fe.jpg" />
+    <Content Include="res\ueditor\net\upload1\2014-01-09\790f71b0-1401-4dca-a4d7-81d2edfa1163.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-10-27\8ee02c9d-c5d2-4e64-b0e7-7e5a5d269182.swf" />
+    <Content Include="res\ueditor\net\upload\2013-10-28\37a61dab-8bb3-4233-b487-262fa95570b6.gif" />
+    <Content Include="res\ueditor\net\upload\2013-10-28\f92fdaee-7034-47fa-aca4-d3b99e7eb556.png" />
+    <Content Include="res\ueditor\net\upload\2013-10-29\e4fe2bac-675e-4f35-bbd3-13adb348f86b.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-11-06\875fcc4f-5f2b-4ded-83d7-b09ce89d5e50.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-11-06\ec320afb-e0ac-46a7-8cc0-1387244f27ca.png" />
+    <Content Include="res\ueditor\net\upload\2013-11-18\3b2b2c83-e90d-4ba3-be0f-8b2f63aa4686.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-11-21\c81bd18b-77ed-4320-87e1-6ab94fd6109b.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-11-22\6307f92a-8565-4955-a155-017462733ba2.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-12-12\db6c8ad7-ab7f-4974-a413-3bf0ecc474c4.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-12-25\08d542d4-93b9-4ff9-8e02-b80c65f0440c.png" />
+    <Content Include="res\ueditor\net\upload\2013-12-27\00c68561-822b-4183-9a82-140963fbe55d.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-12-27\204c599e-6ec3-40d3-b88a-27f46727bdd1.jpg" />
+    <Content Include="res\ueditor\net\upload\2013-12-27\bfe1f4cb-0b75-4477-aacd-b22e9d40358c.jpg" />
+    <Content Include="res\ueditor\net\upload\2014-01-04\b0f292e4-61ec-459b-9be3-7a6ebb1c54c8.jpg" />
+    <Content Include="res\ueditor\net\upload\2014-01-08\e1ad8d4a-9d5b-4dda-bf95-b6a0580a766b.gif" />
+    <Content Include="res\ueditor\net\upload\2014-01-09\a108bbe8-2d74-48df-8e62-986572223f5e.gif" />
+    <Content Include="res\ueditor\net\upload\2014-01-13\7c80e273-d635-4ae3-8756-0535e3de0ede.jpg" />
+    <Content Include="res\ueditor\net\upload\2014-01-15\0e4da14d-369e-4e55-8072-b1dd7e9b8443.jpg" />
+    <Content Include="res\ueditor\net\upload\2014-01-16\a2590f6a-7acc-4dc1-a171-de2cd0c9ddad.png" />
+    <Content Include="res\ueditor\net\upload\2014-01-16\d598fbea-cdc9-4925-919b-f6e637a35d50.jpg" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
     <Content Include="test\start.aspx" />
@@ -1686,6 +1712,28 @@
     <Compile Include="other\confirm_cancel2.aspx.designer.cs">
       <DependentUpon>confirm_cancel2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="res\ueditor\net\fileUp.ashx.cs">
+      <DependentUpon>fileUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\getContent.ashx.cs">
+      <DependentUpon>getContent.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\getMovie.ashx.cs">
+      <DependentUpon>getMovie.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\getRemoteImage.ashx.cs">
+      <DependentUpon>getRemoteImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\imageManager.ashx.cs">
+      <DependentUpon>imageManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\imageUp.ashx.cs">
+      <DependentUpon>imageUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\scrawlUp.ashx.cs">
+      <DependentUpon>scrawlUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="res\ueditor\net\Uploader.cs" />
     <Compile Include="tabstrip\tabstrip_iframe_disabled.aspx.cs">
       <DependentUpon>tabstrip_iframe_disabled.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2311,6 +2359,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="extjs_builder\build.bat" />
+    <Content Include="res\ueditor\net\fileUp.ashx" />
+    <Content Include="res\ueditor\net\getContent.ashx" />
+    <Content Include="res\ueditor\net\getMovie.ashx" />
+    <Content Include="res\ueditor\net\getRemoteImage.ashx" />
+    <Content Include="res\ueditor\net\imageManager.ashx" />
+    <Content Include="res\ueditor\net\imageUp.ashx" />
+    <Content Include="res\ueditor\net\scrawlUp.ashx" />
+    <Content Include="res\ueditor\net\upload\2013-11-05\25212324-33fc-4c59-9532-f952ff684047.docx" />
+    <Content Include="res\ueditor\net\upload\2013-12-16\46efa7ac-9407-4e68-bc60-adb6a67848f9.doc" />
+    <Content Include="res\ueditor\net\upload\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="res\ueditor\net\upload\2013-12-31\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
