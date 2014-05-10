@@ -29,6 +29,7 @@ namespace FineUI.Examples.grid
         {
             // 1. 这里放置保存窗体中数据的逻辑
             
+            
 
             // 2. 关闭本窗体，然后回发父窗体
             PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
@@ -37,6 +38,8 @@ namespace FineUI.Examples.grid
         protected void btnSaveRefresh_Click(object sender, EventArgs e)
         {
             // 1. 这里放置保存窗体中数据的逻辑
+
+            
 
             // 2. 关闭本窗体，然后刷新父窗体
             PageContext.RegisterStartupScript(ActiveWindow.GetHideRefreshReference());

@@ -166,6 +166,120 @@
                 </f:Panel>
             </Items>
         </f:Panel>
+        <br />
+        <br />
+        三列面板：
+        <br />
+        ===========================================================================
+        <br />
+        <f:Panel ID="Panel23" runat="server" Width="850px" Height="350px" AutoScroll="true" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+            BodyPadding="5px" Layout="Column" ShowHeader="True">
+            <Items>
+                <f:Panel ID="Panel24" ColumnWidth="33%" runat="server"
+                    ShowBorder="false" ShowHeader="false" Margin="0 5px 0 0">
+                    <Items>
+                        <f:Panel ID="Panel25" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel26" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel27" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                    </Items>
+                </f:Panel>
+                <f:Panel ID="Panel28" ColumnWidth="33%" runat="server"
+                    ShowBorder="false" ShowHeader="false" Margin="0 5px 0 0">
+                    <Items>
+                        <f:Panel ID="Panel29" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel30" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel31" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                    </Items>
+                </f:Panel>
+                <f:Panel ID="Panel32" ColumnWidth="34%" runat="server"
+                    ShowBorder="false" ShowHeader="false">
+                    <Items>
+                        <f:Panel ID="Panel33" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel34" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel35" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                    </Items>
+                </f:Panel>
+            </Items>
+        </f:Panel>
     </form>
 </body>
 </html>

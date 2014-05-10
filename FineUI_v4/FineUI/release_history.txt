@@ -33,7 +33,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正下拉列表禁用时提交数据错误的问题（惘思）。
 	+修正顶部菜单框架（右侧选项卡）在多次点击头部菜单后，出现“不能执行已释放 Script 的代码”的错误（failist）。
 		-IE的问题：外部页面使用已关闭IFrame页面的数据（或回调）时发生。
-		-修正方法是将initTreeTabStrip的调用放在父页面，这样mainTabStrip的回调存在于父页面，而不可能来自已关闭的IFrame。
+		-修正方法是将initTreeTabStrip的调用放在父页面，如此以来mainTabStrip的回调存在于父页面，而非已关闭IFrame。
 	-使用google-code-prettify对示例源代码进行着色。
 	-添加到页面上的主题样式类由theme-neptune改名为f-theme-neptune。
 	+树控件增强。
@@ -58,7 +58,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+Layout枚举值Border改名为Region，为BoxComponent增加RegionPosition和RegionSplit两个属性。
 		-普通的面板也支持Region布局，可以在一定程度上减少页面上的层次结构。
 		-更新示例iframe/topmenu4/default.aspx。
-	-为Web.config和PageManager增加IEEdge属性（在IE浏览器中使用最新的渲染模式），默认为true。
+	-为Web.config和PageManager增加IEEdge属性（在IE浏览器中使用最新的渲染模式），默认为true（⑥阿太⑥）。
+	-新增三列面板示例layout/column.aspx（binbin）。
+	-修正Alert对话框与ActiveWindow.GetHidePostBackReference冲突的问题（wlj928449657）。
 
 
 	

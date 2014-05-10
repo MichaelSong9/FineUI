@@ -263,8 +263,23 @@
 
         // 返回当前活动Window组件对象（浏览器窗口对象通过F.wnd.getActiveWindow().window获取）
         getActiveWindow: function () {
+
+            // Ext.WindowManager.getActive();有可能返回一个弹出对话框
+            function getActiveFineUIWindow(wnd) {
+                var result = wnd.Ext.WindowManager.getActive();
+                if (!result.f_property_guid) {
+                    wnd.Ext.WindowManager.eachTopDown(function (cmp) {
+                        if (cmp.f_property_guid) {
+                            result = cmp;
+                            return false;
+                        }
+                    });
+                }
+                return result;
+            }
+
             var activeWindow = parent.window;
-            var activeExtWindow = parent.Ext.WindowManager.getActive(); //parent.F.f_window_manager.getActive();
+            var activeExtWindow = getActiveFineUIWindow(activeWindow);
             if (activeExtWindow) {
                 if (activeExtWindow['f_property_window']) {
                     activeWindow = activeExtWindow['f_property_window'];

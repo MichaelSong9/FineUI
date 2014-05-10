@@ -29,7 +29,7 @@
                             </Items>
                         </f:Toolbar>
                     </Toolbars>
-                   
+
                 </f:Form>
             </Content>
         </f:Panel>
@@ -39,6 +39,108 @@
             </asp:Label>
             <asp:TextBox ID="TextBox1" runat="server" Text="UUUU"></asp:TextBox>
         </f:ContentPanel>
+
+        <f:Panel ID="Panel3" runat="server" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+            BodyPadding="5px" Layout="Column" ShowHeader="True">
+            <Items>
+                <f:Panel ID="Panel5" ColumnWidth="33%" runat="server"
+                    ShowBorder="false" ShowHeader="false" Margin="0 5px 0 0">
+                    <Items>
+                        <f:Panel ID="Panel13" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel14" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel15" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                    </Items>
+                </f:Panel>
+                <f:Panel ID="Panel6" ColumnWidth="33%" runat="server"
+                    ShowBorder="false" ShowHeader="false" Margin="0 5px 0 0">
+                    <Items>
+                        <f:Panel ID="Panel7" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel8" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel9" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                    </Items>
+                </f:Panel>
+                <f:Panel ID="Panel4" ColumnWidth="34%" runat="server"
+                    ShowBorder="false" ShowHeader="false">
+                    <Items>
+                        <f:Panel ID="Panel10" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel11" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                        <f:Panel ID="Panel12" runat="server"
+                            BodyPadding="5px" ShowBorder="true" ShowHeader="true" EnableCollapse="true" Margin="0 0 5px 0">
+                            <Content>
+                                我的面板<br />
+                                <br />
+                                <br />
+                                <br />
+                            </Content>
+                        </f:Panel>
+                    </Items>
+                </f:Panel>
+            </Items>
+        </f:Panel>
     </form>
 </body>
 </html>
