@@ -66,7 +66,7 @@ F.ready(function () {
         var sourcecodeButton = new F.Button({
             text: '源代码',
             type: 'button',
-            icon: './icon/page_white_code.png',
+            icon: './res/icon/page_white_code.png',
             listeners: {
                 click: function () {
                     var iframeNode = getCurrentIFrameNode(this);
@@ -85,7 +85,7 @@ F.ready(function () {
         var openNewWindowButton = new F.Button({
             text: '新标签页中打开',
             type: 'button',
-            icon: './icon/tab_go.png',
+            icon: './res/icon/tab_go.png',
             listeners: {
                 click: function () {
                     var iframeNode = getCurrentIFrameNode(this);
@@ -97,7 +97,7 @@ F.ready(function () {
         var refreshButton = new F.Button({
             text: '刷新',
             type: 'button',
-            icon: './icon/reload.png',
+            icon: './res/icon/reload.png',
             listeners: {
                 click: function () {
                     var iframeNode = getCurrentIFrameNode(this);
