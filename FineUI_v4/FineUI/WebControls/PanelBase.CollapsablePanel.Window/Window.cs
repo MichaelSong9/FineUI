@@ -56,7 +56,7 @@ namespace FineUI
     /// 窗体控件
     /// </summary>
     [Designer("FineUI.Design.WindowDesigner, FineUI.Design")]
-    [ToolboxData("<{0}:Window IsModal=\"true\" Popup=\"true\" Width=\"500px\" Height=\"350px\" Title=\"Window\" BodyPadding=\"5px\" runat=\"server\"></{0}:Window>")]
+    [ToolboxData("<{0}:Window IsModal=\"true\" Width=\"500px\" Height=\"350px\" Title=\"Window\" BodyPadding=\"5px\" runat=\"server\"></{0}:Window>")]
     [ToolboxBitmap(typeof(Window), "toolbox.Window.bmp")]
     [Description("窗体控件")]
     [ParseChildren(true)]
