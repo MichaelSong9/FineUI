@@ -52,7 +52,7 @@ namespace FineUI
         //public static readonly string SCRIPT_CONTENT_TEMPLATE = "\r\n<script type=\"text/javascript\">{0}</script>\r\n";
         public static readonly string STYLE_INCLUDE_TEMPLATE = "<link href=\"{0}\" rel=\"stylesheet\" type=\"text/css\"/>\r\n";
         public static readonly string STYLE_CONTENT_TEMPLATE = "<style type=\"text/css\">{0}</style>\r\n";
-        public static readonly string META_TEMPLATE = "<meta name=\"{0}\" content=\"{1}\" />\r\n";
+        public static readonly string META_TEMPLATE = "<meta http-equiv=\"{0}\" content=\"{1}\" />\r\n";
 
 
         #endregion
