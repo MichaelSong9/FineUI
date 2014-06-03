@@ -786,7 +786,7 @@ namespace FineUI
         {
             if (RenderWrapperNode)
             {
-                writer.Write(String.Format("<div id=\"{0}\">", WrapperID));
+                writer.Write(String.Format("<div id=\"{0}\" class=\"f-wrapper\">", WrapperID));
             }
         }
 
