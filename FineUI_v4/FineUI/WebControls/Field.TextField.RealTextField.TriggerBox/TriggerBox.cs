@@ -220,7 +220,7 @@ namespace FineUI
             else if (!String.IsNullOrEmpty(TriggerIconUrl))
             {
                 string className = String.Format("f_{0}_triggerbox_icon", XID);
-                string selector = String.Format(".x-form-field-wrap .{0}", className);
+                string selector = String.Format(".{0}", className);
                 AddStartupCSS(className, StyleUtil.GetBackgroundStyle(selector, ResolveUrl(TriggerIconUrl)));
 
                 OB.AddProperty("triggerCls", className);
