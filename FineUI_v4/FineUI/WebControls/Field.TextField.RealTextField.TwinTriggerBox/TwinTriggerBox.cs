@@ -370,7 +370,7 @@ namespace FineUI
             else if (!String.IsNullOrEmpty(Trigger1IconUrl))
             {
                 string className = String.Format("f_{0}_twintriggerbox_icon1", XID);
-                string selector = String.Format(".x-form-field-wrap .x-form-twin-triggers .{0}", className);
+                string selector = String.Format(".{0}", className);
                 AddStartupCSS(className, StyleUtil.GetBackgroundStyle(selector, ResolveUrl(Trigger1IconUrl)));
 
                 OB.AddProperty("trigger1Cls", className);
@@ -384,7 +384,7 @@ namespace FineUI
             else if (!String.IsNullOrEmpty(Trigger2IconUrl))
             {
                 string className = String.Format("f_{0}_twintriggerbox_icon2", XID);
-                string selector = String.Format(".x-form-field-wrap .x-form-twin-triggers .{0}", className);
+                string selector = String.Format(".{0}", className);
                 AddStartupCSS(className, StyleUtil.GetBackgroundStyle(selector, ResolveUrl(Trigger2IconUrl)));
 
                 OB.AddProperty("trigger2Cls", className);
