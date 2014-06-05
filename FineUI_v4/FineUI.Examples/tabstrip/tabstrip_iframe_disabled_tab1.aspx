@@ -9,12 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <f:PageManager ID="PageManager1" runat="server" />
-    <f:Button runat="server" ID="btnEnabledTab2" OnClick="btnEnableTabs_Click" Text="启用后两个标签">
-    </f:Button>
-    <br />
-    <f:Button runat="server" ID="Button1" OnClick="btnDisableTabs_Click" Text="禁用后两个标签">
-    </f:Button>
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Button runat="server" ID="btnEnabledTab2" OnClick="btnEnableTabs_Click" Text="启用后两个标签">
+        </f:Button>
+        <br />
+        <br />
+        <f:Button runat="server" ID="Button1" OnClick="btnDisableTabs_Click" Text="禁用后两个标签">
+        </f:Button>
     </form>
 </body>
 </html>

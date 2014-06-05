@@ -71,6 +71,15 @@ namespace FineUI
 
         #region Layout
 
+        internal override bool WrapperNodeInlineBlock
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+
         /// <summary>
         /// 布局类型
         /// </summary>

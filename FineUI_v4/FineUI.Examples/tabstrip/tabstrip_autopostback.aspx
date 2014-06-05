@@ -53,7 +53,7 @@
             </Tabs>
         </f:TabStrip>
         <br />
-        <f:Button ID="Button2" CssStyle="margin-right:5px;float:left;" ValidateForms="SimpleForm1"
+        <f:Button ID="Button2" CssClass="inline" ValidateForms="SimpleForm1"
             Text="验证第一个标签中的表单" runat="server">
         </f:Button>
         <f:Button ID="Button3" Text="选中下一个标签" OnClick="Button3_Click" runat="server">

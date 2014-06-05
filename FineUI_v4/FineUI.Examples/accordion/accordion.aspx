@@ -40,6 +40,7 @@
         <f:Button ID="Button1" Text="获取当前展开的面板" runat="server" OnClick="Button1_Click">
         </f:Button>
         <br />
+        <br />
         <f:Button ID="Button2" Text="展开下一个面板" runat="server" OnClick="Button2_Click">
         </f:Button>
     </form>

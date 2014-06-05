@@ -38,7 +38,7 @@ namespace FineUI.Examples.window
 
         protected void Window2_Close(object sender, WindowCloseEventArgs e)
         {
-            Alert.ShowInTop("窗体被关闭了。参数：" + e.CloseArgument);
+            Alert.ShowInTop("窗体被关闭了。参数：" + (String.IsNullOrEmpty(e.CloseArgument) ? "无" : e.CloseArgument));
         }
 
 

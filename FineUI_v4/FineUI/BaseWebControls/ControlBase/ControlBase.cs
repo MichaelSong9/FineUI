@@ -258,6 +258,23 @@ namespace FineUI
             }
         }
 
+
+        private bool _wrapperNodeInlineBlock = true;
+
+        internal virtual bool WrapperNodeInlineBlock
+        {
+            get
+            {
+                return _wrapperNodeInlineBlock;
+            }
+            set
+            {
+                _wrapperNodeInlineBlock = value;
+            }
+        }
+
+
+
         private OptionBuilder _optionBuilder;
 
         /// <summary>
@@ -786,7 +803,14 @@ namespace FineUI
         {
             if (RenderWrapperNode)
             {
-                writer.Write(String.Format("<div id=\"{0}\" class=\"f-wrapper\">", WrapperID));
+                if (WrapperNodeInlineBlock)
+                {
+                    writer.Write(String.Format("<div id=\"{0}\" class=\"f-inline-block\">", WrapperID));
+                }
+                else
+                {
+                    writer.Write(String.Format("<div id=\"{0}\">", WrapperID));
+                }
             }
         }
 

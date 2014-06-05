@@ -45,8 +45,10 @@
         <f:Button ID="Button4" Text="更新面板的标题" runat="server" OnClick="Button4_Click">
         </f:Button>
         <br />
+        <br />
         <f:Button ID="Button3" Text="展开/折叠内容面板" runat="server" OnClick="Button3_Click">
         </f:Button>
+        <br />
         <br />
         <f:Button ID="Button5" CssClass="inline" Text="更新工具条文本一的值" runat="server" OnClick="Button5_Click">
         </f:Button>
