@@ -46,8 +46,8 @@ Ext.override(Ext.container.Container, {
         this.items.each(function (f) {
             if (f.isXType('field')) {
                 f.reset();
-            } else if (f.items) {
-                validResult = this.f_reset();
+            } else if (f.items && f.items.length) {
+                f.f_reset();
             }
         });
     }
