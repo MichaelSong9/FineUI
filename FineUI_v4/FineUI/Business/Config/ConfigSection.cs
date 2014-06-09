@@ -244,7 +244,7 @@ namespace FineUI
         /// <summary>
         /// JS文件夹所在的根目录
         /// </summary>
-        [ConfigurationProperty(ConfigPropertyName.JSBASEPATH, DefaultValue = ConfigPropertyValue.EXTJS_BASE_PATH_DEFAULT)]
+        [ConfigurationProperty(ConfigPropertyName.JSBASEPATH, DefaultValue = ConfigPropertyValue.JS_BASE_PATH_DEFAULT)]
         public string JSBasePath
         {
             get
