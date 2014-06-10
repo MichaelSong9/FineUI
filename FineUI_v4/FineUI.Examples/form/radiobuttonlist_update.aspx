@@ -50,6 +50,7 @@
             </Items>
         </f:SimpleForm>
         <br />
+		<br />
         <f:RadioButtonList ID="RadioButtonList3" Width="700px" Label="列表三" ColumnNumber="3"
             ColumnVertical="false" runat="server">
             <f:RadioItem Text="可选项 1" Value="value1" />
@@ -61,6 +62,7 @@
             <f:RadioItem Text="可选项 7" Value="value7" Selected="true" />
             <f:RadioItem Text="可选项 8" Value="value8" />
         </f:RadioButtonList>
+		<br />
         <f:Button ID="btnUpdateList3" CssClass="inline" Text="更新列表三" OnClick="btnUpdateList3_Click"
             runat="server">
         </f:Button>
