@@ -75,7 +75,7 @@
                         <f:DropDownList ID="DropDownList3" Label="审批人" Required="true" runat="server" ShowRedStar="True">
                             <f:ListItem Text="老大甲" Value="0"></f:ListItem>
                             <f:ListItem Text="老大乙" Value="1"></f:ListItem>
-                            <f:ListItem Text="老大丙" Value="1"></f:ListItem>
+                            <f:ListItem Text="老大丙" Value="2"></f:ListItem>
                         </f:DropDownList>
                     </Items>
                 </f:FormRow>

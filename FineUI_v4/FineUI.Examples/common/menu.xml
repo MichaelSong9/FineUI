@@ -525,13 +525,11 @@
     </TreeNode>
     <TreeNode Text="定时器" NavigateUrl="~/other/timer.aspx" >
     </TreeNode>
-    <TreeNode Text="自定义回发" NavigateUrl="~/other/custom_postback.aspx">
+    <TreeNode Text="自定义回发（__doPostBack）" NavigateUrl="~/other/custom_postback.aspx">
     </TreeNode>
     <TreeNode Text="响应确认对话框的按钮" NavigateUrl="~/other/confirm_cancel.aspx">
     </TreeNode>
     <TreeNode Text="响应确认对话框的按钮（推荐做法）" NavigateUrl="~/other/confirm_cancel2.aspx">
-    </TreeNode>
-    <TreeNode Text="文本框的keypress事件" NavigateUrl="~/other/custom_postback.aspx">
     </TreeNode>
     <TreeNode Text="CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
     </TreeNode>
