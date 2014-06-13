@@ -404,10 +404,10 @@ namespace FineUI
                 {
                     controlClientID = control.ClientID;
                 }
-                string updateHtml = JsHelper.Enquote(GetHtmlNodeOuterHTML(controlClientID, doc));
-                if (updateHtml != null)
+                string updateHtml = GetHtmlNodeOuterHTML(controlClientID, doc);
+                if (!String.IsNullOrEmpty(updateHtml))
                 {
-                    sb.Append(String.Format("F.util.replace('{0}', {1});", controlClientID, updateHtml));
+                    sb.Append(String.Format("F.util.replace('{0}',{1});", controlClientID, JsHelper.Enquote(updateHtml)));
 
                     /*
                     // 如果是Asp.net按钮或者ImageButton，需要重新注册点击时AJAX回发页面，而不是调用Button(type=submit)的默认行为

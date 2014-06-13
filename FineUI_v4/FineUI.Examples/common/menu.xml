@@ -403,6 +403,18 @@
     </TreeNode>
   </TreeNode>
   <TreeNode Text="面板与窗体">
+	<TreeNode Text="工具栏和菜单">
+      <TreeNode Text="内联菜单" NavigateUrl="~/toolbar/menu.aspx" >
+      </TreeNode>
+      <TreeNode Text="动态添加工具栏菜单" NavigateUrl="~/toolbar/menu_dynamic.aspx" >
+      </TreeNode>
+      <TreeNode Text="向工具栏中动态添加按钮" NavigateUrl="~/toolbar/menu_dynamic2.aspx" >
+      </TreeNode>
+      <TreeNode Text="工具栏与IFrame页面" NavigateUrl="~/toolbar/toolbar_iframe.aspx">
+      </TreeNode>
+      <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
     </TreeNode>
     <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
@@ -495,18 +507,6 @@
       <TreeNode Text="动态添加用户控件" NavigateUrl="~/usercontrol/userinfo_dynamic.aspx" >
       </TreeNode>
       <TreeNode Text="用户控件与布局" NavigateUrl="~/usercontrol/userinfo2.aspx" >
-      </TreeNode>
-    </TreeNode>
-    <TreeNode Text="工具栏和菜单">
-      <TreeNode Text="内联菜单" NavigateUrl="~/toolbar/menu.aspx" >
-      </TreeNode>
-      <TreeNode Text="动态添加工具栏菜单" NavigateUrl="~/toolbar/menu_dynamic.aspx" >
-      </TreeNode>
-      <TreeNode Text="向工具栏中动态添加按钮" NavigateUrl="~/toolbar/menu_dynamic2.aspx" >
-      </TreeNode>
-      <TreeNode Text="工具栏与IFrame页面" NavigateUrl="~/toolbar/toolbar_iframe.aspx">
-      </TreeNode>
-      <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="自动补全组件">
