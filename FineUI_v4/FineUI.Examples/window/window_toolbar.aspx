@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Window ID="Window2" Width="650px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="false"
-            EnableCollapse="true" runat="server" EnableResize="true" BodyPadding="5px"
+            EnableCollapse="true" runat="server" EnableResize="true" BodyPadding="5px" 
             Plain="false" IsModal="false">
             <Items>
                 <f:Label runat="server" Text="这是窗体的内容" ID="labWindowContent">
