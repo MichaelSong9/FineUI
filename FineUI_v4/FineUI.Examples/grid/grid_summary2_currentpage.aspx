@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格" EnableFrame="false" EnableCollapse="true" Width="800px" Height="350px" PageSize="5" ShowBorder="true"
+        <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" Width="800px" Height="350px" PageSize="5" ShowBorder="true"
             ShowHeader="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
             DataKeyNames="Id,Name" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
             EnableSummary="true" SummaryPosition="Bottom">

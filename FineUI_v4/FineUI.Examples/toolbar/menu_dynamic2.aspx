@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ShowBorder="true" Title="面板" BodyPadding="5px" Height="300px" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ShowBorder="true" Title="面板" BodyPadding="5px" Height="300px"  EnableCollapse="true"
             Width="650px" runat="server">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server">

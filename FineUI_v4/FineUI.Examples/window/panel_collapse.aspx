@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel1" runat="server" Title="面板一" Width="650px" EnableFrame="false"
+        <f:Panel ID="Panel1" runat="server" Title="面板一" Width="650px" 
             BodyPadding="10px" EnableCollapse="True" IconUrl="~/res/images/16/8.png" 
             EnableCollapseEvent="true" OnCollapse="Panel1_CollapseExpand"
             EnableExpandEvent="true" OnExpand="Panel1_CollapseExpand" >

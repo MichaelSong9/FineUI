@@ -26,6 +26,7 @@
             Title="窗体二">
         </f:Window>
         <br />
+        <br />
         <f:Label ID="labResult" CssStyle="font-weight:bold;" runat="server">
         </f:Label>
         <br />

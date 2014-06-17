@@ -40,7 +40,7 @@
             <asp:TextBox ID="TextBox1" runat="server" Text="UUUU"></asp:TextBox>
         </f:ContentPanel>
 
-        <f:Panel ID="Panel3" runat="server" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel3" runat="server" Width="850px" ShowBorder="True"  EnableCollapse="true"
             BodyPadding="5px" Layout="Column" ShowHeader="True">
             <Items>
                 <f:Panel ID="Panel5" ColumnWidth="33%" runat="server"

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel2" runat="server" Height="450px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel2" runat="server" Height="450px" Width="850px" ShowBorder="True"  EnableCollapse="true"
             Layout="Absolute" ShowHeader="True" Title="面板（Height=450px Width=750px Layout=Absolute）">
             <Items>
                 <f:Panel ID="Panel1" Width="300px" Title="Panel1" Height="300px" AbsoluteX="100px"

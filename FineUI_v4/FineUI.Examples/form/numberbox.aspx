@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelAlign="Top" EnableFrame="false" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" LabelAlign="Top"  EnableCollapse="true"
             Title="简单表单" runat="server" LabelWidth="120px">
             <Items>
                 <f:NumberBox Label="0 到 9 的整数" ID="NumberBox1" runat="server" MaxValue="9" MinValue="0"

@@ -11,13 +11,13 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
-        <f:ContentPanel runat="server" ID="Panel1" Width="600px" EnableFrame="false" EnableCollapse="true" BodyPadding="5px"
+        <f:ContentPanel runat="server" ID="Panel1" Width="600px"  EnableCollapse="true" BodyPadding="5px"
             Height="200px" Title="页面/面板一（ContentPanel->UserInfoControl）">
             <uc1:UserInfoControl ID="UserInfoControl1" UserName="陈萍萍" UserAge="20" UserCountry="合肥"
                 runat="server" />
         </f:ContentPanel>
         <br />
-        <f:Panel runat="server" ID="Panel2" Width="600px" Height="200px" EnableFrame="false" EnableCollapse="true" BodyPadding="5px"
+        <f:Panel runat="server" ID="Panel2" Width="600px" Height="200px"  EnableCollapse="true" BodyPadding="5px"
             Title="页面/面板二（Panel->UserControlConnector->UserInfoControl）">
             <Items>
                 <f:UserControlConnector runat="server">
@@ -27,7 +27,7 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Panel runat="server" ID="Panel3" Width="600px" Height="200px" EnableFrame="false" EnableCollapse="true" BodyPadding="5px"
+        <f:Panel runat="server" ID="Panel3" Width="600px" Height="200px"  EnableCollapse="true" BodyPadding="5px"
             Layout="Fit" Title="页面/面板三（Layout=Fit, Panel->UserControlConnector->UserInfoControl）">
             <Items>
                 <f:UserControlConnector runat="server">

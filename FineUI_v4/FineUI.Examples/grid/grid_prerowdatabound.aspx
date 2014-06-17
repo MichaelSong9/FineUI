@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格" EnableFrame="false" EnableCollapse="true" PageSize="3" ShowBorder="true" ShowHeader="true"
+        <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" PageSize="3" ShowBorder="true" ShowHeader="true"
             Width="800px" OnPreRowDataBound="Grid1_PreRowDataBound" runat="server"
             EnableCheckBoxSelect="True" DataKeyNames="Id,Name" OnRowCommand="Grid1_RowCommand">
             <Columns>

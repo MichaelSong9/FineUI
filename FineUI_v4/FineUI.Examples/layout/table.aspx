@@ -18,7 +18,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel2" runat="server" Height="450px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true" CssClass="mytable"
+        <f:Panel ID="Panel2" runat="server" Height="450px" Width="850px" ShowBorder="True"  EnableCollapse="true" CssClass="mytable"
             Layout="Table" TableConfigColumns="3" ShowHeader="True" Title="面板（Height=450px Width=750px Layout=Table）">
             <Items>
                 <f:Panel ID="Panel1" Title="Panel1" Width="300px" Height="210px"

@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" ShowBorder="true" TabPosition="Top" EnableFrame="false"
+        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" ShowBorder="true" TabPosition="Top" 
             EnableTabCloseMenu="false" EnableTitleBackgroundColor="true" ActiveTabIndex="0"
             runat="server">
             <Tabs>

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" runat="server" BodyPadding="5px" Width="550px" EnableFrame="false" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" runat="server" BodyPadding="5px" Width="550px"  EnableCollapse="true"
             Title="简单表单">
             <Items>
                 <f:DropDownList ID="ddlSheng" Label="省份" ShowRedStar="true" CompareType="String"

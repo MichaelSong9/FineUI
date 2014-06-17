@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Tree ID="Tree1" Width="650px" EnableFrame="false" EnableCollapse="true" ShowHeader="true" Title="树控件" runat="server">
+        <f:Tree ID="Tree1" Width="650px"  EnableCollapse="true" ShowHeader="true" Title="树控件" runat="server">
             <Nodes>
                 <f:TreeNode Text="中国" Expanded="true">
                     <f:TreeNode Text="河南省" Expanded="true">

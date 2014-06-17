@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px" EnableFrame="false" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" runat="server" LabelWidth="60px" Width="600px" BodyPadding="5px"  EnableCollapse="true"
             Title="简单表单">
             <Items>
                 <f:TextBox ID="TextBox1" runat="server" Label="标题" EmptyText="输入字母 j 试试">

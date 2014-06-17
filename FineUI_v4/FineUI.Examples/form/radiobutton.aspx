@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" Width="700px" runat="server" LabelWidth="150px" Title="简单表单" EnableFrame="false" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" Width="700px" runat="server" LabelWidth="150px" Title="简单表单"  EnableCollapse="true"
             BodyPadding="5px" ShowBorder="True" ShowHeader="True">
             <Items>
                 <f:RadioButton ID="rbtnSingleRadio" Label="单选框" Text="可选项" runat="server">

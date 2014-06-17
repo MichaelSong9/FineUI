@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" EnableFrame="false"
+        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" 
             AutoPostBack="true" OnTabIndexChanged="TabStrip1_TabIndexChanged"
             ShowBorder="true" ActiveTabIndex="1" runat="server">
             <Tabs>

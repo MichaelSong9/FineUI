@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Tree ID="Tree1" Width="650px" EnableArrows="false" EnableLines="false" ShowHeader="true" EnableFrame="false" EnableCollapse="true"
+        <f:Tree ID="Tree1" Width="650px" EnableArrows="false" EnableLines="false" ShowHeader="true"  EnableCollapse="true"
             Title="树控件（绑定到 XmlDocument）" runat="server">
         </f:Tree>
     </form>

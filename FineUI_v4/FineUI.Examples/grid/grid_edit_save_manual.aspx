@@ -31,7 +31,7 @@
             BoxConfigPosition="Start" BoxConfigPadding="5" BoxConfigChildMargin="0 5 0 0"
             ShowHeader="false">
             <Items>
-                <f:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格" EnableFrame="false" EnableCollapse="true" runat="server"
+                <f:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="表格"  EnableCollapse="true" runat="server"
                     DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid1_RowSelect"
                     EnableTextSelection="true">
                     <Toolbars>
@@ -82,7 +82,7 @@
                         </f:TemplateField>
                     </Columns>
                 </f:Grid>
-                <f:SimpleForm ID="SimpleForm1" runat="server" Width="300px" LabelAlign="Left" LabelWidth="100px" EnableFrame="false" EnableCollapse="true"
+                <f:SimpleForm ID="SimpleForm1" runat="server" Width="300px" LabelAlign="Left" LabelWidth="100px"  EnableCollapse="true"
                     Title="详细信息" BodyPadding="5px 10px" Margin="0">
                     <Items>
                         <f:Label runat="server" ID="labName" Label="姓名" Text="">

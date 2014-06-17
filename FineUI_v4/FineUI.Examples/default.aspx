@@ -40,7 +40,7 @@
                 <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" ShowBorder="true" Position="Center"
                     runat="server">
                     <Items>
-                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
+                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true"  ShowBorder="false" runat="server">
                             <Tabs>
                                 <f:Tab Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
                                     <Toolbars>

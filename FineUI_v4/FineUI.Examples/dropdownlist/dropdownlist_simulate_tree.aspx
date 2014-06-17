@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" Width="650px" EnableFrame="false" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelWidth="150px" Width="650px"  EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
                 <f:DropDownList Label="模拟树的下拉列表" AutoPostBack="false" Required="true" EnableSimulateTree="true"

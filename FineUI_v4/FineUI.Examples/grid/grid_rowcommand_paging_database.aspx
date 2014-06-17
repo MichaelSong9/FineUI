@@ -13,7 +13,7 @@
 <body>
     <form id="form1" runat="server">
     <f:PageManager ID="PageManager1" runat="server" />
-    <f:Grid ID="Grid1" Title="表格" EnableFrame="false" EnableCollapse="true" ShowBorder="true" ShowHeader="true"
+    <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" ShowBorder="true" ShowHeader="true"
         AllowPaging="true" IsDatabasePaging="true" PageSize="5" runat="server" DataKeyNames="Id,Name" Width="800px"
         Height="300px" OnRowCommand="Grid1_RowCommand" EnableCheckBoxSelect="false"
         OnPageIndexChange="Grid1_PageIndexChange">

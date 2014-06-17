@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelAlign="Top" EnableFrame="false" EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" LabelAlign="Top"  EnableCollapse="true"
             Title="表单" Width="850px">
             <Items>
                 <f:HtmlEditor runat="server" Label="文本编辑器" ID="HtmlEditor1" Height="250px">

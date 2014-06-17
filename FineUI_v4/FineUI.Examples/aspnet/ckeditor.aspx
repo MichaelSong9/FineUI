@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server"> 
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px" EnableFrame="false" EnableCollapse="true"
+        <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px"  EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Title="内容面板">
             <CKEditor:CKEditorControl ID="CKEditor1" runat="server" Height="300px" BasePath="~/res/ckeditor">
 		        &lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel2" runat="server" Height="250px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel2" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
             Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start" BoxConfigPadding="5"
             BoxConfigChildMargin="0 5 0 0" ShowHeader="True"
             Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
@@ -39,7 +39,7 @@
         </f:Panel>
         <br />
         <br />
-        <f:Panel ID="Panel5" runat="server" Height="250px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel5" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
             Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="End" BoxConfigPadding="5px"
             BoxConfigChildMargin="0 5 0 0" ShowHeader="True" Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=End BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
             <Items>
@@ -68,7 +68,7 @@
         </f:Panel>
         <br />
         <br />
-        <f:Panel ID="Panel9" runat="server" Height="250px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel9" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
             Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Center" BoxConfigPadding="5px"
             BoxConfigChildMargin="0 5 0 0" ShowHeader="True" Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Center BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
             <Items>
@@ -97,7 +97,7 @@
         </f:Panel>
         <br />
         <br />
-        <f:Panel ID="Panel13" runat="server" Height="250px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel13" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
             Layout="HBox" BoxConfigAlign="Center" BoxConfigPosition="Center" BoxConfigPadding="5px"
             BoxConfigChildMargin="0 5 0 0" ShowHeader="True"
             Title="面板（Layout=HBox BoxConfigAlign=Center BoxConfigPosition=Center BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
@@ -128,7 +128,7 @@
         </f:Panel>
         <br />
         <br />
-        <f:Panel ID="Panel17" runat="server" Height="250px" Width="850px" ShowBorder="True" EnableFrame="false" EnableCollapse="true"
+        <f:Panel ID="Panel17" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
             Layout="HBox" BoxConfigAlign="StretchMax" BoxConfigPosition="Center" BoxConfigPadding="5px"
             BoxConfigChildMargin="0 5 0 0" ShowHeader="True"
             Title="面板（Layout=HBox BoxConfigAlign=StretchMax BoxConfigPosition=Center BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">

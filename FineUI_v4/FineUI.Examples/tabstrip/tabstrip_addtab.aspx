@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:TabStrip ID="TabStrip1" Width="950px" Height="350px" ShowBorder="true" ActiveTabIndex="0" EnableFrame="false"
+        <f:TabStrip ID="TabStrip1" Width="950px" Height="350px" ShowBorder="true" ActiveTabIndex="0" 
             runat="server">
             <Tabs>
                 <f:Tab Title="FineUI 论坛" EnableIFrame="true" IFrameUrl="http://fineui.com/bbs/" runat="server">

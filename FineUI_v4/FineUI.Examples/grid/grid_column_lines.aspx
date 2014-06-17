@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <f:PageManager ID="PageManager1" runat="server" />
-    <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableFrame="false" EnableCollapse="true" Width="800px" Height="400px"
+    <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格"  EnableCollapse="true" Width="800px" Height="400px"
         runat="server" DataKeyNames="Guid" EnableColumnLines="true">
         <Columns>
             <f:TemplateField Width="60px">

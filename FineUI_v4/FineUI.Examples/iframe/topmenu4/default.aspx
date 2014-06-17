@@ -37,7 +37,7 @@
                     EnableCollapse="true" EnableIFrame="true" IFrameName="leftframe" IFrameUrl="about:blank"
                     runat="server">
                 </f:Panel>
-                <f:TabStrip ID="mainTabStrip" RegionPosition="Center" EnableTabCloseMenu="true" EnableFrame="false" ShowBorder="false" runat="server">
+                <f:TabStrip ID="mainTabStrip" RegionPosition="Center" EnableTabCloseMenu="true"  ShowBorder="false" runat="server">
                     <Tabs>
                         <f:Tab ID="Tab1" Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
                             <Items>

@@ -13,7 +13,7 @@
 <body>
     <form id="_form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px" EnableFrame="false" EnableCollapse="true"
+        <f:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px"  EnableCollapse="true"
             runat="server" Title="表单 1">
             <Rows>
                 <f:FormRow ColumnWidths="50% 50%">
@@ -50,7 +50,7 @@
             </Rows>
         </f:Form>
         <br />
-        <f:Form Width="600px" LabelWidth="100px" BodyPadding="5px" EnableFrame="false" EnableCollapse="true"
+        <f:Form Width="600px" LabelWidth="100px" BodyPadding="5px"  EnableCollapse="true"
             ID="Form2" runat="server" Title="表单 2">
             <Rows>
                 <f:FormRow>

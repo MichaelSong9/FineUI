@@ -77,14 +77,11 @@
             activeWindow.f_hide();
         }
 
-        var imgClientID = '<%= imgChina.ClientID %>';
-
-        F.ready(function () {
-
-            // 设置图片的HTML标签属性
-            F(imgClientID).el.select('img').set({ 'usemap': '#ChinaMap' });
-
-        });
+        //var imgClientID = '<%= imgChina.ClientID %>';
+        //F.ready(function () {
+        //    // 设置图片的HTML标签属性
+        //    F(imgClientID).el.select('img').set({ 'usemap': '#ChinaMap' });
+        //});
     </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Tree ID="Tree1" Width="650px" ShowHeader="true" OnNodeExpand="Tree1_NodeExpand"
-            OnNodeCollapse="Tree1_NodeCollapse" Title="树控件" EnableFrame="false" EnableCollapse="true"
+            OnNodeCollapse="Tree1_NodeCollapse" Title="树控件"  EnableCollapse="true"
             runat="server">
             <Nodes>
                 <f:TreeNode Text="中国" EnableExpandEvent="true" EnableCollapseEvent="true" Expanded="true">
