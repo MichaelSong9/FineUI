@@ -32,6 +32,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	LinkButtonField 增加EnableAjax
 	渲染到页面上的按钮，其外部容器display默认为inline-block
 grid_iframe_window.aspx减少两个Panel，实现和之前一样的效果。
+增加简单购物车示例（grid/grid_edit_cart.aspx）
 	
 	
 

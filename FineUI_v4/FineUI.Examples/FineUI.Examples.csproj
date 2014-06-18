@@ -193,6 +193,7 @@
     <Content Include="grid\grid_checkboxfield_rowcheckall_clientside.aspx" />
     <Content Include="grid\grid_checkboxfield_rowcheckall_contextmenu.aspx" />
     <Content Include="grid\grid_excel_selectcolumns_iframe_window.aspx" />
+    <Content Include="grid\grid_edit_cart.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -896,6 +897,13 @@
     </Compile>
     <Compile Include="grid\grid_excel_selectcolumns_iframe_window.aspx.designer.cs">
       <DependentUpon>grid_excel_selectcolumns_iframe_window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_edit_cart.aspx.cs">
+      <DependentUpon>grid_edit_cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_edit_cart.aspx.designer.cs">
+      <DependentUpon>grid_edit_cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

@@ -110,7 +110,7 @@ namespace FineUI
 
         public const string ICON_BASE_PATH_DEFAULT = "~/icon";
 
-        public const string JS_BASE_PATH_DEFAULT = "~/js";
+        public const string JS_BASE_PATH_DEFAULT = "~/extjs";
 
         public const string CUSTOM_THEME_BASE_PATH_DEFAULT = "~/theme";
 
