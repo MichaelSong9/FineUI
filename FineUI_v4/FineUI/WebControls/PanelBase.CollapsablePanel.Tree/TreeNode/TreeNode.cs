@@ -663,7 +663,7 @@ namespace FineUI
         /// <param name="value"></param>
         private void SetPropertyValue(string name, string value)
         {
-            PropertyInfo pInfo = GetType().GetProperty(name);
+            PropertyInfo pInfo = GetType().GetProperty(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
             if (pInfo != null)
             {

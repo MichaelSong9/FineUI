@@ -328,7 +328,7 @@ namespace FineUI
                                 if (!String.IsNullOrEmpty(gzippedString))
                                 {
                                     // 从压缩后的Gzip字符串恢复属性的值（可能为JObject/JArray/String）
-                                    PropertyInfo info = this.GetType().GetProperty(property);
+                                    PropertyInfo info = this.GetType().GetProperty(property, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                                     if (info != null)
                                     {
                                         string ungzippedString = StringUtil.Ungzip(gzippedString);
@@ -1142,7 +1142,7 @@ namespace FineUI
             foreach (JProperty propertyObj in state.Properties())
             {
                 string property = propertyObj.Name;
-                PropertyInfo info = this.GetType().GetProperty(property);
+                PropertyInfo info = this.GetType().GetProperty(property, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 if (info != null)
                 {
                     if (info.PropertyType.BaseType == typeof(Enum))
@@ -1316,7 +1316,7 @@ namespace FineUI
         {
             object propValue = null;
 
-            PropertyInfo info = this.GetType().GetProperty(prop);
+            PropertyInfo info = this.GetType().GetProperty(prop, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             if (info != null)
             {
                 propValue = info.GetValue(this, null);
