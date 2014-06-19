@@ -28,15 +28,8 @@
 
 
             function updateTextbox2() {
-                window.setTimeout(function () {
-                    textbox2.setValue(textbox1.getValue());
-                }, 100);
+                textbox2.setValue(textbox1.getValue());
             }
-
-            // 注：keypress在输入中文时无效，如果想做到真正的同步，就要用到定时器了。
-            textbox1.el.on('keypress', function (e) {
-                updateTextbox2();
-            });
 
             textbox1.on('change', function (e) {
                 updateTextbox2();

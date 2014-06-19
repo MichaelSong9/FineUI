@@ -38,7 +38,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-指定参数BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic。
 	+修正普通回发时主题丢失问题。
 		-重现步骤：选择Blue主题，打开aspnet/aspnet.aspx，点击“4.ASP.NET按钮”，页面回到默认的Neptune主题。
-
+	-增加示例other/keydown.aspx。
 	
 
 +2014-05-11 v4.0.6
