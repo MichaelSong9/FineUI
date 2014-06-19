@@ -18,34 +18,26 @@ namespace FineUI.Examples
 
         protected override void OnInit(EventArgs e)
         {
-            if (!IsPostBack)
+            var pm = PageManager.Instance;
+
+            // 如果不是FineUI的AJAX回发（两种情况：1.页面第一个加载 2.页面非AJAX回发）
+            if (pm != null && !pm.IsFineUIAjaxPostBack)
             {
-                if (PageManager.Instance != null)
+                HttpCookie themeCookie = Request.Cookies["Theme_v4"];
+                if (themeCookie != null)
                 {
-                    HttpCookie themeCookie = Request.Cookies["Theme_v4"];
-                    if (themeCookie != null)
-                    {
-                        string themeValue = themeCookie.Value;
-                        PageManager.Instance.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
+                    string themeValue = themeCookie.Value;
+                    pm.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
+                }
 
-                        //if (IsSystemTheme(themeValue))
-                        //{
-                        //    PageManager.Instance.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
-                        //}
-                        //else
-                        //{
-                        //    PageManager.Instance.CustomTheme = themeValue;
-                        //}
-                    }
-
-                    HttpCookie langCookie = Request.Cookies["Language_v4"];
-                    if (langCookie != null)
-                    {
-                        string langValue = langCookie.Value;
-                        PageManager.Instance.Language = (Language)Enum.Parse(typeof(Language), langValue, true);
-                    }
+                HttpCookie langCookie = Request.Cookies["Language_v4"];
+                if (langCookie != null)
+                {
+                    string langValue = langCookie.Value;
+                    pm.Language = (Language)Enum.Parse(typeof(Language), langValue, true);
                 }
             }
+
 
             base.OnInit(e);
         }

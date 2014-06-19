@@ -7,7 +7,8 @@
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .highlight,
-        .highlight span {
+        .highlight span,
+		.highlight .x-form-item-label {
             color: red;
         }
     </style>
