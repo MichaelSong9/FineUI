@@ -9,17 +9,17 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Button ID="btnShowInServer" CssClass="inline" Text="显示窗体（服务端代码）" runat="server"
+        <f:Button ID="btnShowInServer" CssClass="marginr" Text="显示窗体（服务端代码）" runat="server"
             OnClick="btnShowInServer_Click">
         </f:Button>
         <f:Button ID="btnHideInServer" Text="隐藏窗体（服务端代码）" runat="server" OnClick="btnHideInServer_Click">
         </f:Button>
         <br />
         <br />
-        <f:Button ID="btnShowInClient" CssClass="inline" Text="显示窗体（客户端代码）" EnablePostBack="false"
+        <f:Button ID="btnShowInClient" CssClass="marginr" Text="显示窗体（客户端代码）" EnablePostBack="false"
             runat="server">
         </f:Button>
-        <f:Button ID="btnHideInClient" CssClass="inline" Text="隐藏窗体（客户端代码）" EnablePostBack="false"
+        <f:Button ID="btnHideInClient" CssClass="marginr" Text="隐藏窗体（客户端代码）" EnablePostBack="false"
             runat="server">
         </f:Button>
         <f:Button ID="btnHideInClient2" Text="隐藏窗体，带回发参数（客户端代码）" EnablePostBack="false"

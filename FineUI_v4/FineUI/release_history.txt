@@ -39,6 +39,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+修正普通回发时主题丢失问题。
 		-重现步骤：选择Blue主题，打开aspnet/aspnet.aspx，点击“4.ASP.NET按钮”，页面回到默认的Neptune主题。
 	-增加示例other/keydown.aspx。
+	-为ControlUtil.FindParentControl增加重载方法，用来处理继承关系。
+	-修正定义在Form，SimpleForm上的OffsetRight、LabelSeparator无效的问题。
+	-增加示例form/form_disabled.aspx，将所有表单字段禁用、设置只读、应用无效标识。
 	
 
 +2014-05-11 v4.0.6

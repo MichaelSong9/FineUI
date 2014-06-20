@@ -18,10 +18,10 @@
                     <f:CheckItem Text="可选项 2" Value="value2" Selected="true" />
                     <f:CheckItem Text="可选项 3" Value="value3" Selected="true" />
                 </f:CheckBoxList>
-                <f:Button ID="btnServerSetSelectedValue" CssClass="inline" Text="选中上面列表中的第一项和第三项" OnClick="btnServerSetSelectedValue_Click"
+                <f:Button ID="btnServerSetSelectedValue" CssClass="marginr" Text="选中上面列表中的第一项和第三项" OnClick="btnServerSetSelectedValue_Click"
                     runat="server">
                 </f:Button>
-                <f:Button ID="btnServerGetSelectedValue" CssClass="inline" Text="获取上面列表的选中项" OnClick="btnServerGetSelectedValue_Click"
+                <f:Button ID="btnServerGetSelectedValue" CssClass="marginr" Text="获取上面列表的选中项" OnClick="btnServerGetSelectedValue_Click"
                     runat="server">
                 </f:Button>
                 <f:Button ID="btnClientGetSelectedValue" Text="获取上面列表的选中项（JavaScript 脚本）" EnablePostBack="false"

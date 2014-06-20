@@ -30,7 +30,7 @@
             </Columns>
         </f:Grid>
         <br />
-        <f:Button ID="Button3" runat="server" Text="显示/隐藏性别列" CssClass="inline" OnClick="Button3_Click">
+        <f:Button ID="Button3" runat="server" Text="显示/隐藏性别列" CssClass="marginr" OnClick="Button3_Click">
         </f:Button>
         <f:Button ID="Button4" runat="server" Text="获得隐藏列列表" OnClick="Button4_Click">
         </f:Button>

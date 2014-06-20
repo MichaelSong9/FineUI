@@ -11,7 +11,7 @@
     <f:PageManager ID="PageManager1" runat="server" />
     <f:Timer ID="Timer1" Interval="5" Enabled="false" OnTick="Timer1_Tick" EnableAjaxLoading="false" runat="server">
     </f:Timer>
-    <f:Button ID="btnStartTimer" runat="server" CssClass="inline" Text="启动定时器"
+    <f:Button ID="btnStartTimer" runat="server" CssClass="marginr" Text="启动定时器"
         OnClick="btnStartTimer_Click">
     </f:Button>
     <f:Button ID="btnStopTimer" runat="server" Text="停止定时器" OnClick="btnStopTimer_Click">

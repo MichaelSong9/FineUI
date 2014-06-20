@@ -42,7 +42,7 @@
             </f:NumberBox>
             <f:Label runat="server">
             </f:Label>
-            <f:Button ID="btnSubmit" ValidateForms="SimpleForm1" CssClass="inline" Text="提交表单"
+            <f:Button ID="btnSubmit" ValidateForms="SimpleForm1" CssClass="marginr" Text="提交表单"
                 runat="server">
             </f:Button>
             <f:Button ID="btnReset" Text="重置表单" EnablePostBack="false" runat="server">

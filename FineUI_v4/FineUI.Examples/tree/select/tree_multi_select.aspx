@@ -37,7 +37,7 @@
         注：这是一个可以多选的树，你可以按着“Ctrl”选择多项。
     <br />
         <br />
-        <f:Button ID="btnGetSelectedValues" OnClick="btnGetSelectedValues_Click" CssClass="inline"
+        <f:Button ID="btnGetSelectedValues" OnClick="btnGetSelectedValues_Click" CssClass="marginr"
             runat="server" Text="获取选中的节点列表">
         </f:Button>
         <f:Button ID="btnSelectOthers" OnClick="btnSelectOthers_Click" runat="server" Text="继续选中“合肥市”和“黄山市”">

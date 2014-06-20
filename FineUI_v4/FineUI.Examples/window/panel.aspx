@@ -40,7 +40,7 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Button ID="Button2" CssClass="inline" Text="检查面板的折叠状态" runat="server" OnClick="Button2_Click">
+        <f:Button ID="Button2" CssClass="marginr" Text="检查面板的折叠状态" runat="server" OnClick="Button2_Click">
         </f:Button>
         <f:Button ID="Button4" Text="更新面板的标题" runat="server" OnClick="Button4_Click">
         </f:Button>
@@ -50,7 +50,7 @@
         </f:Button>
         <br />
         <br />
-        <f:Button ID="Button5" CssClass="inline" Text="更新工具条文本一的值" runat="server" OnClick="Button5_Click">
+        <f:Button ID="Button5" CssClass="marginr" Text="更新工具条文本一的值" runat="server" OnClick="Button5_Click">
         </f:Button>
         <f:Button ID="Button6" Text="显示/隐藏工具条文本一" runat="server" OnClick="Button6_Click">
         </f:Button>

@@ -16,7 +16,7 @@
         <f:Label ID="labResult" runat="server">
         </f:Label>
         <br />
-        <f:Button ID="Button1" CssClass="inline" runat="server" Text="页面一中的按钮">
+        <f:Button ID="Button1" CssClass="marginr" runat="server" Text="页面一中的按钮">
         </f:Button>
         <f:Button ID="Button2" runat="server" EnablePostBack="false" Text="刷新面板一中的IFrame">
         </f:Button>

@@ -39,7 +39,7 @@
             </Columns>
         </f:Grid>
         <br />
-        <f:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="将分组值全部加一">
+        <f:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="marginr" Text="将分组值全部加一">
         </f:Button>
         <f:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
         </f:Button>

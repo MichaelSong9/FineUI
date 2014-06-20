@@ -9,20 +9,17 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px"  EnableCollapse="true"
-            Title="简单表单" runat="server">
-            <Items>
-                <f:Calendar runat="server" EnableDateSelectEvent="true" DateFormatString="yyyy-MM-dd"
-                    OnDateSelect="Calendar1_DateSelect" ID="Calendar1">
-                </f:Calendar>
-
-                <f:Button runat="server" ID="Button1" OnClick="Button1_Click">
-                </f:Button>
-
-                <f:Label ID="labResult1" ShowLabel="false" runat="server">
-                </f:Label>
-            </Items>
-        </f:SimpleForm>
+		<f:Calendar runat="server" EnableDateSelectEvent="true" DateFormatString="yyyy-MM-dd"
+			OnDateSelect="Calendar1_DateSelect" ID="Calendar1">
+		</f:Calendar>
+		<br/>
+		<br/>
+		<f:Button runat="server" ID="Button1" OnClick="Button1_Click">
+		</f:Button>
+		<br/>
+		<br/>
+		<f:Label ID="labResult1" ShowLabel="false" runat="server">
+		</f:Label>
     </form>
 </body>
 </html>

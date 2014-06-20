@@ -12,7 +12,7 @@
         <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px"  EnableCollapse="true"
             ShowBorder="True" Title="表单" ShowHeader="True">
             <Items>
-                <f:TriggerBox ID="tbxMyBox1" ShowLabel="false" Readonly="false" TriggerIcon="Search"
+                <f:TriggerBox ID="tbxMyBox1" ShowLabel="false" TriggerIcon="Search"
                     OnTriggerClick="tbxMyBox1_TriggerClick" EmptyText="打开弹出窗口" runat="server">
                 </f:TriggerBox>
             </Items>

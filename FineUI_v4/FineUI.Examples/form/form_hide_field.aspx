@@ -64,7 +64,7 @@
                         <f:Panel ID="Panel2" runat="server" ShowBorder="false"
                             ShowHeader="false">
                             <Items>
-                                <f:Button ID="btnSubmitForm2" Text="验证表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitForm2_Click"
+                                <f:Button ID="btnSubmitForm2" Text="验证表单并提交" CssClass="marginr" runat="server" OnClick="btnSubmitForm2_Click"
                                     ValidateForms="Form2">
                                 </f:Button>
                             </Items>
@@ -74,7 +74,7 @@
             </Rows>
         </f:Form>
         <br />
-        <f:Button ID="btnShowHideTitle" Text="显示隐藏标题" CssClass="inline" runat="server"
+        <f:Button ID="btnShowHideTitle" Text="显示隐藏标题" CssClass="marginr" runat="server"
             OnClick="btnShowHideTitle_Click">
         </f:Button>
         <f:Button ID="btnShowHideLiuShuiHao" Text="显示隐藏流水号" runat="server"

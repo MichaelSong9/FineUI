@@ -5,11 +5,11 @@
 	padding: 10px;
 }
 
-body.f-body.theme-access {
+body.f-body.f-theme-access {
     background-image: none;
 }
 
-.inline
+.marginr
 {
     margin-right: 5px;
 }
@@ -19,26 +19,6 @@ body.f-body.theme-access {
     clear: both;
 }
 
-/*
-table.result
-{
-    margin: 0px;
-    padding: 0px;
-    width: 500px;
-}
-
-table.result th
-{
-    border-bottom: solid 1px #ccc;
-    font-weight: bold;
-    padding: 3px;
-}
-
-table.result td
-{
-    padding: 3px;
-}
-*/
 ol.result
 {
     list-style-type:decimal;

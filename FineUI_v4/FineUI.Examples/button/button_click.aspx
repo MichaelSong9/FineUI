@@ -14,7 +14,7 @@
     <br />
     <br />
     <f:Button ID="btnClientClick" Text="客户端事件" OnClientClick="alert('这是客户端事件');" EnablePostBack="false"
-        CssClass="inline" runat="server">
+        CssClass="marginr" runat="server">
     </f:Button>
     <f:Button ID="btnClientClick2" Text="服务器端生成的客户端事件" EnablePostBack="false" runat="server">
     </f:Button>

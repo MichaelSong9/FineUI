@@ -17,7 +17,7 @@
             <asp:TextBox runat="server" Width="300px" ID="aspBox"></asp:TextBox>
             <br />
             <br />
-            <f:Button ID="Button1" runat="server" CssClass="inline" Text="1. FineUI 按钮（AJAX）"
+            <f:Button ID="Button1" runat="server" CssClass="marginr" Text="1. FineUI 按钮（AJAX）"
                 OnClick="Button1_Click">
             </f:Button>
             <f:Button ID="Button2" runat="server" Text="2. FineUI 按钮" EnableAjax="false" OnClick="Button2_Click">

@@ -24,7 +24,7 @@
                 <f:Panel ID="Panel2" ShowHeader="false" CssClass="custom-form-item" ShowBorder="false"
                     Layout="Column" runat="server">
                     <Items>
-                        <f:Label ID="Label2" Width="100px" runat="server" CssClass="inline" ShowLabel="false"
+                        <f:Label ID="Label2" Width="100px" runat="server" CssClass="marginr" ShowLabel="false"
                             Text="用户名：">
                         </f:Label>
                         <f:TextBox ID="TextBox2" ShowLabel="false" Required="true" CssClass="mright" runat="server">
@@ -38,7 +38,7 @@
                 <f:Panel ID="Panel1" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
                     runat="server">
                     <Items>
-                        <f:Label ID="Label1" runat="server" Width="100px" CssClass="inline" ShowLabel="false"
+                        <f:Label ID="Label1" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="作息起止时间：">
                         </f:Label>
                         <f:DatePicker ID="DatePicker1" Required="true" CssClass="mright" Width="150px" runat="server">
@@ -51,7 +51,7 @@
                 <f:Panel ID="Panel3" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
                     runat="server">
                     <Items>
-                        <f:Label ID="Label3" runat="server" Width="100px" CssClass="inline" ShowLabel="false"
+                        <f:Label ID="Label3" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="上班起止时间：">
                         </f:Label>
                         <f:DatePicker ID="DatePicker3" Required="true" CssClass="mright" ColumnWidth="50%" runat="server">
@@ -64,7 +64,7 @@
                 <f:Panel ID="Panel4" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
                     runat="server">
                     <Items>
-                        <f:Label ID="Label4" runat="server" Width="100px" CssClass="inline" ShowLabel="false"
+                        <f:Label ID="Label4" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="工作时间：">
                         </f:Label>
                         <f:TextBox Width="40px" Required="true" runat="server">

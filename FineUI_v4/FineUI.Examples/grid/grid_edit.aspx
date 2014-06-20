@@ -46,7 +46,7 @@
         <li>点击输入框即可选中全部文本（JavaScript函数registerSelectEvent）</li>
     </ul>
         <br />
-        <f:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="inline" Text="获取用户输入的分组值">
+        <f:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="marginr" Text="获取用户输入的分组值">
         </f:Button>
         <f:Button ID="Button2" runat="server" Text="重新绑定表格" OnClick="Button2_Click">
         </f:Button>

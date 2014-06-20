@@ -141,12 +141,14 @@
         </TreeNode>
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="其他">
+    <TreeNode Text="杂项">
       <TreeNode Text="重置表单" NavigateUrl="~/form/form_reset.aspx" >
       </TreeNode>
       <TreeNode Text="隐藏表单字段" NavigateUrl="~/form/form_hide_field.aspx" >
       </TreeNode>
       <TreeNode Text="按钮水平居中" NavigateUrl="~/form/form_center_button.aspx" >
+      </TreeNode>
+      <TreeNode Text="禁用与只读" NavigateUrl="~/form/form_disabled.aspx" >
       </TreeNode>
     </TreeNode>
   </TreeNode>
@@ -325,7 +327,7 @@
       <TreeNode Text="单元格编辑（失去焦点事件）" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="其他">
+    <TreeNode Text="杂项">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>
       <TreeNode Text="改变行背景色" NavigateUrl="~/grid/grid_rowcolor.aspx" >

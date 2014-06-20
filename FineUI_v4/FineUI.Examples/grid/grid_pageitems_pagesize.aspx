@@ -44,7 +44,7 @@
         </PageItems>
     </f:Grid>
     <br />
-    <f:Button ID="Button2" runat="server" CssClass="inline" Text="重新绑定表格" OnClick="Button2_Click">
+    <f:Button ID="Button2" runat="server" CssClass="marginr" Text="重新绑定表格" OnClick="Button2_Click">
     </f:Button>
     <f:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
     </f:Button>

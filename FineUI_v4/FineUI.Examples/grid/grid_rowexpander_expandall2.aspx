@@ -45,9 +45,9 @@
         </Columns>
     </f:Grid>
     <br />
-    <f:Button ID="Button1" runat="server" Text="重新绑定表格" CssClass="inline" OnClick="Button1_Click">
+    <f:Button ID="Button1" runat="server" Text="重新绑定表格" CssClass="marginr" OnClick="Button1_Click">
     </f:Button>
-    <f:Button ID="btnExpandRowExpanders" runat="server" CssClass="inline" Text="展开全部的行扩展列" OnClick="btnExpandRowExpanders_Click">
+    <f:Button ID="btnExpandRowExpanders" runat="server" CssClass="marginr" Text="展开全部的行扩展列" OnClick="btnExpandRowExpanders_Click">
     </f:Button>
     <f:Button ID="btnCollapseRowExpanders" runat="server" Text="折叠全部的行扩展列" OnClick="btnCollapseRowExpanders_Click">
     </f:Button>

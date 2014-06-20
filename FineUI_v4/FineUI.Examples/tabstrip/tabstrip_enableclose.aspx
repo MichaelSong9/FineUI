@@ -42,14 +42,14 @@
         </f:TabStrip>
         <br />
         <br />
-        <f:Button ID="btnShowInClient" Text="显示标签三（客户端代码）" CssClass="inline"
+        <f:Button ID="btnShowInClient" Text="显示标签三（客户端代码）" CssClass="marginr"
             EnablePostBack="false" runat="server">
         </f:Button>
         <f:Button ID="btnHideInClient" Text="隐藏标签三（客户端代码）" EnablePostBack="false" runat="server">
         </f:Button>
         <br />
         <br />
-        <f:Button ID="btnShowInServer" Text="显示标签三（服务端代码）" CssClass="inline"
+        <f:Button ID="btnShowInServer" Text="显示标签三（服务端代码）" CssClass="marginr"
             runat="server" OnClick="btnShowInServer_Click">
         </f:Button>
         <f:Button ID="btnHideInServer" Text="隐藏标签三（服务端代码）" runat="server" OnClick="btnHideInServer_Click">

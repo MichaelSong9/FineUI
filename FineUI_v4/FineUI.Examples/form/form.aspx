@@ -40,7 +40,7 @@
                         <f:Panel ID="Panel1" runat="server" ShowBorder="false"
                             ShowHeader="false">
                             <Items>
-                                <f:Button runat="server" Text="验证此表单并提交" CssClass="inline" ValidateForms="Form1"
+                                <f:Button runat="server" Text="验证此表单并提交" CssClass="marginr" ValidateForms="Form1"
                                     ID="btnSubmitForm1" OnClick="btnSubmitForm1_Click">
                                 </f:Button>
                             </Items>
@@ -94,7 +94,7 @@
                         <f:Panel ID="Panel2" runat="server" ShowBorder="false"
                             ShowHeader="false">
                             <Items>
-                                <f:Button ID="btnSubmitForm2" Text="验证此表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitForm2_Click"
+                                <f:Button ID="btnSubmitForm2" Text="验证此表单并提交" CssClass="marginr" runat="server" OnClick="btnSubmitForm2_Click"
                                     ValidateForms="Form2">
                                 </f:Button>
                             </Items>
@@ -104,7 +104,7 @@
             </Rows>
         </f:Form>
         <br />
-        <f:Button ID="btnSubmitAll" Text="验证两个表单并提交" CssClass="inline" runat="server" OnClick="btnSubmitAll_Click"
+        <f:Button ID="btnSubmitAll" Text="验证两个表单并提交" CssClass="marginr" runat="server" OnClick="btnSubmitAll_Click"
             ValidateForms="Form1,Form2">
         </f:Button>
     </form>

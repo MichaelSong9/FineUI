@@ -18,7 +18,7 @@
             </CKEditor:CKEditorControl>
         </f:ContentPanel>
         <br />
-        <f:Button ID="Button2" runat="server" CssClass="inline" Text="设置 CKEditor 的值" OnClick="Button2_Click">
+        <f:Button ID="Button2" runat="server" CssClass="marginr" Text="设置 CKEditor 的值" OnClick="Button2_Click">
         </f:Button>
         <f:Button ID="Button1" runat="server" Text="获取 CKEditor 的值" OnClick="Button1_Click">
         </f:Button>

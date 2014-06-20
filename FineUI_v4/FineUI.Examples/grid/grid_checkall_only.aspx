@@ -31,7 +31,7 @@
         </Columns>
     </f:Grid>
     <br />
-    <f:Button ID="Button1" runat="server" CssClass="inline" Text="选中了哪些行" OnClick="Button1_Click">
+    <f:Button ID="Button1" runat="server" CssClass="marginr" Text="选中了哪些行" OnClick="Button1_Click">
     </f:Button>
     <br />
     <br />

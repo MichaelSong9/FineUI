@@ -17,7 +17,7 @@
                 </f:TextBox>
                 <f:TextBox runat="server" ID="tbxPassword" Label="密码" TextMode="Password" Required="true">
                 </f:TextBox>
-                <f:Button ID="btnSubmit" CssClass="inline" runat="server" OnClick="btnSubmit_Click" ValidateForms="SimpleForm1"
+                <f:Button ID="btnSubmit" CssClass="marginr" runat="server" OnClick="btnSubmit_Click" ValidateForms="SimpleForm1"
                     Text="登录">
                 </f:Button>
                 <f:Button ID="btnReset" runat="server" EnablePostBack="false" Text="重置">

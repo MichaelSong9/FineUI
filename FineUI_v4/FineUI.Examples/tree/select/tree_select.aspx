@@ -31,7 +31,7 @@
             </Nodes>
         </f:Tree>
         <br />
-        <f:Button ID="btnGetSelectedNode" OnClick="btnGetSelectedNode_Click" CssClass="inline"
+        <f:Button ID="btnGetSelectedNode" OnClick="btnGetSelectedNode_Click" CssClass="marginr"
             runat="server" Text="获取选中的节点">
         </f:Button>
         <f:Button ID="btnSelectHefei" OnClick="btnSelectHefei_Click" runat="server" Text="选中“合肥市”">

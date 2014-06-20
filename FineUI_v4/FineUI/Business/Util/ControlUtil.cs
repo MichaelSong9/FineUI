@@ -43,8 +43,9 @@ namespace FineUI
         /// </summary>
         /// <param name="control">当前控件</param>
         /// <param name="controlType">查找控件的类型</param>
+        /// <param name="checkSubclassOf">如果找到的控件实例继承自controlType，同样也认为是找到了</param>
         /// <returns>找到的第一个父控件</returns>
-        public static Control FindParentControl(Control control, Type controlType)
+        public static Control FindParentControl(Control control, Type controlType, Boolean checkSubclassOf)
         {
             if (control == null || control is System.Web.UI.HtmlControls.HtmlForm)
             {
@@ -53,18 +54,34 @@ namespace FineUI
 
             if (control.Parent != null)
             {
-                if (control.Parent.GetType().Equals(controlType))
+                Type parentType = control.Parent.GetType();
+
+                // http://stackoverflow.com/questions/2742276/in-c-how-do-i-check-if-a-type-is-a-subtype-or-the-type-of-an-object
+                if (parentType.Equals(controlType) || (checkSubclassOf && parentType.IsSubclassOf(controlType)))
                 {
                     return control.Parent;
                 }
                 else
                 {
-                    return FindParentControl(control.Parent, controlType);
+                    return FindParentControl(control.Parent, controlType, checkSubclassOf);
                 }
             }
 
             return null;
-        } 
+        }
+
+
+        /// <summary>
+        /// 查找父控件
+        /// </summary>
+        /// <param name="control">当前控件</param>
+        /// <param name="controlType">查找控件的类型</param>
+        /// <returns>找到的第一个父控件</returns>
+        public static Control FindParentControl(Control control, Type controlType)
+        {
+            return FindParentControl(control, controlType, false);
+        }
+
 
         #endregion
 

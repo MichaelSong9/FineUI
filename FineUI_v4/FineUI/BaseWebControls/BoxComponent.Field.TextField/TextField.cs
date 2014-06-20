@@ -527,45 +527,5 @@ namespace FineUI
 
         #endregion
 
-        #region GetMarkInvalidReference GetClearInvalidReference
-
-        /// <summary>
-        /// 设置字段验证失败的提示信息
-        /// </summary>
-        /// <param name="message">提示信息</param>
-        public void MarkInvalid(string message)
-        {
-            PageContext.RegisterStartupScript(GetMarkInvalidReference(message));
-        }
-
-        /// <summary>
-        /// 清除验证失败的提示信息
-        /// </summary>
-        public void ClearInvalid()
-        {
-            PageContext.RegisterStartupScript(GetClearInvalidReference());
-        }
-
-        /// <summary>
-        /// 获取字段验证失败提示信息的客户端脚本
-        /// </summary>
-        /// <param name="message">提示信息</param>
-        /// <returns>客户端脚本</returns>
-        public string GetMarkInvalidReference(string message)
-        {
-            return String.Format("{0}.markInvalid({1});", ScriptID, JsHelper.GetJsString(message));
-        }
-
-        /// <summary>
-        /// 获取清除验证失败提示信息的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public string GetClearInvalidReference()
-        {
-            return String.Format("{0}.clearInvalid();", ScriptID);
-        }
-
-        #endregion
-
     }
 }

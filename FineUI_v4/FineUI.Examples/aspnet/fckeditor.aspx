@@ -17,7 +17,7 @@
             </FCKeditorV2:FCKeditor>
         </f:ContentPanel>
         <br />
-        <f:Button ID="Button2" runat="server" CssClass="inline" Text="设置 FCKEditor 的值"
+        <f:Button ID="Button2" runat="server" CssClass="marginr" Text="设置 FCKEditor 的值"
             OnClick="Button2_Click">
         </f:Button>
         <f:Button ID="Button1" runat="server" Text="获取 FCKEditor 的值" OnClick="Button1_Click">
