@@ -159,6 +159,44 @@ namespace FineUI
             }
         }
 
+
+        
+
+        #endregion
+
+        #region EnableAjax
+
+        private object _enableAjax = null;
+
+        /// <summary>
+        /// 是否启用AJAX
+        /// </summary>
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否启用AJAX")]
+        public override bool EnableAjax
+        {
+            get
+            {
+                if (_enableAjax == null)
+                {
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return Grid.EnableAjax;
+                    }
+                }
+                return (bool)_enableAjax;
+            }
+            set
+            {
+                _enableAjax = value;
+            }
+        }
+
         #endregion
 
         #region CommandName
@@ -293,7 +331,7 @@ namespace FineUI
                     string paramStr = String.Format("Command${0}${1}${2}${3}", row.RowIndex, ColumnIndex, CommandName.Replace("'", "\""), CommandArgument.Replace("'", "\""));
                     
                     // 延迟执行，确保当前复选框的状态已经改变
-                    string postBackReference = JsHelper.GetDeferScript(Grid.GetPostBackEventReference(paramStr), 0);
+                    string postBackReference = JsHelper.GetDeferScript(Grid.GetPostBackEventReference(paramStr, EnableAjax), 0);
 
                     // string onClickScript = String.Format("{0}_checkbox{1}(event,this,{2});", Grid.XID, ColumnIndex, row.RowIndex);
                     //string onClickScript = "Ext.get(this).toggleClass('unchecked');";

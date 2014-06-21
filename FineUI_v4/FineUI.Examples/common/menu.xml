@@ -271,14 +271,16 @@
       <TreeNode Text="动态创建的模板列" NavigateUrl="~/grid/grid_dynamic_columns2.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="导出Excel文件">
-      <TreeNode Text="GridView导出为Excel文件" NavigateUrl="~/grid/grid_excel_aspnet.aspx" >
+    <TreeNode Text="导出与下载">
+      <TreeNode Text="导出文件（ASP.NET的GridView控件）" NavigateUrl="~/grid/grid_excel_aspnet.aspx" >
       </TreeNode>
-      <TreeNode Text="Grid导出为Excel文件" NavigateUrl="~/grid/grid_excel.aspx" >
+      <TreeNode Text="导出文件" NavigateUrl="~/grid/grid_excel.aspx" >
       </TreeNode>
-      <TreeNode Text="Grid导出为Excel文件（动态创建的模版列）" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
+      <TreeNode Text="导出文件（动态创建的模版列）" NavigateUrl="~/grid/grid_excel_dynamic_columns.aspx" >
       </TreeNode>
-      <TreeNode Text="Grid导出为Excel文件（选择需要导出的列）" NavigateUrl="~/grid/grid_excel_selectcolumns.aspx" >
+      <TreeNode Text="导出文件（选择需要导出的列）" NavigateUrl="~/grid/grid_excel_selectcolumns.aspx" >
+      </TreeNode>
+      <TreeNode Text="行内下载" NavigateUrl="~/grid/grid_rowcommand_download.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="分页工具条">

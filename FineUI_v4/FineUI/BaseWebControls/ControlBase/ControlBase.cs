@@ -1239,7 +1239,7 @@ namespace FineUI
 
                 object propertyValue = GetPropertyJSONValue(property);
 
-                
+
                 if (propertyValue is JToken)
                 {
                     JToken tokenValue = propertyValue as JToken;
@@ -1535,32 +1535,24 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetPostBackEventReference(string eventArgument)
         {
-            #region old code
-            // 必须调用 Page.ClientScript.GetPostBackEventReference，不能手工返回js字符串
-            ////return Page.ClientScript.GetPostBackEventReference(this, argument) + ";";
-            //if (EnableAjax)
-            //{
-            //    return String.Format("__doAjaxPostBack('{0}','{1}');", this.ClientID, argument);
-            //}
-            //else
-            //{
-            //    //return String.Format("__doPostBack('{0}','{1}');", this.ClientID, argument);
-            //    return Page.ClientScript.GetPostBackEventReference(this, argument) + ";";
-            //} 
+            return GetPostBackEventReference(eventArgument, EnableAjax);
+        }
 
-
-            //if (PageManager.Instance.EnableAjax && !EnableAjax)
-            //{
-            //    postBackScript += GetSetHiddenFieldValueScript(ResourceManager.DISABLE_AJAX_CONTROL_ID, this.UniqueID);
-            //}
-            #endregion
-
+        /// <summary>
+        /// 获取回发页面的客户端脚本（比如：__doPostBack('btnChangeEnable','true');)
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <param name="enableAjax">是否启用AJAX</param>
+        /// <returns>客户端脚本</returns>
+        public string GetPostBackEventReference(string eventArgument, bool enableAjax)
+        {
             StringBuilder sb = new StringBuilder();
 
-            if (EnableAjax != PageManager.Instance.EnableAjax)
+            if (enableAjax != PageManager.Instance.EnableAjax)
             {
-                sb.AppendFormat("F.control_enable_ajax={0};", EnableAjax ? "true" : "false");
+                sb.AppendFormat("F.control_enable_ajax={0};", enableAjax ? "true" : "false");
             }
+
 
             if (EnableAjaxLoading != PageManager.Instance.EnableAjaxLoading)
             {

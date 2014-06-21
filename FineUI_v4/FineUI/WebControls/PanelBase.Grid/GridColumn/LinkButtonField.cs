@@ -511,6 +511,41 @@ namespace FineUI
 
         #endregion
 
+        #region EnableAjax
+
+        private object _enableAjax = null;
+
+        /// <summary>
+        /// 是否启用AJAX
+        /// </summary>
+        [Category(CategoryName.BASEOPTIONS)]
+        [DefaultValue(true)]
+        [Description("是否启用AJAX")]
+        public override bool EnableAjax
+        {
+            get
+            {
+                if (_enableAjax == null)
+                {
+                    if (DesignMode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return Grid.EnableAjax;
+                    }
+                }
+                return (bool)_enableAjax;
+            }
+            set
+            {
+                _enableAjax = value;
+            }
+        } 
+
+        #endregion
+
         #region Methods
 
         internal override string GetColumnValue(GridRow row)
@@ -561,10 +596,10 @@ namespace FineUI
             if (Enabled)
             {
                 nb.SetProperty("href", "javascript:;");
-
+                
                 // click
                 string paramStr = String.Format("Command${0}${1}${2}${3}", row.RowIndex, ColumnIndex, CommandName.Replace("'", "\""), CommandArgument.Replace("'", "\""));
-                string postBackReference = Grid.GetPostBackEventReference(paramStr);
+                string postBackReference = Grid.GetPostBackEventReference(paramStr, EnableAjax);
 
                 string clientScript = Button.ResolveClientScript(ValidateForms, ValidateTarget, ValidateMessageBox, EnablePostBack, postBackReference,
                   ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, OnClientClick, String.Empty);
