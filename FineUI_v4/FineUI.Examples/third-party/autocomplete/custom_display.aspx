@@ -5,8 +5,8 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../res/jqueryui/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
+    <link href="../../res/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../res/jqueryui/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
     <style>
         .autocomplete-item-title {
             font-weight: bold;
@@ -30,8 +30,8 @@
         <br />
         参考：http://jqueryui.com/autocomplete/#custom-data
     </form>
-    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../res/jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+    <script src="../../res/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../res/jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         var textbox1ID = '<%= TextBox1.ClientID %>';

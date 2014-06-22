@@ -482,7 +482,27 @@
     <TreeNode Text="保存按钮放在窗体工具栏中" NavigateUrl="~/iframe/window2.aspx" >
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="其它">
+  <TreeNode Text="第三方组件">
+    <TreeNode Text="My97日期控件">
+      <TreeNode Text="My97日期控件" NavigateUrl="~/third-party/my97.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="jQueryUI Autocomplete">
+      <TreeNode Text="内联数据" NavigateUrl="~/third-party/autocomplete/inline.aspx" >
+      </TreeNode>
+      <TreeNode Text="自动补全邮件地址" NavigateUrl="~/third-party/autocomplete/email.aspx" >
+      </TreeNode>
+      <TreeNode Text="多行显示补全数据" NavigateUrl="~/third-party/autocomplete/custom_display.aspx" >
+      </TreeNode>
+      <TreeNode Text="输入逗号分隔的多个值" NavigateUrl="~/third-party/autocomplete/multi_values.aspx" >
+      </TreeNode>
+      <TreeNode Text="输入多值（数据来自远程服务器）" NavigateUrl="~/third-party/autocomplete/multi_values_remote.aspx" >
+      </TreeNode>
+      <TreeNode Text="客户端缓存（数据来自远程服务器）" NavigateUrl="~/third-party/autocomplete/remote_with_cache.aspx" >
+      </TreeNode>
+    </TreeNode>
+  </TreeNode>
+  <TreeNode Text="杂项">
     <TreeNode Text="ASP.NET控件">
       <TreeNode Text="ASP.NET 控件" NavigateUrl="~/aspnet/aspnet.aspx" >
       </TreeNode>

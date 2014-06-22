@@ -1,11 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="multi_values.aspx.cs" Inherits="FineUI.Examples.autocomplete.multi_values" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="multi_values_remote.aspx.cs"
+    Inherits="FineUI.Examples.autocomplete.multi_values_remote" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
     <title></title>
-    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../res/jqueryui/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
+    <link href="../../res/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../res/jqueryui/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
+    <style>
+        .ui-autocomplete-loading {
+            background: white url('../../res/images/ui-anim_basic_16x16.gif') right center no-repeat;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,40 +24,15 @@
             </Items>
         </f:SimpleForm>
         <br />
-        参考：http://jqueryui.com/autocomplete/#multiple
+        参考：http://jqueryui.com/autocomplete/#multiple-remote
     </form>
-    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../res/jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+    <script src="../../res/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../res/jqueryui/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var textbox1ID = '<%= TextBox1.ClientID %>';
 
         F.ready(function () {
         
-            var availableTags = [
-                "ActionScript",
-                "AppleScript",
-                "Asp",
-                "BASIC",
-                "C",
-                "C++",
-                "Clojure",
-                "COBOL",
-                "ColdFusion",
-                "Erlang",
-                "Fortran",
-                "Groovy",
-                "Haskell",
-                "Java",
-                "JavaScript",
-                "Lisp",
-                "Perl",
-                "PHP",
-                "Python",
-                "Ruby",
-                "Scala",
-                "Scheme"
-            ];
-
             // 将字符串 val 以逗号空格作为分隔符，分隔成数组
             function split(val) {
                 return val.split(/,\s*/);
@@ -72,9 +53,16 @@
             }).autocomplete({
                 minLength: 0,
                 source: function (request, response) {
-                    // 将最后一个单词作为输入值，从列表中过滤出备选项
-                    response($.ui.autocomplete.filter(
-                        availableTags, extractLast(request.term)));
+                    $.getJSON("./search.ashx", {
+                        term: extractLast(request.term)
+                    }, response);
+                },
+                search: function () {
+                    // 自定义的minLength（如果要限制两个字符才提示，把下面的1改为2即可）
+                    var term = extractLast(this.value);
+                    if (term.length < 1) {
+                        return false;
+                    }
                 },
                 focus: function () {
                     // 阻止某一项获得焦点时，更新文本框的值

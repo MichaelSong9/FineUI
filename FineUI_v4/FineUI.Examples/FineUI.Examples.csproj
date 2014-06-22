@@ -72,15 +72,8 @@
     <Content Include="aspnet\test.aspx" />
     <Content Include="aspnet\TestWindow.aspx" />
     <Content Include="aspnet\ckeditor.aspx" />
-    <Content Include="aspnet\my97.aspx" />
     <Content Include="aspnet\ueditor.aspx" />
     <Content Include="aspnet\ueditor_two.aspx" />
-    <Content Include="autocomplete\inline.aspx" />
-    <Content Include="autocomplete\custom_display.aspx" />
-    <Content Include="autocomplete\multi_values_remote.aspx" />
-    <Content Include="autocomplete\multi_values.aspx" />
-    <Content Include="autocomplete\remote_with_cache.aspx" />
-    <Content Include="autocomplete\email.aspx" />
     <Content Include="button\button_custom.aspx" />
     <Content Include="button\button_menu_menuid.aspx" />
     <Content Include="common\menu.xml">
@@ -383,6 +376,13 @@
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
     <Content Include="test\start.aspx" />
+    <Content Include="third-party\autocomplete\custom_display.aspx" />
+    <Content Include="third-party\autocomplete\email.aspx" />
+    <Content Include="third-party\autocomplete\inline.aspx" />
+    <Content Include="third-party\autocomplete\multi_values.aspx" />
+    <Content Include="third-party\autocomplete\multi_values_remote.aspx" />
+    <Content Include="third-party\autocomplete\remote_with_cache.aspx" />
+    <Content Include="third-party\my97.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\cssstyle.aspx" />
     <Content Include="other\addtab.aspx" />
@@ -470,13 +470,6 @@
     <Compile Include="aspnet\ckeditor.aspx.designer.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="aspnet\my97.aspx.cs">
-      <DependentUpon>my97.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="aspnet\my97.aspx.designer.cs">
-      <DependentUpon>my97.aspx</DependentUpon>
-    </Compile>
     <Compile Include="aspnet\ueditor.aspx.cs">
       <DependentUpon>ueditor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -490,51 +483,6 @@
     </Compile>
     <Compile Include="aspnet\ueditor_two.aspx.designer.cs">
       <DependentUpon>ueditor_two.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\inline.aspx.cs">
-      <DependentUpon>inline.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="autocomplete\inline.aspx.designer.cs">
-      <DependentUpon>inline.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\custom_display.aspx.cs">
-      <DependentUpon>custom_display.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="autocomplete\custom_display.aspx.designer.cs">
-      <DependentUpon>custom_display.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\multi_values_remote.aspx.cs">
-      <DependentUpon>multi_values_remote.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="autocomplete\multi_values_remote.aspx.designer.cs">
-      <DependentUpon>multi_values_remote.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\search.ashx.cs">
-      <DependentUpon>search.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\multi_values.aspx.cs">
-      <DependentUpon>multi_values.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="autocomplete\multi_values.aspx.designer.cs">
-      <DependentUpon>multi_values.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\remote_with_cache.aspx.cs">
-      <DependentUpon>remote_with_cache.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="autocomplete\remote_with_cache.aspx.designer.cs">
-      <DependentUpon>remote_with_cache.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="autocomplete\email.aspx.cs">
-      <DependentUpon>email.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="autocomplete\email.aspx.designer.cs">
-      <DependentUpon>email.aspx</DependentUpon>
     </Compile>
     <Compile Include="button\button_custom.aspx.cs">
       <DependentUpon>button_custom.aspx</DependentUpon>
@@ -1779,6 +1727,58 @@
     <Compile Include="test\start.aspx.designer.cs">
       <DependentUpon>start.aspx</DependentUpon>
     </Compile>
+    <Compile Include="third-party\autocomplete\custom_display.aspx.cs">
+      <DependentUpon>custom_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\custom_display.aspx.designer.cs">
+      <DependentUpon>custom_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\email.aspx.cs">
+      <DependentUpon>email.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\email.aspx.designer.cs">
+      <DependentUpon>email.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\inline.aspx.cs">
+      <DependentUpon>inline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\inline.aspx.designer.cs">
+      <DependentUpon>inline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\multi_values.aspx.cs">
+      <DependentUpon>multi_values.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\multi_values.aspx.designer.cs">
+      <DependentUpon>multi_values.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\multi_values_remote.aspx.cs">
+      <DependentUpon>multi_values_remote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\multi_values_remote.aspx.designer.cs">
+      <DependentUpon>multi_values_remote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\remote_with_cache.aspx.cs">
+      <DependentUpon>remote_with_cache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\remote_with_cache.aspx.designer.cs">
+      <DependentUpon>remote_with_cache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\search.ashx.cs">
+      <DependentUpon>search.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\my97.aspx.cs">
+      <DependentUpon>my97.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\my97.aspx.designer.cs">
+      <DependentUpon>my97.aspx</DependentUpon>
+    </Compile>
     <Compile Include="toolbar\toolbar_iframe.aspx.cs">
       <DependentUpon>toolbar_iframe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2379,9 +2379,6 @@
     <Content Include="grid\image.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="autocomplete\search.ashx" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="extjs_builder\build.bat" />
     <Content Include="res\ueditor\net\fileUp.ashx" />
     <Content Include="res\ueditor\net\getContent.ashx" />
@@ -2393,6 +2390,7 @@
     <Content Include="res\ueditor\net\upload\2013-11-05\25212324-33fc-4c59-9532-f952ff684047.docx" />
     <Content Include="res\ueditor\net\upload\2013-12-16\46efa7ac-9407-4e68-bc60-adb6a67848f9.doc" />
     <Content Include="res\ueditor\net\upload\web.config" />
+    <Content Include="third-party\autocomplete\search.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\ueditor\net\upload\2013-12-31\" />
