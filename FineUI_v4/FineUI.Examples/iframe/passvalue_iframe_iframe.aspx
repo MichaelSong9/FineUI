@@ -14,20 +14,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" runat="server"></f:PageManager>
-        <f:Panel ID="Panel1" runat="server" Layout="Fit" ShowBorder="False" ShowHeader="false"
-            BodyPadding="5px">
+        <f:PageManager ID="PageManager1" AutoSizePanelID="SimpleForm1" runat="server"></f:PageManager>
+        <f:SimpleForm ID="SimpleForm1" LabelAlign="Top" ShowBorder="false" ShowHeader="false" Title="SimpleForm"
+            BodyPadding="5px" runat="server" EnableCollapse="True">
             <Items>
-                <f:SimpleForm ID="SimpleForm1" ShowBorder="false" ShowHeader="false" Title="SimpleForm"
-                    BodyPadding="5px" runat="server" EnableCollapse="True">
-                    <Items>
-                        <f:DropDownList ID="ddlSheng" Label="请选择省份" ShowRedStar="true" runat="server" AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlSheng_SelectedIndexChanged">
-                        </f:DropDownList>
-                    </Items>
-                </f:SimpleForm>
+                <f:RadioButtonList ID="ddlSheng" Label="请选择省份" ColumnNumber="4" ShowRedStar="true" runat="server" AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlSheng_SelectedIndexChanged">
+                </f:RadioButtonList>
             </Items>
-        </f:Panel>
+        </f:SimpleForm>
     </form>
 </body>
 </html>

@@ -43,6 +43,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-增加示例form/form_disabled.aspx，将所有表单字段禁用、设置只读、应用无效标识。
 	-为ControlBase的GetPostBackEventReference增加重置函数，指定是否返回启用AJAX的脚本。
 	-增加示例grid/grid_rowcommand_download.aspx，以便在表格行内下载文件。
+	-更新示例iframe/passvalue_iframe.aspx，增加父窗口向子窗口传值。
 	
 
 +2014-05-11 v4.0.6
