@@ -33,7 +33,8 @@ namespace FineUI.Examples.window
 
         protected void btnHideInServer_Click(object sender, EventArgs e)
         {
-            Window2.Hidden = true;
+            //Window2.Hidden = true;
+            PageContext.RegisterStartupScript(Window2.GetHideReference());
         }
 
         protected void Window2_Close(object sender, WindowCloseEventArgs e)
