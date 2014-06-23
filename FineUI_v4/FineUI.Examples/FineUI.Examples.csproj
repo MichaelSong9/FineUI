@@ -180,15 +180,16 @@
     <Content Include="grid\grid_editor_cell_new_delete.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit.aspx" />
     <Content Include="grid\grid_excel_selectcolumns.aspx" />
-    <Content Include="grid\grid_summary2.aspx" />
+    <Content Include="grid\grid_summary.aspx" />
     <Content Include="grid\grid_edit_enterkey_v.aspx" />
     <Content Include="grid\grid_edit_enterkey_h.aspx" />
-    <Content Include="grid\grid_summary2_currentpage.aspx" />
+    <Content Include="grid\grid_summary_currentpage.aspx" />
     <Content Include="grid\grid_checkboxfield_rowcheckall_clientside.aspx" />
     <Content Include="grid\grid_checkboxfield_rowcheckall_contextmenu.aspx" />
     <Content Include="grid\grid_excel_selectcolumns_iframe_window.aspx" />
     <Content Include="grid\grid_edit_cart.aspx" />
     <Content Include="grid\grid_rowcommand_download.aspx" />
+    <Content Include="grid\grid_summary_scrollbar.aspx" />
     <Content Include="iframe\selectprovince1.aspx" />
     <Content Include="iframe\selectprovince1_child.aspx" />
     <Content Include="iframe\selectprovince2.aspx" />
@@ -806,12 +807,12 @@
     <Compile Include="grid\grid_excel_selectcolumns.aspx.designer.cs">
       <DependentUpon>grid_excel_selectcolumns.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_summary2.aspx.cs">
-      <DependentUpon>grid_summary2.aspx</DependentUpon>
+    <Compile Include="grid\grid_summary.aspx.cs">
+      <DependentUpon>grid_summary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_summary2.aspx.designer.cs">
-      <DependentUpon>grid_summary2.aspx</DependentUpon>
+    <Compile Include="grid\grid_summary.aspx.designer.cs">
+      <DependentUpon>grid_summary.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_edit_enterkey_v.aspx.cs">
       <DependentUpon>grid_edit_enterkey_v.aspx</DependentUpon>
@@ -827,12 +828,12 @@
     <Compile Include="grid\grid_edit_enterkey_h.aspx.designer.cs">
       <DependentUpon>grid_edit_enterkey_h.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_summary2_currentpage.aspx.cs">
-      <DependentUpon>grid_summary2_currentpage.aspx</DependentUpon>
+    <Compile Include="grid\grid_summary_currentpage.aspx.cs">
+      <DependentUpon>grid_summary_currentpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_summary2_currentpage.aspx.designer.cs">
-      <DependentUpon>grid_summary2_currentpage.aspx</DependentUpon>
+    <Compile Include="grid\grid_summary_currentpage.aspx.designer.cs">
+      <DependentUpon>grid_summary_currentpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_checkboxfield_rowcheckall_clientside.aspx.cs">
       <DependentUpon>grid_checkboxfield_rowcheckall_clientside.aspx</DependentUpon>
@@ -868,6 +869,13 @@
     </Compile>
     <Compile Include="grid\grid_rowcommand_download.aspx.designer.cs">
       <DependentUpon>grid_rowcommand_download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_summary_scrollbar.aspx.cs">
+      <DependentUpon>grid_summary_scrollbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_summary_scrollbar.aspx.designer.cs">
+      <DependentUpon>grid_summary_scrollbar.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince1.aspx.cs">
       <DependentUpon>selectprovince1.aspx</DependentUpon>

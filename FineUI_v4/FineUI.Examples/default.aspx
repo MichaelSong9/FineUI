@@ -48,17 +48,17 @@
                                             <Items>
                                                 <f:ToolbarFill ID="ToolbarFill2" runat="server">
                                                 </f:ToolbarFill>
-                                                <f:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载全部示例" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
+                                                <f:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载示例源码" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
                                                     EnablePostBack="false" runat="server">
-                                                </f:Button>
-                                                <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server">
-                                                </f:ToolbarSeparator>
-                                                <f:Button Icon="PageGo" Text="官网首页" EnablePostBack="false" OnClientClick="window.open('http://fineui.com/', '_blank');"
-                                                    runat="server">
                                                 </f:Button>
                                                 <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
                                                 </f:ToolbarSeparator>
                                                 <f:Button ID="Button1" Icon="PageGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
+                                                    EnablePostBack="false" runat="server">
+                                                </f:Button>
+                                                <f:ToolbarSeparator ID="ToolbarSeparator3" runat="server">
+                                                </f:ToolbarSeparator>
+                                                <f:Button ID="Button2" Icon="PageGo" Text="专业版示例" OnClientClick="window.open('http://fineui.com/demo_pro/', '_blank');"
                                                     EnablePostBack="false" runat="server">
                                                 </f:Button>
                                             </Items>
@@ -164,6 +164,10 @@
             <f:MenuHyperLink ID="MenuHyperLink2" runat="server" Text="转到 v3.x 中文示例" NavigateUrl="http://fineui.com/demo_v3/" Target="_blank">
             </f:MenuHyperLink>
             <f:MenuHyperLink ID="MenuHyperLink1" runat="server" Text="转到 v3.x 英文示例" NavigateUrl="http://fineui.com/demo_en/" Target="_blank">
+            </f:MenuHyperLink>
+            <f:MenuSeparator ID="MenuSeparator3" runat="server">
+            </f:MenuSeparator>
+            <f:MenuHyperLink ID="MenuHyperLink3" runat="server" Text="转到专业版示例" NavigateUrl="http://fineui.com/demo_pro/" Target="_blank">
             </f:MenuHyperLink>
         </f:Menu>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>

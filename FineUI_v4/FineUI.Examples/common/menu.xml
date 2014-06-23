@@ -308,9 +308,11 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="合计行">
-      <TreeNode Text="合计行" NavigateUrl="~/grid/grid_summary2.aspx" >
+      <TreeNode Text="合计行" NavigateUrl="~/grid/grid_summary.aspx" >
       </TreeNode>
-      <TreeNode Text="合计行（当前页合计）" NavigateUrl="~/grid/grid_summary2_currentpage.aspx" >
+      <TreeNode Text="合计行（浮动到底部、纵向+横向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar.aspx" >
+      </TreeNode>
+      <TreeNode Text="合计行（浮动到顶部、当前页合计）" NavigateUrl="~/grid/grid_summary_currentpage.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="单元格编辑">
@@ -522,10 +524,6 @@
         <TreeNode Text="多个UEditor控件" NavigateUrl="~/aspnet/ueditor_two.aspx" >
         </TreeNode>
       </TreeNode>
-      <TreeNode Text="My97控件">
-        <TreeNode Text="My97控件" NavigateUrl="~/aspnet/my97.aspx" >
-        </TreeNode>
-      </TreeNode>
     </TreeNode>
     <TreeNode Text="用户控件">
       <TreeNode Text="用户控件" NavigateUrl="~/usercontrol/userinfo.aspx" >
@@ -533,20 +531,6 @@
       <TreeNode Text="动态添加用户控件" NavigateUrl="~/usercontrol/userinfo_dynamic.aspx" >
       </TreeNode>
       <TreeNode Text="用户控件与布局" NavigateUrl="~/usercontrol/userinfo2.aspx" >
-      </TreeNode>
-    </TreeNode>
-    <TreeNode Text="自动补全组件">
-      <TreeNode Text="内联数据" NavigateUrl="~/autocomplete/inline.aspx" >
-      </TreeNode>
-      <TreeNode Text="自动补全邮件地址" NavigateUrl="~/autocomplete/email.aspx" >
-      </TreeNode>
-      <TreeNode Text="多行显示补全数据" NavigateUrl="~/autocomplete/custom_display.aspx" >
-      </TreeNode>
-      <TreeNode Text="输入逗号分隔的多个值" NavigateUrl="~/autocomplete/multi_values.aspx" >
-      </TreeNode>
-      <TreeNode Text="输入多值（数据来自远程服务器）" NavigateUrl="~/autocomplete/multi_values_remote.aspx" >
-      </TreeNode>
-      <TreeNode Text="客户端缓存（数据来自远程服务器）" NavigateUrl="~/autocomplete/remote_with_cache.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="定时器" NavigateUrl="~/other/timer.aspx" >
