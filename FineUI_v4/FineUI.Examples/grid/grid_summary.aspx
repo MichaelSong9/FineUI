@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary2.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_summary2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_summary" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
@@ -16,10 +17,11 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" Width="800px" Height="350px" PageSize="5" ShowBorder="true"
+        <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" Width="800px" Height="350px"
+            PageSize="5" ShowBorder="true"
             ShowHeader="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
             DataKeyNames="Id,Name" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-            EnableSummary="true" SummaryPosition="Bottom">
+            EnableSummary="true" SummaryPosition="Flow">
             <Columns>
                 <f:RowNumberField />
                 <f:BoundField Width="100px" ColumnID="name" DataField="Name" DataFormatString="{0}"
@@ -33,7 +35,7 @@
                 <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                 <f:HyperLinkField HeaderText="所学专业" ColumnID="major" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                    DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
+                    DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="true" />
                 <f:BoundField Width="100px" DataField="Fee" ColumnID="fee" HeaderText="学费" />
                 <f:BoundField Width="100px" DataField="Donate" ColumnID="donate" HeaderText="捐赠金额" />
             </Columns>

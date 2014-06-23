@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_summary2 {
+    public partial class grid_summary {
         
         /// <summary>
         /// form1 控件。
