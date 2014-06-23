@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_summary_serverside : PageBase
+    public partial class grid_summary_scrollbar : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,11 +36,14 @@ namespace FineUI.Examples.grid
                 feeTotal += Convert.ToInt32(row["Fee"]);
             }
 
-            JObject jo = new JObject();
-            jo.Add("donateTotal", donateTotal);
-            jo.Add("feeTotal", feeTotal);
+            
+            JObject summary = new JObject();
+            summary.Add("major", "全部合计");
+            summary.Add("fee", feeTotal.ToString("F2"));
+            summary.Add("donate", donateTotal.ToString("F2"));
 
-            hfGrid1Summary.Text = jo.ToString(Newtonsoft.Json.Formatting.None);
+
+            Grid1.SummaryData = summary;
 
         }
 
