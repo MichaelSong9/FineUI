@@ -97,7 +97,7 @@ namespace FineUI
             {
                 FState["Layout"] = value;
             }
-        } 
+        }
 
         #endregion
 

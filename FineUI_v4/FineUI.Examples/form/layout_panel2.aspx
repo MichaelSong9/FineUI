@@ -10,26 +10,22 @@
         .custom-form-item {
             margin-bottom: 5px;
         }
-
-        .mright {
-            margin-right: 5px;
-        }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" runat="server" FormMessageTarget="Qtip" />
-        <f:SimpleForm ID="SimpleForm1" Width="600px" BodyPadding="5px" Title="表单" runat="server">
-            <Items>
+    <form id="_form1" runat="server">
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Form ID="Form1" MessageTarget="Qtip" Width="600px" BodyPadding="5px" Title="表单" runat="server">
+            <items>
                 <f:Panel ID="Panel2" ShowHeader="false" CssClass="custom-form-item" ShowBorder="false"
                     Layout="Column" runat="server">
                     <Items>
                         <f:Label ID="Label2" Width="100px" runat="server" CssClass="marginr" ShowLabel="false"
                             Text="用户名：">
                         </f:Label>
-                        <f:TextBox ID="TextBox2" ShowLabel="false" Required="true" CssClass="mright" runat="server">
+                        <f:TextBox ID="TextBox2" ShowLabel="false" Required="true" Width="150px" CssClass="marginr" runat="server">
                         </f:TextBox>
-                        <f:Button ID="Button3" Text="按钮一" CssClass="mright" runat="server">
+                        <f:Button ID="Button3" Text="按钮一" CssClass="marginr" runat="server">
                         </f:Button>
                         <f:Button ID="Button4" Text="按钮二" runat="server">
                         </f:Button>
@@ -41,7 +37,7 @@
                         <f:Label ID="Label1" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="作息起止时间：">
                         </f:Label>
-                        <f:DatePicker ID="DatePicker1" Required="true" CssClass="mright" Width="150px" runat="server">
+                        <f:DatePicker ID="DatePicker1" Required="true" CssClass="marginr" Width="150px" runat="server">
                         </f:DatePicker>
                         <f:DatePicker ID="DatePicker2" Required="true" CompareControl="DatePicker1" CompareOperator="GreaterThan"
                             CompareMessage="结束日期应该大于开始日期！" Width="150px" runat="server">
@@ -54,7 +50,7 @@
                         <f:Label ID="Label3" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="上班起止时间：">
                         </f:Label>
-                        <f:DatePicker ID="DatePicker3" Required="true" CssClass="mright" ColumnWidth="50%" runat="server">
+                        <f:DatePicker ID="DatePicker3" Required="true" CssClass="marginr" ColumnWidth="50%" runat="server">
                         </f:DatePicker>
                         <f:DatePicker ID="DatePicker4" Required="true" CompareControl="DatePicker3" CompareOperator="GreaterThan"
                             CompareMessage="结束日期应该大于开始日期！" ColumnWidth="50%" runat="server">
@@ -77,10 +73,10 @@
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Button ID="Button1" Text="提交表单" ValidateForms="SimpleForm1" ValidateMessageBox="false" runat="server">
+                <f:Button ID="Button1" Text="提交表单" ValidateForms="Form1" ValidateMessageBox="false" runat="server">
                 </f:Button>
-            </Items>
-        </f:SimpleForm>
+            </items>
+        </f:Form>
         <br />
         注意：本页面中表单验证失败的错误提示类型是Qtip，而不是默认的Side。
     </form>

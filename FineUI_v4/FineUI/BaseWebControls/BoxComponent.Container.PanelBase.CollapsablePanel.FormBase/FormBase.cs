@@ -99,18 +99,37 @@ namespace FineUI
             }
         }
 
+        ///// <summary>
+        ///// [只读]布局类型
+        ///// </summary>
+        //[ReadOnly(true)]
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue(Layout.Anchor)]
+        //[Description("布局类型")]
+        //public override Layout Layout
+        //{
+        //    get
+        //    {
+        //        return Layout.Anchor;
+        //    }
+        //}
+
         /// <summary>
-        /// [只读]布局类型
+        /// 布局类型
         /// </summary>
-        [ReadOnly(true)]
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(Layout.Anchor)]
         [Description("布局类型")]
-        public override Layout Layout
+        public virtual Layout Layout
         {
             get
             {
-                return Layout.Anchor;
+                object obj = FState["Layout"];
+                return obj == null ? Layout.Anchor : (Layout)obj;
+            }
+            set
+            {
+                FState["Layout"] = value;
             }
         }
 

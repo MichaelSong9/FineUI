@@ -116,7 +116,11 @@
     <TreeNode Text="表单布局">
       <TreeNode Text="按钮与表单" NavigateUrl="~/form/layout_panel.aspx" >
       </TreeNode>
-      <TreeNode Text="自定义SimpleForm布局" NavigateUrl="~/form/layout_panel2.aspx" >
+      <TreeNode Text="自定义表单布局" NavigateUrl="~/form/layout_panel2.aspx" >
+      </TreeNode>
+      <TreeNode Text="复杂布局（联系我们）" NavigateUrl="~/form/layout_contactus.aspx" >
+      </TreeNode>
+      <TreeNode Text="复杂布局（账单信息）" NavigateUrl="~/form/layout_checkout.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="下拉列表控件">
