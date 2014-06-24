@@ -109,7 +109,7 @@ namespace FineUI
             }
         }
 
-        
+
 
         /// <summary>
         /// 在标签后面显示红色的星号（用来标识必填项）
@@ -419,17 +419,19 @@ namespace FineUI
                 OB.AddProperty("labelWidth", LabelWidth.Value);
             }
 
-            if (Width == Unit.Empty)
+            //if (Width == Unit.Empty)
+            ControlBase parentControl = GetParentControl();
+            if (parentControl != null)
             {
-                if (OffsetRight.Value != 0)
+                // 如果父控件布局是Anchor
+                if (parentControl is FormRow || 
+                    (parentControl is Container && (parentControl as Container).Layout == Layout.Anchor))
                 {
-                    OB.AddProperty("anchor", "-" + OffsetRight.Value + "px");
-                }
-                else
-                {
-                    OB.AddProperty("anchor", "100%");
+                    // 这个地方可能会覆盖 BoxComponent 中已经设置的 anchor 属性，不过没关系
+                    OB.AddProperty("anchor", GetAnchorValue());
                 }
             }
+
 
             // Every Field need a name property, which is used in form submit.
             OB.AddProperty("name", UniqueID);
@@ -459,6 +461,25 @@ namespace FineUI
             //string changeScript = "F.util.setPageStateChanged();";
             //OB.Listeners.AddProperty("change", JsHelper.GetFunction(changeScript), true);
 
+        }
+
+        private string GetAnchorValue()
+        {
+            string anchorValue = AnchorValue;
+
+            if (String.IsNullOrEmpty(anchorValue))
+            {
+                if (OffsetRight.Value != 0)
+                {
+                    anchorValue = "-" + OffsetRight.Value + "px";
+                }
+                else
+                {
+                    anchorValue = "100%";
+                }
+            }
+
+            return anchorValue;
         }
 
         private string GetRedStarHtml()

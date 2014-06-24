@@ -120,7 +120,7 @@ namespace FineUI
         [Category(CategoryName.LAYOUT)]
         [DefaultValue(Layout.Anchor)]
         [Description("布局类型")]
-        public virtual Layout Layout
+        public override Layout Layout
         {
             get
             {

@@ -7,7 +7,7 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
-        .custom-form-item {
+        .f-form-item {
             margin-bottom: 5px;
         }
     </style>
@@ -17,7 +17,7 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Form ID="Form1" MessageTarget="Qtip" Width="600px" BodyPadding="5px" Title="表单" runat="server">
             <items>
-                <f:Panel ID="Panel2" ShowHeader="false" CssClass="custom-form-item" ShowBorder="false"
+                <f:Panel ID="Panel2" ShowHeader="false" CssClass="f-form-item" ShowBorder="false"
                     Layout="Column" runat="server">
                     <Items>
                         <f:Label ID="Label2" Width="100px" runat="server" CssClass="marginr" ShowLabel="false"
@@ -31,7 +31,7 @@
                         </f:Button>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel1" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
+                <f:Panel ID="Panel1" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="f-form-item"
                     runat="server">
                     <Items>
                         <f:Label ID="Label1" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
@@ -44,7 +44,7 @@
                         </f:DatePicker>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel3" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
+                <f:Panel ID="Panel3" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="f-form-item"
                     runat="server">
                     <Items>
                         <f:Label ID="Label3" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
@@ -57,7 +57,7 @@
                         </f:DatePicker>
                     </Items>
                 </f:Panel>
-                <f:Panel ID="Panel4" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="custom-form-item"
+                <f:Panel ID="Panel4" ShowHeader="false" ShowBorder="false" Layout="Column" CssClass="f-form-item"
                     runat="server">
                     <Items>
                         <f:Label ID="Label4" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"

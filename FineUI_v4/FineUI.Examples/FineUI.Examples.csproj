@@ -144,6 +144,7 @@
     <Content Include="form\fileupload_toolbar.aspx" />
     <Content Include="form\form_disabled.aspx" />
     <Content Include="form\layout_contactus.aspx" />
+    <Content Include="form\layout_checkout.aspx" />
     <Content Include="grid\grid_editor_cell_databind.aspx" />
     <Content Include="grid\grid_edit_compare.aspx" />
     <Content Include="grid\grid_edit_dropdownlist_textbox.aspx" />
@@ -555,6 +556,13 @@
     </Compile>
     <Compile Include="form\layout_contactus.aspx.designer.cs">
       <DependentUpon>layout_contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\layout_checkout.aspx.cs">
+      <DependentUpon>layout_checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\layout_checkout.aspx.designer.cs">
+      <DependentUpon>layout_checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_editor_cell_databind.aspx.cs">
       <DependentUpon>grid_editor_cell_databind.aspx</DependentUpon>

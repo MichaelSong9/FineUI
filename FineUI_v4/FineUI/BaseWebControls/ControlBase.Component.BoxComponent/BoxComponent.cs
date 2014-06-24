@@ -442,21 +442,8 @@ namespace FineUI
 
             #region Controls in Layout
 
-            Container parentControl = null;
-
-            // 此面板放在用户控件中的情况
-            if (Parent is UserControl)
-            {
-                if (Parent.Parent is UserControlConnector)
-                {
-                    parentControl = Parent.Parent.Parent as Container;
-                }
-            }
-            else
-            {
-                parentControl = Parent as Container;
-            }
-
+            
+            Container parentControl = GetParentControl() as Container;
 
             if (parentControl != null)
             {
@@ -535,6 +522,30 @@ namespace FineUI
 
             #endregion
 
+        }
+
+        /// <summary>
+        /// 获取当前控件的父容器
+        /// </summary>
+        /// <returns></returns>
+        protected ControlBase GetParentControl()
+        {
+            ControlBase parentControl = null;
+
+            // 此面板放在用户控件中的情况
+            if (Parent is UserControl)
+            {
+                if (Parent.Parent is UserControlConnector)
+                {
+                    parentControl = Parent.Parent.Parent as ControlBase;
+                }
+            }
+            else
+            {
+                parentControl = Parent as ControlBase;
+            }
+
+            return parentControl;
         }
 
         #endregion

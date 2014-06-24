@@ -39,15 +39,21 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-重现步骤：选择Blue主题，打开aspnet/aspnet.aspx，点击“4.ASP.NET按钮”，页面回到默认的Neptune主题。
 	-增加示例other/keydown.aspx。
 	-为ControlUtil.FindParentControl增加重载方法，用来处理继承关系。
-	-修正定义在Form，SimpleForm上的OffsetRight、LabelSeparator无效的问题。
-	-增加示例form/form_disabled.aspx，将所有表单字段禁用、设置只读、应用无效标识。
 	-为ControlBase的GetPostBackEventReference增加重置函数，指定是否返回启用AJAX的脚本。
 	-增加示例grid/grid_rowcommand_download.aspx，以便在表格行内下载文件。
 	-更新示例iframe/passvalue_iframe.aspx，增加父窗口向子窗口传值。
 	-增加示例grid/grid_summary_scrollbar.aspx，演示绝对定位合计行与横向滚动条同时存在的情况。
-	+Form控件启用Items属性，Layout属性默认为Anchor，可以自行设置（之前为只读属性）。
+	-GroupPanel的默认布局由Container改为Anchor。
+	+表单增强。
+		-Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
+		-修正定义在Form，SimpleForm上的OffsetRight、LabelSeparator无效的问题。
+		-增加示例form/form_disabled.aspx，将所有表单字段禁用、设置只读、应用无效标识。
+		-Form控件启用Items属性，Layout属性默认为Anchor，可以自行设置（之前为只读属性）。
+		-如果父控件的布局不是Anchor，则表单字段忽略OffsetRight属性（也即渲染到客户端的anchor属性）。
 		-更新示例form/layout_panel2.aspx。
 		-增加示例form/layout_contactus.aspx，演示用VBox和HBox进行复杂的表单布局。
+		-增加示例form/layout_checkout.aspx，演示用Form和GroupPanel制作更加复杂的表单。
+		-
 
 
 	

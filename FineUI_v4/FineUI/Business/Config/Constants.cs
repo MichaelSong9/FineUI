@@ -74,8 +74,8 @@ namespace FineUI
         public const LabelAlign FORM_LABELALIGN_DEFAULT = LabelAlign.Left;
         public const string FORM_LABELALIGN_DEFAULT_STRING = "Left";
 
-        public const int FORM_OFFSETRIGHT_DEFAULT = 5;
-        public const string FORM_OFFSETRIGHT_DEFAULT_STRING = "5";
+        public const int FORM_OFFSETRIGHT_DEFAULT = 0;
+        public const string FORM_OFFSETRIGHT_DEFAULT_STRING = "0";
 
         public const int FORM_LABELWIDTH_DEFAULT = 100;
         public const string FORM_LABELWIDTH_DEFAULT_STRING = "100";

@@ -18,7 +18,7 @@ namespace FineUI.Examples.other
             }
             else
             {
-                if (GetRequestEventArgument() == "TextBox1_specialkey")
+                if (GetRequestEventArgument() == "TextBox1_ENTER")
                 {
                     TextBox2.Text = TextBox1.Text;
                     TextBox2.Focus(true);
