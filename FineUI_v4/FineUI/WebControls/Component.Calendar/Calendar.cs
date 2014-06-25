@@ -218,7 +218,7 @@ namespace FineUI
 
             if (PropertyModified("SelectedDate"))
             {
-                sb.AppendFormat("{0}.setValue({1});", XID, ExtDateTimeConvertor.GetExtDateObject(SelectedDate.Value));
+                sb.AppendFormat("{0}.setValue({1});", XID, DateUtil.GetClientDateObject(SelectedDate.Value));
             }
 
             AddAjaxScript(sb);
@@ -233,7 +233,7 @@ namespace FineUI
 
             
             // extjs 的日期格式化字符串
-            string extjsDateFormatString = ExtDateTimeConvertor.ConvertToExtDateFormat(DateFormatString);
+            string extjsDateFormatString = DateUtil.ConvertToClientDateFormat(DateFormatString);
             OB.AddProperty("format", extjsDateFormatString);
 
             //if (EnableChineseAltFormats)
@@ -243,17 +243,17 @@ namespace FineUI
 
             if (SelectedDate != null)
             {
-                OB.AddProperty("value", ExtDateTimeConvertor.GetExtDateObject(SelectedDate.Value), true);
+                OB.AddProperty("value", DateUtil.GetClientDateObject(SelectedDate.Value), true);
             }
 
             if (MaxDate != null)
             {
-                OB.AddProperty("maxDate", ExtDateTimeConvertor.GetExtDateObject(MaxDate.Value), true);
+                OB.AddProperty("maxDate", DateUtil.GetClientDateObject(MaxDate.Value), true);
             }
 
             if (MinDate != null)
             {
-                OB.AddProperty("minDate", ExtDateTimeConvertor.GetExtDateObject(MinDate.Value), true);
+                OB.AddProperty("minDate", DateUtil.GetClientDateObject(MinDate.Value), true);
             }
 
 

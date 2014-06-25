@@ -306,7 +306,7 @@ namespace FineUI
                 {
                     argument = RendererArgument;
                 }
-                return String.Format("F.format.date('{0}')", ExtDateTimeConvertor.ConvertToExtDateFormat(argument));
+                return String.Format("F.format.dateRenderer('{0}')", DateUtil.ConvertToClientDateFormat(argument));
             }
             else if (Renderer == Renderer.Ellipsis)
             {
@@ -315,17 +315,17 @@ namespace FineUI
                 {
                     argument = RendererArgument;
                 }
-                return String.Format("F.format.ellipsis({0})", argument);
+                return String.Format("F.format.ellipsisRenderer({0})", argument);
             }
-            else if (Renderer == Renderer.Number)
-            {
-                string argument = "0.00";
-                if (!String.IsNullOrEmpty(RendererArgument))
-                {
-                    argument = RendererArgument;
-                }
-                return String.Format("F.format.number('{0}')", argument);
-            }
+            //else if (Renderer == Renderer.Number)
+            //{
+            //    string argument = "0.00";
+            //    if (!String.IsNullOrEmpty(RendererArgument))
+            //    {
+            //        argument = RendererArgument;
+            //    }
+            //    return String.Format("F.format.number('{0}')", argument);
+            //}
             else
             {
                 return String.Format("F.format.{0}", RendererName.GetName(Renderer));
@@ -334,7 +334,6 @@ namespace FineUI
         } 
 
         #endregion
-
 
         #region OnFirstPreRender
 

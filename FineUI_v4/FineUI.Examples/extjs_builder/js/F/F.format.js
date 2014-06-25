@@ -7,9 +7,9 @@
 
         capitalize: ExtF.capitalize,
 
-        date: ExtF.dateRenderer,
+        dateRenderer: ExtF.dateRenderer,
 
-        ellipsis: function (length) {
+        ellipsisRenderer: function (length) {
             return function (value) {
                 return ExtF.ellipsis(value, length, false);
             };
@@ -27,15 +27,15 @@
 
         nl2br: ExtF.nl2br,
 
-        number: ExtF.numberRenderer,
+        //number: ExtF.numberRenderer,
 
         stripScripts: ExtF.stripScripts,
 
         stripTags: ExtF.stripTags,
 
-        trim: ExtF.trim,
+        trim: ExtF.trim
 
-        usMoney: ExtF.usMoney
+        //usMoney: ExtF.usMoney
 
 
 

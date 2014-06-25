@@ -90,6 +90,7 @@
     <Compile Include="Business\Enums\SummaryPosition.cs" />
     <Compile Include="Business\Enums\ToolbarAlign.cs" />
     <Compile Include="Business\Util\FState.cs" />
+    <Compile Include="Business\Util\DateUtil.cs" />
     <Compile Include="WebControls\ControlBase.PageManager\CustomEventArgs.cs" />
     <Compile Include="WebControls\Field.CheckBox\EventArgs\CheckedEventArgs.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\EventArgs\TreeNodeEventArgs.cs" />
@@ -295,7 +296,6 @@
     <Compile Include="WebControls\PanelBase.TabStrip\Tab\TabCollection.cs" />
     <Compile Include="Business\ResourceManager\ScriptBlock.cs" />
     <Compile Include="Business\Enums\Layout.cs" />
-    <Compile Include="Business\Util\ExtDateTimeConvertor.cs" />
     <Compile Include="WebControls\Field.TextField.RealTextField.NumberBox\NumberBox.cs" />
     <Compile Include="Business\Enums\TextMode.cs" />
     <Compile Include="Business\Enums\ToolTipType.cs" />

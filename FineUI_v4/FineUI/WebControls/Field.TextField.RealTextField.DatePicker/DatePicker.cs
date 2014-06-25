@@ -300,7 +300,7 @@ namespace FineUI
             //ResourceManager.Instance.AddJavaScriptComponent("menu");
 
             // extjs 的日期格式化字符串
-            string extjsDateFormatString = ExtDateTimeConvertor.ConvertToExtDateFormat(DateFormatString);
+            string extjsDateFormatString = DateUtil.ConvertToClientDateFormat(DateFormatString);
             OB.AddProperty("format", extjsDateFormatString);
 
             if (EnableChineseAltFormats)
@@ -312,7 +312,7 @@ namespace FineUI
                 StringBuilder formats = new StringBuilder();
                 foreach (string format in AltFormats)
                 {
-                    formats.Append(ExtDateTimeConvertor.ConvertToExtDateFormat(format));
+                    formats.Append(DateUtil.ConvertToClientDateFormat(format));
                     formats.Append("|");
                 }
                  OB.AddProperty("altFormats", formats.ToString().TrimEnd('|'));

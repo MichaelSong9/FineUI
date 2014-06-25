@@ -4,7 +4,7 @@
 /*
  * Project：    FineUI
  * 
- * FileName:    ExtDateTimeConvertor.cs
+ * FileName:    DateUtil.cs
  * CreatedOn:   2008-04-07
  * CreatedBy:   30372245@qq.com
  * 
@@ -31,7 +31,7 @@ namespace FineUI
     /// <summary>
     /// Extjs和.Net之间的日期格式转换
     /// </summary>
-    public class ExtDateTimeConvertor
+    public class DateUtil
     {
         /// <summary>
         /// 创建Javascript的Date对象字符串

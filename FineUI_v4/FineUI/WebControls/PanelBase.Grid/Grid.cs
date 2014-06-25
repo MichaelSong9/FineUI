@@ -2925,7 +2925,7 @@ namespace FineUI
                                 // 日期类型的，必须要设置这个 dateFormat 属性
                                 if (renderFiled.FieldType == FieldType.Date)
                                 {
-                                    fieldBuilder.AddProperty("dateFormat", ExtDateTimeConvertor.ConvertToExtDateFormat(renderFiled.RendererArgument));
+                                    fieldBuilder.AddProperty("dateFormat", DateUtil.ConvertToClientDateFormat(renderFiled.RendererArgument));
                                 }
                             }
                         }
