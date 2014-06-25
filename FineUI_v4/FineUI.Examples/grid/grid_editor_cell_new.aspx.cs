@@ -122,7 +122,7 @@ namespace FineUI.Examples.grid
             // 入学日期
             if (rowDict.ContainsKey("EntranceDate"))
             {
-                rowData["EntranceDate"] = DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd");
+                rowData["EntranceDate"] = rowDict["EntranceDate"];
             }
             // 是否在校
             if (rowDict.ContainsKey("AtSchool"))

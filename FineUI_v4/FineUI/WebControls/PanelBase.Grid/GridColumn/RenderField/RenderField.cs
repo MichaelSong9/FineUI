@@ -258,15 +258,15 @@ namespace FineUI
                             date = DateTime.Parse(value.ToString());
                         }
 
-                        // 2009-02-27T12:12:22
-                        text = date.ToString("s");
-                        int tIndex = text.IndexOf("T");
-                        if (tIndex >= 0)
-                        {
-                            text = text.Substring(0, tIndex) + "T00:00:00";
-                        }
+                        //// 2009-02-27T12:12:22
+                        //text = date.ToString("s");
+                        //int tIndex = text.IndexOf("T");
+                        //if (tIndex >= 0)
+                        //{
+                        //    text = text.Substring(0, tIndex) + "T00:00:00";
+                        //}
 
-                        //text = date.ToString(RendererArgument);
+                        text = date.ToString(RendererArgument);
                     }
                     else
                     {

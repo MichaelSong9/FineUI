@@ -437,6 +437,29 @@ if (Ext.grid.Panel) {
                 tplsHash[item.id] = item.outerHTML.replace(/\r?\n\s*/ig, '');
             });
 
+            /*
+            // 将服务器返回的字符串转换为实际的JavaScript类型
+            function resolveActualDataItem(fieldValue, fieldIndex) {
+                var fieldType = $this.f_fields[fieldIndex].type;
+                if (fieldType) {
+                    if (fieldType === 'date') {
+                        fieldValue = new Date(fieldValue);
+                    } else if (fieldType === 'boolean') {
+                        if (fieldValue == 'true' || fieldValue == '1') {
+                            fieldValue = true;
+                        } else {
+                            fieldValue = false;
+                        }
+                    } else if (fieldType === 'float') {
+                        fieldValue = parseFloat(fieldValue);
+                    } else if (fieldType === 'int') {
+                        fieldValue = parseInt(fieldValue, 10);
+                    }
+                }
+                return fieldValue;
+            }
+            */
+
             // 不要改变 F_Rows.Values 的原始数据，因为这个值会被POST到后台
             var newdata = [], newdataitem;
             Ext.Array.each(data, function (row, rowIndex) {
@@ -446,6 +469,7 @@ if (Ext.grid.Panel) {
                         var clientId = $this.id + '_' + item.substr(7);
                         newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
                     } else {
+                        //newdataitem.push(resolveActualDataItem(item, index));
                         newdataitem.push(item);
                     }
                 });
@@ -822,14 +846,15 @@ if (Ext.grid.Panel) {
         },
 
         // 提交客户端改变
-        /*
         f_commitChanges: function () {
 
-            this.getStore().commitChanges();
+            if (this.f_cellEditing) {
+                this.getStore().commitChanges();
+                this.f_initRecordIDs();
+            }
 
-            this.f_initRecordIDs();
         },
-        */
+        
 
         // 从Store中删除选中的行（或者单元格）
         f_deleteSelected: function () {
@@ -963,19 +988,30 @@ if (Ext.grid.Panel) {
                 // 本行数据在原始数据集合中的行索引
                 rowIndexOriginal = Ext.Array.indexOf(this.f_recordIDs, recordID);
                 if (rowIndexOriginal < 0) {
+                    var newRowData = {};
                     // 删除那些不能编辑的列
                     for (var columnID in rowData) {
-                        if (!this.f_columnEditable(columnID)) {
-                            delete rowData[columnID];
+                        if (this.f_columnEditable(columnID)) {
+                            //delete rowData[columnID];
+                            var rowDataColumn = rowData[columnID];
+                            // 如果是日期对象，则转化为字符串
+                            if (F.util.isDate(rowDataColumn)) {
+                                rowDataColumn = F.util.resolveGridDateToString(me.f_fields, columnID, rowDataColumn);
+                            }
+                            newRowData[columnID] = rowDataColumn;
                         }
                     }
                     // 新增数据行
-                    modifiedRows.push([rowIndex, -1, rowData]);
+                    modifiedRows.push([rowIndex, -1, newRowData]);
                 } else {
                     var rowModifiedObj = {};
                     for (var columnID in modifiedRecord.modified) {
                         if (this.f_columnEditable(columnID)) {
                             newData = rowData[columnID];
+                            // 如果是日期对象，则转化为字符串
+                            if (F.util.isDate(newData)) {
+                                newData = F.util.resolveGridDateToString(me.f_fields, columnID, newData);
+                            }
                             rowModifiedObj[columnID] = newData;
                         }
                     }

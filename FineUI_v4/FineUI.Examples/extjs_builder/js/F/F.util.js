@@ -66,7 +66,7 @@ F.fieldValue = function (cmp) {
 F.customEvent = function (argument, validate) {
     var pmv = F.pagemanager.validate;
     if (validate && pmv) {
-        if(!F.util.validForms(pmv.forms,pmv.target,pmv.messagebox)){
+        if (!F.util.validForms(pmv.forms, pmv.target, pmv.messagebox)) {
             return false;
         }
     }
@@ -956,8 +956,26 @@ F.customEvent = function (argument, validate) {
                     cmp.f_reset();
                 }
             });
-        }
+        },
 
+
+        isDate: function (value) {
+            return Object.prototype.toString.call(value) === '[object Date]';
+        },
+
+        resolveGridDateToString: function (fields, fieldName, fieldValue) {
+            var i, fieldConfig, result = fieldValue;
+            for (i = 0, count = fields.length; i < count; i++) {
+                fieldConfig = fields[i];
+                if (fieldConfig.name === fieldName && fieldConfig.type === 'date' && fieldConfig.dateFormat) {
+                    result = Ext.util.Format.date(fieldValue, fieldConfig.dateFormat);
+                }
+            }
+            return result;
+        },
+
+
+        noop: function () { }
 
     };
 

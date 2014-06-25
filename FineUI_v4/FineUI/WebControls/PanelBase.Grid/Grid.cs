@@ -2026,6 +2026,14 @@ namespace FineUI
             }
         }
 
+        private string Render_GridFieldsID
+        {
+            get
+            {
+                return String.Format("{0}_fields", XID);
+            }
+        }
+
         private string Render_GridColumnsID
         {
             get
@@ -2239,6 +2247,7 @@ namespace FineUI
             string gridStoreScript = GetGridStore();
             OB.AddProperty("store", Render_GridStoreID, true);
 
+            OB.AddProperty("f_fields", Render_GridFieldsID, true);
             //Console.WriteLine(RowExpander.DataFields);
 
             #endregion
@@ -2913,6 +2922,11 @@ namespace FineUI
                             if (renderFiled.FieldType != FieldType.Auto)
                             {
                                 fieldBuilder.AddProperty("type", FieldTypeName.GetName(renderFiled.FieldType));
+                                // 日期类型的，必须要设置这个 dateFormat 属性
+                                if (renderFiled.FieldType == FieldType.Date)
+                                {
+                                    fieldBuilder.AddProperty("dateFormat", ExtDateTimeConvertor.ConvertToExtDateFormat(renderFiled.RendererArgument));
+                                }
                             }
                         }
                         else if (field is RenderCheckField)
@@ -2923,8 +2937,9 @@ namespace FineUI
                 }
                 fieldsBuidler.AddProperty(fieldBuilder);
             }
+            string fieldsScript = String.Format("var {0}={1};", Render_GridFieldsID, fieldsBuidler);
 
-            storeBuilder.AddProperty("fields", fieldsBuidler, true);
+            storeBuilder.AddProperty("fields", Render_GridFieldsID, true);
 
             storeBuilder.AddProperty("remoteSort", true);
 
@@ -2947,7 +2962,7 @@ namespace FineUI
 
             storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "operation"), true);
 
-            return String.Format("var {0}=Ext.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
+            return fieldsScript + String.Format("var {0}=Ext.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
 
             #region old code
 
@@ -3187,6 +3202,13 @@ namespace FineUI
             // 如果重新绑定数据，则每行的模版列内容有可能发生变化，就需要更新
             // 因为目前，没有判断模板列是否改变的机制，所以只要可能导致模板列的动作都要更新模板列
             PageManager.Instance.AddAjaxGridClientID(ClientID);
+
+            // 如果重新绑定数据，则取消之前的编辑状态提示
+            if (IsFineUIAjaxPostBack && AllowCellEditing)
+            {
+                CommitChanges();
+            }
+
 
             // 数据绑定之前要先清空 _dataKeys
             _dataKeys = null;
