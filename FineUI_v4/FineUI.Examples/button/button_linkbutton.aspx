@@ -17,7 +17,7 @@
     </f:LinkButton>
     <br />
     <br />
-    <f:LinkButton ID="LinkButton1" Enabled="true" Text="客户端事件（在页面中定义）" EnablePostBack="false"
+    <f:LinkButton ID="LinkButton1" Enabled="false" Text="客户端事件（在页面中定义）" EnablePostBack="false"
         OnClientClick="clickLinkButton();" runat="server">
     </f:LinkButton>
     <br />
