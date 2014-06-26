@@ -60,7 +60,7 @@ namespace FineUI.Examples.grid
             {
                 Alert.ShowInTop("没有选中任何单元格！");
             }
-            
+
         }
 
         protected void Grid1_RowCommand(object sender, FineUI.GridCommandEventArgs e)
@@ -174,7 +174,7 @@ namespace FineUI.Examples.grid
             }
         }
 
-        
+
         #endregion
     }
 }

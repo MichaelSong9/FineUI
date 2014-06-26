@@ -540,6 +540,10 @@ namespace FineUI
                 OB.AddProperty("dataIndex", ColumnID);
                 OB.AddProperty("id", ColumnID);
 
+                // 服务器端使用的ColumnIndex
+                OB.AddProperty("f_columnIndex", ColumnIndex);
+
+
                 if (TextAlign != TextAlign.Left)
                 {
                     OB.AddProperty("align", TextAlignName.GetName(TextAlign));

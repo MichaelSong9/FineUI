@@ -59,6 +59,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		+返回后台的日期字段为字符串是格式化后的（类似2014-07-20，而不是之前的2003-09-01T00:00:00）。
 			-修改后台的处理代码DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd")，直接使用rowDict["EntranceDate"]。
 		-修正重新绑定数据后，仍然显示左上角已修改标识的问题（zjfeiye）。
+	
+
+
 		
 
 

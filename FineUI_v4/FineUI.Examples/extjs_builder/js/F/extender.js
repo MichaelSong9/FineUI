@@ -689,7 +689,7 @@ if (Ext.grid.Panel) {
             if (sm.getCurrentPosition) {
                 currentPos = sm.getCurrentPosition();
                 if (currentPos) {
-                    selectedCell = [currentPos.row, currentPos.column];
+                    selectedCell = [currentPos.row, currentPos.columnHeader.f_columnIndex];
                 }
             }
             return selectedCell;
