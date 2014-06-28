@@ -55,10 +55,12 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加示例grid/grid_rowcommand_download.aspx，以便在表格行内下载文件。
 		-增加示例grid/grid_summary_scrollbar.aspx，演示绝对定位合计行与横向滚动条同时存在的情况。
 	+单元格编辑表格增强。
+		-可编辑单元格和CheckBoxField同时存在时，出现BackupPostDataProperty中无法添加相同键的问题（ji78）。
 		-修正日期列在不进行修改即退出编辑状态后，显示左上角的已修改标识的问题。
 		+返回后台的日期字段为字符串是格式化后的（类似2014-07-20，而不是之前的2003-09-01T00:00:00）。
 			-修改后台的处理代码DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd")，直接使用rowDict["EntranceDate"]。
 		-修正重新绑定数据后，仍然显示左上角已修改标识的问题（zjfeiye）。
+	-修正NumberBox的NoNegative属性无效的问题（yezie）。
 	
 
 

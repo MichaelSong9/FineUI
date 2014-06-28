@@ -139,7 +139,16 @@ namespace FineUI
         /// <param name="prop"></param>
         public void BackupPostDataProperty(string prop)
         {
-            _postDataProperties.Add(prop, GetPropertyHashcode(prop));
+            // 可能会添加多次
+            string propValue = GetPropertyHashcode(prop);
+            if (_postDataProperties.ContainsKey(prop))
+            {
+                _postDataProperties[prop] = propValue;
+            }
+            else
+            {
+                _postDataProperties.Add(prop, propValue);
+            }
         }
 
         /// <summary>

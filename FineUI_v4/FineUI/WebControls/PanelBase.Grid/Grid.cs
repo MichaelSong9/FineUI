@@ -84,6 +84,9 @@ namespace FineUI
         // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
         private bool _registerScriptRowExpanders = false;
 
+        // AJAX回发回发时调用了 DataBind 函数
+        private bool _databindInFineUIAjaxPostBack = false;
+
         #endregion
 
         #region Unsupported Properties
@@ -2121,19 +2124,15 @@ namespace FineUI
             {
                 PageManager.Instance.AddAjaxGridReloadedClientID(ClientID);
             }
+            else
+            {
+                // 如果不重新加载客户端数据，但是调用了 DataBind 函数，则提交更改
+                if (AllowCellEditing && _databindInFineUIAjaxPostBack)
+                {
+                    CommitChanges();
+                }
+            }
 
-
-            //if (PropertyModified("SortField", "SortDirection"))
-            //{
-            //    needUpdateSortIcon = true;
-            //}
-
-
-            // 客户端已经改变了排序状态，无需再次设置
-            //if (needUpdateSortIcon)
-            //{
-            //    sb.AppendFormat("{0}.f_setSortIcon('{1}','{2}');", XID, GetSortColummID(), SortDirection);
-            //}
 
             bool selectRowsScriptRegistered = false;
             if (AllowCellEditing)
@@ -2189,11 +2188,6 @@ namespace FineUI
                     }
                 }
 
-                //// 数据重新加载了，检查是否启用文本选择
-                //if (EnableTextSelection)
-                //{
-                //    sb.AppendFormat("{0}.f_enableTextSelection();", XID);
-                //}
 
                 if (!AllowCellEditing)
                 {
@@ -3206,7 +3200,7 @@ namespace FineUI
             // 如果重新绑定数据，则取消之前的编辑状态提示
             if (IsFineUIAjaxPostBack && AllowCellEditing)
             {
-                CommitChanges();
+                _databindInFineUIAjaxPostBack = true;
             }
 
 
@@ -3530,6 +3524,8 @@ namespace FineUI
                     newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
                 }
 
+                List<string> dataKeyNames = new List<string>(DataKeyNames);
+
                 // 根据用户的输入修改每个单元格的Values
                 _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
                 _newAddedList = new List<Dictionary<string, string>>();
@@ -3554,7 +3550,8 @@ namespace FineUI
                         {
                             string columnID = propertyObj.Name;
                             object cellValue = rowModifiedData.Value<object>(columnID);
-                            int columnIndex = FindColumn(columnID).ColumnIndex;
+                            GridColumn column = FindColumn(columnID);
+                            int columnIndex = column.ColumnIndex;
 
                             string newCellValue = cellValue.ToString();
 
@@ -3563,7 +3560,19 @@ namespace FineUI
                             // 如果本行不是新增的，还需要更新行的Values属性
                             if (originalRowIndex >= 0)
                             {
+                                // 更新行的Values
                                 Rows[originalRowIndex].Values[columnIndex] = newCellValue;
+
+                                // 更新行的DataKeys
+                                RenderBaseField renderField = column as RenderBaseField;
+                                if (renderField != null)
+                                {
+                                    int dataKeyIndex = dataKeyNames.IndexOf(renderField.DataField);
+                                    if (dataKeyIndex >= 0)
+                                    {
+                                        Rows[originalRowIndex].DataKeys[dataKeyIndex] = newCellValue;
+                                    }
+                                }
                             }
                         }
 

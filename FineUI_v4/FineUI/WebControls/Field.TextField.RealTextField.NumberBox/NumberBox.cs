@@ -159,16 +159,22 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
-            
+
             OB.AddProperty("allowDecimals", !NoDecimal);
-            OB.AddProperty("allowNegative", !NoNegative);
+            //OB.AddProperty("allowNegative", !NoNegative);
             if (MaxValue != null)
             {
                 OB.AddProperty("maxValue", MaxValue.Value);
             }
+
             if (MinValue != null)
             {
                 OB.AddProperty("minValue", MinValue.Value);
+            }
+            else if (NoNegative)
+            {
+                // 未定义 MinValue，但定义了 NoNegative
+                OB.AddProperty("minValue", 0);
             }
 
             if (DecimalPrecision != 2)
