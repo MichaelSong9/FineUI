@@ -430,7 +430,7 @@ namespace FineUI
         /// </summary>
         /// <param name="row">表格行实例</param>
         /// <returns>渲染后的HTML</returns>
-        internal virtual string GetColumnValue(GridRow row)
+        internal virtual object GetColumnValue(GridRow row)
         {
             return String.Empty;
         }

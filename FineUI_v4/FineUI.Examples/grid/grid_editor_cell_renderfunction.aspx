@@ -25,7 +25,7 @@
                         </f:TextBox>
                     </Editor>
                 </f:RenderField>
-                <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="String"
+                <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="Int"
                     RendererFunction="renderGender" HeaderText="性别">
                     <Editor>
                         <f:DropDownList ID="ddlGender" Required="true" runat="server">

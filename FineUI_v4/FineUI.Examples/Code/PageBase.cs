@@ -169,7 +169,7 @@ namespace FineUI.Examples
             DataTable table = new DataTable();
             table.Columns.Add(new DataColumn("Id", typeof(int)));
             table.Columns.Add(new DataColumn("Name", typeof(String)));
-            table.Columns.Add(new DataColumn("EntranceYear", typeof(String)));
+            table.Columns.Add(new DataColumn("EntranceYear", typeof(int)));
             table.Columns.Add(new DataColumn("LogTime", typeof(DateTime)));
             table.Columns.Add(new DataColumn("Desc", typeof(string)));
 
@@ -177,7 +177,7 @@ namespace FineUI.Examples
 
             row[0] = 101;
             row[1] = "班级一";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = DateTime.Parse("2000-09-01");
             row[4] = "班级一创建于2000年9月1号，班长胡飞，连续三年获得全校优秀班级称号。";
             table.Rows.Add(row);
@@ -185,7 +185,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 102;
             row[1] = "班级二";
-            row[2] = "2005";
+            row[2] = 2005;
             row[3] = DateTime.Parse("2005-09-01");
             row[4] = "班级一创建于2005年9月1号，班长董婷婷，连续两年获得全校优秀班级称号。";
             table.Rows.Add(row);
@@ -203,7 +203,7 @@ namespace FineUI.Examples
             DataTable table = new DataTable();
             table.Columns.Add(new DataColumn("Id", typeof(int)));
             table.Columns.Add(new DataColumn("Name", typeof(String)));
-            table.Columns.Add(new DataColumn("EntranceYear", typeof(String)));
+            table.Columns.Add(new DataColumn("EntranceYear", typeof(int)));
             table.Columns.Add(new DataColumn("AtSchool", typeof(bool)));
             table.Columns.Add(new DataColumn("Major", typeof(String)));
             table.Columns.Add(new DataColumn("Group", typeof(int)));
@@ -223,7 +223,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 101;
             row[1] = "陈萍萍";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = true;
             row[4] = "计算机应用技术";
             row[5] = 1;
@@ -240,7 +240,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 102;
             row[1] = "胡飞";
-            row[2] = "2008";
+            row[2] = 2008;
             row[3] = false;
             row[4] = "信息工程";
             row[5] = 1;
@@ -257,7 +257,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 103;
             row[1] = "金婷婷";
-            row[2] = "2001";
+            row[2] = 2001;
             row[3] = true;
             row[4] = "会计学";
             row[5] = 2;
@@ -275,7 +275,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 104;
             row[1] = "潘国";
-            row[2] = "2008";
+            row[2] = 2008;
             row[3] = false;
             row[4] = "国际经济与贸易";
             row[5] = 2;
@@ -293,7 +293,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 105;
             row[1] = "吴颖颖";
-            row[2] = "2002";
+            row[2] = 2002;
             row[3] = true;
             row[4] = "市场营销";
             row[5] = 3;
@@ -311,7 +311,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 106;
             row[1] = "张博";
-            row[2] = "2003";
+            row[2] = 2003;
             row[3] = false;
             row[4] = "财务管理";
             row[5] = 3;
@@ -329,7 +329,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 107;
             row[1] = "杨倩倩";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = true;
             row[4] = "材料物理与化学";
             row[5] = 4;
@@ -347,7 +347,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 108;
             row[1] = "董超";
-            row[2] = "2004";
+            row[2] = 2004;
             row[3] = false;
             row[4] = "生物医学工程";
             row[5] = 4;
@@ -365,7 +365,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 109;
             row[1] = "张娟娟";
-            row[2] = "2003";
+            row[2] = 2003;
             row[3] = true;
             row[4] = "土木工程";
             row[5] = 5;
@@ -382,7 +382,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 110;
             row[1] = "叶鹏";
-            row[2] = "2006";
+            row[2] = 2006;
             row[3] = false;
             row[4] = "电子商务";
             row[5] = 5;
@@ -399,7 +399,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 111;
             row[1] = "李玲玲";
-            row[2] = "2002";
+            row[2] = 2002;
             row[3] = true;
             row[4] = "管理学";
             row[5] = 5;
@@ -416,7 +416,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 112;
             row[1] = "张萍萍";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = true;
             row[4] = "计算机应用技术";
             row[5] = 1;
@@ -433,7 +433,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 113;
             row[1] = "曹飞";
-            row[2] = "2008";
+            row[2] = 2008;
             row[3] = false;
             row[4] = "信息工程";
             row[5] = 1;
@@ -450,7 +450,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 114;
             row[1] = "孙婷婷";
-            row[2] = "2001";
+            row[2] = 2001;
             row[3] = true;
             row[4] = "会计学";
             row[5] = 2;
@@ -468,7 +468,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 115;
             row[1] = "董国";
-            row[2] = "2008";
+            row[2] = 2008;
             row[3] = false;
             row[4] = "国际经济与贸易";
             row[5] = 2;
@@ -486,7 +486,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 116;
             row[1] = "习颖颖";
-            row[2] = "2002";
+            row[2] = 2002;
             row[3] = true;
             row[4] = "市场营销";
             row[5] = 3;
@@ -504,7 +504,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 117;
             row[1] = "李博";
-            row[2] = "2003";
+            row[2] = 2003;
             row[3] = false;
             row[4] = "财务管理";
             row[5] = 3;
@@ -522,7 +522,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 118;
             row[1] = "黄倩倩";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = true;
             row[4] = "材料物理与化学";
             row[5] = 4;
@@ -540,7 +540,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 119;
             row[1] = "韩超";
-            row[2] = "2004";
+            row[2] = 2004;
             row[3] = false;
             row[4] = "生物医学工程";
             row[5] = 4;
@@ -558,7 +558,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 120;
             row[1] = "王娟娟";
-            row[2] = "2003";
+            row[2] = 2003;
             row[3] = true;
             row[4] = "土木工程";
             row[5] = 5;
@@ -575,7 +575,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 121;
             row[1] = "周鹏";
-            row[2] = "2006";
+            row[2] = 2006;
             row[3] = false;
             row[4] = "电子商务";
             row[5] = 5;
@@ -592,7 +592,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 122;
             row[1] = "吴玲玲";
-            row[2] = "2002";
+            row[2] = 2002;
             row[3] = true;
             row[4] = "管理学";
             row[5] = 5;
@@ -619,7 +619,7 @@ namespace FineUI.Examples
             DataTable table = new DataTable();
             table.Columns.Add(new DataColumn("Id", typeof(int)));
             table.Columns.Add(new DataColumn("Name", typeof(String)));
-            table.Columns.Add(new DataColumn("EntranceYear", typeof(String)));
+            table.Columns.Add(new DataColumn("EntranceYear", typeof(int)));
             table.Columns.Add(new DataColumn("AtSchool", typeof(bool)));
             table.Columns.Add(new DataColumn("Major", typeof(String)));
             table.Columns.Add(new DataColumn("Group", typeof(int)));
@@ -639,7 +639,7 @@ namespace FineUI.Examples
             DataRow row = table.NewRow();
             row[0] = 101;
             row[1] = "张萍萍";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = true;
             row[4] = "材料科学与工程系";
             row[5] = 1;
@@ -657,7 +657,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 102;
             row[1] = "陈飞";
-            row[2] = "2001";
+            row[2] = 2001;
             row[3] = false;
             row[4] = "化学系";
             row[5] = 1;
@@ -675,7 +675,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 103;
             row[1] = "董婷婷";
-            row[2] = "2008";
+            row[2] = 2008;
             row[3] = true;
             row[4] = "化学系";
             row[5] = 2;
@@ -694,7 +694,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 104;
             row[1] = "刘国";
-            row[2] = "2002";
+            row[2] = 2002;
             row[3] = false;
             row[4] = "化学系";
             row[5] = 2;
@@ -713,7 +713,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 105;
             row[1] = "康颖颖";
-            row[2] = "2008";
+            row[2] = 2008;
             row[3] = true;
             row[4] = "数学系";
             row[5] = 3;
@@ -732,7 +732,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 106;
             row[1] = "彭博";
-            row[2] = "2003";
+            row[2] = 2003;
             row[3] = false;
             row[4] = "数学系";
             row[5] = 3;
@@ -751,7 +751,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 107;
             row[1] = "黄倩倩";
-            row[2] = "2000";
+            row[2] = 2000;
             row[3] = true;
             row[4] = "数学系";
             row[5] = 4;
@@ -770,7 +770,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 108;
             row[1] = "唐超";
-            row[2] = "2004";
+            row[2] = 2004;
             row[3] = false;
             row[4] = "物理系";
             row[5] = 4;
@@ -789,7 +789,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 109;
             row[1] = "杨娟娟";
-            row[2] = "2003";
+            row[2] = 2003;
             row[3] = true;
             row[4] = "物理系";
             row[5] = 5;
@@ -807,7 +807,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 110;
             row[1] = "徐鹏";
-            row[2] = "2002";
+            row[2] = 2002;
             row[3] = false;
             row[4] = "物理系";
             row[5] = 5;
@@ -825,7 +825,7 @@ namespace FineUI.Examples
             row = table.NewRow();
             row[0] = 111;
             row[1] = "纪玲玲";
-            row[2] = "2006";
+            row[2] = 2006;
             row[3] = true;
             row[4] = "自动化系";
             row[5] = 5;
@@ -853,7 +853,7 @@ namespace FineUI.Examples
             DataTable table = new DataTable();
             table.Columns.Add(new DataColumn("Id", typeof(int)));
             table.Columns.Add(new DataColumn("Name", typeof(String)));
-            table.Columns.Add(new DataColumn("EntranceYear", typeof(String)));
+            table.Columns.Add(new DataColumn("EntranceYear", typeof(int)));
             table.Columns.Add(new DataColumn("AtSchool", typeof(bool)));
             table.Columns.Add(new DataColumn("Major", typeof(String)));
             table.Columns.Add(new DataColumn("Group", typeof(int)));

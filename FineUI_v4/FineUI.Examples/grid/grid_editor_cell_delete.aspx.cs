@@ -79,7 +79,7 @@ namespace FineUI.Examples.grid
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Dictionary<int, Dictionary<string, string>> modifiedDict = Grid1.GetModifiedDict();
+            Dictionary<int, Dictionary<string, object>> modifiedDict = Grid1.GetModifiedDict();
 
             foreach (int rowIndex in modifiedDict.Keys)
             {
@@ -96,7 +96,7 @@ namespace FineUI.Examples.grid
             Alert.Show("数据保存成功！（表格数据已重新绑定）");
         }
 
-        private static void UpdateDataRow(Dictionary<string, string> rowDict, DataRow rowData)
+        private static void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)
         {
             // 姓名
             if (rowDict.ContainsKey("Name"))
@@ -106,7 +106,7 @@ namespace FineUI.Examples.grid
             // 性别
             if (rowDict.ContainsKey("Gender"))
             {
-                rowData["Gender"] = Convert.ToInt32(rowDict["Gender"]);
+                rowData["Gender"] = rowDict["Gender"];
             }
             // 入学年份
             if (rowDict.ContainsKey("EntranceYear"))
@@ -121,7 +121,7 @@ namespace FineUI.Examples.grid
             // 是否在校
             if (rowDict.ContainsKey("AtSchool"))
             {
-                rowData["AtSchool"] = Convert.ToBoolean(rowDict["AtSchool"]);
+                rowData["AtSchool"] = rowDict["AtSchool"];
             }
             // 所学专业
             if (rowDict.ContainsKey("Major"))

@@ -53,25 +53,21 @@ namespace FineUI
 
         #region GetColumnValue
 
-        internal override string GetColumnValue(GridRow row)
+        internal override object GetColumnValue(GridRow row)
         {
-            string text = String.Empty;
+            bool isChecked = false;
 
             if (!String.IsNullOrEmpty(DataField))
             {
                 object value = row.GetPropertyValue(DataField);
 
-                if (value == null)
+                if (value != null)
                 {
-                    text = "false";
-                }
-                else
-                {
-                    text = value.ToString().ToLower();
+                    isChecked = Convert.ToBoolean(value);
                 }
             }
 
-            return text;
+            return isChecked;
         }
 
         #endregion

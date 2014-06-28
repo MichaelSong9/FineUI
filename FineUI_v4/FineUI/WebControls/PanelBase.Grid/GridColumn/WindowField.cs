@@ -438,7 +438,7 @@ namespace FineUI
 
         #region Methods
 
-        internal override string GetColumnValue(GridRow row)
+        internal override object GetColumnValue(GridRow row)
         {
             HtmlNodeBuilder nb = new HtmlNodeBuilder("a");
 

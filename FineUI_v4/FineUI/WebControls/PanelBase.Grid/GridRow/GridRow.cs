@@ -115,12 +115,12 @@ namespace FineUI
 
         #region Properties
 
-        private string[] _values = null;
+        private object[] _values = null;
 
         /// <summary>
         /// 此行的状态信息
         /// </summary>
-        public string[] Values
+        public object[] Values
         {
             get
             {
@@ -241,7 +241,7 @@ namespace FineUI
         /// <param name="columnIndex"></param>
         internal void UpdateValuesAt(int columnIndex)
         {
-            Values[columnIndex] = RemoveNewLine(_grid.AllColumns[columnIndex].GetColumnValue(this));
+            Values[columnIndex] = _grid.AllColumns[columnIndex].GetColumnValue(this);
         }
 
         #endregion
@@ -289,7 +289,7 @@ namespace FineUI
                     if (DataItem == null)
                     {
                         // 回发时恢复FState阶段（非数据绑定阶段），从Values中读取模板列的服务器ID（在第一次加载时自动生成的）
-                        string fieldValue = Values[i];
+                        string fieldValue = Values[i].ToString();
                         if (fieldValue.StartsWith(Grid.TEMPLATE_PLACEHOLDER_PREFIX))
                         {
                             control.ID = fieldValue.Substring(Grid.TEMPLATE_PLACEHOLDER_PREFIX.Length);
@@ -340,13 +340,13 @@ namespace FineUI
             Collection<GridColumn> columns = _grid.AllColumns;
 
             // 计算每列的值
-            Values = new string[columns.Count];
+            Values = new object[columns.Count];
             States = new object[columns.Count];
 
             for (int i = 0, count = columns.Count; i < count; i++)
             {
                 GridColumn column = columns[i];
-                Values[i] = RemoveNewLine(column.GetColumnValue(this));
+                Values[i] = column.GetColumnValue(this);
 
                 if (column.PersistState)
                 {
@@ -361,7 +361,22 @@ namespace FineUI
                 DataKeys = new object[keyNames.Length];
                 for (int j = 0, count = keyNames.Length; j < count; j++)
                 {
-                    DataKeys[j] = GetPropertyValue(keyNames[j]);
+                    string keyName = keyNames[j];
+
+                    if (_grid.AllowCellEditing)
+                    {
+                        // 如果允许单元格编辑，则DataKeys的值类型尝试使用列定义的FieldType
+                        // 确保用户在客户端修改了DataKeyNames中定义的值后，同时在Grid的LoadPostData中更新这个值
+                        if (_grid.cellEditingDataKeyNameField.ContainsKey(keyName))
+                        {
+                            DataKeys[j] = _grid.cellEditingDataKeyNameField[keyName].GetColumnValue(this);
+                        }
+                    }
+
+                    if (DataKeys[j] == null)
+                    {
+                        DataKeys[j] = GetPropertyValue(keyName);
+                    }
                 }
             }
         }
@@ -415,131 +430,7 @@ namespace FineUI
 
         #endregion
 
-        #region old code
-
-        ///// <summary>
-        ///// 取得属性的值
-        ///// </summary>
-        ///// <param name="rowObj"></param>
-        ///// <param name="propertyName"></param>
-        ///// <returns></returns>
-        //public object GetPropertyValue(string propertyName)
-        //{
-        //    object rowObj = _dataItem;
-        //    object result = null;
-
-        //    try
-        //    {
-        //        if (rowObj is DataRow)
-        //        {
-        //            result = (rowObj as DataRow)[propertyName];
-        //        }
-        //        else
-        //        {
-        //            result = ObjectUtil.GetPropertyValueFormObject(rowObj, propertyName);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        // 找不到此属性
-        //    }
-
-        //    return result;
-        //}
-
-
-
-
-        #endregion
-
-        #region old code
-
-        ///// <summary>
-        ///// Returns a value from the item indexed by the field name or index.
-        ///// </summary>
-        ///// <param name="obj">Field name or numeric index.</param>
-        ///// <returns>Cell value</returns>
-        //public object this[object obj]
-        //{
-        //    get
-        //    {
-        //        if (obj is string)
-        //        {
-        //            if (_columns != null && _values != null)
-        //            {
-        //                int iColumnIndex = _columns.IndexOf((string)obj);
-        //                if (iColumnIndex >= 0)
-        //                {
-        //                    return _values[iColumnIndex];
-        //                }
-        //                else
-        //                {
-        //                    return null;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                return null;
-        //            }
-        //        }
-        //        else if (obj is int)
-        //        {
-        //            return _values[(int)obj];
-        //        }
-        //        else
-        //        {
-        //            throw new ArgumentException("Only a string (field name) or integer index is permitted.");
-        //        }
-        //    }
-        //    set
-        //    {
-        //        if (obj is string)
-        //        {
-        //            if (_columns != null && _values != null)
-        //            {
-        //                _values[_columns.IndexOf((string)obj)] = value;
-        //            }
-        //        }
-        //        else if (obj is int)
-        //        {
-        //            _values[(int)obj] = value;
-        //        }
-        //        else
-        //        {
-        //            throw new ArgumentException("Only a string (column name) or int parameter are permitted.");
-        //        }
-        //    }
-        //}
-
-
-
-        ///// <summary>
-        ///// Returns whether this item equals the passed-in item.
-        ///// </summary>
-        ///// <param name="o">A GridItem.</param>
-        ///// <returns>Whether this item equals the passed-in item.</returns>
-        //public override bool Equals(object o)
-        //{
-        //    if (o is GridItem && o != null)
-        //    {
-        //        GridItem other = (GridItem)o;
-
-        //        for (int i = 0; i < _values.Length; i++)
-        //        {
-        //            if (!Object.Equals(this[i], other[i]))
-        //            {
-        //                return false;
-        //            }
-        //        }
-
-        //        return true;
-        //    }
-
-        //    return false;
-        //} 
-
-        #endregion
-
+        
     }
 }
 

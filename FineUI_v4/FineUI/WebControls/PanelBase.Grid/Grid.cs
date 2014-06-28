@@ -81,7 +81,7 @@ namespace FineUI
             AddGzippedAjaxProperties("F_Rows");
         }
 
-        // 是否需要在AJAX回发时注册展开或者折叠行扩展列的脚本
+        // AJAX回发时注册展开或者折叠行扩展列的脚本
         private bool _registerScriptRowExpanders = false;
 
         // AJAX回发回发时调用了 DataBind 函数
@@ -1764,7 +1764,7 @@ namespace FineUI
                     GridRow row = new GridRow(this, null, i);
 
                     // row.Values
-                    row.Values = JSONUtil.StringArrayFromJArray(valuesArray[i].Value<JArray>()); // .getJArray(i));
+                    row.Values = JSONUtil.ObjectArrayFromJArray(valuesArray[i].Value<JArray>()); // .getJArray(i));
 
                     // row.DataKeys
                     row.DataKeys = JSONUtil.ObjectArrayFromJArray(dataKeysArray[i].Value<JArray>()); //.getJArray(i));
@@ -3186,6 +3186,8 @@ namespace FineUI
 
         #region DataBind
 
+        internal Dictionary<string, GridColumn> cellEditingDataKeyNameField = new Dictionary<string, GridColumn>();
+        
         /// <summary>
         /// 绑定到数据源
         /// </summary>
@@ -3203,6 +3205,28 @@ namespace FineUI
                 _databindInFineUIAjaxPostBack = true;
             }
 
+
+            // 如果允许单元格编辑，记录 DataKeyNames 对应的列序号，可能需要用列定义的FieldType
+            if (AllowCellEditing)
+            {
+                cellEditingDataKeyNameField.Clear();
+
+                List<string> dataKeyNames = new List<string>(DataKeyNames);
+                foreach (GridColumn field in AllColumns)
+                {
+                    if (field is RenderBaseField)
+                    {
+                        string dataField = (field as RenderBaseField).DataField;
+                        if (dataKeyNames.Contains(dataField))
+                        {
+                            if (!cellEditingDataKeyNameField.ContainsKey(dataField))
+                            {
+                                cellEditingDataKeyNameField.Add(dataField, field);
+                            }
+                        }
+                    }
+                }
+            }
 
             // 数据绑定之前要先清空 _dataKeys
             _dataKeys = null;
@@ -3432,25 +3456,25 @@ namespace FineUI
         }
 
 
-        private List<Dictionary<string, string>> _newAddedList;
+        private List<Dictionary<string, object>> _newAddedList;
 
         /// <summary>
         /// 获取新增的行数据
         /// </summary>
         /// <returns></returns>
-        public List<Dictionary<string, string>> GetNewAddedList()
+        public List<Dictionary<string, object>> GetNewAddedList()
         {
             return _newAddedList;
         }
 
 
-        private Dictionary<int, Dictionary<string, string>> _modifiedDict;
+        private Dictionary<int, Dictionary<string, object>> _modifiedDict;
 
         /// <summary>
         /// 获取用户修改的行数据
         /// </summary>
         /// <returns></returns>
-        public Dictionary<int, Dictionary<string, string>> GetModifiedDict()
+        public Dictionary<int, Dictionary<string, object>> GetModifiedDict()
         {
             return _modifiedDict;
         }
@@ -3527,8 +3551,8 @@ namespace FineUI
                 List<string> dataKeyNames = new List<string>(DataKeyNames);
 
                 // 根据用户的输入修改每个单元格的Values
-                _modifiedDict = new Dictionary<int, Dictionary<string, string>>();
-                _newAddedList = new List<Dictionary<string, string>>();
+                _modifiedDict = new Dictionary<int, Dictionary<string, object>>();
+                _newAddedList = new List<Dictionary<string, object>>();
                 _modifiedData = new JArray();
                 String editorDataStr = postCollection[ModifiedDataHiddenFieldID];
                 if (!String.IsNullOrEmpty(editorDataStr))
@@ -3542,26 +3566,26 @@ namespace FineUI
                         // 修改的数据在原始集合中的行索引，如果是新增行则为-1
                         int originalRowIndex = modifiedItem[1].ToObject<int>();
 
-
+                        
                         // 获取本行（Record）中所有修改的记录（Field），并保存到字典中（rowModifiedDic）
-                        Dictionary<string, string> rowModifiedDic = new Dictionary<string, string>();
+                        Dictionary<string, object> rowModifiedDic = new Dictionary<string, object>();
                         JObject rowModifiedData = modifiedItem[2].ToObject<JObject>();
                         foreach (JProperty propertyObj in rowModifiedData.Properties())
                         {
                             string columnID = propertyObj.Name;
-                            object cellValue = rowModifiedData.Value<object>(columnID);
+                            object cellValue = rowModifiedData.Value<JValue>(columnID).Value;
                             GridColumn column = FindColumn(columnID);
                             int columnIndex = column.ColumnIndex;
 
-                            string newCellValue = cellValue.ToString();
+                            //string newCellValue = cellValue.ToString();
 
-                            rowModifiedDic.Add(columnID, newCellValue);
+                            rowModifiedDic.Add(columnID, cellValue);
 
                             // 如果本行不是新增的，还需要更新行的Values属性
                             if (originalRowIndex >= 0)
                             {
                                 // 更新行的Values
-                                Rows[originalRowIndex].Values[columnIndex] = newCellValue;
+                                Rows[originalRowIndex].Values[columnIndex] = cellValue;
 
                                 // 更新行的DataKeys
                                 RenderBaseField renderField = column as RenderBaseField;
@@ -3570,7 +3594,7 @@ namespace FineUI
                                     int dataKeyIndex = dataKeyNames.IndexOf(renderField.DataField);
                                     if (dataKeyIndex >= 0)
                                     {
-                                        Rows[originalRowIndex].DataKeys[dataKeyIndex] = newCellValue;
+                                        Rows[originalRowIndex].DataKeys[dataKeyIndex] = cellValue;
                                     }
                                 }
                             }

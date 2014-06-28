@@ -50,7 +50,7 @@ namespace FineUI.Examples.grid
 
         #region Events
 
-        private DataRow CreateNewData(DataTable table, Dictionary<string, string> newAddedData)
+        private DataRow CreateNewData(DataTable table, Dictionary<string, object> newAddedData)
         {
             DataRow rowData = table.NewRow();
 
@@ -64,7 +64,7 @@ namespace FineUI.Examples.grid
         protected void Button2_Click(object sender, EventArgs e)
         {
             // 修改的现有数据
-            Dictionary<int, Dictionary<string, string>> modifiedDict = Grid1.GetModifiedDict();
+            Dictionary<int, Dictionary<string, object>> modifiedDict = Grid1.GetModifiedDict();
             foreach (int rowIndex in modifiedDict.Keys)
             {
                 int rowID = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
@@ -74,7 +74,7 @@ namespace FineUI.Examples.grid
             }
 
             // 新增数据
-            List<Dictionary<string, string>> newAddedList = Grid1.GetNewAddedList();
+            List<Dictionary<string, object>> newAddedList = Grid1.GetNewAddedList();
             DataTable table = GetSourceData();
             if (AppendToEnd)
             {
@@ -102,7 +102,7 @@ namespace FineUI.Examples.grid
         }
 
 
-        private static void UpdateDataRow(Dictionary<string, string> rowDict, DataRow rowData)
+        private static void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)
         {
             // 姓名
             if (rowDict.ContainsKey("Name"))
@@ -112,7 +112,7 @@ namespace FineUI.Examples.grid
             // 性别
             if (rowDict.ContainsKey("Gender"))
             {
-                rowData["Gender"] = Convert.ToInt32(rowDict["Gender"]);
+                rowData["Gender"] = rowDict["Gender"];
             }
             // 入学年份
             if (rowDict.ContainsKey("EntranceYear"))
@@ -127,7 +127,7 @@ namespace FineUI.Examples.grid
             // 是否在校
             if (rowDict.ContainsKey("AtSchool"))
             {
-                rowData["AtSchool"] = Convert.ToBoolean(rowDict["AtSchool"]);
+                rowData["AtSchool"] = rowDict["AtSchool"];
             }
             // 所学专业
             if (rowDict.ContainsKey("Major"))

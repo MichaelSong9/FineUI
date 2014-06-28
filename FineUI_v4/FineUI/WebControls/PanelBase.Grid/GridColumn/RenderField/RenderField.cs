@@ -227,9 +227,9 @@ namespace FineUI
 
         #region GetColumnValue
 
-        internal override string GetColumnValue(GridRow row)
+        internal override object GetColumnValue(GridRow row)
         {
-            string text = String.Empty;
+            object result = String.Empty;
 
             if (!String.IsNullOrEmpty(DataField))
             {
@@ -237,13 +237,21 @@ namespace FineUI
 
                 if (value == null)
                 {
-                    text = NullDisplayText;
+                    result = NullDisplayText;
                 }
                 else
                 {
                     if (FieldType == FieldType.Boolean)
                     {
-                        text = value.ToString().ToLower();
+                        result = Convert.ToBoolean(value);
+                    }
+                    else if (FieldType == FieldType.Int)
+                    {
+                        result = Convert.ToInt32(value);
+                    }
+                    else if (FieldType == FieldType.Float)
+                    {
+                        result = Convert.ToSingle(value);
                     }
                     else if (FieldType == FieldType.Date)
                     {
@@ -266,21 +274,21 @@ namespace FineUI
                         //    text = text.Substring(0, tIndex) + "T00:00:00";
                         //}
 
-                        text = date.ToString(RendererArgument);
+                        result = date.ToString(RendererArgument);
                     }
                     else
                     {
-                        text = value.ToString();
-                    }
+                        result = value.ToString();
 
-                    if (HtmlEncode)
-                    {
-                        text = HttpUtility.HtmlEncode(text);
+                        if (HtmlEncode)
+                        {
+                            result = HttpUtility.HtmlEncode(result.ToString());
+                        }
                     }
                 }
             }
 
-            return text;
+            return result;
         }
 
         #endregion

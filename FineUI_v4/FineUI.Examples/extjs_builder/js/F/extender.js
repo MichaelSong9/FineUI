@@ -194,15 +194,15 @@ if (Ext.form.field.Base) {
         },
 
         f_setLabel: function (text) {
-			/*
+            /*
             if (this.label && this.label.update) {
                 this.label.update(text || this.f_state['Label']);
             }
 			*/
-			var text = text || this.f_state['Label'];
-			if(this.setFieldLabel) {
-				this.setFieldLabel(text);
-			}
+            var text = text || this.f_state['Label'];
+            if (this.setFieldLabel) {
+                this.setFieldLabel(text);
+            }
         }
 
     });
@@ -465,7 +465,7 @@ if (Ext.grid.Panel) {
             Ext.Array.each(data, function (row, rowIndex) {
                 newdataitem = [];
                 Ext.Array.each(row, function (item, index) {
-                    if (item.substr(0, 7) === "#@TPL@#") {
+                    if (typeof (item) === 'string' && item.substr(0, 7) === "#@TPL@#") {
                         var clientId = $this.id + '_' + item.substr(7);
                         newdataitem.push('<div id="' + clientId + '_container">' + tplsHash[clientId] + '</div>');
                     } else {
@@ -854,7 +854,7 @@ if (Ext.grid.Panel) {
             }
 
         },
-        
+
 
         // 从Store中删除选中的行（或者单元格）
         f_deleteSelected: function () {
@@ -1072,7 +1072,7 @@ if (Ext.tree.Panel) {
                 // 18 - EnableCheckEvent
                 // 19 - EnableExpandEvent
                 // 20 - EnableCollapseEvent
-                
+
                 // 21 - Nodes
                 node.text = data[0];
                 node.leaf = !!data[1];
@@ -1462,7 +1462,7 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
         return date;
     }
 
-	var originalParse = Date.parse;
+    var originalParse = Date.parse;
     Date.parse = function (dateStr) {
         var date = originalParse(dateStr);
         if (isNaN(date)) {
@@ -1472,4 +1472,17 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
     }
 
 })();
+
+
+
+if (Ext.form.field.ComboBox) {
+    F.originalComboSetValue = Ext.form.field.ComboBox.prototype.setValue;
+    Ext.form.field.ComboBox.prototype.setValue = function (value, doSelect) {
+        // value可能是数字（可编辑单元格，列的FieldType可能是Int）
+        if (typeof (value) === 'number' || typeof (value) === 'boolean') {
+            value += '';
+        }
+        return F.originalComboSetValue.apply(this, [value, doSelect]);
+    };
+}
 

@@ -95,7 +95,7 @@ namespace FineUI
 
         #region GetColumnValue
 
-        internal override string GetColumnValue(GridRow row)
+        internal override object GetColumnValue(GridRow row)
         {
             GridRowControl control = row.TemplateContainers[ColumnIndex];
             

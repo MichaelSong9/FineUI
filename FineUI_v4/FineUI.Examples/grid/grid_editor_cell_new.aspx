@@ -37,7 +37,7 @@
                         </f:TextBox>
                     </Editor>
                 </f:RenderField>
-                <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="String"
+                <f:RenderField Width="100px" ColumnID="Gender" DataField="Gender" FieldType="Int"
                     RendererFunction="renderGender" HeaderText="性别">
                     <Editor>
                         <f:DropDownList Required="true" runat="server">
@@ -83,7 +83,7 @@
     <script>
 
         function renderGender(value) {
-            return value === '1' ? '男' : '女';
+            return value == 1 ? '男' : '女';
         }
 
 

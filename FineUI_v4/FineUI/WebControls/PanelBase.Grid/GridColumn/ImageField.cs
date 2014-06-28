@@ -144,7 +144,7 @@ namespace FineUI
 
         #region Methods
 
-        internal override string GetColumnValue(GridRow row)
+        internal override object GetColumnValue(GridRow row)
         {
             string result = String.Empty;
 
