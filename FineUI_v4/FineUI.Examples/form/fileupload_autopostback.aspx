@@ -22,7 +22,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px"  EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableCollapse="true"
             ShowBorder="True" Title="表单" ShowHeader="True">
             <Items>
                 <f:Image ID="imgPhoto" CssClass="photo" ImageUrl="~/res/images/blank.png" ShowEmptyLabel="true" runat="server">
@@ -39,11 +39,11 @@
                 <f:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" ValidateForms="SimpleForm1"
                     Text="提交表单">
                 </f:Button>
-                <f:Label ID="labResult" EncodeText="false" runat="server">
-                </f:Label>
             </Items>
         </f:SimpleForm>
-
+        <br />
+        <f:Label ID="labResult" EncodeText="false" runat="server">
+        </f:Label>
     </form>
 </body>
 </html>

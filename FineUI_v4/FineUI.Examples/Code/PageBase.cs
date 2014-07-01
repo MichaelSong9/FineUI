@@ -95,20 +95,31 @@ namespace FineUI.Examples
         #region 表格相关
 
         /// <summary>
-        /// 选中的行
+        /// 选中了哪些行
         /// </summary>
-        /// <param name="grid"></param>
-        /// <returns></returns>
+        /// <param name="grid">表格对象</param>
+        /// <returns>选中行的描述信息</returns>
         protected string HowManyRowsAreSelected(Grid grid)
+        {
+            return HowManyRowsAreSelected(grid, false);
+        }
+
+        /// <summary>
+        /// 选中了哪些行
+        /// </summary>
+        /// <param name="grid">表格对象</param>
+        /// <param name="rowNumberInDataSource">在表格数据源中计算序号（而不是在当前分页内计算序号）</param>
+        /// <returns>选中行的描述信息</returns>
+        protected string HowManyRowsAreSelected(Grid grid, bool rowNumberInDataSource)
         {
             StringBuilder sb = new StringBuilder();
             int selectedCount = grid.SelectedRowIndexArray.Length;
             if (selectedCount > 0)
             {
-                sb.AppendFormat("共选中了 {0} 行：", selectedCount);
+                sb.AppendFormat("<p><strong>共选中了 {0} 行：</strong></p>", selectedCount);
                 sb.Append("<table class=\"result\">");
 
-                sb.Append("<tr><th>行号</th>");
+                sb.Append("<tr><th>序号</th>");
                 foreach (string datakey in grid.DataKeyNames)
                 {
                     sb.AppendFormat("<th>{0}</th>", datakey);
@@ -121,7 +132,13 @@ namespace FineUI.Examples
                     int rowIndex = grid.SelectedRowIndexArray[i];
                     sb.Append("<tr>");
 
-                    sb.AppendFormat("<td>{0}</td>", rowIndex + 1);
+                    int rownumber = rowIndex + 1;
+                    if (rowNumberInDataSource && grid.AllowPaging)
+                    {
+                        rownumber += grid.PageIndex * grid.PageSize;
+                    }
+                    sb.AppendFormat("<td>{0}</td>", rownumber);
+
 
                     // 如果是内存分页，所有分页的数据都存在，rowIndex 就是在全部数据中的顺序，而不是当前页的顺序
                     if (grid.AllowPaging && !grid.IsDatabasePaging)

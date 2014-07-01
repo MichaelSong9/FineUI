@@ -33,6 +33,7 @@ namespace FineUI.Examples.form
             tbxUser.ShowRedStar = true;
             tbxUser.Required = true;
             tbxUser.CssClass = "marginr";
+            tbxUser.EmptyText = "请输入用户名";
             row.Items.Add(tbxUser);
 
 

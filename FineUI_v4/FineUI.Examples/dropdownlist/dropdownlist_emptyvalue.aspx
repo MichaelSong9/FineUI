@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px"  EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
                 <f:DropDownList runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"
@@ -32,10 +32,12 @@
                 </f:Button>
                 <f:Button ID="btnGetSelection" Text="获取此下拉列表的选中项" runat="server" OnClick="btnGetSelection_Click">
                 </f:Button>
-                <f:Label runat="server" ID="labResult">
-                </f:Label>
+
             </Items>
         </f:SimpleForm>
+        <br />
+        <f:Label runat="server" ID="labResult">
+        </f:Label>
         <br />
         注：“选项 6”的Value属性为空字符串。
    
