@@ -28,6 +28,7 @@ namespace FineUI.Examples.grid
             Grid1.DataSource = table;
             Grid1.DataBind();
 
+			Grid1.SelectedRowIndexArray = new int[] { 0, 1 };
         }
 
 

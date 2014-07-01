@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px"  EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableCollapse="true"
             Title="登录表单" ShowHeader="True">
             <Items>
                 <f:TextBox runat="server" Label="用户名" ID="tbxUseraName" Required="true">
@@ -22,11 +22,11 @@
                 </f:Button>
                 <f:Button ID="btnReset" runat="server" EnablePostBack="false" Text="重置">
                 </f:Button>
-                <f:Label ID="labResult" ShowLabel="false" runat="server">
-                </f:Label>
             </Items>
         </f:SimpleForm>
         <br />
+        <f:Label ID="labResult" ShowLabel="false" runat="server">
+        </f:Label>
     </form>
 </body>
 </html>

@@ -16,7 +16,6 @@
             <br />
             <asp:TextBox runat="server" Width="300px" ID="aspBox"></asp:TextBox>
             <br />
-            <br />
             <f:Button ID="Button1" runat="server" CssClass="marginr" Text="1. FineUI 按钮（AJAX）"
                 OnClick="Button1_Click">
             </f:Button>

@@ -25,6 +25,7 @@
                 </f:Toolbar>
             </Toolbars>
             <Columns>
+                <f:RowNumberField />
                 <f:TemplateField Width="60px">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
@@ -50,7 +51,7 @@
                     HeaderText="入学年份">
                     <Editor>
                         <f:NumberBox ID="tbxEditorEntranceYear" NoDecimal="true" NoNegative="true" MinValue="2000"
-                            MaxValue="2010" runat="server">
+                            MaxValue="2025" runat="server">
                         </f:NumberBox>
                     </Editor>
                 </f:RenderField>

@@ -38,7 +38,7 @@
                     HeaderText="入学年份">
                     <Editor>
                         <f:NumberBox ID="tbxEditorEntranceYear" NoDecimal="true" NoNegative="true" MinValue="2000"
-                            MaxValue="2010" runat="server">
+                            MaxValue="2025" runat="server">
                         </f:NumberBox>
                     </Editor>
                 </f:RenderField>

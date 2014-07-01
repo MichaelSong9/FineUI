@@ -38,10 +38,10 @@
                 </f:Button>
                 <f:Label ID="Label1" runat="server" Text="&nbsp;">
                 </f:Label>
-                <f:RadioButtonList ID="RadioButtonList4" Label="列表四（空列表）" ColumnNumber="3" ColumnVertical="true"
+                <f:RadioButtonList ID="RadioButtonList4" Label="列表四" ColumnNumber="3" ColumnVertical="true"
                     runat="server">
                 </f:RadioButtonList>
-                <f:Button ID="btnUpdateList4" CssClass="marginr" Text="更新列表四" OnClick="btnUpdateList4_Click"
+                <f:Button ID="btnUpdateList4" CssClass="marginr" Text="更新列表四（可反复操作）" OnClick="btnUpdateList4_Click"
                     runat="server">
                 </f:Button>
                 <f:Button ID="btnCheckedItemsList4" Text="获取列表四的选中项" OnClick="btnCheckedItemsList4_Click"

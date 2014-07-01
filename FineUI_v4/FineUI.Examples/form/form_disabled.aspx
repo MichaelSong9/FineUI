@@ -10,19 +10,19 @@
 <body>
     <form id="_form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form Width="600px" LabelWidth="100px" OffsetRight="10px" LabelSeparator="："
+        <f:Form Width="600px" LabelWidth="100px" LabelSeparator="："
             BodyPadding="5px" EnableCollapse="true" ID="Form1" runat="server" Title="表单">
             <Rows>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
+                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" CssClass="marginr" />
                         <f:Label ID="Label16" runat="server" Label="申请人" Text="admin">
                         </f:Label>
                     </Items>
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" />
+                        <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" CssClass="marginr" />
                         <f:TextBox ID="TextBox2" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL"
                             RegexMessage="请输入有效的邮箱地址！" runat="server">
                         </f:TextBox>
@@ -30,7 +30,8 @@
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:DropDownList ID="DropDownList3" Label="审批人" runat="server" ForceSelection="false" Required="true" ShowRedStar="True">
+                        <f:DropDownList ID="DropDownList3" Label="审批人" runat="server" CssClass="marginr"
+                            ForceSelection="false" Required="true" ShowRedStar="True">
                             <f:ListItem Text="老大甲" Value="0"></f:ListItem>
                             <f:ListItem Text="老大乙" Value="1"></f:ListItem>
                             <f:ListItem Text="老大丙" Value="2"></f:ListItem>
@@ -41,7 +42,7 @@
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:DatePicker runat="server" Required="true" Label="日期" EmptyText="请选择日期"
+                        <f:DatePicker runat="server" Required="true" Label="日期" EmptyText="请选择日期" CssClass="marginr"
                             ID="DatePicker1" SelectedDate="2014-07-10" ShowRedStar="True">
                         </f:DatePicker>
                         <f:TimePicker ID="TimePicker1" ShowRedStar="True" Label="时间" Increment="30"

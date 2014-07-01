@@ -32,6 +32,7 @@ namespace FineUI.Examples.form
             tbxUser.ShowLabel = true;
             tbxUser.ShowRedStar = true;
             tbxUser.Required = true;
+            tbxUser.CssClass = "marginr";
             row.Items.Add(tbxUser);
 
 

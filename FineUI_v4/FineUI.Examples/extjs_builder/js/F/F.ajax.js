@@ -294,13 +294,13 @@
                 // 选中单元格
                 saveInHiddenField('SelectedCell', cmp.f_getSelectedCell().join(','));
 
-                // 新增行
-                var newAddedRows = cmp.f_getNewAddedRows();
-                if (newAddedRows.length > 0) {
-                    saveInHiddenField('NewAddedRows', newAddedRows.join(','));
-                } else {
-                    removeHiddenField('NewAddedRows');
-                }
+                //// 新增行
+                //var newAddedRows = cmp.f_getNewAddedRows();
+                //if (newAddedRows.length > 0) {
+                //    saveInHiddenField('NewAddedRows', newAddedRows.join(','));
+                //} else {
+                //    removeHiddenField('NewAddedRows');
+                //}
 
                 // 修改的数据
                 var modifiedData = cmp.f_getModifiedData();

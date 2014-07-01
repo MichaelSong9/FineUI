@@ -896,17 +896,17 @@ if (Ext.grid.Panel) {
             });
         },
 
-        // 获取新增的行索引（在修改后的列表中）
-        f_getNewAddedRows: function () {
-            var $this = this;
-            var newAddedRows = [];
-            this.getStore().each(function (record, index) {
-                if (Ext.Array.indexOf($this.f_recordIDs, record.id) < 0) {
-                    newAddedRows.push(index);
-                }
-            });
-            return newAddedRows;
-        },
+        //// 获取新增的行索引（在修改后的列表中）
+        //f_getNewAddedRows: function () {
+        //    var $this = this;
+        //    var newAddedRows = [];
+        //    this.getStore().each(function (record, index) {
+        //        if (Ext.Array.indexOf($this.f_recordIDs, record.id) < 0) {
+        //            newAddedRows.push(index);
+        //        }
+        //    });
+        //    return newAddedRows;
+        //},
 
         // 获取删除的行索引（在原始的列表中）
         f_getDeletedRows: function () {

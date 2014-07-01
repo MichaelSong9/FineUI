@@ -1934,15 +1934,15 @@ namespace FineUI
             }
         }
 
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        private string NewAddedRowsHiddenFieldID
-        {
-            get
-            {
-                return String.Format("{0}_NewAddedRows", ClientID);
-            }
-        }
+        //[Browsable(false)]
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //private string NewAddedRowsHiddenFieldID
+        //{
+        //    get
+        //    {
+        //        return String.Format("{0}_NewAddedRows", ClientID);
+        //    }
+        //}
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -3528,25 +3528,24 @@ namespace FineUI
             }
 
 
-            // 删除的行索引列表
-            string paramDeletedRows = postCollection[DeletedRowsHiddenFieldID];
-            _deletedList = new List<int>();
-            if (!String.IsNullOrEmpty(paramDeletedRows))
-            {
-                _deletedList = StringUtil.GetIntListFromString(paramDeletedRows, true);
-            }
-
-
             // 启用单元格编辑
             if (AllowCellEditing)
             {
-                // 新增的行索引列表
-                string paramNewAddedRows = postCollection[NewAddedRowsHiddenFieldID];
-                List<int> newAddedRows = new List<int>();
-                if (!String.IsNullOrEmpty(paramNewAddedRows))
+                // 删除的行索引列表
+                string paramDeletedRows = postCollection[DeletedRowsHiddenFieldID];
+                _deletedList = new List<int>();
+                if (!String.IsNullOrEmpty(paramDeletedRows))
                 {
-                    newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
+                    _deletedList = StringUtil.GetIntListFromString(paramDeletedRows, true);
                 }
+
+                //// 新增的行索引列表
+                //string paramNewAddedRows = postCollection[NewAddedRowsHiddenFieldID];
+                //List<int> newAddedRows = new List<int>();
+                //if (!String.IsNullOrEmpty(paramNewAddedRows))
+                //{
+                //    newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
+                //}
 
                 List<string> dataKeyNames = new List<string>(DataKeyNames);
 

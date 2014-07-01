@@ -24,12 +24,12 @@
 <body>
     <form id="_form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px"  EnableCollapse="true"
+        <f:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px" EnableCollapse="true"
             runat="server" Title="表单">
             <Rows>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:Label ID="Label1" runat="server" Label="标签" Text="标签的值">
+                        <f:Label ID="Label1" runat="server" Label="标签" Text="标签的值" CssClass="marginr">
                         </f:Label>
                         <f:CheckBox ID="CheckBox1" runat="server" Text="复选框" Label="复选框" CssClass="redcolor">
                         </f:CheckBox>
@@ -37,7 +37,7 @@
                 </f:FormRow>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True">
+                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" CssClass="marginr" Required="true" ShowRedStar="True">
                             <f:ListItem Selected="true" Text="可选项 1" Value="0"></f:ListItem>
                             <f:ListItem Text="可选项 2" Value="1"></f:ListItem>
                         </f:DropDownList>

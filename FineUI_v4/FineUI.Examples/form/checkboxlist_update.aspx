@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" Width="700px" runat="server" LabelWidth="120px"  EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" Width="700px" runat="server" LabelWidth="120px" EnableCollapse="true"
             BodyPadding="5px" ShowBorder="True" ShowHeader="True"
             Title="简单表单">
             <Items>
@@ -38,10 +38,10 @@
                 </f:Button>
                 <f:Label ID="Label1" runat="server" Text="&nbsp;">
                 </f:Label>
-                <f:CheckBoxList ID="CheckBoxList4" Label="列表四（空列表）" ColumnNumber="3" ColumnVertical="false"
+                <f:CheckBoxList ID="CheckBoxList4" Label="列表四" ColumnNumber="3" ColumnVertical="false"
                     runat="server">
                 </f:CheckBoxList>
-                <f:Button ID="btnUpdateList4" CssClass="marginr" Text="更新列表四" OnClick="btnUpdateList4_Click"
+                <f:Button ID="btnUpdateList4" CssClass="marginr" Text="更新列表四（可反复操作）" OnClick="btnUpdateList4_Click"
                     runat="server">
                 </f:Button>
                 <f:Button ID="btnCheckedItemsList4" Text="获取列表四的选中项" OnClick="btnCheckedItemsList4_Click"
@@ -50,7 +50,7 @@
             </Items>
         </f:SimpleForm>
         <br />
-		<br />
+        <br />
         <f:CheckBoxList ID="CheckBoxList3" Width="700px" Label="列表三" ColumnNumber="3" ColumnVertical="false"
             runat="server">
             <f:CheckItem Text="可选项 1" Value="value1" />
@@ -62,7 +62,7 @@
             <f:CheckItem Text="可选项 7" Value="value7" Selected="true" />
             <f:CheckItem Text="可选项 8" Value="value8" />
         </f:CheckBoxList>
-		<br />
+        <br />
         <f:Button ID="btnUpdateList3" CssClass="marginr" Text="更新列表三" OnClick="btnUpdateList3_Click"
             runat="server">
         </f:Button>

@@ -19,8 +19,8 @@ namespace FineUI.Examples.grid
                 btnDelete.OnClientClick = Grid1.GetNoSelectionAlertReference("请至少选择一项！");
                 btnDelete.ConfirmText = String.Format("你确定要删除第&nbsp;<b><script>({0}[0]+1)</script></b>&nbsp;行数据吗？", Grid1.GetSelectedCellReference());
 
-                // 重置表格
-                btnReset.OnClientClick = Grid1.GetRejectChangesReference();
+                //// 重置表格
+                //btnReset.OnClientClick = Grid1.GetRejectChangesReference();
 
                 BindGrid();
             }

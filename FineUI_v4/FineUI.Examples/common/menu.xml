@@ -326,7 +326,7 @@
       </TreeNode>
       <TreeNode Text="单元格编辑（后台绑定下拉列表）" NavigateUrl="~/grid/grid_editor_cell_databind.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（删除行）" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
+      <TreeNode Text="单元格编辑（服务器端删除行）" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
       </TreeNode>
       <TreeNode Text="单元格编辑（新增行）" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
       </TreeNode>

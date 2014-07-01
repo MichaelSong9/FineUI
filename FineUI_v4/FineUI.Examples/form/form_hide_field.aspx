@@ -19,20 +19,20 @@
             <Rows>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="labTitle" Label="标题" HideMode="Display" Text="申请单" runat="server" />
+                        <f:Label ID="labTitle" Label="标题" HideMode="Display" Text="申请单" CssClass="marginr" runat="server" />
                         <f:Label ID="labLiuShuiHao" Label="流水号" HideMode="Visibility" Text="123456789" runat="server" />
                     </Items>
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
+                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" CssClass="marginr" runat="server" />
                         <f:Label ID="Label16" runat="server" Label="申请人" Text="admin">
                         </f:Label>
                     </Items>
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" />
+                        <f:Label ID="Label4" Label="编号" Text="200804170006" CssClass="marginr" runat="server" />
                         <f:TextBox ID="TextBox2" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL"
                             RegexMessage="请输入有效的邮箱地址！" runat="server">
                         </f:TextBox>

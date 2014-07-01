@@ -18,7 +18,7 @@
             <Rows>
                 <f:FormRow ColumnWidths="50% 50%">
                     <Items>
-                        <f:Label ID="Label1" runat="server" Label="标签" Text="标签的值">
+                        <f:Label ID="Label1" runat="server" Label="标签" Text="标签的值" CssClass="marginr">
                         </f:Label>
                         <f:CheckBox ID="CheckBox1" runat="server" Text="复选框" Label="复选框" CssClass="redcolor">
                         </f:CheckBox>
@@ -26,7 +26,7 @@
                 </f:FormRow>
                 <f:FormRow ColumnWidths="50% 50%">
                     <Items>
-                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表">
+                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" CssClass="marginr">
                             <f:ListItem Text="可选项 1" Value="0" Selected="true"></f:ListItem>
                             <f:ListItem Text="可选项 2" Value="1"></f:ListItem>
                         </f:DropDownList>
@@ -55,14 +55,14 @@
             <Rows>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
+                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" CssClass="marginr" />
                         <f:Label ID="Label16" runat="server" Label="申请人" Text="admin">
                         </f:Label>
                     </Items>
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" />
+                        <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" CssClass="marginr" />
                         <f:TextBox ID="TextBox2" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL"
                             RegexMessage="请输入有效的邮箱地址！" runat="server">
                         </f:TextBox>

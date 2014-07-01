@@ -18,10 +18,6 @@
                     <Items>
                         <f:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
                         </f:Button>
-                        <f:ToolbarFill runat="server">
-                        </f:ToolbarFill>
-                        <f:Button ID="btnReset" Text="重置表格数据" EnablePostBack="false" runat="server">
-                        </f:Button>
                     </Items>
                 </f:Toolbar>
             </Toolbars>
@@ -51,7 +47,7 @@
                     HeaderText="入学年份">
                     <Editor>
                         <f:NumberBox ID="tbxEditorEntranceYear" NoDecimal="true" NoNegative="true" MinValue="2000"
-                            MaxValue="2010" runat="server">
+                            MaxValue="2025" runat="server">
                         </f:NumberBox>
                     </Editor>
                 </f:RenderField>
