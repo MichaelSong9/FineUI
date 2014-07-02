@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" Width="700px" runat="server" LabelWidth="160px"  EnableCollapse="true"
-             BodyPadding="5px" ShowBorder="True" ShowHeader="True"
+        <f:SimpleForm ID="SimpleForm1" Width="700px" runat="server" LabelWidth="160px" EnableCollapse="true"
+            BodyPadding="5px" ShowBorder="True" ShowHeader="True"
             Title="简单表单">
             <Items>
                 <f:CheckBoxList ID="CheckBoxList1" Label="列表一" runat="server">
@@ -57,10 +57,9 @@
                     <f:CheckItem Text="可选项 7" Value="value7" />
                     <f:CheckItem Text="可选项 8" Value="value8" />
                 </f:CheckBoxList>
-
             </Items>
             <Toolbars>
-                <f:Toolbar Position="Footer" ToolbarAlign="Right" runat="server">
+                <f:Toolbar Position="Bottom" ToolbarAlign="Right" runat="server">
                     <Items>
                         <f:Button runat="server" ID="btnSubmit" ValidateForms="SimpleForm1" Text="提交表单"
                             OnClick="btnSubmit_Click">

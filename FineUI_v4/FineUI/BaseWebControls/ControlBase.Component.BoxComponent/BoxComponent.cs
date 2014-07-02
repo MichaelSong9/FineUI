@@ -351,24 +351,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 外边距
-        /// </summary>
-        [Category(CategoryName.LAYOUT)]
-        [DefaultValue("")]
-        [Description("外边距")]
-        [Obsolete("已废除，请使用Margin属性")]
-        public string BoxMargin
-        {
-            get
-            {
-                return Margin;
-            }
-            set
-            {
-                Margin = value;
-            }
-        }
+        ///// <summary>
+        ///// 外边距
+        ///// </summary>
+        //[Category(CategoryName.LAYOUT)]
+        //[DefaultValue("")]
+        //[Description("外边距")]
+        //[Obsolete("已废除，请使用Margin属性")]
+        //public string BoxMargin
+        //{
+        //    get
+        //    {
+        //        return Margin;
+        //    }
+        //    set
+        //    {
+        //        Margin = value;
+        //    }
+        //}
 
 
         /// <summary>

@@ -42,6 +42,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-更新示例iframe/passvalue_iframe.aspx，增加父窗口向子窗口传值。
 	-GroupPanel的默认布局由Container改为Anchor。
 	-修正输出页面的X-UA-Compatible标签错误（zjfeiye）。
+	-将icon目录移到res目录内部。
 	+表单增强。
 		+Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
 			-更新示例form/form.aspx,form/form_dynamic.aspx,form/layout_panel.aspx,form/form_reset.aspx。
@@ -70,8 +71,11 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-Grid的GetModifiedDict函数返回类型更改为Dictionary<int, Dictionary<string, object>>。
 		+比如入学年份列标签定义了DataField=EntranceYear，FieldType=Int，那么后台拿到修改值就是整形值，无需再做转换。
 			-rowData["AtSchool"]=Convert.ToBoolean(rowDict["AtSchool"]);可以更改为：rowData["AtSchool"]=rowDict["AtSchool"];
-		
-
+	+删除无效或者重复的属性。
+		-删除TabStrip的属性EnableTitleBackgroundColor、EnableDeferredRender。
+		-删除Window的属性Plain。
+		-删除ToolbarPosition的枚举类型Footer、Buttons，这两个都用Bottom枚举类型代替。
+		-删除Region上的Margins属性，删除BoxComponent上的BoxMargin属性，这两个都可以使用Margin属性代替。
 
 		
 

@@ -39,7 +39,7 @@
                 </f:Form>
             </Items>
             <Toolbars>
-                <f:Toolbar runat="server" ToolbarAlign="Right" Position="Footer">
+                <f:Toolbar runat="server" ToolbarAlign="Right" Position="Bottom">
                     <Items>
                         <f:Button ID="Button1" Text="发送" ValidateForms="Form1" runat="server">
                         </f:Button>

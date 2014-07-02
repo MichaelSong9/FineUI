@@ -8,7 +8,7 @@
     <style type="text/css">
         .highlight,
         .highlight span,
-		.highlight .x-form-item-label {
+        .highlight .x-form-item-label {
             color: red;
         }
     </style>
@@ -16,8 +16,8 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" ShowBorder="true" TabPosition="Top" 
-            EnableTabCloseMenu="false" EnableTitleBackgroundColor="true" ActiveTabIndex="0"
+        <f:TabStrip ID="TabStrip1" Width="850px" Height="350px" ShowBorder="true" TabPosition="Top"
+            EnableTabCloseMenu="false" ActiveTabIndex="0"
             runat="server">
             <Tabs>
                 <f:Tab Title="标签一" BodyPadding="5px" Layout="Fit"

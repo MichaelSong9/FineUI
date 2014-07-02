@@ -4,11 +4,9 @@
     <TreeNode Text="配置信息">
       <TreeNode Text="发布历史" NavigateUrl="http://fineui.com/version/index.html?from=demo">
       </TreeNode>
-      <TreeNode Text="版本发布周期" NavigateUrl="~/config/release_time_chart.htm" >
-      </TreeNode>
       <TreeNode Text="配置 Web.config" NavigateUrl="~/config/modify_webconfig.htm" >
       </TreeNode>
-      <TreeNode Text="内置图标" NavigateUrl="~/config/icons.htm" >
+      <TreeNode Text="图标列表" NavigateUrl="~/config/icons.htm" >
       </TreeNode>
       <TreeNode Text="安装工具箱" NavigateUrl="~/config/install_toolbox.htm" >
       </TreeNode>

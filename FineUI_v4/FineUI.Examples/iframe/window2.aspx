@@ -17,7 +17,7 @@
         <f:Window ID="Window1" Hidden="true" EnableIFrame="true" runat="server" EnableConfirmOnClose="true"
             EnableMaximize="true" EnableResize="true" Height="450px" Width="800px" Title="窗体一">
             <Toolbars>
-                <f:Toolbar ID="Toolbar1" runat="server" Position="Footer" ToolbarAlign="Right">
+                <f:Toolbar ID="Toolbar1" runat="server" Position="Bottom" ToolbarAlign="Right">
                     <Items>
                         <f:Button ID="btnClosePostBack" Text="保存" Icon="SystemSave" EnablePostBack="false"
                             runat="server">

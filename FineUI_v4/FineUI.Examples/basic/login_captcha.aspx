@@ -41,7 +41,7 @@
                 </f:SimpleForm>
             </Items>
             <Toolbars>
-                <f:Toolbar ID="Toolbar1" runat="server" ToolbarAlign="Right" Position="Footer">
+                <f:Toolbar ID="Toolbar1" runat="server" ToolbarAlign="Right" Position="Bottom">
                     <Items>
                         <f:Button ID="btnLogin" Text="登录" Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
                             runat="server" OnClick="btnLogin_Click">

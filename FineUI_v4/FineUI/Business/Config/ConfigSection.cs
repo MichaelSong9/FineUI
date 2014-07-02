@@ -308,16 +308,16 @@ namespace FineUI
         /// <summary>
         /// 是否启用FState压缩（默认为true）
         /// </summary>
-        [ConfigurationProperty(ConfigPropertyName.ENABLEXSTATECOMPRESS, DefaultValue = ConfigPropertyValue.ENABLE_XSTATE_COMPRESS)]
+        [ConfigurationProperty(ConfigPropertyName.ENABLEFSTATECOMPRESS, DefaultValue = ConfigPropertyValue.ENABLE_FSTATE_COMPRESS)]
         public bool EnableFStateCompress
         {
             get
             {
-                return (bool)base[ConfigPropertyName.ENABLEXSTATECOMPRESS];
+                return (bool)base[ConfigPropertyName.ENABLEFSTATECOMPRESS];
             }
             set
             {
-                base[ConfigPropertyName.ENABLEXSTATECOMPRESS] = value;
+                base[ConfigPropertyName.ENABLEFSTATECOMPRESS] = value;
             }
         }
 

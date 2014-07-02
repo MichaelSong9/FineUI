@@ -58,10 +58,9 @@
                     <f:RadioItem Text="可选项 7" Value="value7" />
                     <f:RadioItem Text="可选项 8" Value="value8" />
                 </f:RadioButtonList>
-
             </Items>
             <Toolbars>
-                <f:Toolbar ID="Toolbar1" Position="Footer" runat="server" ToolbarAlign="Right">
+                <f:Toolbar ID="Toolbar1" Position="Bottom" runat="server" ToolbarAlign="Right">
                     <Items>
                         <f:Button runat="server" ID="btnSubmit" ValidateForms="SimpleForm1" Text="提交表单" OnClick="btnSubmit_Click">
                         </f:Button>

@@ -184,24 +184,24 @@ namespace FineUI
             }
         }
 
-        /// <summary>
-        /// 显示标题的背景颜色
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("显示标题的背景颜色")]
-        public bool EnableTitleBackgroundColor
-        {
-            get
-            {
-                object obj = FState["EnableTitleBackgroundColor"];
-                return obj == null ? true : (bool)obj;
-            }
-            set
-            {
-                FState["EnableTitleBackgroundColor"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 显示标题的背景颜色
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(true)]
+        //[Description("显示标题的背景颜色")]
+        //public bool EnableTitleBackgroundColor
+        //{
+        //    get
+        //    {
+        //        object obj = FState["EnableTitleBackgroundColor"];
+        //        return obj == null ? true : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["EnableTitleBackgroundColor"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 是否启用右键菜单（可用来关闭当前Tab和所有其他Tab）
@@ -263,24 +263,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 是否启用延迟加载选项卡
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否启用延迟加载选项卡")]
-        public bool EnableDeferredRender
-        {
-            get
-            {
-                object obj = FState["EnableDeferredRender"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableDeferredRender"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否启用延迟加载选项卡
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否启用延迟加载选项卡")]
+        //public bool EnableDeferredRender
+        //{
+        //    get
+        //    {
+        //        object obj = FState["EnableDeferredRender"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["EnableDeferredRender"] = value;
+        //    }
+        //}
 
 
 
@@ -525,16 +525,17 @@ namespace FineUI
 
             //OB.AddProperty(OptionName.TabMargin, TabMargin.Value);
             OB.AddProperty("tabPosition", TabPositionHelper.GetName(TabPosition));
-            //if (Plain) OB.AddProperty(OptionName.Plain, Plain);
-            if (!EnableTitleBackgroundColor)
-            {
-                OB.AddProperty("plain", true);
-            }
+            
+
+            //if (!EnableTitleBackgroundColor)
+            //{
+            //    OB.AddProperty("plain", true);
+            //}
 
 
             // 去掉deferredRender=true，渲染速度会提高200ms左右
             // 每个Tab是否只在第一次访问时渲染，false表示全部渲染，否则没有访问的Tab的内容渲染的位置不正确。
-            OB.AddProperty("deferredRender", EnableDeferredRender);
+            //OB.AddProperty("deferredRender", EnableDeferredRender);
 
             //OB.AddProperty("bufferResize", true);
 

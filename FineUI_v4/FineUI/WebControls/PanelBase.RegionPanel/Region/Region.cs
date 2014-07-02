@@ -166,24 +166,24 @@ namespace FineUI
         //}
 
 
-        /// <summary>
-        /// 外边距
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue("")]
-        [Description("外边距")]
-        [Obsolete("已废除，请使用Margin属性")]
-        public string Margins
-        {
-            get
-            {
-                return Margin;
-            }
-            set
-            {
-                Margin = value;
-            }
-        }
+        ///// <summary>
+        ///// 外边距
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue("")]
+        //[Description("外边距")]
+        //[Obsolete("已废除，请使用Margin属性")]
+        //public string Margins
+        //{
+        //    get
+        //    {
+        //        return Margin;
+        //    }
+        //    set
+        //    {
+        //        Margin = value;
+        //    }
+        //}
 
         ///// <summary>
         ///// 折叠后的边距

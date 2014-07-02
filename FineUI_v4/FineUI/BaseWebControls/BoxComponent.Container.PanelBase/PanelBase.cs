@@ -916,16 +916,16 @@ namespace FineUI
                 // 如果是页面第一次加载 + 此Panel在Tab中 + 此Tab不是当前激活Tab + 此Tab的TabStrip启用了延迟加载
                 // 那么在页面加载完毕后，把此Panel给隐藏掉，等此Panel渲染到页面中时再显示出来
 
-                Tab tab = ControlUtil.FindParentControl(this, typeof(Tab)) as Tab;
-                if (tab != null)
-                {
-                    TabStrip tabStrip = tab.Parent as TabStrip;
-                    if (tabStrip.EnableDeferredRender && tabStrip.Tabs[tabStrip.ActiveTabIndex] != tab)
-                    {
-                        // 页面第一次加载时，在显示（控件的render事件）之前要先隐藏
-                        AddStartupAbsoluteScript(String.Format("Ext.get('{0}').setStyle('display','none');", ContentID));
-                    }
-                }
+                //Tab tab = ControlUtil.FindParentControl(this, typeof(Tab)) as Tab;
+                //if (tab != null)
+                //{
+                //    TabStrip tabStrip = tab.Parent as TabStrip;
+                //    if (tabStrip.EnableDeferredRender && tabStrip.Tabs[tabStrip.ActiveTabIndex] != tab)
+                //    {
+                //        // 页面第一次加载时，在显示（控件的render事件）之前要先隐藏
+                //        AddStartupAbsoluteScript(String.Format("Ext.get('{0}').setStyle('display','none');", ContentID));
+                //    }
+                //}
 
             }
 

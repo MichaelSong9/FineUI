@@ -11,8 +11,8 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Window ID="Window2" Width="650px" Height="300px" Icon="TagBlue" Title="窗体" Hidden="false"
-            EnableCollapse="true" runat="server" EnableResize="true" BodyPadding="5px" 
-            Plain="false" IsModal="false">
+            EnableCollapse="true" runat="server" EnableResize="true" BodyPadding="5px"
+            IsModal="false">
             <Items>
                 <f:Label runat="server" Text="这是窗体的内容" ID="labWindowContent">
                 </f:Label>
@@ -32,7 +32,7 @@
                         </f:Button>
                     </Items>
                 </f:Toolbar>
-                <f:Toolbar runat="server" Position="Footer" ToolbarAlign="Right">
+                <f:Toolbar runat="server" Position="Bottom" ToolbarAlign="Right">
                     <Items>
                         <f:Button ID="btnChangeContent" runat="server" OnClick="btnChangeContent_Click" Text="改变窗体内容">
                         </f:Button>

@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
     <f:PageManager ID="PageManager1" runat="server" />
     <f:TabStrip ID="TabStrip1" Width="850px" Height="450px" ShowBorder="true" ActiveTabIndex="0"
-        runat="server" EnableTitleBackgroundColor="False">
+        runat="server">
         <Tabs>
             <f:Tab ID="Tab1" Title="标签一" runat="server" EnableIFrame="true" IFrameUrl="./tabstrip_iframe_disabled_tab1.aspx">
             </f:Tab>

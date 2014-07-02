@@ -59,7 +59,7 @@ namespace FineUI
         public const string JSBASEPATH = "JSBasePath";
         public const string CUSTOMTHEMEBASEPATH = "CustomThemeBasePath";
         public const string CUSTOMTHEME = "CustomTheme";
-        public const string ENABLEXSTATECOMPRESS = "EnableFStateCompress";
+        public const string ENABLEFSTATECOMPRESS = "EnableFStateCompress";
         public const string IEEDGE = "IEEdge";
     }
 
@@ -82,7 +82,7 @@ namespace FineUI
 
         public const string FORM_LABELSEPARATOR_DEFAULT = "：";
 
-        public const string THEME_DEFAULT = "neptune";
+        public const string THEME_DEFAULT = "Neptune";
 
         public const string LANGUAGE_DEFAULT = "zh_CN";
         public const string LANGUAGE_EN = "en";
@@ -94,30 +94,30 @@ namespace FineUI
 
 
         // Ajax 超时时间（单位：秒）
-        public const int AJAX_TIMEOUT_DEFAULT = 60;
+        public const int AJAX_TIMEOUT_DEFAULT = 120;
 
         // 是否启用 Ajax
         public const bool ENABLE_AJAX_DEFAULT = true;
 
         public const bool ENABLE_AJAX_LOADING_DEFAULT = true;
 
-        public const string AJAX_LOADING_TYPE_DEFAULT = "default";
-        public const string AJAX_LOADING_TYPE_MASK = "mask";
+        public const string AJAX_LOADING_TYPE_DEFAULT = "Default";
+        public const string AJAX_LOADING_TYPE_MASK = "Mask";
 
         // 是否启用开发者模式（引入 JS 的非压缩版本，以及页面 JS 的格式化输出）
         public const bool DEBUG_MODE_DEFAULT = false;
 
 
-        public const string ICON_BASE_PATH_DEFAULT = "~/icon";
+        public const string ICON_BASE_PATH_DEFAULT = "~/res/icon";
 
         public const string JS_BASE_PATH_DEFAULT = "~/extjs";
 
-        public const string CUSTOM_THEME_BASE_PATH_DEFAULT = "~/theme";
+        public const string CUSTOM_THEME_BASE_PATH_DEFAULT = "~/res/theme";
 
         public const string CUSTOM_THEME_DEFAULT = "";
 
 
-        public const bool ENABLE_XSTATE_COMPRESS = true;
+        public const bool ENABLE_FSTATE_COMPRESS = false;
     }
 
 
