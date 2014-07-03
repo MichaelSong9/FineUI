@@ -14,7 +14,7 @@
             AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
             DataKeyNames="Id" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange">
             <Columns>
-                <f:RowNumberField EnablePagingNumber="true" Width="30px" />
+                <f:RowNumberField EnablePagingNumber="true" Width="100px" />
                 <f:BoundField Width="150px" DataField="Id" HeaderText="ID" />
                 <f:BoundField ExpandUnusedSpace="true" DataField="EntranceTime" HeaderText="时间" />
             </Columns>

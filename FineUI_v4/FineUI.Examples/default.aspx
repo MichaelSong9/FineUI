@@ -22,7 +22,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <a class="logo" href="http://fineui.com/pro/" title="FineUI首页">
+                                        <a class="logo" href="http://fineui.com/" title="FineUI首页">
                                             <img src="./res/images/logo/logo2.gif" alt="FineUI Logo" />
                                         </a>
                                     </td>
@@ -31,6 +31,11 @@
                                     </td>
                                 </tr>
                             </table>
+                            <div class="themeroller">
+                                <a href="http://fineui.com/demo_pro" target="_blank" title="转到专业版示例">
+                                    <img src="./res/images/demo_pro.png" alt="FineUI（专业版）" />
+                                </a>
+                            </div>
                         </div>
                     </Content>
                 </f:Region>
@@ -40,7 +45,7 @@
                 <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" ShowBorder="true" Position="Center"
                     runat="server">
                     <Items>
-                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true"  ShowBorder="false" runat="server">
+                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" ShowBorder="false" runat="server">
                             <Tabs>
                                 <f:Tab Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
                                     <Toolbars>

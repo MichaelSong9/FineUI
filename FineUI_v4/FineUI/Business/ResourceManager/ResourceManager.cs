@@ -495,7 +495,7 @@ namespace FineUI
 
             #endregion
 
-            string checkScript = "if(typeof(Ext)==='undefined'){alert('ERROR: extjs folder is lost!');window.location.href='http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218';}";
+            string checkScript = "if(typeof(Ext)==='undefined'){if(confirm('ERROR: extjs folder is lost, download it now?')){window.location.href='http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218';}}";
 
             return checkScript + contentScript;
         }

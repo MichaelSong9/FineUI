@@ -116,8 +116,6 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正Alert对话框与ActiveWindow.GetHidePostBackReference冲突的问题（wlj928449657）。
 
 
-	
-
 
 +2014-03-03 v4.0.5
 	-修正表格在AJAX更新时加载慢的问题。

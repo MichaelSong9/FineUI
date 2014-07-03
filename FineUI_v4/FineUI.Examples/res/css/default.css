@@ -22,6 +22,15 @@
     }
 
 
+    #header .themeroller {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+        #header .themeroller img {
+            width: 100px;
+        }
 
 
 
@@ -31,36 +40,36 @@
     border-bottom: 1px solid #1E95EC;
 }
 
-.f-theme-neptune #header .title a {
-    color: #fff;
-}
+    .f-theme-neptune #header .title a {
+        color: #fff;
+    }
 
 .f-theme-blue #header {
     background-color: #004BA8;
     border-bottom: 1px solid #034699;
 }
 
-.f-theme-blue #header .title a {
-    color: #fff;
-}
+    .f-theme-blue #header .title a {
+        color: #fff;
+    }
 
 .f-theme-gray #header {
     background-color: #d3d3d3;
     border-bottom: 1px solid #bab9b9;
 }
 
-.f-theme-gray #header .title a {
-    color: #333;
-}
+    .f-theme-gray #header .title a {
+        color: #333;
+    }
 
 .f-theme-access #header {
     background-color: #343b48;
     border-bottom: 1px solid #1f232b;
 }
 
-.f-theme-access #header .title a {
-    color: #fff;
-}
+    .f-theme-access #header .title a {
+        color: #fff;
+    }
 
 
 
@@ -70,16 +79,14 @@
 
 
 
-.htoolbar
-{
+.htoolbar {
     background-image: url("../images/logo/logo2.gif");
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 
-#logo
-{
+#logo {
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -91,12 +98,10 @@
 
 
 .maincontent .x-panel-body {
-    
     background-image: url(../images/square.gif);
 }
 
 
 .f-theme-access .maincontent .x-panel-body {
-    
     background-image: none;
 }

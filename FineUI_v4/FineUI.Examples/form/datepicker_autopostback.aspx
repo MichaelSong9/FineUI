@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px"  EnableCollapse="true"
+        <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableCollapse="true"
             Title="简单表单（AutoPostBack）" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" AutoPostBack="true" OnTextChanged="DatePicker1_TextChanged"
@@ -23,12 +23,14 @@
                 <f:Button ID="Button1" runat="server" ValidateForms="SimpleForm1" Text="提交表单"
                     OnClick="Button1_Click">
                 </f:Button>
-                <f:Label ID="labResult" ShowLabel="false" runat="server">
-                </f:Label>
+
             </Items>
         </f:SimpleForm>
         <br />
-        <f:SimpleForm ID="SimpleForm2" BodyPadding="5px" Width="550px"  EnableCollapse="true"
+        <f:Label ID="labResult" ShowLabel="false" runat="server">
+        </f:Label>
+        <br />
+        <f:SimpleForm ID="SimpleForm2" BodyPadding="5px" Width="550px" EnableCollapse="true"
             Title="简单表单（EnableDateSelectEvent）" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" EnableDateSelectEvent="true" OnDateSelect="DatePicker3_DateSelect"
@@ -40,12 +42,14 @@
                 </f:DatePicker>
                 <f:Button ID="Button2" runat="server" ValidateForms="SimpleForm1" Text="提交表单" OnClick="Button2_Click">
                 </f:Button>
-                <f:Label ID="labResult2" ShowLabel="false" runat="server">
-                </f:Label>
+
             </Items>
         </f:SimpleForm>
         <br />
-        <f:SimpleForm ID="SimpleForm3" BodyPadding="5px" Width="550px"  EnableCollapse="true"
+        <f:Label ID="labResult2" ShowLabel="false" runat="server">
+        </f:Label>
+        <br />
+        <%--<f:SimpleForm ID="SimpleForm3" BodyPadding="5px" Width="550px"  EnableCollapse="true"
             Title="简单表单（EnableDateSelectEvent）" runat="server">
             <Items>
                 <f:DatePicker runat="server" Required="true" EnableBlurEvent="true" OnBlur="DatePicker5_Blur"
@@ -62,7 +66,7 @@
             </Items>
         </f:SimpleForm>
         <br />
-        注意：DatePicker的TextChanged事件（启用AutoPostBack），与DateSelect事件（启用EnableDateSelectEvent）的效果是一样的。
+        注意：DatePicker的TextChanged事件（启用AutoPostBack），与DateSelect事件（启用EnableDateSelectEvent）的效果是一样的。--%>
     </form>
 </body>
 </html>
