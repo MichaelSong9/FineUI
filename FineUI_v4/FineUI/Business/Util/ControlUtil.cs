@@ -107,6 +107,54 @@ namespace FineUI
         #region FindControl
 
         /// <summary>
+        /// 查找父层次结构中是否存在用户控件
+        /// </summary>
+        /// <param name="ctrl">当前控件</param>
+        /// <returns>父层次中的用户控件</returns>
+        public static UserControl FindParentUserControl(Control ctrl)
+        {
+            Control found = FindParentControl(ctrl, typeof(UserControl), true);
+            if (found != null)
+            {
+                return found as UserControl;
+            }
+            else
+            {
+                return null;
+            }
+            /*
+            while (ctrl != null && !(ctrl is UserControl))
+            {
+                ctrl = ctrl.Parent;
+            }
+            if (ctrl != null)
+            {
+                return ctrl as UserControl;
+            }
+            return null;
+             * */
+        }
+
+        // 在当前 ctrl 所在的用户控件中查找，如果找不到则在页面中查找
+        internal static Control FindControlInUserControlOrPage(Control ctrl, string findControlID)
+        {
+            Control found = null;
+
+            UserControl parentUserControl = FindParentUserControl(ctrl);
+            if (parentUserControl != null)
+            {
+                found = FindControl(parentUserControl, findControlID);
+            }
+
+            if (found == null)
+            {
+                found = FindControl(findControlID);
+            }
+
+            return found;
+        }
+
+        /// <summary>
         /// 根据控件ID查找控件
         /// </summary>
         /// <param name="findControlID">要查找的控件ID</param>
@@ -121,6 +169,8 @@ namespace FineUI
 
             return null;
         }
+
+        
 
         /// <summary>
         /// 根据控件类型查找控件

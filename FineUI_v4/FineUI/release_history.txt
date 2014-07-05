@@ -41,7 +41,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-为ControlBase的GetPostBackEventReference增加重置函数，指定是否返回启用AJAX的脚本。
 	-更新示例iframe/passvalue_iframe.aspx，增加父窗口向子窗口传值。
 	-GroupPanel的默认布局由Container改为Anchor。
-	-修正输出页面的X-UA-Compatible标签错误（zjfeiye）。
+	-修正输出页面的X-UA-Compatible标签错误（zjfeiye-5803）。
 	-将icon目录移到res目录内部。
 	+表单增强。
 		+Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
@@ -58,24 +58,24 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加简单购物车示例（grid/grid_edit_cart.aspx）。
 		-增加示例grid/grid_rowcommand_download.aspx，以便在表格行内下载文件。
 		-增加示例grid/grid_summary_scrollbar.aspx，演示绝对定位合计行与横向滚动条同时存在的情况。
+		-GridRow的Values属性类型更改为object[]。
 	+单元格编辑表格增强。
-		-可编辑单元格和CheckBoxField同时存在时，出现BackupPostDataProperty中无法添加相同键的问题（ji78）。
+		-可编辑单元格和CheckBoxField同时存在时，出现BackupPostDataProperty中无法添加相同键的问题（ji78-5797）。
 		-修正日期列在不进行修改即退出编辑状态后，显示左上角的已修改标识的问题。
 		+返回后台的日期字段为字符串是格式化后的（类似2014-07-20，而不是之前的2003-09-01T00:00:00）。
 			-修改后台的处理代码DateTime.Parse(rowDict["EntranceDate"]).ToString("yyyy-MM-dd")，直接使用rowDict["EntranceDate"]。
-		-修正重新绑定数据后，仍然显示左上角已修改标识的问题（zjfeiye）。
-	-修正NumberBox的NoNegative属性无效的问题（yezie）。
-	+表格中部分数据类型改变。
-		-GridRow的Values属性类型更改为object[]。
+		-修正重新绑定数据后，仍然显示左上角已修改标识的问题（zjfeiye-5779）。
 		-Grid的GetNewAddedList函数返回类型更改为List<Dictionary<string, object>>。
 		-Grid的GetModifiedDict函数返回类型更改为Dictionary<int, Dictionary<string, object>>。
 		+比如入学年份列标签定义了DataField=EntranceYear，FieldType=Int，那么后台拿到修改值就是整形值，无需再做转换。
 			-rowData["AtSchool"]=Convert.ToBoolean(rowDict["AtSchool"]);可以更改为：rowData["AtSchool"]=rowDict["AtSchool"];
+	-修正NumberBox的NoNegative属性无效的问题（yezie-5789）。
 	+删除无效或者重复的属性。
 		-删除TabStrip的属性EnableTitleBackgroundColor、EnableDeferredRender。
 		-删除Window的属性Plain。
 		-删除ToolbarPosition的枚举类型Footer、Buttons，这两个都用Bottom枚举类型代替。
 		-删除Region上的Margins属性，删除BoxComponent上的BoxMargin属性，这两个都可以使用Margin属性代替。
+	-修正用户控件中使用NextFocusControl时定位错误的问题（牙膏人-5835）。
 
 		
 

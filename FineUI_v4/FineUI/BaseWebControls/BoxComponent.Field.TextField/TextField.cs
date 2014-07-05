@@ -466,7 +466,7 @@ namespace FineUI
 
             if (!String.IsNullOrEmpty(NextFocusControl))
             {
-                Control nextControl = ControlUtil.FindControl(Page, NextFocusControl);
+                Control nextControl = ControlUtil.FindControlInUserControlOrPage(this, NextFocusControl);
 
                 if (nextControl != null && nextControl is ControlBase)
                 {
@@ -485,7 +485,7 @@ namespace FineUI
             // 如果CompareControl 和 CompareValue 同时存在，则 CompareControl 拥有更高的优先级
             if (!String.IsNullOrEmpty(CompareControl))
             {
-                Control compareControl = ControlUtil.FindControl(Page, CompareControl);
+                Control compareControl = ControlUtil.FindControlInUserControlOrPage(this, CompareControl);
                 if (compareControl != null && compareControl is ControlBase)
                 {
                     compareValue = String.Format("F.fieldValue({0})", JsHelper.Enquote((compareControl as ControlBase).ClientID));

@@ -725,7 +725,7 @@ namespace FineUI
             }
             else if (!String.IsNullOrEmpty(MenuID))
             {
-                Menu contextMenu = ControlUtil.FindControl(this.Page, MenuID) as Menu;
+                Menu contextMenu = ControlUtil.FindControlInUserControlOrPage(this, MenuID) as Menu;
                 if (contextMenu != null)
                 {
                     OB.AddProperty("menu", contextMenu.XID, true);
