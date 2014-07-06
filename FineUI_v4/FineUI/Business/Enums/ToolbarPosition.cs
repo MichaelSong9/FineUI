@@ -45,7 +45,7 @@ namespace FineUI
         ///// <summary>
         ///// 页脚
         ///// </summary>
-        Footer,
+        //Footer,
         /// <summary>
         /// 左侧
         /// </summary>
@@ -77,9 +77,9 @@ namespace FineUI
                 case ToolbarPosition.Bottom:
                     result = "bbar";
                     break;
-                case ToolbarPosition.Footer:
-                    result = "fbar";
-                    break;
+                //case ToolbarPosition.Footer:
+                //    result = "fbar";
+                //    break;
                 case ToolbarPosition.Left:
                     result = "lbar";
                     break;

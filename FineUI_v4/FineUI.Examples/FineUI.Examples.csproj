@@ -47,15 +47,15 @@
   <ItemGroup>
     <Reference Include="CKEditor.NET, Version=3.6.4.0, Culture=neutral, PublicKeyToken=e379cdf2f8354999, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>library\CKEditor.NET.dll</HintPath>
+      <HintPath>lib\CKEditor.NET.dll</HintPath>
     </Reference>
     <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.22326, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>library\FredCK.FCKeditorV2.dll</HintPath>
+      <HintPath>lib\FredCK.FCKeditorV2.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>library\Newtonsoft.Json.dll</HintPath>
+      <HintPath>lib\json.net\Net20\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

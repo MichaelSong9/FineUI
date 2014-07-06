@@ -130,6 +130,8 @@ ajaxminifier\ajaxminifier -js -evals:immediate  extjs_source_all\ext-debug.js -o
 type extjs_source_all\ext-theme-neptune.js > ..\extjs\ext-theme-neptune.js
 
 
+type version.txt > ..\extjs\version.txt
+
 del _f /Q
 
 

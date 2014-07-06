@@ -257,9 +257,15 @@ namespace FineUI
 
             if (EnableIFrame)
             {
-                // 对于非激活Tab，其中的Iframe需要延迟加载
-                if (this != tabStrip.Tabs[tabStrip.ActiveTabIndex])
+                if (tabStrip.ActiveTabIndex >= 0 && 
+                    tabStrip.ActiveTabIndex < tabStrip.Tabs.Count && 
+                    this == tabStrip.Tabs[tabStrip.ActiveTabIndex])
                 {
+                    // 当前是激活选项卡
+                }
+                else
+                {
+                    // 对于非激活Tab，其中的Iframe需要延迟加载
                     OB.RemoveProperty("html");
                     OB.RemoveProperty("f_iframe_loaded");
                     OB.AddProperty("f_iframe_loaded", false);
