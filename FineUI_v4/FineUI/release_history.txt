@@ -43,6 +43,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-GroupPanel的默认布局由Container改为Anchor。
 	-修正输出页面的X-UA-Compatible标签错误（zjfeiye-5803）。
 	-将icon目录移到res目录内部。
+	-修正打开包含IFrame的Window的过程中按下ESC键时，可能出现弹出框的问题（tucq168-5858）。
 	+表单增强。
 		-Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
 		-Form控件中非最后一列的右侧空白默认为5px。
@@ -77,6 +78,12 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-删除ToolbarPosition的枚举类型Footer、Buttons，这两个都用Bottom枚举类型代替。
 		-删除Region上的Margins属性，删除BoxComponent上的BoxMargin属性，这两个都可以使用Margin属性代替。
 	-修正用户控件中使用NextFocusControl时定位错误的问题（牙膏人-5835）。
+	+第三方编辑器示例重构。
+		-删除FCKEditor的示例。
+		-CKEditor的示例不再使用ASP.NET控件，而是直接调用JS。
+		-增加TinyMCE和UMEditor的示例。
+		-更新ueditor/ueditor.aspx示例，删除难以理解的jQuery Promise，使用简单的处理方式。
+		-更新ueditor/ueditor_two.aspx示例，使用Form的自定义布局，而不是原始的table标签。
 
 		
 

@@ -10,7 +10,7 @@
 namespace FineUI.Examples.aspnet {
     
     
-    public partial class fileupload2 {
+    public partial class umeditor {
         
         /// <summary>
         /// form1 控件。
@@ -40,30 +40,30 @@ namespace FineUI.Examples.aspnet {
         protected global::FineUI.ContentPanel ContentPanel1;
         
         /// <summary>
-        /// FileUpload1 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::FineUI.Button Button2;
         
         /// <summary>
-        /// FCKeditor1 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FredCK.FCKeditorV2.FCKeditor FCKeditor1;
+        protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// btnCloseWindow2 控件。
+        /// hfEditorInitContent 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCloseWindow2;
+        protected global::FineUI.HiddenField hfEditorInitContent;
     }
 }

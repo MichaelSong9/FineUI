@@ -6,11 +6,6 @@
 <head id="Head1" runat="server">
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
-    <style>
-        .f-form-item {
-            margin-bottom: 5px;
-        }
-    </style>
 </head>
 <body>
     <form id="_form1" runat="server">
@@ -20,7 +15,7 @@
             <Items>
                 <f:Form ID="Form1" Layout="VBox" BoxConfigAlign="Stretch" LabelAlign="Top" BodyPadding="5px" ShowBorder="false" ShowHeader="false" runat="server">
                     <Items>
-                        <f:Panel ID="Panel2" Layout="Column" CssClass="f-form-item" ShowHeader="false" ShowBorder="false" runat="server">
+                        <f:Panel ID="Panel2" Layout="Column" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
                                 <f:TextBox ID="TextBox2" Label="姓" CssClass="marginr" Required="true" ShowRedStar="true" ColumnWidth="50%" runat="server">
                                 </f:TextBox>

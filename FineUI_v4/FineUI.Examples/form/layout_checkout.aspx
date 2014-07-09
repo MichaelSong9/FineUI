@@ -6,11 +6,6 @@
 <head id="Head1" runat="server">
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
-    <style>
-        .f-form-item {
-            margin-bottom: 5px;
-        }
-    </style>
 </head>
 <body>
     <form id="_form1" runat="server">
@@ -20,7 +15,7 @@
             <Items>
                 <f:GroupPanel Layout="Anchor" Title="联系人信息" runat="server">
                     <Items>
-                        <f:Panel ID="Panel2" Layout="HBox" BoxConfigAlign="Stretch" CssClass="f-form-item" ShowHeader="false" ShowBorder="false" runat="server">
+                        <f:Panel ID="Panel2" Layout="HBox" BoxConfigAlign="Stretch" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
                                 <f:Label runat="server" ShowRedStar="true" Label="姓名"></f:Label>
                                 <f:TextBox ID="TextBox2" ShowLabel="false" CssClass="marginr" Required="true" ShowRedStar="true" BoxFlex="2" runat="server">
@@ -29,7 +24,7 @@
                                 </f:TextBox>
                             </Items>
                         </f:Panel>
-                        <f:Panel ID="Panel1" Layout="HBox" BoxConfigAlign="Stretch" CssClass="f-form-item" ShowHeader="false" ShowBorder="false" runat="server">
+                        <f:Panel ID="Panel1" Layout="HBox" BoxConfigAlign="Stretch" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
                                 <f:TextBox ID="TextBox1" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL"
                                     RegexMessage="请输入有效的邮箱地址！" BoxFlex="1" runat="server">
@@ -44,7 +39,7 @@
                     <Items>
                         <f:TextBox ID="TextBox7" Label="详细地址" Required="true" ShowRedStar="true" runat="server">
                         </f:TextBox>
-                        <f:Panel ID="Panel4" Layout="HBox" BoxConfigAlign="Stretch" CssClass="f-form-item" ShowHeader="false" ShowBorder="false" runat="server">
+                        <f:Panel ID="Panel4" Layout="HBox" BoxConfigAlign="Stretch" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
                                 <f:TextBox ID="TextBox9" Label="省" BoxFlex="1" Required="true" ShowRedStar="true" runat="server">
                                 </f:TextBox>
@@ -61,7 +56,7 @@
                         <f:CheckBox runat="server" Checked="true" ID="cbxSameAsContactAddress" AutoPostBack="true" OnCheckedChanged="cbxSameAsContactAddress_CheckedChanged" Text="和联系人地址相同"></f:CheckBox>
                         <f:TextBox ID="tbxBillingAddress" Enabled="false" Label="详细地址" Required="true" ShowRedStar="true" runat="server">
                         </f:TextBox>
-                        <f:Panel ID="Panel3" Layout="HBox" BoxConfigAlign="Stretch" CssClass="f-form-item" ShowHeader="false" ShowBorder="false" runat="server">
+                        <f:Panel ID="Panel3" Layout="HBox" BoxConfigAlign="Stretch" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
                                 <f:TextBox ID="tbxBillingProvince" Enabled="false" Label="省" BoxFlex="1" Required="true" ShowRedStar="true" runat="server">
                                 </f:TextBox>
@@ -82,7 +77,7 @@
                         </f:RadioButtonList>
                         <f:TextBox ID="TextBox3" Label="卡上的名字" Required="true" ShowRedStar="true" runat="server">
                         </f:TextBox>
-                        <f:Panel ID="Panel5" Layout="HBox" BoxConfigAlign="Stretch" CssClass="f-form-item" ShowHeader="false" ShowBorder="false" runat="server">
+                        <f:Panel ID="Panel5" Layout="HBox" BoxConfigAlign="Stretch" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
                                 <f:TextBox ID="TextBox14" Label="卡号" BoxFlex="1" Required="true" ShowRedStar="true" runat="server">
                                 </f:TextBox>
