@@ -34,15 +34,17 @@
         F.ready(function () {
 
             var tbxMyBox = F(tbxMyBoxClientID);
-            $.extend(tbxMyBox, {
-                onTriggerClick: function () {
-                    WdatePicker({
-                        el: tbxMyBoxClientID + '-inputEl',
-                        dateFmt: 'yyyy-MM-dd HH:mm:ss',
-                        skin: 'neptune'
-                    });
-                }
-            });
+
+            tbxMyBox.onTriggerClick = function () {
+                WdatePicker({
+                    el: tbxMyBoxClientID + '-inputEl',
+                    dateFmt: 'yyyy-MM-dd HH:mm:ss',
+                    onpicked: function () {
+                        // 确认选择后，执行触发器输入框的客户端验证
+                        tbxMyBox.validate();
+                    }
+                });
+            };
 
         });
     </script>

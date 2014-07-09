@@ -396,23 +396,6 @@ namespace FineUI
 
 
 
-            #region bodyStyleStr
-
-            
-            //string bodyStyleStr = String.Empty;
-            //if (EnableBackgroundColor)
-            //{
-            //    bodyStyleStr = GlobalConfig.GetDefaultBackgroundColor();
-            //}
-
-            //if (!String.IsNullOrEmpty(bodyStyleStr))
-            //{
-            //    bodyStyleStr = String.Format("background-color:{0};", bodyStyleStr);
-            //}
-
-            #endregion
-
-
             string defaultColumnWidthStr = (1.0 / columnCount).ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
             string[] columnWidths = ResolveColumnWidths(columnCount, Rows[startLineIndex].ColumnWidths, defaultColumnWidthStr);
 
@@ -452,9 +435,13 @@ namespace FineUI
 
                 columnOB.AddProperty("layout", "anchor");
                 columnOB.AddProperty("border", false);
-                //columnOB.AddProperty("bodyStyle", bodyStyleStr);
-                //columnOB.AddProperty("labelWidth", LabelWidth.Value);
                 columnOB.AddProperty("id", rowId + "_column" + columnIndex.ToString());
+
+                // 如果不是最后一列，则默认距离右侧 5px 
+                if (columnIndex != columnCount - 1)
+                {
+                    columnOB.AddProperty("margin", "0 5 0 0");
+                }
 
                 // 有可能为空
                 if (fieldsAB.Count > 0)
@@ -476,7 +463,8 @@ namespace FineUI
             JsObjectBuilder rowBuilder = new JsObjectBuilder();
             rowBuilder.AddProperty("layout", "column");
             rowBuilder.AddProperty("border", false);
-            //rowBuilder.AddProperty("bodyStyle", bodyStyleStr);
+
+            
 
             // 有可能为空
             if (rowColumnScriptsBuilder.Count > 0)

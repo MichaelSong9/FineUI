@@ -44,8 +44,8 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正输出页面的X-UA-Compatible标签错误（zjfeiye-5803）。
 	-将icon目录移到res目录内部。
 	+表单增强。
-		+Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
-			-更新示例form/form.aspx,form/form_dynamic.aspx,form/layout_panel.aspx,form/form_reset.aspx。
+		-Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
+		-Form控件中非最后一列的右侧空白默认为5px。
 		-修正定义在Form，SimpleForm上的OffsetRight、LabelSeparator无效的问题。
 		-增加示例form/form_disabled.aspx，将所有表单字段禁用、设置只读、应用无效标识。
 		-Form控件启用Items属性，Layout属性默认为Anchor，可以自行设置（之前为只读属性）。

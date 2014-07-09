@@ -13,12 +13,12 @@
 <body>
     <form id="_form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px"  EnableCollapse="true"
+        <f:Form Width="600px" BodyPadding="5px" ID="Form1" LabelWidth="100px" EnableCollapse="true"
             runat="server" Title="表单 1">
             <Rows>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:Label ID="Label1" runat="server" Label="标签" Text="标签的值" CssClass="marginr">
+                        <f:Label ID="Label1" runat="server" Label="标签" Text="标签的值">
                         </f:Label>
                         <f:CheckBox ID="CheckBox1" runat="server" Text="复选框" Label="复选框" CssClass="redcolor">
                         </f:CheckBox>
@@ -26,7 +26,7 @@
                 </f:FormRow>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" CssClass="marginr" Required="true" ShowRedStar="True">
+                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True">
                             <f:ListItem Selected="true" Text="可选项 1" Value="0"></f:ListItem>
                             <f:ListItem Text="可选项 2" Value="1"></f:ListItem>
                         </f:DropDownList>
@@ -52,19 +52,19 @@
             </Rows>
         </f:Form>
         <br />
-        <f:Form Width="600px" LabelWidth="100px" BodyPadding="5px"  EnableCollapse="true"
+        <f:Form Width="600px" LabelWidth="100px" BodyPadding="5px" EnableCollapse="true"
             ID="Form2" runat="server" Title="表单 2">
             <Rows>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" CssClass="marginr" runat="server" />
+                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
                         <f:Label ID="Label16" runat="server" Label="申请人" Text="admin">
                         </f:Label>
                     </Items>
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label4" Label="编号" Text="200804170006" CssClass="marginr" runat="server" />
+                        <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" />
                         <f:TextBox ID="TextBox2" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL"
                             RegexMessage="请输入有效的邮箱地址！" runat="server">
                         </f:TextBox>
