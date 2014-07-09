@@ -488,7 +488,7 @@
   </TreeNode>
   <TreeNode Text="第三方组件">
     <TreeNode Text="My97日期控件">
-      <TreeNode Text="My97日期控件" NavigateUrl="~/third-party/my97.aspx" >
+      <TreeNode Text="My97日期控件" NavigateUrl="~/third-party/my97/my97.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="jQueryUI Autocomplete">

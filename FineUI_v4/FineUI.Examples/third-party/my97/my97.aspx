@@ -4,7 +4,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../../res/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,8 +26,8 @@
             </Items>
         </f:SimpleForm>
     </form>
-    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../res/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+    <script src="../../res/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../res/my97/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         var tbxMyBoxClientID = '<%= tbxMyBox.ClientID %>';
 
