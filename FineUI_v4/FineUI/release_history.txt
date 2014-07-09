@@ -54,6 +54,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加示例form/layout_contactus.aspx，演示用VBox和HBox进行复杂的表单布局。
 		-增加示例form/layout_checkout.aspx，演示用Form和GroupPanel制作更加复杂的表单。
 		-示例dropdownlist/shengshixian.aspx重构。
+		-修正FileUpload无法显示图标的问题，更新示例form/fileupload_autopostback.aspx。
 	+表格增强。
 		-增加简单购物车示例（grid/grid_edit_cart.aspx）。
 		-增加示例grid/grid_rowcommand_download.aspx，以便在表格行内下载文件。

@@ -324,10 +324,10 @@ namespace FineUI
             if (!String.IsNullOrEmpty(resolvedIconUrl))
             {
                 OptionBuilder buttonOB = new OptionBuilder();
-                buttonOB.AddProperty("cls", " x-btn-text-icon");
+                //buttonOB.AddProperty("cls", " x-btn-text-icon");
                 buttonOB.AddProperty("icon", resolvedIconUrl);
 
-                OB.AddProperty("buttonCfg", buttonOB);
+                OB.AddProperty("buttonConfig", buttonOB);
             }
 
             //if (AutoPostBack)

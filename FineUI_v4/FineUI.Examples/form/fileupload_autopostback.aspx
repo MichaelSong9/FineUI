@@ -28,7 +28,7 @@
                 <f:Image ID="imgPhoto" CssClass="photo" ImageUrl="~/res/images/blank.png" ShowEmptyLabel="true" runat="server">
                 </f:Image>
                 <f:FileUpload runat="server" ID="filePhoto" ShowRedStar="false" ShowEmptyLabel="true"
-                    ButtonText="上传个人头像" ButtonOnly="true" Required="false"
+                    ButtonText="上传个人头像" ButtonOnly="true" Required="false" ButtonIcon="ImageAdd"
                     AutoPostBack="true" OnFileSelected="filePhoto_FileSelected">
                 </f:FileUpload>
                 <f:TextBox runat="server" Label="用户名" ID="tbxUserName" Required="true" ShowRedStar="true">
