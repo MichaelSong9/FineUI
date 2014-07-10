@@ -13,7 +13,7 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="900px" EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Title="内容面板">
-            <script type="text/plain" name="UEditor1" id="UEditor1"></script>
+             <asp:Literal runat="server" ID="litEditorContent"></asp:Literal>
         </f:ContentPanel>
         <br />
         <f:Button ID="Button2" runat="server" CssClass="marginr" Text="设置编辑器的值" OnClick="Button2_Click">
@@ -21,7 +21,6 @@
         <f:Button ID="Button1" runat="server" Text="获取编辑器的值" OnClick="Button1_Click">
         </f:Button>
         <br />
-        <f:HiddenField runat="server" ID="hfEditorInitContent"></f:HiddenField>
         <br />
         注：本示例不支持文件上传，请根据UEditor官网文档自行配置。
     </form>
@@ -34,29 +33,26 @@
     <script type="text/javascript">
 
         var containerClientID = '<%= ContentPanel1.ClientID %>';
-        var hfEditorInitContentClientID = '<%= hfEditorInitContent.ClientID %>';
 
         var editor;
         F.ready(function () {
             // 初始化
-            editor = UM.getEditor("UEditor1", {
+            editor = UM.getEditor("Editor1", {
                 initialFrameWidth: '100%',
                 initialFrameHeight: 200,
                 autoHeightEnabled: false,
                 autoFloatEnabled: false,
-                initialContent: F(hfEditorInitContentClientID).getValue(),
-                focus: true
+                focus: true,
+                onready: function () {
+                    // 重新布局外部容器
+                    F(containerClientID).updateLayout();
+                }
             });
 
-            // 编辑器渲染完毕事件处理
-            editor.ready(function () {
-                // 重新布局外部容器
-                F(containerClientID).updateLayout();
-            });
         });
 
         // 更新编辑器内容
-        function updateUEditor(content) {
+        function updateEditor(content) {
             if (editor && editor.isReady) {
                 editor.setContent(content);
             }

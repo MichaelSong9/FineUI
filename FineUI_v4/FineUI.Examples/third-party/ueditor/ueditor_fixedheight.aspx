@@ -13,7 +13,7 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="900px" Height="500px" EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Title="内容面板">
-            <script type="text/plain" name="UEditor1" id="UEditor1"></script>
+            <asp:Literal runat="server" ID="litEditorContent"></asp:Literal>
         </f:ContentPanel>
         <br />
         <f:Button ID="Button2" runat="server" CssClass="marginr" Text="设置编辑器的值" OnClick="Button2_Click">
@@ -21,7 +21,6 @@
         <f:Button ID="Button1" runat="server" Text="获取编辑器的值" OnClick="Button1_Click">
         </f:Button>
         <br />
-        <f:HiddenField runat="server" ID="hfEditorInitContent"></f:HiddenField>
         <br />
         注：本示例不支持文件上传，请根据UEditor官网文档自行配置。
     </form>
@@ -34,33 +33,31 @@
     <script type="text/javascript">
 
         var containerClientID = '<%= ContentPanel1.ClientID %>';
-        var hfEditorInitContentClientID = '<%= hfEditorInitContent.ClientID %>';
 
         var editor;
         F.ready(function () {
             // 初始化
-            editor = new UE.ui.Editor({
+            editor = UE.getEditor('Editor1', {
                 initialFrameWidth: '100%',
                 initialFrameHeight: 100,
                 autoHeightEnabled: false,
                 autoFloatEnabled: false,
-                initialContent: F(hfEditorInitContentClientID).getValue(),
-                focus: true
+                focus: true,
+                onready: function () {
+                    // 重新设置编辑器高度
+                    var containerHeight = $('#' + containerClientID).find('.x-panel-body').height();
+
+                    // （工具条高度+状态栏高度） = 编辑器外部高度 - 编辑器IFrame高度
+                    var el = $('#Editor1');
+                    var editorHeight = containerHeight - (el.height() - el.find('.edui-editor-iframeholder iframe').outerHeight(true));
+                    editor.setHeight(editorHeight);
+                }
             });
 
-            // 编辑器渲染完毕事件处理
-            editor.ready(function () {
-                // 重新设置编辑器高度
-                var el = $('#UEditor1');
-                var editorHeight = $('#' + containerClientID).find('.x-panel-body').height() - el.find('.edui-editor-toolbarbox').outerHeight(true) - el.find('.edui-editor-bottomContainer').outerHeight(true);
-                editor.setHeight(editorHeight);
-            });
-
-            editor.render("UEditor1");
         });
 
         // 更新编辑器内容
-        function updateUEditor(content) {
+        function updateEditor(content) {
             if (editor && editor.isReady) {
                 editor.setContent(content);
             }

@@ -10,7 +10,7 @@
 namespace FineUI.Examples.aspnet {
     
     
-    public partial class ueditor {
+    public partial class tinymce {
         
         /// <summary>
         /// form1 控件。

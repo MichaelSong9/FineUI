@@ -45,14 +45,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CKEditor.NET, Version=3.6.4.0, Culture=neutral, PublicKeyToken=e379cdf2f8354999, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\CKEditor.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.22326, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\FredCK.FCKeditorV2.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\json.net\Net20\Newtonsoft.Json.dll</HintPath>
@@ -70,6 +62,9 @@
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
+    <Content Include="third-party\ckeditor\ckeditor_fixedheight.aspx" />
+    <Content Include="third-party\tinymce\tinymce.aspx" />
+    <Content Include="third-party\tinymce\tinymce_fixedheight.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
     <Content Include="third-party\ueditor\ueditor_two.aspx" />
     <Content Include="button\button_custom.aspx" />
@@ -420,6 +415,27 @@
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.designer.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\ckeditor\ckeditor_fixedheight.aspx.cs">
+      <DependentUpon>ckeditor_fixedheight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\ckeditor\ckeditor_fixedheight.aspx.designer.cs">
+      <DependentUpon>ckeditor_fixedheight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\tinymce\tinymce.aspx.cs">
+      <DependentUpon>tinymce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\tinymce\tinymce.aspx.designer.cs">
+      <DependentUpon>tinymce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\tinymce\tinymce_fixedheight.aspx.cs">
+      <DependentUpon>tinymce_fixedheight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\tinymce\tinymce_fixedheight.aspx.designer.cs">
+      <DependentUpon>tinymce_fixedheight.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ueditor\ueditor.aspx.cs">
       <DependentUpon>ueditor.aspx</DependentUpon>
@@ -2351,9 +2367,7 @@
     <None Include="extjs_builder\build.bat" />
     <Content Include="third-party\autocomplete\search.ashx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="third-party\tinymce\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

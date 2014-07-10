@@ -22,7 +22,27 @@
                             Text="文章正文：">
                         </f:Label>
                         <f:ContentPanel ID="ContentPanel2" ColumnWidth="100%" runat="server" ShowBorder="false" ShowHeader="false">
-                            <script type="text/plain" name="UEditor1" id="UEditor1"></script>
+                            <script type="text/plain" name="Editor1" id="Editor1">
+                                <p>
+                                FineUI（开源版）<br>
+                                基于 ExtJS 的开源 ASP.NET 控件库。<br>
+                                <br>
+                                FineUI的使命<br>
+                                创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。<br>
+                                <br>
+                                支持的浏览器<br>
+                                IE 8.0+、Chrome、Firefox、Opera、Safari<br>
+                                <br>
+                                授权协议<br>
+                                Apache License 2.0 (Apache)<br>
+                                <br>
+                                相关链接<br>
+                                论坛：http://fineui.com/bbs/<br>
+                                示例：http://fineui.com/demo/<br>
+                                文档：http://fineui.com/doc/<br>
+                                下载：http://fineui.codeplex.com/
+                                </p>
+                            </script>
                         </f:ContentPanel>
                     </Items>
                 </f:Panel>
@@ -32,7 +52,7 @@
                             Text="文章摘要：">
                         </f:Label>
                         <f:ContentPanel ID="ContentPanel3" ColumnWidth="100%" runat="server" ShowBorder="false" ShowHeader="false">
-                            <script type="text/plain" name="UEditor2" id="UEditor2"></script>
+                            <script type="text/plain" name="Editor2" id="Editor2"></script>
                         </f:ContentPanel>
                     </Items>
                 </f:Panel>
@@ -53,6 +73,7 @@
         </f:Label>
         <br />
     </form>
+    
     <script type="text/javascript">
         window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/third-party/res/ueditor/") %>';
     </script>
@@ -60,24 +81,24 @@
     <script type="text/javascript" src="../res/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="../res/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
-        
+
         var containerClientID = '<%= Form1.ClientID %>';
 
         var editor1, editor2;
         F.ready(function () {
-            editor1 = new UE.ui.Editor({
+            editor1 = UE.getEditor('Editor1', {
                 initialFrameWidth: '100%',
                 initialFrameHeight: 150,
                 autoHeightEnabled: false,
                 autoFloatEnabled: false,
-                initialContent: '<p>FineUI（开源版）<br>基于 ExtJS 的开源 ASP.NET 控件库。<br><br>FineUI的使命<br>创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。<br><br>支持的浏览器<br>IE 8.0+、Chrome、Firefox、Opera、Safari<br><br>授权协议<br>Apache License 2.0 (Apache)<br><br>相关链接<br>论坛：http://fineui.com/bbs/<br>示例：http://fineui.com/demo/<br>文档：http://fineui.com/doc/<br>下载：http://fineui.codeplex.com/</p>'
+                onready: function () {
+                    // 重新布局外部容器
+                    doLayout();
+                }
             });
-            editor1.ready(function () {
-                doLayout();
-            });
-            editor1.render("UEditor1");
 
-            editor2 = new UE.ui.Editor({
+
+            editor2 = UE.getEditor('Editor2', {
                 initialFrameWidth: '100%',
                 initialFrameHeight: 80,
                 initialContent: '',
@@ -85,12 +106,12 @@
                 autoFloatEnabled: false,
                 toolbars: [['fullscreen', 'source', '|', 'undo', 'redo', '|',
                 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript',
-                'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain']]
+                'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain']],
+                onready: function () {
+                    // 重新布局外部容器
+                    doLayout();
+                }
             });
-            editor2.ready(function () {
-                doLayout();
-            });
-            editor2.render("UEditor2");
 
         });
 
@@ -100,15 +121,15 @@
                 F(containerClientID).updateLayout();
             }
         }
-        
+
         // 更新编辑器内容
-        function updateUEditor1(content) {
+        function updateEditor1(content) {
             if (editor1 && editor1.isReady) {
                 editor1.setContent(content);
             }
         }
 
-        function updateUEditor2(content) {
+        function updateEditor2(content) {
             if (editor2 && editor2.isReady) {
                 editor2.setContent(content);
             }

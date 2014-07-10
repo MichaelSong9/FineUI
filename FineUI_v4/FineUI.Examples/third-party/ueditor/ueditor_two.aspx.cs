@@ -22,8 +22,8 @@ namespace FineUI.Examples.aspnet
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string editor1Content = Request.Form["UEditor1"].ToString();
-            string editor2Content = Request.Form["UEditor2"].ToString();
+            string editor1Content = Request.Form["Editor1"];
+            string editor2Content = Request.Form["Editor2"];
             if (String.IsNullOrEmpty(editor1Content))
             {
                 Alert.ShowInTop("文章正文不能为空！");
@@ -37,7 +37,7 @@ namespace FineUI.Examples.aspnet
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            string content = Request.Form["UEditor1"].ToString();
+            string content = Request.Form["Editor1"].ToString();
             Regex regex = new Regex(@"<[^>]+>|</[^>]+>");
             content = regex.Replace(content, "");
             if (content.Length > 100)
@@ -45,7 +45,7 @@ namespace FineUI.Examples.aspnet
                 content = content.Substring(0, 97) + "...";
             }
 
-            PageContext.RegisterStartupScript(String.Format("updateUEditor2({0});", JsHelper.Enquote(content)));
+            PageContext.RegisterStartupScript(String.Format("updateEditor2({0});", JsHelper.Enquote(content)));
         }
 
 

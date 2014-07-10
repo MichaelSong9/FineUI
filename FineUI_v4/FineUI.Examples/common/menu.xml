@@ -518,11 +518,15 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="CKEditor">
-      <TreeNode Text="CKEditor" NavigateUrl="~/third-party/ckeditor/ckeditor.aspx" >
+      <TreeNode Text="CKEditor（容器高度自适应）" NavigateUrl="~/third-party/ckeditor/ckeditor.aspx" >
+      </TreeNode>
+      <TreeNode Text="CKEditor（容器高度固定）" NavigateUrl="~/third-party/ckeditor/ckeditor_fixedheight.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="TinyMCE">
-      <TreeNode Text="TinyMCE" NavigateUrl="~/third-party/tinymce/tinymce.aspx" >
+      <TreeNode Text="TinyMCE（容器高度自适应）" NavigateUrl="~/third-party/tinymce/tinymce.aspx" >
+      </TreeNode>
+      <TreeNode Text="TinyMCE（容器高度固定）" NavigateUrl="~/third-party/tinymce/tinymce_fixedheight.aspx" >
       </TreeNode>
     </TreeNode>
   </TreeNode>
