@@ -21,10 +21,10 @@
                 <f:Button ID="btnSubmit" runat="server" ValidateForms="SimpleForm1" Text="提交表单"
                     OnClick="btnSubmit_Click">
                 </f:Button>
-                <f:Label ID="labResult" ShowLabel="false" EncodeText="false" runat="server">
-                </f:Label>
             </Items>
         </f:SimpleForm>
+		<f:Label ID="labResult" ShowLabel="false" EncodeText="false" runat="server">
+        </f:Label>
     </form>
     <script src="../../res/js/jquery.min.js" type="text/javascript"></script>
     <script src="../res/my97/WdatePicker.js" type="text/javascript"></script>
