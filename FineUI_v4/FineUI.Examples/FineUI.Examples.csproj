@@ -62,9 +62,7 @@
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
-    <Content Include="third-party\ckeditor\ckeditor_fixedheight.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
-    <Content Include="third-party\tinymce\tinymce_fixedheight.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
     <Content Include="third-party\ueditor\ueditor_two.aspx" />
     <Content Include="button\button_custom.aspx" />
@@ -355,7 +353,6 @@
     <Content Include="third-party\autocomplete\multi_values_remote.aspx" />
     <Content Include="third-party\autocomplete\remote_with_cache.aspx" />
     <Content Include="third-party\my97\my97.aspx" />
-    <Content Include="third-party\ueditor\ueditor_fixedheight.aspx" />
     <Content Include="third-party\umeditor\umeditor.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\cssstyle.aspx" />
@@ -416,26 +413,12 @@
     <Compile Include="third-party\ckeditor\ckeditor.aspx.designer.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="third-party\ckeditor\ckeditor_fixedheight.aspx.cs">
-      <DependentUpon>ckeditor_fixedheight.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="third-party\ckeditor\ckeditor_fixedheight.aspx.designer.cs">
-      <DependentUpon>ckeditor_fixedheight.aspx</DependentUpon>
-    </Compile>
     <Compile Include="third-party\tinymce\tinymce.aspx.cs">
       <DependentUpon>tinymce.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="third-party\tinymce\tinymce.aspx.designer.cs">
       <DependentUpon>tinymce.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="third-party\tinymce\tinymce_fixedheight.aspx.cs">
-      <DependentUpon>tinymce_fixedheight.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="third-party\tinymce\tinymce_fixedheight.aspx.designer.cs">
-      <DependentUpon>tinymce_fixedheight.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ueditor\ueditor.aspx.cs">
       <DependentUpon>ueditor.aspx</DependentUpon>
@@ -1751,13 +1734,6 @@
     </Compile>
     <Compile Include="third-party\my97\my97.aspx.designer.cs">
       <DependentUpon>my97.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="third-party\ueditor\ueditor_fixedheight.aspx.cs">
-      <DependentUpon>ueditor_fixedheight.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="third-party\ueditor\ueditor_fixedheight.aspx.designer.cs">
-      <DependentUpon>ueditor_fixedheight.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\umeditor\umeditor.aspx.cs">
       <DependentUpon>umeditor.aspx</DependentUpon>

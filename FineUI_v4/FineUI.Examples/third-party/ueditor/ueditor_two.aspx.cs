@@ -30,7 +30,7 @@ namespace FineUI.Examples.aspnet
                 return;
             }
 
-            Alert.ShowInTop("文章标题：" +  tbxTitle.Text +
+            Alert.ShowInTop("文章标题：" + HttpUtility.HtmlEncode(tbxTitle.Text) +
                 "<br/>" + "文章正文：" + HttpUtility.HtmlEncode(editor1Content) +
                 "<br/>" + "文章摘要：" + HttpUtility.HtmlEncode(editor2Content));
         }

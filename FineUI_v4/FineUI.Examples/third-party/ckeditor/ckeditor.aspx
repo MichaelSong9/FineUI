@@ -12,7 +12,8 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" Width="850px" EnableCollapse="true"
             ShowBorder="true" ShowHeader="true" Title="内容面板">
-            <textarea id="Editor1" name="Editor1" style="width: 100%;">                &lt;p&gt;
+            <textarea id="Editor1" name="Editor1" style="width: 100%;">
+                &lt;p&gt;
                 FineUI（开源版）&lt;br&gt;
                 基于 ExtJS 的开源 ASP.NET 控件库。&lt;br&gt;
                 &lt;br&gt;
@@ -30,7 +31,8 @@
                 示例：http://fineui.com/demo/&lt;br&gt;
                 文档：http://fineui.com/doc/&lt;br&gt;
                 下载：http://fineui.codeplex.com/
-                &lt;/p&gt;            </textarea>
+                &lt;/p&gt;
+            </textarea>
         </f:ContentPanel>
         <br />
         <f:Button ID="Button2" runat="server" CssClass="marginr" Text="设置编辑器的值" OnClick="Button2_Click">
