@@ -43,7 +43,6 @@
     <ul>
         <li>使用Tab键遍历所有的文本输入框（通过TextBox的TabIndex属性）</li>
         <li>使用Enter键遍历所有的文本输入框（JavaScript函数registerEnterEvent）</li>
-        <li>点击输入框即可选中全部文本（JavaScript函数registerSelectEvent）</li>
     </ul>
         <br />
         <f:Button runat="server" ID="Button1" OnClick="Button1_Click" CssClass="marginr" Text="获取用户输入的分组值">
@@ -61,13 +60,13 @@
         var gridClientID = '<%= Grid1.ClientID %>';
         var inputselector = '.f-grid-tpl input';
 
-        function registerSelectEvent() {
-            var grid = F(gridClientID);
+        //function registerSelectEvent() {
+        //    var grid = F(gridClientID);
 
-            $(grid.el.dom).delegate(inputselector, 'click', function (evt) {
-                $(this).select();
-            });
-        }
+        //    $(grid.el.dom).delegate(inputselector, 'click', function (evt) {
+        //        $(this).select();
+        //    });
+        //}
 
         function registerEnterEvent() {
             var grid = F(gridClientID);
@@ -84,7 +83,6 @@
         }
 
         F.ready(function () {
-            registerSelectEvent();
             registerEnterEvent();
         });
 

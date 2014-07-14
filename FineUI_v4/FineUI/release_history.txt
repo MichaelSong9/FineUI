@@ -63,6 +63,8 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加示例grid/grid_rowcommand_download.aspx，以便在表格行内下载文件。
 		-增加示例grid/grid_summary_scrollbar.aspx，演示绝对定位合计行与横向滚动条同时存在的情况。
 		-GridRow的Values属性类型更改为object[]。
+		-删除示例grid/grid_edit_save_manual.aspx。
+		-重构示例grid/grid_edit_save_auto.aspx，客户端更新表格行对应的表单，定时保存全部数据并显示提示信息。
 	+单元格编辑表格增强。
 		-可编辑单元格和CheckBoxField同时存在时，出现BackupPostDataProperty中无法添加相同键的问题（ji78-5797）。
 		-修正日期列在不进行修改即退出编辑状态后，显示左上角的已修改标识的问题。

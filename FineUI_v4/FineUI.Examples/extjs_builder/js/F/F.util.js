@@ -298,7 +298,7 @@ F.customEvent = function (argument, validate) {
 
         // 向页面添加Loading...节点
         appendLoadingNode: function () {
-            return F.util.appendFormNode({ tag: "div", cls: "x-ajax-loading", html: F.util.loading });
+            return F.util.appendFormNode({ tag: 'div', id: 'f_ajax_loading', cls: 'f-ajax-loading', html: F.util.loading });
         },
 
         // 向页面的 form 节点最后添加新的节点

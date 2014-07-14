@@ -248,9 +248,7 @@
       </TreeNode>
       <TreeNode Text="下拉列表同步到文本框" NavigateUrl="~/grid/grid_edit_dropdownlist_textbox.aspx" >
       </TreeNode>
-      <TreeNode Text="自动保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_auto.aspx" >
-      </TreeNode>
-      <TreeNode Text="手动保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_manual.aspx" >
+      <TreeNode Text="定时保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_auto.aspx" >
       </TreeNode>
       <TreeNode Text="遍历表格内所有输入框（纵向）" NavigateUrl="~/grid/grid_edit_enterkey_v.aspx" >
       </TreeNode>

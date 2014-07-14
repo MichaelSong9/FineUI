@@ -63,7 +63,6 @@
     <ul>
         <li>使用Tab键遍历一列当中所有的文本输入框（通过TextBox的TabIndex属性）</li>
         <li>使用Enter键遍历一列当中所有的文本输入框（JavaScript函数registerEnterEvent）</li>
-        <li>点击输入框即可选中全部文本（JavaScript函数registerSelectEvent）</li>
         <li>比较两个输入框的文本是否相同（JavaScript函数registerCompareEvent）</li>
     </ul>
         <br />
@@ -81,13 +80,6 @@
         var gridClientID = '<%= Grid1.ClientID %>';
         var inputselector = '.f-grid-tpl input';
 
-        function registerSelectEvent() {
-            var grid = F(gridClientID);
-
-            $(grid.el.dom).delegate(inputselector, 'click', function (evt) {
-                $(this).select();
-            });
-        }
 
         function registerEnterEvent() {
             var grid = F(gridClientID);
@@ -133,7 +125,6 @@
         }
 
         F.ready(function () {
-            registerSelectEvent();
             registerEnterEvent();
             registerCompareEvent();
         });

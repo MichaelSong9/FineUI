@@ -72,14 +72,6 @@
         var gridClientID = '<%= Grid1.ClientID %>';
         var inputselector = '.f-grid-tpl input';
 
-        function registerSelectEvent() {
-            var grid = F(gridClientID);
-
-            $(grid.el.dom).delegate(inputselector, 'click', function () {
-                $(this).select();
-            });
-        }
-
         function registerEnterEvent() {
             var grid = F(gridClientID);
 
@@ -114,7 +106,6 @@
 
 
         F.ready(function () {
-            registerSelectEvent();
             registerEnterEvent();
         });
 

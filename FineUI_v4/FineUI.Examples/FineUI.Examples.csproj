@@ -149,7 +149,6 @@
     <Content Include="grid\grid_rowdoubleclick.aspx" />
     <Content Include="grid\grid_rowselect.aspx" />
     <Content Include="grid\grid_edit_save_auto.aspx" />
-    <Content Include="grid\grid_edit_save_manual.aspx" />
     <Content Include="grid\grid_text_middle.aspx" />
     <Content Include="grid\grid_simulate_tree_paging.aspx" />
     <Content Include="grid\grid_simulate_tree_database_paging_dropdownlist.aspx" />
@@ -601,13 +600,6 @@
     </Compile>
     <Compile Include="grid\grid_edit_save_auto.aspx.designer.cs">
       <DependentUpon>grid_edit_save_auto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="grid\grid_edit_save_manual.aspx.cs">
-      <DependentUpon>grid_edit_save_manual.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="grid\grid_edit_save_manual.aspx.designer.cs">
-      <DependentUpon>grid_edit_save_manual.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_text_middle.aspx.cs">
       <DependentUpon>grid_text_middle.aspx</DependentUpon>

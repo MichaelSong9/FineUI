@@ -666,7 +666,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,music";
             row[11] = "2000-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -684,7 +684,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "basketball,travel,movie,reading,music";
             row[11] = "2001-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -702,7 +702,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "basketball,movie,music";
             row[11] = "2008-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -721,7 +721,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,movie";
             row[11] = "2002-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -740,7 +740,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,movie,music";
             row[11] = "2008-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -759,7 +759,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "basketball,travel,music";
             row[11] = "2003-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -778,7 +778,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "travel,movie,music,reading";
             row[11] = "2000-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -797,7 +797,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music,basketball";
             row[11] = "2004-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -816,7 +816,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,movie";
             row[11] = "2003-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -834,7 +834,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,travel";
             row[11] = "2002-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
@@ -852,7 +852,7 @@ namespace FineUI.Examples
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music,basketball";
             row[11] = "2006-09-01";
-            row[12] = 80;
+            row[12] = 0;
             row[13] = 0;
             row[14] = 0;
             table.Rows.Add(row);
