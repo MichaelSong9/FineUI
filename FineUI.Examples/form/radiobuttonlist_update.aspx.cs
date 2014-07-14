@@ -173,7 +173,14 @@ namespace FineUI.Examples.form
 
         protected void btnUpdateList4_Click(object sender, EventArgs e)
         {
-            BindRadioButtonList4();
+            if (RadioButtonList4.Items.Count > 0)
+            {
+                ClearRadioButtonList4();
+            }
+            else
+            {
+                BindRadioButtonList4();
+            }
         }
 
         private void BindRadioButtonList4()
@@ -193,6 +200,11 @@ namespace FineUI.Examples.form
 
             RadioButtonList4.SelectedValue = "value2";
 
+        }
+
+        private void ClearRadioButtonList4()
+        {
+            RadioButtonList4.Items.Clear();
         }
 
         protected void btnCheckedItemsList4_Click(object sender, EventArgs e)

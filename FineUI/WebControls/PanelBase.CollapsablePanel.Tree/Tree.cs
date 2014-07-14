@@ -1376,13 +1376,15 @@ namespace FineUI
         /// <seealso cref="DataSource" />
         public override void DataBind()
         {
+            // 重新绑定数据前清空选中的值
+            SelectedNodeIDArray = null;
+
+            // 清空所有节点
+            Nodes.Clear();
+
             if (_dataSource != null)
             {
-                // 重新绑定数据前清空选中的值
-                SelectedNodeIDArray = null;
-
-                // 清空所有节点
-                Nodes.Clear();
+                
 
                 if (DataSource is DataSet)
                 {

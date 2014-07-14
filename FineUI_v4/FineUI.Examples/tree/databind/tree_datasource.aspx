@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Tree ID="Tree1" Width="650px" EnableArrows="true" EnableSingleExpand="true"  EnableCollapse="true"
+        <f:Tree ID="Tree1" Width="650px" EnableSingleExpand="true" EnableCollapse="true"
             ShowHeader="true" Title="树控件（绑定到 XmlDataSource）" runat="server">
         </f:Tree>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/tree/databind/website.xml"></asp:XmlDataSource>

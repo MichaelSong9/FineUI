@@ -61,7 +61,6 @@ namespace FineUI.Examples.iframe.topmenu3
                     leftAccordion.Items.Add(accordionPane);
 
                     Tree innerTree = new Tree();
-                    innerTree.EnableArrows = true;
                     innerTree.ShowBorder = false;
                     innerTree.ShowHeader = false;
                     innerTree.EnableIcons = false;

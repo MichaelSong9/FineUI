@@ -345,7 +345,7 @@ namespace FineUI
 
             #region options
 
-            OB.AddProperty("animCollapse", true);
+            OB.AddProperty("animCollapse", false);
             OB.AddProperty("collapsible", EnableCollapse);
             OB.AddProperty("collapsed", Collapsed);
 

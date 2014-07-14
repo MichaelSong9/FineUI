@@ -74,7 +74,7 @@ namespace FineUI.Examples.form
         {
             BindCheckBoxList1();
 
-            btnUpdateList1.Enabled = false;
+            //btnUpdateList1.Enabled = false;
         }
 
         private void BindCheckBoxList1()
@@ -108,7 +108,7 @@ namespace FineUI.Examples.form
         {
             BindCheckBoxList2();
 
-            btnUpdateList2.Enabled = false;
+            //btnUpdateList2.Enabled = false;
         }
 
         private void BindCheckBoxList2()
@@ -143,7 +143,7 @@ namespace FineUI.Examples.form
         {
             BindCheckBoxList3();
 
-            btnUpdateList3.Enabled = false;
+            //btnUpdateList3.Enabled = false;
         }
 
         private void BindCheckBoxList3()

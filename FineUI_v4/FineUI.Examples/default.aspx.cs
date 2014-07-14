@@ -73,7 +73,6 @@ namespace FineUI.Examples
                     accordionMenu.Items.Add(accordionPane);
 
                     Tree innerTree = new Tree();
-                    innerTree.EnableArrows = true;
                     innerTree.ShowBorder = false;
                     innerTree.ShowHeader = false;
                     innerTree.EnableIcons = false;
@@ -100,7 +99,6 @@ namespace FineUI.Examples
         {
             Tree treeMenu = new Tree();
             treeMenu.ID = "treeMenu";
-            treeMenu.EnableArrows = true;
             treeMenu.ShowBorder = false;
             treeMenu.ShowHeader = false;
             treeMenu.EnableIcons = false;

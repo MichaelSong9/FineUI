@@ -25,7 +25,7 @@
                                 <f:AccordionPane runat="server" Title="面板一" IconUrl="~/res/images/16/1.png" BodyPadding="2px 5px"
                                     Layout="Fit" ShowBorder="false">
                                     <Items>
-                                        <f:Tree runat="server" EnableArrows="true" ShowBorder="false" ShowHeader="false" ID="treeMenu">
+                                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" ID="treeMenu">
                                         </f:Tree>
                                     </Items>
                                 </f:AccordionPane>

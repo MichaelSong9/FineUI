@@ -606,6 +606,10 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
+            // 确保 F_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
+            FState.AddModifiedProperty("F_Items");
+            FState.AddModifiedProperty("SelectedValueArray");
+
             base.OnFirstPreRender();
 
             #region options
@@ -641,7 +645,7 @@ namespace FineUI
             #endregion
 
             #region Items
-
+            /*
             string xstateName = String.Format("{0}_xstate", XID);
             string xitemsName = String.Format("{0}_xitems", XID);
             string hasDataName = xstateName;
@@ -658,19 +662,13 @@ namespace FineUI
                 hasDataName = xitemsName;
             }
 
-            //if (Items.Count > 0)
-            //{
-            //    //OB.AddProperty("items", GetItemsJArray().ToString(Formatting.None), true);
-            //    OB.AddProperty("items", String.Format("F.util.resolveCheckBoxGroup('{0}',{1})", UniqueID, hasDataName), true);
-            //}
             OB.AddProperty("name", UniqueID);
             OB.AddProperty("items", String.Format("F.util.resolveCheckBoxGroup('{0}',{1},false)", UniqueID, hasDataName), true);
+            */
 
+            OB.AddProperty("name", UniqueID);
+            OB.AddProperty("items", String.Format("F.util.resolveCheckBoxGroup('{0}',{1},false)", UniqueID, GetFStateScriptID()), true);
 
-            //if (Items.Count == 0)
-            //{
-            //    OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction("cmp.f_toBeDeleted();", "cmp"), true);
-            //}
 
             #endregion
 
@@ -726,7 +724,7 @@ namespace FineUI
 
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.CheckboxGroup',{1});", XID, OB.ToString());
-            AddStartupScript(jsState + jsContent);
+            AddStartupScript(jsContent);
         }
 
         #region old code
@@ -765,13 +763,11 @@ namespace FineUI
         /// </summary>
         public override void DataBind()
         {
-            base.DataBind();
+            // 1. 首先清空 Items 属性
+            Items.Clear();
 
             if (_dataSource != null)
             {
-                // 1. 首先清空 Items 属性
-                Items.Clear();
-
                 // 2. 绑定到数据源
                 if (_dataSource is IDataReader)
                 {
@@ -807,12 +803,14 @@ namespace FineUI
                     throw new Exception("DataSource doesn't support data type: " + _dataSource.GetType().ToString());
                 }
 
-                // F_Items属性不是ServerAjaxProperty，所以只在页面第一次加载时判断是否改变
-                if (!Page.IsPostBack)
-                {
-                    FState.AddModifiedProperty("F_Items");
-                }
+                //// F_Items属性不是ServerAjaxProperty，所以只在页面第一次加载时判断是否改变
+                //if (!Page.IsPostBack)
+                //{
+                //    FState.AddModifiedProperty("F_Items");
+                //}
             }
+
+            base.DataBind();
         }
 
         /// <summary>

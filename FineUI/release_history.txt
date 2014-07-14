@@ -27,9 +27,10 @@ FineUI 严格遵守 ExtJS 对开源软件的限制，不再内置 ExtJS 库，�
 
 发布历史
 
-+2014-03-** v3.3.4
++2014-12-** v3.3.4
 	-修正删除选中树节点后重新绑定出错的问题（Panda）。
 	-修正tabstrip/tabstrip_addtab.aspx示例中相同ID可以多次添加的问题（春节）。
+	-修正树控件绑定为空值无效的问题，更新示例tree/databind/tree_document.aspx（IT刀客）。
 	
 	
 	

@@ -178,17 +178,20 @@ namespace FineUI
 
             #region AutoPostBack
 
-            string checkScript = String.Empty;
-            if (!String.IsNullOrEmpty(GroupName))
+            if (AutoPostBack)
             {
-                checkScript = "if(F.util.checkGroupLastTime('" + GroupName + "')){" + GetPostBackEventReference() + "}";
-            }
-            else
-            {
-                checkScript = GetPostBackEventReference();
-            }
+                string checkScript = String.Empty;
+                if (!String.IsNullOrEmpty(GroupName))
+                {
+                    checkScript = "if(F.util.checkGroupLastTime('" + GroupName + "')){" + GetPostBackEventReference() + "}";
+                }
+                else
+                {
+                    checkScript = GetPostBackEventReference();
+                }
 
-            OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkScript), true);
+                OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkScript), true);
+            }
 
             #endregion
 

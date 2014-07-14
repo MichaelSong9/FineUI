@@ -44,6 +44,8 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正输出页面的X-UA-Compatible标签错误（zjfeiye-5803）。
 	-将icon目录移到res目录内部。
 	-修正打开包含IFrame的Window的过程中按下ESC键时，可能出现弹出框的问题（tucq168-5858）。
+	-Tree的EnableArrows属性默认为true。
+	-修正MenuCheckBox总是回发的问题，也即AutoPostBack设置无效。
 	+表单增强。
 		-Web.config和PageManager中FormOffsetRight的默认值从5px改为0px。
 		-Form控件中非最后一列的右侧空白默认为5px。
@@ -85,7 +87,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-更新ueditor/ueditor.aspx示例，删除难以理解的jQuery Promise，使用简单的处理方式。
 		-更新ueditor/ueditor_two.aspx示例，使用Form的自定义布局，而不是原始的table标签。
 		-增加示例ckeditor/ckeditor_fixedheight.aspx,ueditor/ueditor_fixedheight.aspx和tinymce/tinymce_fixedheight.aspx。
-	
+	-修正树控件绑定为空值无效的问题，更新示例tree/databind/tree_document.aspx（IT刀客）。
 
 		
 

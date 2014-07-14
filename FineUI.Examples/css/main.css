@@ -59,3 +59,8 @@ table.result td, table.result th
     border-bottom: solid 1px #efefef;
     padding: 5px;
 }
+
+
+.marginr {
+    margin-right: 5px;
+}

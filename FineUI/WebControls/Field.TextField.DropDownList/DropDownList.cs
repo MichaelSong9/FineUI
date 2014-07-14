@@ -1120,11 +1120,11 @@ namespace FineUI
         /// </summary>
         public override void DataBind()
         {
+            // Clear all items
+            Items.Clear();
+
             if (_dataSource != null)
             {
-                // Clear all items
-                Items.Clear();
-
                 if (_dataSource is IDataReader)
                 {
                     DataTable dataTable = new DataTable();

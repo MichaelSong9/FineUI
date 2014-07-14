@@ -515,6 +515,10 @@ namespace FineUI
         /// </summary>
         protected override void OnFirstPreRender()
         {
+            // 确保 X_Items 和 SelectedValue 在页面第一次加载时都存在于x_state中
+            XState.AddModifiedProperty("X_Items");
+            XState.AddModifiedProperty("SelectedValue");
+
             base.OnFirstPreRender();
 
 
@@ -549,7 +553,7 @@ namespace FineUI
             #endregion
 
             #region Items
-
+            /*
             string xstateName = String.Format("{0}_xstate", XID);
             string xitemsName = String.Format("{0}_xitems", XID);
             string hasDataName = xstateName;
@@ -566,12 +570,11 @@ namespace FineUI
                 hasDataName = xitemsName;
             }
 
-            //if (Items.Count > 0)
-            //{
-            //    //OB.AddProperty("items", GetItemsJArray().ToString(Formatting.None), true);
-            //    OB.AddProperty("items", String.Format("X.util.resolveCheckBoxGroup('{0}',{1})", UniqueID, hasDataName), true);
-            //}
+            
             OB.AddProperty("items", String.Format("X.util.resolveCheckBoxGroup('{0}',{1},true)", UniqueID, hasDataName), true);
+            */
+
+            OB.AddProperty("items", String.Format("X.util.resolveCheckBoxGroup('{0}',{1},true)", UniqueID, GetXStateScriptID()), true);
 
 
             if (Items.Count == 0)
@@ -634,7 +637,7 @@ namespace FineUI
             #endregion
 
             string jsContent = String.Format("var {0}=new Ext.form.RadioGroup({1});", XID, OB.ToString());
-            AddStartupScript(jsState + jsContent);
+            AddStartupScript(jsContent);
         }
 
         #region old code
@@ -673,12 +676,14 @@ namespace FineUI
         /// </summary>
         public override void DataBind()
         {
-            base.DataBind();
+            
+
+            // 1. 首先清空 Items 属性
+            Items.Clear();
 
             if (_dataSource != null)
             {
-                // 1. 首先清空 Items 属性
-                Items.Clear();
+               
 
                 // 2. 绑定到数据源
                 if (_dataSource is IDataReader)
@@ -715,12 +720,14 @@ namespace FineUI
                     throw new Exception("DataSource doesn't support data type: " + _dataSource.GetType().ToString());
                 }
 
-                // X_Items属性不是ServerAjaxProperty，所以只在页面第一次加载时判断是否改变
-                if (!Page.IsPostBack)
-                {
-                    XState.AddModifiedProperty("X_Items");
-                }
+                //// X_Items属性不是ServerAjaxProperty，所以只在页面第一次加载时判断是否改变
+                //if (!Page.IsPostBack)
+                //{
+                //    XState.AddModifiedProperty("X_Items");
+                //}
             }
+
+            base.DataBind();
         }
 
         /// <summary>

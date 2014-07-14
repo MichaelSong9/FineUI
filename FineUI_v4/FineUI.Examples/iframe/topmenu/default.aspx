@@ -11,7 +11,7 @@
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <f:Region ID="Region1"  ShowBorder="false" Height="102px" ShowHeader="false"
+                <f:Region ID="Region1" ShowBorder="false" Height="102px" ShowHeader="false"
                     Position="Top" Layout="Fit" runat="server">
                     <Items>
                         <f:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" runat="server">
@@ -46,15 +46,14 @@
                     </Items>
                 </f:Region>
                 <f:Region ID="Region2" Split="true" Width="200px"
-                     ShowHeader="false" Title="示例菜单"
+                    ShowHeader="false" Title="示例菜单"
                     EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
                     <Items>
-                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
-                            ID="leftTree">
+                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" ID="leftTree">
                         </f:Tree>
                     </Items>
                 </f:Region>
-                <f:Region ID="mainRegion" ShowHeader="false"  Position="Center"
+                <f:Region ID="mainRegion" ShowHeader="false" Position="Center"
                     EnableIFrame="true" IFrameName="mainframe" IFrameUrl="about:blank" runat="server">
                 </f:Region>
             </Regions>

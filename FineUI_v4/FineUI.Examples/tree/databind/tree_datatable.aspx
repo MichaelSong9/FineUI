@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Tree ID="Tree1" Width="650px" EnableArrows="false" EnableLines="true" ShowHeader="true"  EnableCollapse="true"
+        <f:Tree ID="Tree1" Width="650px" ShowHeader="true" EnableCollapse="true"
             Title="树控件" runat="server">
         </f:Tree>
     </form>

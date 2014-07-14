@@ -46,7 +46,7 @@ namespace FineUI
     /// 树控件
     /// </summary>
     [Designer("FineUI.Design.TreeDesigner, FineUI.Design")]
-    [ToolboxData("<{0}:Tree Title=\"Tree\" EnableArrows=\"true\" AutoScroll=\"true\" runat=\"server\"></{0}:Tree>")]
+    [ToolboxData("<{0}:Tree Title=\"Tree\" AutoScroll=\"true\" runat=\"server\"></{0}:Tree>")]
     [ToolboxBitmap(typeof(Tree), "toolbox.Tree.bmp")]
     [Description("树控件")]
     [ParseChildren(true)]
@@ -183,14 +183,14 @@ namespace FineUI
         /// 启用箭头
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Description("启用箭头")]
         public bool EnableArrows
         {
             get
             {
                 object obj = FState["EnableArrows"];
-                return obj == null ? false : (bool)obj;
+                return obj == null ? true : (bool)obj;
             }
             set
             {
@@ -199,17 +199,36 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 启用动画
+        /// 启用节点之间连线
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(true)]
+        [Description("启用节点之间连线")]
+        public bool EnableLines
+        {
+            get
+            {
+                object obj = FState["EnableLines"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["EnableLines"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 启用动画
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
         [Description("启用动画")]
         public bool EnableAnimate
         {
             get
             {
                 object obj = FState["EnableAnimate"];
-                return obj == null ? true : (bool)obj;
+                return obj == null ? false : (bool)obj;
             }
             set
             {
@@ -237,24 +256,7 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 启用节点之间连线
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("启用节点之间连线")]
-        public bool EnableLines
-        {
-            get
-            {
-                object obj = FState["EnableLines"];
-                return obj == null ? true : (bool)obj;
-            }
-            set
-            {
-                FState["EnableLines"] = value;
-            }
-        }
+       
 
         /// <summary>
         /// 启用图标
@@ -1026,14 +1028,15 @@ namespace FineUI
             #region options
 
             OB.AddProperty("useArrows", EnableArrows);
+            OB.AddProperty("lines", EnableLines);
+
             OB.AddProperty("animate", EnableAnimate);
 
             OB.AddProperty("singleExpand", EnableSingleExpand);
-            OB.AddProperty("lines", EnableLines);
+            
 
             if (!EnableIcons)
             {
-                //bodyCssClass: 'x-tree-noicon'
                 OB.AddProperty("bodyCls", "x-tree-noicon");
             }
 
@@ -1451,14 +1454,14 @@ namespace FineUI
         /// <seealso cref="DataSource" />
         public override void DataBind()
         {
+            // 重新绑定数据前清空选中的值
+            SelectedNodeIDArray = null;
+
+            // 清空所有节点
+            Nodes.Clear();
+
             if (_dataSource != null)
             {
-                // 重新绑定数据前清空选中的值
-                SelectedNodeIDArray = null;
-
-                // 清空所有节点
-                Nodes.Clear();
-
                 if (DataSource is DataSet)
                 {
                     DataSet ds = DataSource as DataSet;

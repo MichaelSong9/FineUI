@@ -8,8 +8,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" AutoSizePanelID="leftTree" runat="server"></f:PageManager>
-        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
-            ID="leftTree">
+        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" ID="leftTree">
         </f:Tree>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="./data/menuMail.xml"></asp:XmlDataSource>
     </form>
