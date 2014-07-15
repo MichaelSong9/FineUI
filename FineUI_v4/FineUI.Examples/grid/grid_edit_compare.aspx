@@ -100,26 +100,23 @@
         function registerCompareEvent() {
             var grid = F(gridClientID);
 
-            $(grid.el.dom).delegate(inputselector, 'keypress', function (evt) {
+            $(grid.el.dom).delegate(inputselector, 'input propertychange', function (evt) {
                 var $this = $(this);
 
-                // 延时以确保文本输入框得到了用户输入的值
-                window.setTimeout(function () {
+			
+				var row = $this.parents('.x-grid-row');
+				var num1 = row.find(inputselector + '.group1').val();
+				var num2 = row.find(inputselector + '.group2').val();
+				var resultNode = row.find('.f-grid-tpl span.result');
+				resultNode.removeClass('success error');
+				if (num1 == num2) {
+					resultNode.addClass('success');
+					resultNode.text('两组录入一致');
+				} else {
+					resultNode.addClass('error');
+					resultNode.text('两组录入不一致！');
+				}
 
-                    var row = $this.parents('.x-grid-row');
-                    var num1 = row.find(inputselector + '.group1').val();
-                    var num2 = row.find(inputselector + '.group2').val();
-                    var resultNode = row.find('.f-grid-tpl span.result');
-                    resultNode.removeClass('success error');
-                    if (num1 == num2) {
-                        resultNode.addClass('success');
-                        resultNode.text('两组录入一致');
-                    } else {
-                        resultNode.addClass('error');
-                        resultNode.text('两组录入不一致！');
-                    }
-
-                }, 500);
             });
 
         }
