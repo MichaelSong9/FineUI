@@ -359,7 +359,16 @@ namespace FineUI
             {
                 if (_nodes == null)
                 {
-                    _nodes = new TreeNodeCollection(this, null);
+                    // 如果不加上 DesignMode 的判断，则在设计时出现如下错误
+                    // 无法从TreeInstance属性的字符串表示形式创建FineUI.Tree类型的对象
+                    if (DesignMode)
+                    {
+                        _nodes = new TreeNodeCollection(null, null);
+                    }
+                    else
+                    {
+                        _nodes = new TreeNodeCollection(this, null);
+                    }
                 }
                 return _nodes;
             }

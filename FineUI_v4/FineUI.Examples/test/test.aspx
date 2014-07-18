@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form ID="Form2" runat="server" Height="36px" BodyPadding="5px" ShowHeader="false"
+        <f:Form ID="Form2" runat="server" Height="36px" BodyPadding="5px" Title="简单表单"
             ShowBorder="false" LabelAlign="Right">
             <Toolbars>
                 <f:Toolbar ID="Toolbar3" runat="server">
@@ -29,8 +29,7 @@
             <Rows>
                 <f:FormRow ID="FormRow1" runat="server">
                     <Items>
-                        <f:TwinTriggerBox runat="server" EmptyText="输入要搜索的用工单位" Label="单位名称" ID="txtQUnitName"
-                            ShowTrigger1="false" OnTrigger2Click="btnQuery_Click" Trigger1Icon="Clear" Trigger2Icon="Search" />
+                        <f:TwinTriggerBox runat="server" EmptyText="输入要搜索的用工单位" Label="单位名称" ID="txtQUnitName" OnTrigger2Click="btnQuery_Click" Trigger1Icon="Clear" Trigger2Icon="Search" />
                         <f:DropDownList ID="cboQRealDate" runat="server" Required="true" ShowRedStar="true"
                             Label="自然月份" AutoPostBack="true" OnSelectedIndexChanged="cboQRealDate_SelectedIndexChanged" />
                         <f:RadioButtonList ID="rboIsWork" Label="状态" runat="server" AutoPostBack="true"

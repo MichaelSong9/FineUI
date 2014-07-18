@@ -244,7 +244,7 @@ namespace FineUI
         /// <summary>
         /// 内容区域的内边距，字符串类型，可以设置上下左右的内边距，比如'0px 5px'或'5px 10px 2px 2px'
         /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
+        [Category(CategoryName.LAYOUT)]
         [DefaultValue(typeof(String), "")]
         [Description("内容区域的内边距，字符串类型，可以设置上下左右的内边距，比如'0px 5px'或'5px 10px 2px 2px'")]
         public virtual string BodyPadding
@@ -351,6 +351,9 @@ namespace FineUI
 
         private ITemplate content = null;
 
+        /// <summary>
+        /// 子控件
+        /// </summary>
         [Browsable(false)]
         [DefaultValue(null)]
         [NotifyParentProperty(true)]
@@ -596,6 +599,9 @@ namespace FineUI
 
         #region CreateChildControls
 
+        /// <summary>
+        /// 创建子控件
+        /// </summary>
         protected override void CreateChildControls()
         {
             base.CreateChildControls();

@@ -29,7 +29,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 发布历史
 
-+2014-07-31 v4.0.7
++2014-07-21 v4.1.0
 	-渲染到页面上的按钮，其外部容器display默认为inline-block。
 	-示例grid/grid_iframe_window.aspx减少两个Panel，实现和之前一样的效果。
 	+反射获取对象属性时，不仅包含public属性，而且包含private, internal属性。
@@ -91,10 +91,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加示例ckeditor/ckeditor_fixedheight.aspx,ueditor/ueditor_fixedheight.aspx和tinymce/tinymce_fixedheight.aspx。
 	-修正树控件绑定为空值无效的问题，更新示例tree/databind/tree_document.aspx（IT刀客）。
 
-		
 
-
-	
 
 +2014-05-11 v4.0.6
 	-修正下拉列表禁用时提交数据错误的问题（惘思）。

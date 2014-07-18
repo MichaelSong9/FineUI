@@ -761,7 +761,7 @@ namespace FineUI
 
         public void AddAbsoluteStartupScript(string script)
         {
-            AddAbsoluteStartupScript(script, 100);
+            AddAbsoluteStartupScript(script, Constants.ABSOLUTE_STARTUP_SCRIPT_DEFAULT_LEVEL);
         }
 
         public void AddAbsoluteStartupScript(string script, int level)

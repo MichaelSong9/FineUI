@@ -154,7 +154,7 @@ namespace FineUI
         /// <summary>
         /// 外边距
         /// </summary>
-        [Category(CategoryName.BASEOPTIONS)]
+        [Category(CategoryName.LAYOUT)]
         [DefaultValue("")]
         [Description("外边距")]
         public string Margin

@@ -28,6 +28,63 @@ using System.Text;
 
 namespace FineUI
 {
+
+    /// <summary>
+    /// 常量
+    /// </summary>
+    public static class Constants
+    {
+
+        /// <summary>
+        /// 绝对脚本的默认级别（仅内部使用）
+        /// </summary>
+        public static readonly int ABSOLUTE_STARTUP_SCRIPT_DEFAULT_LEVEL = 100;
+
+
+
+        // http://stackoverflow.com/questions/11832930/html-input-file-accept-attribute-file-type-csv
+
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_CSV = ".csv";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_EXCEL = ".xls,.xlsx";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_WORD = ".doc,.docx";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_TEXT = ".txt";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_IMAGES = "image/*";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_HTML = "text/html";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_VIDEO = "video/*";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_AUDIO = "audio/*";
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public static readonly string FILETYPE_PDF = ".pdf";
+
+
+    }
+
+
     /// <summary>
     /// 配置字段名称
     /// </summary>
