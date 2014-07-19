@@ -88,7 +88,6 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加TinyMCE和UMEditor的示例。
 		-更新ueditor/ueditor.aspx示例，删除难以理解的jQuery Promise，使用简单的处理方式。
 		-更新ueditor/ueditor_two.aspx示例，使用Form的自定义布局，而不是原始的table标签。
-		-增加示例ckeditor/ckeditor_fixedheight.aspx,ueditor/ueditor_fixedheight.aspx和tinymce/tinymce_fixedheight.aspx。
 	-修正树控件绑定为空值无效的问题，更新示例tree/databind/tree_document.aspx（IT刀客）。
 
 
