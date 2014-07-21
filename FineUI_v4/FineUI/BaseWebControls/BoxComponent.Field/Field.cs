@@ -427,8 +427,12 @@ namespace FineUI
                 if (parentControl is FormRow || 
                     (parentControl is Container && (parentControl as Container).Layout == Layout.Anchor))
                 {
-                    // 这个地方可能会覆盖 BoxComponent 中已经设置的 anchor 属性，不过没关系
-                    OB.AddProperty("anchor", GetAnchorValue());
+                    // 如果定义了宽度，则不设置anchorValue
+                    if (Width == Unit.Empty)
+                    {
+                        // 这个地方可能会覆盖 BoxComponent 中已经设置的 anchor 属性，不过没关系
+                        OB.AddProperty("anchor", GetAnchorValue());
+                    }
                 }
             }
 
@@ -475,7 +479,7 @@ namespace FineUI
                 }
                 else
                 {
-                    anchorValue = "100%";
+                    anchorValue = "0";
                 }
             }
 
