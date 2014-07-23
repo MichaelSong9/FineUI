@@ -616,11 +616,11 @@ namespace FineUI
 
 
         /// <summary>
-        /// 是否启用FState压缩（默认为true）
+        /// 是否启用FState压缩（默认为false）
         /// </summary>
         [Category(CategoryName.BASEOPTIONS)]
-        [DefaultValue(true)]
-        [Description("是否启用FState压缩（默认为true）")]
+        [DefaultValue(false)]
+        [Description("是否启用FState压缩（默认为false）")]
         public virtual bool EnableFStateCompress
         {
             get
@@ -630,7 +630,7 @@ namespace FineUI
                 {
                     if (DesignMode)
                     {
-                        return true;
+                        return false;
                     }
                     else
                     {

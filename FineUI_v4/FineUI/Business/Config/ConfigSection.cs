@@ -306,7 +306,7 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 是否启用FState压缩（默认为true）
+        /// 是否启用FState压缩（默认为false）
         /// </summary>
         [ConfigurationProperty(ConfigPropertyName.ENABLEFSTATECOMPRESS, DefaultValue = ConfigPropertyValue.ENABLE_FSTATE_COMPRESS)]
         public bool EnableFStateCompress
