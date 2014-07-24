@@ -10,9 +10,9 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Panel ID="Panel2" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
-            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start" BoxConfigPadding="5"
-            BoxConfigChildMargin="0 5 0 0" ShowHeader="True"
-            Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
+            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start"
+            BoxConfigChildMargin="0 5 0 0" BodyPadding="5px" ShowHeader="True"
+            Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigChildMargin=0 5 0 0）">
             <Items>
                 <f:Panel ID="Panel1" Title="面板1" BoxFlex="1" runat="server"
                     BodyPadding="5px" ShowBorder="true" ShowHeader="false">
@@ -40,8 +40,8 @@
         <br />
         <br />
         <f:Panel ID="Panel5" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
-            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="End" BoxConfigPadding="5px"
-            BoxConfigChildMargin="0 5 0 0" ShowHeader="True" Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=End BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
+            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="End" 
+            BoxConfigChildMargin="0 5 0 0" BodyPadding="5px" ShowHeader="True" Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=End BoxConfigChildMargin=0 5 0 0）">
             <Items>
                 <f:Panel ID="Panel6" Title="面板1" Width="200px"
                     runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
@@ -69,8 +69,8 @@
         <br />
         <br />
         <f:Panel ID="Panel9" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
-            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Center" BoxConfigPadding="5px"
-            BoxConfigChildMargin="0 5 0 0" ShowHeader="True" Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Center BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
+            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Center" 
+            BoxConfigChildMargin="0 5 0 0" BodyPadding="5px" ShowHeader="True" Title="面板（Layout=HBox BoxConfigAlign=Stretch BoxConfigPosition=Center BoxConfigChildMargin=0 5 0 0）">
             <Items>
                 <f:Panel ID="Panel10" Title="面板1" Width="200px"
                     runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
@@ -98,9 +98,9 @@
         <br />
         <br />
         <f:Panel ID="Panel13" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
-            Layout="HBox" BoxConfigAlign="Center" BoxConfigPosition="Center" BoxConfigPadding="5px"
-            BoxConfigChildMargin="0 5 0 0" ShowHeader="True"
-            Title="面板（Layout=HBox BoxConfigAlign=Center BoxConfigPosition=Center BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
+            Layout="HBox" BoxConfigAlign="Center" BoxConfigPosition="Center" 
+            BoxConfigChildMargin="0 5 0 0" BodyPadding="5px" ShowHeader="True"
+            Title="面板（Layout=HBox BoxConfigAlign=Center BoxConfigPosition=Center BoxConfigChildMargin=0 5 0 0）">
             <Items>
                 <f:Panel ID="Panel14" Title="面板1" Width="200px"
                     Height="100px" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">
@@ -129,9 +129,9 @@
         <br />
         <br />
         <f:Panel ID="Panel17" runat="server" Height="250px" Width="850px" ShowBorder="True"  EnableCollapse="true"
-            Layout="HBox" BoxConfigAlign="StretchMax" BoxConfigPosition="Center" BoxConfigPadding="5px"
-            BoxConfigChildMargin="0 5 0 0" ShowHeader="True"
-            Title="面板（Layout=HBox BoxConfigAlign=StretchMax BoxConfigPosition=Center BoxConfigPadding=5 BoxConfigChildMargin=0 5 0 0）">
+            Layout="HBox" BoxConfigAlign="StretchMax" BoxConfigPosition="Center" 
+            BoxConfigChildMargin="0 5 0 0" BodyPadding="5px" ShowHeader="True"
+            Title="面板（Layout=HBox BoxConfigAlign=StretchMax BoxConfigPosition=Center BoxConfigChildMargin=0 5 0 0）">
             <Items>
                 <f:Panel ID="Panel18" Title="面板1" Width="200px"
                     Height="100px" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="false">

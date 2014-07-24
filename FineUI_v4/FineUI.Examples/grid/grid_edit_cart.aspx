@@ -20,7 +20,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" AutoSizePanelID="Panel2" runat="server" />
         <f:Panel ID="Panel2" runat="server" ShowBorder="false" Layout="VBox" BoxConfigAlign="Stretch"
-            BoxConfigPosition="Start" BoxConfigPadding="5" BoxConfigChildMargin="0 5 0 0"
+            BoxConfigPosition="Start" BodyPadding="5px" BoxConfigChildMargin="0 5 0 0"
             ShowHeader="false">
             <Items>
                 <f:Grid ID="Grid1" ShowBorder="true" BoxFlex="1" ShowHeader="true" Title="购物车"

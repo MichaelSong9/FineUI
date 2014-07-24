@@ -13,7 +13,7 @@
         <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
         <f:Panel runat="server" ID="Panel1" Width="600px"  EnableCollapse="true"
             Height="300px" Layout="VBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start"
-            BoxConfigPadding="5" BoxConfigChildMargin="0 0 5 0" Title="页面/面板一（Layout=VBox, Panel->(UserControlConnector->UserInfoControl,Panel)）">
+            BodyPadding="5px" BoxConfigChildMargin="0 0 5 0" Title="页面/面板一（Layout=VBox, Panel->(UserControlConnector->UserInfoControl,Panel)）">
             <Items>
                 <f:UserControlConnector ID="UserControlConnector1" runat="server">
                     <uc1:UserInfoControl ID="UserInfoControl1" UserName="陈萍萍" UserAge="20" UserCountry="合肥"
@@ -31,7 +31,7 @@
         <br />
         <f:Panel runat="server" ID="Panel2" Width="600px"  EnableCollapse="true"
             Height="300px" Layout="VBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start"
-            BoxConfigPadding="5" BoxConfigChildMargin="0 0 5 0" Title="页面/面板一">
+            BodyPadding="5px" BoxConfigChildMargin="0 0 5 0" Title="页面/面板一">
             <Items>
                 <f:UserControlConnector ID="UserControlConnector2" runat="server">
                     <uc1:UserInfoControl ID="UserInfoControl2" UserName="陈萍萍" UserAge="20" UserCountry="合肥"
@@ -46,7 +46,7 @@
         <br />
         <f:Panel runat="server" ID="Panel4" Width="600px"  EnableCollapse="true"
             Height="300px" Layout="VBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start"
-            BoxConfigPadding="5" BoxConfigChildMargin="0 0 5 0" Title="页面/面板二">
+            BodyPadding="5px" BoxConfigChildMargin="0 0 5 0" Title="页面/面板二">
             <Items>
                 <f:UserControlConnector ID="UserControlConnector4" runat="server">
                     <uc1:UserInfoControl ID="UserInfoControl4" UserName="陈萍萍" UserAge="20" UserCountry="合肥"

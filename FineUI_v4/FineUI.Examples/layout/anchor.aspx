@@ -194,9 +194,9 @@
         ===========================================================================
         <br />
         <f:Panel ID="Panel9" runat="server" Layout="VBox"  EnableCollapse="true"
-            BoxConfigAlign="Stretch" BoxConfigPosition="Start" BoxConfigPadding="3" BoxConfigChildMargin="0"
+            BoxConfigAlign="Stretch" BoxConfigPosition="Start" BodyPadding="5px" BoxConfigChildMargin="0"
             ShowBorder="True" ShowHeader="True" Width="850px" Height="350px"
-            Title="面板五（Layout=VBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigPadding=3 BoxConfigChildMargin=0）">
+            Title="面板五（Layout=VBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigChildMargin=0）">
             <Items>
                 <f:Form ID="Form6" ShowBorder="False" BodyPadding="5px" ShowHeader="False" runat="server">
                     <Rows>

@@ -32,6 +32,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 +2014-09-** v4.1.1
 	-修正Form中表单字段设置宽度无效的问题（李明海-5929）。
 	-为TemplateField增加ExpandOnDoubleClick、ExpandOnEnter、ExpandToSelectRow三个属性（LZOM-5932）。
+	-BodyPadding支持纯数字形式，类似“5”“5 10”，之前只支持带单位的形式“5px”“5px 10px”。
 
 
 

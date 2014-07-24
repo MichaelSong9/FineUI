@@ -702,7 +702,7 @@ namespace FineUI
             {
                 if (!String.IsNullOrEmpty(BodyPadding))
                 {
-                    bodyStyleStr += String.Format("padding:{0};", BodyPadding);
+                    bodyStyleStr += String.Format("padding:{0};", StyleUtil.GetMarginPaddingStyle(BodyPadding));
                 }
             }
 
