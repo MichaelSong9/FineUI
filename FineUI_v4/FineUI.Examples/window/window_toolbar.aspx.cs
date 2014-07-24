@@ -21,10 +21,5 @@ namespace FineUI.Examples.window
             Window2.Hidden = true;
         }
 
-        protected void btnChangeContent_Click(object sender, EventArgs e)
-        {
-            labWindowContent.Text = String.Format("这是窗体的内容（{0}）", DateTime.Now.ToLongTimeString());
-        }
-
     }
 }
