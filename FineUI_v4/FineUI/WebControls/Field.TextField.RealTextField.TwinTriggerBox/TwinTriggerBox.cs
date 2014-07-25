@@ -443,7 +443,14 @@ namespace FineUI
 
             #endregion
 
-			// F('SimpleForm1_ttbxMyBox2').triggerEl.item(0).show();
+            #region EnableEdit
+            // extjsv4.x 的enableedit=false，不能点击输入框触发
+            if (!EnableEdit)
+            {
+                OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTrigger2Click,field);}", true);
+
+            }
+            #endregion
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.Trigger',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);

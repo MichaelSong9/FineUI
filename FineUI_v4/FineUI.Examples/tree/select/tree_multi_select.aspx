@@ -34,7 +34,7 @@
         </f:Tree>
         <br />
         <br />
-        注：这是一个可以多选的树，你可以按着“Ctrl”选择多项。
+        注：这是一个可以多选的树，你可以按着 Ctrl 或 Shift 选择多项。
     <br />
         <br />
         <f:Button ID="btnGetSelectedValues" OnClick="btnGetSelectedValues_Click" CssClass="marginr"

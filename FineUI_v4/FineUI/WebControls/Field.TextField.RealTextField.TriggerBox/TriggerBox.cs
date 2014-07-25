@@ -262,6 +262,16 @@ namespace FineUI
 
             #endregion
 
+            #region EnableEdit
+            // extjsv4.x 的enableedit=false，不能点击输入框触发
+            if (!EnableEdit)
+            {
+                OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTriggerClick,field);}", true);
+
+            } 
+            #endregion
+                
+
             #region old code
 
             //// 只禁用文本框，不禁用Trigger
