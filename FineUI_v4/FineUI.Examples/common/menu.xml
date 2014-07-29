@@ -198,8 +198,6 @@
       </TreeNode>
       <TreeNode Text="模拟树列" NavigateUrl="~/grid/grid_simulate_tree.aspx" >
       </TreeNode>
-      <TreeNode Text="模拟树列 (内存分页)" NavigateUrl="~/grid/grid_simulate_tree_paging.aspx" >
-      </TreeNode>
       <TreeNode Text="模拟树列（数据库分页）" NavigateUrl="~/grid/grid_simulate_tree_database_paging.aspx" >
       </TreeNode>
       <TreeNode Text="模拟树列（数据库分页，下拉列表定位省份）" NavigateUrl="~/grid/grid_simulate_tree_database_paging_dropdownlist.aspx" >
