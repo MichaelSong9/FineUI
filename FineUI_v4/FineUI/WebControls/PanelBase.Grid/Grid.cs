@@ -3211,17 +3211,20 @@ namespace FineUI
             {
                 cellEditingDataKeyNameField.Clear();
 
-                List<string> dataKeyNames = new List<string>(DataKeyNames);
-                foreach (GridColumn field in AllColumns)
+                if (DataKeyNames != null)
                 {
-                    if (field is RenderBaseField)
+                    List<string> dataKeyNames = new List<string>(DataKeyNames);
+                    foreach (GridColumn field in AllColumns)
                     {
-                        string dataField = (field as RenderBaseField).DataField;
-                        if (dataKeyNames.Contains(dataField))
+                        if (field is RenderBaseField)
                         {
-                            if (!cellEditingDataKeyNameField.ContainsKey(dataField))
+                            string dataField = (field as RenderBaseField).DataField;
+                            if (dataKeyNames.Contains(dataField))
                             {
-                                cellEditingDataKeyNameField.Add(dataField, field);
+                                if (!cellEditingDataKeyNameField.ContainsKey(dataField))
+                                {
+                                    cellEditingDataKeyNameField.Add(dataField, field);
+                                }
                             }
                         }
                     }
@@ -3547,7 +3550,11 @@ namespace FineUI
                 //    newAddedRows = StringUtil.GetIntListFromString(paramNewAddedRows, true);
                 //}
 
-                List<string> dataKeyNames = new List<string>(DataKeyNames);
+                List<string> dataKeyNames = null;
+                if (DataKeyNames != null)
+                {
+                    dataKeyNames = new List<string>(DataKeyNames);
+                }
 
                 // 根据用户的输入修改每个单元格的Values
                 _modifiedDict = new Dictionary<int, Dictionary<string, object>>();
@@ -3587,13 +3594,16 @@ namespace FineUI
                                 Rows[originalRowIndex].Values[columnIndex] = cellValue;
 
                                 // 更新行的DataKeys
-                                RenderBaseField renderField = column as RenderBaseField;
-                                if (renderField != null)
+                                if (dataKeyNames != null)
                                 {
-                                    int dataKeyIndex = dataKeyNames.IndexOf(renderField.DataField);
-                                    if (dataKeyIndex >= 0)
+                                    RenderBaseField renderField = column as RenderBaseField;
+                                    if (renderField != null)
                                     {
-                                        Rows[originalRowIndex].DataKeys[dataKeyIndex] = cellValue;
+                                        int dataKeyIndex = dataKeyNames.IndexOf(renderField.DataField);
+                                        if (dataKeyIndex >= 0)
+                                        {
+                                            Rows[originalRowIndex].DataKeys[dataKeyIndex] = cellValue;
+                                        }
                                     }
                                 }
                             }

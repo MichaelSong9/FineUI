@@ -34,6 +34,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-为TemplateField增加ExpandOnDoubleClick、ExpandOnEnter、ExpandToSelectRow三个属性（LZOM-5932）。
 	-BodyPadding支持纯数字形式，类似“5”“5 10”，之前只支持带单位的形式“5px”“5px 10px”。
 	-修正TriggerBox在EnableEdit=false的情况下，点击文本输入框不能触发的问题（Jango_Jing-5450）。
+	-修正可编辑单元格未定义DataKeyNames的情况下可能出现的错误（yygy-6002）。
 
 
 
