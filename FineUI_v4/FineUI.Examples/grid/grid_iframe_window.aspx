@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" AutoSizePanelID="SimpleForm1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" ShowBorder="false" ShowHeader="false"
+        <f:Form ID="SimpleForm1" ShowBorder="false" ShowHeader="false"
             AutoScroll="true" BodyPadding="10px" runat="server">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server">
@@ -40,20 +40,34 @@
                     </Items>
                 </f:Toolbar>
             </Toolbars>
-            <Items>
-                <f:Label ID="Label2" Label="申请人" Text="sanshi" runat="server" />
-                <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
-                <f:NumberBox ID="NumberBox1" Label="数量" Required="true" ShowRedStar="true" runat="server" />
-                <f:CheckBox ID="CheckBox1" runat="server" Text="" Label="是否审批">
-                </f:CheckBox>
-                <f:DatePicker ID="DatePicker1" Required="True" ShowRedStar="true" runat="server"
-                    SelectedDate="2008-05-09" Label="申请日期" Text="2008-05-09">
-                </f:DatePicker>
-                <f:TextArea ID="TextArea2" Label="描述" runat="server" Required="True" ShowRedStar="true" />
-                <f:HtmlEditor ID="HtmlEditor1" Label="详细描述" Height="150px" runat="server">
-                </f:HtmlEditor>
-            </Items>
-        </f:SimpleForm>
+            <Rows>
+                <f:FormRow>
+                    <Items>
+                        <f:Label ID="Label2" Label="申请人" Text="sanshi" runat="server" />
+                        <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
+                    </Items>
+                </f:FormRow>
+                <f:FormRow>
+                    <Items>
+                        <f:NumberBox ID="NumberBox1" NoNegative="true" Label="数量" Required="true" ShowRedStar="true" runat="server" />
+                        <f:DatePicker ID="DatePicker1" Required="True" ShowRedStar="true" runat="server"
+                            SelectedDate="2008-05-09" Label="申请日期" Text="2008-05-09">
+                        </f:DatePicker>
+                    </Items>
+                </f:FormRow>
+                <f:FormRow>
+                    <Items>
+                        <f:TextArea ID="TextArea2" Height="80px" Label="描述" runat="server" Required="True" ShowRedStar="true" />
+                    </Items>
+                </f:FormRow>
+                <f:FormRow>
+                    <Items>
+                        <f:HtmlEditor ID="HtmlEditor1" Label="详细描述" Height="150px" runat="server">
+                        </f:HtmlEditor>
+                    </Items>
+                </f:FormRow>
+            </Rows>
+        </f:Form>
     </form>
 </body>
 </html>
