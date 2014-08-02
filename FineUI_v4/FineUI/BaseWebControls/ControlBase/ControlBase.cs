@@ -745,25 +745,32 @@ namespace FineUI
                 // 确保ResourceManager实例的Page和当前页面一致
                 ResourceManager.EnsureResourceManagerInstance(Page);
 
-
-                // 此时，ASPX 页面上标签定义的控件已经初始化完毕
-                // 如果当前是页面回发，则从 HTTP 请求的表单数据中（F_STATE）恢复当前控件的状态
-                if (Page.IsPostBack)
-                {
-                    RecoverPropertiesFromJObject(PostBackState);
-                }
-
-                // 向子控件公开方法，可以在备份初始化属性之前修改属性值
-                OnInitControl();
-
-                // 备份初始化属性值
-                FState.BackupInitializedProperties();
-
-                // 标识初始化完成
-                InitialComplete = true;
-
+                // 页面初始化完毕后，再进行FState的相关操作（类似LoadViewState阶段，但LoadViewState并非每个控件都会经历，所以只能注册页面的InitComplete）
+                Page.InitComplete += Page_InitComplete;
             }
         }
+
+        private void Page_InitComplete(object sender, EventArgs e)
+        {
+            // 如果是页面回发，则恢复FState
+            if (Page.IsPostBack)
+            {
+                RecoverPropertiesFromJObject(PostBackState);
+            }
+
+
+            // 向子控件公开方法，可以在备份初始化属性之前修改属性值
+            OnInitControl();
+
+            // 备份初始化属性值
+            FState.BackupInitializedProperties();
+
+            // 标识初始化完成
+            InitialComplete = true;
+    
+
+        }
+
 
         /// <summary>
         /// 在备份初始化属性之前修改属性值
