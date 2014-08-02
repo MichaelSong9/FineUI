@@ -36,6 +36,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正TriggerBox在EnableEdit=false的情况下，点击文本输入框不能触发的问题（Jango_Jing-5450）。
 	-修正可编辑单元格未定义DataKeyNames的情况下可能出现的错误（yygy-6002）。
 	-修正下拉列表在数据重新加载后没有更新选中值的问题（Gnid-6018）。
+	-确保PageManager在指定AutoSizePanelID的情况下，其初始化脚本在用户自定义脚本之前执行（yygy-6008）。
 
 
 

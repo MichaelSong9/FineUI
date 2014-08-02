@@ -1114,7 +1114,8 @@ namespace FineUI
 
                     string jsContent = String.Format("var {0}=Ext.create('Ext.ux.FormViewport',{1});", XID, OB.ToString());
 
-                    AddStartupAbsoluteScript(jsContent);
+                    // 确保FormViewport脚本在所以用户自定义脚本（PageContext.RegisterStartupScript）之前执行
+                    AddStartupAbsoluteScript(jsContent, Constants.ABSOLUTE_STARTUP_SCRIPT_DEFAULT_LEVEL - 20);
                 }
             }
 
