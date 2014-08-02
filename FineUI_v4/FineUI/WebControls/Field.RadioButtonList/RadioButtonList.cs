@@ -512,6 +512,7 @@ namespace FineUI
             }
 
 
+            // 基于 extjs 的实现，如果数据重新加载了，则客户端会重新初始化控件示例
             if (!dataReloaded)
             {
                 if (PropertyModified("SelectedValue"))

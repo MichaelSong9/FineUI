@@ -35,6 +35,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-BodyPadding支持纯数字形式，类似“5”“5 10”，之前只支持带单位的形式“5px”“5px 10px”。
 	-修正TriggerBox在EnableEdit=false的情况下，点击文本输入框不能触发的问题（Jango_Jing-5450）。
 	-修正可编辑单元格未定义DataKeyNames的情况下可能出现的错误（yygy-6002）。
+	-修正下拉列表在数据重新加载后没有更新选中值的问题（Gnid-6018）。
 
 
 

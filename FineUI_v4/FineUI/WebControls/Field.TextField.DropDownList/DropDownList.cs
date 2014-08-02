@@ -749,19 +749,18 @@ namespace FineUI
             base.OnAjaxPreRender();
 
             StringBuilder sb = new StringBuilder();
+
+            bool dataReloaded = false;
             if (PropertyModified("F_Items"))
             {
+                dataReloaded = true;
                 sb.AppendFormat("{0}.f_loadData();", XID);
-
-                // TODO: 修改Items记录后要更新SelectedValue
             }
 
-            if (PropertyModified("SelectedValue"))
+            // 修改Items记录后要更新SelectedValue
+            if (dataReloaded || PropertyModified("SelectedValue"))
             {
-                //if (ClientPropertyModifiedInServer("SelectedValue"))
-
                 sb.AppendFormat("{0}.f_setValue();", XID);
-
             }
 
             AddAjaxScript(sb);
