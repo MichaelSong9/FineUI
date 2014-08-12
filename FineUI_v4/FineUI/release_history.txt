@@ -29,7 +29,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 发布历史
 
-+2014-09-** v4.1.1
++2014-08-15 v4.1.1
 	-修正Form中表单字段设置宽度无效的问题（李明海-5929）。
 	-为TemplateField增加ExpandOnDoubleClick、ExpandOnEnter、ExpandToSelectRow三个属性（LZOM-5932）。
 	-BodyPadding支持纯数字形式，类似“5”“5 10”，之前只支持带单位的形式“5px”“5px 10px”。
@@ -38,6 +38,9 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正下拉列表在数据重新加载后没有更新选中值的问题（Gnid-6018）。
 	-确保PageManager在指定AutoSizePanelID的情况下，其初始化脚本在用户自定义脚本之前执行（yygy-6008）。
 	-将FState的相关操作放在页面初始化完毕后，防止出现与动态创建控件相关的问题（隨風往事-5925）。
+	-修正树节点的OnClientClick中包含return语句可能引起的错误（FineUserSG-6042）。
+	-修正Confirm对话框标题无效的问题（小豬仔-5987）。
+	-表格的行扩展列支持，并增加相关示例。
 
 
 

@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_groupheader : PageBase
+    public partial class grid_lockcolumn_groupheader_sort : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,10 +23,18 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
+            string sortField = Grid1.SortField;
+            string sortDirection = Grid1.SortDirection;
 
-            Grid1.DataSource = GetDataTable();
+            DataTable table = GetDataTable();
+
+            DataView view1 = table.DefaultView;
+            view1.Sort = String.Format("{0} {1}", sortField, sortDirection);
+
+            Grid1.DataSource = view1;
             Grid1.DataBind();
         }
+
 
         protected new DataTable GetDataTable()
         {
@@ -40,7 +48,7 @@ namespace FineUI.Examples.grid
             table.Columns.Add(new DataColumn("AHData1", typeof(int)));
             table.Columns.Add(new DataColumn("AHData2", typeof(int)));
             table.Columns.Add(new DataColumn("LogTime", typeof(DateTime)));
-            
+
 
             DataRow row;
 
@@ -65,11 +73,21 @@ namespace FineUI.Examples.grid
 
             return table;
         }
-        
+
 
         #endregion
 
+        #region Events
 
+        protected void Grid1_Sort(object sender, FineUI.GridSortEventArgs e)
+        {
+            Grid1.SortDirection = e.SortDirection;
+            Grid1.SortField = e.SortField;
+
+            BindGrid();
+        }
+
+        #endregion
 
     }
 }

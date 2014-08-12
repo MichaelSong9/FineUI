@@ -61,6 +61,13 @@
     <Content Include="accordion\accordion_tree_index.htm" />
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
+    <Content Include="grid\grid_lockcolumn.aspx" />
+    <Content Include="grid\grid_lockcolumn_many_columns.aspx" />
+    <Content Include="grid\grid_lockcolumn_rowexpander.aspx" />
+    <Content Include="grid\grid_lockcolumn_groupheader_sort.aspx" />
+    <Content Include="grid\grid_lockcolumn_summary_scrollbar.aspx" />
+    <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
+    <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -306,9 +313,9 @@
     <Content Include="grid\grid_checkboxfield_autopostback.aspx" />
     <Content Include="grid\grid_twogrid.aspx" />
     <Content Include="grid\grid_prerowdatabound.aspx" />
-    <Content Include="grid\grid_rowexpander_expandall.aspx" />
+    <Content Include="grid\grid_rowexpander_expandall_js.aspx" />
     <Content Include="grid\grid_aspnet_rowdatabound.aspx" />
-    <Content Include="grid\grid_rowexpander_expandall2.aspx" />
+    <Content Include="grid\grid_rowexpander_expandall.aspx" />
     <Content Include="grid\grid_textselection.aspx" />
     <Content Include="grid\grid_groupheader.aspx" />
     <Content Include="grid\grid_dynamic_columns2.aspx" />
@@ -404,6 +411,55 @@
     </Compile>
     <Compile Include="aspnet\aspnet_literal.aspx.designer.cs">
       <DependentUpon>aspnet_literal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn.aspx.cs">
+      <DependentUpon>grid_lockcolumn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_many_columns.aspx.cs">
+      <DependentUpon>grid_lockcolumn_many_columns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_many_columns.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn_many_columns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_rowexpander.aspx.cs">
+      <DependentUpon>grid_lockcolumn_rowexpander.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_rowexpander.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn_rowexpander.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_groupheader_sort.aspx.cs">
+      <DependentUpon>grid_lockcolumn_groupheader_sort.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_groupheader_sort.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn_groupheader_sort.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_summary_scrollbar.aspx.cs">
+      <DependentUpon>grid_lockcolumn_summary_scrollbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_summary_scrollbar.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn_summary_scrollbar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_editor_cell_new.aspx.cs">
+      <DependentUpon>grid_lockcolumn_editor_cell_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_editor_cell_new.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn_editor_cell_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.cs">
+      <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.designer.cs">
+      <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
@@ -1423,12 +1479,12 @@
     <Compile Include="grid\grid_prerowdatabound.aspx.designer.cs">
       <DependentUpon>grid_prerowdatabound.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_rowexpander_expandall.aspx.cs">
-      <DependentUpon>grid_rowexpander_expandall.aspx</DependentUpon>
+    <Compile Include="grid\grid_rowexpander_expandall_js.aspx.cs">
+      <DependentUpon>grid_rowexpander_expandall_js.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_rowexpander_expandall.aspx.designer.cs">
-      <DependentUpon>grid_rowexpander_expandall.aspx</DependentUpon>
+    <Compile Include="grid\grid_rowexpander_expandall_js.aspx.designer.cs">
+      <DependentUpon>grid_rowexpander_expandall_js.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_aspnet_rowdatabound.aspx.cs">
       <DependentUpon>grid_aspnet_rowdatabound.aspx</DependentUpon>
@@ -1437,12 +1493,12 @@
     <Compile Include="grid\grid_aspnet_rowdatabound.aspx.designer.cs">
       <DependentUpon>grid_aspnet_rowdatabound.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_rowexpander_expandall2.aspx.cs">
-      <DependentUpon>grid_rowexpander_expandall2.aspx</DependentUpon>
+    <Compile Include="grid\grid_rowexpander_expandall.aspx.cs">
+      <DependentUpon>grid_rowexpander_expandall.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_rowexpander_expandall2.aspx.designer.cs">
-      <DependentUpon>grid_rowexpander_expandall2.aspx</DependentUpon>
+    <Compile Include="grid\grid_rowexpander_expandall.aspx.designer.cs">
+      <DependentUpon>grid_rowexpander_expandall.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_textselection.aspx.cs">
       <DependentUpon>grid_textselection.aspx</DependentUpon>

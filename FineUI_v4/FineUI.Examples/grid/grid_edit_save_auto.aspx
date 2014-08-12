@@ -79,7 +79,7 @@
                                 <asp:Label runat="server" CssClass="TotalScore" Text='<%# Eval("TotalScore") %>'></asp:Label>
                             </ItemTemplate>
                         </f:TemplateField>
-                        <f:BoundField Width="100px" ColumnID="Desc" DataField="Desc" HeaderText="描述" Hidden="true" />
+                        <f:BoundField Width="100px" ColumnID="Desc" DataField="Desc" HtmlEncode="false" HeaderText="描述" Hidden="true" />
                     </Columns>
                 </f:Grid>
                 <f:SimpleForm ID="SimpleForm1" runat="server" Width="300px" LabelAlign="Left" LabelWidth="100px" EnableCollapse="true"

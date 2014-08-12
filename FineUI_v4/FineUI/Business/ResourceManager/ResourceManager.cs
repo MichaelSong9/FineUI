@@ -76,6 +76,16 @@ namespace FineUI
 
         #region fields
 
+        private bool _isPageInitCompleted = false;
+
+        public bool IsPageInitCompleted
+        {
+            get { return _isPageInitCompleted; }
+            set { _isPageInitCompleted = value; }
+        }
+
+
+
         private List<AbsoluteScriptBlock> _startupAbsoluteScriptBlockList = new List<AbsoluteScriptBlock>();
         public List<AbsoluteScriptBlock> StartupAbsoluteScriptBlockList
         {
@@ -165,6 +175,7 @@ namespace FineUI
         {
             _page = page;
             _page.PreRenderComplete += new EventHandler(Page_PreRenderComplete);
+            _page.InitComplete += Page_InitComplete;
         }
 
         private Page _page = null;
@@ -216,6 +227,19 @@ namespace FineUI
 
         #region Page_PreRenderComplete
 
+        protected void Page_InitComplete(object sender, EventArgs e)
+        {
+            IsPageInitCompleted = true;
+
+            if (!IsFineUIAjaxPostBack)
+            {
+                // 页头注册公共CSS/Javascript
+                CommonResourceHelper.RegisterCommonResource(Page);
+            }
+
+        }
+
+
         /// <summary>
         /// 准备呈现页面内容，在保存页面状态之前
         /// </summary>
@@ -251,9 +275,6 @@ namespace FineUI
         /// </summary>
         private void SetupFirstLoadResource()
         {
-            // 页头注册公共CSS/Javascript
-            CommonResourceHelper.RegisterCommonResource(Page);
-
             // 注册样式
             RegisterStartupCss();
 

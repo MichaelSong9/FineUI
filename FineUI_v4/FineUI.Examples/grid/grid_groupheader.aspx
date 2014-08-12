@@ -10,9 +10,10 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格"  EnableCollapse="true" Width="800px" runat="server"
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="800px" runat="server"
             DataKeyNames="Guid">
             <Columns>
+                <f:BoundField DataField="Year" Width="80px" HeaderText="统计年份" />
                 <f:GroupField HeaderText="安徽省" TextAlign="Center">
                     <Columns>
                         <f:GroupField HeaderText="合肥市" TextAlign="Center">

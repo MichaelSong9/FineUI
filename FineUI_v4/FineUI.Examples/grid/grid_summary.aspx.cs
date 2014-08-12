@@ -38,7 +38,7 @@ namespace FineUI.Examples.grid
 
             
             JObject summary = new JObject();
-            summary.Add("major", "全部合计");
+            //summary.Add("major", "全部合计");
             summary.Add("fee", feeTotal.ToString("F2"));
             summary.Add("donate", donateTotal.ToString("F2"));
 

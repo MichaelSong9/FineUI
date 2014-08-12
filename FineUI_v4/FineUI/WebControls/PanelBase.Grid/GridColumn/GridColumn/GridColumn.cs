@@ -116,7 +116,7 @@ namespace FineUI
 
         #endregion
 
-        #region SortField
+        #region Properties
 
         ///// <summary>
         ///// 当前列的排序表达式
@@ -170,9 +170,48 @@ namespace FineUI
             }
         }
 
-        #endregion
 
-        #region Properties
+        private bool _enableLock = false;
+
+        /// <summary>
+        /// 允许锁定
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("允许锁定")]
+        public bool EnableLock
+        {
+            get
+            {
+                return _enableLock;
+            }
+            set
+            {
+                _enableLock = value;
+            }
+        }
+
+
+        private bool _locked = false;
+
+        /// <summary>
+        /// 是否处于锁定状态
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否处于锁定状态")]
+        public bool Locked
+        {
+            get
+            {
+                return _locked;
+            }
+            set
+            {
+                _locked = value;
+            }
+        }
+
 
         private bool _hidden = false;
 
@@ -525,6 +564,26 @@ namespace FineUI
                 else
                 {
                     OB.AddProperty("sortable", false);
+                }
+
+
+                // 允许列锁定
+                if (Grid.AllowColumnLocking)
+                {
+                    if (EnableLock)
+                    {
+                        OB.AddProperty("lockable", true);
+                    }
+                    else
+                    {
+                        OB.AddProperty("lockable", false);
+                    }
+
+                    if (Locked)
+                    {
+                        OB.AddProperty("lockable", true);
+                        OB.AddProperty("locked", true);
+                    }
                 }
 
 

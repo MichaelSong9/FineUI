@@ -15,6 +15,7 @@
             SortDirection="ASC" OnSort="Grid1_Sort">
             <Columns>
                 <f:RowNumberField />
+                <f:BoundField DataField="Year" Width="80px" HeaderText="统计年份" />
                 <f:GroupField HeaderText="安徽省" TextAlign="Center">
                     <Columns>
                         <f:GroupField HeaderText="合肥市" TextAlign="Center">

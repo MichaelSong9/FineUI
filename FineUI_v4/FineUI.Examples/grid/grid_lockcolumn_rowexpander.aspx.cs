@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_rowexpander_expandall2 : PageBase
+    public partial class grid_lockcolumn_rowexpander : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,36 +23,19 @@ namespace FineUI.Examples.grid
 
         private void BindGrid()
         {
-            ViewState["UseDataSource1"] = true;
-
             DataTable table = GetDataTable();
 
             Grid1.DataSource = table;
             Grid1.DataBind();
-        }
-        
-        #endregion
 
+        }
+
+        
+
+        #endregion
 
         #region Events
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            DataTable table;
-            if (Convert.ToBoolean(ViewState["UseDataSource1"]))
-            {
-                ViewState["UseDataSource1"] = false;
-                table = GetDataTable2();
-            }
-            else
-            {
-                ViewState["UseDataSource1"] = true;
-                table = GetDataTable();
-            }
-
-            Grid1.DataSource = table;
-            Grid1.DataBind();
-        }
 
         protected void btnExpandRowExpanders_Click(object sender, EventArgs e)
         {
@@ -65,7 +48,5 @@ namespace FineUI.Examples.grid
         }
 
         #endregion
-
-
     }
 }

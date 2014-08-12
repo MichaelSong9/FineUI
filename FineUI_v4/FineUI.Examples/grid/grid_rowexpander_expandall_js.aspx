@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_rowexpander_expandall.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_rowexpander_expandall" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_rowexpander_expandall_js.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_rowexpander_expandall_js" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="800px" Height="450px"
-            runat="server" DataKeyNames="Id,Name" ExpandAllRowExpanders="true">
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="800px"
+            Height="450px" runat="server" DataKeyNames="Id,Name">
             <Columns>
                 <f:TemplateField RenderAsRowExpander="true">
                     <ItemTemplate>
@@ -25,7 +25,11 @@
                         </div>
                     </ItemTemplate>
                 </f:TemplateField>
-                <f:RowNumberField />
+                <f:TemplateField Width="60px">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
+                    </ItemTemplate>
+                </f:TemplateField>
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                 <f:TemplateField Width="80px" HeaderText="性别">
                     <ItemTemplate>
@@ -40,20 +44,43 @@
                     DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                 <f:ImageField Width="80px" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组"></f:ImageField>
-                <f:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yyyy-MM-dd}" HeaderText="注册日期" />
+                <f:BoundField Width="100px" DataField="LogTime" DataFormatString="{0:yyyy-MM-dd}"
+                    HeaderText="注册日期" />
             </Columns>
         </f:Grid>
         <br />
-        <f:Button ID="Button1" runat="server" Text="重新绑定表格" CssClass="marginr" OnClick="Button1_Click">
-        </f:Button>
-        <f:Button ID="btnExpandRowExpanders" runat="server" CssClass="marginr" Text="展开全部的行扩展列" OnClick="btnExpandRowExpanders_Click">
-        </f:Button>
-        <f:Button ID="btnCollapseRowExpanders" runat="server" Text="折叠全部的行扩展列" OnClick="btnCollapseRowExpanders_Click">
+        <f:Button ID="Button1" runat="server" Text="重新绑定表格" OnClick="Button1_Click">
         </f:Button>
         <br />
         <br />
-        注：通过一个简单的属性，来控制是否展开所有行扩展列（即使在重新绑定数据后，依然能够保持所有扩展列的展开状态）。
-    <br />
+        注：请注意如何在重新绑定数据后，保持所有扩展列的展开状态。
+        <br />
+        这个示例演示了如何通过编写JavaScript脚本来处理不常见的逻辑，如果你对JavaScript不熟悉请参考下一个完成相同功能的示例（一个属性搞定）。
+        <br />
     </form>
+    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var gridClientID = '<%= Grid1.ClientID %>';
+
+        function expandAllRows() {
+            var grid = F(gridClientID);
+            var store = grid.getStore();
+            var expander = grid.getPlugin(gridClientID + '_rowexpander');
+            for (var i = 0, count = store.getCount() ; i < count; i++) {
+                var record = store.getAt(i);
+                expander.toggleRow(i, record);
+            }
+        }
+
+        // 页面第一个加载完毕后执行的函数
+        F.ready(function () {
+            expandAllRows();
+        });
+
+        // 页面AJAX回发后执行的函数
+        F.ajaxReady(function () {
+            expandAllRows();
+        });
+    </script>
 </body>
 </html>

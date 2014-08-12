@@ -10,20 +10,24 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_summary_currentpage : PageBase
+    public partial class grid_lockcolumn_summary_scrollbar : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 BindGrid();
+
+                OutputSummaryData();
             }
         }
 
         #region BindGrid
 
-        private void OutputSummaryData(DataTable source)
+        private void OutputSummaryData()
         {
+            DataTable source = GetDataTable2();
+
             float donateTotal = 0.0f;
             float feeTotal = 0.0f;
             foreach (DataRow row in source.Rows)
@@ -34,7 +38,7 @@ namespace FineUI.Examples.grid
 
             
             JObject summary = new JObject();
-            //summary.Add("major", "当前页合计");
+            //summary.Add("major", "全部合计");
             summary.Add("fee", feeTotal.ToString("F2"));
             summary.Add("donate", donateTotal.ToString("F2"));
 
@@ -54,9 +58,6 @@ namespace FineUI.Examples.grid
             // 3.绑定到Grid
             Grid1.DataSource = table;
             Grid1.DataBind();
-
-            // 输出分页合计结果
-            OutputSummaryData(table);
         }
 
         

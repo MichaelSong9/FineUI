@@ -216,6 +216,25 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 允许列锁定
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("允许列锁定")]
+        public bool AllowColumnLocking
+        {
+            get
+            {
+                object obj = FState["AllowColumnLocking"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["AllowColumnLocking"] = value;
+            }
+        }
+
         #endregion
 
         #region AllowPaging/IsDatabasePaging/PageSize/PageCount/PageIndex/RecordCount
@@ -2477,7 +2496,7 @@ namespace FineUI
 
             #endregion
 
-            #region Listeners - viewready
+            #region Listeners - afterrender
 
             StringBuilder viewreadySB = new StringBuilder();
 
@@ -2508,8 +2527,17 @@ namespace FineUI
                 viewreadySB.Append("cmp.f_expandAllRows();");
             }
 
+            if (AllowColumnLocking)
+            {
+                // 必须延时调用 doLayout，否则显示不正常
+                viewreadySB.Append("cmp.doLayout();");
 
-            OB.Listeners.AddProperty("viewready", JsHelper.GetFunction(viewreadySB.ToString(), "cmp"), true);
+            }
+
+            string viewreadyScript = "window.setTimeout(function(){" + viewreadySB.ToString() + "},200);";
+
+            // viewready在enableLocking时不会触发，只好改成afterrender
+            OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(viewreadyScript, "cmp"), true);
 
 
             #endregion
@@ -2576,6 +2604,16 @@ namespace FineUI
                 }
 
                 OB.AddProperty("f_cellEditing", pluginId, true);
+            }
+
+
+            if (AllowColumnLocking)
+            {
+                OB.AddProperty("enableLocking", true);
+            }
+            else
+            {
+                OB.AddProperty("enableLocking", false);
             }
 
             #endregion
@@ -3187,7 +3225,7 @@ namespace FineUI
         #region DataBind
 
         internal Dictionary<string, GridColumn> cellEditingDataKeyNameField = new Dictionary<string, GridColumn>();
-        
+
         /// <summary>
         /// 绑定到数据源
         /// </summary>
@@ -3572,7 +3610,7 @@ namespace FineUI
                         // 修改的数据在原始集合中的行索引，如果是新增行则为-1
                         int originalRowIndex = modifiedItem[1].ToObject<int>();
 
-                        
+
                         // 获取本行（Record）中所有修改的记录（Field），并保存到字典中（rowModifiedDic）
                         Dictionary<string, object> rowModifiedDic = new Dictionary<string, object>();
                         JObject rowModifiedData = modifiedItem[2].ToObject<JObject>();

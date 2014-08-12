@@ -31,48 +31,93 @@ namespace FineUI.Examples {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// gpAdvancedSet 控件。
+        /// Grid1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.GroupPanel gpAdvancedSet;
+        protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// txtSendTime 控件。
+        /// TextBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.RadioButtonList txtSendTime;
+        protected global::FineUI.TextBox TextBox1;
         
         /// <summary>
-        /// txtSetSendTimeDate 控件。
+        /// TextBox3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.DatePicker txtSetSendTimeDate;
+        protected global::FineUI.TextBox TextBox3;
         
         /// <summary>
-        /// txtSetSendTimeTime 控件。
+        /// adminID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TimePicker txtSetSendTimeTime;
+        protected global::FineUI.DropDownList adminID;
         
         /// <summary>
-        /// txtSendLevel 控件。
+        /// TextBox2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.RadioButtonList txtSendLevel;
+        protected global::FineUI.TextBox TextBox2;
+        
+        /// <summary>
+        /// TextBox4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox TextBox4;
+        
+        /// <summary>
+        /// TextBox5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox TextBox5;
+        
+        /// <summary>
+        /// NumberBox1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.NumberBox NumberBox1;
+        
+        /// <summary>
+        /// NumberBox2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.NumberBox NumberBox2;
+        
+        /// <summary>
+        /// NumberBox3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.NumberBox NumberBox3;
     }
 }

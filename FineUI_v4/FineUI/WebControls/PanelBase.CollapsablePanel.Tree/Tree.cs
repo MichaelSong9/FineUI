@@ -1112,7 +1112,8 @@ namespace FineUI
             string itemclickScript = "var args='Command$'+node.getId()+'$'+node.raw.f_commandname+'$'+node.raw.f_commandargument;";
             itemclickScript += GetPostBackEventReference("#Click#").Replace("'#Click#'", "args");
             itemclickScript = String.Format("if(node.raw.f_enableclickevent){{{0}}}", itemclickScript);
-            itemclickScript = "if(node.raw.f_clientclick){eval(node.raw.f_clientclick);}" + itemclickScript; // new Function(node.raw.f_clientclick)();
+            itemclickScript = "if(node.raw.f_clientclick){if(new Function(node.raw.f_clientclick)()===false){return;}}" + itemclickScript;
+            //itemclickScript = "if(node.raw.f_clientclick){eval(node.raw.f_clientclick);}" + itemclickScript; // new Function(node.raw.f_clientclick)();
             OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(singleclickexpandScript + itemclickScript, "view", "node", "item", "index"), true);
 
 

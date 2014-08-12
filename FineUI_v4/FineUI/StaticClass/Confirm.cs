@@ -160,7 +160,7 @@ namespace FineUI
             string scriptTitle = "''";
             if (!String.IsNullOrEmpty(title))
             {
-                title = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+                scriptTitle = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
             }
             string scriptMessage = JsHelper.GetJsStringWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
 

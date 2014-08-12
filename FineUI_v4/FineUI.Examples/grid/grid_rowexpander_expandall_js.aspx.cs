@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_rowexpander_expandall : PageBase
+    public partial class grid_rowexpander_expandall_js : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,16 +52,6 @@ namespace FineUI.Examples.grid
 
             Grid1.DataSource = table;
             Grid1.DataBind();
-        }
-
-        protected void btnExpandRowExpanders_Click(object sender, EventArgs e)
-        {
-            Grid1.ExpandRowExpanders();
-        }
-
-        protected void btnCollapseRowExpanders_Click(object sender, EventArgs e)
-        {
-            Grid1.CollapseRowExpanders();
         }
 
         #endregion

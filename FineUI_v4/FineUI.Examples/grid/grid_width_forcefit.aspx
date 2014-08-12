@@ -36,7 +36,7 @@
                 <f:HyperLinkField Width="300px" HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" />
-                <f:BoundField Width="600px" DataField="Desc" DataToolTipField="Desc" HeaderText="个人简介" />
+                <f:BoundField Width="600px" DataField="Desc" HtmlEncode="false" DataToolTipField="Desc" HeaderText="个人简介" />
             </Columns>
         </f:Grid>
         <br />

@@ -190,9 +190,9 @@
       </TreeNode>
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
       </TreeNode>
-      <TreeNode Text="行扩展列（展开全部）" NavigateUrl="~/grid/grid_rowexpander_expandall2.aspx" >
+      <TreeNode Text="行扩展列（展开全部）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
       </TreeNode>
-      <TreeNode Text="行扩展列（展开全部，客户端实现）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
+      <TreeNode Text="行扩展列（展开全部，脚本实现）" NavigateUrl="~/grid/grid_rowexpander_expandall_js.aspx" >
       </TreeNode>
       <TreeNode Text="弹出窗体列" NavigateUrl="~/grid/grid_iframe.aspx" >
       </TreeNode>
@@ -314,20 +314,36 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="单元格编辑">
-      <TreeNode Text="单元格编辑" NavigateUrl="~/grid/grid_editor_cell.aspx" >
+      <TreeNode Text="基本功能" NavigateUrl="~/grid/grid_editor_cell.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（客户端获取下拉列表的值）" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
+      <TreeNode Text="客户端单元格渲染" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（后台绑定下拉列表）" NavigateUrl="~/grid/grid_editor_cell_databind.aspx" >
+      <TreeNode Text="后台绑定下拉列表" NavigateUrl="~/grid/grid_editor_cell_databind.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（服务器端删除行）" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
+      <TreeNode Text="服务器端删除行" NavigateUrl="~/grid/grid_editor_cell_delete.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（新增行）" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
+      <TreeNode Text="新增行" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（新增行+删除行）" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
+      <TreeNode Text="新增行+删除行" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
       </TreeNode>
-      <TreeNode Text="单元格编辑（失去焦点事件）" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
+      <TreeNode Text="失去焦点事件" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
       </TreeNode>
+    </TreeNode>
+    <TreeNode Text="列锁定">
+      <TreeNode Text="列锁定" NavigateUrl="~/grid/grid_lockcolumn.aspx" >
+      </TreeNode>
+      <TreeNode Text="列锁定与行扩展列" NavigateUrl="~/grid/grid_lockcolumn_rowexpander.aspx" >
+      </TreeNode>
+      <TreeNode Text="列锁定与多表头" NavigateUrl="~/grid/grid_lockcolumn_groupheader_sort.aspx" >
+      </TreeNode>
+      <TreeNode Text="列锁定与合计行" NavigateUrl="~/grid/grid_lockcolumn_summary_scrollbar.aspx" >
+      </TreeNode>
+      <TreeNode Text="列锁定与单元格编辑" NavigateUrl="~/grid/grid_lockcolumn_editor_cell_new.aspx" >
+      </TreeNode>
+      <TreeNode Text="列锁定与自动换行" NavigateUrl="~/grid/grid_lockcolumn_line_wrap.aspx" >
+      </TreeNode>
+      <!--<TreeNode Text="列锁定（多列，多行，行高不同）" NavigateUrl="~/grid/grid_lockcolumn_many_columns.aspx" >
+      </TreeNode>-->
     </TreeNode>
     <TreeNode Text="杂项">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >

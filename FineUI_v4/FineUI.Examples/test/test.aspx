@@ -41,6 +41,7 @@
                 </f:FormRow>
             </Rows>
         </f:Form>
+        <f:Button runat="server" ConfirmTitle="哈哈" ConfirmText="呵呵" EnablePostBack="false"></f:Button>
     </form>
 </body>
 </html>

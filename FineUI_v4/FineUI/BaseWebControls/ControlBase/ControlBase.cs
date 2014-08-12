@@ -745,8 +745,16 @@ namespace FineUI
                 // 确保ResourceManager实例的Page和当前页面一致
                 ResourceManager.EnsureResourceManagerInstance(Page);
 
-                // 页面初始化完毕后，再进行FState的相关操作（类似LoadViewState阶段，但LoadViewState并非每个控件都会经历，所以只能注册页面的InitComplete）
-                Page.InitComplete += Page_InitComplete;
+                // 如果在Page_Init之后创建的控件，则不会触发InitComplete，就需要立即调用。那么就需要判断当前页面是否已经初始化完成
+                if (ResourceManager.Instance.IsPageInitCompleted)
+                {
+                    Page_InitComplete(null, null);
+                }
+                else
+                {
+                    // 页面初始化完毕后，再进行FState的相关操作（类似LoadViewState阶段，但LoadViewState并非每个控件都会经历，所以只能注册页面的InitComplete）
+                    Page.InitComplete += Page_InitComplete;
+                }
             }
         }
 

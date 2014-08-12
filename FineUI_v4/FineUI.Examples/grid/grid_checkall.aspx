@@ -35,6 +35,7 @@
         <f:Button ID="Button2" runat="server" Text="选中第 2, 6, 8 行" OnClick="Button2_Click">
         </f:Button>
         <br />
+        <br />
         <f:Button ID="Button3" runat="server" Text="选中了哪些行（没选择的话不会回发页面）" OnClick="Button1_Click">
         </f:Button>
         <br />

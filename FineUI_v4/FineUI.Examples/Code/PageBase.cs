@@ -26,15 +26,29 @@ namespace FineUI.Examples
                 HttpCookie themeCookie = Request.Cookies["Theme_v4"];
                 if (themeCookie != null)
                 {
-                    string themeValue = themeCookie.Value;
-                    pm.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
+                    try
+                    {
+                        string themeValue = themeCookie.Value;
+                        pm.Theme = (Theme)Enum.Parse(typeof(Theme), themeValue, true);
+                    }
+                    catch (Exception)
+                    {
+                        pm.Theme = FineUI.Theme.Neptune;
+                    }
                 }
 
                 HttpCookie langCookie = Request.Cookies["Language_v4"];
                 if (langCookie != null)
                 {
-                    string langValue = langCookie.Value;
-                    pm.Language = (Language)Enum.Parse(typeof(Language), langValue, true);
+                    try
+                    {
+                        string langValue = langCookie.Value;
+                        pm.Language = (Language)Enum.Parse(typeof(Language), langValue, true);
+                    }
+                    catch (Exception)
+                    {
+                        pm.Language = Language.ZH_CN;
+                    }
                 }
             }
 
@@ -651,6 +665,15 @@ namespace FineUI.Examples
             table.Columns.Add(new DataColumn("ChineseScore", typeof(Int32)));
             table.Columns.Add(new DataColumn("MathScore", typeof(Int32)));
             table.Columns.Add(new DataColumn("TotalScore", typeof(Int32)));
+            // 更多字段
+            table.Columns.Add(new DataColumn("ShenGao", typeof(Int32)));
+            table.Columns.Add(new DataColumn("TiZhong", typeof(Int32)));
+            table.Columns.Add(new DataColumn("XueYaDi", typeof(String)));
+            table.Columns.Add(new DataColumn("XueYaGao", typeof(String)));
+            table.Columns.Add(new DataColumn("ShiLiZuo", typeof(Single)));
+            table.Columns.Add(new DataColumn("ShiLiYou", typeof(Single)));
+            table.Columns.Add(new DataColumn("ShiLiZuoJiaoZhen", typeof(Single)));
+            table.Columns.Add(new DataColumn("ShiLiYouJiaoZhen", typeof(Single)));
 
 
             DataRow row = table.NewRow();
@@ -662,13 +685,21 @@ namespace FineUI.Examples
             row[5] = 1;
             row[6] = 0;
             row[7] = DateTime.Now.AddDays(-100);
-            row[8] = "张萍萍，女，20岁，出生于中国南方的一个小山村，毕业于中国科学技术大学。";
+            row[8] = "张萍萍，女，20岁，出生于中国南方的一个小山村，毕业于中国科学技术大学。<br/>毕业后就职于某大型国有企业，任部门经理，连续三年获得企业优秀员工称号。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,travel,music";
             row[11] = "2000-09-01";
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 180;
+            row[16] = 150;
+            row[17] = 80;
+            row[18] = 120;
+            row[19] = 0.2;
+            row[20] = 0.5;
+            row[21] = 1.0;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -687,6 +718,14 @@ namespace FineUI.Examples
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 160;
+            row[16] = 120;
+            row[17] = 70;
+            row[18] = 110;
+            row[19] = 0.3;
+            row[20] = 0.3;
+            row[21] = 1.2;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -698,13 +737,21 @@ namespace FineUI.Examples
             row[5] = 2;
             row[6] = 0;
             row[7] = DateTime.Now.AddDays(-80);
-            row[8] = "董婷婷，女，28岁，出生于中国海南岛的一个小山村，毕业于中国科学技术大学。";
+            row[8] = "董婷婷，女，28岁，出生于中国海南岛的一个小山村，毕业于中国科学技术大学。<br/>董婷婷是在学校认识丈夫刘国的，有一天晚上下自习后，董婷婷发短信给刘国说“做我男朋友吧！”，然后他们就走到了一起。";
             row[9] = Guid.NewGuid();
             row[10] = "basketball,movie,music";
             row[11] = "2008-09-01";
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 190;
+            row[16] = 130;
+            row[17] = 82;
+            row[18] = 125;
+            row[19] = 0.8;
+            row[20] = 0.6;
+            row[21] = 1.2;
+            row[22] = 1.0;
             table.Rows.Add(row);
 
 
@@ -717,13 +764,21 @@ namespace FineUI.Examples
             row[5] = 2;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-70);
-            row[8] = "刘国，男，22岁，出生于中国澳门的一个小山村，毕业于中国科学技术大学。";
+            row[8] = "刘国，男，22岁，出生于中国澳门的一个小山村，毕业于中国科学技术大学。<br/>刘国是作为交换生来中科大学习，在校期间认识了妻子董婷婷，虽然是被追到手了，不过在人前却总是说“老婆是我千辛万苦追来的！”。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,movie";
             row[11] = "2002-09-01";
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 170;
+            row[16] = 130;
+            row[17] = 76;
+            row[18] = 112;
+            row[19] = 1.0;
+            row[20] = 1.0;
+            row[21] = 1.0;
+            row[22] = 1.0;
             table.Rows.Add(row);
 
 
@@ -743,6 +798,14 @@ namespace FineUI.Examples
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 159;
+            row[16] = 90;
+            row[17] = 77;
+            row[18] = 128;
+            row[19] = 0.6;
+            row[20] = 0.9;
+            row[21] = 1.2;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
 
@@ -762,6 +825,14 @@ namespace FineUI.Examples
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 175;
+            row[16] = 150;
+            row[17] = 88;
+            row[18] = 126;
+            row[19] = 0.1;
+            row[20] = 0.3;
+            row[21] = 1.5;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
 
@@ -781,6 +852,14 @@ namespace FineUI.Examples
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 160;
+            row[16] = 80;
+            row[17] = 70;
+            row[18] = 110;
+            row[19] = 0.8;
+            row[20] = 0.8;
+            row[21] = 1.2;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
 
@@ -793,13 +872,21 @@ namespace FineUI.Examples
             row[5] = 4;
             row[6] = 1;
             row[7] = DateTime.Now.AddDays(-30);
-            row[8] = "唐超，男，26岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。";
+            row[8] = "唐超，男，26岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。<br/>作为刘国的同班同学，唐超是班里的尖子生，本科还没毕业就被哈佛大学录取了，现在好像还没毕业呢。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,movie,music,basketball";
             row[11] = "2004-09-01";
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 188;
+            row[16] = 130;
+            row[17] = 82;
+            row[18] = 130;
+            row[19] = 0.5;
+            row[20] = 0.8;
+            row[21] = 1.3;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
 
@@ -812,13 +899,21 @@ namespace FineUI.Examples
             row[5] = 5;
             row[6] = 0;
             row[7] = DateTime.Now.AddDays(-20);
-            row[8] = "杨娟娟，女，25岁，出生于中国广西的一个小山村，毕业于南方科学技术大学。";
+            row[8] = "杨娟娟，女，25岁，出生于中国广西的一个小山村，毕业于南方科学技术大学。<br/>杨娟娟的父母都是中科大的高材生，他们很高兴送女儿上一所前中科大校长创办的大学，而南科大自己颁发的学位文凭也颇受争议。";
             row[9] = Guid.NewGuid();
             row[10] = "reading,basketball,movie";
             row[11] = "2003-09-01";
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 166;
+            row[16] = 110;
+            row[17] = 70;
+            row[18] = 116;
+            row[19] = 0.8;
+            row[20] = 1.0;
+            row[21] = 0.8;
+            row[22] = 1.0;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -837,6 +932,14 @@ namespace FineUI.Examples
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 198;
+            row[16] = 145;
+            row[17] = 83;
+            row[18] = 128;
+            row[19] = 1.2;
+            row[20] = 1.5;
+            row[21] = 1.2;
+            row[22] = 1.5;
             table.Rows.Add(row);
 
             row = table.NewRow();
@@ -855,6 +958,40 @@ namespace FineUI.Examples
             row[12] = 0;
             row[13] = 0;
             row[14] = 0;
+            row[15] = 158;
+            row[16] = 76;
+            row[17] = 69;
+            row[18] = 109;
+            row[19] = 0.8;
+            row[20] = 0.6;
+            row[21] = 1.2;
+            row[22] = 1.2;
+            table.Rows.Add(row);
+
+            row = table.NewRow();
+            row[0] = 111;
+            row[1] = "张一驰";
+            row[2] = 2000;
+            row[3] = true;
+            row[4] = "材料科学与工程系";
+            row[5] = 5;
+            row[6] = 1;
+            row[7] = DateTime.Now.AddDays(-5);
+            row[8] = "张一驰，男，28岁，出生于中国河南的一个小山村，毕业于中国科学技术大学。";
+            row[9] = Guid.NewGuid();
+            row[10] = "reading,movie,music";
+            row[11] = "2000-09-01";
+            row[12] = 0;
+            row[13] = 0;
+            row[14] = 0;
+            row[15] = 183;
+            row[16] = 125;
+            row[17] = 80;
+            row[18] = 120;
+            row[19] = 0.8;
+            row[20] = 0.6;
+            row[21] = 1.2;
+            row[22] = 1.2;
             table.Rows.Add(row);
 
 
