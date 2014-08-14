@@ -8,7 +8,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" AutoSizePanelID="leftAccordion" runat="server"></f:PageManager>
-        <f:Accordion runat="server" EnableFill="false" ShowBorder="false" ShowHeader="false"
+        <f:Accordion runat="server" ShowBorder="false" ShowHeader="false"
             ID="leftAccordion">
         </f:Accordion>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="./data/menuMail.xml"></asp:XmlDataSource>

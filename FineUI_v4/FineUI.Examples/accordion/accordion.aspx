@@ -10,8 +10,8 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Accordion ID="Accordion1" Title="手风琴控件" runat="server" Width="300px" Height="450px"
-            EnableFill="true" EnableActiveOnTop="false" ShowCollapseTool="true"
-            ShowBorder="True" ActivePaneIndex="1"  EnableCollapse="true">
+            ShowCollapseTool="true"
+            ShowBorder="True" ActivePaneIndex="1" EnableCollapse="true">
             <Panes>
                 <f:AccordionPane ID="AccordionPane1" runat="server" Title="面板一" IconUrl="~/res/images/16/1.png"
                     BodyPadding="2px 5px" ShowBorder="false">

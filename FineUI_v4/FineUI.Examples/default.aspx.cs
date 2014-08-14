@@ -53,7 +53,6 @@ namespace FineUI.Examples
         {
             Accordion accordionMenu = new Accordion();
             accordionMenu.ID = "accordionMenu";
-            accordionMenu.EnableFill = true;
             accordionMenu.ShowBorder = false;
             accordionMenu.ShowHeader = false;
             leftRegion.Items.Add(accordionMenu);

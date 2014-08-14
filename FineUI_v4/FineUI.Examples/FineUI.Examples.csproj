@@ -68,6 +68,7 @@
     <Content Include="grid\grid_lockcolumn_summary_scrollbar.aspx" />
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
+    <Content Include="test\grid_editor_cell_new22.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -460,6 +461,13 @@
     </Compile>
     <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_new22.aspx.cs">
+      <DependentUpon>grid_editor_cell_new22.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_new22.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_new22.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>

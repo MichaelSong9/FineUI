@@ -40,15 +40,6 @@ namespace FineUI.Examples.window {
         protected global::FineUI.Window Window2;
         
         /// <summary>
-        /// labWindowContent 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Label labWindowContent;
-        
-        /// <summary>
         /// Toolbar3 控件。
         /// </summary>
         /// <remarks>
@@ -103,13 +94,13 @@ namespace FineUI.Examples.window {
         protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// btnChangeContent 控件。
+        /// btnChangeText 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnChangeContent;
+        protected global::FineUI.Button btnChangeText;
         
         /// <summary>
         /// btnClose 控件。
