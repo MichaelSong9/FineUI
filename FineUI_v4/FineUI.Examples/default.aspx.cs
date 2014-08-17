@@ -74,7 +74,7 @@ namespace FineUI.Examples
                     Tree innerTree = new Tree();
                     innerTree.ShowBorder = false;
                     innerTree.ShowHeader = false;
-                    innerTree.EnableIcons = false;
+                    innerTree.EnableIcons = true;
                     innerTree.AutoScroll = true;
                     innerTree.EnableSingleClickExpand = true;
                     accordionPane.Items.Add(innerTree);
@@ -100,7 +100,7 @@ namespace FineUI.Examples
             treeMenu.ID = "treeMenu";
             treeMenu.ShowBorder = false;
             treeMenu.ShowHeader = false;
-            treeMenu.EnableIcons = false;
+            treeMenu.EnableIcons = true;
             treeMenu.AutoScroll = true;
             treeMenu.EnableSingleClickExpand = true;
             leftRegion.Items.Add(treeMenu);

@@ -69,7 +69,7 @@ namespace FineUI.Examples.iframe.topmenu3
                     Tree innerTree = new Tree();
                     innerTree.ShowBorder = false;
                     innerTree.ShowHeader = false;
-                    innerTree.EnableIcons = false;
+                    innerTree.EnableIcons = true;
                     innerTree.AutoScroll = true;
                     accordionPane.Items.Add(innerTree);
 

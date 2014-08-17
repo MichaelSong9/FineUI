@@ -402,29 +402,42 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="选项卡控件">
-    <TreeNode Text="基本用法" NavigateUrl="~/tabstrip/tabstrip.aspx" >
+  <TreeNode Text="导航控件">
+    <TreeNode Text="选项卡控件">
+      <TreeNode Text="基本用法" NavigateUrl="~/tabstrip/tabstrip.aspx" >
+      </TreeNode>
+      <TreeNode Text="自动回发" NavigateUrl="~/tabstrip/tabstrip_autopostback.aspx" >
+      </TreeNode>
+      <TreeNode Text="关闭按钮" NavigateUrl="~/tabstrip/tabstrip_enableclose.aspx"  >
+      </TreeNode>
+      <TreeNode Text="动态添加标签" NavigateUrl="~/tabstrip/tabstrip_addtab.aspx"  >
+      </TreeNode>
+      <TreeNode Text="内嵌 IFrame" NavigateUrl="~/tabstrip/tabstrip_iframe.aspx" >
+      </TreeNode>
+      <TreeNode Text="内嵌 IFrame（在IFrame内启用标签）" NavigateUrl="~/tabstrip/tabstrip_iframe_disabled.aspx" >
+      </TreeNode>
     </TreeNode>
-    <TreeNode Text="自动回发" NavigateUrl="~/tabstrip/tabstrip_autopostback.aspx" >
+    <TreeNode Text="手风琴控件">
+      <TreeNode Text="基本用法" NavigateUrl="~/accordion/accordion.aspx" >
+      </TreeNode>
+      <TreeNode Text="自动回发" NavigateUrl="~/accordion/accordion_autopostback.aspx" >
+      </TreeNode>
+      <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
+      </TreeNode>
     </TreeNode>
-    <TreeNode Text="关闭按钮" NavigateUrl="~/tabstrip/tabstrip_enableclose.aspx"  >
+    <TreeNode Text="面板与窗体">
+
+      <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
+      </TreeNode>
+      <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
+      </TreeNode>
+      <TreeNode Text="面板的折叠事件" NavigateUrl="~/window/panel_collapse.aspx" >
+      </TreeNode>
+      <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
+      </TreeNode>
+      <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
+      </TreeNode>
     </TreeNode>
-    <TreeNode Text="动态添加标签" NavigateUrl="~/tabstrip/tabstrip_addtab.aspx"  >
-    </TreeNode>
-    <TreeNode Text="内嵌 IFrame" NavigateUrl="~/tabstrip/tabstrip_iframe.aspx" >
-    </TreeNode>
-    <TreeNode Text="内嵌 IFrame（在IFrame内启用标签）" NavigateUrl="~/tabstrip/tabstrip_iframe_disabled.aspx" >
-    </TreeNode>
-  </TreeNode>
-  <TreeNode Text="手风琴控件">
-    <TreeNode Text="基本用法" NavigateUrl="~/accordion/accordion.aspx" >
-    </TreeNode>
-    <TreeNode Text="自动回发" NavigateUrl="~/accordion/accordion_autopostback.aspx" >
-    </TreeNode>
-    <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
-    </TreeNode>
-  </TreeNode>
-  <TreeNode Text="面板与窗体">
     <TreeNode Text="工具栏和菜单">
       <TreeNode Text="内联菜单" NavigateUrl="~/toolbar/menu.aspx" >
       </TreeNode>
@@ -436,16 +449,6 @@
       </TreeNode>
       <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
       </TreeNode>
-    </TreeNode>
-    <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
-    </TreeNode>
-    <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
-    </TreeNode>
-    <TreeNode Text="面板的折叠事件" NavigateUrl="~/window/panel_collapse.aspx" >
-    </TreeNode>
-    <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
-    </TreeNode>
-    <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
     </TreeNode>
   </TreeNode>
   <TreeNode Text="页面布局">
@@ -551,6 +554,16 @@
       <TreeNode Text="用户控件与布局" NavigateUrl="~/usercontrol/userinfo2.aspx" >
       </TreeNode>
     </TreeNode>
+    <TreeNode Text="消息框">
+      <TreeNode Text="响应确认对话框的按钮" NavigateUrl="~/other/confirm_cancel.aspx">
+      </TreeNode>
+      <TreeNode Text="响应确认对话框的按钮（推荐做法）" NavigateUrl="~/other/confirm_cancel2.aspx">
+      </TreeNode>
+      <TreeNode Text="自定义对话框图标" NavigateUrl="~/other/alert.aspx">
+      </TreeNode>
+      <TreeNode Text="页面回发提示" NavigateUrl="~/other/ajax_loading.aspx">
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="定时器" NavigateUrl="~/other/timer.aspx" >
     </TreeNode>
     <TreeNode Text="自定义回发（__doPostBack）" NavigateUrl="~/other/custom_postback.aspx">
@@ -559,17 +572,10 @@
     </TreeNode>
     <TreeNode Text="文本框改变客户端事件" NavigateUrl="~/other/keydown.aspx">
     </TreeNode>
-    <TreeNode Text="响应确认对话框的按钮" NavigateUrl="~/other/confirm_cancel.aspx">
-    </TreeNode>
-    <TreeNode Text="响应确认对话框的按钮（推荐做法）" NavigateUrl="~/other/confirm_cancel2.aspx">
-    </TreeNode>
     <TreeNode Text="CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
     </TreeNode>
     <TreeNode Text="向父页面添加选项卡" NavigateUrl="~/other/addtab.aspx">
     </TreeNode>
-    <TreeNode Text="Ajax提示信息" NavigateUrl="~/other/ajax_loading.aspx">
-    </TreeNode>
-    <TreeNode Text="自定义对话框图标" NavigateUrl="~/other/alert.aspx">
-    </TreeNode>
+
   </TreeNode>
 </Tree>
