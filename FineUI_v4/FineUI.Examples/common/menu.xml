@@ -368,14 +368,12 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="树控件">
+  <TreeNode Text="树控件" IsNew="true">
     <TreeNode Text="简单树控件" NavigateUrl="~/tree/tree.aspx" >
     </TreeNode>
     <TreeNode Text="图标与链接" NavigateUrl="~/tree/tree_icon.aspx" >
     </TreeNode>
     <TreeNode Text="延迟加载的树控件" NavigateUrl="~/tree/tree_ajax.aspx" >
-    </TreeNode>
-    <TreeNode Text="展开折叠事件" NavigateUrl="~/tree/tree_expand.aspx" >
     </TreeNode>
     <TreeNode Text="数据绑定">
       <TreeNode Text="绑定到 XmlDocument" NavigateUrl="~/tree/databind/tree_document.aspx" >
@@ -398,7 +396,13 @@
       </TreeNode>
       <TreeNode Text="选中多行" NavigateUrl="~/tree/select/tree_multi_select.aspx" >
       </TreeNode>
-      <TreeNode Text="选中行的回发事件" NavigateUrl="~/tree/select/tree_nodecommand.aspx" >
+    </TreeNode>
+    <TreeNode Text="事件" IsNew="true">
+      <TreeNode Text="选中行事件" NavigateUrl="~/tree/select/tree_nodecommand.aspx" >
+      </TreeNode>
+      <TreeNode Text="展开折叠事件" NavigateUrl="~/tree/tree_expand.aspx" >
+      </TreeNode>
+      <TreeNode Text="节点绑定事件" NavigateUrl="~/tree/tree_nodedatabound.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
   </TreeNode>

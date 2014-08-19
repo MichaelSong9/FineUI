@@ -377,6 +377,7 @@
     <Content Include="tree\databind\tree_document.aspx" />
     <Content Include="tree\tree.aspx" />
     <Content Include="tree\tree_expand.aspx" />
+    <Content Include="tree\tree_nodedatabound.aspx" />
     <Content Include="usercontrol\UserInfoControl.ascx" />
     <Content Include="usercontrol\userinfo.aspx" />
     <Content Include="usercontrol\userinfo2.aspx" />
@@ -2249,6 +2250,13 @@
     </Compile>
     <Compile Include="tree\tree_expand.aspx.designer.cs">
       <DependentUpon>tree_expand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tree\tree_nodedatabound.aspx.cs">
+      <DependentUpon>tree_nodedatabound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\tree_nodedatabound.aspx.designer.cs">
+      <DependentUpon>tree_nodedatabound.aspx</DependentUpon>
     </Compile>
     <Compile Include="usercontrol\UserInfoControl.ascx.cs">
       <DependentUpon>UserInfoControl.ascx</DependentUpon>

@@ -27,6 +27,7 @@ using System.Data;
 using System.Reflection;
 using System.ComponentModel;
 using System.Web.UI;
+using System.Xml;
 
 
 namespace FineUI
@@ -59,6 +60,17 @@ namespace FineUI
             set { _nodeID = value; }
         }
 
+        private XmlNode _xmlNode;
+
+        /// <summary>
+        /// 树节点的数据源
+        /// </summary>
+        public XmlNode XmlNode
+        {
+            get { return _xmlNode; }
+            set { _xmlNode = value; }
+        }
+
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -67,6 +79,19 @@ namespace FineUI
         {
             _node = node;
             _nodeID = node.NodeID;
+        }
+
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="node">树节点</param>
+        /// <param name="xmlNode">树节点的数据源</param>
+        public TreeNodeEventArgs(TreeNode node, XmlNode xmlNode)
+        {
+            _node = node;
+            _nodeID = node.NodeID;
+            _xmlNode = xmlNode;
         }
 
     }

@@ -1584,6 +1584,8 @@ namespace FineUI
         {
             treeNode.ReadXmlAttributes(xmlNode.Attributes, this);
 
+            OnNodeDataBound(new TreeNodeEventArgs(treeNode, xmlNode));
+
             foreach (XmlNode node in xmlNode.ChildNodes)
             {
                 // Only process Xml elements (ignore comments, etc)
@@ -1767,6 +1769,42 @@ namespace FineUI
                 }
             }
 
+        }
+
+        #endregion
+
+        #region OnNodeDataBound
+
+        private static readonly object _nodeDataBoundHandlerKey = new object();
+
+        /// <summary>
+        /// 节点绑定后事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("节点绑定后事件")]
+        public event EventHandler<TreeNodeEventArgs> NodeDataBound
+        {
+            add
+            {
+                Events.AddHandler(_nodeDataBoundHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_nodeDataBoundHandlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发节点绑定后事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnNodeDataBound(TreeNodeEventArgs e)
+        {
+            EventHandler<TreeNodeEventArgs> handler = Events[_nodeDataBoundHandlerKey] as EventHandler<TreeNodeEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         #endregion
