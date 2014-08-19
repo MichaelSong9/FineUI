@@ -706,11 +706,13 @@ F.customEvent = function (argument, validate) {
             // 注册树的节点点击事件
             function registerTreeClickEvent(treeInstance) {
                 treeInstance.on('itemclick', function (view, record, item, index, event) {
-                    if (record.isLeaf()) {
+                    var href = record.data.href;
+
+                    // record.isLeaf()
+                    // 不管当前节点是否子节点，只要有 href 属性，都需要打开一个新Tab
+                    if (href) {
                         // 阻止事件传播
                         event.stopEvent();
-
-                        var href = record.data.href;
 
                         if (updateLocationHash) {
                             // 修改地址栏

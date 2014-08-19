@@ -533,9 +533,9 @@ namespace FineUI
             //}
 
 
-            // 去掉deferredRender=true，渲染速度会提高200ms左右
-            // 每个Tab是否只在第一次访问时渲染，false表示全部渲染，否则没有访问的Tab的内容渲染的位置不正确。
-            //OB.AddProperty("deferredRender", EnableDeferredRender);
+            
+            // 全部渲染，否则没有访问的Tab的内容渲染的位置不正确。
+            OB.AddProperty("deferredRender", false);
 
             //OB.AddProperty("bufferResize", true);
 
