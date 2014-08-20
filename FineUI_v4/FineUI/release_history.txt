@@ -33,6 +33,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正树控件的EnableIcons属性无效的问题。
 	-为树控件增加NodeDataBound事件，并增加示例tree/tree_nodedatabound.aspx。
 	-修正F.util.initTreeTabStrip不处理父节点打开新标签页的问题。
+	-修正更新未打开选项卡IFrame地址出错的问题。
 
 
 
