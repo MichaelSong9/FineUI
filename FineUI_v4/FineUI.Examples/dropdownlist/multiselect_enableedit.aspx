@@ -37,6 +37,9 @@
         <br />
         <f:Label runat="server" EncodeText="false" ID="labResult">
         </f:Label>
+        <br />
+        <br />
+        注：ExtJS的实现不完善，多选时不支持键盘输入过滤。
     </form>
 
 </body>

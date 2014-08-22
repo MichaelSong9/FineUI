@@ -232,8 +232,6 @@
       </TreeNode>
       <TreeNode Text="全选复选框列（客户端实现）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_clientside.aspx" >
       </TreeNode>
-      <TreeNode Text="全选复选框列（右键菜单）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_contextmenu.aspx" >
-      </TreeNode>
     </TreeNode>
     <TreeNode Text="模板列" IsNew="true">
       <TreeNode Text="编辑文本框" NavigateUrl="~/grid/grid_edit.aspx" >
@@ -351,7 +349,7 @@
       <!--<TreeNode Text="列锁定（多列，多行，行高不同）" NavigateUrl="~/grid/grid_lockcolumn_many_columns.aspx" >
       </TreeNode>-->
     </TreeNode>
-    <TreeNode Text="杂项">
+    <TreeNode Text="杂项" IsNew="true">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>
       <TreeNode Text="改变行背景色" NavigateUrl="~/grid/grid_rowcolor.aspx" >
@@ -371,6 +369,10 @@
       <TreeNode Text="表格为空的提示" NavigateUrl="~/grid/grid_empty_text.aspx" >
       </TreeNode>
       <TreeNode Text="自动换行" NavigateUrl="~/grid/grid_line_wrap.aspx" >
+      </TreeNode>
+      <TreeNode Text="右键菜单(全选复选框列）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_contextmenu.aspx" >
+      </TreeNode>
+      <TreeNode Text="隐藏表格标题栏" NavigateUrl="~/grid/grid_hide_gridheader.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
   </TreeNode>

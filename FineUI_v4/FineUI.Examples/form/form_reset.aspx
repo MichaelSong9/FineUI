@@ -26,8 +26,8 @@
                 </f:FormRow>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True">
-                            <f:ListItem Selected="true" Text="可选项 1" Value="0"></f:ListItem>
+                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True" AutoSelectFirstItem="false">
+                            <f:ListItem Text="可选项 1" Value="0"></f:ListItem>
                             <f:ListItem Text="可选项 2" Value="1"></f:ListItem>
                         </f:DropDownList>
                         <f:TextBox ID="TextBox1" ShowRedStar="true" runat="server" Label="文本框" Required="true"
@@ -72,7 +72,7 @@
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:DropDownList ID="DropDownList3" Label="审批人" Required="true" runat="server" ShowRedStar="True">
+                        <f:DropDownList ID="DropDownList3" Label="审批人" Required="true" runat="server" ShowRedStar="True" AutoSelectFirstItem="false">
                             <f:ListItem Text="老大甲" Value="0"></f:ListItem>
                             <f:ListItem Text="老大乙" Value="1"></f:ListItem>
                             <f:ListItem Text="老大丙" Value="2"></f:ListItem>

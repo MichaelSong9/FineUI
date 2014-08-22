@@ -63,6 +63,7 @@
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
+    <Content Include="grid\grid_hide_gridheader.aspx" />
     <Content Include="grid\grid_lockcolumn.aspx" />
     <Content Include="grid\grid_lockcolumn_many_columns.aspx" />
     <Content Include="grid\grid_lockcolumn_rowexpander.aspx" />
@@ -429,6 +430,13 @@
     </Compile>
     <Compile Include="dropdownlist\multiselect_enableedit.aspx.designer.cs">
       <DependentUpon>multiselect_enableedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_hide_gridheader.aspx.cs">
+      <DependentUpon>grid_hide_gridheader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_hide_gridheader.aspx.designer.cs">
+      <DependentUpon>grid_hide_gridheader.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_lockcolumn.aspx.cs">
       <DependentUpon>grid_lockcolumn.aspx</DependentUpon>

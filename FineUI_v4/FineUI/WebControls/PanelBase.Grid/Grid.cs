@@ -899,6 +899,26 @@ namespace FineUI
 
 
         /// <summary>
+        /// 启用表格行分隔线（默认为true）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("启用表格行分隔线（默认为true）")]
+        public bool EnableRowLines
+        {
+            get
+            {
+                object obj = FState["EnableRowLines"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["EnableRowLines"] = value;
+            }
+        }
+
+
+        /// <summary>
         /// 启用交替行显示不同的颜色
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -2333,6 +2353,13 @@ namespace FineUI
             {
                 OB.AddProperty("columnLines", true);
             }
+
+            if (!EnableRowLines)
+            {
+                OB.AddProperty("rowLines", false);
+            }
+
+            
 
             if (ForceFit)
             {

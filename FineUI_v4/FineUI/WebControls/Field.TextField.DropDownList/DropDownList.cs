@@ -106,7 +106,7 @@ namespace FineUI
                 if (SelectedItem == null)
                 {
                     // 如果强制选择一项，我们可能需要选中第一项
-                    if (ForceSelection)
+                    if (AutoSelectFirstItem)
                     {
                         if (Items.Count > 0)
                         {
@@ -241,7 +241,7 @@ namespace FineUI
                 }
 
                 // 如果强制选择一项，我们可能需要选中第一项
-                if (selectedValues.Count == 0 && ForceSelection)
+                if (selectedValues.Count == 0 && AutoSelectFirstItem)
                 {
                     if (Items.Count > 0)
                     {
@@ -336,6 +336,26 @@ namespace FineUI
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// 如果未定义选中项，则自动选中第一个子项（默认为true）
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("如果未定义选中项，则自动选中第一个子项（默认为true）")]
+        public bool AutoSelectFirstItem
+        {
+            get
+            {
+                object obj = FState["AutoSelectFirstItem"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["AutoSelectFirstItem"] = value;
+            }
+        }
+
 
         /// <summary>
         /// 是否可以选择多项
