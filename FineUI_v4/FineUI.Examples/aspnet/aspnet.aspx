@@ -24,10 +24,14 @@
             <br />
             <asp:Button ID="Button3" Text="3. ASP.NET 按钮（AJAX）" runat="server" OnClick="Button3_Click"
                 UseSubmitBehavior="false" />
-            <asp:Button ID="Button4" Text="4. ASP.NET 按钮" runat="server" OnClick="Button4_Click" />
+            <asp:Button ID="Button4" Text="4. ASP.NET 按钮" runat="server" OnClick="Button4_Click" UseSubmitBehavior="true" />
         </f:ContentPanel>
-        <br />
-        注意：只有设置ASP.NET按钮的属性UseSubmitBehavior=false，点击事件才是AJAX；否则点击ASP.NET按钮会导致整个页面回发。
+        注意：
+        <ul>
+            <li>【3. ASP.NET 按钮（AJAX）】设置了属性UseSubmitBehavior=false，点击此按钮是AJAX回发。</li>
+            <li>【4. ASP.NET 按钮】设置了属性UseSubmitBehavior=true，点击此按钮会导致整个页面回发。</li>
+            <li>由于【4. ASP.NET 按钮】在客户端会被渲染为input[type=submit]，所以在两个文本输入框内按回车键都会导致整个页面回发。</li>
+        </ul>
     </form>
 </body>
 </html>

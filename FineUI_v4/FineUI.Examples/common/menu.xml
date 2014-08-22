@@ -24,7 +24,7 @@
     <TreeNode Text="登录页面（验证码）" NavigateUrl="~/basic/login_captcha.aspx" >
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="表单控件">
+  <TreeNode Text="表单控件" IsNew="true">
     <TreeNode Text="按钮控件" >
       <TreeNode Text="简单按钮" NavigateUrl="~/button/button.aspx" >
       </TreeNode>
@@ -111,17 +111,17 @@
       <TreeNode Text="工具栏中的上传控件" NavigateUrl="~/form/fileupload_toolbar.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="表单布局">
+    <TreeNode Text="表单布局" IsNew="true">
       <TreeNode Text="按钮与表单" NavigateUrl="~/form/layout_panel.aspx" >
       </TreeNode>
       <TreeNode Text="自定义表单布局" NavigateUrl="~/form/layout_panel2.aspx" >
       </TreeNode>
-      <TreeNode Text="复杂布局（联系我们）" NavigateUrl="~/form/layout_contactus.aspx" >
+      <TreeNode Text="复杂布局（联系我们）" NavigateUrl="~/form/layout_contactus.aspx" IsNew="true" >
       </TreeNode>
-      <TreeNode Text="复杂布局（账单信息）" NavigateUrl="~/form/layout_checkout.aspx" >
+      <TreeNode Text="复杂布局（账单信息）" NavigateUrl="~/form/layout_checkout.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="下拉列表控件">
+    <TreeNode Text="下拉列表控件" IsNew="true">
       <TreeNode Text="简单下拉列表" NavigateUrl="~/dropdownlist/dropdownlist.aspx" >
       </TreeNode>
       <TreeNode Text="下拉列表（选项值可为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptyvalue.aspx" >
@@ -142,19 +142,25 @@
         <TreeNode Text="绑定到 DataTable" NavigateUrl="~/dropdownlist/databind/dropdownlist_datatable.aspx" >
         </TreeNode>
       </TreeNode>
+      <TreeNode Text="多选下拉列表" IsNew="true">
+        <TreeNode Text="多选" NavigateUrl="~/dropdownlist/multiselect.aspx" IsNew="true">
+        </TreeNode>
+        <TreeNode Text="多选（可过滤，强制选择）" NavigateUrl="~/dropdownlist/multiselect_enableedit.aspx" IsNew="true">
+        </TreeNode>
+      </TreeNode>
     </TreeNode>
-    <TreeNode Text="杂项">
+    <TreeNode Text="杂项" IsNew="true" >
       <TreeNode Text="重置表单" NavigateUrl="~/form/form_reset.aspx" >
       </TreeNode>
       <TreeNode Text="隐藏表单字段" NavigateUrl="~/form/form_hide_field.aspx" >
       </TreeNode>
       <TreeNode Text="按钮水平居中" NavigateUrl="~/form/form_center_button.aspx" >
       </TreeNode>
-      <TreeNode Text="禁用与只读" NavigateUrl="~/form/form_disabled.aspx" >
+      <TreeNode Text="禁用与只读" NavigateUrl="~/form/form_disabled.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="表格控件">
+  <TreeNode Text="表格控件" IsNew="true">
     <TreeNode Text="FineUI 表格" NavigateUrl="~/grid/grid.aspx" >
     </TreeNode>
     <TreeNode Text="AspNet 表格" NavigateUrl="~/grid/grid_aspnet.aspx" >
@@ -229,7 +235,7 @@
       <TreeNode Text="全选复选框列（右键菜单）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_contextmenu.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="模板列">
+    <TreeNode Text="模板列" IsNew="true">
       <TreeNode Text="编辑文本框" NavigateUrl="~/grid/grid_edit.aspx" >
       </TreeNode>
       <TreeNode Text="编辑下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist.aspx" >
@@ -252,7 +258,7 @@
       </TreeNode>
       <TreeNode Text="遍历表格内所有输入框（横向）" NavigateUrl="~/grid/grid_edit_enterkey_h.aspx" >
       </TreeNode>
-      <TreeNode Text="购物车" NavigateUrl="~/grid/grid_edit_cart.aspx" >
+      <TreeNode Text="购物车" NavigateUrl="~/grid/grid_edit_cart.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="多表头">
@@ -329,18 +335,18 @@
       <TreeNode Text="失去焦点事件" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="列锁定">
-      <TreeNode Text="列锁定" NavigateUrl="~/grid/grid_lockcolumn.aspx" >
+    <TreeNode Text="列锁定" IsNew="true">
+      <TreeNode Text="列锁定" NavigateUrl="~/grid/grid_lockcolumn.aspx" IsNew="true" >
       </TreeNode>
-      <TreeNode Text="列锁定与行扩展列" NavigateUrl="~/grid/grid_lockcolumn_rowexpander.aspx" >
+      <TreeNode Text="列锁定与行扩展列" NavigateUrl="~/grid/grid_lockcolumn_rowexpander.aspx" IsNew="true" >
       </TreeNode>
-      <TreeNode Text="列锁定与多表头" NavigateUrl="~/grid/grid_lockcolumn_groupheader_sort.aspx" >
+      <TreeNode Text="列锁定与多表头" NavigateUrl="~/grid/grid_lockcolumn_groupheader_sort.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="列锁定与合计行" NavigateUrl="~/grid/grid_lockcolumn_summary_scrollbar.aspx" >
+      <TreeNode Text="列锁定与合计行" NavigateUrl="~/grid/grid_lockcolumn_summary_scrollbar.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="列锁定与单元格编辑" NavigateUrl="~/grid/grid_lockcolumn_editor_cell_new.aspx" >
+      <TreeNode Text="列锁定与单元格编辑" NavigateUrl="~/grid/grid_lockcolumn_editor_cell_new.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="列锁定与自动换行" NavigateUrl="~/grid/grid_lockcolumn_line_wrap.aspx" >
+      <TreeNode Text="列锁定与自动换行" NavigateUrl="~/grid/grid_lockcolumn_line_wrap.aspx" IsNew="true">
       </TreeNode>
       <!--<TreeNode Text="列锁定（多列，多行，行高不同）" NavigateUrl="~/grid/grid_lockcolumn_many_columns.aspx" >
       </TreeNode>-->

@@ -62,7 +62,7 @@ namespace FineUI
         public DropDownList()
         {
             AddServerAjaxProperties("F_Items");
-            AddClientAjaxProperties("SelectedValue", "Text");
+            AddClientAjaxProperties("SelectedValue", "SelectedValueArray", "Text");
 
             AddGzippedAjaxProperties("F_Items");
         }
@@ -94,6 +94,8 @@ namespace FineUI
         /// <summary>
         /// [AJAX属性]选中项的值
         /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [Description("[AJAX属性]选中项的值")]
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SelectedValue
@@ -215,7 +217,167 @@ namespace FineUI
 
         #endregion
 
+        #region SelectedIndexArray/SelectedValueArray/SelectedItemArray
+
+        /// <summary>
+        /// [AJAX属性]选中项的值
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [Description("[AJAX属性]选中项的值")]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string[] SelectedValueArray
+        {
+            get
+            {
+                List<string> selectedValues = new List<string>();
+                for (int i = 0, count = Items.Count; i < count; i++)
+                {
+                    ListItem item = Items[i];
+                    if (item.Selected)
+                    {
+                        selectedValues.Add(item.Value);
+                    }
+                }
+
+                // 如果强制选择一项，我们可能需要选中第一项
+                if (selectedValues.Count == 0 && ForceSelection)
+                {
+                    if (Items.Count > 0)
+                    {
+                        SelectedIndex = 0;
+                        selectedValues.Add(Items[0].Value);
+                    }
+                }
+
+                return selectedValues.ToArray();
+            }
+            set
+            {
+                List<string> selectedValues = new List<string>(value);
+                for (int i = 0, count = Items.Count; i < count; i++)
+                {
+                    ListItem item = Items[i];
+                    if (selectedValues.Contains(item.Value))
+                    {
+                        item.Selected = true;
+                    }
+                    else
+                    {
+                        item.Selected = false;
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// [AJAX属性]选中项的索引
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [Description("[AJAX属性]选中项的索引")]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int[] SelectedIndexArray
+        {
+            get
+            {
+                List<int> selectedIndexs = new List<int>();
+                for (int i = 0, count = Items.Count; i < count; i++)
+                {
+                    if (Items[i].Selected)
+                    {
+                        selectedIndexs.Add(i);
+                    }
+                }
+                return selectedIndexs.ToArray();
+            }
+            set
+            {
+                List<int> selectedIndexs = new List<int>(value);
+                for (int i = 0, count = Items.Count; i < count; i++)
+                {
+                    if (selectedIndexs.Contains(i))
+                    {
+                        Items[i].Selected = true;
+                    }
+                    else
+                    {
+                        Items[i].Selected = false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 选中项
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [Description("选中项")]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public ListItem[] SelectedItemArray
+        {
+            get
+            {
+                List<ListItem> selectedItems = new List<ListItem>();
+                for (int i = 0, count = Items.Count; i < count; i++)
+                {
+                    ListItem item = Items[i];
+                    if (item.Selected)
+                    {
+                        selectedItems.Add(item);
+                    }
+                }
+                return selectedItems.ToArray();
+            }
+        }
+
+        #endregion
+
         #region Properties
+
+        /// <summary>
+        /// 是否可以选择多项
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("是否可以选择多项")]
+        public bool EnableMultiSelect
+        {
+            get
+            {
+                object obj = FState["EnableMultiSelect"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["EnableMultiSelect"] = value;
+            }
+        }
+
+
+        private const string MULTISELECT_SEPARATOR_DEFAULT = ", ";
+
+        /// <summary>
+        /// 选择多项的分隔符
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(typeof(string), MULTISELECT_SEPARATOR_DEFAULT)]
+        [Description("选择多项的分隔符")]
+        public string MultiSelectSeparator
+        {
+            get
+            {
+                object obj = FState["MultiSelectSeparator"];
+                return obj == null ? MULTISELECT_SEPARATOR_DEFAULT : (string)obj;
+            }
+            set
+            {
+                FState["MultiSelectSeparator"] = value;
+            }
+        }
+
 
         /// <summary>
         /// 是否强制选中下拉列表中的项（启用编辑的情况下）
@@ -733,7 +895,7 @@ namespace FineUI
         {
             get
             {
-                return String.Format("{0}_Value", ClientID);
+                return String.Format("{0}$Value", UniqueID);
             }
         }
 
@@ -757,8 +919,25 @@ namespace FineUI
                 sb.AppendFormat("{0}.f_loadData();", XID);
             }
 
+
+            bool selectedValueChanged = false;
+            if (EnableMultiSelect)
+            {
+                if (PropertyModified("SelectedValueArray"))
+                {
+                    selectedValueChanged = true;
+                }
+            }
+            else
+            {
+                if (PropertyModified("SelectedValue"))
+                {
+                    selectedValueChanged = true;
+                }
+            }
+
             // 修改Items记录后要更新SelectedValue
-            if (dataReloaded || PropertyModified("SelectedValue"))
+            if (dataReloaded || selectedValueChanged)
             {
                 sb.AppendFormat("{0}.f_setValue();", XID);
             }
@@ -774,6 +953,7 @@ namespace FineUI
             // 确保 F_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
             FState.AddModifiedProperty("F_Items");
             FState.AddModifiedProperty("SelectedValue");
+            FState.AddModifiedProperty("SelectedValueArray");
 
             base.OnFirstPreRender();
 
@@ -841,12 +1021,28 @@ namespace FineUI
             storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.F_Items)", GetFStateScriptID()), true);
             OB.AddProperty("store", String.Format("Ext.create('Ext.data.ArrayStore',{0})", storeBuilder), true);
 
-            OB.AddProperty("value", String.Format("{0}.SelectedValue", GetFStateScriptID()), true);
+            OB.AddProperty("value", String.Format("{0}.{1}", GetFStateScriptID(), EnableMultiSelect ? "SelectedValueArray" : "SelectedValue"), true);
+
+            //OB.AddProperty("value", "['Value1','Value4']", true);
 
             OB.AddProperty("tpl", "F.util.ddlTPL", true);
 
             OB.AddProperty("queryMode", "local");
             OB.AddProperty("triggerAction", "all");
+
+            if (EnableMultiSelect)
+            {
+                OB.AddProperty("multiSelect", true);
+
+
+                if (MultiSelectSeparator != MULTISELECT_SEPARATOR_DEFAULT)
+                {
+                    OB.AddProperty("delimiter", MultiSelectSeparator);
+                }
+
+            }
+
+
 
             #region old code
             //OB.AddProperty("mode", "local");
@@ -1384,11 +1580,34 @@ namespace FineUI
         public bool LoadPostData(string postDataKey, System.Collections.Specialized.NameValueCollection postCollection)
         {
             string postText = postCollection[postDataKey];
-            string postValue = postCollection[SelectedValueHiddenFieldID];
+
+
 
             // 如果下拉列表被禁用，则postText为null。由于Enabled只能在服务器端被改变，所以被禁用时，不处理回发数据即可
-            if (Enabled)
+            if (!Enabled)
             {
+                return false;
+            }
+
+            if (EnableMultiSelect)
+            {
+                string[] postValues = postCollection.GetValues(SelectedValueHiddenFieldID);
+                if (postValues == null)
+                {
+                    postValues = new string[0];
+                }
+                if (!StringUtil.CompareStringArray(postValues, SelectedValueArray))
+                {
+                    SelectedValueArray = postValues;
+                    FState.BackupPostDataProperty("SelectedValueArray");
+                    return true;
+                }
+
+            }
+            else
+            {
+                string postValue = postCollection[SelectedValueHiddenFieldID];
+
                 ListItem item = Items.FindByValue(postValue);
                 if (item != null && item.Text == postText)
                 {

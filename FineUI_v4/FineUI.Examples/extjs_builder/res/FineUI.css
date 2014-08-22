@@ -75,6 +75,19 @@
     color: gray;
 }
 
+
+
+.f-input-text-hidden {
+	position: absolute;
+	top: 0;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	border: none;
+	padding: 0;
+}
+
+
 /* radiogroup background color */
 /*.x-form-radio-group .x-panel-body
 {

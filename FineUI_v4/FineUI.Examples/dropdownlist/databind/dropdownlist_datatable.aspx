@@ -15,7 +15,7 @@
             <Items>
                 <f:DropDownList runat="server" ID="DropDownList1" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                 </f:DropDownList>
-                <f:Button ID="btnSelectItem6" Text="选中“选项 6”" runat="server" OnClick="btnSelectItem6_Click">
+                <f:Button ID="btnSelectItem6" Text="选中“可选项6”" runat="server" OnClick="btnSelectItem6_Click">
                 </f:Button>
 
             </Items>

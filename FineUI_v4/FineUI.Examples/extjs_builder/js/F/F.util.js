@@ -161,6 +161,10 @@ F.customEvent = function (argument, validate) {
 
             });
 
+
+            // 为了防止【页面中只有一个input[type=text]，则回车会提交表单】的问题，现在页面上创建一个input[type=text]的空元素
+            F.util.appendFormNode('<input type="text" class="f-input-text-hidden">');
+
         },
 
         _readyList: [],
@@ -311,7 +315,7 @@ F.customEvent = function (argument, validate) {
             var itemNode = Ext.get(fieldId);
             if (!itemNode) {
                 // Ext.DomHelper.append 有问题，例如下面这个例子得到的结果是错的；变通一下，先插入节点，在设置节点的值。
-                // Ext.DomHelper.append(document.forms[0], { tag: "input", type: "hidden", value: '{"X_Items":[["Value1","选项 1",1],["Value2","选项 2（不可选择）",0],["Value3","选项 3（不可选择）",0],["Value4","选项 4",1],["Value5","选项 5",1],["Value6","选项 6",1],["Value7","选项 7",1],["Value8","选项 8",1],["Value9","选项 9",1]],"SelectedValue":"Value1"}'});
+                // Ext.DomHelper.append(document.forms[0], { tag: "input", type: "hidden", value: '{"X_Items":[["Value1","可选项1",1],["Value2","可选项2（不可选择）",0],["Value3","可选项3（不可选择）",0],["Value4","可选项4",1],["Value5","可选项5",1],["Value6","可选项6",1],["Value7","可选择项7",1],["Value8","可选择项8",1],["Value9","可选择项9",1]],"SelectedValue":"Value1"}'});
                 // 上面的这个字符串，在IETest的IE8模式下会变成：
                 // {"DropDownList1":{"X_Items":[["Value1","\u9009\u9879 1",1],["Value2","\u9009\u9879 2\uff08\u4e0d\u53ef\u9009\u62e9\uff09",0],["Value3","\u9009\u9879 3\uff08\u4e0d\u53ef\u9009\u62e9\uff09",0],["Value4","\u9009\u9879 4",1],["Value5","\u9009\u9879 5",1],["Value6","\u9009\u9879 6",1],["Value7","\u9009\u9879 7",1],["Value8","\u9009\u9879 8",1],["Value9","\u9009\u9879 9",1]],"SelectedValue":"Value1"}}
 

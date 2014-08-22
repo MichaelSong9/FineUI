@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="dropdownlist_enableedit.aspx.cs"
-    Inherits="FineUI.Examples.dropdownlist.dropdownlist_enableedit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="multiselect_enableedit.aspx.cs" Inherits="FineUI.Examples.dropdownlist.multiselect_enableedit" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,11 +12,11 @@
         <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
-                <f:DropDownList runat="server" ID="DropDownList1" EnableEdit="true" ForceSelection="true">
+                <f:DropDownList runat="server" ID="DropDownList1" EnableMultiSelect="true" EnableEdit="true" >
                     <f:ListItem Text="可选项1" Value="Value1" Selected="true" />
                     <f:ListItem Text="可选项2（不可选择）" Value="Value2" EnableSelect="false" />
                     <f:ListItem Text="可选项3（不可选择）" Value="Value3" EnableSelect="false" />
-                    <f:ListItem Text="可选项4" Value="Value4" />
+                    <f:ListItem Text="可选项4" Value="Value4" Selected="true" />
                     <f:ListItem Text="可选项5" Value="Value5" />
                     <f:ListItem Text="可选项6" Value="Value6" />
                     <f:ListItem Text="可选择项7" Value="Value7" />
@@ -36,10 +35,9 @@
             </Items>
         </f:SimpleForm>
         <br />
-        <f:Label runat="server" ID="labResult">
+        <f:Label runat="server" EncodeText="false" ID="labResult">
         </f:Label>
-        <br />
-        注：下拉列表的属性设置为EnableEdit="true" ForceSelection="true"。
     </form>
+
 </body>
 </html>

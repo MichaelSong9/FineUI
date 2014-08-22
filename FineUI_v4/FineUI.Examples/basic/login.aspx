@@ -10,9 +10,12 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         用户名：admin
-    <br />
+        <br />
         密码：admin
-    <br />
+        <br />
+        <br />
+        <br />
+        注意：在任意输入框内按回车键都会触发表单的提交（相当于点击【登陆】按钮）。
         <f:Window ID="Window1" runat="server" Title="登录表单" IsModal="false" EnableClose="false"
             WindowPosition="GoldenSection" Width="350px">
             <Items>

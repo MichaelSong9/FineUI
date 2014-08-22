@@ -83,11 +83,12 @@ namespace FineUI.Examples
                     innerXmlDoc.LoadXml(String.Format("<?xml version=\"1.0\" encoding=\"utf-8\" ?><Tree>{0}</Tree>", xmlNode.InnerXml));
 
                     // 绑定AccordionPane内部的树控件
+                    innerTree.NodeDataBound += treeMenu_NodeDataBound;
                     innerTree.DataSource = innerXmlDoc;
                     innerTree.DataBind();
 
-                    // 重新设置每个节点的图标
-                    ResolveTreeNode(innerTree.Nodes);
+                    //// 重新设置每个节点的图标
+                    //ResolveTreeNode(innerTree.Nodes);
                 }
             }
 
@@ -106,14 +107,48 @@ namespace FineUI.Examples
             leftRegion.Items.Add(treeMenu);
 
             // 绑定 XML 数据源到树控件
+            treeMenu.NodeDataBound += treeMenu_NodeDataBound;
             treeMenu.DataSource = XmlDataSource1;
             treeMenu.DataBind();
 
-            // 重新设置每个节点的图标
-            ResolveTreeNode(treeMenu.Nodes);
+            //// 重新设置每个节点的图标
+            //ResolveTreeNode(treeMenu.Nodes);
 
             return treeMenu;
         }
+
+
+        /// <summary>
+        /// 树节点的绑定后事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeMenu_NodeDataBound(object sender, TreeNodeEventArgs e)
+        {
+            string isNewHtml = GetIsNewHtml(e.XmlNode);
+            if (!String.IsNullOrEmpty(isNewHtml))
+            {
+                e.Node.Text += isNewHtml;
+            }
+
+        }
+
+        private string GetIsNewHtml(XmlNode node)
+        {
+            string result = String.Empty;
+
+            XmlAttribute isNewAttr = node.Attributes["IsNew"];
+            if (isNewAttr != null)
+            {
+                if (Convert.ToBoolean(isNewAttr.Value))
+                {
+                    result = "&nbsp;<span class=\"isnew\">New!</span>";
+                }
+            }
+
+            return result;
+        }
+
 
 
         private JObject GetClientIDS(params ControlBase[] ctrls)
@@ -344,65 +379,65 @@ namespace FineUI.Examples
 
         #region Tree
 
-        /// <summary>
-        /// 重新设置每个节点的图标
-        /// </summary>
-        /// <param name="nodes"></param>
-        private void ResolveTreeNode(TreeNodeCollection nodes)
-        {
-            foreach (TreeNode node in nodes)
-            {
-                if (node.Nodes.Count == 0)
-                {
-                    if (!String.IsNullOrEmpty(node.NavigateUrl))
-                    {
-                        node.IconUrl = GetIconForTreeNode(node.NavigateUrl);
-                    }
-                }
-                else
-                {
-                    ResolveTreeNode(node.Nodes);
-                }
-            }
-        }
+        ///// <summary>
+        ///// 重新设置每个节点的图标
+        ///// </summary>
+        ///// <param name="nodes"></param>
+        //private void ResolveTreeNode(TreeNodeCollection nodes)
+        //{
+        //    foreach (TreeNode node in nodes)
+        //    {
+        //        if (node.Nodes.Count == 0)
+        //        {
+        //            if (!String.IsNullOrEmpty(node.NavigateUrl))
+        //            {
+        //                node.IconUrl = GetIconForTreeNode(node.NavigateUrl);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ResolveTreeNode(node.Nodes);
+        //        }
+        //    }
+        //}
 
-        /// <summary>
-        /// 根据链接地址返回相应的图标
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        private string GetIconForTreeNode(string url)
-        {
-            url = url.ToLower();
-            int paramsIndex = url.IndexOf("?");
-            if (paramsIndex >= 0)
-            {
-                url = url.Substring(0, paramsIndex);
-            }
-            int lastDotIndex = url.LastIndexOf('.');
-            if (lastDotIndex >= 0)
-            {
-                url = url.Substring(lastDotIndex + 1);
-            }
+        ///// <summary>
+        ///// 根据链接地址返回相应的图标
+        ///// </summary>
+        ///// <param name="url"></param>
+        ///// <returns></returns>
+        //private string GetIconForTreeNode(string url)
+        //{
+        //    url = url.ToLower();
+        //    int paramsIndex = url.IndexOf("?");
+        //    if (paramsIndex >= 0)
+        //    {
+        //        url = url.Substring(0, paramsIndex);
+        //    }
+        //    int lastDotIndex = url.LastIndexOf('.');
+        //    if (lastDotIndex >= 0)
+        //    {
+        //        url = url.Substring(lastDotIndex + 1);
+        //    }
 
-            string fileType = url;
+        //    string fileType = url;
 
-            string iconUrl = "~/res/images/filetype/vs_unknow.png";
-            if (fileType == "txt")
-            {
-                iconUrl = "~/res/images/filetype/vs_txt.png";
-            }
-            else if (fileType == "aspx")
-            {
-                iconUrl = "~/res/images/filetype/vs_aspx.png";
-            }
-            else if (fileType == "htm" || fileType == "html")
-            {
-                iconUrl = "~/res/images/filetype/vs_htm.png";
-            }
+        //    string iconUrl = "~/res/images/filetype/vs_unknow.png";
+        //    if (fileType == "txt")
+        //    {
+        //        iconUrl = "~/res/images/filetype/vs_txt.png";
+        //    }
+        //    else if (fileType == "aspx")
+        //    {
+        //        iconUrl = "~/res/images/filetype/vs_aspx.png";
+        //    }
+        //    else if (fileType == "htm" || fileType == "html")
+        //    {
+        //        iconUrl = "~/res/images/filetype/vs_htm.png";
+        //    }
 
-            return iconUrl;
-        }
+        //    return iconUrl;
+        //}
 
         #endregion
     }
