@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="false" Title="表格" Width="300px" runat="server" EnableCollapse="true"
-            DataKeyNames="Guid,Name" ShowGridHeader="false" EnableRowLines="false">
+            DataKeyNames="Guid,Name" ShowGridHeader="false" EnableRowLines="false" EnableAlternateRowColor="false" Height="200px">
             <Columns>
                 <f:BoundField ExpandUnusedSpace="true" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
             </Columns>

@@ -113,6 +113,9 @@
         </f:Button>
         <f:Button ID="btnResetAll" EnablePostBack="false" Text="重置表单1和表单2" runat="server">
         </f:Button>
+        <br />
+        <br />
+        注：下拉列表设置属性 Required="true" 和 AutoSelectFirstItem="false"，这样初始没有选中值，提交表单时不能为空。
     </form>
 </body>
 </html>
