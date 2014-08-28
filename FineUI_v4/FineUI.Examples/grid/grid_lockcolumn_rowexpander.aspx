@@ -51,7 +51,7 @@
         </f:Button>
         <br />
         <br />
-        注：ExtJS对“列锁定与行扩展列”同时存在的情况支持有问题。
+        注：ExtJS对“列锁定与行扩展列”同时存在的情况支持有问题，存在错位的情况。查看<a href="http://fineui.com/demo_pro/#/demo_pro/grid/grid_lockcolumn_rowexpander.aspx" target="_blank">专业版示例</a>。
     </form>
 </body>
 </html>

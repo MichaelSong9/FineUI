@@ -32,7 +32,7 @@
                 <f:SimpleForm ID="SimpleForm1" ShowBorder="false"
                     ShowHeader="false" AutoScroll="true" BodyPadding="5px" runat="server" EnableCollapse="True">
                     <Items>
-                        <f:Label ID="Label2" Label="文本" Text="sanshi" runat="server" />
+                        <f:Label ID="Label2" Label="文本" Text="三生石上" CssClass="highlight" runat="server" />
                         <f:NumberBox ID="NumberBox1" Label="数字输入框" Required="true" ShowRedStar="true" runat="server" />
                         <f:CheckBox ID="CheckBox1" runat="server" Label="复选框">
                         </f:CheckBox>

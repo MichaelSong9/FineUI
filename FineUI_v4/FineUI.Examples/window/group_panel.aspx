@@ -12,7 +12,7 @@
         <f:Panel ID="Panel1" BodyPadding="5px" runat="server"
             EnableCollapse="True" Title="面板" Width="600px">
             <Items>
-                <f:GroupPanel runat="server" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True">
+                <f:GroupPanel runat="server" Title="分组面板一" ID="GroupPanel1" EnableCollapse="True" Collapsed="true">
                     <Items>
                         <f:SimpleForm ID="SimpleForm1" runat="server" ShowBorder="False"
                             ShowHeader="False">
@@ -26,6 +26,15 @@
                     </Items>
                 </f:GroupPanel>
                 <f:GroupPanel ID="GroupPanel2" Title="分组面板二" runat="server" EnableCollapse="True">
+                     <Toolbars>
+                        <f:Toolbar ID="Toolbar1" runat="server" Position="Bottom">
+                            <Items>
+                                <f:Button ID="Button3" runat="server" Text="左侧的按钮"></f:Button>
+                                <f:ToolbarFill ID="ToolbarFill1" runat="server"></f:ToolbarFill>
+                                <f:Button ID="Button1" runat="server" Text="右侧的按钮"></f:Button>
+                            </Items>
+                        </f:Toolbar>
+                    </Toolbars>
                     <Items>
                         <f:ContentPanel ID="ContentPanel1" ShowBorder="false" ShowHeader="false"
                             runat="server">
@@ -47,6 +56,9 @@
         <br />
         <f:Button ID="Button2" Text="展开/折叠分组面板二" OnClick="Button2_Click" runat="server">
         </f:Button>
+        <br />
+        <br />
+        注：ExtJS这个地方有问题，第二个GroupPanel面板是有工具栏的，但是没有显示出来。查看<a href="http://fineui.com/demo_pro/#/demo_pro/window/group_panel.aspx" target="_blank">专业版示例</a>。
     </form>
 </body>
 </html>

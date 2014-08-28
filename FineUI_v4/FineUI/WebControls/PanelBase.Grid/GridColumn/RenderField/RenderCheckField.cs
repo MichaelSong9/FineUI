@@ -61,7 +61,11 @@ namespace FineUI
             {
                 object value = row.GetPropertyValue(DataField);
 
-                if (value != null)
+                if (value == null || value == DBNull.Value || (value is String && String.IsNullOrEmpty(value.ToString())))
+                {
+                    // 不做处理
+                }
+                else
                 {
                     isChecked = Convert.ToBoolean(value);
                 }
@@ -87,18 +91,18 @@ namespace FineUI
 
                 if (Grid.EnableAfterEditEvent)
                 {
-                    string validateScript = "var args='AfterEdit$'+rowIndex+'$"+ ColumnID +"';";
+                    string validateScript = "var args='AfterEdit$'+rowIndex+'$" + ColumnID + "';";
                     validateScript += Grid.GetPostBackEventReference("#AfterEdit#").Replace("'#AfterEdit#'", "args");
 
                     string checkchangeScript = String.Format("function(checkcolumn,rowIndex,checked){{{0}}}", validateScript);
 
-                    OB.Listeners.AddProperty("checkchange", checkchangeScript,true);
+                    OB.Listeners.AddProperty("checkchange", checkchangeScript, true);
                 }
             }
 
             string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
             AddGridColumnScript(jsContent);
-            
+
         }
 
 

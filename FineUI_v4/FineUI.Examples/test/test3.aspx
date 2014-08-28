@@ -10,18 +10,37 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
 
-        <f:Panel runat="server">
-            <Items>
-                <f:Tree ID="Tree1" Width="650px" EnableCollapse="true" ShowHeader="true" EnableMultiSelect="true" Title="树控件"
-                    runat="server">
-                    <Nodes>
-                        <f:TreeNode></f:TreeNode>
-                    </Nodes>
-                </f:Tree>
-                <f:Panel runat="server" Title="哈哈"></f:Panel>
-                <f:Window runat="server" Title="呵呵"></f:Window>
-            </Items>
-        </f:Panel>
+        <f:ContentPanel ID="ContentPanel1" runat="server" AutoScroll="true" ShowBorder="true" ShowHeader="true" Width="600px">
+            <div class="zc-form auto">
+                <div class="form-group">
+                    <table class="fieldset">
+                        <tbody>
+                            <tr>
+                                <th class="label" style="width: 100px;">备注：</th>
+                                <td class="field" colspan="3">
+                                    <f:TextArea ID="XXRemarks" EmptyText="请输入备注" runat="server" Height="30px"></f:TextArea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="label">企业类型：</th>
+                                <td class="field" colspan="3">
+                                    <f:RadioButtonList ID="RadioButtonList1" ColumnNumber="4" runat="server" ShowRedStar="true" Required="true">
+                                        <f:RadioItem Text="可选项 1" Value="value1" />
+                                        <f:RadioItem Text="可选项 2" Value="value2" />
+                                        <f:RadioItem Text="可选项 3" Value="value3" />
+                                        <f:RadioItem Text="可选项 4" Value="value4" />
+                                        <f:RadioItem Text="可选项 5" Value="value5" />
+                                        <f:RadioItem Text="可选项 6" Value="value6" />
+                                        <f:RadioItem Text="可选项 7" Value="value7" />
+                                        <f:RadioItem Text="可选项 8" Value="value8" />
+                                    </f:RadioButtonList>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </f:ContentPanel>
 
     </form>
 </body>

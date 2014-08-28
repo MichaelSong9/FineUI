@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" AutoSizePanelID="Panel7" runat="server" />
-        <f:Panel ID="Panel7" runat="server" BodyPadding="3px"
+        <f:Panel ID="Panel7" runat="server" BodyPadding="5px"
             Title="Panel" ShowBorder="false" ShowHeader="True" Layout="VBox"
             BoxConfigAlign="Stretch">
             <Items>

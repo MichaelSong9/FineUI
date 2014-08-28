@@ -9,14 +9,14 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel3" Title="面板一（Height=300px Width=750px）" runat="server" Height="300px"  EnableCollapse="true"
+        <f:Panel ID="Panel3" Title="面板一（Height=300px Width=750px）" runat="server" Height="300px" EnableCollapse="true"
             Width="850px" BodyPadding="5px" ShowBorder="True" ShowHeader="True">
             <Items>
-                <f:Panel ID="Panel1" runat="server" ShowBorder="True"
+                <f:Panel ID="Panel1" runat="server" ShowBorder="True" Margin="0 0 5 0"
                     BodyPadding="5px" ShowHeader="false" Title="面板">
                     <Items>
-                        <f:Button ID="Button1" Text="按钮" runat="server">
-                        </f:Button>
+                        <f:Label ID="Label5" Text="Margin=0 0 5 0" runat="server">
+                        </f:Label>
                     </Items>
                 </f:Panel>
                 <f:Form ID="Form3" runat="server" ShowBorder="True"
@@ -41,13 +41,13 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Panel ID="Panel2" runat="server" Height="300px" Width="850px" ShowBorder="True"  EnableCollapse="true"
+        <f:Panel ID="Panel2" runat="server" Height="300px" Width="850px" ShowBorder="True" EnableCollapse="true"
             BodyPadding="5px" Layout="Anchor" ShowHeader="True" Title="面板二（Height=300px Width=750px Layout=Anchor）">
             <Items>
-                <f:Panel ID="Panel4" AnchorValue="60% 30%" runat="server"
+                <f:Panel ID="Panel4" AnchorValue="60% 30%" runat="server" Margin="0 0 5 0"
                     BodyPadding="5px" ShowBorder="True" ShowHeader="false">
                     <Items>
-                        <f:Label ID="Label3" ShowEmptyLabel="false" Text="AnchorValue=60% 30%" runat="server">
+                        <f:Label ID="Label3" ShowEmptyLabel="false" Text="AnchorValue=60% 30% Margin=0 0 5 0" runat="server">
                         </f:Label>
                     </Items>
                 </f:Panel>
@@ -73,8 +73,8 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Panel ID="Panel5" Title="面板三（Width=750px）" runat="server"  EnableCollapse="true"
-            BodyPadding="3px" ShowBorder="True" ShowHeader="True" Width="850px">
+        <f:Panel ID="Panel5" Title="面板三（Width=750px）" runat="server" EnableCollapse="true"
+            BodyPadding="5px" ShowBorder="True" ShowHeader="True" Width="850px">
             <Items>
                 <f:Form ID="Form4" ShowBorder="False" BodyPadding="5px" ShowHeader="False" runat="server">
                     <Rows>
@@ -125,7 +125,7 @@
             </Items>
         </f:Panel>
         <br />
-        <f:Panel ID="Panel7" runat="server" BodyPadding="3px"  EnableCollapse="true"
+        <f:Panel ID="Panel7" runat="server" BodyPadding="5px" EnableCollapse="true"
             ShowBorder="True" ShowHeader="True" Width="850px" Height="350px" Title="面板四（Width=750px Height=350px Layout=Anchor）"
             Layout="Anchor">
             <Items>
@@ -193,7 +193,7 @@
         <br />
         ===========================================================================
         <br />
-        <f:Panel ID="Panel9" runat="server" Layout="VBox"  EnableCollapse="true"
+        <f:Panel ID="Panel9" runat="server" Layout="VBox" EnableCollapse="true"
             BoxConfigAlign="Stretch" BoxConfigPosition="Start" BodyPadding="5px" BoxConfigChildMargin="0"
             ShowBorder="True" ShowHeader="True" Width="850px" Height="350px"
             Title="面板五（Layout=VBox BoxConfigAlign=Stretch BoxConfigPosition=Start BoxConfigChildMargin=0）">

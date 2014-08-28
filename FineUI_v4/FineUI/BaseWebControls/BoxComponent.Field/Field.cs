@@ -555,7 +555,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetMarkInvalidReference(string message)
         {
-            return String.Format("{0}.markInvalid({1});", ScriptID, JsHelper.GetJsString(message));
+            return String.Format("{0}.markInvalid({1});", ScriptID, JsHelper.Enquote(message));
         }
 
         /// <summary>

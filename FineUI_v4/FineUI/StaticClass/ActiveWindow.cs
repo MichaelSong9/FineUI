@@ -87,7 +87,7 @@ namespace FineUI
 
             #endregion
 
-            return String.Format("F.wnd.writeBackValue.apply(window,{0});", JsHelper.GetJsStringArray(values));
+            return String.Format("F.wnd.writeBackValue.apply(window,{0});", JsHelper.EnquoteStringArray(values));
 
         }
 
@@ -137,7 +137,7 @@ namespace FineUI
             //return ACTIVE_WINDOW_SCRIPT + "if(aw){aw[0].box_hide_postback('" + argument + "');}";
 
             //return "(function(){var aw=F.wnd.getActiveWindow(); if(aw){ aw[0].box_hide_postback('" + argument + "'); }})();";
-            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_postback(" + JsHelper.GetJsString(argument) + ");}})();";
+            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_postback(" + JsHelper.Enquote(argument) + ");}})();";
         }
 
         #endregion

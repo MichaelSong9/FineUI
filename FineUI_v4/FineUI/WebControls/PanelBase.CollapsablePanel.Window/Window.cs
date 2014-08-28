@@ -1441,7 +1441,7 @@ namespace FineUI
         /// </summary>
         public string GetSaveStateReference(params string[] values)
         {
-            string valuesJS = JsHelper.GetJsStringArray(values);
+            string valuesJS = JsHelper.EnquoteStringArray(values);
 
             return String.Format("{0}.f_property_save_state_control_client_ids={1};", ScriptID, valuesJS);
         }
@@ -1577,8 +1577,8 @@ namespace FineUI
                 iframeUrl = ResolveIFrameUrl(iframeUrl);
             }
 
-            iframeUrl = JsHelper.GetJsStringWithScriptTag(iframeUrl);
-            windowTitle = JsHelper.GetJsString(windowTitle);
+            iframeUrl = JsHelper.EnquoteWithScriptTag(iframeUrl);
+            windowTitle = JsHelper.Enquote(windowTitle);
 
             if (width != Unit.Empty && height != Unit.Empty)
             {
@@ -1662,7 +1662,7 @@ namespace FineUI
         public string GetHidePostBackReference(string argument)
         {
             //return String.Format("{0}.box_hide_postback('{1}');", ScriptID, argument.Replace("'", "\""));
-            return String.Format("{0}.f_hide_postback({1});", ScriptID, JsHelper.GetJsString(argument));
+            return String.Format("{0}.f_hide_postback({1});", ScriptID, JsHelper.Enquote(argument));
         }
 
         #endregion

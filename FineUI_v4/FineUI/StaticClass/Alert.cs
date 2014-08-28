@@ -528,14 +528,14 @@ namespace FineUI
                 String.IsNullOrEmpty(okScript) &&
                 String.IsNullOrEmpty(resolvedIconUrl))
             {
-                return addCSSScript + String.Format("{0}.F.alert({1});", targetScript, JsHelper.GetJsString(message));
+                return addCSSScript + String.Format("{0}.F.alert({1});", targetScript, JsHelper.Enquote(message));
             }
             else
             {
                 return addCSSScript + String.Format("{0}.F.alert({1},{2},{3},{4});",
                     targetScript,
-                    JsHelper.GetJsStringWithScriptTag(message),
-                    JsHelper.GetJsString(title),
+                    JsHelper.EnquoteWithScriptTag(message),
+                    JsHelper.Enquote(title),
                     iconScriptFragment,
                     String.IsNullOrEmpty(okScript) ? "''" : JsHelper.GetFunction(okScript));
             }

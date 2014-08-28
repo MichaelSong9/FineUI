@@ -26,7 +26,7 @@
                         <f:SimpleForm ID="SimpleForm1" ShowBorder="false"
                             ShowHeader="false" Title="SimpleForm1" LabelWidth="120px" runat="server">
                             <Items>
-                                <f:Label ID="Label1" Label="文本" Text="sanshi" CssClass="highlight" runat="server" />
+                                <f:Label ID="Label1" Label="文本" Text="三生石上" CssClass="highlight" runat="server" />
                                 <f:NumberBox ID="NumberBox1" Label="数字输入框" Required="true" ShowRedStar="true" runat="server" />
                                 <f:TextBox ID="TextBox1" Label="文本输入框" runat="server" Required="True" ShowRedStar="true">
                                 </f:TextBox>

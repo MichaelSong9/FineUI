@@ -43,7 +43,7 @@
             <Rows>
                 <f:FormRow>
                     <Items>
-                        <f:Label ID="Label2" Label="申请人" Text="sanshi" runat="server" />
+                        <f:Label ID="Label2" Label="申请人" Text="三生石上" CssClass="highlight" runat="server" />
                         <f:Label ID="Label3" Label="电话" Text="0551-1234567" runat="server" />
                     </Items>
                 </f:FormRow>

@@ -235,7 +235,7 @@ namespace FineUI
             {
                 object value = row.GetPropertyValue(DataField);
 
-                if (value == null)
+                if (value == null || value == DBNull.Value || (value is String && String.IsNullOrEmpty(value.ToString())))
                 {
                     result = NullDisplayText;
                 }

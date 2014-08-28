@@ -10,7 +10,7 @@
 <body>
     <form id="_form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Form Width="600px" LabelWidth="100px" LabelSeparator="："
+        <f:Form Width="700px" LabelWidth="100px" LabelSeparator="："
             BodyPadding="5px" EnableCollapse="true" ID="Form1" runat="server" Title="表单">
             <Rows>
                 <f:FormRow>
@@ -50,12 +50,12 @@
                         </f:TimePicker>
                     </Items>
                 </f:FormRow>
-
                 <f:FormRow>
                     <Items>
                         <f:FileUpload runat="server" ID="filePhoto" EmptyText="请选择一张照片" Label="个人头像" Required="true"
                             ShowRedStar="true">
                         </f:FileUpload>
+                        <f:CheckBox runat="server" ID="cbxAtSchool" Label="是否在读"></f:CheckBox>
                     </Items>
                 </f:FormRow>
                 <f:FormRow>

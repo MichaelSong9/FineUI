@@ -7,22 +7,21 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        
         .x-grid-row.highlight td {
             background-color: lightgreen;
             background-image: none;
         }
+
         .x-grid-row-selected.highlight td {
             background-color: yellow;
             background-image: none;
         }
-
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
+        <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
             runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
             <Columns>
                 <f:RowNumberField />
@@ -43,7 +42,7 @@
         </f:Grid>
         <br />
         注意：这个表格高亮选中了所有“入学年份”大于等于2006的数据行。
-    <br />
+        <br />
         <br />
         <f:Button ID="Button1" runat="server" Text="重新绑定表格" OnClick="Button1_Click">
         </f:Button>
@@ -61,29 +60,47 @@
         var gridClientID = '<%= Grid1.ClientID %>';
 
         function highlightRows() {
-            var highlightRows = F(highlightRowsClientID);
-            var grid = F(gridClientID);
+            // 增加延迟，等待HiddenField更新完毕
+            window.setTimeout(function () {
+                var highlightRows = F(highlightRowsClientID);
+                var grid = F(gridClientID);
 
-            $(grid.el.dom).find('.x-grid-row.highlight').removeClass('highlight');
+                $(grid.el.dom).find('.x-grid-row.highlight').removeClass('highlight');
 
-            $.each(highlightRows.getValue().split(','), function (index, item) {
-                if (item !== '') {
-                    var row = grid.getView().getNode(parseInt(item, 10));
-                    $(row).addClass('highlight');
-                }
-            });
-
+                $.each(highlightRows.getValue().split(','), function (index, item) {
+                    if (item !== '') {
+                        var row = grid.getView().getNode(parseInt(item, 10));
+                        $(row).addClass('highlight');
+                    }
+                });
+            }, 100);
         }
 
         // 页面第一个加载完毕后执行的函数
         F.ready(function () {
+
+            var grid = F(gridClientID);
+
+            grid.on('columnhide', function () {
+                highlightRows();
+            });
+
+            grid.on('columnshow', function () {
+                highlightRows();
+            });
+
+            grid.getStore().on('refresh', function () {
+                highlightRows();
+            });
+
             highlightRows();
+
         });
 
-        // 页面AJAX回发后执行的函数
-        F.ajaxReady(function () {
-            highlightRows();
-        });
+        //// 页面AJAX回发后执行的函数
+        //F.ajaxReady(function () {
+        //    highlightRows();
+        //});
     </script>
 </body>
 </html>

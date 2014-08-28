@@ -723,6 +723,13 @@ namespace FineUI
             #endregion
 
 
+            // EXTJS的BUG，不支持默认Readonly=true的情况，需要自己修正
+            if (Readonly)
+            {
+                OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.setReadOnly(true);", "cmp"), true);
+            }
+
+
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.CheckboxGroup',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }

@@ -9,14 +9,10 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server"  EnableCollapse="true"
-            DataKeyNames="Guid" ShowGridHeader="false">
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" Width="800px" runat="server" EnableCollapse="true"
+            DataKeyNames="Guid">
             <Columns>
-                <f:TemplateField Width="60px">
-                    <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
-                    </ItemTemplate>
-                </f:TemplateField>
+                <f:RowNumberField />
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                 <f:TemplateField Width="80px" HeaderText="性别">
                     <ItemTemplate>
@@ -37,6 +33,7 @@
         </f:Grid>
         <br />
         <br />
+        注：如果你尝试扩大“所学专业”列的宽度，你会发现右侧的列看不到了，而横向滚动条却没有出来，这是 ExtJS 的BUG。查看<a href="http://fineui.com/demo_pro/#/demo_pro/grid/grid.aspx" target="_blank">专业版示例</a>。
     </form>
 </body>
 </html>

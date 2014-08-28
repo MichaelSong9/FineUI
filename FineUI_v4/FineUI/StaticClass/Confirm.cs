@@ -160,9 +160,9 @@ namespace FineUI
             string scriptTitle = "''";
             if (!String.IsNullOrEmpty(title))
             {
-                scriptTitle = JsHelper.GetJsString(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+                scriptTitle = JsHelper.Enquote(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
             }
-            string scriptMessage = JsHelper.GetJsStringWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+            string scriptMessage = JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
 
             string scriptIconName = "''";
             if (icon != MessageBoxIcon.Warning)
@@ -175,8 +175,8 @@ namespace FineUI
             {
                 scriptTargetName = String.Format("'{0}'", TargetHelper.GetName(target));
             }
-            string scriptCancel = JsHelper.GetJsString(cancelScript);
-            string scriptOK = JsHelper.GetJsString(okScript);
+            string scriptCancel = JsHelper.Enquote(cancelScript);
+            string scriptOK = JsHelper.Enquote(okScript);
 
             if (scriptIconName == "''")
             {

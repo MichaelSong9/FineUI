@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../../res/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
         body.f-body {
             padding: 0;
@@ -18,11 +18,7 @@
         <f:Grid ID="Grid1" ShowBorder="false" ShowHeader="true" Title="表格（ForceFit=true）(改变页面大小来观察每列宽度的变化)"
             ForceFit="true" runat="server" DataKeyNames="Guid">
             <Columns>
-                <f:TemplateField Width="60px">
-                    <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
-                    </ItemTemplate>
-                </f:TemplateField>
+                <f:RowNumberField />
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                 <f:TemplateField Width="60px" HeaderText="性别">
                     <ItemTemplate>

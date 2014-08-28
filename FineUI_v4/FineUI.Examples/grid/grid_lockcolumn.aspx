@@ -14,7 +14,7 @@
             DataKeyNames="Guid">
             <Columns>
                 <f:RowNumberField />
-                <f:BoundField Width="100px" EnableLock="true" Locked="true" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
+                <f:BoundField Width="100px" EnableLock="true" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                 <f:TemplateField Width="100px" EnableLock="true" HeaderText="性别">
                     <ItemTemplate>
                         <%-- Container.DataItem 的类型是 System.Data.DataRowView 或者用户自定义类型 --%>
@@ -24,7 +24,7 @@
                 </f:TemplateField>
                 <f:BoundField Width="100px" EnableLock="true" DataField="EntranceYear" HeaderText="入学年份" />
                 <f:CheckBoxField Width="100px" EnableLock="true" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                <f:HyperLinkField Width="400px" HeaderText="所学专业" EnableLock="true" DataToolTipField="Major" DataTextField="Major"
+                <f:HyperLinkField ExpandUnusedSpace="true" HeaderText="所学专业" EnableLock="true" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     DataNavigateUrlFieldsEncode="true" Target="_blank" />
                 <f:ImageField Width="100px" EnableLock="true" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
@@ -34,6 +34,7 @@
         </f:Grid>
         <br />
         <br />
+        注：本示例中“所学专业”是自动扩展列，所以初始右侧没有横向滚动条，可以尝试改变列宽度使其出现横向滚动条。
     </form>
 </body>
 </html>
