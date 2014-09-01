@@ -479,26 +479,26 @@
     <TreeNode Text="布局 - VBox" NavigateUrl="~/layout/vbox.aspx"  >
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="内联框架">
+  <TreeNode Text="内联框架" IsNew="true">
     <TreeNode Text="弹出窗体（本页面或父页面）" NavigateUrl="~/iframe/button_iframe.aspx" >
     </TreeNode>
     <TreeNode Text="表格与编辑窗体" NavigateUrl="~/iframe/grid_iframe.aspx" >
     </TreeNode>
     <TreeNode Text="子窗口向父窗口传值" NavigateUrl="~/iframe/passvalue_iframe.aspx" >
     </TreeNode>
-    <TreeNode Text="新窗口中选择省份一" NavigateUrl="~/iframe/selectprovince1.aspx" >
+    <TreeNode Text="新窗口中选择省份（JavaScript实现）" NavigateUrl="~/iframe/selectprovince1.aspx" >
     </TreeNode>
-    <TreeNode Text="新窗口中选择省份二" NavigateUrl="~/iframe/selectprovince2.aspx" >
+    <TreeNode Text="新窗口中选择省份（GetHidePostBackReference）" NavigateUrl="~/iframe/selectprovince3.aspx" >
     </TreeNode>
-    <TreeNode Text="新窗口中选择省份三" NavigateUrl="~/iframe/selectprovince3.aspx" >
+    <TreeNode Text="新窗口中选择省份（GetHideExecuteScriptReference）" NavigateUrl="~/iframe/selectprovince_executescript.aspx" IsNew="true">
     </TreeNode>
     <TreeNode Text="触发器输入框（传值）" NavigateUrl="~/iframe/triggerbox_iframe.aspx" >
     </TreeNode>
     <TreeNode Text="窗体中的窗体" NavigateUrl="~/iframe/iframe_iframe.aspx">
     </TreeNode>
-    <TreeNode Text="回发父页面" NavigateUrl="~/iframe/parent_postback_top.aspx" >
+    <TreeNode Text="回发父页面" NavigateUrl="~/iframe/parent_postback.aspx" >
     </TreeNode>
-    <TreeNode Text="回发父页面2" NavigateUrl="~/iframe/parent_postback.aspx" >
+    <TreeNode Text="回发父页面（顶层页面弹出）" NavigateUrl="~/iframe/parent_postback_top.aspx" >
     </TreeNode>
     <TreeNode Text="顶部菜单框架（左侧树）" NavigateUrl="~/iframe/topmenu/default.aspx" >
     </TreeNode>
@@ -551,7 +551,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="杂项">
+  <TreeNode Text="杂项" IsNew="true">
     <TreeNode Text="ASP.NET控件">
       <TreeNode Text="ASP.NET 控件" NavigateUrl="~/aspnet/aspnet.aspx" >
       </TreeNode>
@@ -564,6 +564,14 @@
       <TreeNode Text="动态添加用户控件" NavigateUrl="~/usercontrol/userinfo_dynamic.aspx" >
       </TreeNode>
       <TreeNode Text="用户控件与布局" NavigateUrl="~/usercontrol/userinfo2.aspx" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="母版页" IsNew="true">
+      <TreeNode Text="树（布局）" NavigateUrl="~/master/simple.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="表格（布局、接口与动态加载）" NavigateUrl="~/master/list.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="表格与表单（布局、接口与动态加载）" NavigateUrl="~/master/formlist.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="消息框">

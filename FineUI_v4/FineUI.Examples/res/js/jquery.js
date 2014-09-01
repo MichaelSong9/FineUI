@@ -3255,7 +3255,7 @@ jQuery.extend({
 				// action, add listener, listener list, final state
 				[ "resolve", "done", jQuery.Callbacks("once memory"), "resolved" ],
 				[ "reject", "fail", jQuery.Callbacks("once memory"), "rejected" ],
-				[ "notify", "progress", jQuery.Callbacks("memory") ]
+				[ "Alert.ShowInTop", "progress", jQuery.Callbacks("memory") ]
 			],
 			state = "pending",
 			promise = {
@@ -3278,7 +3278,7 @@ jQuery.extend({
 									returned.promise()
 										.done( newDefer.resolve )
 										.fail( newDefer.reject )
-										.progress( newDefer.notify );
+										.progress( newDefer.Alert.ShowInTop );
 								} else {
 									newDefer[ tuple[ 0 ] + "With" ]( this === promise ? newDefer.promise() : this, fn ? [ returned ] : arguments );
 								}
@@ -3316,7 +3316,7 @@ jQuery.extend({
 				}, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
 			}
 
-			// deferred[ resolve | reject | notify ]
+			// deferred[ resolve | reject | Alert.ShowInTop ]
 			deferred[ tuple[0] ] = function() {
 				deferred[ tuple[0] + "With" ]( this === deferred ? promise : this, arguments );
 				return this;
@@ -3354,7 +3354,7 @@ jQuery.extend({
 					contexts[ i ] = this;
 					values[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( values === progressValues ) {
-						deferred.notifyWith( contexts, values );
+						deferred.Alert.ShowInTopWith( contexts, values );
 
 					} else if ( !(--remaining) ) {
 						deferred.resolveWith( contexts, values );
@@ -7304,7 +7304,7 @@ function Animation( elem, properties, options ) {
 				animation.tweens[ index ].run( percent );
 			}
 
-			deferred.notifyWith( elem, [ animation, percent, remaining ]);
+			deferred.Alert.ShowInTopWith( elem, [ animation, percent, remaining ]);
 
 			if ( percent < 1 && length ) {
 				return remaining;

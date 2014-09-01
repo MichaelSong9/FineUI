@@ -1665,6 +1665,16 @@ namespace FineUI
             return String.Format("{0}.f_hide_postback({1});", ScriptID, JsHelper.Enquote(argument));
         }
 
+        /// <summary>
+        /// 获取关闭当前激活Window然后执行脚本的客户端脚本
+        /// </summary>
+        /// <param name="argument">执行的脚本</param>
+        /// <returns>客户端脚本</returns>
+        public string GetHideExecuteScriptReference(string argument)
+        {
+            return String.Format("{0}.f_hide_executescript({1});", ScriptID, JsHelper.Enquote(argument));
+        }
+
         #endregion
 
         #region GetConfirmHideReference
@@ -1712,6 +1722,19 @@ namespace FineUI
             return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
                 ScriptID,
                 GetHidePostBackReference(argument));
+        }
+
+
+        /// <summary>
+        /// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后执行脚本的客户端脚本
+        /// </summary>
+        /// <param name="argument">回发参数</param>
+        /// <returns>客户端脚本</returns>
+        public string GetConfirmHideExecuteScriptReference(string argument)
+        {
+            return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
+                ScriptID,
+                GetHideExecuteScriptReference(argument));
         }
 
 

@@ -34,16 +34,28 @@
 
         var containerClientID = '<%= ContentPanel1.ClientID %>';
 
-        var editor;
+        var editor, editorFrameHeight = 200;
         F.ready(function () {
             // 初始化
             editor = UM.getEditor("Editor1", {
                 initialFrameWidth: '100%',
-                initialFrameHeight: 200,
+                initialFrameHeight: editorFrameHeight,
                 autoHeightEnabled: false,
                 autoFloatEnabled: false,
                 focus: true,
                 onready: function () {
+                    // 重新布局外部容器
+                    F(containerClientID).updateLayout();
+                }
+            });
+
+
+            editor.addListener('fullscreenchanged', function (type, isfullscreen) {
+                if (!isfullscreen) {
+
+                    // 重置编辑器内容区域高度，这个高度在切换全屏时会改变，应该是 UMEditor 自身的BUG
+                    $('#Editor1').height(editorFrameHeight);
+
                     // 重新布局外部容器
                     F(containerClientID).updateLayout();
                 }

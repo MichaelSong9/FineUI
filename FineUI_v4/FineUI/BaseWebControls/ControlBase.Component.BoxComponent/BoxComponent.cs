@@ -533,9 +533,9 @@ namespace FineUI
             ControlBase parentControl = null;
 
             // 此面板放在用户控件中的情况
-            if (Parent is UserControl)
+            if (Parent is UserControl || Parent is ContentPlaceHolder)
             {
-                if (Parent.Parent is UserControlConnector)
+                if (Parent.Parent is UserControlConnector || Parent.Parent is CPHConnector)
                 {
                     parentControl = Parent.Parent.Parent as ControlBase;
                 }

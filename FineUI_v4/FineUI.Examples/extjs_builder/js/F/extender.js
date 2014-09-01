@@ -1346,23 +1346,36 @@ if (Ext.window.Window) {
             window.location.reload();
         },
         f_hide_postback: function (argument) {
-            // 如果argument为undefined，则传入__doPostBack应为空字符串
-            argument = argument || '';
-            this.f_hide();
-            if (typeof (this.f_property_enable_ajax) !== 'undefined' && !this.f_property_enable_ajax) {
+            var me = this;
+            me.f_hide();
+
+            if (me.f_property_enable_ajax === false) {
                 F.control_enable_ajax = false;
             }
-            __doPostBack(this.name, 'Close$' + argument);
 
+            // 如果argument为undefined，则传入 __doPostBack 的 argument 应该为空字符串
+            argument = argument || '';
+            __doPostBack(me.name, 'Close$' + argument);
+        },
+        f_hide_executescript: function (scripts) {
+            var me = this;
+            me.f_hide();
+
+            if (scripts) {
+                with (window) {
+                    new Function(scripts)();
+                }
+            }
         },
         f_show: function (iframeUrl, windowTitle, width, height) {
+            var me = this;
             if (typeof (iframeUrl) === 'undefined') {
-                iframeUrl = this.f_iframe_url;
+                iframeUrl = me.f_iframe_url;
             }
             if (typeof (windowTitle) === 'undefined') {
-                windowTitle = this.title;
+                windowTitle = me.title;
             }
-            F.wnd.show(this, iframeUrl, windowTitle, this.f_property_left, this.f_property_top, this.f_property_position, this.id + '_Hidden', width, height);
+            F.wnd.show(me, iframeUrl, windowTitle, me.f_property_left, me.f_property_top, me.f_property_position, me.id + '_Hidden', width, height);
         },
 
         f_maximize: function () {

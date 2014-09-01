@@ -71,7 +71,14 @@
     <Content Include="grid\grid_lockcolumn_summary_scrollbar.aspx" />
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
+    <Content Include="iframe\selectprovince_executescript.aspx" />
+    <Content Include="iframe\selectprovince_executescript_child.aspx" />
+    <Content Include="master\formlist.aspx" />
+    <Content Include="master\list.aspx" />
+    <Content Include="master\simple.aspx" />
+    <Content Include="master\simple2.aspx" />
     <Content Include="test\iframe_window.aspx" />
+    <Content Include="test\LPList.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -487,12 +494,86 @@
     <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="iframe\selectprovince_executescript.aspx.cs">
+      <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\selectprovince_executescript.aspx.designer.cs">
+      <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe\selectprovince_executescript_child.aspx.cs">
+      <DependentUpon>selectprovince_executescript_child.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe\selectprovince_executescript_child.aspx.designer.cs">
+      <DependentUpon>selectprovince_executescript_child.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\formlist.aspx.cs">
+      <DependentUpon>formlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\formlist.aspx.designer.cs">
+      <DependentUpon>formlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\ISingleGridPage.cs" />
+    <Compile Include="master\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\simple.aspx.cs">
+      <DependentUpon>simple.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\simple.aspx.designer.cs">
+      <DependentUpon>simple.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\Simple.Master.cs">
+      <DependentUpon>Simple.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\Simple.Master.designer.cs">
+      <DependentUpon>Simple.Master</DependentUpon>
+    </Compile>
+    <Compile Include="master\simple2.aspx.cs">
+      <DependentUpon>simple2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\simple2.aspx.designer.cs">
+      <DependentUpon>simple2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\SingleGrid.Master.cs">
+      <DependentUpon>SingleGrid.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\SingleGrid.Master.designer.cs">
+      <DependentUpon>SingleGrid.Master</DependentUpon>
+    </Compile>
     <Compile Include="test\iframe_window.aspx.cs">
       <DependentUpon>iframe_window.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test\iframe_window.aspx.designer.cs">
       <DependentUpon>iframe_window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\LPList.aspx.cs">
+      <DependentUpon>LPList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\LPList.aspx.designer.cs">
+      <DependentUpon>LPList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\SingleGrid.Master.cs">
+      <DependentUpon>SingleGrid.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\SingleGrid.Master.designer.cs">
+      <DependentUpon>SingleGrid.Master</DependentUpon>
+    </Compile>
+    <Compile Include="test\SingleGridPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
@@ -2430,6 +2511,9 @@
   <ItemGroup>
     <None Include="extjs_builder\build.bat" />
     <Content Include="third-party\autocomplete\search.ashx" />
+    <Content Include="test\SingleGrid.Master" />
+    <Content Include="master\Simple.Master" />
+    <Content Include="master\SingleGrid.Master" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

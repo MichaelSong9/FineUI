@@ -140,6 +140,19 @@ namespace FineUI
             return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_postback(" + JsHelper.Enquote(argument) + ");}})();";
         }
 
+
+        /// <summary>
+        /// 获取关闭当前激活窗体并执行脚本的客户端脚本
+        /// </summary>
+        /// <param name="argument">回发参数</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetHideExecuteScriptReference(string argument)
+        {
+            return "(function(){var aw=F.wnd.getActiveWindow();if(aw){aw.f_hide_executescript(" + JsHelper.Enquote(argument) + ");}})();";
+        }
+
+
+
         #endregion
 
         #region GetConfirmHideReference
@@ -180,6 +193,17 @@ namespace FineUI
         {
             return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference(argument));
         }
+
+        /// <summary>
+        /// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再执行脚本的客户端脚本
+        /// </summary>
+        /// <param name="argument">执行的脚本</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetConfirmHideExecuteScriptReference(string argument)
+        {
+            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideExecuteScriptReference(argument));
+        }
+
 
         #endregion
     }
