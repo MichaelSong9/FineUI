@@ -26,7 +26,7 @@
                 <f:CheckBoxField Width="100px" EnableLock="true" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                 <f:HyperLinkField ExpandUnusedSpace="true" HeaderText="所学专业" EnableLock="true" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                    DataNavigateUrlFieldsEncode="true" Target="_blank" />
+                    UrlEncode="true" Target="_blank" />
                 <f:ImageField Width="100px" EnableLock="true" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组"></f:ImageField>
                 <f:BoundField Width="100px" EnableLock="true" DataField="LogTime" DataFormatString="{0:yy-MM-dd}" HeaderText="注册日期" />

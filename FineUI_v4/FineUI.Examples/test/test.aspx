@@ -41,7 +41,11 @@
                 </f:FormRow>
             </Rows>
         </f:Form>
-        <f:Button runat="server" ConfirmTitle="哈哈" ConfirmText="呵呵" EnablePostBack="false"></f:Button>
+        <f:ContentPanel ID="Panel133" runat="server">
+            <f:TextBox runat="server" ID="tbxPassword" Label="密码" TextMode="Password" Required="true">
+            </f:TextBox>
+        </f:ContentPanel>
+        <f:Button runat="server" ValidateForms="Panel133" ></f:Button>
     </form>
 </body>
 </html>

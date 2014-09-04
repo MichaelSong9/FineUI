@@ -498,7 +498,7 @@
     </TreeNode>
     <TreeNode Text="回发父页面" NavigateUrl="~/iframe/parent_postback.aspx" >
     </TreeNode>
-    <TreeNode Text="回发父页面（顶层页面弹出）" NavigateUrl="~/iframe/parent_postback_top.aspx" >
+    <TreeNode Text="回发父页面（改变属性或者注册脚本）" NavigateUrl="~/iframe/parent_postback_top.aspx" IsNew="true">
     </TreeNode>
     <TreeNode Text="顶部菜单框架（左侧树）" NavigateUrl="~/iframe/topmenu/default.aspx" >
     </TreeNode>

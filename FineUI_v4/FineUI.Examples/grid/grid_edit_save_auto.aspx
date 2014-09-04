@@ -61,7 +61,7 @@
                         <f:CheckBoxField Width="80px" ColumnID="AtSchool" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                         <f:HyperLinkField HeaderText="所学专业" ColumnID="Major" DataToolTipField="Major" DataTextField="Major"
                             DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                            DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
+                            UrlEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                         <f:TemplateField HeaderText="语文成绩" ColumnID="ChineseScore" Width="80px">
                             <ItemTemplate>
                                 <asp:TextBox runat="server" Width="98%" ID="tbxTableChineseScore" CssClass="ChineseScore"

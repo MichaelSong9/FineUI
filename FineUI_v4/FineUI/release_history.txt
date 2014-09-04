@@ -37,11 +37,14 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 			-杂项->母版页->表格（布局、接口与动态加载）。
 			-杂项->母版页->表格与表单（布局、接口与动态加载）。
 	-修正UMEditor在从全屏恢复时滚动条消失的问题（Gnid-6187）。
-	+增加子窗体关闭后调用父页面定义JavaScript函数的方法（txw999-6022）。
-		-分别为ActiveWindow和Window增加GetHideExecuteScriptReference方法。
-		-增加示例：内联框架->新窗口中选择省份（GetHideExecuteScriptReference）。
-	-
-
+	+窗体控件增强。
+		+增加子窗体关闭后调用父页面JS函数的方法（txw999-6022）。
+			-分别为ActiveWindow和Window增加GetHideExecuteScriptReference方法。
+			-增加示例：内联框架->新窗口中选择省份（GetHideExecuteScriptReference）。
+		-窗体的Width和Height属性更新为AJAX属性，可以在后台改变
+		+修正在父页面弹出窗体时无法通过设置Title属性来改变标题的问题（舞柯庶-6031）。
+			-更新示例：内联框架->回发父页面（改变属性或者注册脚本）。
+	-HyperLinkField的DataNavigateUrlFieldsEncode属性已废除，请替换为UrlEncode属性。
 
 
 

@@ -105,6 +105,7 @@ namespace FineUI
                 string value = null;
                 if (SelectedItem == null)
                 {
+                    /*
                     // 如果强制选择一项，我们可能需要选中第一项
                     if (AutoSelectFirstItem)
                     {
@@ -115,6 +116,7 @@ namespace FineUI
                             value = Items[0].Value;
                         }
                     }
+                    */
                 }
                 else
                 {
@@ -240,6 +242,7 @@ namespace FineUI
                     }
                 }
 
+                /*
                 // 如果强制选择一项，我们可能需要选中第一项
                 if (selectedValues.Count == 0 && AutoSelectFirstItem)
                 {
@@ -249,6 +252,7 @@ namespace FineUI
                         selectedValues.Add(Items[0].Value);
                     }
                 }
+                */
 
                 return selectedValues.ToArray();
             }
@@ -965,17 +969,33 @@ namespace FineUI
             AddAjaxScript(sb);
         }
 
+        private void ProcessAutoSelectFirstItem()
+        {
+            // 如果强制选择一项，我们可能需要选中第一项
+            if (SelectedItem == null && AutoSelectFirstItem)
+            {
+                if (Items.Count > 0)
+                {
+                    SelectedIndex = 0;
+                }
+            }
+        }
+
+
         /// <summary>
         /// 渲染 HTML 之前调用（页面第一次加载或者普通回发）
         /// </summary>
         protected override void OnFirstPreRender()
         {
+            ProcessAutoSelectFirstItem();
+
             // 确保 F_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
             FState.AddModifiedProperty("F_Items");
             FState.AddModifiedProperty("SelectedValue");
             FState.AddModifiedProperty("SelectedValueArray");
 
             base.OnFirstPreRender();
+
 
             #region examples
 
@@ -1554,7 +1574,15 @@ namespace FineUI
                 // 如果需要模拟树
                 if (!String.IsNullOrEmpty(DataSimulateTreeLevelField))
                 {
-                    item.SimulateTreeLevel = Convert.ToInt32(GetPropertyValue(obj, DataSimulateTreeLevelField));
+                    string treeLevelStr = GetPropertyValue(obj, DataSimulateTreeLevelField);
+                    if (String.IsNullOrEmpty(treeLevelStr))
+                    {
+                        item.SimulateTreeLevel = 0;
+                    }
+                    else
+                    {
+                        item.SimulateTreeLevel = Convert.ToInt32(treeLevelStr);
+                    }
                 }
 
                 // 是否可以选择
@@ -1578,6 +1606,7 @@ namespace FineUI
 
             result = ObjectUtil.GetPropertyValue(obj, propertyName);
 
+            // DBNull.Value.ToString() == ""
             return result == null ? String.Empty : result.ToString();
         }
 

@@ -7,6 +7,14 @@ Ext.override(Ext.Component, {
 
     f_setVisible: function () {
         this.setVisible(!this.f_state['Hidden']);
+    },
+	
+	f_setWidth: function () {
+        this.setWidth(this.f_state['Width']);
+    },
+	
+	f_setHeight: function () {
+        this.setHeight(this.f_state['Height']);
     }
 
 });
@@ -1337,9 +1345,24 @@ if (Ext.window.Window) {
             this.f_show(iframeUrl, windowTitle);
         },
         */
-
+		
+		f_setWidth: function () {
+			var panel = F.wnd.getGhostPanel(this);
+			panel.setWidth(this.f_state['Width']);
+		},
+		
+		f_setHeight: function () {
+			var panel = F.wnd.getGhostPanel(this);
+			panel.setHeight(this.f_state['Height']);
+		},
+		
+		f_setTitle: function () {
+			var panel = F.wnd.getGhostPanel(this);
+			panel.setTitle(this.f_state['Title']);
+		},
+		
         f_hide: function () {
-            F.wnd.hide(this, this.f_property_target, this.f_iframe, this.id + '_Hidden', this.f_property_guid);
+            F.wnd.hide(this, this.f_iframe, this.id + '_Hidden');
         },
         f_hide_refresh: function () {
             this.f_hide();
@@ -1379,13 +1402,13 @@ if (Ext.window.Window) {
         },
 
         f_maximize: function () {
-            F.wnd.maximize(this, this.f_property_target, this.f_property_guid);
+            F.wnd.maximize(this);
         },
         f_minimize: function () {
-            F.wnd.minimize(this, this.f_property_target, this.f_property_guid);
+            F.wnd.minimize(this);
         },
         f_restore: function () {
-            F.wnd.restore(this, this.f_property_target, this.f_property_guid);
+            F.wnd.restore(this);
         }
 
     });

@@ -40,7 +40,7 @@
                     </Content>
                 </f:Region>
                 <f:Region ID="leftRegion" Split="true" Width="200px" ShowHeader="true" ShowBorder="true" Title="示例菜单"
-                    EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
+                    EnableCollapse="true" Layout="Fit" Collapsed="false" Position="Left" runat="server">
                 </f:Region>
                 <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" ShowBorder="true" Position="Center"
                     runat="server">

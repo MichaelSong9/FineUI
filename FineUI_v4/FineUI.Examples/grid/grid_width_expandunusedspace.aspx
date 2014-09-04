@@ -31,7 +31,7 @@
                 <f:CheckBoxField Width="60px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                 <f:HyperLinkField Width="150px" HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                    DataNavigateUrlFieldsEncode="true" Target="_blank" />
+                    UrlEncode="true" Target="_blank" />
                 <f:BoundField DataField="Desc" HtmlEncode="false" DataToolTipField="Desc" HeaderText="个人简介（ExpandUnusedSpace）"
                     ExpandUnusedSpace="true" />
             </Columns>

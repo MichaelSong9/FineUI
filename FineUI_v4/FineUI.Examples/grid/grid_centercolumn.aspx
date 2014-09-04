@@ -35,7 +35,7 @@
                     HeaderText="是否在校（居中）" />
                 <f:HyperLinkField HeaderText="所学专业（居中）" TextAlign="Center" DataToolTipField="Major"
                     DataTextField="Major" DataTextFormatString="{0}" DataNavigateUrlFields="Major"
-                    DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}" DataNavigateUrlFieldsEncode="true"
+                    DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}" UrlEncode="true"
                     Target="_blank" ExpandUnusedSpace="True" />
                 <f:ImageField Width="150px" TextAlign="Right" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组（靠右）"></f:ImageField>

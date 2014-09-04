@@ -37,7 +37,7 @@
                 <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                 <f:HyperLinkField HeaderText="所学专业" ColumnID="major" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                    DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
+                    UrlEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                 <f:BoundField Width="100px" DataField="Fee" ColumnID="fee" HeaderText="学费" />
                 <f:BoundField Width="100px" DataField="Donate" ColumnID="donate" HeaderText="捐赠金额" />
             </Columns>

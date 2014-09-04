@@ -32,7 +32,7 @@
                 <f:CheckBoxField Width="100px" EnableLock="true" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                 <f:HyperLinkField Width="120px" EnableLock="true" HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                    DataNavigateUrlFieldsEncode="true" Target="_blank" />
+                    UrlEncode="true" Target="_blank" />
                 <f:BoundField Width="500px" EnableLock="true" DataField="Desc" HtmlEncode="false" HeaderText="个人简介" />
                 <f:TemplateField Width="200px" EnableLock="true" HeaderText="爱好">
                     <ItemTemplate>

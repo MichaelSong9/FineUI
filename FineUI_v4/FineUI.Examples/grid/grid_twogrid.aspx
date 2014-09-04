@@ -66,7 +66,7 @@
                                 <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
                                 <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                                    DataNavigateUrlFieldsEncode="true" Target="_blank" ExpandUnusedSpace="True" />
+                                    UrlEncode="true" Target="_blank" ExpandUnusedSpace="True" />
                             </Columns>
                         </f:Grid>
                     </Items>

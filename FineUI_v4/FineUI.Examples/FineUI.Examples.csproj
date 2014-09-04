@@ -77,6 +77,8 @@
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
+    <Content Include="test\Demo.aspx" />
+    <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\LPList.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
@@ -550,6 +552,20 @@
     </Compile>
     <Compile Include="master\SingleGrid.Master.designer.cs">
       <DependentUpon>SingleGrid.Master</DependentUpon>
+    </Compile>
+    <Compile Include="test\Demo.aspx.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\Demo.aspx.designer.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_iframe2.aspx.cs">
+      <DependentUpon>grid_iframe2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_iframe2.aspx.designer.cs">
+      <DependentUpon>grid_iframe2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\iframe_window.aspx.cs">
       <DependentUpon>iframe_window.aspx</DependentUpon>

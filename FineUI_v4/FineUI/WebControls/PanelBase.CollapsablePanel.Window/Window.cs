@@ -1329,9 +1329,6 @@ namespace FineUI
                 // 用户点击右上角关闭按钮关闭窗口
                 OB.Listeners.AddProperty("beforeclose", closeFN, true);
 
-                //string closeButtonScript = String.Format("win.tools.close.clearListeners();win.tools.close.addListener('click', function(){{{0}}});", closeScript);
-                //OB.Listeners.AddProperty("render", JsHelper.GetFunction(closeButtonScript, "win"), true);
-
             }
             else
             {

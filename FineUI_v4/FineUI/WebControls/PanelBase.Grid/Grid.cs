@@ -3433,7 +3433,13 @@ namespace FineUI
                 for (int rowIndex = 0, rowCount = Rows.Count; rowIndex < rowCount; rowIndex++)
                 {
                     GridRow row = Rows[rowIndex];
-                    int level = Convert.ToInt32(row.GetPropertyValue(simulateTreeColumn.DataSimulateTreeLevelField));
+                    int level = 0;
+                    object treeLevelObj = row.GetPropertyValue(simulateTreeColumn.DataSimulateTreeLevelField);
+                    if (treeLevelObj != null && treeLevelObj != DBNull.Value)
+                    {
+                        level = Convert.ToInt32(treeLevelObj);
+                    }
+
                     object content = row.Values[simulateTreeColumn.ColumnIndex];
 
                     SimulateTreeNode node = new SimulateTreeNode();

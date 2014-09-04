@@ -13,7 +13,7 @@
         <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="550px" EnableCollapse="true"
             ShowBorder="True" Title="简单表单" ShowHeader="True">
             <Items>
-                <f:DropDownList runat="server" ID="DropDownList1" EnableEdit="true" ForceSelection="true">
+                <f:DropDownList runat="server" ID="DropDownList1" EnableEdit="true" ForceSelection="false">
                     <f:ListItem Text="可选项1" Value="Value1" Selected="true" />
                     <f:ListItem Text="可选项2（不可选择）" Value="Value2" EnableSelect="false" />
                     <f:ListItem Text="可选项3（不可选择）" Value="Value3" EnableSelect="false" />

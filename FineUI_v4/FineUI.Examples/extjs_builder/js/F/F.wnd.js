@@ -93,6 +93,7 @@
                 }
                 panel = target.F[guid];
             }
+			
             if (iframeUrl !== '') {
                 F.wnd.updateIFrameNode(panel, iframeUrl);
             }
@@ -100,10 +101,16 @@
                 panel.setTitle(windowTitle);
             }
 
-            if (width && height) {
-                panel.setSize(width, height);
+			
+            if (typeof(width) === 'number' && width) {
+                panel.setWidth(width);
+            }
+			
+			if (typeof(height) === 'number' && height) {
+                panel.setHeight(height);
             }
 
+			
             Ext.get(hiddenHiddenFieldID).dom.value = 'false';
             panel.show();
 
@@ -143,8 +150,8 @@
         },
 
         // 隐藏Ext-Window（比如用户点击了关闭按钮）
-        hide: function (panel, targetName, enableIFrame, hiddenHiddenFieldID, guid) {
-            var panel = F.wnd.getGhostPanel(panel, targetName, guid);
+        hide: function (panel, enableIFrame, hiddenHiddenFieldID) {
+            var panel = F.wnd.getGhostPanel(panel);
             // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
             Ext.get(hiddenHiddenFieldID).dom.value = 'true';
             // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
@@ -159,20 +166,20 @@
         },
 
         // 最大化
-        maximize: function (panel, targetName, guid) {
-            var panel = F.wnd.getGhostPanel(panel, targetName, guid);
+        maximize: function (panel) {
+            var panel = F.wnd.getGhostPanel(panel);
             panel.maximize();
         },
 
         // 最小化
-        minimize: function (panel, targetName, guid) {
-            var panel = F.wnd.getGhostPanel(panel, targetName, guid);
+        minimize: function (panel) {
+            var panel = F.wnd.getGhostPanel(panel);
             panel.minimize();
         },
 
         // 恢复窗体大小
-        restore: function (panel, targetName, guid) {
-            var panel = F.wnd.getGhostPanel(panel, targetName, guid);
+        restore: function (panel) {
+            var panel = F.wnd.getGhostPanel(panel);
             panel.restore();
         },
 

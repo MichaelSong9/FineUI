@@ -45,7 +45,7 @@ namespace FineUI
         /// </summary>
         public BoxComponent()
         {
-            AddServerAjaxProperties();
+            AddServerAjaxProperties("Width", "Height");
             AddClientAjaxProperties();
 
         }
@@ -420,6 +420,22 @@ namespace FineUI
         protected override void OnAjaxPreRender()
         {
             base.OnAjaxPreRender();
+
+            StringBuilder sb = new StringBuilder();
+            
+            if (PropertyModified("Width"))
+            {
+                sb.AppendFormat("{0}.f_setWidth();", XID);
+            }
+
+            if (PropertyModified("Height"))
+            {
+                sb.AppendFormat("{0}.f_setHeight();", XID);
+            }
+            
+
+            AddAjaxScript(sb);
+
         }
 
         /// <summary>
