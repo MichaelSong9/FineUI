@@ -13,6 +13,9 @@
             Title="简单表单">
             <Items>
                 <f:TextBox ID="TextBox1" runat="server" ShowLabel="false" EmptyText="输入一些文字，下面的文本框会随之改变">
+                    <Listeners>
+                        <f:Listener Event="change" Handler="onTextBoxChange" />
+                    </Listeners>
                 </f:TextBox>
                 <f:TextBox ID="TextBox2" runat="server" ShowLabel="false">
                 </f:TextBox>
@@ -22,19 +25,27 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-        F.ready(function () {
-            var textbox1 = F('<%= TextBox1.ClientID %>');
-            var textbox2 = F('<%= TextBox2.ClientID %>');
+        var textbox2ClientID = '<%= TextBox2.ClientID %>';
+
+        function onTextBoxChange() {
+            F(textbox2ClientID).setValue(this.getValue());
+        }
 
 
-            function updateTextbox2() {
-                textbox2.setValue(textbox1.getValue());
-            }
 
-            textbox1.on('change', function (e) {
-                updateTextbox2();
-            });
-        });
+        //F.ready(function () {
+        //    var textbox1 = F(textbox1ClientID);
+        //    var textbox2 = F(textbox2ClientID);
+
+
+        //    function updateTextbox2() {
+        //        textbox2.setValue(textbox1.getValue());
+        //    }
+
+        //    textbox1.on('change', function (e) {
+        //        updateTextbox2();
+        //    });
+        //});
 
     </script>
 </body>

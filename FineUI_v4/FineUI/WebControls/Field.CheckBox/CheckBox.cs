@@ -184,7 +184,8 @@ namespace FineUI
                 //string checkEventScript = String.Format("this.on('check',{0});", JsHelper.GetFunction(GetPostBackEventReference()));
                 //OB.Listeners.AddProperty("render", "function(){" + checkEventScript + "}", true);
 
-                OB.Listeners.AddProperty("change", JsHelper.GetFunction(GetPostBackEventReference()), true);
+                //OB.Listeners.AddProperty("change", JsHelper.GetFunction(GetPostBackEventReference()), true);
+                AddListener("change", GetPostBackEventReference());
             }
 
 

@@ -1199,10 +1199,12 @@ namespace FineUI
                 beforeselectSB.Append("cmp.f_tmp_lastvalue=cmp.getValue();");
 
                 string selectScript = "if(cmp.f_tmp_lastvalue!==cmp.getValue()){" + GetPostBackEventReference() + "}";
-                OB.Listeners.AddProperty("select", JsHelper.GetFunction(selectScript, "cmp"), true);
+                //OB.Listeners.AddProperty("select", JsHelper.GetFunction(selectScript, "cmp"), true);
+                AddListener("select", selectScript, "cmp");
             }
 
-            OB.Listeners.AddProperty("beforeselect", JsHelper.GetFunction(beforeselectSB.ToString(), "cmp", "record", "index"), true);
+            //OB.Listeners.AddProperty("beforeselect", JsHelper.GetFunction(beforeselectSB.ToString(), "cmp", "record", "index"), true);
+            AddListener("beforeselect", beforeselectSB.ToString(), "cmp", "record", "index");
 
             #region old code
             //if (AutoPostBack)

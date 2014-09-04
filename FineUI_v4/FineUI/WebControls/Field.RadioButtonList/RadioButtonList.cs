@@ -602,7 +602,8 @@ namespace FineUI
                 // If the current checked radio is losing focus, this function will alse be called and the radio parameter is true.
                 // 改变选中项时，这个事件会被触发两次。
                 // 当前选中项失去焦点时，这个回调函数也会被触发并设置radio为true。
-                OB.Listeners.AddProperty("change", String.Format("function(group,radio){{if(typeof(radio)!=='boolean'){{{0}}}}}", GetPostBackEventReference()), true);
+                //OB.Listeners.AddProperty("change", String.Format("function(group,radio){{if(typeof(radio)!=='boolean'){{{0}}}}}", GetPostBackEventReference()), true);
+                AddListener("change", String.Format("if(typeof(radio)!=='boolean'){{{0}}}", GetPostBackEventReference()), "group", "radio");
             }
 
             //if (!String.IsNullOrEmpty(SelectedValue))
@@ -649,7 +650,8 @@ namespace FineUI
             // EXTJS的BUG，不支持默认Readonly=true的情况，需要自己修正
             if (Readonly)
             {
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.setReadOnly(true);", "cmp"), true);
+                //OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.setReadOnly(true);", "cmp"), true);
+                AddListener("render", "cmp.setReadOnly(true);", "cmp");
             }
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.RadioGroup',{1});", XID, OB.ToString());

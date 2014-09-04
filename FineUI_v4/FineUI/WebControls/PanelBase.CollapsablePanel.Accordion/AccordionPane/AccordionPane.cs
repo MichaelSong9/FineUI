@@ -201,7 +201,8 @@ namespace FineUI
             
             if (parentControl.AutoPostBack)
             {
-                OB.Listeners.AddProperty("expand", JsHelper.GetFunction(parentControl.GetPostBackEventReference("PaneIndexChanged")), true);
+                //OB.Listeners.AddProperty("expand", JsHelper.GetFunction(parentControl.GetPostBackEventReference("PaneIndexChanged")), true);
+                AddListener("expand", parentControl.GetPostBackEventReference("PaneIndexChanged"));
             }
 
             #endregion
@@ -320,7 +321,8 @@ namespace FineUI
             if (!String.IsNullOrEmpty(renderScript))
             {
                 renderScript = JsHelper.GetDeferScript(renderScript, 100);
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true);
+                //OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript), true);
+                AddListener("render", renderScript);
             }
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.panel.Panel',{1});", XID, OB.ToString());

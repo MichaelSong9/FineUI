@@ -292,7 +292,7 @@ namespace FineUI
             if (PropertyModified("ConfirmText", "ConfirmTitle", "ConfirmIcon", "ConfirmTarget", "OnClientClick"))
             {
                 sb.AppendFormat("{0}.un('click', {0}.initialConfig.listeners.click);", XID);
-                sb.AppendFormat("{0}.on('click',{1});", XID, GetClickScriptFunction());
+                sb.AppendFormat("{0}.on('click',{1});", XID, GetClientClickFunction());
             }
 
             AddAjaxScript(sb);
@@ -326,8 +326,8 @@ namespace FineUI
 
             //OB.Listeners.AddProperty("click", String.Format("{0}_click", XID), true);
 
-            OB.Listeners.AddProperty("click", GetClickScriptFunction(), true);
-
+            OB.Listeners.AddProperty("click", GetClientClickFunction(), true);
+            
             #endregion
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.menu.Item',{1});", XID, OB.ToString());
@@ -335,12 +335,16 @@ namespace FineUI
 
         }
 
-        private string GetClickScriptFunction()
+        private string GetClientClickFunction()
         {
             string clickScript = Button.ResolveClientScript(ValidateForms, ValidateTarget, ValidateMessageBox, EnablePostBack, GetPostBackEventReference(),
                 ConfirmText, ConfirmTitle, ConfirmIcon, ConfirmTarget, OnClientClick, ClientID);
 
-            return String.Format("function(button,e){{{0}e.stopEvent();}}", clickScript);
+            clickScript += "e.stopEvent();";
+
+            return GetListenerFunction("click", clickScript, "button", "e");
+
+            //return String.Format("function(button,e){{{0}e.stopEvent();}}", clickScript);
         }
 
         #endregion

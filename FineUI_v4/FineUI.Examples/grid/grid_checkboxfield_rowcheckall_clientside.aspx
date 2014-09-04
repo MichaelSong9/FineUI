@@ -18,8 +18,14 @@
                         <f:Button ID="Button2" EnablePostBack="false" runat="server" Text="全选/取消">
                             <Menu ID="Menu1" runat="server">
                                 <f:MenuButton ID="btnSelectRows" EnablePostBack="false" runat="server" Text="全选选中行">
+                                    <Listeners>
+                                        <f:Listener Event="click" Handler="onSelectRows" />
+                                    </Listeners>
                                 </f:MenuButton>
                                 <f:MenuButton ID="btnUnselectRows" EnablePostBack="false" runat="server" Text="取消选中行">
+                                    <Listeners>
+                                        <f:Listener Event="click" Handler="onUnselectRows" />
+                                    </Listeners>
                                 </f:MenuButton>
                             </Menu>
                         </f:Button>
@@ -56,20 +62,40 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script>
 
-        var selectRowsID = '<%= btnSelectRows.ClientID %>';
-        var unselectRowsID = '<%= btnUnselectRows.ClientID %>';
+        function onSelectRows() {
+            var selectedRows = $('.x-grid-row-selected');
+            if (selectedRows.length) {
+                selectedRows.find('.f-grid-checkbox').removeClass('unchecked').addClass('checked');
+            } else {
+                alert("请至少选择一项！");
+            }
+        }
 
-        F.ready(function () {
+        function onUnselectRows() {
+            var selectedRows = $('.x-grid-row-selected');
+            if (selectedRows.length) {
+                selectedRows.find('.f-grid-checkbox').removeClass('checked').addClass('unchecked');
+            } else {
+                alert("请至少选择一项！");
+            }
+        }
 
-            F(selectRowsID).on('click', function () {
-                $('.x-grid-row-selected img.f-grid-checkbox').removeClass('unchecked').addClass('checked');
-            });
 
-            F(unselectRowsID).on('click', function () {
-                $('.x-grid-row-selected img.f-grid-checkbox').removeClass('checked').addClass('unchecked');
-            });
 
-        });
+        //var selectRowsID = '<%= btnSelectRows.ClientID %>';
+        //var unselectRowsID = '<%= btnUnselectRows.ClientID %>';
+        
+        //F.ready(function () {
+
+        //    F(selectRowsID).on('click', function () {
+        //        $('.x-grid-row-selected img.f-grid-checkbox').removeClass('unchecked').addClass('checked');
+        //    });
+
+        //    F(unselectRowsID).on('click', function () {
+        //        $('.x-grid-row-selected img.f-grid-checkbox').removeClass('checked').addClass('unchecked');
+        //    });
+
+        //});
 
     </script>
 </body>

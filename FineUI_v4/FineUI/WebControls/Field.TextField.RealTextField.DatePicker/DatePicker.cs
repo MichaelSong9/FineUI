@@ -339,7 +339,8 @@ namespace FineUI
 
             if (EnableDateSelectEvent)
             {
-                OB.Listeners.AddProperty("select", JsHelper.GetFunction(GetPostBackEventReference("Select")), true);
+                //OB.Listeners.AddProperty("select", JsHelper.GetFunction(GetPostBackEventReference("Select")), true);
+                AddListener("select", GetPostBackEventReference("Select"));
             }
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.Date',{1});", XID, OB.ToString());

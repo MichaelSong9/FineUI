@@ -611,7 +611,8 @@ namespace FineUI
 
             // 如果是动态添加的Tab，不做任何处理（在js/box/extender.js中）
             //string tabchangeScript = "F.wnd.updateIFrameNode(tab);if(!tab.f_dynamic_added_tab){" + postbackScript + "}";
-            OB.Listeners.AddProperty("tabchange", JsHelper.GetFunction(tabchangeScript, "tabPanel", "tab"), true);
+            //OB.Listeners.AddProperty("tabchange", JsHelper.GetFunction(tabchangeScript, "tabPanel", "tab"), true);
+            AddListener("tabchange", tabchangeScript, "tabPanel", "tab");
 
             #endregion
 

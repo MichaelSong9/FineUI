@@ -252,7 +252,8 @@ namespace FineUI
                     checkScript = GetPostBackEventReference();
                 }
 
-                OB.Listeners.AddProperty("change", JsHelper.GetFunction(checkScript), true);
+                //OB.Listeners.AddProperty("change", JsHelper.GetFunction(checkScript), true);
+                AddListener("change", checkScript);
             }
 
             #endregion

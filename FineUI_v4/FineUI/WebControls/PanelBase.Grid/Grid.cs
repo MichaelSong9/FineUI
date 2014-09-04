@@ -2406,9 +2406,10 @@ namespace FineUI
                 string validateScript = "var args='RowClick$'+index;";
                 validateScript += GetPostBackEventReference("#RowClick#").Replace("'#RowClick#'", "args");
 
-                string rowClickScript = JsHelper.GetFunction(validateScript, "grid", "record", "item", "index"); // String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
+                //string rowClickScript = JsHelper.GetFunction(validateScript, "grid", "record", "item", "index"); // String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
 
-                OB.Listeners.AddProperty("itemclick", rowClickScript, true);
+                //OB.Listeners.AddProperty("itemclick", rowClickScript, true);
+                AddListener("itemclick", validateScript, "grid", "record", "item", "index");
             }
 
             if (EnableRowDoubleClickEvent)
@@ -2416,9 +2417,10 @@ namespace FineUI
                 string validateScript = "var args='RowDoubleClick$'+index;";
                 validateScript += GetPostBackEventReference("#RowDoubleClick#").Replace("'#RowDoubleClick#'", "args");
 
-                string rowClickScript = JsHelper.GetFunction(validateScript, "grid", "record", "item", "index"); //String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
+                //string rowClickScript = JsHelper.GetFunction(validateScript, "grid", "record", "item", "index"); //String.Format("function(grid,rowIndex,e){{{0}}}", validateScript);
 
-                OB.Listeners.AddProperty("itemdblclick", rowClickScript, true);
+                //OB.Listeners.AddProperty("itemdblclick", rowClickScript, true);
+                AddListener("itemdblclick", validateScript, "grid", "record", "item", "index");
             }
 
             #endregion
@@ -2564,8 +2566,8 @@ namespace FineUI
             string viewreadyScript = "window.setTimeout(function(){" + viewreadySB.ToString() + "},200);";
 
             // viewready在enableLocking时不会触发，只好改成afterrender
-            OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(viewreadyScript, "cmp"), true);
-
+            //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(viewreadyScript, "cmp"), true);
+            AddListener("afterrender", viewreadyScript, "cmp");
 
             #endregion
 
@@ -2599,8 +2601,8 @@ namespace FineUI
             //    renderSB.Append("cmp.f_updateColumnsHiddenStatus();");
             //}
 
-            OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderSB.ToString(), "cmp"), true);
-
+            //OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderSB.ToString(), "cmp"), true);
+            AddListener("render", renderSB.ToString(), "cmp");
 
             #endregion
 
@@ -2625,9 +2627,9 @@ namespace FineUI
                     string validateScript = "var args='AfterEdit$'+e.rowIdx+'$'+e.field;";
                     validateScript += GetPostBackEventReference("#AfterEdit#").Replace("'#AfterEdit#'", "args");
 
-                    string rowClickScript = String.Format("function(editor,e){{{0}}}", validateScript);
-
-                    OB.Listeners.AddProperty("edit", rowClickScript, true);
+                    //string rowClickScript = String.Format("function(editor,e){{{0}}}", validateScript);
+                    //OB.Listeners.AddProperty("edit", rowClickScript, true);
+                    AddListener("edit", validateScript, "editor", "e");
                 }
 
                 OB.AddProperty("f_cellEditing", pluginId, true);
@@ -2941,8 +2943,7 @@ namespace FineUI
                     string rowSelectScript = JsHelper.GetFunction(validateScript, "model", "record", "index"); //String.Format("function(model,rowIndex){{{0}}}", validateScript);
 
                     selectOB.Listeners.AddProperty("select", rowSelectScript, true);
-                    //selectOB.AddProperty("listeners", "{select:" + rowSelectScript + "}", true);
-
+                   
                 }
 
                 if (EnableCheckBoxSelect)

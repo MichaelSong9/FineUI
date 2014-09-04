@@ -191,7 +191,8 @@ namespace FineUI
 
             if (AutoPostBack)
             {
-                OB.Listeners.AddProperty("change", JsHelper.GetFunction(GetPostBackEventReference()), true);
+                //OB.Listeners.AddProperty("change", JsHelper.GetFunction(GetPostBackEventReference()), true);
+                AddListener("change", GetPostBackEventReference());
 
                 #region old code
                 //// First remove change event, because we has already register this event in super class - Field.
@@ -215,8 +216,8 @@ namespace FineUI
 
             if (EnableBlurEvent)
             {
-                OB.Listeners.AddProperty("blur", JsHelper.GetFunction(GetPostBackEventReference("Blur")), true);
-
+                //OB.Listeners.AddProperty("blur", JsHelper.GetFunction(GetPostBackEventReference("Blur")), true);
+                AddListener("blur", GetPostBackEventReference("Blur"));
             }
 
             //if (EnableServerValidate)

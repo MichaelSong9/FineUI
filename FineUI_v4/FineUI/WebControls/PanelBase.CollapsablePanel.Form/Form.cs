@@ -207,8 +207,8 @@ namespace FineUI
             //OB.AddProperty("defaults", defaultsOB);
 
             //OB.Listeners.AddProperty("change", JsHelper.GetFunction("F.util.setPageStateChanged();"), true);
-            OB.Listeners.AddProperty("dirtychange", JsHelper.GetFunction("F.util.setPageStateChanged(dirty);", "form", "dirty"), true);
-
+            //OB.Listeners.AddProperty("dirtychange", JsHelper.GetFunction("F.util.setPageStateChanged(dirty);", "form", "dirty"), true);
+            AddListener("dirtychange", "F.util.setPageStateChanged(dirty);", "form", "dirty");
             //if (!String.IsNullOrEmpty(SubmitButton))
             //{
             //    Control control = ControlUtil.FindControl(SubmitButton);

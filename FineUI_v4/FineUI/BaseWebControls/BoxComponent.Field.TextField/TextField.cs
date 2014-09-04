@@ -473,7 +473,8 @@ namespace FineUI
                     //// true to enable the proxying of key events for the HTML input field (defaults to false)
                     //OB.AddProperty("enableKeyEvents", true);
                     // Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed. 
-                    OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.focus(true,10);e.stopEvent();}}}}", (nextControl as ControlBase).XID), true);
+                    //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.focus(true,10);e.stopEvent();}}}}", (nextControl as ControlBase).XID), true);
+                    AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.focus(true,10);e.stopEvent();}}", (nextControl as ControlBase).XID), "field","e");
                 }
             }
 

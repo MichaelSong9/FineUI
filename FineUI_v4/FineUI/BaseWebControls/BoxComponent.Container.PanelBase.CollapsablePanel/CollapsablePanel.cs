@@ -419,14 +419,16 @@ namespace FineUI
 
             if (EnableCollapseEvent)
             {
-                string collapseScript = JsHelper.GetFunction(GetPostBackEventReference("Collapse"));
-                OB.Listeners.AddProperty("collapse", collapseScript, true);
+                //string collapseScript = JsHelper.GetFunction(GetPostBackEventReference("Collapse"));
+                //OB.Listeners.AddProperty("collapse", collapseScript, true);
+                AddListener("collapse", GetPostBackEventReference("Collapse"));
             }
 
             if (EnableExpandEvent)
             {
-                string expandScript = JsHelper.GetFunction(GetPostBackEventReference("Expand"));
-                OB.Listeners.AddProperty("expand", expandScript, true);
+                //string expandScript = JsHelper.GetFunction(GetPostBackEventReference("Expand"));
+                //OB.Listeners.AddProperty("expand", expandScript, true);
+                AddListener("expand", GetPostBackEventReference("Expand"));
             } 
 
             #endregion

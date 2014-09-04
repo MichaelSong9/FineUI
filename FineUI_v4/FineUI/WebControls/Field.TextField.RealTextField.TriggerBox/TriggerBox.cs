@@ -256,8 +256,8 @@ namespace FineUI
             {
                 // 首先启用enableKeyEvents
                 //OB.AddProperty("enableKeyEvents", true);
-                OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}}}", XID), true);
-
+                //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}}}", XID), true);
+                AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}", XID), "field", "e");
             }
 
             #endregion
@@ -266,7 +266,8 @@ namespace FineUI
             // extjsv4.x 的enableedit=false，不能点击输入框触发
             if (!EnableEdit)
             {
-                OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTriggerClick,field);}", true);
+                //OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTriggerClick,field);}", true);
+                AddListener("render", "field.mon(field.inputEl,'click',field.onTriggerClick,field);", "field");
 
             } 
             #endregion

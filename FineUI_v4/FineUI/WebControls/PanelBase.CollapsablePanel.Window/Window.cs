@@ -1235,7 +1235,8 @@ namespace FineUI
                 OB.AddProperty("maximizable", true);
 
                 // 这个事件可以处理两种情况，一是点击最大化按钮，二是双击Window标题栏最大化
-                OB.Listeners.AddProperty("maximize", "function(win){F.wnd.fixMaximize(win);}", true);
+                //OB.Listeners.AddProperty("maximize", "function(win){F.wnd.fixMaximize(win);}", true);
+                AddListener("maximize", "F.wnd.fixMaximize(win);", "win");
 
                 //OB.Listeners.AddProperty("resize", "function(win,width,height){console.log(width + ' - ' +height);}", true);
                 //JsObjectBuilder maxObj = new JsObjectBuilder();
@@ -1259,10 +1260,12 @@ namespace FineUI
                 OB.AddProperty("maximizable", false);
             }
 
-            string closeScript = String.Empty;
+            
 
             if (EnableClose)
             {
+                string closeScript = String.Empty;
+
                 OB.AddProperty("closable", true);
 
                 if (!String.IsNullOrEmpty(OnClientCloseButtonClick))
@@ -1320,15 +1323,18 @@ namespace FineUI
                 //toolsBuilder.AddProperty(closeObj);
 
 
-                // ESC 按键和右上角的关闭按钮使用相同的事件处理函数
-                string closeFN = XID + "_close";
-                closeScript = String.Format("var {0}={1};", closeFN, JsHelper.GetFunction(closeScript + "return false;"));
+                //// ESC 按键和右上角的关闭按钮使用相同的事件处理函数
+                //string closeFN = XID + "_close";
+                //closeScript = String.Format("var {0}={1};", closeFN, JsHelper.GetFunction(closeScript + "return false;"));
 
-                // 用户按ESC键关闭窗口
-                OB.AddProperty("onEsc", closeFN, true);
-                // 用户点击右上角关闭按钮关闭窗口
-                OB.Listeners.AddProperty("beforeclose", closeFN, true);
+                //// 用户按ESC键关闭窗口
+                //OB.AddProperty("onEsc", closeFN, true);
+                //// 用户点击右上角关闭按钮关闭窗口
+                //OB.Listeners.AddProperty("beforeclose", closeFN, true);
 
+
+                // 【点击右上角关闭按钮】和【用户按ESC键】都会调用 beforeclose 事件处理函数，return false; 表示自行处理关闭事件
+                AddListener("beforeclose", closeScript + "return false;");
             }
             else
             {
@@ -1383,7 +1389,7 @@ namespace FineUI
             //addWrapperScript += "\r\n";
 
             // 添加隐藏表单字段的脚本和创建Window对象的脚本
-            jsContent = addWrapperScript + hiddenFieldsScript + closeScript + jsContent + showWindowScript;
+            jsContent = addWrapperScript + hiddenFieldsScript + jsContent + showWindowScript;
             AddStartupScript(jsContent);
 
             #endregion

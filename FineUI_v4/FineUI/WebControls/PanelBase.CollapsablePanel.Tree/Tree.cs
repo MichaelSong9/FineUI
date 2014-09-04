@@ -1100,7 +1100,9 @@ namespace FineUI
             #region Listeners
 
             string beforeclickScript = "if(node.disabled){return false;}";
-            OB.Listeners.AddProperty("beforeitemclick", JsHelper.GetFunction(beforeclickScript, "view", "node", "item", "index"), true);
+            //OB.Listeners.AddProperty("beforeitemclick", JsHelper.GetFunction(beforeclickScript, "view", "node", "item", "index"), true);
+            AddListener("beforeitemclick", beforeclickScript, "view", "node", "item", "index");
+
 
             string singleclickexpandScript = "";
             if (EnableSingleClickExpand)
@@ -1114,25 +1116,30 @@ namespace FineUI
             itemclickScript = String.Format("if(node.raw.f_enableclickevent){{{0}}}", itemclickScript);
             itemclickScript = "if(node.raw.f_clientclick){if(new Function(node.raw.f_clientclick)()===false){return;}}" + itemclickScript;
             //itemclickScript = "if(node.raw.f_clientclick){eval(node.raw.f_clientclick);}" + itemclickScript; // new Function(node.raw.f_clientclick)();
-            OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(singleclickexpandScript + itemclickScript, "view", "node", "item", "index"), true);
+            //OB.Listeners.AddProperty("itemclick", JsHelper.GetFunction(singleclickexpandScript + itemclickScript, "view", "node", "item", "index"), true);
+            AddListener("itemclick", singleclickexpandScript + itemclickScript, "view", "node", "item", "index");
+
 
 
             string checkchangeScript = "var args='Check$'+node.getId()+'$'+checked;";
             checkchangeScript += GetPostBackEventReference("#CheckChange#").Replace("'#CheckChange#'", "args");
             checkchangeScript = String.Format("if(node.raw.f_enablecheckevent){{{0}}}", checkchangeScript);
-            OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkchangeScript, "node", "checked"), true);
+            //OB.Listeners.AddProperty("checkchange", JsHelper.GetFunction(checkchangeScript, "node", "checked"), true);
+            AddListener("checkchange", checkchangeScript, "node", "checked");
+
 
             string expandScript = "var args='Expand$'+node.getId();";
             expandScript += GetPostBackEventReference("#Expand#").Replace("'#Expand#'", "args");
             expandScript = String.Format("if(node.raw.f_enableexpandevent){{{0}}}", expandScript);
-            OB.Listeners.AddProperty("itemexpand", JsHelper.GetFunction(expandScript, "node"), true);
+            //OB.Listeners.AddProperty("itemexpand", JsHelper.GetFunction(expandScript, "node"), true);
+            AddListener("itemexpand", expandScript, "node");
 
 
             string collapseScript = "var args='Collapse$'+node.getId();";
             collapseScript += GetPostBackEventReference("#Collapse#").Replace("'#Collapse#'", "args");
             collapseScript = String.Format("if(node.raw.f_enablecollapseevent){{{0}}}", collapseScript);
-            OB.Listeners.AddProperty("itemcollapse", JsHelper.GetFunction(collapseScript, "node"), true);
-
+            //OB.Listeners.AddProperty("itemcollapse", JsHelper.GetFunction(collapseScript, "node"), true);
+            AddListener("itemcollapse", collapseScript, "node");
 
             #endregion
 
@@ -1192,9 +1199,12 @@ namespace FineUI
 
             ////renderScript = "function(cmp){window.setTimeout(function(){ cmp.f_loadData(); },1000);}";
 
-            OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.f_loadData();", "cmp"), true);
+            //OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.f_loadData();", "cmp"), true);
+            AddListener("render", "cmp.f_loadData();", "cmp");
 
-            OB.Listeners.AddProperty("viewready", JsHelper.GetFunction("cmp.f_selectNodes();", "cmp"), true);
+
+            //OB.Listeners.AddProperty("viewready", JsHelper.GetFunction("cmp.f_selectNodes();", "cmp"), true);
+            AddListener("viewready", "cmp.f_selectNodes();", "cmp");
 
             #endregion
 

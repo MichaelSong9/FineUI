@@ -41,6 +41,7 @@ using System.Collections;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO.Compression;
+using System.ComponentModel.Design;
 
 
 namespace FineUI
@@ -50,6 +51,8 @@ namespace FineUI
     /// </summary>
     [AspNetHostingPermission(SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Minimal)]
     [AspNetHostingPermission(SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    [ParseChildren(true)]
+    [PersistChildren(false)]
     public abstract class ControlBase : Control, INamingContainer
     {
         #region Constructor
@@ -724,6 +727,32 @@ namespace FineUI
 
         #endregion
 
+        #region Listeners
+
+        private ListenerCollection _listeners;
+
+        /// <summary>
+        /// 客户端事件列表
+        /// </summary>
+        [Description("客户端事件列表")]
+        [Category(CategoryName.OPTIONS)]
+        [NotifyParentProperty(true)]
+        [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Editor(typeof(CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public virtual ListenerCollection Listeners
+        {
+            get
+            {
+                if (_listeners == null)
+                {
+                    _listeners = new ListenerCollection();
+                }
+                return _listeners;
+            }
+        }
+
+        #endregion
+
         #region OnInit
 
         /// <summary>
@@ -1029,7 +1058,11 @@ namespace FineUI
                 OB.AddProperty("disabled", true);
             }
 
-
+			foreach (Listener listener in Listeners)
+            {
+                OB.Listeners.AddProperty(listener.Event, listener.Handler, true);
+            }
+			
             #region old code
 
             //if (AjaxPropertyChanged("Hidden", Hidden))
@@ -1644,6 +1677,39 @@ namespace FineUI
                 string propValue = Attributes.Value<string>(propName);
                 htmlBuilder.SetProperty(propName, propValue);
             }
+        }
+
+        #endregion
+
+        #region protected GetListenerFunction AddListener
+
+        /// <summary>
+        /// 获取客户端事件处理函数
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="jsContent"></param>
+        /// <param name="funParameters"></param>
+        /// <returns></returns>
+        protected string GetListenerFunction(string eventName, string jsContent, params string[] funParameters)
+        {
+            var handler = Listeners.GetEventHandler(eventName);
+            if (!String.IsNullOrEmpty(handler))
+            {
+                jsContent += String.Format("return {0}.apply(this,arguments);", handler);
+            }
+
+            return JsHelper.GetFunction(jsContent, funParameters);
+        }
+
+        /// <summary>
+        /// 向 OB 中添加客户端事件处理函数
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="jsContent"></param>
+        /// <param name="funParameters"></param>
+        protected void AddListener(string eventName, string jsContent, params string[] funParameters)
+        {
+            OB.Listeners.AddProperty(eventName, GetListenerFunction(eventName, jsContent, funParameters), true);
         }
 
         #endregion

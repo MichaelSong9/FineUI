@@ -355,7 +355,8 @@ namespace FineUI
             if (!String.IsNullOrEmpty(renderScript))
             {
                 //renderScript += "this.updateLayout();";
-                OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(renderScript), true); 
+                //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(renderScript), true); 
+                AddListener("afterrender", renderScript);
             }
 
 
@@ -438,7 +439,8 @@ namespace FineUI
             {
                 // 首先启用enableKeyEvents
                 //OB.AddProperty("enableKeyEvents", true);
-                OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}}}", XID), true);
+                //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}}}", XID), true);
+                AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}", XID), "field", "e");
             }
 
             #endregion
@@ -447,7 +449,8 @@ namespace FineUI
             // extjsv4.x 的enableedit=false，不能点击输入框触发
             if (!EnableEdit)
             {
-                OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTrigger2Click,field);}", true);
+                //OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTrigger2Click,field);}", true);
+                AddListener("expand", "field.mon(field.inputEl,'click',field.onTrigger2Click,field);", "field");
 
             }
             #endregion

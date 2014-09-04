@@ -677,7 +677,8 @@ namespace FineUI
             if (AutoPostBack)
             {
                 // 道理和RadioButtonList类似。
-                OB.Listeners.AddProperty("change", String.Format("function(group,checkedArray){{if(typeof(checkedArray)!=='boolean'){{{0}}}}}", GetPostBackEventReference()), true);
+                //OB.Listeners.AddProperty("change", String.Format("function(group,checkedArray){{if(typeof(checkedArray)!=='boolean'){{{0}}}}}", GetPostBackEventReference()), true);
+                AddListener("change", String.Format("if(typeof(checkedArray)!=='boolean'){{{0}}}", GetPostBackEventReference()), "group", "checkedArray");
             }
             /*
             if (!String.IsNullOrEmpty(SelectedValue))
@@ -726,7 +727,8 @@ namespace FineUI
             // EXTJS的BUG，不支持默认Readonly=true的情况，需要自己修正
             if (Readonly)
             {
-                OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.setReadOnly(true);", "cmp"), true);
+                //OB.Listeners.AddProperty("render", JsHelper.GetFunction("cmp.setReadOnly(true);", "cmp"), true);
+                AddListener("render", "cmp.setReadOnly(true);", "cmp");
             }
 
 

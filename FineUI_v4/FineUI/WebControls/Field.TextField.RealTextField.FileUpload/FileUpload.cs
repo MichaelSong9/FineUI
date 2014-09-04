@@ -324,7 +324,8 @@ namespace FineUI
             if (!String.IsNullOrEmpty(AcceptFileTypes))
             {
                 string acceptScript = "cmp.fileInputEl.set({accept:'" + AcceptFileTypes + "'});";
-                OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(acceptScript, "cmp"), true);
+                //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(acceptScript, "cmp"), true);
+                AddListener("afterrender", acceptScript, "cmp");
             }
 
             string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.File',{1});", XID, OB.ToString());

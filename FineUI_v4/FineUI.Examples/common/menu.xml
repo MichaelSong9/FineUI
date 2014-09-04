@@ -198,8 +198,6 @@
       </TreeNode>
       <TreeNode Text="行扩展列（展开全部）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
       </TreeNode>
-      <TreeNode Text="行扩展列（展开全部，脚本实现）" NavigateUrl="~/grid/grid_rowexpander_expandall_js.aspx" >
-      </TreeNode>
       <TreeNode Text="弹出窗体列" NavigateUrl="~/grid/grid_iframe.aspx" >
       </TreeNode>
       <TreeNode Text="模拟树列" NavigateUrl="~/grid/grid_simulate_tree.aspx" >

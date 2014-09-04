@@ -259,7 +259,8 @@ namespace FineUI
 
             if (EnableDateSelectEvent)
             {
-                OB.Listeners.AddProperty("select", JsHelper.GetFunction(GetPostBackEventReference("Select")), true);
+                //OB.Listeners.AddProperty("select", JsHelper.GetFunction(GetPostBackEventReference("Select")), true);
+                AddListener("select", GetPostBackEventReference("Select"));
             }
 
 

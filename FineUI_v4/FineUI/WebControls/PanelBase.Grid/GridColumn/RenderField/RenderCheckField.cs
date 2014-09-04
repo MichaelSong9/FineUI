@@ -94,9 +94,9 @@ namespace FineUI
                     string validateScript = "var args='AfterEdit$'+rowIndex+'$" + ColumnID + "';";
                     validateScript += Grid.GetPostBackEventReference("#AfterEdit#").Replace("'#AfterEdit#'", "args");
 
-                    string checkchangeScript = String.Format("function(checkcolumn,rowIndex,checked){{{0}}}", validateScript);
-
-                    OB.Listeners.AddProperty("checkchange", checkchangeScript, true);
+                    //string checkchangeScript = String.Format("function(checkcolumn,rowIndex,checked){{{0}}}", validateScript);
+                    //OB.Listeners.AddProperty("checkchange", checkchangeScript, true);
+                    AddListener("checkchange", validateScript, "checkcolumn", "rowIndex", "checked");
                 }
             }
 

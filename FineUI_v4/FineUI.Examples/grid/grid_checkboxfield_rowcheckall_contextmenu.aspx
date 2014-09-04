@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" Width="800px" ShowBorder="true" ShowHeader="true"
+        <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" Width="800px" ShowBorder="true" ShowHeader="true"
             runat="server" DataKeyNames="Id,Name">
             <Columns>
                 <f:RowNumberField />
@@ -30,11 +30,20 @@
                 <f:CheckBoxField ColumnID="CheckBoxField3" Width="100px" RenderAsStaticField="false"
                     DataField="AtSchool" HeaderText="是否在校3" />
             </Columns>
+            <Listeners>
+                <f:Listener Event="beforeitemcontextmenu" Handler="onRowContextMenu" />
+            </Listeners>
         </f:Grid>
-        <f:Menu id="Menu1" runat="server">
+        <f:Menu ID="Menu1" runat="server">
             <f:MenuButton ID="btnSelectRows" EnablePostBack="false" runat="server" Text="全选行">
+                <Listeners>
+                    <f:Listener Event="click" Handler="onSelectRows" />
+                </Listeners>
             </f:MenuButton>
             <f:MenuButton ID="btnUnselectRows" EnablePostBack="false" runat="server" Text="取消行">
+                <Listeners>
+                    <f:Listener Event="click" Handler="onUnselectRows" />
+                </Listeners>
             </f:MenuButton>
         </f:Menu>
         <br />
@@ -49,27 +58,44 @@
     <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script>
 
-        var gridID = '<%= Grid1.ClientID %>';
         var menuID = '<%= Menu1.ClientID %>';
-        var selectRowsID = '<%= btnSelectRows.ClientID %>';
-        var unselectRowsID = '<%= btnUnselectRows.ClientID %>';
 
-        F.ready(function () {
 
-            F(gridID).on('beforeitemcontextmenu', function (view, record, item, index, event) {
-                F(menuID).showAt(event.getXY());
-                event.stopEvent();
-            });
+        function onRowContextMenu(view, record, item, index, event) {
+            F(menuID).showAt(event.getXY());
+            event.stopEvent();
+        }
 
-            F(selectRowsID).on('click', function () {
-                $('.x-grid-row-selected img.f-grid-checkbox').removeClass('unchecked').addClass('checked');
-            });
+        function onSelectRows() {
+            $('.x-grid-row-selected .f-grid-checkbox').removeClass('unchecked').addClass('checked');
+        }
 
-            F(unselectRowsID).on('click', function () {
-                $('.x-grid-row-selected img.f-grid-checkbox').removeClass('checked').addClass('unchecked');
-            });
+        function onUnselectRows() {
+            $('.x-grid-row-selected .f-grid-checkbox').removeClass('checked').addClass('unchecked');
+        }
 
-        });
+
+        //var gridID = '<%= Grid1.ClientID %>';
+        // var menuID = '<%= Menu1.ClientID %>';
+        //var selectRowsID = '<%= btnSelectRows.ClientID %>';
+        //var unselectRowsID = '<%= btnUnselectRows.ClientID %>';
+
+        //F.ready(function () {
+
+        //    F(gridID).on('beforeitemcontextmenu', function (view, record, item, index, event) {
+        //        F(menuID).showAt(event.getXY());
+        //        event.stopEvent();
+        //    });
+
+        //    F(selectRowsID).on('click', function () {
+        //        $('.x-grid-row-selected img.f-grid-checkbox').removeClass('unchecked').addClass('checked');
+        //    });
+
+        //    F(unselectRowsID).on('click', function () {
+        //        $('.x-grid-row-selected img.f-grid-checkbox').removeClass('checked').addClass('unchecked');
+        //    });
+
+        //});
 
     </script>
 </body>
