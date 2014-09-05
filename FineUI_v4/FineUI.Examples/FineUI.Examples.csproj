@@ -63,6 +63,7 @@
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
+    <Content Include="extjs_builder\version.txt" />
     <Content Include="grid\grid_hide_gridheader.aspx" />
     <Content Include="grid\grid_lockcolumn.aspx" />
     <Content Include="grid\grid_lockcolumn_many_columns.aspx" />
@@ -78,6 +79,7 @@
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
     <Content Include="test\Demo.aspx" />
+    <Content Include="test\empty.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\LPList.aspx" />
@@ -559,6 +561,13 @@
     </Compile>
     <Compile Include="test\Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\empty.aspx.cs">
+      <DependentUpon>empty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\empty.aspx.designer.cs">
+      <DependentUpon>empty.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\grid_iframe2.aspx.cs">
       <DependentUpon>grid_iframe2.aspx</DependentUpon>

@@ -892,8 +892,9 @@ namespace FineUI
             //{
             //    OB.AddProperty("constrainHeader", true);
             //}
-            
 
+
+            
             // 这个为了在客户端生成 PostBack 脚本，比如 __doPostBack('ctl00$ContentPlaceHolder1$Toolbar1$testwindow','')
             OB.AddProperty("name", UniqueID);
 

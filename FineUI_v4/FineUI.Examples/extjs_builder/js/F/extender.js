@@ -711,10 +711,17 @@ if (Ext.grid.Panel) {
 
         // 获取隐藏列的名称列表
         f_getHiddenColumns: function () {
-            var hiddens = [], columns = this.columns;
+            var hiddens = [], columns = this.f_getColumns();
             Ext.Array.each(columns, function (column, index) {
+                var columnId = column.id;
+
+                // 行扩展列需要单独处理，id属性不是 expander
+                if (!column.dataIndex && column.innerCls.indexOf('row-expander') > 0) {
+                    columnId = 'expander';
+                }
+
                 if (column.isHidden()) {
-                    hiddens.push(column.id);
+                    hiddens.push(columnId);
                 }
             });
             return hiddens;
@@ -723,9 +730,16 @@ if (Ext.grid.Panel) {
         // 隐藏需要隐藏的列，显示不需要隐藏的列
         f_updateColumnsHiddenStatus: function (hiddens) {
             hiddens = hiddens || this.f_state['HiddenColumns'] || [];
-            var columns = this.columns;
+            var columns = this.f_getColumns();
             Ext.Array.each(columns, function (column, index) {
-                if (Ext.Array.indexOf(hiddens, column.id) !== -1) {
+                var columnId = column.id;
+
+                // 行扩展列需要单独处理，id属性不是 expander
+                if (!column.dataIndex && column.innerCls.indexOf('row-expander') > 0) {
+                    columnId = 'expander';
+                }
+
+                if (Ext.Array.indexOf(hiddens, columnId) !== -1) {
                     column.setVisible(false);
                 } else {
                     column.setVisible(true);
@@ -778,7 +792,12 @@ if (Ext.grid.Panel) {
                 }
             });
             */
-            return this.columns;
+
+            // columns 属性不包含行扩展列
+            //return this.columns;
+
+            // this.columnManager.columns 返回相同内容
+            return this.headerCt.getGridColumns();
         },
 
         // 这个方法用不到了，现在对States的更新会导致Values的改变，进而促使表格的重新加载
