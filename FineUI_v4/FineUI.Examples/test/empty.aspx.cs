@@ -22,7 +22,7 @@ namespace FineUI.Examples.test
 
         protected void ddlTest_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = 0;
+
         }
 
         protected void toggleDdl_Click(object sender, EventArgs e)

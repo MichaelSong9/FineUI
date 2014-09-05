@@ -412,7 +412,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="导航控件">
+  <TreeNode Text="导航控件" IsNew="true">
     <TreeNode Text="选项卡控件">
       <TreeNode Text="基本用法" NavigateUrl="~/tabstrip/tabstrip.aspx" >
       </TreeNode>
@@ -436,7 +436,6 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="面板与窗体">
-
       <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
       </TreeNode>
       <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
@@ -448,8 +447,10 @@
       <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="工具栏和菜单">
+    <TreeNode Text="工具栏和菜单" IsNew="true">
       <TreeNode Text="内联菜单" NavigateUrl="~/toolbar/menu.aspx" >
+      </TreeNode>
+      <TreeNode Text="内联菜单（HideOnClick）" NavigateUrl="~/toolbar/menu_hideonclick.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="动态添加工具栏菜单" NavigateUrl="~/toolbar/menu_dynamic.aspx" >
       </TreeNode>

@@ -841,6 +841,25 @@ namespace FineUI
         }
 
         /// <summary>
+        /// 显示分页工具条右侧的分页信息
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("显示分页工具条右侧的分页信息")]
+        public bool ShowPagingMessage
+        {
+            get
+            {
+                object obj = FState["ShowPagingMessage"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["ShowPagingMessage"] = value;
+            }
+        }
+
+        /// <summary>
         /// 启用表头菜单
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -2432,7 +2451,14 @@ namespace FineUI
             {
                 OptionBuilder pagingBuilder = GetPagingBuilder();
 
-                pagingBuilder.AddProperty("displayInfo", true);
+                if (!ShowPagingMessage)
+                {
+                    pagingBuilder.AddProperty("displayInfo", false);
+                }
+                else
+                {
+                    pagingBuilder.AddProperty("displayInfo", true);
+                }
 
                 pagingBuilder.AddProperty("store", Render_GridStoreID, true);
                 //// Hide refresh button, we don't implement this logic now.

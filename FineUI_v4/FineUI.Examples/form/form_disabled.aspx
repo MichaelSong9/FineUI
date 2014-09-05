@@ -103,6 +103,10 @@
         </f:Button>
         <f:Button ID="btnClearInvalid" Text="取消无效标识" CssClass="marginr" runat="server" OnClick="btnClearInvalid_Click">
         </f:Button>
+        <f:Button ID="Button1" ValidateForms="Form1" Text="验证并提交表单" runat="server" OnClick="Button1_Click"></f:Button>
+        <br />
+        <br />
+        
     </form>
 </body>
 </html>

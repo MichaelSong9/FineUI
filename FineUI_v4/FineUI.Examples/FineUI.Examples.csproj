@@ -383,6 +383,7 @@
     <Content Include="test\timer.aspx" />
     <Content Include="toolbar\menu.aspx" />
     <Content Include="toolbar\menucheckbox.aspx" />
+    <Content Include="toolbar\menu_hideonclick.aspx" />
     <Content Include="tree\checkbox\tree_checked.aspx" />
     <Content Include="tree\select\tree_nodecommand.aspx" />
     <Content Include="tree\tree_icon.aspx" />
@@ -1987,6 +1988,13 @@
     </Compile>
     <Compile Include="toolbar\menucheckbox.aspx.designer.cs">
       <DependentUpon>menucheckbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="toolbar\menu_hideonclick.aspx.cs">
+      <DependentUpon>menu_hideonclick.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\menu_hideonclick.aspx.designer.cs">
+      <DependentUpon>menu_hideonclick.aspx</DependentUpon>
     </Compile>
     <Compile Include="tree\checkbox\tree_checked.aspx.cs">
       <DependentUpon>tree_checked.aspx</DependentUpon>
