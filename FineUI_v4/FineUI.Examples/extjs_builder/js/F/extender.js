@@ -716,8 +716,9 @@ if (Ext.grid.Panel) {
                 var columnId = column.id;
 
                 // 行扩展列需要单独处理，id属性不是 expander
-                if (!column.dataIndex && column.innerCls.indexOf('row-expander') > 0) {
+                if (!column.dataIndex && column.innerCls && column.innerCls.indexOf('row-expander') > 0) {
                     columnId = 'expander';
+
                 }
 
                 if (column.isHidden()) {
@@ -735,7 +736,7 @@ if (Ext.grid.Panel) {
                 var columnId = column.id;
 
                 // 行扩展列需要单独处理，id属性不是 expander
-                if (!column.dataIndex && column.innerCls.indexOf('row-expander') > 0) {
+                if (!column.dataIndex && column.innerCls && column.innerCls.indexOf('row-expander') > 0) {
                     columnId = 'expander';
                 }
 
