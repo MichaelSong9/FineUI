@@ -17,7 +17,7 @@
                     <Items>
                         <f:Panel ID="Panel2" Layout="Column" CssClass="formitem" ShowHeader="false" ShowBorder="false" runat="server">
                             <Items>
-                                <f:TextBox ID="TextBox2" Label="姓" CssClass="marginr" Required="true" ShowRedStar="true" ColumnWidth="50%" runat="server">
+                                <f:TextBox ID="TextBox2" Label="姓" Margin="0 5 0 0" Required="true" ShowRedStar="true" ColumnWidth="50%" runat="server">
                                 </f:TextBox>
                                 <f:TextBox ID="TextBox4" Label="名" Required="true" ShowRedStar="true" ColumnWidth="50%" runat="server">
                                 </f:TextBox>
