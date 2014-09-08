@@ -330,7 +330,25 @@ namespace FineUI
             get
             {
                 object obj = FState["PageIndex"];
-                return obj == null ? 0 : (int)obj;
+                int pageIndex = (obj == null) ? 0 : (int)obj;
+
+                int resolvedPageIndex = pageIndex;
+                if (resolvedPageIndex < 0)
+                {
+                    resolvedPageIndex = 0;
+                }
+                else if (resolvedPageIndex > PageCount - 1)
+                {
+                    resolvedPageIndex = PageCount - 1;
+                }
+
+                if (resolvedPageIndex != pageIndex)
+                {
+                    // 如果PageIndex越界，则重新设置PageIndex
+                    PageIndex = resolvedPageIndex;
+                }
+
+                return resolvedPageIndex;
             }
             set
             {

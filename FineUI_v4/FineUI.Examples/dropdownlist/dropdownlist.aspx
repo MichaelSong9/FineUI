@@ -21,8 +21,8 @@
                     <f:ListItem Text="可选项6" Value="Value6" />
                     <f:ListItem Text="可选择项7" Value="Value7" />
                     <f:ListItem Text="可选择项8" Value="Value8" />
-                    <f:ListItem Text="可选择项9" Value="Value9" />
                     <f:ListItem Text="普通型1 < L > 1.5" Value="普通型1 < L > 1.5" />
+                    <f:ListItem Text="一个很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的可选择项" Value="Value11" />
                 </f:DropDownList>
 
                 <f:Button ID="btnSelectItem6" Text="选中“可选项6”" runat="server" OnClick="btnSelectItem6_Click"

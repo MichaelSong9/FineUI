@@ -1027,6 +1027,8 @@ namespace FineUI
 
             #endregion
 
+            //OB.AddProperty("matchFieldWidth", false);
+
             #region Properties
 
             if (EnableEdit)
