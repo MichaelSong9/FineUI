@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager runat="server"></f:PageManager>
-        <f:DropDownList runat="server" Width="100" ID="ddlTest" OnSelectedIndexChanged="ddlTest_SelectedIndexChanged">
+        <f:DropDownList runat="server" Width="100" MatchFieldWidth="false" ID="ddlTest" OnSelectedIndexChanged="ddlTest_SelectedIndexChanged">
             <f:ListItem Text="ddlTest_Sele tedIn dexChangedddlTest_Sel ectedIndexChanged" Value="1" />
             <f:ListItem Text="Text2" Value="2" />
             <f:ListItem Text="Text3" Value="3" />

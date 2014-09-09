@@ -88,6 +88,11 @@
 }
 
 
+
+.f-field-ddlpop-autowidth .x-boundlist-item {
+    white-space: nowrap;
+}
+
 /* radiogroup background color */
 /*.x-form-radio-group .x-panel-body
 {

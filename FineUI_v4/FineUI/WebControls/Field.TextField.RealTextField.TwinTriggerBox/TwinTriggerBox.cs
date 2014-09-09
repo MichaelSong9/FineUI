@@ -59,7 +59,7 @@ namespace FineUI
         }
 
         #endregion
-        
+
         #region Properties
 
         /// <summary>
@@ -396,52 +396,52 @@ namespace FineUI
 
             #region Trigger1Click/Trigger1Click
 
-            if (Enabled)
+            //if (Enabled)
+            //{
+            string clientTrigger1ClickScript = OnClientTrigger1Click;
+            if (!String.IsNullOrEmpty(clientTrigger1ClickScript) && !clientTrigger1ClickScript.EndsWith(";"))
             {
-                string clientTrigger1ClickScript = OnClientTrigger1Click;
-                if (!String.IsNullOrEmpty(clientTrigger1ClickScript) && !clientTrigger1ClickScript.EndsWith(";"))
-                {
-                    clientTrigger1ClickScript += ";";
-                }
-                string trigger1PostbackScript = String.Empty;
-                if (EnableTrigger1PostBack)
-                {
-                    trigger1PostbackScript = GetPostBackEventReference("Trigger$1");
-                }
-                //string trigger1ClickScript = String.Format("function(){{{0}}}", clientTrigger1ClickScript + trigger1PostbackScript);
-                //// createDelegate 用来为一个Function创建一个Scope
-                //OB.AddProperty(OptionName.OnTrigger1Click, String.Format("({0}).createDelegate(box)", trigger1ClickScript), true);
-                OB.AddProperty("onTrigger1Click", JsHelper.GetFunction(clientTrigger1ClickScript + trigger1PostbackScript), true);
-
-
-                string clientTrigger2ClickScript = OnClientTrigger2Click;
-                if (!String.IsNullOrEmpty(clientTrigger2ClickScript) && !clientTrigger2ClickScript.EndsWith(";"))
-                {
-                    clientTrigger2ClickScript += ";";
-                }
-                string trigger2PostbackScript = String.Empty;
-                if (EnableTrigger2PostBack)
-                {
-                    trigger2PostbackScript = GetPostBackEventReference("Trigger$2");
-                }
-                //string trigger2ClickScript = String.Format("function(){{{0}}}", clientTrigger2ClickScript + Trigger2PostbackScript);
-                //// createDelegate 用来为一个Function创建一个Scope
-                //OB.AddProperty(OptionName.OnTrigger2Click, String.Format("({0}).createDelegate(box)", trigger2ClickScript), true);
-                OB.AddProperty("onTrigger2Click", JsHelper.GetFunction(clientTrigger2ClickScript + trigger2PostbackScript), true);
-
+                clientTrigger1ClickScript += ";";
             }
+            string trigger1PostbackScript = String.Empty;
+            if (EnableTrigger1PostBack)
+            {
+                trigger1PostbackScript = GetPostBackEventReference("Trigger$1");
+            }
+            //string trigger1ClickScript = String.Format("function(){{{0}}}", clientTrigger1ClickScript + trigger1PostbackScript);
+            //// createDelegate 用来为一个Function创建一个Scope
+            //OB.AddProperty(OptionName.OnTrigger1Click, String.Format("({0}).createDelegate(box)", trigger1ClickScript), true);
+            OB.AddProperty("onTrigger1Click", JsHelper.GetFunction(clientTrigger1ClickScript + trigger1PostbackScript), true);
+
+
+            string clientTrigger2ClickScript = OnClientTrigger2Click;
+            if (!String.IsNullOrEmpty(clientTrigger2ClickScript) && !clientTrigger2ClickScript.EndsWith(";"))
+            {
+                clientTrigger2ClickScript += ";";
+            }
+            string trigger2PostbackScript = String.Empty;
+            if (EnableTrigger2PostBack)
+            {
+                trigger2PostbackScript = GetPostBackEventReference("Trigger$2");
+            }
+            //string trigger2ClickScript = String.Format("function(){{{0}}}", clientTrigger2ClickScript + Trigger2PostbackScript);
+            //// createDelegate 用来为一个Function创建一个Scope
+            //OB.AddProperty(OptionName.OnTrigger2Click, String.Format("({0}).createDelegate(box)", trigger2ClickScript), true);
+            OB.AddProperty("onTrigger2Click", JsHelper.GetFunction(clientTrigger2ClickScript + trigger2PostbackScript), true);
+
+            //}
 
             #endregion
 
             #region Specialkey
 
-            if (Enabled)
-            {
-                // 首先启用enableKeyEvents
-                //OB.AddProperty("enableKeyEvents", true);
-                //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}}}", XID), true);
-                AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}", XID), "field", "e");
-            }
+            //if (Enabled)
+            //{
+            // 首先启用enableKeyEvents
+            //OB.AddProperty("enableKeyEvents", true);
+            //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}}}", XID), true);
+            AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.onTrigger2Click();e.stopEvent();}}", XID), "field", "e");
+            //}
 
             #endregion
 
@@ -450,7 +450,7 @@ namespace FineUI
             if (!EnableEdit)
             {
                 //OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTrigger2Click,field);}", true);
-                AddListener("expand", "field.mon(field.inputEl,'click',field.onTrigger2Click,field);", "field");
+                AddListener("render", "field.mon(field.inputEl,'click',field.onTrigger2Click,field);", "field");
 
             }
             #endregion

@@ -342,6 +342,28 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 下拉列表和字段的宽度相匹配
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("下拉列表和字段的宽度相匹配")]
+        public bool MatchFieldWidth
+        {
+            get
+            {
+                object obj = FState["MatchFieldWidth"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["MatchFieldWidth"] = value;
+            }
+        }
+
+
+
+
+        /// <summary>
         /// 如果未定义选中项，则自动选中第一个子项（默认为true）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -1027,9 +1049,15 @@ namespace FineUI
 
             #endregion
 
-            //OB.AddProperty("matchFieldWidth", false);
+            
 
             #region Properties
+
+            if (!MatchFieldWidth)
+            {
+                OB.AddProperty("matchFieldWidth", false);
+            }
+
 
             if (EnableEdit)
             {
@@ -1237,6 +1265,17 @@ namespace FineUI
             //string renderScript = "cmp.f_loadData();cmp.f_setValue();";
 
             //OB.Listeners.AddProperty("render", JsHelper.GetFunction(renderScript, "cmp"), true);
+
+            string renderScript = String.Empty;
+            if (!MatchFieldWidth)
+            {
+                renderScript = String.Format("cmp.getPicker().addCls('f-field-ddlpop-autowidth')");
+            }
+
+            if (!String.IsNullOrEmpty(renderScript))
+            {
+                AddListener("render", renderScript, "cmp");
+            }
 
             #endregion
 

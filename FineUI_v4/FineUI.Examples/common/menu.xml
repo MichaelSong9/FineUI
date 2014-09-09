@@ -134,6 +134,8 @@
       </TreeNode>
       <TreeNode Text="中国省市县联动" NavigateUrl="~/dropdownlist/shengshixian.aspx" >
       </TreeNode>
+      <TreeNode Text="下拉列表（MatchFieldWidth）" NavigateUrl="~/dropdownlist/dropdownlist_matchfieldwidth.aspx" IsNew="true">
+      </TreeNode>
       <TreeNode Text="数据绑定">
         <TreeNode Text="绑定到简单列表" NavigateUrl="~/dropdownlist/databind/dropdownlist_simplelist.aspx" >
         </TreeNode>

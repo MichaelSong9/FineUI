@@ -231,34 +231,34 @@ namespace FineUI
 
             #region TriggerClick
 
-            if (Enabled)
+            //if (Enabled)
+            //{
+            string clientClickScript = OnClientTriggerClick;
+            if (!String.IsNullOrEmpty(clientClickScript) && !clientClickScript.EndsWith(";"))
             {
-                string clientClickScript = OnClientTriggerClick;
-                if (!String.IsNullOrEmpty(clientClickScript) && !clientClickScript.EndsWith(";"))
-                {
-                    clientClickScript += ";";
-                }
-
-                string postbackScript = String.Empty;
-                if (EnablePostBack)
-                {
-                    postbackScript = GetPostBackEventReference();
-                }
-
-                OB.AddProperty("onTriggerClick", JsHelper.GetFunction(clientClickScript + postbackScript), true);
+                clientClickScript += ";";
             }
+
+            string postbackScript = String.Empty;
+            if (EnablePostBack)
+            {
+                postbackScript = GetPostBackEventReference();
+            }
+
+            OB.AddProperty("onTriggerClick", JsHelper.GetFunction(clientClickScript + postbackScript), true);
+            //}
 
             #endregion
 
             #region Specialkey
 
-            if (Enabled)
-            {
-                // 首先启用enableKeyEvents
-                //OB.AddProperty("enableKeyEvents", true);
-                //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}}}", XID), true);
-                AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}", XID), "field", "e");
-            }
+            //if (Enabled)
+            //{
+            // 首先启用enableKeyEvents
+            //OB.AddProperty("enableKeyEvents", true);
+            //OB.Listeners.AddProperty("specialkey", String.Format("function(field,e){{if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}}}", XID), true);
+            AddListener("specialkey", String.Format("if(e.getKey()==e.ENTER){{{0}.onTriggerClick();e.stopEvent();}}", XID), "field", "e");
+            //}
 
             #endregion
 
@@ -269,9 +269,9 @@ namespace FineUI
                 //OB.Listeners.AddProperty("render", "function(field){field.mon(field.inputEl,'click',field.onTriggerClick,field);}", true);
                 AddListener("render", "field.mon(field.inputEl,'click',field.onTriggerClick,field);", "field");
 
-            } 
+            }
             #endregion
-                
+
 
             #region old code
 

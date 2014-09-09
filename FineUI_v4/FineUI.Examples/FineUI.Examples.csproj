@@ -61,6 +61,7 @@
     <Content Include="accordion\accordion_tree_index.htm" />
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
+    <Content Include="dropdownlist\dropdownlist_matchfieldwidth.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
     <Content Include="extjs_builder\version.txt" />
@@ -83,6 +84,7 @@
     <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\LPList.aspx" />
+    <Content Include="test\triggerbox2.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -429,6 +431,13 @@
     <Compile Include="aspnet\aspnet_literal.aspx.designer.cs">
       <DependentUpon>aspnet_literal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dropdownlist\dropdownlist_matchfieldwidth.aspx.cs">
+      <DependentUpon>dropdownlist_matchfieldwidth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_matchfieldwidth.aspx.designer.cs">
+      <DependentUpon>dropdownlist_matchfieldwidth.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dropdownlist\multiselect.aspx.cs">
       <DependentUpon>multiselect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -600,6 +609,13 @@
     </Compile>
     <Compile Include="test\SingleGridPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\triggerbox2.aspx.cs">
+      <DependentUpon>triggerbox2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\triggerbox2.aspx.designer.cs">
+      <DependentUpon>triggerbox2.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
