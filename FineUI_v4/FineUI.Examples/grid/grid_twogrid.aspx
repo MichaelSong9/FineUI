@@ -16,12 +16,12 @@
         <f:PageManager ID="PageManager1" runat="server" AutoSizePanelID="RegionPanel1" />
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <f:Region ID="Region1" ShowBorder="false" ShowHeader="false" Split="true"
-                     Width="200px" Position="Left" Layout="Fit"
+                <f:Region ID="Region1" ShowBorder="false" ShowHeader="false"
+                    Width="200px" RegionPosition="Left" Layout="Fit"
                     runat="server">
                     <Items>
                         <f:Grid ID="Grid2" ShowBorder="true" ShowHeader="true" Title="表格（班级）" runat="server"
-                            DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid2_RowSelect">
+                            DataKeyNames="Id,Name" EnableMultiSelect="false" EnableRowSelectEvent="true" OnRowSelect="Grid2_RowSelect" ShowGridHeader="false">
                             <Columns>
                                 <f:TemplateField Width="60px">
                                     <ItemTemplate>
@@ -38,7 +38,7 @@
                     Layout="VBox" BoxConfigAlign="Stretch" BoxConfigPosition="Left" runat="server">
                     <Items>
                         <f:Panel Height="80px" ShowHeader="false" BodyPadding="10px"
-                            ShowBorder="false" runat="server">
+                            ShowBorder="true" runat="server">
                             <Items>
                                 <f:Label ID="Label4" runat="server" CssStyle="font-weight:bold;" Text="班级描述：">
                                 </f:Label>

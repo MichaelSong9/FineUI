@@ -88,21 +88,45 @@ namespace FineUI
         //}
 
         /// <summary>
-        /// 是否显示分隔条
+        /// 是否可以拖动分隔条
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否显示分隔条")]
+        [Description("是否可以拖动分隔条")]
+        [Obsolete("已废除，请使用RegionSplit属性")]
         public bool Split
         {
             get
             {
-                object obj = FState["Split"];
-                return obj == null ? false : (bool)obj;
+                //object obj = FState["Split"];
+                //return obj == null ? false : (bool)obj;
+                return RegionSplit;
             }
             set
             {
-                FState["Split"] = value;
+                RegionSplit = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 位置
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(Position.Center)]
+        [Description("位置")]
+        [Obsolete("已废除，请使用RegionPosition属性")]
+        public Position Position
+        {
+            get
+            {
+                //object obj = FState["PositionType"];
+                //return obj == null ? Position.Center : (Position)obj;
+                return RegionPosition;
+            }
+            set
+            {
+                RegionPosition = value;
             }
         }
 
@@ -205,25 +229,6 @@ namespace FineUI
         //}
 
 
-        /// <summary>
-        /// 位置
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(Position.Center)]
-        [Description("位置")]
-        public Position Position
-        {
-            get
-            {
-                object obj = FState["PositionType"];
-                return obj == null ? Position.Center : (Position)obj;
-            }
-            set
-            {
-                FState["PositionType"] = value;
-            }
-        }
-
         ///// <summary>
         ///// 折叠模式（通过点击工具栏上的按钮还是点击分隔条上的按钮来展开折叠面板）
         ///// </summary>
@@ -324,18 +329,18 @@ namespace FineUI
             //// 默认Layout
             //OB.AddProperty(OptionName.Layout, LayoutTypeName.GetName(Layout));
 
-            // 必须设置位置
-            OB.AddProperty("region", PositionHelper.GetName(Position));
+            //// 必须设置位置
+            //OB.AddProperty("region", PositionHelper.GetName(Position));
 
-            //if (!String.IsNullOrEmpty(Margins))
+            ////if (!String.IsNullOrEmpty(Margins))
+            ////{
+            ////    OB.AddProperty("margins", Margins);
+            ////}
+
+            //if (Split)
             //{
-            //    OB.AddProperty("margins", Margins);
+            //    OB.AddProperty("split", true);
             //}
-
-            if (Split)
-            {
-                OB.AddProperty("split", true);
-            }
 
             //if (EnableSplitTip)
             //{

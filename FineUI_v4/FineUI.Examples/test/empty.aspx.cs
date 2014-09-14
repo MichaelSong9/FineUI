@@ -13,27 +13,27 @@ namespace FineUI.Examples.test
         {
             if (!IsPostBack)
             {
-                ddlTest.SelectedValue = "2";
+                //ddlTest.SelectedValue = "2";
 
                 //testLit.Text = "<link href=\"/extjs/res/ext-theme-neptune/all.css\" rel=\"stylesheet\" type=\"text/css\"/>";
             }
 
         }
 
-        protected void ddlTest_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //protected void ddlTest_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        protected void toggleDdl_Click(object sender, EventArgs e)
-        {
-            this.ddlTest.Enabled = !this.ddlTest.Enabled;
+        //protected void toggleDdl_Click(object sender, EventArgs e)
+        //{
+        //    this.ddlTest.Enabled = !this.ddlTest.Enabled;
 
-        }
+        //}
 
-        protected string GetSSS()
-        {
-            return "haha";
-        }
+        //protected string GetSSS()
+        //{
+        //    return "haha";
+        //}
     }
 }

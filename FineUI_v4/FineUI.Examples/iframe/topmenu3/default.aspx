@@ -12,7 +12,7 @@
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
             <Regions>
-                <f:Region ID="Region1"  ShowBorder="false" Height="102px" ShowHeader="false"
+                <f:Region ID="Region1" ShowBorder="false" Height="102px" ShowHeader="false"
                     Position="Top" Layout="Fit" runat="server">
                     <Items>
                         <f:ContentPanel ShowBorder="false" CssClass="jumbotron" ShowHeader="false" runat="server">
@@ -37,12 +37,12 @@
                         </f:ContentPanel>
                     </Items>
                 </f:Region>
-                <f:Region ID="Region2" Split="true" Width="200px"
-                     ShowHeader="false" Title="示例菜单" Icon="Outline"
+                <f:Region ID="Region2" RegionSplit="true" Width="200px"
+                    ShowHeader="false" Title="示例菜单" Icon="Outline"
                     EnableCollapse="true" EnableIFrame="true" IFrameName="leftframe" IFrameUrl="./leftmenu.aspx"
-                    Position="Left" runat="server">
+                    RegionPosition="Left" runat="server">
                 </f:Region>
-                <f:Region ID="mainRegion" ShowHeader="false"  Position="Center"
+                <f:Region ID="mainRegion" ShowHeader="false" Position="Center"
                     EnableIFrame="true" IFrameName="mainframe" IFrameUrl="about:blank" runat="server">
                 </f:Region>
             </Regions>

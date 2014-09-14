@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace FineUI.Examples.master
 {
-    public partial class simple : System.Web.UI.Page
+    public partial class simple : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

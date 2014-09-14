@@ -45,9 +45,9 @@
                         </f:ContentPanel>
                     </Items>
                 </f:Region>
-                <f:Region ID="Region2" Split="true" Width="200px"
+                <f:Region ID="Region2" RegionSplit="true" Width="200px"
                     ShowHeader="false" Title="示例菜单"
-                    EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
+                    EnableCollapse="true" Layout="Fit" RegionPosition="Left" runat="server">
                     <Items>
                         <f:Tree runat="server" ShowBorder="false" ShowHeader="false" ID="leftTree">
                         </f:Tree>

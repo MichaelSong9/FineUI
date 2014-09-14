@@ -422,7 +422,7 @@ namespace FineUI
             base.OnAjaxPreRender();
 
             StringBuilder sb = new StringBuilder();
-            
+
             if (PropertyModified("Width"))
             {
                 sb.AppendFormat("{0}.f_setWidth();", XID);
@@ -432,7 +432,7 @@ namespace FineUI
             {
                 sb.AppendFormat("{0}.f_setHeight();", XID);
             }
-            
+
 
             AddAjaxScript(sb);
 
@@ -458,7 +458,7 @@ namespace FineUI
 
             #region Controls in Layout
 
-            
+
             Container parentControl = GetParentControl() as Container;
 
             if (parentControl != null)
@@ -524,15 +524,13 @@ namespace FineUI
                 }
                 else if (parentControl.Layout == Layout.Region)
                 {
-                    if (!(this is Region))
-                    {
-                        OB.AddProperty("region", PositionHelper.GetName(RegionPosition));
+                    OB.AddProperty("region", PositionHelper.GetName(RegionPosition));
 
-                        if (RegionSplit)
-                        {
-                            OB.AddProperty("split", true);
-                        }
+                    if (RegionSplit)
+                    {
+                        OB.AddProperty("split", true);
                     }
+
                 }
             }
 
