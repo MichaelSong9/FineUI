@@ -1569,48 +1569,89 @@ namespace FineUI
             XmlDocument xdoc = new XmlDocument();
             xdoc.LoadXml(xml);
 
-            DataBindToXml(xdoc);
+            DataBindToXml(null, xdoc.DocumentElement.ChildNodes);
         }
 
-        private void DataBindToXml(XmlDocument xdoc)
-        {
-            XmlNodeList nodes = xdoc.DocumentElement.ChildNodes;
+        //private void DataBindToXml(XmlDocument xdoc)
+        //{
+        //    XmlNodeList nodes = xdoc.DocumentElement.ChildNodes;
 
+        //    foreach (XmlNode node in nodes)
+        //    {
+        //        if (node.NodeType == XmlNodeType.Element)
+        //        {
+        //            TreeNode treeNode = new TreeNode();
+        //            Nodes.Add(treeNode);
+
+        //            LoadXmlNode(treeNode, node);
+
+
+        //        }
+        //    }
+        //}
+
+        private void DataBindToXml(TreeNode treeNode, XmlNodeList nodes)
+        {
             foreach (XmlNode node in nodes)
-            {
-                if (node.NodeType == XmlNodeType.Element)
-                {
-                    TreeNode treeNode = new TreeNode();
-                    Nodes.Add(treeNode);
-
-                    LoadXmlNode(treeNode, node);
-
-                    //OnNodeDataBound(oNewNode, node);
-                }
-            }
-        }
-
-        private void LoadXmlNode(TreeNode treeNode, XmlNode xmlNode)
-        {
-            treeNode.ReadXmlAttributes(xmlNode.Attributes, this);
-
-            OnNodeDataBound(new TreeNodeEventArgs(treeNode, xmlNode));
-
-            foreach (XmlNode node in xmlNode.ChildNodes)
             {
                 // Only process Xml elements (ignore comments, etc)
                 if (node.NodeType == XmlNodeType.Element)
                 {
-                    TreeNode childNode = new TreeNode();
-                    treeNode.Nodes.Add(childNode);
+                    TreePreNodeEventArgs preArgs = new TreePreNodeEventArgs(node);
 
-                    LoadXmlNode(childNode, node);
+                    OnPreNodeDataBound(preArgs);
 
-                    //OnNodeDataBound(oNewNode, node);
+                    // 事件处理函数要求取消添加本节点
+                    if (!preArgs.Cancelled)
+                    {
+                        TreeNode childNode = new TreeNode();
+                        if (treeNode == null)
+                        {
+                            Nodes.Add(childNode);
+                        }
+                        else
+                        {
+                            treeNode.Nodes.Add(childNode);
+                        }
+
+                        childNode.ReadXmlAttributes(node.Attributes, this);
+
+                        OnNodeDataBound(new TreeNodeEventArgs(childNode, node));
+
+
+                        DataBindToXml(childNode, node.ChildNodes);
+                    }
                 }
             }
-
         }
+
+        //private void LoadXmlNode(TreeNode treeNode, XmlNode xmlNode)
+        //{
+        //    treeNode.ReadXmlAttributes(xmlNode.Attributes, this);
+
+        //    OnNodeDataBound(new TreeNodeEventArgs(treeNode, xmlNode));
+
+        //    foreach (XmlNode node in xmlNode.ChildNodes)
+        //    {
+        //        // Only process Xml elements (ignore comments, etc)
+        //        if (node.NodeType == XmlNodeType.Element)
+        //        {
+        //            TreePreNodeEventArgs preArgs = new TreePreNodeEventArgs(node);
+
+        //            OnPreNodeDataBound(preArgs);
+
+        //            // 事件处理函数要求取消添加本节点
+        //            if (!preArgs.Cancelled)
+        //            {
+        //                TreeNode childNode = new TreeNode();
+        //                treeNode.Nodes.Add(childNode);
+
+        //                LoadXmlNode(childNode, node);
+        //            }
+        //        }
+        //    }
+
+        //}
 
         #endregion
 
@@ -1811,6 +1852,42 @@ namespace FineUI
         protected virtual void OnNodeDataBound(TreeNodeEventArgs e)
         {
             EventHandler<TreeNodeEventArgs> handler = Events[_nodeDataBoundHandlerKey] as EventHandler<TreeNodeEventArgs>;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
+        #region OnPreNodeDataBound
+
+        private static readonly object _preNodeDataBoundHandlerKey = new object();
+
+        /// <summary>
+        /// 节点预绑定事件
+        /// </summary>
+        [Category(CategoryName.ACTION)]
+        [Description("节点预绑定事件")]
+        public event EventHandler<TreePreNodeEventArgs> PreNodeDataBound
+        {
+            add
+            {
+                Events.AddHandler(_preNodeDataBoundHandlerKey, value);
+            }
+            remove
+            {
+                Events.RemoveHandler(_preNodeDataBoundHandlerKey, value);
+            }
+        }
+
+        /// <summary>
+        /// 触发节点预绑定事件
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected virtual void OnPreNodeDataBound(TreePreNodeEventArgs e)
+        {
+            EventHandler<TreePreNodeEventArgs> handler = Events[_preNodeDataBoundHandlerKey] as EventHandler<TreePreNodeEventArgs>;
             if (handler != null)
             {
                 handler(this, e);

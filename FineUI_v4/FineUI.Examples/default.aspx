@@ -32,14 +32,13 @@
                                 </tr>
                             </table>
                             <div class="themeroller">
-                                <a href="http://fineui.com/demo_pro" target="_blank" title="转到专业版示例">
-                                    <img src="./res/images/demo_pro.png" alt="FineUI（专业版）" />
+                                <a href="http://fineui.com/demo_pro" target="_blank" title="转到专业版示例">专业版示例
                                 </a>
                             </div>
                         </div>
                     </Content>
                 </f:Region>
-                <f:Region ID="leftRegion" RegionSplit="true" Width="220px" ShowHeader="true" ShowBorder="true" Title="示例菜单"
+                <f:Region ID="leftRegion" RegionSplit="true" Width="220px" ShowHeader="true" ShowBorder="true" Title="全部示例"
                     EnableCollapse="true" Layout="Fit" Collapsed="false" RegionPosition="Left" runat="server">
                 </f:Region>
                 <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" ShowBorder="true" Position="Center"
@@ -59,11 +58,6 @@
                                                 <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server">
                                                 </f:ToolbarSeparator>
                                                 <f:Button ID="Button1" Icon="PageGo" Text="论坛交流" OnClientClick="window.open('http://fineui.com/bbs/', '_blank');"
-                                                    EnablePostBack="false" runat="server">
-                                                </f:Button>
-                                                <f:ToolbarSeparator ID="ToolbarSeparator3" runat="server">
-                                                </f:ToolbarSeparator>
-                                                <f:Button ID="Button2" Icon="PageGo" Text="专业版示例" OnClientClick="window.open('http://fineui.com/demo_pro/', '_blank');"
                                                     EnablePostBack="false" runat="server">
                                                 </f:Button>
                                             </Items>
@@ -110,6 +104,20 @@
                         </f:TabStrip>
                     </Items>
                 </f:Region>
+                <f:Region ID="bottomPanel" RegionPosition="Bottom" ShowBorder="false" ShowHeader="false" EnableCollapse="false" runat="server" Layout="Fit">
+                    <Items>
+                        <f:ContentPanel runat="server" ShowBorder="false" ShowHeader="false">
+                            <table class="bottomtable">
+                                <tr>
+                                    <td style="width: 300px;">&nbsp;版本：v<asp:Literal runat="server" ID="litVersion"></asp:Literal>
+                                        &nbsp;&nbsp; <a target="_blank" href="http://fineui.com/demo_pro/">专业版示例</a></td>
+                                    <td style="text-align: center;">Copyright &copy; 2014 合肥三生石上软件有限公司</td>
+                                    <td style="width: 300px; text-align: right;">在线人数：<asp:Literal runat="server" ID="litOnlineUserCount"></asp:Literal>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </f:ContentPanel>
+                    </Items>
+                </f:Region>
             </Regions>
         </f:RegionPanel>
         <f:Window ID="windowSourceCode" Icon="PageWhiteCode" Title="源代码" Hidden="true" EnableIFrame="true"
@@ -123,6 +131,10 @@
             <f:MenuButton ID="btnCollapseAll" IconUrl="~/res/images/collapse-all.gif" Text="折叠菜单"
                 EnablePostBack="false" runat="server">
             </f:MenuButton>
+            <f:MenuSeparator ID="MenuSeparator4" runat="server">
+            </f:MenuSeparator>
+            <f:MenuCheckBox runat="server" ID="cbxShowOnlyNew" Text="仅显示最新示例" AutoPostBack="true" OnCheckedChanged="cbxShowOnlyNew_CheckedChanged">
+            </f:MenuCheckBox>
             <f:MenuSeparator ID="MenuSeparator1" runat="server">
             </f:MenuSeparator>
             <f:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">

@@ -65,6 +65,7 @@
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
     <Content Include="extjs_builder\version.txt" />
+    <Content Include="Global.asax" />
     <Content Include="grid\grid_hide_gridheader.aspx" />
     <Content Include="grid\grid_lockcolumn.aspx" />
     <Content Include="grid\grid_lockcolumn_many_columns.aspx" />
@@ -73,6 +74,7 @@
     <Content Include="grid\grid_lockcolumn_summary_scrollbar.aspx" />
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
+    <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="master\formlist.aspx" />
@@ -452,6 +454,9 @@
     <Compile Include="dropdownlist\multiselect_enableedit.aspx.designer.cs">
       <DependentUpon>multiselect_enableedit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_hide_gridheader.aspx.cs">
       <DependentUpon>grid_hide_gridheader.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -507,6 +512,13 @@
     </Compile>
     <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_prerowdatabound_cancelled.aspx.cs">
+      <DependentUpon>grid_prerowdatabound_cancelled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_prerowdatabound_cancelled.aspx.designer.cs">
+      <DependentUpon>grid_prerowdatabound_cancelled.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>

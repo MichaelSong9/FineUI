@@ -14,14 +14,24 @@ namespace FineUI.Examples
     {
         #region Page_Init
 
+        private string menuType = "menu";
+        private bool showOnlyNew = false;
+
         protected void Page_Init(object sender, EventArgs e)
         {
-            string menuType = "menu";
             HttpCookie menuCookie = Request.Cookies["MenuStyle_v4"];
             if (menuCookie != null)
             {
                 menuType = menuCookie.Value;
             }
+
+            // 从Cookie中读取是否仅显示最新示例
+            HttpCookie menuShowOnlyNew = Request.Cookies["ShowOnlyNew_v4"];
+            if (menuShowOnlyNew != null)
+            {
+                showOnlyNew = Convert.ToBoolean(menuShowOnlyNew.Value);
+            }
+
 
             // 注册客户端脚本，服务器端控件ID和客户端ID的映射关系
             JObject ids = GetClientIDS(btnExpandAll, btnCollapseAll, windowSourceCode, mainTabStrip, leftRegion, menuSettings);
@@ -84,6 +94,7 @@ namespace FineUI.Examples
 
                     // 绑定AccordionPane内部的树控件
                     innerTree.NodeDataBound += treeMenu_NodeDataBound;
+                    innerTree.PreNodeDataBound += treeMenu_PreNodeDataBound;
                     innerTree.DataSource = innerXmlDoc;
                     innerTree.DataBind();
 
@@ -108,6 +119,7 @@ namespace FineUI.Examples
 
             // 绑定 XML 数据源到树控件
             treeMenu.NodeDataBound += treeMenu_NodeDataBound;
+            treeMenu.PreNodeDataBound += treeMenu_PreNodeDataBound;
             treeMenu.DataSource = XmlDataSource1;
             treeMenu.DataBind();
 
@@ -131,7 +143,33 @@ namespace FineUI.Examples
                 e.Node.Text += isNewHtml;
             }
 
+            // 如果仅显示最新示例 并且 当前节点不是子节点，则展开当前节点
+            if (showOnlyNew && !e.Node.Leaf)
+            {
+                e.Node.Expanded = true;
+            }
+
         }
+
+
+        /// <summary>
+        /// 树节点的预绑定事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeMenu_PreNodeDataBound(object sender, TreePreNodeEventArgs e)
+        {
+            // 如果仅显示最新示例
+            if (showOnlyNew)
+            {
+                string isNewHtml = GetIsNewHtml(e.XmlNode);
+                if (String.IsNullOrEmpty(isNewHtml))
+                {
+                    e.Cancelled = true;
+                }
+            }
+        }
+
 
         private string GetIsNewHtml(XmlNode node)
         {
@@ -173,7 +211,20 @@ namespace FineUI.Examples
                 InitMenuStyleButton();
                 InitLangMenuButton();
                 InitThemeMenuButton();
+                InitMenuShowOnlyNew();
 
+                litVersion.Text = FineUI.GlobalConfig.ProductVersion;
+                litOnlineUserCount.Text = Application["OnlineUserCount"].ToString();
+            }
+        }
+
+        private void InitMenuShowOnlyNew()
+        {
+            cbxShowOnlyNew.Checked = showOnlyNew;
+
+            if (showOnlyNew)
+            {
+                leftRegion.Title = "最新示例";
             }
         }
 
@@ -333,6 +384,11 @@ namespace FineUI.Examples
 
             }
             SaveToCookieAndRefresh("MenuStyle", menuValue);
+        }
+
+        protected void cbxShowOnlyNew_CheckedChanged(object sender, CheckedEventArgs e)
+        {
+            SaveToCookieAndRefresh("ShowOnlyNew", e.Checked.ToString());
         }
 
         private string GetSelectedMenuID(MenuButton menuButton)

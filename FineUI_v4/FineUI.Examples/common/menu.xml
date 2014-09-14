@@ -209,12 +209,14 @@
       <TreeNode Text="模拟树列（数据库分页，下拉列表定位省份）" NavigateUrl="~/grid/grid_simulate_tree_database_paging_dropdownlist.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="事件">
+    <TreeNode Text="事件" IsNew="true">
       <TreeNode Text="行内按钮事件" NavigateUrl="~/grid/grid_rowcommand.aspx" >
       </TreeNode>
       <TreeNode Text="行绑定事件" NavigateUrl="~/grid/grid_rowdatabound.aspx" >
       </TreeNode>
       <TreeNode Text="行预绑定事件" NavigateUrl="~/grid/grid_prerowdatabound.aspx" >
+      </TreeNode>
+      <TreeNode Text="行预绑定事件（Cancelled属性）" IsNew="true" NavigateUrl="~/grid/grid_prerowdatabound_cancelled.aspx" >
       </TreeNode>
       <TreeNode Text="行单击回发事件" NavigateUrl="~/grid/grid_rowclick.aspx">
       </TreeNode>

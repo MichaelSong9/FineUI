@@ -3426,17 +3426,23 @@ namespace FineUI
 
         private void DataBindRow(int rowIndex, object rowObj)
         {
-            GridRow row = new GridRow(this, rowObj, rowIndex);
-            Rows.Add(row);
-            //Controls.Add(row);
-            row.InitTemplateContainers();
+            GridPreRowEventArgs preArgs = new GridPreRowEventArgs(rowObj, rowIndex);
+            OnPreRowDataBound(preArgs);
 
-            OnPreRowDataBound(new GridPreRowEventArgs(rowObj, rowIndex));
+            // 事件处理函数要求取消添加本节点
+            if (!preArgs.Cancelled)
+            {
 
-            //row.DataBindRow();
-            row.DataBindRow();
+                GridRow row = new GridRow(this, rowObj, rowIndex);
+                Rows.Add(row);
+                //Controls.Add(row);
+                row.InitTemplateContainers();
 
-            OnRowDataBound(new GridRowEventArgs(rowObj, rowIndex, row.Values));
+                //row.DataBindRow();
+                row.DataBindRow();
+
+                OnRowDataBound(new GridRowEventArgs(rowObj, rowIndex, row.Values));
+            }
         }
 
         private void BeforeDataBind()
