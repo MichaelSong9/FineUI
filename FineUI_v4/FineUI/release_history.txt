@@ -34,6 +34,8 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加示例：表单控件->下拉列表控件->下拉列表（MatchFieldWidth）。
 	-废除Region的Split和Position，请使用RegionSplit和RegionPosition属性。
 	-增加页面底部区域，显示版本和版权信息。
+	-修正表格在RecordCount=0时获取PageIndex出错的问题。
+	-修正在母版页内容中放置Window控件，在页面回发时出错的问题。
 	+Tree增加PreNodeDataBound事件。
 		-增加类TreePreNodeEventArgs，其Cancelled属性用来取消添加当前树节点。
 		-GridPreRowEventArgs增加Cancelled属性，作用同上。

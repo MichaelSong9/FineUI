@@ -329,22 +329,50 @@ namespace FineUI
         {
             get
             {
+                //object obj = FState["PageIndex"];
+                //int pageIndex = (obj == null) ? 0 : (int)obj;
+
+                //int resolvedPageIndex = pageIndex;
+                //if (resolvedPageIndex < 0)
+                //{
+                //    resolvedPageIndex = 0;
+                //}
+                //else if (resolvedPageIndex > PageCount - 1)
+                //{
+                //    resolvedPageIndex = PageCount - 1;
+                //}
+
+                //if (resolvedPageIndex != pageIndex)
+                //{
+                //    // 如果PageIndex越界，则重新设置PageIndex
+                //    PageIndex = resolvedPageIndex;
+                //}
+
+                //return resolvedPageIndex;
+
                 object obj = FState["PageIndex"];
                 int pageIndex = (obj == null) ? 0 : (int)obj;
 
                 int resolvedPageIndex = pageIndex;
+
+                // 只有定义了RecordCount之后，才检查是否越界（PageIndex - PageCount）
+                if (RecordCount > 0)
+                {
+                    if (resolvedPageIndex > PageCount - 1)
+                    {
+                        resolvedPageIndex = PageCount - 1;
+                    }
+                }
+
+                // 每次都需要做不能为负数的检查
                 if (resolvedPageIndex < 0)
                 {
                     resolvedPageIndex = 0;
                 }
-                else if (resolvedPageIndex > PageCount - 1)
-                {
-                    resolvedPageIndex = PageCount - 1;
-                }
 
+                // 如果PageIndex越界，则重新设置PageIndex
                 if (resolvedPageIndex != pageIndex)
                 {
-                    // 如果PageIndex越界，则重新设置PageIndex
                     PageIndex = resolvedPageIndex;
                 }
 

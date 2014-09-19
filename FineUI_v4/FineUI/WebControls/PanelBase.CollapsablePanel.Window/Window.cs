@@ -1382,6 +1382,10 @@ namespace FineUI
 
             #region AddStartupScript
 
+            // 无论把 Window 控件放在哪里（母版页，或者用户控件中都行），因为下面会输出 Window 在页面上的节点，所以一定要输出 renderTo 
+            OB.AddProperty("renderTo", WrapperID);
+
+
             // 创建Window对象
             string jsContent = String.Format("var {0}=Ext.create('Ext.window.Window',{1});", XID, OB.ToString());
 
