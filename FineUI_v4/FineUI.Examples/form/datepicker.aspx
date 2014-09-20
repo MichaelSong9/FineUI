@@ -12,7 +12,7 @@
         <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" Width="550px" EnableCollapse="true"
             Title="简单表单" runat="server">
             <Items>
-                <f:DatePicker runat="server" Required="true" Label="开始日期" EmptyText="请选择开始日期"
+                <f:DatePicker runat="server" Required="true" Label="开始日期" DateFormatString="yyyy-MM-dd" EmptyText="请选择开始日期"
                     ID="DatePicker1" ShowRedStar="True">
                 </f:DatePicker>
                 <f:DatePicker ID="DatePicker2" Required="true" Readonly="false" CompareControl="DatePicker1" DateFormatString="yyyy-MM-dd"

@@ -28,19 +28,24 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 
 发布历史
-+2014-10-** v4.1.4
++2014-09-22 v4.1.4
 	-修正TriggerBox先禁用再启用后不能触发TriggerClick事件的问题（飘移-2870）。
 	+下拉列表增加MatchFieldWidth属性，可设置弹出框和字段宽度不同。
 		-增加示例：表单控件->下拉列表控件->下拉列表（MatchFieldWidth）。
 	-废除Region的Split和Position，请使用RegionSplit和RegionPosition属性。
 	-增加页面底部区域，显示版本和版权信息。
-	-修正表格在RecordCount=0时获取PageIndex出错的问题。
+	-修正表格在RecordCount=0时获取PageIndex出错的问题（userlm-6302）。
+	-修正表格AllowPaging=true，并且数据源为空出错的问题（tlxyniu、hroger-6289）。
 	-修正在母版页内容中放置Window控件，在页面回发时出错的问题。
+	-增加示例：表格控件->扩展列->全选列（单选）。
 	+Tree增加PreNodeDataBound事件。
 		-增加类TreePreNodeEventArgs，其Cancelled属性用来取消添加当前树节点。
 		-GridPreRowEventArgs增加Cancelled属性，作用同上。
 		-官网主框架增加[仅显示最新示例]菜单项。
 		-增加示例：表格控件->事件->行预绑定事件（Cancelled属性）。
+	+修正通过服务器端脚本关闭当前标签页可能出现的JS错误。
+		-在IE11出现错误[无法获取未定义或 null 引用的属性 callback]。
+		-更新示例：杂项->向父页面添加选项卡。
 
 
 

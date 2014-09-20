@@ -191,8 +191,10 @@
       <TreeNode Text="序号列的宽度" NavigateUrl="~/grid/grid_rownumber_width.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="扩展列">
+    <TreeNode Text="扩展列" IsNew="true">
       <TreeNode Text="全选列" NavigateUrl="~/grid/grid_checkall.aspx" >
+      </TreeNode>
+      <TreeNode Text="全选列（单选）" NavigateUrl="~/grid/grid_checkall_singleselect.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="全选列（只能通过全选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
       </TreeNode>

@@ -17,6 +17,10 @@
         <f:Button ID="Button2" runat="server" EnablePostBack="false" OnClientClick="closeActiveTab();"
             Text="关闭当前选项卡">
         </f:Button>
+        <br />
+        <br />
+        <f:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="关闭当前选项卡（服务器端注册脚本）">
+        </f:Button>
     </form>
     <script type="text/javascript">
 

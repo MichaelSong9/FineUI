@@ -78,27 +78,32 @@
                 //params: serializeForm(theForm) + '&X_AJAX=true',
                 success: function (data) {
                     var scripts = data.responseText;
-                    if (scripts) {
-                        if (F.form_upload_file) {
-                            // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
-                            //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
-                            scripts = decodeURIComponent(scripts);
-                        }
 
-                        try {
-                            new Function(scripts)();
-                        } catch (e) {
-                            createErrorWindow({
-                                statusText: "Unexpected Response",
-                                status: -1,
-                                responseText: F.util.htmlEncode(scripts)
-                            });
+                    // 因为
+                    //window.setTimeout(function () {
+                        if (scripts) {
+                            if (F.form_upload_file) {
+                                // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
+                                //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
+                                scripts = decodeURIComponent(scripts);
+                            }
+
+
+                            try {
+                                new Function(scripts)();
+                            } catch (e) {
+                                createErrorWindow({
+                                    statusText: "Unexpected Response",
+                                    status: -1,
+                                    responseText: F.util.htmlEncode(scripts)
+                                });
+                            }
                         }
-                    }
-                    // 有可能响应返回后即关闭本窗体
-                    if (F && F.util) {
-                        F.util.triggerAjaxReady();
-                    }
+                        // 有可能响应返回后即关闭本窗体
+                        if (F && F.util) {
+                            F.util.triggerAjaxReady();
+                        }
+                    //}, 100);
                 },
                 failure: function (data) {
                     var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
