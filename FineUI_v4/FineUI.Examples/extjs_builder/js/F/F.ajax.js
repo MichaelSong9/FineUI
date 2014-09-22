@@ -79,8 +79,8 @@
                 success: function (data) {
                     var scripts = data.responseText;
 
-                    // 因为
-                    //window.setTimeout(function () {
+                    
+                    window.setTimeout(function () {
                         if (scripts) {
                             if (F.form_upload_file) {
                                 // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
@@ -103,7 +103,7 @@
                         if (F && F.util) {
                             F.util.triggerAjaxReady();
                         }
-                    //}, 100);
+                    }, 100);
                 },
                 failure: function (data) {
                     var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
