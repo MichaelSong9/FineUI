@@ -28,6 +28,13 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 
 发布历史
+
++2014-10-** v4.1.5
+	+F.util.addMainTab函数在指定refreshWhenExist参数时也要更新标题（舞柯庶）。
+		-更新示例：杂项->向父页面添加选项卡。
+	
+
+
 +2014-09-22 v4.1.4
 	-修正TriggerBox先禁用再启用后不能触发TriggerClick事件的问题（飘移-2870）。
 	+下拉列表增加MatchFieldWidth属性，可设置弹出框和字段宽度不同。

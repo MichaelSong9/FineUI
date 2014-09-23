@@ -599,7 +599,7 @@
     </TreeNode>
     <TreeNode Text="CssClass属性" NavigateUrl="~/other/cssstyle.aspx">
     </TreeNode>
-    <TreeNode Text="向父页面添加选项卡" NavigateUrl="~/other/addtab.aspx">
+    <TreeNode Text="向父页面添加选项卡" NavigateUrl="~/other/addtab.aspx" IsNew="true">
     </TreeNode>
 
   </TreeNode>

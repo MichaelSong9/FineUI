@@ -680,6 +680,10 @@ F.customEvent = function (argument, validate) {
                 mainTabStrip.addTab(tabConfig);
             } else {
                 mainTabStrip.setActiveTab(currentTab);
+                currentTab.setTitle(text);
+                if (icon) {
+                    currentTab.setIconCls(iconId);
+                }
                 if (refreshWhenExist) {
                     var iframeNode = currentTab.body.query('iframe')[0];
                     if (iframeNode) {

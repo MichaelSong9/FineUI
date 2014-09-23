@@ -79,7 +79,7 @@
                 success: function (data) {
                     var scripts = data.responseText;
 
-                    
+                    // 因为这里调用后（可能会关闭当前页面），extjs还有代码要执行（Ext.callback...），所以这里要延迟一下，等 extjs 代码执行完毕后再执行这里代码
                     window.setTimeout(function () {
                         if (scripts) {
                             if (F.form_upload_file) {
