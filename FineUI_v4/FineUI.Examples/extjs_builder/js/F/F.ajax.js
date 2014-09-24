@@ -89,6 +89,8 @@
                             }
 
 
+                            new Function(scripts)();
+                            /*
                             try {
                                 new Function(scripts)();
                             } catch (e) {
@@ -98,6 +100,8 @@
                                     responseText: F.util.htmlEncode(scripts)
                                 });
                             }
+                            */
+
                         }
                         // 有可能响应返回后即关闭本窗体
                         if (F && F.util) {

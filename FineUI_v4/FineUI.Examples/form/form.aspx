@@ -75,7 +75,7 @@
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:NumberBox ID="NumberBox1" Label="申请数量" MaxValue="1000" Required="true" runat="server"
+                        <f:NumberBox ID="NumberBox1" Label="申请数量" NoNegative="true" MaxValue="1000" Required="true" runat="server"
                             ShowRedStar="True" />
                     </Items>
                 </f:FormRow>
