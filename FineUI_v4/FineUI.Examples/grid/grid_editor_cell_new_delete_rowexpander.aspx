@@ -95,6 +95,8 @@
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
         <br />
+        <br />
+        注：由于 extjs 对行扩展列的支持有限，导致本示例在[新增数据]后，点击行扩展列出现错乱的情况。
     </form>
     <script>
 

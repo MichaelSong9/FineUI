@@ -78,6 +78,8 @@
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
         <br />
+        <br />
+        注：由于 extjs 本身限制，无法在单元格编辑时同时选中一行或者多行。专业版无此限制，<a target="_blank" href="http://fineui.com/demo_pro/#/demo_pro/grid/grid_editor_cell_delete.aspx">查看专业版示例</a>。
     </form>
     <script>
 

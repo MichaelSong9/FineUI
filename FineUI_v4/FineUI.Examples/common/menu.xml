@@ -321,7 +321,7 @@
       <TreeNode Text="合计行（浮动到顶部、当前页合计）" NavigateUrl="~/grid/grid_summary_currentpage.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="单元格编辑">
+    <TreeNode Text="单元格编辑" IsNew="true">
       <TreeNode Text="基本功能" NavigateUrl="~/grid/grid_editor_cell.aspx" >
       </TreeNode>
       <TreeNode Text="客户端单元格渲染" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
@@ -332,9 +332,13 @@
       </TreeNode>
       <TreeNode Text="新增行" NavigateUrl="~/grid/grid_editor_cell_new.aspx" >
       </TreeNode>
-      <TreeNode Text="新增行+删除行" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
+      <TreeNode Text="新增行与删除行" NavigateUrl="~/grid/grid_editor_cell_new_delete.aspx" >
       </TreeNode>
       <TreeNode Text="失去焦点事件" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
+      </TreeNode>
+      <TreeNode Text="行扩展列与单元格编辑" IsNew="true" NavigateUrl="~/grid/grid_editor_cell_afteredit_rowexpander.aspx" >
+      </TreeNode>
+      <TreeNode Text="行扩展列与新增删除行" IsNew="true" NavigateUrl="~/grid/grid_editor_cell_new_delete_rowexpander.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="列锁定" IsNew="true">

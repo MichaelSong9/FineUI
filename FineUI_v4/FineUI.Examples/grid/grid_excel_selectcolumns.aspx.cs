@@ -49,6 +49,8 @@ namespace FineUI.Examples.data
         {
             StringBuilder sb = new StringBuilder();
 
+            sb.Append("<meta http-equiv=\"content-type\" content=\"application/excel; charset=UTF-8\"/>");
+
             List<string> columnHeaderTexts = new List<string>(columns);
             List<int> columnIndexs = new List<int>();
 

@@ -47,6 +47,8 @@ namespace FineUI.Examples.data
         {
             StringBuilder sb = new StringBuilder();
 
+            sb.Append("<meta http-equiv=\"content-type\" content=\"application/excel; charset=UTF-8\"/>");
+
             sb.Append("<table cellspacing=\"0\" rules=\"all\" border=\"1\" style=\"border-collapse:collapse;\">");
 
             sb.Append("<tr>");
