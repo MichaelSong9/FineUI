@@ -52,7 +52,7 @@
                                             <Items>
                                                 <f:ToolbarFill ID="ToolbarFill2" runat="server">
                                                 </f:ToolbarFill>
-                                                <f:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载示例源码" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
+                                                <f:Button ID="btnGotoOpenSourceSite" Icon="DiskDownload" Text="下载全部源码" OnClientClick="window.open('http://fineui.codeplex.com/', '_blank');"
                                                     EnablePostBack="false" runat="server">
                                                 </f:Button>
                                                 <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server">

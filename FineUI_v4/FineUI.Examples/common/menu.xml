@@ -237,40 +237,7 @@
       <TreeNode Text="全选复选框列（客户端实现）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_clientside.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="模板列" IsNew="true">
-      <TreeNode Text="编辑文本框" NavigateUrl="~/grid/grid_edit.aspx" >
-      </TreeNode>
-      <TreeNode Text="编辑下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist.aspx" >
-      </TreeNode>
-      <TreeNode Text="编辑下拉列表（后台绑定数据）" NavigateUrl="~/grid/grid_edit_dropdownlist2.aspx" >
-      </TreeNode>
-      <TreeNode Text="后台更新下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist_update.aspx" >
-      </TreeNode>
-      <TreeNode Text="编辑单选框列表" NavigateUrl="~/grid/grid_edit_radiobuttonlist.aspx" >
-      </TreeNode>
-      <TreeNode Text="编辑复选框列表" NavigateUrl="~/grid/grid_edit_checkboxlist.aspx" >
-      </TreeNode>
-      <TreeNode Text="比较两个模板列的值" NavigateUrl="~/grid/grid_edit_compare.aspx" >
-      </TreeNode>
-      <TreeNode Text="下拉列表同步到文本框" NavigateUrl="~/grid/grid_edit_dropdownlist_textbox.aspx" >
-      </TreeNode>
-      <TreeNode Text="定时保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_auto.aspx" >
-      </TreeNode>
-      <TreeNode Text="遍历表格内所有输入框（纵向）" NavigateUrl="~/grid/grid_edit_enterkey_v.aspx" >
-      </TreeNode>
-      <TreeNode Text="遍历表格内所有输入框（横向）" NavigateUrl="~/grid/grid_edit_enterkey_h.aspx" >
-      </TreeNode>
-      <TreeNode Text="购物车" NavigateUrl="~/grid/grid_edit_cart.aspx" IsNew="true" >
-      </TreeNode>
-    </TreeNode>
-    <TreeNode Text="多表头">
-      <TreeNode Text="多表头" NavigateUrl="~/grid/grid_groupheader.aspx" >
-      </TreeNode>
-      <TreeNode Text="多表头与排序" NavigateUrl="~/grid/grid_groupheader_sort.aspx" >
-      </TreeNode>
-      <TreeNode Text="多表头与标题栏菜单排序" NavigateUrl="~/grid/grid_groupheader_sort_hdmenu.aspx" >
-      </TreeNode>
-    </TreeNode>
+    
     <TreeNode Text="动态创建列">
       <TreeNode Text="动态创建的列" NavigateUrl="~/grid/grid_dynamic_columns.aspx" >
       </TreeNode>
@@ -313,8 +280,44 @@
       <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
       </TreeNode>
     </TreeNode>
+	<TreeNode Text="模板列" IsNew="true">
+      <TreeNode Text="编辑文本框" NavigateUrl="~/grid/grid_edit.aspx" >
+      </TreeNode>
+      <TreeNode Text="编辑下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="编辑下拉列表（后台绑定数据）" NavigateUrl="~/grid/grid_edit_dropdownlist2.aspx" >
+      </TreeNode>
+      <TreeNode Text="后台更新下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist_update.aspx" >
+      </TreeNode>
+      <TreeNode Text="编辑单选框列表" NavigateUrl="~/grid/grid_edit_radiobuttonlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="编辑复选框列表" NavigateUrl="~/grid/grid_edit_checkboxlist.aspx" >
+      </TreeNode>
+      <TreeNode Text="比较两个模板列的值" NavigateUrl="~/grid/grid_edit_compare.aspx" >
+      </TreeNode>
+      <TreeNode Text="下拉列表同步到文本框" NavigateUrl="~/grid/grid_edit_dropdownlist_textbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="定时保存用户输入的值" NavigateUrl="~/grid/grid_edit_save_auto.aspx" >
+      </TreeNode>
+      <TreeNode Text="遍历表格内所有输入框（纵向）" NavigateUrl="~/grid/grid_edit_enterkey_v.aspx" >
+      </TreeNode>
+      <TreeNode Text="遍历表格内所有输入框（横向）" NavigateUrl="~/grid/grid_edit_enterkey_h.aspx" >
+      </TreeNode>
+      <TreeNode Text="购物车" NavigateUrl="~/grid/grid_edit_cart.aspx" IsNew="true" >
+      </TreeNode>
+    </TreeNode>
+    <TreeNode Text="多表头">
+      <TreeNode Text="多表头" NavigateUrl="~/grid/grid_groupheader.aspx" >
+      </TreeNode>
+      <TreeNode Text="多表头与排序" NavigateUrl="~/grid/grid_groupheader_sort.aspx" >
+      </TreeNode>
+      <TreeNode Text="多表头与标题栏菜单排序" NavigateUrl="~/grid/grid_groupheader_sort_hdmenu.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="合计行">
       <TreeNode Text="合计行" NavigateUrl="~/grid/grid_summary.aspx" >
+      </TreeNode>
+      <TreeNode Text="合计行（纵向+横向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar_flow.aspx" >
       </TreeNode>
       <TreeNode Text="合计行（浮动到底部、纵向+横向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar.aspx" >
       </TreeNode>

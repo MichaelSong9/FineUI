@@ -78,6 +78,7 @@
     <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_rowexpander.aspx" />
     <Content Include="grid\grid_editor_cell_new_delete_rowexpander.aspx" />
+    <Content Include="grid\grid_summary_scrollbar_flow.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="master\formlist.aspx" />
@@ -543,6 +544,13 @@
     </Compile>
     <Compile Include="grid\grid_editor_cell_new_delete_rowexpander.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_new_delete_rowexpander.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_summary_scrollbar_flow.aspx.cs">
+      <DependentUpon>grid_summary_scrollbar_flow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_summary_scrollbar_flow.aspx.designer.cs">
+      <DependentUpon>grid_summary_scrollbar_flow.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>

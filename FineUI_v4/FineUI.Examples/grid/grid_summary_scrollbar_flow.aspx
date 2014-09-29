@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_currentpage.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_summary_currentpage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_scrollbar_flow.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_summary_scrollbar_flow" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style>
@@ -13,17 +14,17 @@
         }
         .x-grid-row-summary .x-grid-cell {
             background-color: #fff !important;
-            
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" Width="800px" Height="350px" PageSize="15" ShowBorder="true"
+        <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" Width="800px" Height="350px"
+            PageSize="15" ShowBorder="true"
             ShowHeader="true" AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
             DataKeyNames="Id,Name" IsDatabasePaging="true" OnPageIndexChange="Grid1_PageIndexChange"
-            EnableSummary="true" SummaryPosition="Top">
+            EnableSummary="true" SummaryPosition="Flow">
             <Columns>
                 <f:RowNumberField />
                 <f:BoundField Width="100px" ColumnID="name" DataField="Name" DataFormatString="{0}"
@@ -35,9 +36,9 @@
                 </f:TemplateField>
                 <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
                 <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                <f:HyperLinkField Width="300px" HeaderText="所学专业" ColumnID="major" DataToolTipField="Major" DataTextField="Major"
+                <f:HyperLinkField HeaderText="所学专业" ColumnID="major" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
-                    UrlEncode="true" Target="_blank" />
+                    UrlEncode="true" Target="_blank" Width="300px" />
                 <f:BoundField Width="100px" DataField="Fee" ColumnID="fee" HeaderText="学费" />
                 <f:BoundField Width="100px" DataField="Donate" ColumnID="donate" HeaderText="捐赠金额" />
             </Columns>
@@ -49,9 +50,6 @@
         <br />
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
-        <br />
-        <br />
-        注：本示例是当前页合计，切换页面时合计数据会变化。
     </form>
 </body>
 </html>
