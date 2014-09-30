@@ -237,7 +237,7 @@
       <TreeNode Text="全选复选框列（客户端实现）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_clientside.aspx" >
       </TreeNode>
     </TreeNode>
-    
+
     <TreeNode Text="动态创建列">
       <TreeNode Text="动态创建的列" NavigateUrl="~/grid/grid_dynamic_columns.aspx" >
       </TreeNode>
@@ -280,7 +280,7 @@
       <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
       </TreeNode>
     </TreeNode>
-	<TreeNode Text="模板列" IsNew="true">
+    <TreeNode Text="模板列" IsNew="true">
       <TreeNode Text="编辑文本框" NavigateUrl="~/grid/grid_edit.aspx" >
       </TreeNode>
       <TreeNode Text="编辑下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist.aspx" >
@@ -448,7 +448,7 @@
       <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="面板与窗体">
+    <TreeNode Text="面板与窗体" IsNew="true">
       <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
       </TreeNode>
       <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
@@ -458,6 +458,8 @@
       <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
       </TreeNode>
       <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
+      </TreeNode>
+      <TreeNode Text="窗体与表单" NavigateUrl="~/window/window_form.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="工具栏和菜单" IsNew="true">
@@ -469,7 +471,7 @@
       </TreeNode>
       <TreeNode Text="向工具栏中动态添加按钮" NavigateUrl="~/toolbar/menu_dynamic2.aspx" >
       </TreeNode>
-      <TreeNode Text="工具栏与IFrame页面" NavigateUrl="~/toolbar/toolbar_iframe.aspx">
+      <TreeNode Text="工具栏与IFrame页面" NavigateUrl="~/toolbar/toolbar_iframe.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
       </TreeNode>

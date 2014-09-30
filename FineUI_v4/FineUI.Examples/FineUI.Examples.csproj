@@ -362,7 +362,6 @@
     <Content Include="iframe\parent_simplepostback.aspx" />
     <Content Include="iframe\parent_simplepostback2.aspx" />
     <Content Include="other\custom_postback2.aspx" />
-    <Content Include="res\js\default.js" />
     <Content Include="layout\table.aspx" />
     <Content Include="layout\hbox.aspx" />
     <Content Include="layout\vbox.aspx" />
@@ -414,6 +413,7 @@
     <Content Include="window\window.aspx" />
     <Content Include="window\window_toolbar.aspx" />
     <Content Include="window\panel_collapse.aspx" />
+    <Content Include="window\window_form.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="accordion\accordion_autopostback.aspx.cs">
@@ -2527,6 +2527,13 @@
     <Compile Include="window\panel_collapse.aspx.designer.cs">
       <DependentUpon>panel_collapse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="window\window_form.aspx.cs">
+      <DependentUpon>window_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window_form.aspx.designer.cs">
+      <DependentUpon>window_form.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FineUI\FineUI.csproj">
@@ -2580,7 +2587,6 @@
     <Content Include="basic\hello.aspx" />
     <Content Include="basic\login.aspx" />
     <Content Include="config\icons.htm" />
-    <Content Include="res\css\default.css" />
     <Content Include="res\css\main.css" />
     <Content Include="tree\checkbox\tree_checkall.aspx" />
     <Content Include="dropdownlist\shengshixian.aspx" />
