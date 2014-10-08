@@ -377,7 +377,6 @@
     <None Include="StrongName.snk" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ajax_properties.txt" />
     <Content Include="release_history.txt" />
   </ItemGroup>
   <ItemGroup>
