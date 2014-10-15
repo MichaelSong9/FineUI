@@ -124,8 +124,8 @@
     <TreeNode Text="下拉列表控件" IsNew="true">
       <TreeNode Text="简单下拉列表" NavigateUrl="~/dropdownlist/dropdownlist.aspx" >
       </TreeNode>
-      <TreeNode Text="下拉列表（选项值可为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptyvalue.aspx" >
-      </TreeNode>
+      <!--<TreeNode Text="下拉列表（选项值可为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptyvalue.aspx" >
+      </TreeNode>-->
       <TreeNode Text="下拉列表（可过滤，强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_enableedit.aspx" >
       </TreeNode>
       <TreeNode Text="下拉列表（不强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_forceselection.aspx" >

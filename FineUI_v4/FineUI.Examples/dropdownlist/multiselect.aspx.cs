@@ -39,6 +39,10 @@ namespace FineUI.Examples.dropdownlist
                     String.Join("&nbsp;&nbsp;", texts.ToArray()),
                     String.Join("&nbsp;&nbsp;", values.ToArray()));
             }
+            else
+            {
+                labResult.Text = "无选中项";
+            }
         }
 
 

@@ -1049,7 +1049,7 @@ namespace FineUI
 
             #endregion
 
-            
+
 
             #region Properties
 
@@ -1713,16 +1713,16 @@ namespace FineUI
                 }
                 else
                 {
-                    // 本次是用户输入的值
-                    if (Text != postText)
-                    {
-                        SelectedValue = null;
-                        FState.BackupPostDataProperty("SelectedValue");
+                    //// 本次是用户输入的值
+                    //if (Text != postText)
+                    //{
+                    SelectedValue = null;
+                    FState.BackupPostDataProperty("SelectedValue");
 
-                        Text = postText;
-                        FState.BackupPostDataProperty("Text");
-                        return true;
-                    }
+                    Text = postText;
+                    FState.BackupPostDataProperty("Text");
+                    return true;
+                    //}
                 }
             }
 
