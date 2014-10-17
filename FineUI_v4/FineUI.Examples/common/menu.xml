@@ -84,11 +84,11 @@
       </TreeNode>
       <TreeNode Text="更新复选框列表" NavigateUrl="~/form/checkboxlist_update.aspx" >
       </TreeNode>
-      <TreeNode Text="单选按钮" NavigateUrl="~/form/radiobutton.aspx" >
+      <TreeNode Text="单选框" NavigateUrl="~/form/radiobutton.aspx" >
       </TreeNode>
-      <TreeNode Text="单选按钮列表" NavigateUrl="~/form/radiobuttonlist.aspx" >
+      <TreeNode Text="单选框列表" NavigateUrl="~/form/radiobuttonlist.aspx" >
       </TreeNode>
-      <TreeNode Text="更新单选按钮列表" NavigateUrl="~/form/radiobuttonlist_update.aspx" >
+      <TreeNode Text="更新单选框列表" NavigateUrl="~/form/radiobuttonlist_update.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="表单验证">
