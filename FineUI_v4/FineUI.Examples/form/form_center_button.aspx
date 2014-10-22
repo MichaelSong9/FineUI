@@ -37,7 +37,7 @@
                 </f:FormRow>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True" AutoSelectFirstItem="false">
+                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" EmptyText="请选择一项" Required="true" ShowRedStar="True" AutoSelectFirstItem="false">
                             <f:ListItem Text="可选项 1" Value="0"></f:ListItem>
                             <f:ListItem Text="可选项 2" Value="1"></f:ListItem>
                         </f:DropDownList>

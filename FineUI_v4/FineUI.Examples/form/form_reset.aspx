@@ -26,7 +26,7 @@
                 </f:FormRow>
                 <f:FormRow ColumnWidths="40% 60%">
                     <Items>
-                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" Required="true" ShowRedStar="True" AutoSelectFirstItem="false">
+                        <f:DropDownList ID="DropDownList1" runat="server" Label="下拉列表" EmptyText="请选择一项" Required="true" ShowRedStar="True" AutoSelectFirstItem="false">
                             <f:ListItem Text="可选项 1" Value="0"></f:ListItem>
                             <f:ListItem Text="可选项 2" Value="1"></f:ListItem>
                         </f:DropDownList>
@@ -65,14 +65,14 @@
                 <f:FormRow>
                     <Items>
                         <f:Label ID="Label4" Label="编号" Text="200804170006" runat="server" />
-                        <f:TextBox ID="TextBox2" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL"
+                        <f:TextBox ID="TextBox2" Required="true" ShowRedStar="true" Label="电子邮箱" RegexPattern="EMAIL" EmptyText="请输入常用电子邮箱"
                             RegexMessage="请输入有效的邮箱地址！" runat="server">
                         </f:TextBox>
                     </Items>
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:DropDownList ID="DropDownList3" Label="审批人" Required="true" runat="server" ShowRedStar="True" AutoSelectFirstItem="false">
+                        <f:DropDownList ID="DropDownList3" Label="审批人" Required="true" EmptyText="请选择审批人" runat="server" ShowRedStar="True" AutoSelectFirstItem="false">
                             <f:ListItem Text="老大甲" Value="0"></f:ListItem>
                             <f:ListItem Text="老大乙" Value="1"></f:ListItem>
                             <f:ListItem Text="老大丙" Value="2"></f:ListItem>
@@ -81,7 +81,7 @@
                 </f:FormRow>
                 <f:FormRow>
                     <Items>
-                        <f:NumberBox ID="NumberBox1" Label="申请数量" MaxValue="1000" Required="true" runat="server"
+                        <f:NumberBox ID="NumberBox1" Label="申请数量" EmptyText="请输入申请数量" MaxValue="1000" Required="true" runat="server"
                             ShowRedStar="True" />
                     </Items>
                 </f:FormRow>

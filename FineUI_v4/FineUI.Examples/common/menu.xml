@@ -256,7 +256,7 @@
       <TreeNode Text="行内下载" NavigateUrl="~/grid/grid_rowcommand_download.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="分页工具条">
+    <TreeNode Text="分页工具栏">
       <TreeNode Text="重新绑定数据" NavigateUrl="~/grid/grid_pageitems.aspx" >
       </TreeNode>
       <TreeNode Text="显示隐藏行扩展列" NavigateUrl="~/grid/grid_pageitems_rowexpander.aspx" >

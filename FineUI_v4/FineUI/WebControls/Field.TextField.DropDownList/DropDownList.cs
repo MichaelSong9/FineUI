@@ -71,6 +71,27 @@ namespace FineUI
 
         #region SelectedIndex/SelectedValue/SelectedItem
 
+
+        /// <summary>
+        /// 文本框为空时显示的文本
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("文本框为空时显示的文本")]
+        public virtual string EmptyText
+        {
+            get
+            {
+                object obj = FState["EmptyText"];
+                return obj == null ? "" : (string)obj;
+            }
+            set
+            {
+                FState["EmptyText"] = value;
+            }
+        }
+
+
         /// <summary>
         /// [AJAX属性]用户输入的文本（只有在允许编辑和不强制选择的情况下才有效）
         /// </summary>
@@ -162,6 +183,14 @@ namespace FineUI
                         break;
                     }
                 }
+
+                // 自动修正
+                if (selectedIndex == -1 && AutoSelectFirstItem && Items.Count > 0)
+                {
+                    selectedIndex = 0;
+                }
+
+
                 return selectedIndex;
             }
             set
@@ -1086,6 +1115,13 @@ namespace FineUI
             OB.AddProperty("hiddenName", SelectedValueHiddenFieldID);
 
 
+            if (!String.IsNullOrEmpty(EmptyText))
+            {
+                OB.AddProperty("emptyText", EmptyText);
+            }
+
+
+
             JsObjectBuilder storeBuilder = new JsObjectBuilder();
             storeBuilder.AddProperty("fields", "['value','text','enabled','prefix']", true);
             storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.F_Items)", GetFStateScriptID()), true);
@@ -1111,6 +1147,8 @@ namespace FineUI
                 }
 
             }
+
+           
 
 
 

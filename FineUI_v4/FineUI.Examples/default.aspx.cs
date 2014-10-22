@@ -16,6 +16,7 @@ namespace FineUI.Examples
 
         private string menuType = "menu";
         private bool showOnlyNew = false;
+        private int examplesCount = 0;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -48,6 +49,10 @@ namespace FineUI.Examples
                 ids.Add("mainMenu", treeMenu.ClientID);
                 ids.Add("menuType", "menu");
             }
+
+
+            leftRegion.Title = String.Format("全部示例（{0}）", examplesCount);
+
 
             ids.Add("theme", PageManager.Instance.Theme.ToString());
 
@@ -167,6 +172,12 @@ namespace FineUI.Examples
                 {
                     e.Cancelled = true;
                 }
+            }
+
+            // 更新示例总数
+            if (e.XmlNode.ChildNodes.Count == 0)
+            {
+                examplesCount++;
             }
         }
 
