@@ -184,8 +184,8 @@ namespace FineUI
                     }
                 }
 
-                // 自动修正
-                if (selectedIndex == -1 && AutoSelectFirstItem && Items.Count > 0)
+                // 自动修正（仅在页面第一次加载时有效）
+                if (selectedIndex == -1 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
                 {
                     selectedIndex = 0;
                 }
