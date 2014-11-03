@@ -174,6 +174,10 @@ namespace FineUI
         {
             get
             {
+                // 获取参数前先尝试修正数据
+                ProcessAutoSelectFirstItem();
+
+
                 int selectedIndex = -1;
                 for (int i = 0, count = Items.Count; i < count; i++)
                 {
@@ -184,11 +188,11 @@ namespace FineUI
                     }
                 }
 
-                // 自动修正（仅在页面第一次加载时有效）
-                if (selectedIndex == -1 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
-                {
-                    selectedIndex = 0;
-                }
+                //// 自动修正（仅在页面第一次加载时有效）
+                //if (selectedIndex == -1 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+                //{
+                //    selectedIndex = 0;
+                //}
 
 
                 return selectedIndex;
@@ -261,6 +265,9 @@ namespace FineUI
         {
             get
             {
+                // 获取参数前先尝试修正数据
+                ProcessAutoSelectFirstItem();
+
                 List<string> selectedValues = new List<string>();
                 for (int i = 0, count = Items.Count; i < count; i++)
                 {
@@ -315,6 +322,9 @@ namespace FineUI
         {
             get
             {
+                // 获取参数前先尝试修正数据
+                ProcessAutoSelectFirstItem();
+
                 List<int> selectedIndexs = new List<int>();
                 for (int i = 0, count = Items.Count; i < count; i++)
                 {
@@ -353,6 +363,9 @@ namespace FineUI
         {
             get
             {
+                // 获取参数前先尝试修正数据
+                ProcessAutoSelectFirstItem();
+
                 List<ListItem> selectedItems = new List<ListItem>();
                 for (int i = 0, count = Items.Count; i < count; i++)
                 {
@@ -1022,12 +1035,32 @@ namespace FineUI
 
         private void ProcessAutoSelectFirstItem()
         {
-            // 如果强制选择一项，我们可能需要选中第一项
-            if (SelectedItem == null && AutoSelectFirstItem)
+            //// 如果强制选择一项，我们可能需要选中第一项
+            //if (SelectedItem == null && AutoSelectFirstItem)
+            //{
+            //    if (Items.Count > 0)
+            //    {
+            //        SelectedIndex = 0;
+            //    }
+            //}
+
+            // 自动修正（仅在页面第一次加载时有效）
+            if (AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
             {
-                if (Items.Count > 0)
+                bool hasSelection = false;
+                foreach (ListItem item in Items)
                 {
-                    SelectedIndex = 0;
+                    if (item.Selected)
+                    {
+                        hasSelection = true;
+                        break;
+                    }
+                }
+
+                // 没有选中任何一项，则选中第一项
+                if (!hasSelection)
+                {
+                    Items[0].Selected = true;
                 }
             }
         }

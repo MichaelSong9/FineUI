@@ -390,24 +390,39 @@ namespace FineUI
             }
 
             // 只有在表单中，有些属性才有效
-            if (ShowLabel)
-            {
-                if (!String.IsNullOrEmpty(Label))
-                {
-                    if (ShowRedStar)
-                    {
-                        OB.AddProperty("fieldLabel", Label + GetRedStarHtml());
-                    }
-                    else
-                    {
-                        OB.AddProperty("fieldLabel", Label);
-                    }
-                }
-            }
-            else
+            //if (ShowLabel)
+            //{
+            //    if (!String.IsNullOrEmpty(Label))
+            //    {
+            //        if (ShowRedStar)
+            //        {
+            //            OB.AddProperty("fieldLabel", Label + GetRedStarHtml());
+            //        }
+            //        else
+            //        {
+            //            OB.AddProperty("fieldLabel", Label);
+            //        }
+            //    }
+            //}
+            if (!ShowLabel)
             {
                 OB.AddProperty("hideLabel", true);
             }
+
+
+            // 即使ShowLabel=false，也要输出 Label 属性。可能会在标签验证失败对话框中用到[请为 用户名 提供有效值！]。
+            if (!String.IsNullOrEmpty(Label))
+            {
+                if (ShowRedStar)
+                {
+                    OB.AddProperty("fieldLabel", Label + GetRedStarHtml());
+                }
+                else
+                {
+                    OB.AddProperty("fieldLabel", Label);
+                }
+            }
+
 
             if (LabelSeparator != ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT)
             {

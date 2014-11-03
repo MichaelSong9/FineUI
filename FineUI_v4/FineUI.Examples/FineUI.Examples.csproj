@@ -61,6 +61,7 @@
     <Content Include="accordion\accordion_tree_index.htm" />
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
+    <Content Include="basic\login_enterkey.aspx" />
     <Content Include="dropdownlist\dropdownlist_matchfieldwidth.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
@@ -89,6 +90,7 @@
     <Content Include="test\empty.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\iframe_window.aspx" />
+    <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
@@ -437,6 +439,13 @@
     <Compile Include="aspnet\aspnet_literal.aspx.designer.cs">
       <DependentUpon>aspnet_literal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="basic\login_enterkey.aspx.cs">
+      <DependentUpon>login_enterkey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="basic\login_enterkey.aspx.designer.cs">
+      <DependentUpon>login_enterkey.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dropdownlist\dropdownlist_matchfieldwidth.aspx.cs">
       <DependentUpon>dropdownlist_matchfieldwidth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -636,6 +645,13 @@
     </Compile>
     <Compile Include="test\iframe_window.aspx.designer.cs">
       <DependentUpon>iframe_window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\login__.aspx.cs">
+      <DependentUpon>login__.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\login__.aspx.designer.cs">
+      <DependentUpon>login__.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\LPList.aspx.cs">
       <DependentUpon>LPList.aspx</DependentUpon>

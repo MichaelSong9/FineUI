@@ -18,7 +18,7 @@
                         <f:Label ID="Label2" Width="100px" runat="server" CssClass="marginr" ShowLabel="false"
                             Text="用户名：">
                         </f:Label>
-                        <f:TextBox ID="TextBox2" ShowLabel="false" Required="true" Width="150px" CssClass="marginr" runat="server">
+                        <f:TextBox ID="TextBox2" ShowLabel="false" Label="用户名" Required="true" Width="150px" CssClass="marginr" runat="server">
                         </f:TextBox>
                         <f:Button ID="Button3" Text="按钮一" CssClass="marginr" runat="server">
                         </f:Button>
@@ -32,9 +32,9 @@
                         <f:Label ID="Label1" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="作息起止时间：">
                         </f:Label>
-                        <f:DatePicker ID="DatePicker1" Required="true" CssClass="marginr" Width="150px" runat="server">
+                        <f:DatePicker ID="DatePicker1" ShowLabel="false" Label="作息开始时间" Required="true" CssClass="marginr" Width="150px" runat="server">
                         </f:DatePicker>
-                        <f:DatePicker ID="DatePicker2" Required="true" CompareControl="DatePicker1" CompareOperator="GreaterThan"
+                        <f:DatePicker ID="DatePicker2" ShowLabel="false" Label="作息结束时间" Required="true" CompareControl="DatePicker1" CompareOperator="GreaterThan"
                             CompareMessage="结束日期应该大于开始日期！" Width="150px" runat="server">
                         </f:DatePicker>
                     </Items>
@@ -45,9 +45,9 @@
                         <f:Label ID="Label3" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="上班起止时间：">
                         </f:Label>
-                        <f:DatePicker ID="DatePicker3" Required="true" CssClass="marginr" ColumnWidth="50%" runat="server">
+                        <f:DatePicker ID="DatePicker3" ShowLabel="false" Label="上班开始时间" Required="true" CssClass="marginr" ColumnWidth="50%" runat="server">
                         </f:DatePicker>
-                        <f:DatePicker ID="DatePicker4" Required="true" CompareControl="DatePicker3" CompareOperator="GreaterThan"
+                        <f:DatePicker ID="DatePicker4" ShowLabel="false" Label="上班结束时间" Required="true" CompareControl="DatePicker3" CompareOperator="GreaterThan"
                             CompareMessage="结束日期应该大于开始日期！" ColumnWidth="50%" runat="server">
                         </f:DatePicker>
                     </Items>
@@ -58,17 +58,17 @@
                         <f:Label ID="Label4" runat="server" Width="100px" CssClass="marginr" ShowLabel="false"
                             Text="工作时间：">
                         </f:Label>
-                        <f:TextBox Width="40px" Required="true" runat="server">
+                        <f:TextBox Width="40px" ShowLabel="false" Label="工作时间（小时）" Required="true" runat="server">
                         </f:TextBox>
                         <f:Label runat="server" Text="&nbsp;小时&nbsp;">
                         </f:Label>
-                        <f:TextBox Width="40px" Required="true" ID="TextBox1" runat="server">
+                        <f:TextBox Width="40px" ShowLabel="false" Label="工作时间（分钟）" Required="true" ID="TextBox1" runat="server">
                         </f:TextBox>
                         <f:Label ID="Label5" runat="server" Text="&nbsp;分钟">
                         </f:Label>
                     </Items>
                 </f:Panel>
-                <f:Button ID="Button1" Text="提交表单" ValidateForms="Form1" ValidateMessageBox="false" runat="server">
+                <f:Button ID="Button1" Text="提交表单" ValidateForms="Form1" ValidateMessageBox="true" runat="server">
                 </f:Button>
             </items>
         </f:Form>

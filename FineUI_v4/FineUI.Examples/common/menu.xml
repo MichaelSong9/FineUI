@@ -21,6 +21,8 @@
     </TreeNode>
     <TreeNode Text="登录页面" NavigateUrl="~/basic/login.aspx" >
     </TreeNode>
+    <TreeNode Text="登录页面（回车导航）" NavigateUrl="~/basic/login_enterkey.aspx" >
+    </TreeNode>
     <TreeNode Text="登录页面（验证码）" NavigateUrl="~/basic/login_captcha.aspx" >
     </TreeNode>
   </TreeNode>
