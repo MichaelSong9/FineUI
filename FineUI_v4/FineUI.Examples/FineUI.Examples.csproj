@@ -65,6 +65,7 @@
     <Content Include="dropdownlist\dropdownlist_matchfieldwidth.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
+    <Content Include="dropdownlist\multiselect_autopostback.aspx" />
     <Content Include="extjs_builder\version.txt" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
@@ -466,6 +467,13 @@
     </Compile>
     <Compile Include="dropdownlist\multiselect_enableedit.aspx.designer.cs">
       <DependentUpon>multiselect_enableedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\multiselect_autopostback.aspx.cs">
+      <DependentUpon>multiselect_autopostback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\multiselect_autopostback.aspx.designer.cs">
+      <DependentUpon>multiselect_autopostback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

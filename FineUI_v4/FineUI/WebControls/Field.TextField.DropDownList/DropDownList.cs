@@ -991,6 +991,15 @@ namespace FineUI
 
         #region OnPreRender
 
+        private string Render_AutoPostBackID
+        {
+            get
+            {
+                return String.Format("{0}_autopostback", XID);
+            }
+        }
+
+
         /// <summary>
         /// 渲染 HTML 之前调用（AJAX回发）
         /// </summary>
@@ -1290,6 +1299,12 @@ namespace FineUI
 
             #region AutoPostBack
 
+            string autoPostBackScript = String.Empty;
+
+            if (AutoPostBack)
+            {
+                autoPostBackScript = String.Format("var {0}={1};", Render_AutoPostBackID, JsHelper.GetFunction("if(cmp.f_tmp_lastvalue!==cmp.getValue()){" + GetPostBackEventReference() + "}", "cmp"));
+            }
             StringBuilder beforeselectSB = new StringBuilder();
             // 是否能选中一项（如果此项不能选中，则点击没用）
             //beforeselectSB.AppendFormat("if(F.util.isHiddenFieldContains('{0}',index)){{return false;}}", DisableRowIndexsHiddenID);
@@ -1299,13 +1314,19 @@ namespace FineUI
             {
                 beforeselectSB.Append("cmp.f_tmp_lastvalue=cmp.getValue();");
 
-                string selectScript = "if(cmp.f_tmp_lastvalue!==cmp.getValue()){" + GetPostBackEventReference() + "}";
-                //OB.Listeners.AddProperty("select", JsHelper.GetFunction(selectScript, "cmp"), true);
-                AddListener("select", selectScript, "cmp");
+                //string selectScript = "if(cmp.f_tmp_lastvalue!==cmp.getValue()){" + GetPostBackEventReference() + "}";
+                beforeselectSB.AppendFormat("window.setTimeout(function(){{{0}(cmp);}},100);", Render_AutoPostBackID);
+                //AddListener("select", selectScript, "cmp");
             }
 
-            //OB.Listeners.AddProperty("beforeselect", JsHelper.GetFunction(beforeselectSB.ToString(), "cmp", "record", "index"), true);
             AddListener("beforeselect", beforeselectSB.ToString(), "cmp", "record", "index");
+
+            if (EnableMultiSelect)
+            {
+                StringBuilder beforedeselectSB = new StringBuilder();
+                beforedeselectSB.AppendFormat("window.setTimeout(function(){{{0}(cmp);}},100);", Render_AutoPostBackID);
+                AddListener("beforedeselect", beforedeselectSB.ToString(), "cmp", "record", "index");
+            }
 
             #region old code
             //if (AutoPostBack)
@@ -1354,7 +1375,7 @@ namespace FineUI
 
             string contentScript = String.Format("var {0}=Ext.create('Ext.form.field.ComboBox',{1});", XID, OB.ToString());
 
-            AddStartupScript(contentScript);
+            AddStartupScript(autoPostBackScript + contentScript);
 
             #region old code
             //List<string> totalModifiedProperties = FState.GetTotalModifiedProperties();

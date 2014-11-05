@@ -151,6 +151,8 @@
         </TreeNode>
         <TreeNode Text="多选（可过滤，强制选择）" NavigateUrl="~/dropdownlist/multiselect_enableedit.aspx" IsNew="true">
         </TreeNode>
+        <TreeNode Text="下拉列表（自动回发）" NavigateUrl="~/dropdownlist/multiselect_autopostback.aspx" IsNew="true">
+        </TreeNode>
       </TreeNode>
     </TreeNode>
     <TreeNode Text="杂项" IsNew="true" >

@@ -339,6 +339,7 @@
     <Content Include="other\confirm_cancel.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
+    <Content Include="test\login__.aspx" />
     <Content Include="test\start.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\formitemclass.aspx" />
@@ -1593,6 +1594,13 @@
     </Compile>
     <Compile Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx.designer.cs">
       <DependentUpon>tabstrip_iframe_disabled_tab1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\login__.aspx.cs">
+      <DependentUpon>login__.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\login__.aspx.designer.cs">
+      <DependentUpon>login__.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\start.aspx.cs">
       <DependentUpon>start.aspx</DependentUpon>
