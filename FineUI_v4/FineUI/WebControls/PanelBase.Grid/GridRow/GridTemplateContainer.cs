@@ -3,7 +3,7 @@
 /*
  * Project：    FineUI
  * 
- * FileName:    GridRowControl.cs
+ * FileName:    GridTemplateContainer.cs
  * CreatedOn:   2008-05-27
  * CreatedBy:   30372245@qq.com
  * 
@@ -38,14 +38,14 @@ namespace FineUI
     /// 用来作为模板列的数据绑定容器，实现了IDataItemContainer接口
     /// </summary>
     [ToolboxItem(false)]
-    public class GridRowControl : WebControl, IDataItemContainer, INamingContainer
+    public class GridTemplateContainer : WebControl, IDataItemContainer, INamingContainer
     {
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="dataItem">数据源</param>
         /// <param name="rowIndex">行索引</param>
-        public GridRowControl(object dataItem, int rowIndex)
+        public GridTemplateContainer(object dataItem, int rowIndex)
         {
             _dataItem = dataItem;
             _dataItemIndex = _displayIndex = rowIndex;

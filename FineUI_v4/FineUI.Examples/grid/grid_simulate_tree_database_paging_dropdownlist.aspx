@@ -12,7 +12,7 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" ShowBorder="true" ShowHeader="true"
             runat="server" EnableCheckBoxSelect="True" AllowPaging="true" PageSize="1" IsDatabasePaging="true"
-            DataKeyNames="Id,Name" Width="800px" Height="450px" OnPageIndexChange="Grid1_PageIndexChange">
+            DataKeyNames="Id,Name" Width="800px" Height="450px" OnPageIndexChange="Grid1_PageIndexChange" ShowPagingMessage="false">
             <Columns>
                 <f:RowNumberField />
                 <f:BoundField DataField="Name" DataSimulateTreeLevelField="TreeLevel" DataFormatString="{0}"

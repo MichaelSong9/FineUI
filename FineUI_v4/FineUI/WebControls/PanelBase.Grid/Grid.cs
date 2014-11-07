@@ -3560,7 +3560,7 @@ namespace FineUI
             // 会重新创建这些控件，所以要先删除之前存在的GridRowControl
             for (int i = Controls.Count - 1; i >= 0; i--)
             {
-                if (Controls[i] is GridRowControl)
+                if (Controls[i] is GridTemplateContainer)
                 {
                     Controls.RemoveAt(i);
                 }

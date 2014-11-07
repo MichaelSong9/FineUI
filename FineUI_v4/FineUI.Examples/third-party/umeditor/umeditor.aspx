@@ -25,7 +25,7 @@
         注：本示例不支持文件上传，请根据UEditor官网文档自行配置。
     </form>
     <script type="text/javascript">
-        window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/third-party/res/umeditor/") %>';
+        window.UMEDITOR_HOME_URL = '<%= ResolveUrl("~/third-party/res/umeditor/") %>';
     </script>
     <script type="text/javascript" src="../../res/js/jquery.min.js"></script>
     <script type="text/javascript" src="../res/umeditor/umeditor.config.js"></script>

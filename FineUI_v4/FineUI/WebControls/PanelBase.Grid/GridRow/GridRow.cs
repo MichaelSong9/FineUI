@@ -249,12 +249,12 @@ namespace FineUI
         #region TemplateContainers
 
 
-        private GridRowControl[] _templateContainers = null;
+        private GridTemplateContainer[] _templateContainers = null;
         
         /// <summary>
         /// 表格行中模板列控件列表，一个典型的例子为：[GridRowControl, null, null, GridRowControl, null, null, null, null, null]
         /// </summary>
-        public GridRowControl[] TemplateContainers
+        public GridTemplateContainer[] TemplateContainers
         {
             get
             {
@@ -272,7 +272,7 @@ namespace FineUI
         public void InitTemplateContainers()
         {
             Collection<GridColumn> columns = _grid.AllColumns;
-            TemplateContainers = new GridRowControl[columns.Count];
+            TemplateContainers = new GridTemplateContainer[columns.Count];
 
             for (int i = 0, count = columns.Count; i < count; i++)
             {
@@ -280,7 +280,7 @@ namespace FineUI
                 if (column is TemplateField)
                 {
                     TemplateField field = column as TemplateField;
-                    GridRowControl control = new GridRowControl(DataItem, RowIndex);
+                    GridTemplateContainer control = new GridTemplateContainer(DataItem, RowIndex);
                     
 
                     // 不用指定ID，会自动生成类似 ct123 的唯一ID
@@ -328,7 +328,7 @@ namespace FineUI
         /// </summary>
         internal void DataBindRow()
         {
-            foreach (GridRowControl tplCtrl in TemplateContainers)
+            foreach (GridTemplateContainer tplCtrl in TemplateContainers)
             {
                 if (tplCtrl != null)
                 {
@@ -404,7 +404,7 @@ namespace FineUI
         /// <returns></returns>
         public Control FindControl(string id)
         {
-            foreach (GridRowControl control in TemplateContainers)
+            foreach (GridTemplateContainer control in TemplateContainers)
             {
                 if (control != null)
                 {

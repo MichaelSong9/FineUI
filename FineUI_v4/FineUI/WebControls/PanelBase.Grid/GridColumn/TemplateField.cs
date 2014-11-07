@@ -56,7 +56,7 @@ namespace FineUI
         [Browsable(false)]
         [PersistenceMode(PersistenceMode.InnerProperty)]
         [TemplateInstance(TemplateInstance.Single)]
-        [TemplateContainer(typeof(GridRowControl))]
+        [TemplateContainer(typeof(GridTemplateContainer))]
         [Description("Ä£°åÈÝÆ÷")]
         public virtual ITemplate ItemTemplate
         {
@@ -156,7 +156,7 @@ namespace FineUI
 
         internal override object GetColumnValue(GridRow row)
         {
-            GridRowControl control = row.TemplateContainers[ColumnIndex];
+            GridTemplateContainer control = row.TemplateContainers[ColumnIndex];
             
             return String.Format("{0}{1}", Grid.TEMPLATE_PLACEHOLDER_PREFIX, control.ID);
         }

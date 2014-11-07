@@ -280,7 +280,7 @@
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\HyperLinkField.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumn\GridColumn.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridColumn\GridColumn\GridColumnCollection.cs" />
-    <Compile Include="WebControls\PanelBase.Grid\GridRow\GridRowControl.cs" />
+    <Compile Include="WebControls\PanelBase.Grid\GridRow\GridTemplateContainer.cs" />
     <Compile Include="WebControls\PanelBase.Grid\GridRow\GridRow.cs">
       <SubType>Code</SubType>
     </Compile>
