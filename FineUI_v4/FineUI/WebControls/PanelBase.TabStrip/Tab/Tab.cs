@@ -75,6 +75,19 @@ namespace FineUI
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override bool ShowHeader
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// 不支持此属性
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override bool ShowBorder
         {
             get

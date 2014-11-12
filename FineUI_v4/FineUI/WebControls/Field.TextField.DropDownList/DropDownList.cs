@@ -174,8 +174,11 @@ namespace FineUI
         {
             get
             {
-                // 获取参数前先尝试修正数据
-                ProcessAutoSelectFirstItem();
+                if (!Page.IsPostBack)
+                {
+                    // 获取参数前先尝试修正数据
+                    ProcessAutoSelectFirstItem();
+                }
 
 
                 int selectedIndex = -1;
@@ -265,8 +268,11 @@ namespace FineUI
         {
             get
             {
-                // 获取参数前先尝试修正数据
-                ProcessAutoSelectFirstItem();
+                if (!Page.IsPostBack)
+                {
+                    // 获取参数前先尝试修正数据
+                    ProcessAutoSelectFirstItem();
+                }
 
                 List<string> selectedValues = new List<string>();
                 for (int i = 0, count = Items.Count; i < count; i++)
@@ -322,8 +328,11 @@ namespace FineUI
         {
             get
             {
-                // 获取参数前先尝试修正数据
-                ProcessAutoSelectFirstItem();
+                if (!Page.IsPostBack)
+                {
+                    // 获取参数前先尝试修正数据
+                    ProcessAutoSelectFirstItem();
+                }
 
                 List<int> selectedIndexs = new List<int>();
                 for (int i = 0, count = Items.Count; i < count; i++)
@@ -363,8 +372,11 @@ namespace FineUI
         {
             get
             {
-                // 获取参数前先尝试修正数据
-                ProcessAutoSelectFirstItem();
+                if (!Page.IsPostBack)
+                {
+                    // 获取参数前先尝试修正数据
+                    ProcessAutoSelectFirstItem();
+                }
 
                 List<ListItem> selectedItems = new List<ListItem>();
                 for (int i = 0, count = Items.Count; i < count; i++)
@@ -1053,8 +1065,8 @@ namespace FineUI
             //    }
             //}
 
-            // 自动修正（仅在页面第一次加载时有效）
-            if (AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+            // 自动修正
+            if (AutoSelectFirstItem && Items.Count > 0)
             {
                 bool hasSelection = false;
                 foreach (ListItem item in Items)
@@ -1541,6 +1553,9 @@ namespace FineUI
                     throw new Exception("DataSource doesn't support data type: " + _dataSource.GetType().ToString());
                 }
             }
+
+            // 重新绑定数据后，判断是否自动选择第一项
+            ProcessAutoSelectFirstItem();
 
             base.DataBind();
         }
