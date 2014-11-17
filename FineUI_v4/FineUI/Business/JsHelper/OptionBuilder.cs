@@ -79,8 +79,8 @@ namespace FineUI
         /// <param name="persistOriginal">是否保持原样</param>
         public void AddProperty(string propertyName, object propertyValue, bool persistOriginal)
         {
-            // 添加属性之前，要先删除之前已经添加的属性，否则会出粗
-            RemoveProperty(propertyName);
+            //// 添加属性之前，要先删除之前已经添加的属性，否则会出粗
+            //RemoveProperty(propertyName);
 
 
             _defaultBuilder.AddProperty(propertyName, propertyValue, persistOriginal);

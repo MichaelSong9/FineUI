@@ -69,6 +69,8 @@
     <Content Include="extjs_builder\version.txt" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
+    <Content Include="grid\grid_excel_findcontrol.aspx" />
+    <Content Include="grid\grid_excel_groupfield.aspx" />
     <Content Include="grid\grid_hide_gridheader.aspx" />
     <Content Include="grid\grid_lockcolumn.aspx" />
     <Content Include="grid\grid_lockcolumn_many_columns.aspx" />
@@ -484,6 +486,20 @@
     </Compile>
     <Compile Include="grid\grid_checkall_singleselect.aspx.designer.cs">
       <DependentUpon>grid_checkall_singleselect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_excel_findcontrol.aspx.cs">
+      <DependentUpon>grid_excel_findcontrol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_excel_findcontrol.aspx.designer.cs">
+      <DependentUpon>grid_excel_findcontrol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_excel_groupfield.aspx.cs">
+      <DependentUpon>grid_excel_groupfield.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_excel_groupfield.aspx.designer.cs">
+      <DependentUpon>grid_excel_groupfield.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_hide_gridheader.aspx.cs">
       <DependentUpon>grid_hide_gridheader.aspx</DependentUpon>
