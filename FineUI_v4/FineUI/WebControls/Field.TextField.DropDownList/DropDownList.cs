@@ -174,11 +174,11 @@ namespace FineUI
         {
             get
             {
-                if (!Page.IsPostBack)
-                {
-                    // 获取参数前先尝试修正数据
-                    ProcessAutoSelectFirstItem();
-                }
+                //if (!Page.IsPostBack)
+                //{
+                //    // 获取参数前先尝试修正数据
+                //    ProcessAutoSelectFirstItem();
+                //}
 
 
                 int selectedIndex = -1;
@@ -196,7 +196,11 @@ namespace FineUI
                 //{
                 //    selectedIndex = 0;
                 //}
-
+                // 自动修正（仅在页面第一次加载时有效），但是不改变Items属性
+                if (selectedIndex == -1 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+                {
+                    selectedIndex = 0;
+                }
 
                 return selectedIndex;
             }
@@ -268,11 +272,11 @@ namespace FineUI
         {
             get
             {
-                if (!Page.IsPostBack)
-                {
-                    // 获取参数前先尝试修正数据
-                    ProcessAutoSelectFirstItem();
-                }
+                //if (!Page.IsPostBack)
+                //{
+                //    // 获取参数前先尝试修正数据
+                //    ProcessAutoSelectFirstItem();
+                //}
 
                 List<string> selectedValues = new List<string>();
                 for (int i = 0, count = Items.Count; i < count; i++)
@@ -295,6 +299,11 @@ namespace FineUI
                     }
                 }
                 */
+                // 自动修正（仅在页面第一次加载时有效），但是不改变Items属性
+                if (selectedValues.Count == 0 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+                {
+                    selectedValues.Add(Items[0].Value);
+                }
 
                 return selectedValues.ToArray();
             }
@@ -328,11 +337,11 @@ namespace FineUI
         {
             get
             {
-                if (!Page.IsPostBack)
-                {
-                    // 获取参数前先尝试修正数据
-                    ProcessAutoSelectFirstItem();
-                }
+                //if (!Page.IsPostBack)
+                //{
+                //    // 获取参数前先尝试修正数据
+                //    ProcessAutoSelectFirstItem();
+                //}
 
                 List<int> selectedIndexs = new List<int>();
                 for (int i = 0, count = Items.Count; i < count; i++)
@@ -342,6 +351,13 @@ namespace FineUI
                         selectedIndexs.Add(i);
                     }
                 }
+
+                // 自动修正（仅在页面第一次加载时有效），但是不改变Items属性
+                if (selectedIndexs.Count == 0 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+                {
+                    selectedIndexs.Add(0);
+                }
+
                 return selectedIndexs.ToArray();
             }
             set
@@ -372,11 +388,11 @@ namespace FineUI
         {
             get
             {
-                if (!Page.IsPostBack)
-                {
-                    // 获取参数前先尝试修正数据
-                    ProcessAutoSelectFirstItem();
-                }
+                //if (!Page.IsPostBack)
+                //{
+                //    // 获取参数前先尝试修正数据
+                //    ProcessAutoSelectFirstItem();
+                //}
 
                 List<ListItem> selectedItems = new List<ListItem>();
                 for (int i = 0, count = Items.Count; i < count; i++)
@@ -387,6 +403,13 @@ namespace FineUI
                         selectedItems.Add(item);
                     }
                 }
+
+                // 自动修正（仅在页面第一次加载时有效），但是不改变Items属性
+                if (selectedItems.Count == 0 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+                {
+                    selectedItems.Add(Items[0]);
+                }
+
                 return selectedItems.ToArray();
             }
         }
@@ -1554,8 +1577,8 @@ namespace FineUI
                 }
             }
 
-            // 重新绑定数据后，判断是否自动选择第一项
-            ProcessAutoSelectFirstItem();
+            //// 重新绑定数据后，判断是否自动选择第一项
+            //ProcessAutoSelectFirstItem();
 
             base.DataBind();
         }
