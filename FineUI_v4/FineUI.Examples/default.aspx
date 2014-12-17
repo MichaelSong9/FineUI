@@ -287,7 +287,9 @@
         </f:Menu>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
+	<!--
     <img src="./res/images/logo/logo3.png" alt="FineUI 图标" id="logo" />
+	-->
     <script src="./res/js/jquery.min.js"></script>
     <script>
 

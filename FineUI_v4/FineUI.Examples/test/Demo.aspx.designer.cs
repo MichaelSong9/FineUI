@@ -31,21 +31,12 @@ namespace Com.UMall.Presentation.Order {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Panel7 控件。
+        /// TabsContainer 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Panel Panel7;
-        
-        /// <summary>
-        /// gridDemo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Grid gridDemo;
+        protected global::FineUI.Panel TabsContainer;
     }
 }

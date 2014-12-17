@@ -31,30 +31,39 @@ namespace FineUI.Examples {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// ContentPanel1 控件。
+        /// MainPanel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel1;
+        protected global::FineUI.Panel MainPanel;
         
         /// <summary>
-        /// XXRemarks 控件。
+        /// BizTask 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextArea XXRemarks;
+        protected global::FineUI.Panel BizTask;
         
         /// <summary>
-        /// RadioButtonList1 控件。
+        /// TabStrip1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.RadioButtonList RadioButtonList1;
+        protected global::FineUI.TabStrip TabStrip1;
+        
+        /// <summary>
+        /// Tab1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Tab Tab1;
     }
 }

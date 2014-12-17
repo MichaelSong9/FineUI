@@ -9,45 +9,18 @@
 
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel7" runat="server" />
-        <f:Panel ID="Panel7" runat="server" Layout="Fit">
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Panel runat="server" ID="TabsContainer" ShowHeader="false" ShowBorder="false" Height="500px" Layout="Fit">
             <Items>
-                <f:Grid ForceFit="true" ID="gridDemo" ShowBorder="false" ShowHeader="true" Title="表格（ForceFit=true）" runat="server"
-                    DataKeyNames="Id_Order"
-                    BoxFlex="1">
-                    <Columns>
-                        <f:TemplateField HeaderText="订单号/时间/状态" Width="200px">
-                            <ItemTemplate>
-                                <div class="expander">
-                                    <p>
-                                        预订时间： <%# Eval("ID")%>
-                                    </p>
-                                </div>
-                            </ItemTemplate>
-                        </f:TemplateField>
-                        <f:TemplateField HeaderText="出团时间/价格" Width="200px">
-                            <ItemTemplate>
-                                <div class="expander">
-                                    <p>
-                                        预订时间： <%# Eval("ID")%>
-                                    </p>
-                                </div>
-                            </ItemTemplate>
-                        </f:TemplateField>
-                    </Columns>
-                </f:Grid>
+                <f:Panel Title="sss" runat="server">
+
+                </f:Panel>
             </Items>
         </f:Panel>
     </form>
     <script>
 
-        var gridClientID = '<%= gridDemo.ClientID %>';
-
-        /*
-        F.ready(function () {
-            F(gridClientID).doLayout();
-        });
-        */
+        
 
     </script>
 </body>

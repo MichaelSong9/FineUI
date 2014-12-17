@@ -85,10 +85,13 @@
     <Content Include="grid\grid_summary_scrollbar_flow.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
+    <Content Include="layout\region.aspx" />
     <Content Include="master\formlist.aspx" />
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
+    <Content Include="tabstrip\tabstrip_position.aspx" />
+    <Content Include="test\Default.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
@@ -599,6 +602,13 @@
     <Compile Include="iframe\selectprovince_executescript_child.aspx.designer.cs">
       <DependentUpon>selectprovince_executescript_child.aspx</DependentUpon>
     </Compile>
+    <Compile Include="layout\region.aspx.cs">
+      <DependentUpon>region.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\region.aspx.designer.cs">
+      <DependentUpon>region.aspx</DependentUpon>
+    </Compile>
     <Compile Include="master\formlist.aspx.cs">
       <DependentUpon>formlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -641,6 +651,20 @@
     </Compile>
     <Compile Include="master\SingleGrid.Master.designer.cs">
       <DependentUpon>SingleGrid.Master</DependentUpon>
+    </Compile>
+    <Compile Include="tabstrip\tabstrip_position.aspx.cs">
+      <DependentUpon>tabstrip_position.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tabstrip\tabstrip_position.aspx.designer.cs">
+      <DependentUpon>tabstrip_position.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\Demo.aspx.cs">
       <DependentUpon>Demo.aspx</DependentUpon>

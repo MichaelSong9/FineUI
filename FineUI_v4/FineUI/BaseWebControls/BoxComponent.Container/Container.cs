@@ -140,15 +140,9 @@ namespace FineUI
                 }
                 else if (Layout == Layout.HBox || Layout == Layout.VBox)
                 {
-                    if (BoxConfigAlign != BoxLayoutAlign.Top)
-                    {
-                        layoutConfigOB.AddProperty("align", BoxLayoutAlignHelper.GetName(BoxConfigAlign, Layout));
-                    }
+                    layoutConfigOB.AddProperty("align", BoxLayoutAlignHelper.GetName(BoxConfigAlign, Layout));
 
-                    if (BoxConfigPosition != BoxLayoutPosition.Left)
-                    {
-                        layoutConfigOB.AddProperty("pack", BoxLayoutPositionHelper.GetName(BoxConfigPosition));
-                    }
+                    layoutConfigOB.AddProperty("pack", BoxLayoutPositionHelper.GetName(BoxConfigPosition));
 
                     if (BoxConfigPadding != "0")
                     {

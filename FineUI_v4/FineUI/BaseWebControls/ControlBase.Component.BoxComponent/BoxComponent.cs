@@ -259,14 +259,14 @@ namespace FineUI
         /// 控制子控件的位置（当本容器的Layout=VBox或者HBox时有效）
         /// </summary>
         [Category(CategoryName.LAYOUT)]
-        [DefaultValue(BoxLayoutAlign.Start)]
+        [DefaultValue(BoxLayoutAlign.Stretch)]
         [Description("控制子控件的位置（当本容器的Layout=VBox或者HBox时有效）")]
         public BoxLayoutAlign BoxConfigAlign
         {
             get
             {
                 object obj = FState["BoxConfigAlign"];
-                return obj == null ? BoxLayoutAlign.Start : (BoxLayoutAlign)obj;
+                return obj == null ? BoxLayoutAlign.Stretch : (BoxLayoutAlign)obj;
             }
             set
             {

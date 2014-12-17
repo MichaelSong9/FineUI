@@ -1801,15 +1801,20 @@ namespace FineUI
         /// <returns>回发数据是否改变</returns>
         public bool LoadPostData(string postDataKey, System.Collections.Specialized.NameValueCollection postCollection)
         {
-            string postText = postCollection[postDataKey];
-
-
-
             // 如果下拉列表被禁用，则postText为null。由于Enabled只能在服务器端被改变，所以被禁用时，不处理回发数据即可
             if (!Enabled)
             {
                 return false;
             }
+
+            // 如果下拉列表没有任何项，则不会触发数据改变事件
+            if (Items.Count == 0)
+            {
+                return false;
+            }
+
+
+            string postText = postCollection[postDataKey];
 
             if (EnableMultiSelect)
             {

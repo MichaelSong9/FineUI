@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Text;
 
-namespace Com.UMall.Presentation.Order
+namespace FineUI.Examples.layout
 {
-    public partial class Demo : System.Web.UI.Page
+    public partial class region : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                //gridDemo.DataSource = GetDataTable2();
-                //gridDemo.DataBind();
+                
             }
         }
+
+        
+
 
     }
 }
