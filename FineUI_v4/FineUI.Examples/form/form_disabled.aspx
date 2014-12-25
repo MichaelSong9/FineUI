@@ -106,6 +106,12 @@
         <f:Button ID="Button1" ValidateForms="Form1" Text="验证并提交表单" runat="server" OnClick="Button1_Click"></f:Button>
         <br />
         <br />
+        <br />
+        <br />
+        <f:Button ID="btnDisablePanel" Text="禁用表单面板" CssClass="marginr" runat="server" OnClick="btnDisablePanel_Click">
+        </f:Button>
+        <f:Button ID="btnEnablePanel" Text="启用表单面板" CssClass="marginr" runat="server" OnClick="btnEnablePanel_Click">
+        </f:Button>
         
     </form>
 </body>

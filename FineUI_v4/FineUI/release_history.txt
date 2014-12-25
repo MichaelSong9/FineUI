@@ -36,6 +36,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正下拉列表在没有数据项时，可能会触发SelectedIndexChanged事件的问题。
 	-BoxLayoutAlign的默认值由Start改为Stretch。
 	-增加示例：其他控件->选项卡控件->选项卡的位置。
+	-更新示例：表单控件->杂项->禁用与只读。
 
 
 

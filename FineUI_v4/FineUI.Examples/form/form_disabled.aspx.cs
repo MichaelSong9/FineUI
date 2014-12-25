@@ -102,5 +102,16 @@ namespace FineUI.Examples.form
 
 
 
+        protected void btnDisablePanel_Click(object sender, EventArgs e)
+        {
+            Form1.Enabled = false;
+        }
+
+
+        protected void btnEnablePanel_Click(object sender, EventArgs e)
+        {
+            Form1.Enabled = true;
+        }
+
     }
 }
