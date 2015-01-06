@@ -99,6 +99,7 @@
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
     <Content Include="test\triggerbox2.aspx" />
+    <Content Include="test\window2.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -724,6 +725,13 @@
     </Compile>
     <Compile Include="test\triggerbox2.aspx.designer.cs">
       <DependentUpon>triggerbox2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\window2.aspx.cs">
+      <DependentUpon>window2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\window2.aspx.designer.cs">
+      <DependentUpon>window2.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
@@ -2678,7 +2686,9 @@
     <Content Include="master\Simple.Master" />
     <Content Include="master\SingleGrid.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="res\themes\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
