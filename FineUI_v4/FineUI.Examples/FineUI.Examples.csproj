@@ -99,7 +99,7 @@
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
     <Content Include="test\triggerbox2.aspx" />
-    <Content Include="test\window2.aspx" />
+    <Content Include="test\activex.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -726,12 +726,12 @@
     <Compile Include="test\triggerbox2.aspx.designer.cs">
       <DependentUpon>triggerbox2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\window2.aspx.cs">
-      <DependentUpon>window2.aspx</DependentUpon>
+    <Compile Include="test\activex.aspx.cs">
+      <DependentUpon>activex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="test\window2.aspx.designer.cs">
-      <DependentUpon>window2.aspx</DependentUpon>
+    <Compile Include="test\activex.aspx.designer.cs">
+      <DependentUpon>activex.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>

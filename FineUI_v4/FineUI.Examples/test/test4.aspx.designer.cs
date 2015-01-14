@@ -40,6 +40,24 @@ namespace FineUI.Examples {
         protected global::FineUI.PageManager PageManager2;
         
         /// <summary>
+        /// Panel16 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Panel Panel16;
+        
+        /// <summary>
+        /// leftMenuTree 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Tree leftMenuTree;
+        
+        /// <summary>
         /// Panel1 控件。
         /// </summary>
         /// <remarks>

@@ -9,6 +9,18 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager2" runat="server" />
+        <f:Panel ID="Panel16" runat="server">
+            <Items>
+                <f:Tree runat="server" ShowBorder="false" ShowHeader="False" ID="leftMenuTree">
+                    <Nodes>
+                        <f:TreeNode Text="默认分类" Expanded="true">
+                            <f:TreeNode Text="开始页面" NavigateUrl="~/hello.aspx"></f:TreeNode>
+                            <f:TreeNode Text="登录页面" NavigateUrl="~/login.aspx"></f:TreeNode>
+                        </f:TreeNode>
+                    </Nodes>
+                </f:Tree>
+            </Items>
+        </f:Panel>
         <f:Panel runat="server" ID="Panel1" ShowHeader="true" Width="500px" Height="300px" Title="HAHAH">
             <Content>
                 <div>HAHA</div>

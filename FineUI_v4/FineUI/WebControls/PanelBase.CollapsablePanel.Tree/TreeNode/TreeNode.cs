@@ -98,9 +98,18 @@ namespace FineUI
             {
                 if (_nodes == null)
                 {
-                    // 有时TreeInstance为null，比如在ASPX设置Nodes节点时
-                    // 有时TreeInstance不为null，比如通过编程的手段，先添加根节点，然后添加子节点
-                    _nodes = new TreeNodeCollection(TreeInstance, this);
+                    // 如果不加上 TreeInstance == null 的判断，则在设计时出现如下错误
+                    // 无法从其 ParentNode 属性的字符串表示形式 FineUI.TreeNode 创建 FineUI.TreeNode 类型的对象
+                    if (TreeInstance == null)
+                    {
+                        _nodes = new TreeNodeCollection(null, null);
+                    }
+                    else
+                    {
+                        // 有时TreeInstance为null，比如在ASPX设置Nodes节点时
+                        // 有时TreeInstance不为null，比如通过编程的手段，先添加根节点，然后添加子节点
+                        _nodes = new TreeNodeCollection(TreeInstance, this);
+                    }
                 }
                 return _nodes;
             }

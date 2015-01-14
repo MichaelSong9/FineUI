@@ -14,8 +14,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel7" runat="server" />
-        <f:Panel ID="Panel7" runat="server" BodyPadding="5px"
+        <f:PageManager ID="PageManager1" runat="server" />
+        <f:Panel ID="Panel7" runat="server" BodyPadding="5px" Width="600px" Height="500px"
             Title="Panel" ShowBorder="false" ShowHeader="True" Layout="VBox"
             BoxConfigAlign="Stretch">
             <Items>
@@ -85,6 +85,21 @@
             EnableMaximize="true" Target="Top" EnableResize="true" runat="server" OnClose="Window1_Close"
             IsModal="true" Width="850px" Height="550px">
         </f:Window>
+
+        <object width="500" height="500" id="LODOP_OB2" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA">
+            <param name="Caption" value="打印控件已安装好">
+            <param name="Color" value="-16777201">
+            <param name="CompanyName" value="">
+            <param name="Border" value="1">
+            <param name="Inbrowse" value="0">
+            <param name="License" value="">
+            <param name="LicenseA" value="">
+            <param name="LicenseB" value="">
+            <param name="Version" value="6.1.9.4">
+            <param name="intVersion" value="6194">
+            <embed width="0" height="0" id="LODOP_EM" pluginspage="install_lodop32.exe" type="application/x-print-lodop">
+        </object>
+
     </form>
 </body>
 </html>
