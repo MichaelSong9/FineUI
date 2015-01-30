@@ -685,13 +685,64 @@ namespace FineUI
 
             #region Toolbars
 
+            //JsArrayBuilder dockItems = new JsArrayBuilder();
+            //foreach (Toolbar bar in Toolbars)
+            //{
+            //    dockItems.AddProperty(bar.XID, true);
+            //}
+
+            //if (this is Grid)
+            //{
+            //    Grid grid = this as Grid;
+            //    if (grid.AllowPaging)
+            //    {
+            //        dockItems.AddProperty(grid.Render_PagingID, true);
+            //    }
+            //}
+
+            Dictionary<string, JsArrayBuilder> bars = new Dictionary<string, JsArrayBuilder>();
             foreach (Toolbar bar in Toolbars)
             {
-                string toolbarID = String.Format("{0}", bar.XID);
+                string barPosition = ToolbarPositionHelper.GetExtName(bar.Position);
 
-                string barKey = ToolbarPositionHelper.GetName(bar.Position);
-                OB.AddProperty(barKey, toolbarID, true);
+                if (!bars.ContainsKey(barPosition))
+                {
+                    bars[barPosition] = new JsArrayBuilder();
+                }
+                bars[barPosition].AddProperty(bar.XID, true);
             }
+
+            // 将底部工具栏的顺序反转
+            if (bars.ContainsKey("bottom"))
+            {
+                bars["bottom"].Reverse();
+            }
+            // 表格的分页工具栏
+            if (this is Grid)
+            {
+                Grid grid = this as Grid;
+                if (grid.AllowPaging)
+                {
+                    if (!bars.ContainsKey("bottom"))
+                    {
+                        bars["bottom"] = new JsArrayBuilder();
+                    }
+
+                    bars["bottom"].AddProperty(grid.Render_PagingID, true);
+                }
+            }
+
+
+            JsArrayBuilder dockItems = new JsArrayBuilder();
+            foreach (string barPosition in bars.Keys)
+            {
+                foreach (string barItem in bars[barPosition].Properties)
+                {
+                    dockItems.AddProperty(barItem, true);
+                }
+            }
+            OB.AddProperty("dockedItems", dockItems);
+
 
             #endregion
 
@@ -1090,6 +1141,19 @@ namespace FineUI
         {
             return String.Format("{0}.f_reset();", ScriptID);
         }
+
+        #endregion
+
+        #region GetClearDirtyReference
+
+        /// <summary>
+        /// 清空面板内表单字段的改变状态
+        /// </summary>
+        /// <returns>客户端脚本</returns>
+        public string GetClearDirtyReference()
+        {
+            return String.Format("{0}.f_clearDirty();", ScriptID);
+        } 
 
         #endregion
     }

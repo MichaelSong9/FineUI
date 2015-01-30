@@ -93,6 +93,30 @@ namespace FineUI
 
             return result;
         }
+
+
+        public static string GetExtName(ToolbarPosition type)
+        {
+            string result = String.Empty;
+
+            switch (type)
+            {
+                case ToolbarPosition.Top:
+                    result = "top";
+                    break;
+                case ToolbarPosition.Bottom:
+                    result = "bottom";
+                    break;
+                case ToolbarPosition.Left:
+                    result = "left";
+                    break;
+                case ToolbarPosition.Right:
+                    result = "right";
+                    break;
+            }
+
+            return result;
+        }
     }
 
 }

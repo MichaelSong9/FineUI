@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples {
+namespace FineUI.Examples.grid {
     
     
-    public partial class timer {
+    public partial class grid_paging_database_bbar {
         
         /// <summary>
         /// form1 控件。
@@ -31,39 +31,39 @@ namespace FineUI.Examples {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Panel1 控件。
+        /// Grid1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Panel Panel1;
+        protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// SimpleForm1 控件。
+        /// Label2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.SimpleForm SimpleForm1;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtTitle 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox txtTitle;
+        protected global::FineUI.Button Button2;
         
         /// <summary>
-        /// btnSearch 控件。
+        /// labResult 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnSearch;
+        protected global::FineUI.Label labResult;
     }
 }

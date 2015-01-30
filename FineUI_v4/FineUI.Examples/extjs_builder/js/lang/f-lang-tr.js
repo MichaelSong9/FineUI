@@ -14,8 +14,7 @@ Ext.apply(F.util, {
 
 Ext.apply(F.wnd, {
     closeButtonTooltip: "Pencereyi Kapat",
-    formModifiedConfirmTitle: "Kapatmak istediğinizden emin misiniz?",
-    formModifiedConfirmMsg: "Mevcut sayfadaki bilgiler değiştirildi.<br/><br/>Değişiklikleri iptal et?"
+    formChangeConfirmMsg: "Mevcut sayfadaki bilgiler değiştirildi, değişiklikleri iptal et?"
 });
 
 //if (Ext.ux.SimplePagingToolbar) {

@@ -290,6 +290,15 @@ namespace FineUI
         //{
         //    return Convert.ToBoolean(GetDesignTimeSection(site).EnableAjax);
         //}
+
+        /// <summary>
+        /// 是否启用表单改变确认对话框
+        /// </summary>
+        public static bool GetEnableFormChangeConfirm()
+        {
+            return section.EnableFormChangeConfirm;
+        }
+
         #endregion
 
         #region oldcode

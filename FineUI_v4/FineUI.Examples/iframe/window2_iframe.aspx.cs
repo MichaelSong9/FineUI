@@ -30,7 +30,7 @@ namespace FineUI.Examples.iframe
             // 首先保存数据
 
             // 然后关闭本窗体
-            PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
+            PageContext.RegisterStartupScript(Panel1.GetClearDirtyReference() + ActiveWindow.GetHidePostBackReference());
         }
 
         protected void PageManager1_CustomEvent(object sender, CustomEventArgs e)

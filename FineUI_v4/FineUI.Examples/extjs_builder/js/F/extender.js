@@ -1,5 +1,25 @@
 ﻿
+F.originalComponentHide = Ext.Component.prototype.hide;
 Ext.override(Ext.Component, {
+
+    // override
+    hide: function () {
+        var me = this;
+
+        if (me.tab && me.tab.isXType('tab')) {
+            // tabpanel 单独处理
+        } else {
+            // 除了 tabpanel 的其他面板
+            if (me.body) {
+                // 检查当前组件内的表单是否改变（包含组件内 iframe 页面，递归查找所有 iframe）
+                if (F.util.preventPageClose(me.body)) {
+                    return false;
+                }
+            }
+        }
+
+        return F.originalComponentHide.apply(me, arguments);
+    },
 
     f_setDisabled: function () {
         this.setDisabled(!this.f_state['Enabled']);
@@ -8,20 +28,64 @@ Ext.override(Ext.Component, {
     f_setVisible: function () {
         this.setVisible(!this.f_state['Hidden']);
     },
-	
-	f_setWidth: function () {
+
+    f_setWidth: function () {
         this.setWidth(this.f_state['Width']);
     },
-	
-	f_setHeight: function () {
+
+    f_setHeight: function () {
         this.setHeight(this.f_state['Height']);
+    }
+
+
+
+
+});
+
+// 1. tabpanel 单独处理，选项卡右上角的关闭按钮
+F.originalTabBarCloseTab = Ext.tab.Bar.prototype.closeTab;
+Ext.override(Ext.tab.Bar, {
+    // override
+    closeTab: function (toClose) {
+        var me = this, card = toClose.card;
+
+        if (card.body) {
+            // 检查当前组件内的表单是否改变（包含组件内 iframe 页面，递归查找所有 iframe）
+            if (F.util.preventPageClose(card.body)) {
+                return false;
+            }
+        }
+
+        return F.originalTabBarCloseTab.apply(me, arguments);
     }
 
 });
 
+// 2. tabpanel 单独处理，选项卡的右键菜单
+F.originalTabPanelRemove = Ext.tab.Panel.prototype.remove;
+Ext.override(Ext.tab.Panel, {
+
+    // override
+    remove: function (comp) {
+        var me = this, c = me.getComponent(comp);
+
+        if (c.body) {
+            // 检查当前组件内的表单是否改变（包含组件内 iframe 页面，递归查找所有 iframe）
+            if (F.util.preventPageClose(c.body)) {
+                return false;
+            }
+        }
+
+        return F.originalTabPanelRemove.apply(me, arguments);
+    }
+
+});
+
+
 // 验证一个表单是否有效，会递归查询表单中每个字段
 // 如果表单隐藏或者字段隐藏，则不进行有效性校验
 Ext.override(Ext.container.Container, {
+
     f_isValid: function () {
         var valid = true;
         var firstInvalidField = null;
@@ -35,7 +99,7 @@ Ext.override(Ext.container.Container, {
                                 firstInvalidField = f;
                             }
                         }
-                    } else if (f.items) {
+                    } else if (f.isXType('container') && f.items.length) {
                         var validResult = f.f_isValid();
                         if (!validResult[0]) {
                             valid = false;
@@ -51,18 +115,76 @@ Ext.override(Ext.container.Container, {
     },
 
     f_reset: function () {
-        this.items.each(function (f) {
-            if (f.isXType('field')) {
-                f.reset();
-            } else if (f.items && f.items.length) {
-                f.f_reset();
-            }
-        });
+        var me = this;
+        if (me.items && me.items.length) {
+            me.items.each(function (item) {
+                if (item.isXType('field')) {
+                    item.reset();
+                } else if (item.isXType('container') && item.items.length) {
+                    item.f_reset();
+                }
+            });
+        }
+    },
+
+    // 当前面板内的表单字段是否改变
+    f_isDirty: function () {
+        var me = this, dirty = false;
+
+        if (me.items && me.items.length) {
+            me.items.each(function (item) {
+                if (item.isXType('field')) {
+                    if (item.isDirty()) {
+                        dirty = true;
+                        return false;
+                    }
+                } else if (item.isXType('container') && item.items.length) {
+                    if (item.f_isDirty()) {
+                        dirty = true;
+                        return false;
+                    }
+                }
+            });
+        }
+
+        return dirty;
+    },
+
+
+    // 当前面板内的表单字段
+    f_clearDirty: function () {
+        var me = this;
+
+        if (me.items && me.items.length) {
+            me.items.each(function (item) {
+                if (item.isXType('field')) {
+                    item.resetOriginalValue();
+                } else if (item.isXType('container') && item.items.length) {
+                    item.f_clearDirty()
+                }
+            });
+        }
     }
 
 });
 
+//F.originalPanelClose = Ext.panel.Panel.prototype.close;
+
 Ext.override(Ext.panel.Panel, {
+
+    //// override
+    //close: function () {
+
+    //    // 检查当前组件内的表单是否改变（包含组件内 iframe 页面，递归查找所有 iframe）
+    //    if (F.util.preventPageClose(this.body)) {
+    //        return false;
+    //    }
+
+
+    //    return F.originalPanelClose.apply(this, arguments);
+    //},
+
+
     f_setCollapse: function () {
         var collapsed = this.f_state['Collapsed'];
         if (collapsed) {
@@ -98,6 +220,7 @@ Ext.override(Ext.panel.Panel, {
         });
         return activeIndex;
     }
+
 
 });
 
@@ -537,7 +660,7 @@ if (Ext.grid.Panel) {
         },
 
         f_getPaging: function () {
-            var toolbar = this.getDockedItems('toolbar[dock="bottom"]');
+            var toolbar = this.getDockedItems('toolbar[dock="bottom"][xtype="simplepagingtoolbar"]');
             return toolbar.length ? toolbar[0] : undefined;
         },
 
@@ -1365,22 +1488,22 @@ if (Ext.window.Window) {
             this.f_show(iframeUrl, windowTitle);
         },
         */
-		
-		f_setWidth: function () {
-			var panel = F.wnd.getGhostPanel(this);
-			panel.setWidth(this.f_state['Width']);
-		},
-		
-		f_setHeight: function () {
-			var panel = F.wnd.getGhostPanel(this);
-			panel.setHeight(this.f_state['Height']);
-		},
-		
-		f_setTitle: function () {
-			var panel = F.wnd.getGhostPanel(this);
-			panel.setTitle(this.f_state['Title']);
-		},
-		
+
+        f_setWidth: function () {
+            var panel = F.wnd.getGhostPanel(this);
+            panel.setWidth(this.f_state['Width']);
+        },
+
+        f_setHeight: function () {
+            var panel = F.wnd.getGhostPanel(this);
+            panel.setHeight(this.f_state['Height']);
+        },
+
+        f_setTitle: function () {
+            var panel = F.wnd.getGhostPanel(this);
+            panel.setTitle(this.f_state['Title']);
+        },
+
         f_hide: function () {
             F.wnd.hide(this, this.f_iframe, this.id + '_Hidden');
         },
@@ -1430,6 +1553,8 @@ if (Ext.window.Window) {
         f_restore: function () {
             F.wnd.restore(this);
         }
+
+
 
     });
 }

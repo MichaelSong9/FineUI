@@ -118,6 +118,7 @@ namespace FineUI
         public const string CUSTOMTHEME = "CustomTheme";
         public const string ENABLEFSTATECOMPRESS = "EnableFStateCompress";
         public const string IEEDGE = "IEEdge";
+        public const string ENABLEFORMCHANGECONFIRM = "EnableFormChangeConfirm";
     }
 
     /// <summary>
@@ -175,6 +176,8 @@ namespace FineUI
 
 
         public const bool ENABLE_FSTATE_COMPRESS = false;
+
+        public const bool ENABLE_FORMCHANGECONFIRM_DEFAULT = false;
     }
 
 

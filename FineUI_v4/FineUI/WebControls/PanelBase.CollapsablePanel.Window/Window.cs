@@ -522,24 +522,24 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 关闭窗体之前弹出确认窗体内IFrame中表单改变的对话框
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("关闭窗体之前弹出确认窗体内IFrame中表单改变的对话框")]
-        public bool EnableConfirmOnClose
-        {
-            get
-            {
-                object obj = FState["EnableConfirmOnClose"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableConfirmOnClose"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 关闭窗体之前弹出确认窗体内IFrame中表单改变的对话框
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("关闭窗体之前弹出确认窗体内IFrame中表单改变的对话框")]
+        //public bool EnableConfirmOnClose
+        //{
+        //    get
+        //    {
+        //        object obj = FState["EnableConfirmOnClose"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["EnableConfirmOnClose"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 关闭窗体的动作（点击关闭按钮或者按 ESC 键都会执行此动作）
@@ -1275,23 +1275,23 @@ namespace FineUI
                 }
                 else
                 {
-                    if (EnableConfirmOnClose)
-                    {
-                        switch (CloseAction)
-                        {
-                            case CloseAction.Hide:
-                                closeScript = GetConfirmHideReference();
-                                break;
-                            case CloseAction.HideRefresh:
-                                closeScript = GetConfirmHideRefreshReference();
-                                break;
-                            case CloseAction.HidePostBack:
-                                closeScript = GetConfirmHidePostBackReference();
-                                break;
-                        }
-                    }
-                    else
-                    {
+                    //if (EnableConfirmOnClose)
+                    //{
+                    //    switch (CloseAction)
+                    //    {
+                    //        case CloseAction.Hide:
+                    //            closeScript = GetConfirmHideReference();
+                    //            break;
+                    //        case CloseAction.HideRefresh:
+                    //            closeScript = GetConfirmHideRefreshReference();
+                    //            break;
+                    //        case CloseAction.HidePostBack:
+                    //            closeScript = GetConfirmHidePostBackReference();
+                    //            break;
+                    //    }
+                    //}
+                    //else
+                    //{
                         switch (CloseAction)
                         {
                             case CloseAction.Hide:
@@ -1304,7 +1304,7 @@ namespace FineUI
                                 closeScript = GetHidePostBackReference();
                                 break;
                         }
-                    }
+                    //}
                 }
 
                 //JsObjectBuilder closeObj = new JsObjectBuilder();
@@ -1685,65 +1685,65 @@ namespace FineUI
 
         #endregion
 
-        #region GetConfirmHideReference
+        #region oldcode
 
-        /// <summary>
-        /// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public string GetConfirmHideReference()
-        {
-            return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
-                ScriptID,
-                GetHideReference());
-        }
+        ///// <summary>
+        ///// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public string GetConfirmHideReference()
+        //{
+        //    return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
+        //        ScriptID,
+        //        GetHideReference());
+        //}
 
-        /// <summary>
-        /// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后刷新父页面的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public string GetConfirmHideRefreshReference()
-        {
-            return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
-                ScriptID,
-                GetHideRefreshReference());
-        }
+        ///// <summary>
+        ///// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后刷新父页面的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public string GetConfirmHideRefreshReference()
+        //{
+        //    return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
+        //        ScriptID,
+        //        GetHideRefreshReference());
+        //}
 
-        /// <summary>
-        /// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后回发父页面的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public string GetConfirmHidePostBackReference()
-        {
-            return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
-                ScriptID,
-                GetHidePostBackReference());
-        }
-
-
-        /// <summary>
-        /// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后回发父页面的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public string GetConfirmHidePostBackReference(string argument)
-        {
-            return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
-                ScriptID,
-                GetHidePostBackReference(argument));
-        }
+        ///// <summary>
+        ///// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后回发父页面的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public string GetConfirmHidePostBackReference()
+        //{
+        //    return String.Format("F.wnd.iframeModifiedConfirm({0}, function(){{{1}}});",
+        //        ScriptID,
+        //        GetHidePostBackReference());
+        //}
 
 
-        /// <summary>
-        /// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后执行脚本的客户端脚本
-        /// </summary>
-        /// <param name="argument">回发参数</param>
-        /// <returns>客户端脚本</returns>
-        public string GetConfirmHideExecuteScriptReference(string argument)
-        {
-            return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
-                ScriptID,
-                GetHideExecuteScriptReference(argument));
-        }
+        ///// <summary>
+        ///// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后回发父页面的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public string GetConfirmHidePostBackReference(string argument)
+        //{
+        //    return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
+        //        ScriptID,
+        //        GetHidePostBackReference(argument));
+        //}
+
+
+        ///// <summary>
+        ///// 获取先确认IFrame的页面中表单改变，然后关闭弹出窗口，然后执行脚本的客户端脚本
+        ///// </summary>
+        ///// <param name="argument">回发参数</param>
+        ///// <returns>客户端脚本</returns>
+        //public string GetConfirmHideExecuteScriptReference(string argument)
+        //{
+        //    return String.Format("F.wnd.iframeModifiedConfirm({0},function(){{{1}}});",
+        //        ScriptID,
+        //        GetHideExecuteScriptReference(argument));
+        //}
 
 
         #region oldcode

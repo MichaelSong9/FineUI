@@ -2165,7 +2165,7 @@ namespace FineUI
             }
         }
 
-        private string Render_PagingID
+        internal string Render_PagingID
         {
             get
             {
@@ -2493,6 +2493,7 @@ namespace FineUI
             #region AllowPaging
 
             string pagingScript = String.Empty;
+
             if (AllowPaging)
             {
                 OptionBuilder pagingBuilder = GetPagingBuilder();
@@ -2531,10 +2532,12 @@ namespace FineUI
                     pagingBuilder.AddProperty("items", ab.ToString(), true);
                 }
 
+                pagingBuilder.AddProperty("xtype", "simplepagingtoolbar");
+                pagingBuilder.AddProperty("dock", "bottom");
 
-                pagingScript = String.Format("var {0}=Ext.create('Ext.ux.SimplePagingToolbar',{1});", Render_PagingID, pagingBuilder);
+                pagingScript = String.Format("var {0}={1};", Render_PagingID, pagingBuilder);
 
-                OB.AddProperty("bbar", Render_PagingID, true);
+                //OB.AddProperty("bbar", Render_PagingID, true);
             }
 
             #endregion
@@ -2756,6 +2759,7 @@ namespace FineUI
 
             #endregion
         }
+
 
         private string GetSortColummID()
         {

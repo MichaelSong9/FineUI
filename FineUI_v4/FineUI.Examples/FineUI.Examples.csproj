@@ -79,6 +79,7 @@
     <Content Include="grid\grid_lockcolumn_summary_scrollbar.aspx" />
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
+    <Content Include="grid\grid_paging_database_bbar.aspx" />
     <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_rowexpander.aspx" />
     <Content Include="grid\grid_editor_cell_new_delete_rowexpander.aspx" />
@@ -91,6 +92,7 @@
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
+    <Content Include="test\111.jpg" />
     <Content Include="test\Default.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
@@ -98,6 +100,7 @@
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
+    <Content Include="test\Test1.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\activex.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
@@ -391,6 +394,7 @@
     <Content Include="third-party\autocomplete\remote_with_cache.aspx" />
     <Content Include="third-party\my97\my97.aspx" />
     <Content Include="third-party\umeditor\umeditor.aspx" />
+    <Content Include="toolbar\multi_toolbars.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\cssstyle.aspx" />
     <Content Include="other\addtab.aspx" />
@@ -561,6 +565,13 @@
     <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_paging_database_bbar.aspx.cs">
+      <DependentUpon>grid_paging_database_bbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_paging_database_bbar.aspx.designer.cs">
+      <DependentUpon>grid_paging_database_bbar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_prerowdatabound_cancelled.aspx.cs">
       <DependentUpon>grid_prerowdatabound_cancelled.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -718,6 +729,13 @@
     </Compile>
     <Compile Include="test\SingleGridPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\Test1.aspx.cs">
+      <DependentUpon>Test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\Test1.aspx.designer.cs">
+      <DependentUpon>Test1.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\triggerbox2.aspx.cs">
       <DependentUpon>triggerbox2.aspx</DependentUpon>
@@ -2061,6 +2079,13 @@
     </Compile>
     <Compile Include="third-party\umeditor\umeditor.aspx.designer.cs">
       <DependentUpon>umeditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="toolbar\multi_toolbars.aspx.cs">
+      <DependentUpon>multi_toolbars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\multi_toolbars.aspx.designer.cs">
+      <DependentUpon>multi_toolbars.aspx</DependentUpon>
     </Compile>
     <Compile Include="toolbar\toolbar_iframe.aspx.cs">
       <DependentUpon>toolbar_iframe.aspx</DependentUpon>

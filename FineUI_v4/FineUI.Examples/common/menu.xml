@@ -186,6 +186,8 @@
       </TreeNode>
       <TreeNode Text="数据库分页（跨页保持选中行）" NavigateUrl="~/grid/grid_paging_database_selection.aspx" >
       </TreeNode>
+      <TreeNode Text="数据库分页（底部工具栏）" NavigateUrl="~/grid/grid_paging_database_bbar.aspx" IsNew="true" >
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="序号列">
       <TreeNode Text="序号列与内存分页" NavigateUrl="~/grid/grid_rownumber_paging.aspx" >
@@ -484,6 +486,8 @@
       <TreeNode Text="工具栏与IFrame页面" NavigateUrl="~/toolbar/toolbar_iframe.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
+      </TreeNode>
+      <TreeNode Text="多行工具栏" NavigateUrl="~/toolbar/multi_toolbars.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="用户控件">

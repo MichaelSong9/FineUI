@@ -19,8 +19,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="formPanel" ValidateForms="SimpleForm1" ValidateTarget="Top" OnCustomEvent="PageManager1_CustomEvent" runat="server" />
-        <f:Panel ID="formPanel" ShowBorder="false" ShowHeader="false" Layout="Fit" BodyPadding="5px"
+        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" EnableFormChangeConfirm="true"
+            ValidateForms="SimpleForm1" ValidateTarget="Top" OnCustomEvent="PageManager1_CustomEvent" runat="server" />
+        <f:Panel ID="Panel1" ShowBorder="false" ShowHeader="false" Layout="Fit" BodyPadding="5px"
             runat="server">
             <Items>
                 <f:SimpleForm ID="SimpleForm1" ShowBorder="false"

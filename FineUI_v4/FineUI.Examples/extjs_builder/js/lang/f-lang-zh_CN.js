@@ -18,8 +18,7 @@ Ext.apply(F.util, {
 
 Ext.apply(F.wnd, {
     closeButtonTooltip: "关闭此窗口",
-    formModifiedConfirmTitle: "确认关闭",
-    formModifiedConfirmMsg: "当前表单已经被修改。<br/><br/>确认放弃修改？"
+    formChangeConfirmMsg: "当前表单已经被修改，确认放弃修改？"
 });
 
 

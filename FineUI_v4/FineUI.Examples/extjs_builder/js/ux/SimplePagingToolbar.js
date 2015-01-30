@@ -2,6 +2,7 @@
 
 Ext.define('Ext.ux.SimplePagingToolbar', {
     extend: 'Ext.toolbar.Paging',
+    alias: 'widget.simplepagingtoolbar',
 
     cls: 'x-toolbar-paging',
 

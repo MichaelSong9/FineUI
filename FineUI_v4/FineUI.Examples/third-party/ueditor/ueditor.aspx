@@ -43,6 +43,7 @@
         <br />
         <br />
         注：本示例不支持文件上传，请根据UEditor官网文档自行配置。
+        <span style="font-weight: bold;color:white;background-color:#3892d3;padding:10px;">获取编辑器的值</span>
     </form>
     <script type="text/javascript">
         window.UEDITOR_HOME_URL = '<%= ResolveUrl("~/third-party/res/ueditor/") %>';
@@ -51,7 +52,7 @@
     <script type="text/javascript" src="../res/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="../res/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript">
-        
+
         var containerClientID = '<%= ContentPanel1.ClientID %>';
 
         var editor;

@@ -14,7 +14,7 @@
         <br />
         <f:Button ID="Button1" EnablePostBack="false" Text="弹出窗体" runat="server">
         </f:Button>
-        <f:Window ID="Window1" Hidden="true" EnableIFrame="true" runat="server" EnableConfirmOnClose="true"
+        <f:Window ID="Window1" Hidden="true" EnableIFrame="true" runat="server"
             EnableMaximize="true" EnableResize="true" Height="450px" Width="800px" Title="窗体一">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server" Position="Bottom" ToolbarAlign="Right">

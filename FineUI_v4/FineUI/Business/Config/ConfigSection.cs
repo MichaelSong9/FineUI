@@ -338,5 +338,22 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 是否启用表单改变确认对话框
+        /// </summary>
+        [ConfigurationProperty(ConfigPropertyName.ENABLEFORMCHANGECONFIRM, DefaultValue = ConfigPropertyValue.ENABLE_FORMCHANGECONFIRM_DEFAULT)]
+        public bool EnableFormChangeConfirm
+        {
+            get
+            {
+                return (bool)base[ConfigPropertyName.ENABLEFORMCHANGECONFIRM];
+            }
+            set
+            {
+                base[ConfigPropertyName.ENABLEFORMCHANGECONFIRM] = value;
+            }
+        }
+
     }
 }

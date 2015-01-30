@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.test {
+namespace EmptyProjectNet45_FineUI {
     
     
-    public partial class test {
+    public partial class Test {
         
         /// <summary>
         /// form1 控件。
@@ -31,33 +31,6 @@ namespace FineUI.Examples.test {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Form2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Form Form2;
-        
-        /// <summary>
-        /// Toolbar3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Toolbar Toolbar3;
-        
-        /// <summary>
-        /// RadioButtonList1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.RadioButtonList RadioButtonList1;
-        
-        /// <summary>
         /// Button1 控件。
         /// </summary>
         /// <remarks>
@@ -67,57 +40,12 @@ namespace FineUI.Examples.test {
         protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// FormRow1 控件。
+        /// Window1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.FormRow FormRow1;
-        
-        /// <summary>
-        /// txtQUnitName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TwinTriggerBox txtQUnitName;
-        
-        /// <summary>
-        /// cboQRealDate 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.DropDownList cboQRealDate;
-        
-        /// <summary>
-        /// rboIsWork 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.RadioButtonList rboIsWork;
-        
-        /// <summary>
-        /// Panel133 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.ContentPanel Panel133;
-        
-        /// <summary>
-        /// tbxPassword 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox tbxPassword;
+        protected global::FineUI.Window Window1;
     }
 }

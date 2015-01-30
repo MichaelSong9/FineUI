@@ -1,47 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.IO;
-using System.Text;
+using FineUI;
 
-namespace FineUI.Examples.test
+namespace EmptyProjectNet45_FineUI
 {
-    public partial class test : PageBase
+    public partial class Test : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //LiteralControl control = new LiteralControl();
-                //control.ID = "my_control";
-                //control.Text = "<script>alert('ok');</script>";
-                //Page.Header.Controls.Add(control);
+                Button1.OnClientClick = Window1.GetShowReference("~/test/Test1.aspx");
             }
-
         }
-
-        protected void btnQuery_Click(object sender, EventArgs e)
-        {
-            // 执行清空动作
-            Alert.ShowInTop("1");
-
-        }
-
-        protected void cboQRealDate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 执行清空动作
-            Alert.ShowInTop("2");
-        }
-
-        protected void rboIsWork_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 执行清空动作
-            Alert.ShowInTop("3");
-        }
-
     }
 }

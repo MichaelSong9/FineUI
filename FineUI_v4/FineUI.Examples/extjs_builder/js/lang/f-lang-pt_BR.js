@@ -36,6 +36,5 @@ Ext.apply(F.util, {
 
 Ext.apply(F.wnd, {
     closeButtonTooltip: "Close this window",
-    formModifiedConfirmTitle: "Fechamento Confirmado",
-    formModifiedConfirmMsg: "O formul&aacute;rio atual foi modificado.<br/><br/>Cancelar Altera&ccedil;&otilde;es?"
+    formChangeConfirmMsg: "O formul&aacute;rio atual foi modificado, cancelar Altera&ccedil;&otilde;es?"
 });

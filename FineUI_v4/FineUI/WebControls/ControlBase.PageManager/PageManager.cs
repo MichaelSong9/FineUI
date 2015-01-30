@@ -387,6 +387,37 @@ namespace FineUI
         #region 配置参数
 
         /// <summary>
+        /// 是否启用表单改变确认对话框
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(ConfigPropertyValue.ENABLE_FORMCHANGECONFIRM_DEFAULT)]
+        [Description("是否启用表单改变确认对话框")]
+        public bool EnableFormChangeConfirm
+        {
+            get
+            {
+                object obj = FState["EnableFormChangeConfirm"];
+                if (obj == null)
+                {
+                    if (DesignMode)
+                    {
+                        return ConfigPropertyValue.ENABLE_FORMCHANGECONFIRM_DEFAULT;
+                    }
+                    else
+                    {
+                        return GlobalConfig.GetEnableFormChangeConfirm();
+                    }
+                }
+                return (bool)obj;
+            }
+            set
+            {
+                FState["EnableFormChangeConfirm"] = value;
+            }
+        }
+
+
+        /// <summary>
         /// 样式
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -1239,31 +1270,31 @@ namespace FineUI
 
         #endregion
 
-        #region BeforeAjaxPostBackScript
+        #region oldcode
 
-        private List<string> beforeAjaxPostBackScriptKeys = new List<string>();
+        //private List<string> beforeAjaxPostBackScriptKeys = new List<string>();
 
-        private string beforeAjaxPostBackScript = String.Empty;
+        //private string beforeAjaxPostBackScript = String.Empty;
 
-        internal string BeforeAjaxPostBackScript
-        {
-            get { return beforeAjaxPostBackScript; }
-            set { beforeAjaxPostBackScript = value; }
-        }
+        //internal string BeforeAjaxPostBackScript
+        //{
+        //    get { return beforeAjaxPostBackScript; }
+        //    set { beforeAjaxPostBackScript = value; }
+        //}
 
-        /// <summary>
-        /// Used by FCKeditor, Add script before ajax postback.
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="script"></param>
-        public void RegisterOnAjaxPostBack(string key, string script)
-        {
-            if (!beforeAjaxPostBackScriptKeys.Contains(key))
-            {
-                beforeAjaxPostBackScriptKeys.Add(key);
-                BeforeAjaxPostBackScript += script;
-            }
-        }
+        ///// <summary>
+        ///// Used by FCKeditor, Add script before ajax postback.
+        ///// </summary>
+        ///// <param name="key"></param>
+        ///// <param name="script"></param>
+        //public void RegisterOnAjaxPostBack(string key, string script)
+        //{
+        //    if (!beforeAjaxPostBackScriptKeys.Contains(key))
+        //    {
+        //        beforeAjaxPostBackScriptKeys.Add(key);
+        //        BeforeAjaxPostBackScript += script;
+        //    }
+        //}
 
         #endregion
 

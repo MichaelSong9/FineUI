@@ -29,7 +29,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 发布历史
 
-+2014-12-20 v4.1.6
++2015-02-06 v4.1.6
 	-增加示例：表格控件->导出与下载->导出文件（FindControl，查找模板列中控件）。
 	-增加示例：表格控件->导出与下载->导出文件（多表头）。
 	-修正下拉列表数据绑定后在第一个位置插入项，而最终选中的非第一项的问题。
@@ -37,6 +37,16 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-BoxLayoutAlign的默认值由Start改为Stretch。
 	-增加示例：其他控件->选项卡控件->选项卡的位置。
 	-更新示例：表单控件->杂项->禁用与只读。
+	-修正AutoSizePanelID的面板中Submit按钮回车无效的问题（Ward_Lee）。
+	+支持一个面板拥有多个工具栏。
+		-增加示例：其他控件->工具栏与菜单->多行工具栏。
+		-增加示例：表格控件->分页与排序->数据库分页（底部工具栏）。
+	+重构表单改变确认对话框（不兼容提醒！）。
+		-删除Window控件的EnableConfirmOnClose属性，以及GetConfirmHideReference类似的5个方法。
+		-删除ActiveWindow中GetConfirmHideReference类似的5个方法。
+		-增加配置项EnableFormChangeConfirm，启用表单改变确认对话框（默认为false）。
+		-为面板控件增加GetClearDirtyReference方法，用来清空面板内表单字段的改变状态。
+		-更新示例：内联框架->窗体关闭前的确认对话框；保存按钮放在窗体工具栏中。
 
 
 

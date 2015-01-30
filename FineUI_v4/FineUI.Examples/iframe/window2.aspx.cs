@@ -16,7 +16,7 @@ namespace FineUI.Examples.iframe
             {
                 Button1.OnClientClick = Window1.GetShowReference("./window2_iframe.aspx");
 
-                btnClose.OnClientClick = Window1.GetConfirmHideReference();
+                btnClose.OnClientClick = Window1.GetHideReference();
 
                 btnClosePostBack.OnClientClick = Window1.GetIFrameCustomEventReference("SAVE", true);
             }

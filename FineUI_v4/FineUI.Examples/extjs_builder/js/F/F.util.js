@@ -75,6 +75,40 @@ F.customEvent = function (argument, validate) {
 
 (function () {
 
+    // 遍历定义了 renderTo 属性的对象
+    // callback: 'return false' to prevent loop continue
+    function resolveRenderToObj(callback) {
+        Ext.ComponentManager.each(function (key, cmp) {
+            if (cmp.isXType && cmp.renderTo) {
+
+                var result = callback.apply(cmp, [cmp]);
+                if (result === false) {
+                    return false; // break
+                }
+
+            }
+        });
+    }
+
+
+    // 能否访问 iframe 中的 window.F 对象
+    function canIFrameWindowAccessed(iframeWnd) {
+
+        // 访问 iframeWnd.F 时，可能出现错误 Blocked a frame with origin "http://fineui.com/" from accessing a cross-origin frame.
+        // Blocked：这个问题出现在 http://fineui.com/ 页面加载一个 http://baidu.com/ 的 iframe 页面
+        try {
+            iframeWnd.F;
+        } catch (e) {
+            return false;
+        }
+
+        if (!iframeWnd.F) {
+            return false;
+        }
+
+        return true;
+    }
+
 
     // FineUI常用函数域（Utility）
     F.util = {
@@ -90,7 +124,8 @@ F.customEvent = function (argument, validate) {
 
         // 初始化
         init: function (msgTarget, labelWidth, labelSeparator,
-            blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax, themeName) {
+            blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax, themeName,
+            formChangeConfirm) {
             // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
             // 表现为iframe中的页面出现滚动条时，页面上的所有按钮都不能点击了。
             // 测试例子在：aspnet/test.aspx
@@ -139,6 +174,21 @@ F.customEvent = function (argument, validate) {
                 checkboxgroupPro.autoFitErrors = true;
             }
 
+            F.beforeunloadCheck = true;
+            F.formChangeConfirm = formChangeConfirm;
+            // 启用表单改变确认对话框
+            if (F.formChangeConfirm) {
+
+                // 下面这个方法在 Chrome、 Firefox下无效
+                //Ext.EventManager.on(window, 'beforeunload', function (event) {
+                window.onbeforeunload = function () {
+                    // 允许关闭页面前提示，并且表单改变
+                    if (F.beforeunloadCheck && F.util.formChanged()) {
+                        return F.wnd.formChangeConfirmMsg;
+                    }
+                };
+
+            }
 
             //if (enableBigFont) {
             //    Ext.getBody().addCls('bigfont');
@@ -153,13 +203,20 @@ F.customEvent = function (argument, validate) {
             F.ready(function () {
                 if (F.submitbutton) {
                     Ext.ComponentManager.each(function (key, cmp) {
-                        if (cmp.isXType && cmp.isXType('panel') && cmp.renderTo) {
-                            F.util.registerPanelEnterKey(cmp);
+                        if (cmp.isXType && cmp.renderTo) {
+                            if (cmp.isXType('tooltip')) {
+                                return true; // continue
+                            }
+
+                            if (cmp.isXType('panel') || cmp.isXType('formviewport')) {
+                                F.util.registerPanelEnterKey(cmp);
+                            }
                         }
                     });
                 }
 
             });
+
 
 
             // 为了防止【页面中只有一个input[type=text]，则回车会提交表单】的问题，现在页面上创建一个input[type=text]的空元素
@@ -403,6 +460,95 @@ F.customEvent = function (argument, validate) {
         },
 
 
+        // 阻止页面关闭（页面中iframe内的表单已改变，或者页面中iframe定义了beforeunload）
+        preventPageClose: function (el) {
+            var me = this;
+
+            // 是否阻止关闭
+            var preventClose = false;
+
+            var iframeEls;
+            if (el) {
+                iframeEls = el.select('iframe');
+            } else {
+                iframeEls = Ext.select('iframe');
+            }
+
+            iframeEls.each(function (iframeEl) {
+                var iframeWnd = iframeEl.dom.contentWindow;
+
+                if (!canIFrameWindowAccessed(iframeWnd)) {
+                    return true; // continue
+                }
+
+                if (iframeWnd && iframeWnd.F) {
+                    var iframeF = iframeWnd.F;
+
+                    // 启用表单改变确认对话框 并且 表单已改变
+                    if (iframeF.formChangeConfirm && iframeF.util.formChanged()) {
+                        // 阻止关闭当前面板
+                        if (!window.confirm(F.wnd.formChangeConfirmMsg)) {
+                            preventClose = true;
+                            return false; // break
+                        } else {
+                            // 没有阻止，不要在触发 $(window).beforeunload 事件了
+                            iframeF.beforeunloadCheck = false;
+                        }
+                    }
+
+                    /*
+                    // 是否自定义了 beforeunload 事件
+                    var beforeunloadCallbacks = iframeF.util._fjs_getEvent('beforeunload');
+                    if (beforeunloadCallbacks) {
+                        for (var i = 0, count = beforeunloadCallbacks.length; i < count; i++) {
+                            var beforeunloadCallback = beforeunloadCallbacks[i];
+
+                            var confirmMsg = beforeunloadCallback.apply(iframeWnd);
+                            if (confirmMsg) {
+                                // 阻止关闭当前面板
+                                if (!window.confirm(confirmMsg)) {
+                                    preventClose = true;
+                                    return false; // break
+                                } else {
+                                    // 没有阻止，不要在触发 $(window).beforeunload 事件了
+                                    iframeF.beforeunloadCheck = false;
+                                }
+                            }
+                        }
+                    }
+                    */
+
+                    // 子页面是否阻止关闭
+                    var childrenPreventClose = iframeF.util.preventPageClose();
+                    if (childrenPreventClose) {
+
+                        // 被子页面阻止了，则恢复父页面的 beforeunloadCheck 标识
+                        iframeF.beforeunloadCheck = true;
+
+                        preventClose = true;
+                        return false; // break
+                    }
+                }
+
+            });
+
+            return preventClose;
+        },
+
+        // 页面中表单字段是否改变
+        formChanged: function () {
+            var changed = false;
+            resolveRenderToObj(function (obj) {
+                if (obj.isXType('container') && obj.f_isDirty()) {
+                    changed = true;
+                    return false; // break
+                }
+            });
+
+            return changed;
+        },
+
+
         // 验证多个表单，返回数组[是否验证通过，第一个不通过的表单字段]
         validForms: function (forms, targetName, showBox) {
             var target = F.util.getTargetWindow(targetName);
@@ -552,7 +698,7 @@ F.customEvent = function (argument, validate) {
         /*
         // 在启用AJAX的情况下，使所有的Asp.net的提交按钮（type="submit"）不要响应默认的submit行为，而是自定义的AJAX
         makeAspnetSubmitButtonAjax: function (buttonId) {
-
+        
         // 低版本IE浏览器不允许使用JS修改input标签的type属性，导致此函数无效
         function resetButton(button) {
         button.set({ "type": "button" });
@@ -561,7 +707,7 @@ F.customEvent = function (argument, validate) {
         event.stopEvent();
         });
         }
-
+        
         if (typeof (buttonId) === "undefined") {
         Ext.Array.each(Ext.DomQuery.select("input[type=submit]"), function (item, index) {
         resetButton(Ext.get(item));
@@ -572,9 +718,9 @@ F.customEvent = function (argument, validate) {
         resetButton(button);
         }
         }
-
+        
         },
-
+        
         */
 
         htmlEncode: function (str) {

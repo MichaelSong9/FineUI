@@ -48,8 +48,7 @@
     F.wnd = {
 
         closeButtonTooltip: "Close this window",
-        formModifiedConfirmTitle: "Close Confrim",
-        formModifiedConfirmMsg: "Current form has been modified.<br/><br/>Abandon changes?",
+        formChangeConfirmMsg: "Current form has been modified, abandon changes?",
 
         createIFrameHtml: function (iframeUrl, iframeName) {
             return _createIFrameHtml(iframeUrl, iframeName);
@@ -152,17 +151,22 @@
         // 隐藏Ext-Window（比如用户点击了关闭按钮）
         hide: function (panel, enableIFrame, hiddenHiddenFieldID) {
             var panel = F.wnd.getGhostPanel(panel);
-            // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
-            Ext.get(hiddenHiddenFieldID).dom.value = 'true';
-            // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
-            if (enableIFrame) {
-                // 如果不加延迟，IE下AJAX会出错，因为在success中已经把当前窗体关闭后，而后面还要继续使用本页面上相关对象
-                window.setTimeout(function () {
-                    panel['f_iframe_loaded'] = false;
-                    panel.update("");
-                }, 100);
+
+            // 如果返回 false，则说明隐藏操作被阻止了
+            if (panel.hide() !== false) {
+
+                // 修改当前页面中记录弹出窗口弹出状态的隐藏表单字段
+                Ext.get(hiddenHiddenFieldID).dom.value = 'true';
+                // 如果启用IFrame，则清空IFrame的内容，防止下次打开时显示残影
+                if (enableIFrame) {
+                    // 如果不加延迟，IE下AJAX会出错，因为在success中已经把当前窗体关闭后，而后面还要继续使用本页面上相关对象
+                    window.setTimeout(function () {
+                        panel['f_iframe_loaded'] = false;
+                        panel.update("");
+                    }, 100);
+                }
+
             }
-            panel.hide();
         },
 
         // 最大化
@@ -225,7 +229,7 @@
         // 处理表单中有任何字段发生变化时，关闭当前窗口时的提示
         confirmModified: function (closeFn) {
             if (F.util.isPageStateChanged()) {
-                F.util.confirm('_self', F.wnd.formModifiedConfirmTitle, F.wnd.formModifiedConfirmMsg, function () {
+                F.util.confirm('_self', F.wnd.formModifiedConfirmTitle, F.wnd.formChangeConfirmMsg, function () {
                     closeFn.apply(window, arguments);
                 });
             } else {

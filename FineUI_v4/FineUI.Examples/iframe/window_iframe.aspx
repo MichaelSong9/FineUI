@@ -19,7 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" runat="server" />
+        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" runat="server" EnableFormChangeConfirm="true" />
         <f:Panel ID="Panel1" ShowBorder="false" ShowHeader="false" Layout="Fit" BodyPadding="5px"
             runat="server">
             <Toolbars>

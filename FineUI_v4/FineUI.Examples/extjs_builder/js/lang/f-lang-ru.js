@@ -26,6 +26,5 @@ Ext.apply(F.util, {
 
 Ext.apply(F.wnd, {
     closeButtonTooltip: "Закрывает это окно",
-    formModifiedConfirmTitle: "Подтверждение закрытия",
-    formModifiedConfirmMsg: "Текущая форма была изменена.<br/><br/>Отменить изменения?"
+    formChangeConfirmMsg: "Текущая форма была изменена, oтменить изменения?"
 });

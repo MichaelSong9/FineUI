@@ -218,6 +218,10 @@ namespace FineUI
 
             OB.AddProperty("layout", layoutOB, true);
 
+            OB.AddProperty("xtype", "toolbar");
+
+            OB.AddProperty("dock", ToolbarPositionHelper.GetExtName(Position));
+
             //string jsContent = String.Format("var {0}=Ext.create('Ext.toolbar.Toolbar',{1});", XID, OB.ToString());
 
             //string jsContent = String.Format("var {0}={1};", XID, OB.GetProperty("items"));

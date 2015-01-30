@@ -155,54 +155,54 @@ namespace FineUI
 
         #endregion
 
-        #region GetConfirmHideReference
+        #region oldcode
 
-        /// <summary>
-        /// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public static string GetConfirmHideReference()
-        {
-            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideReference());
-        }
+        ///// <summary>
+        ///// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public static string GetConfirmHideReference()
+        //{
+        //    return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideReference());
+        //}
 
-        /// <summary>
-        /// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再刷新父页面的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public static string GetConfirmHideRefreshReference()
-        {
-            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideRefreshReference());
-        }
+        ///// <summary>
+        ///// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再刷新父页面的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public static string GetConfirmHideRefreshReference()
+        //{
+        //    return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideRefreshReference());
+        //}
 
-        /// <summary>
-        /// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再回发父页面的客户端脚本
-        /// </summary>
-        /// <returns>客户端脚本</returns>
-        public static string GetConfirmHidePostBackReference()
-        {
-            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference());
-        }
+        ///// <summary>
+        ///// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再回发父页面的客户端脚本
+        ///// </summary>
+        ///// <returns>客户端脚本</returns>
+        //public static string GetConfirmHidePostBackReference()
+        //{
+        //    return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference());
+        //}
 
-        /// <summary>
-        /// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再回发父页面的客户端脚本
-        /// </summary>
-        /// <param name="argument">回发参数</param>
-        /// <returns>客户端脚本</returns>
-        public static string GetConfirmHidePostBackReference(string argument)
-        {
-            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference(argument));
-        }
+        ///// <summary>
+        ///// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再回发父页面的客户端脚本
+        ///// </summary>
+        ///// <param name="argument">回发参数</param>
+        ///// <returns>客户端脚本</returns>
+        //public static string GetConfirmHidePostBackReference(string argument)
+        //{
+        //    return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHidePostBackReference(argument));
+        //}
 
-        /// <summary>
-        /// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再执行脚本的客户端脚本
-        /// </summary>
-        /// <param name="argument">执行的脚本</param>
-        /// <returns>客户端脚本</returns>
-        public static string GetConfirmHideExecuteScriptReference(string argument)
-        {
-            return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideExecuteScriptReference(argument));
-        }
+        ///// <summary>
+        ///// 获取先确认当前页面中表单是否更改，然后关闭当前激活窗体，再执行脚本的客户端脚本
+        ///// </summary>
+        ///// <param name="argument">执行的脚本</param>
+        ///// <returns>客户端脚本</returns>
+        //public static string GetConfirmHideExecuteScriptReference(string argument)
+        //{
+        //    return String.Format("F.wnd.confirmModified(function(){{{0}}});", GetHideExecuteScriptReference(argument));
+        //}
 
 
         #endregion

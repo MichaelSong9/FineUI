@@ -87,7 +87,7 @@ ajaxminifier\ajaxminifier -js -evals:immediate  _f -o ..\extjs\lang\ru.js
 
 
 
-type extjs_source_all\ext-all.js > _f
+type extjs_source_all\ext-all-debug.js > _f
 
 type _f > ..\extjs\ext-part1.js
 

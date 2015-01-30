@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.iframe {
+namespace FineUI.Examples.toolbar {
     
     
-    public partial class window2_iframe {
+    public partial class multi_toolbars {
         
         /// <summary>
         /// form1 控件。
@@ -31,66 +31,120 @@ namespace FineUI.Examples.iframe {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Panel1 控件。
+        /// Button6 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Panel Panel1;
+        protected global::FineUI.Button Button6;
         
         /// <summary>
-        /// SimpleForm1 控件。
+        /// Toolbar1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.SimpleForm SimpleForm1;
+        protected global::FineUI.Toolbar Toolbar1;
         
         /// <summary>
-        /// Label2 控件。
+        /// Toolbar2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Label Label2;
+        protected global::FineUI.Toolbar Toolbar2;
         
         /// <summary>
-        /// NumberBox1 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.NumberBox NumberBox1;
+        protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// CheckBox1 控件。
+        /// Toolbar3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.CheckBox CheckBox1;
+        protected global::FineUI.Toolbar Toolbar3;
         
         /// <summary>
-        /// TextBox1 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox TextBox1;
+        protected global::FineUI.Button Button2;
         
         /// <summary>
-        /// DatePicker1 控件。
+        /// Button4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.DatePicker DatePicker1;
+        protected global::FineUI.Button Button4;
+        
+        /// <summary>
+        /// Toolbar4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Toolbar Toolbar4;
+        
+        /// <summary>
+        /// Button3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button Button3;
+        
+        /// <summary>
+        /// Toolbar5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Toolbar Toolbar5;
+        
+        /// <summary>
+        /// Button7 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button Button7;
+        
+        /// <summary>
+        /// ToolbarFill1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.ToolbarFill ToolbarFill1;
+        
+        /// <summary>
+        /// Button5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button Button5;
     }
 }
