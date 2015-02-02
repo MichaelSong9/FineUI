@@ -37,7 +37,7 @@
                 <f:SimpleForm ID="SimpleForm1" ShowBorder="false"
                     ShowHeader="false" AutoScroll="true" BodyPadding="5px" runat="server" EnableCollapse="True">
                     <Items>
-                        <f:Label ID="Label2" EncodeText="false" CssClass="steps" ShowEmptyLabel="false" Text="按照如下步骤操作来观察“确认关闭”对话框：<ul><li>编辑本表单（比如选中复选框、修改日期）</li><li>点击窗体右上角关闭图标、点击关闭按钮或者按下ESC键</li><li>弹出确认关闭窗体的对话框</li></ul>" runat="server" />
+                        <f:Label ID="Label2" EncodeText="false" CssClass="steps" ShowEmptyLabel="false" Text="按照如下步骤操作来观察“确认关闭”对话框：<ul><li>编辑本表单（比如选中复选框、修改日期）</li><li>点击弹出窗体右上角关闭图标、关闭按钮、当前选项卡关闭图标、浏览器的关闭按钮或者浏览器的刷新图标，<a target='_blank' href='../res/images/formchangeconfirm.png'>查看图示</a></li><li>弹出确认关闭窗体的对话框</li></ul>" runat="server" />
                         <f:NumberBox ID="NumberBox1" Label="数字输入框" Required="true" ShowRedStar="true" runat="server" />
                         <f:CheckBox ID="CheckBox1" runat="server" Label="复选框">
                         </f:CheckBox>
