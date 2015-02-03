@@ -13,17 +13,21 @@
         OnClick="Button1_Click">
     </f:Button>
     <br />
+	<br />
     <f:Button Text="使用PageManager定义的提示信息" runat="server" ID="Button2" OnClick="Button2_Click">
     </f:Button>
     <br />
+	<br />
     <f:Button Text="默认风格提示信息" AjaxLoadingType="Default" runat="server" ID="Button3"
         OnClick="Button3_Click">
     </f:Button>
     <br />
+	<br />
     <f:Button Text="Mask风格提示信息" AjaxLoadingType="Mask" runat="server" ID="Button4"
         OnClick="Button4_Click">
     </f:Button>
     <br />
+	<br />
     注：为了观察Ajax提示信息，所有按钮动作在后台都会睡眠1秒钟。
     </form>
 </body>
