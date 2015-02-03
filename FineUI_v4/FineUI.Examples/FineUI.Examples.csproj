@@ -92,15 +92,12 @@
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
-    <Content Include="test\111.jpg" />
-    <Content Include="test\Default.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
-    <Content Include="test\Test1.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\activex.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
@@ -671,13 +668,6 @@
     <Compile Include="tabstrip\tabstrip_position.aspx.designer.cs">
       <DependentUpon>tabstrip_position.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="test\Demo.aspx.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -729,13 +719,6 @@
     </Compile>
     <Compile Include="test\SingleGridPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\Test1.aspx.cs">
-      <DependentUpon>Test1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\Test1.aspx.designer.cs">
-      <DependentUpon>Test1.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\triggerbox2.aspx.cs">
       <DependentUpon>triggerbox2.aspx</DependentUpon>
