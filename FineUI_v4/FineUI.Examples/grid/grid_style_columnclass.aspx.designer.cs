@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.data {
+namespace FineUI.Examples.grid {
     
     
-    public partial class grid_rowcolor {
+    public partial class grid_style_columnclass {
         
         /// <summary>
         /// form1 控件。
@@ -49,6 +49,15 @@ namespace FineUI.Examples.data {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// Button2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button Button2;
+        
+        /// <summary>
         /// Button1 控件。
         /// </summary>
         /// <remarks>
@@ -58,12 +67,12 @@ namespace FineUI.Examples.data {
         protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// highlightRows 控件。
+        /// labResult 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.HiddenField highlightRows;
+        protected global::FineUI.Label labResult;
     }
 }

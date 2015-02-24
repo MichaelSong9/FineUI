@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_rowcolor.aspx.cs"
-    Inherits="FineUI.Examples.data.grid_rowcolor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_style_rowcolor_paging_database.aspx.cs"
+    Inherits="FineUI.Examples.data.grid_style_rowcolor_paging_database" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,8 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
-            runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound">
+            runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name" OnRowDataBound="Grid1_RowDataBound"
+            AllowPaging="true" IsDatabasePaging="true" PageSize="5" OnPageIndexChange="Grid1_PageIndexChange">
             <Columns>
                 <f:RowNumberField />
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
@@ -41,11 +42,8 @@
             </Columns>
         </f:Grid>
         <br />
-        注意：这个表格高亮选中了所有“入学年份”大于等于2006的数据行。
+        注：这个表格高亮选中了所有[入学年份]大于等于2006的数据行。
         <br />
-        <br />
-        <f:Button ID="Button1" runat="server" Text="重新绑定表格" OnClick="Button1_Click">
-        </f:Button>
         <br />
         <br />
         <br />

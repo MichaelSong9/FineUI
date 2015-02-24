@@ -83,7 +83,10 @@
     <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_rowexpander.aspx" />
     <Content Include="grid\grid_editor_cell_new_delete_rowexpander.aspx" />
+    <Content Include="grid\grid_style_columnclass.aspx" />
     <Content Include="grid\grid_summary_scrollbar_flow.aspx" />
+    <Content Include="grid\grid_style_rowcolor_paging_database.aspx" />
+    <Content Include="grid\grid_style_rowcolor_paging.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\region.aspx" />
@@ -98,6 +101,7 @@
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
+    <Content Include="test\tabstrip_addtab2.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\activex.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
@@ -328,7 +332,7 @@
     <Content Include="grid\grid_iframe_window.aspx" />
     <Content Include="grid\grid_paging.aspx" />
     <Content Include="grid\grid_rowdatabound.aspx" />
-    <Content Include="grid\grid_rowcolor.aspx" />
+    <Content Include="grid\grid_style_rowcolor.aspx" />
     <Content Include="grid\grid_simulate_tree.aspx" />
     <Content Include="grid\grid_sorting.aspx" />
     <Content Include="grid\grid_checkall.aspx" />
@@ -421,6 +425,7 @@
     <Content Include="window\group_panel.aspx" />
     <Content Include="window\panel.aspx" />
     <Content Include="window\window.aspx" />
+    <Content Include="window\window_multi.aspx" />
     <Content Include="window\window_toolbar.aspx" />
     <Content Include="window\panel_collapse.aspx" />
     <Content Include="window\window_form.aspx" />
@@ -590,12 +595,33 @@
     <Compile Include="grid\grid_editor_cell_new_delete_rowexpander.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_new_delete_rowexpander.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_style_columnclass.aspx.cs">
+      <DependentUpon>grid_style_columnclass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_style_columnclass.aspx.designer.cs">
+      <DependentUpon>grid_style_columnclass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_summary_scrollbar_flow.aspx.cs">
       <DependentUpon>grid_summary_scrollbar_flow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="grid\grid_summary_scrollbar_flow.aspx.designer.cs">
       <DependentUpon>grid_summary_scrollbar_flow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_style_rowcolor_paging_database.aspx.cs">
+      <DependentUpon>grid_style_rowcolor_paging_database.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_style_rowcolor_paging_database.aspx.designer.cs">
+      <DependentUpon>grid_style_rowcolor_paging_database.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_style_rowcolor_paging.aspx.cs">
+      <DependentUpon>grid_style_rowcolor_paging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_style_rowcolor_paging.aspx.designer.cs">
+      <DependentUpon>grid_style_rowcolor_paging.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
@@ -719,6 +745,13 @@
     </Compile>
     <Compile Include="test\SingleGridPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\tabstrip_addtab2.aspx.cs">
+      <DependentUpon>tabstrip_addtab2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\tabstrip_addtab2.aspx.designer.cs">
+      <DependentUpon>tabstrip_addtab2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\triggerbox2.aspx.cs">
       <DependentUpon>triggerbox2.aspx</DependentUpon>
@@ -1633,12 +1666,12 @@
     <Compile Include="grid\grid_rowdatabound.aspx.designer.cs">
       <DependentUpon>grid_rowdatabound.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_rowcolor.aspx.cs">
-      <DependentUpon>grid_rowcolor.aspx</DependentUpon>
+    <Compile Include="grid\grid_style_rowcolor.aspx.cs">
+      <DependentUpon>grid_style_rowcolor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_rowcolor.aspx.designer.cs">
-      <DependentUpon>grid_rowcolor.aspx</DependentUpon>
+    <Compile Include="grid\grid_style_rowcolor.aspx.designer.cs">
+      <DependentUpon>grid_style_rowcolor.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_simulate_tree.aspx.cs">
       <DependentUpon>grid_simulate_tree.aspx</DependentUpon>
@@ -2592,6 +2625,13 @@
     </Compile>
     <Compile Include="window\window.aspx.designer.cs">
       <DependentUpon>window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\window_multi.aspx.cs">
+      <DependentUpon>window_multi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window_multi.aspx.designer.cs">
+      <DependentUpon>window_multi.aspx</DependentUpon>
     </Compile>
     <Compile Include="window\window_toolbar.aspx.cs">
       <DependentUpon>window_toolbar.aspx</DependentUpon>

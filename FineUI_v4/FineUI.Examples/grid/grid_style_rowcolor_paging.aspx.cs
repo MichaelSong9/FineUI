@@ -9,7 +9,7 @@ using System.IO;
 
 namespace FineUI.Examples.data
 {
-    public partial class grid_rowcolor : PageBase
+    public partial class grid_style_rowcolor_paging : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,20 +20,19 @@ namespace FineUI.Examples.data
         }
 
         #region BindGrid
+
         private void BindGrid()
         {
-            ViewState["UseDataSource1"] = true;
+            DataTable table = GetDataTable2();
 
-            DataTable table = GetDataTable();
-
-            highlightRows.Text = "";
             Grid1.DataSource = table;
             Grid1.DataBind();
+
         }
 
         #endregion
 
-        #region Grid1
+        #region Event
 
         protected void Grid1_RowDataBound(object sender, FineUI.GridRowEventArgs e)
         {
@@ -55,29 +54,12 @@ namespace FineUI.Examples.data
         }
 
 
-        #endregion
 
-        #region Event
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Grid1_PageIndexChange(object sender, FineUI.GridPageEventArgs e)
         {
-            DataTable table;
-            if (Convert.ToBoolean(ViewState["UseDataSource1"]))
-            {
-                ViewState["UseDataSource1"] = false;
-                table = GetDataTable2();
-            }
-            else
-            {
-                ViewState["UseDataSource1"] = true;
-                table = GetDataTable();
-            }
+            currentPageIndex.Text = e.NewPageIndex.ToString();
 
-            // 重新绑定数据前，先清空高亮的行数据
-            highlightRows.Text = "";
-
-            Grid1.DataSource = table;
-            Grid1.DataBind();
+            Grid1.PageIndex = e.NewPageIndex;
         }
 
         #endregion

@@ -370,10 +370,18 @@
       <!--<TreeNode Text="列锁定（多列，多行，行高不同）" NavigateUrl="~/grid/grid_lockcolumn_many_columns.aspx" >
       </TreeNode>-->
     </TreeNode>
+    <TreeNode Text="行与列样式" IsNew="true">
+      <TreeNode Text="行样式" NavigateUrl="~/grid/grid_style_rowcolor.aspx" >
+      </TreeNode>
+      <TreeNode Text="行样式（数据库分页）" NavigateUrl="~/grid/grid_style_rowcolor_paging_database.aspx" IsNew="true" >
+      </TreeNode>
+      <TreeNode Text="行样式（内存分页）" NavigateUrl="~/grid/grid_style_rowcolor_paging.aspx" IsNew="true" >
+      </TreeNode>
+      <TreeNode Text="列样式" NavigateUrl="~/grid/grid_style_columnclass.aspx" IsNew="true" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="杂项" IsNew="true">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
-      </TreeNode>
-      <TreeNode Text="改变行背景色" NavigateUrl="~/grid/grid_rowcolor.aspx" >
       </TreeNode>
       <TreeNode Text="列文本的显示位置" NavigateUrl="~/grid/grid_centercolumn.aspx" >
       </TreeNode>
