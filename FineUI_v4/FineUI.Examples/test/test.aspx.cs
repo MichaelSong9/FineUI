@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using FineUI;
+using System.Data;
+using System.Text;
+using System.IO;
+using System.Xml;
 
-namespace EmptyProjectNet45_FineUI
+namespace FineUI.Examples.test
 {
-    public partial class Test : System.Web.UI.Page
+    public partial class test : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Button1.OnClientClick = Window1.GetShowReference("~/test/Test1.aspx");
+                
             }
         }
+
     }
 }
