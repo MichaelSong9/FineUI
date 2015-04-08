@@ -35,7 +35,7 @@
                 </f:Label>
                 <f:CheckBoxList ID="rblAutoPostBack" AutoPostBack="true" OnSelectedIndexChanged="rblAutoPostBack_SelectedIndexChanged"
                     Label="列表三（自动回发）" ColumnNumber="3" runat="server" ShowRedStar="true" Required="true">
-                    <f:CheckItem Text="可选项 1" Value="value1" />
+                    <f:CheckItem Text="可选项 1（很长很长很长很长很长很长的可选项）" Value="value1" />
                     <f:CheckItem Text="可选项 2" Value="value2" />
                     <f:CheckItem Text="可选项 3" Value="value3" />
                     <f:CheckItem Text="可选项 4" Value="value4" />

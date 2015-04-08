@@ -97,13 +97,17 @@
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
+    <Content Include="test\grid_editor_cell_databind2.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
+    <Content Include="test\HulinY.js" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
     <Content Include="test\tabstrip_addtab2.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\activex.aspx" />
+    <Content Include="test\empty2.aspx" />
+    <Content Include="third-party\autocomplete\inline_window.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
@@ -405,7 +409,9 @@
     <Content Include="toolbar\menu.aspx" />
     <Content Include="toolbar\menucheckbox.aspx" />
     <Content Include="toolbar\menu_hideonclick.aspx" />
+    <Content Include="toolbar\toolbar_images.aspx" />
     <Content Include="tree\checkbox\tree_checked.aspx" />
+    <Content Include="tree\select\tree_multi_select_selectable.aspx" />
     <Content Include="tree\select\tree_nodecommand.aspx" />
     <Content Include="tree\tree_icon.aspx" />
     <Content Include="tree\select\tree_select.aspx" />
@@ -708,6 +714,13 @@
     <Compile Include="test\empty.aspx.designer.cs">
       <DependentUpon>empty.aspx</DependentUpon>
     </Compile>
+    <Compile Include="test\grid_editor_cell_databind2.aspx.cs">
+      <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_databind2.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="test\grid_iframe2.aspx.cs">
       <DependentUpon>grid_iframe2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -766,6 +779,20 @@
     </Compile>
     <Compile Include="test\activex.aspx.designer.cs">
       <DependentUpon>activex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\empty2.aspx.cs">
+      <DependentUpon>empty2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\empty2.aspx.designer.cs">
+      <DependentUpon>empty2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\autocomplete\inline_window.aspx.cs">
+      <DependentUpon>inline_window.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\autocomplete\inline_window.aspx.designer.cs">
+      <DependentUpon>inline_window.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
@@ -2169,12 +2196,26 @@
     <Compile Include="toolbar\menu_hideonclick.aspx.designer.cs">
       <DependentUpon>menu_hideonclick.aspx</DependentUpon>
     </Compile>
+    <Compile Include="toolbar\toolbar_images.aspx.cs">
+      <DependentUpon>toolbar_images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\toolbar_images.aspx.designer.cs">
+      <DependentUpon>toolbar_images.aspx</DependentUpon>
+    </Compile>
     <Compile Include="tree\checkbox\tree_checked.aspx.cs">
       <DependentUpon>tree_checked.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="tree\checkbox\tree_checked.aspx.designer.cs">
       <DependentUpon>tree_checked.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tree\select\tree_multi_select_selectable.aspx.cs">
+      <DependentUpon>tree_multi_select_selectable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\select\tree_multi_select_selectable.aspx.designer.cs">
+      <DependentUpon>tree_multi_select_selectable.aspx</DependentUpon>
     </Compile>
     <Compile Include="tree\select\tree_nodecommand.aspx.cs">
       <DependentUpon>tree_nodecommand.aspx</DependentUpon>

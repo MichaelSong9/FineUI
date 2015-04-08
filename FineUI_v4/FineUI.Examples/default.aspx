@@ -195,6 +195,13 @@
                                             <br />
                                             注：FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
 
+											
+											<div style="position:fixed;bottom:30px;right:10px;text-align:center;border:solid 1px #ddd;padding:10px;background-color:#efefef;">
+												<div style="margin-bottom:5px;">
+												扫描二维码，关注 FineUI 微信公众号
+												</div>
+												<img src="http://fineui.com/images/weixin_fineui.jpg" style="width:150px;" alert="关注 FineUI 微信公众号">
+											</div>
                                         </f:ContentPanel>
                                     </Items>
                                 </f:Tab>

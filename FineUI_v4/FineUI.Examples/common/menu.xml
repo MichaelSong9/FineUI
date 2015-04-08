@@ -197,13 +197,15 @@
       <TreeNode Text="序号列的宽度" NavigateUrl="~/grid/grid_rownumber_width.aspx" >
       </TreeNode>
     </TreeNode>
+    <TreeNode Text="行选择" IsNew="true">
+      <TreeNode Text="行选择（多选）" NavigateUrl="~/grid/grid_checkall.aspx" >
+      </TreeNode>
+      <TreeNode Text="行选择（单选）" NavigateUrl="~/grid/grid_checkall_singleselect.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="行选择（只能通过全选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
+      </TreeNode>
+    </TreeNode>
     <TreeNode Text="扩展列" IsNew="true">
-      <TreeNode Text="全选列" NavigateUrl="~/grid/grid_checkall.aspx" >
-      </TreeNode>
-      <TreeNode Text="全选列（单选）" NavigateUrl="~/grid/grid_checkall_singleselect.aspx" IsNew="true">
-      </TreeNode>
-      <TreeNode Text="全选列（只能通过全选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
-      </TreeNode>
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
       </TreeNode>
       <TreeNode Text="行扩展列（展开全部）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
@@ -243,7 +245,6 @@
       <TreeNode Text="全选复选框列（客户端实现）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_clientside.aspx" >
       </TreeNode>
     </TreeNode>
-
     <TreeNode Text="动态创建列">
       <TreeNode Text="动态创建的列" NavigateUrl="~/grid/grid_dynamic_columns.aspx" >
       </TreeNode>
@@ -497,6 +498,8 @@
       </TreeNode>
       <TreeNode Text="多行工具栏" NavigateUrl="~/toolbar/multi_toolbars.aspx" IsNew="true">
       </TreeNode>
+      <TreeNode Text="工具栏上的图片" NavigateUrl="~/toolbar/toolbar_images.aspx" IsNew="true">
+      </TreeNode>
     </TreeNode>
     <TreeNode Text="用户控件">
       <TreeNode Text="用户控件" NavigateUrl="~/usercontrol/userinfo.aspx" >
@@ -572,8 +575,10 @@
       <TreeNode Text="My97日期控件" NavigateUrl="~/third-party/my97/my97.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="jQueryUI Autocomplete">
+    <TreeNode Text="jQueryUI Autocomplete" IsNew="true">
       <TreeNode Text="内联数据" NavigateUrl="~/third-party/autocomplete/inline.aspx" >
+      </TreeNode>
+      <TreeNode Text="内联数据（位于Window控件中）" NavigateUrl="~/third-party/autocomplete/inline_window.aspx" IsNew="true" >
       </TreeNode>
       <TreeNode Text="自动补全邮件地址" NavigateUrl="~/third-party/autocomplete/email.aspx" >
       </TreeNode>
