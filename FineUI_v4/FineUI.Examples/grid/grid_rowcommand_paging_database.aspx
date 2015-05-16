@@ -18,18 +18,7 @@
             Height="300px" OnRowCommand="Grid1_RowCommand" EnableCheckBoxSelect="false"
             AllowPaging="true" IsDatabasePaging="true" PageSize="5" OnPageIndexChange="Grid1_PageIndexChange">
             <Columns>
-                <f:TemplateField ColumnID="expander" RenderAsRowExpander="true">
-                    <ItemTemplate>
-                        <div class="expander">
-                            <p>
-                                <strong>姓名：</strong><%# Eval("Name") %>
-                            </p>
-                            <p>
-                                <strong>简介：</strong><%# Eval("Desc") %>
-                            </p>
-                        </div>
-                    </ItemTemplate>
-                </f:TemplateField>
+                <f:RowNumberField EnablePagingNumber="true"></f:RowNumberField>
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                 <f:TemplateField Width="80px" HeaderText="性别">
                     <ItemTemplate>
@@ -38,8 +27,6 @@
                 </f:TemplateField>
                 <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
                 <f:CheckBoxField Width="80px" RenderAsStaticField="true" DataField="AtSchool" HeaderText="是否在校" />
-                <f:CheckBoxField ColumnID="CheckBoxField1" Width="80px" RenderAsStaticField="false"
-                    DataField="AtSchool" HeaderText="是否在校" />
                 <f:HyperLinkField HeaderText="所学专业" DataToolTipField="Major" DataTextField="Major"
                     DataTextFormatString="{0}" DataNavigateUrlFields="Major" DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}"
                     UrlEncode="true" Target="_blank" ExpandUnusedSpace="True" />
@@ -49,8 +36,6 @@
                 <f:LinkButtonField HeaderText="&nbsp;" Width="80px" CommandName="Action1" Text="按钮 1" />
                 <f:LinkButtonField HeaderText="&nbsp;" Width="80px" ConfirmText="你确定要这么做么？" ConfirmTarget="Top"
                     CommandName="Action2" Text="按钮 2" />
-                <f:LinkButtonField HeaderText="&nbsp;" Width="80px" ConfirmText="你确定要这么做么？" ConfirmTarget="Top"
-                    CommandName="Action2" Text="按钮 3" />
             </Columns>
         </f:Grid>
         <br />

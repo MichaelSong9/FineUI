@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.tabstrip {
+namespace FineUI.Examples.toolbar {
     
     
-    public partial class tabstrip_addtab {
+    public partial class form {
         
         /// <summary>
         /// form1 控件。
@@ -31,84 +31,120 @@ namespace FineUI.Examples.tabstrip {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// TabStrip1 控件。
+        /// Grid1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TabStrip TabStrip1;
+        protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// btnAddTab1 控件。
+        /// Toolbar1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab1;
+        protected global::FineUI.Toolbar Toolbar1;
         
         /// <summary>
-        /// btnAddTab2 控件。
+        /// Form2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab2;
+        protected global::FineUI.Form Form2;
         
         /// <summary>
-        /// btnRemoveTab1 控件。
+        /// Label1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab1;
+        protected global::FineUI.Label Label1;
         
         /// <summary>
-        /// btnRemoveTab2 控件。
+        /// CheckBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab2;
+        protected global::FineUI.CheckBox CheckBox1;
         
         /// <summary>
-        /// btnAddTab3 控件。
+        /// DropDownList1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab3;
+        protected global::FineUI.DropDownList DropDownList1;
         
         /// <summary>
-        /// btnAddTab4 控件。
+        /// TextBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab4;
+        protected global::FineUI.TextBox TextBox1;
         
         /// <summary>
-        /// btnRemoveTab3 控件。
+        /// Label3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab3;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// btnRemoveTab4 控件。
+        /// Form3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab4;
+        protected global::FineUI.Form Form3;
+        
+        /// <summary>
+        /// Label2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Label Label2;
+        
+        /// <summary>
+        /// CheckBox2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.CheckBox CheckBox2;
+        
+        /// <summary>
+        /// DropDownList2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.DropDownList DropDownList2;
+        
+        /// <summary>
+        /// TextBox2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox TextBox2;
     }
 }

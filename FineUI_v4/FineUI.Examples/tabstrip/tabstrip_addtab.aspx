@@ -18,31 +18,31 @@
             </Tabs>
         </f:TabStrip>
         <br />
-        <f:Button ID="btnAddBaidu1" CssClass="marginr" Text="添加标签 - Baidu1（客户端代码）"
+        <f:Button ID="btnAddTab1" CssClass="marginr" Text="专业版（客户端代码）"
             EnablePostBack="false" runat="server">
         </f:Button>
-        <f:Button ID="btnAddCnblogs1" CssClass="marginr" Text="添加标签 - Cnblogs1（客户端代码）"
+        <f:Button ID="btnAddTab2" CssClass="marginr" Text="开源版（客户端代码）"
             EnablePostBack="false" runat="server">
         </f:Button>
-        <f:Button ID="btnRemoveBaidu1" CssClass="marginr" Text="删除标签 - Baidu1（客户端代码）"
+        <f:Button ID="btnRemoveTab1" CssClass="marginr" Text="删除专业版（客户端代码）"
             EnablePostBack="false" runat="server">
         </f:Button>
-        <f:Button ID="btnRemoveCnblogs1" CssClass="marginr" Text="删除标签 - Cnblogs1（客户端代码）"
+        <f:Button ID="btnRemoveTab2" CssClass="marginr" Text="删除开源版（客户端代码）"
             EnablePostBack="false" runat="server">
         </f:Button>
         <br />
         <br />
-        <f:Button ID="btnAddBaidu2" CssClass="marginr" Text="添加标签 - Baidu2（服务端代码）"
-            runat="server" OnClick="btnAddBaidu2_Click">
+        <f:Button ID="btnAddTab3" CssClass="marginr" Text="专业版示例（服务端代码）"
+            runat="server" OnClick="btnAddTab3_Click">
         </f:Button>
-        <f:Button ID="btnAddCnblogs2" CssClass="marginr" Text="添加标签 - Cnblogs2（服务端代码）"
-            runat="server" OnClick="btnAddCnblogs2_Click">
+        <f:Button ID="btnAddTab4" CssClass="marginr" Text="开源版版示例（服务端代码）"
+            runat="server" OnClick="btnAddTab4_Click">
         </f:Button>
-        <f:Button ID="btnRemoveBaidu2" CssClass="marginr" Text="删除标签 - Baidu2（服务端代码）"
-            runat="server" OnClick="btnRemoveBaidu2_Click">
+        <f:Button ID="btnRemoveTab3" CssClass="marginr" Text="删除专业版示例（服务端代码）"
+            runat="server" OnClick="btnRemoveTab3_Click">
         </f:Button>
-        <f:Button ID="btnRemoveCnblogs2" CssClass="marginr" Text="删除标签 - Cnblogs2（服务端代码）"
-            runat="server" OnClick="btnRemoveCnblogs2_Click">
+        <f:Button ID="btnRemoveTab4" CssClass="marginr" Text="删除开源版版示例（服务端代码）"
+            runat="server" OnClick="btnRemoveTab4_Click">
         </f:Button>
         <br />
         <br />

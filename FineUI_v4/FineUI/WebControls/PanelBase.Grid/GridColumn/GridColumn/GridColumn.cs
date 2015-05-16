@@ -379,6 +379,7 @@ namespace FineUI
         }
 
 
+        /*
         private TextAlign _textalign = TextAlign.Left;
 
         /// <summary>
@@ -398,6 +399,28 @@ namespace FineUI
                 _textalign = value;
             }
         }
+        */
+
+        private TextAlign? _textalign = null;
+
+        /// <summary>
+        /// 文本的排列位置
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(null)]
+        [Description("文本的排列位置")]
+        public TextAlign? TextAlign
+        {
+            get
+            {
+                return _textalign;
+            }
+            set
+            {
+                _textalign = value;
+            }
+        }
+
 
         private bool _enableHeaderMenu = true;
         /// <summary>
@@ -603,9 +626,16 @@ namespace FineUI
                 OB.AddProperty("f_columnIndex", ColumnIndex);
 
 
+                /*
                 if (TextAlign != TextAlign.Left)
                 {
                     OB.AddProperty("align", TextAlignName.GetName(TextAlign));
+                }
+                */
+                if (TextAlign != null)
+                {
+                    // 行序号列默认靠右显示；其他靠左显示；所以只要定义了 TextAlign，就输出
+                    OB.AddProperty("align", TextAlignName.GetName(TextAlign.Value));
                 }
 
                 if (Width != Unit.Empty)

@@ -362,7 +362,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue("")]
         [Description("下一步获得焦点的控件（响应回车事件）")]
-        public string NextFocusControl
+        public virtual string NextFocusControl
         {
             get
             {

@@ -87,6 +87,8 @@
     <Content Include="grid\grid_summary_scrollbar_flow.aspx" />
     <Content Include="grid\grid_style_rowcolor_paging_database.aspx" />
     <Content Include="grid\grid_style_rowcolor_paging.aspx" />
+    <Content Include="grid\grid_editor_cell_paging.aspx" />
+    <Content Include="grid\grid_rownumber_align.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\region.aspx" />
@@ -399,6 +401,7 @@
     <Content Include="third-party\autocomplete\remote_with_cache.aspx" />
     <Content Include="third-party\my97\my97.aspx" />
     <Content Include="third-party\umeditor\umeditor.aspx" />
+    <Content Include="toolbar\form.aspx" />
     <Content Include="toolbar\multi_toolbars.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\cssstyle.aspx" />
@@ -628,6 +631,20 @@
     </Compile>
     <Compile Include="grid\grid_style_rowcolor_paging.aspx.designer.cs">
       <DependentUpon>grid_style_rowcolor_paging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_paging.aspx.cs">
+      <DependentUpon>grid_editor_cell_paging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_paging.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_paging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_align.aspx.cs">
+      <DependentUpon>grid_rownumber_align.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rownumber_align.aspx.designer.cs">
+      <DependentUpon>grid_rownumber_align.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
@@ -2122,6 +2139,13 @@
     </Compile>
     <Compile Include="third-party\umeditor\umeditor.aspx.designer.cs">
       <DependentUpon>umeditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="toolbar\form.aspx.cs">
+      <DependentUpon>form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\form.aspx.designer.cs">
+      <DependentUpon>form.aspx</DependentUpon>
     </Compile>
     <Compile Include="toolbar\multi_toolbars.aspx.cs">
       <DependentUpon>multi_toolbars.aspx</DependentUpon>

@@ -1356,12 +1356,12 @@ namespace FineUI
 
             AddListener("beforeselect", beforeselectSB.ToString(), "cmp", "record", "index");
 
-            if (EnableMultiSelect)
-            {
-                StringBuilder beforedeselectSB = new StringBuilder();
-                beforedeselectSB.AppendFormat("window.setTimeout(function(){{{0}(cmp);}},100);", Render_AutoPostBackID);
-                AddListener("beforedeselect", beforedeselectSB.ToString(), "cmp", "record", "index");
-            }
+            //if (EnableMultiSelect)
+            //{
+            //    StringBuilder beforedeselectSB = new StringBuilder();
+            //    beforedeselectSB.AppendFormat("window.setTimeout(function(){{{0}(cmp);}},100);", Render_AutoPostBackID);
+            //    AddListener("beforedeselect", beforedeselectSB.ToString(), "cmp", "record", "index");
+            //}
 
             #region old code
             //if (AutoPostBack)

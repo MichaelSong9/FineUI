@@ -60,6 +60,25 @@ namespace FineUI
 
         #endregion
 
+        #region Unsupported Properties
+
+        /// <summary>
+        /// 不支持此属性
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override string NextFocusControl
+        {
+            get
+            {
+                return base.NextFocusControl;
+            }
+        }
+
+
+
+        #endregion
+
         #region Properties
 
         /// <summary>

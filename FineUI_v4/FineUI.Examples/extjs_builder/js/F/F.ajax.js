@@ -43,6 +43,27 @@
         //}
         F.util.triggerBeforeAjax();
 
+
+        function ajaxSuccess(data, viewStateBeforeAJAX) {
+            /*
+			try {
+				new Function(data)();
+			} catch (e) {
+				createErrorWindow({
+					statusText: "Execute JavaScript Exception",
+					status: -1,
+					responseText: util.htmlEncode(data)
+				});
+			}
+			*/
+            new Function('__VIEWSTATE', data)(viewStateBeforeAJAX);
+
+            // 有可能响应返回后即关闭本窗体
+            if (F && F.util) {
+                F.util.triggerAjaxReady();
+            }
+        }
+
         // Ext.encode will convert Chinese characters. Ext.encode({a:"你好"}) => '{"a":"\u4f60\u597d"}'
         // We will include the official JSON object from http://json.org/
         // 现在还是用的 Ext.encode，在 IETester的 IE8下 JSON.stringify 生成的中文是\u9009\u9879形式。
@@ -71,6 +92,9 @@
             if (urlHashIndex >= 0) {
                 url = url.substring(0, urlHashIndex);
             }
+
+            var viewStateBeforeAJAX = F.util.getHiddenFieldValue('__VIEWSTATE');
+
             Ext.Ajax.request({
                 form: theForm.id,
                 url: url,
@@ -79,8 +103,18 @@
                 success: function (data) {
                     var scripts = data.responseText;
 
+                    
+                    if (scripts && F.form_upload_file) {
+                        // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
+                        //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
+                        scripts = decodeURIComponent(scripts);
+                    }
+
+
                     // 因为这里调用后（可能会关闭当前页面），extjs还有代码要执行（Ext.callback...），所以这里要延迟一下，等 extjs 代码执行完毕后再执行这里代码
                     window.setTimeout(function () {
+                        ajaxSuccess(scripts, viewStateBeforeAJAX);
+                        /*
                         if (scripts) {
                             if (F.form_upload_file) {
                                 // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
@@ -90,23 +124,14 @@
 
 
                             new Function(scripts)();
-                            /*
-                            try {
-                                new Function(scripts)();
-                            } catch (e) {
-                                createErrorWindow({
-                                    statusText: "Unexpected Response",
-                                    status: -1,
-                                    responseText: F.util.htmlEncode(scripts)
-                                });
-                            }
-                            */
+                            
 
                         }
                         // 有可能响应返回后即关闭本窗体
                         if (F && F.util) {
                             F.util.triggerAjaxReady();
                         }
+                        */
                     }, 100);
                 },
                 failure: function (data) {

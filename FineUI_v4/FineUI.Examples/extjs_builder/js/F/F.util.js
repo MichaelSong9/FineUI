@@ -73,6 +73,56 @@ F.customEvent = function (argument, validate) {
     __doPostBack(F.pagemanager.name, argument);
 };
 
+F.getHidden = function () {
+    return F.util.getHiddenFieldValue.apply(window, arguments);
+};
+F.setHidden = function () {
+    return F.util.setHiddenFieldValue.apply(window, arguments);
+};
+
+
+// 更新EventValidation的值
+F.eventValidation = function (newValue) {
+    F.setHidden("__EVENTVALIDATION", newValue);
+};
+
+
+// 更新ViewState的值
+F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
+    var viewStateHiddenFiledId = '__VIEWSTATE';
+
+    var oldValue = F.getHidden(viewStateHiddenFiledId);
+    var viewStateChanged = false;
+    if (oldValue !== viewStateBeforeAJAX) {
+        viewStateChanged = true;
+    }
+
+    if (typeof (newValue) === 'undefined') {
+        // AJAX过程中ViewState值没变化
+        if (viewStateChanged) {
+            F.setHidden(viewStateHiddenFiledId, viewStateBeforeAJAX);
+        }
+    } else {
+        // AJAX过程中ViewState值有变化
+        if (Ext.type(startIndex) === 'number' && startIndex > 0) {
+            // 只返回startIndex之后的内容
+            if (viewStateChanged) {
+                // 无法处理！
+                return false;
+            } else {
+                F.setHidden(viewStateHiddenFiledId, oldValue.substr(0, startIndex) + newValue);
+            }
+        } else {
+            // 返回完整的ViewState
+            F.setHidden(viewStateHiddenFiledId, newValue);
+        }
+    }
+
+    // 更新成功！
+    return true;
+};
+
+
 (function () {
 
     // 遍历定义了 renderTo 属性的对象
@@ -383,7 +433,6 @@ F.customEvent = function (argument, validate) {
                 itemNode.dom.value = fieldValue;
             }
         },
-
         // 从表单中删除隐藏字段
         removeHiddenField: function (fieldId) {
             var itemNode = Ext.get(fieldId);
@@ -391,7 +440,6 @@ F.customEvent = function (argument, validate) {
                 itemNode.remove();
             }
         },
-
         // 获取页面中一个隐藏字段的值
         getHiddenFieldValue: function (fieldId) {
             var itemNode = Ext.get(fieldId);
@@ -406,13 +454,15 @@ F.customEvent = function (argument, validate) {
             F(controlClientID).disable();
             F.util.setHiddenFieldValue('F_TARGET', controlClientID);
         },
-
         // 启用提交按钮（在回发之后启用提交按钮）
         enableSubmitControl: function (controlClientID) {
             F(controlClientID).enable();
             F.util.setHiddenFieldValue('F_TARGET', '');
         },
 
+
+
+        /*
         // 更新ViewState的值
         updateViewState: function (newValue, startIndex, gzipped) {
             if (typeof (startIndex) === 'boolean') {
@@ -441,6 +491,7 @@ F.customEvent = function (argument, validate) {
         updateEventValidation: function (newValue) {
             F.util.setHiddenFieldValue("__EVENTVALIDATION", newValue);
         },
+        */
 
         // 设置页面状态是否改变
         setPageStateChanged: function (changed) {

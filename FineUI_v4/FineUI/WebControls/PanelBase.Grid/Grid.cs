@@ -598,7 +598,7 @@ namespace FineUI
             get
             {
                 object obj = FState["SummaryData"];
-                return obj == null ? new JObject() : (JObject)obj;
+                return obj == null ? null : (JObject)obj;
             }
             set
             {

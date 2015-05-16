@@ -145,6 +145,13 @@ namespace FineUI
 
             #endregion
 
+            #region 监视ViewState的改变
+
+            // 更新ViewState，如果本AJAX请求的ViewState和当前页面上的ViewState不一致，则丢弃本次更新
+            UpdateViewState(sb, doc);
+
+
+            #endregion
             #region 页面上每个控件应该输出的脚本
 
             // 设置提交表单的按钮等元素可用enable（有可能在后面的被覆盖）
@@ -223,11 +230,11 @@ namespace FineUI
             // 更新执行的控件（一般是标准的ASP.NET控件）
             UpdateASPNETControls(sb, doc);
 
-            // 更新ViewState
-            UpdateViewState(sb, doc, false);
+            //// 更新ViewState
+            //UpdateViewState(sb, doc, false);
 
-            // 更新压缩后的ViewState
-            UpdateViewState(sb, doc, true);
+            //// 更新压缩后的ViewState
+            //UpdateViewState(sb, doc, true);
 
             // 更新EventValidation（如果存在则更新）
             UpdateEventValidation(sb, doc);
@@ -327,7 +334,7 @@ namespace FineUI
 
             if (!String.IsNullOrEmpty(newEventValidation) && (oldEventValidation != newEventValidation))
             {
-                sb.Append(String.Format("F.util.updateEventValidation('{0}');", newEventValidation));
+                sb.Append(String.Format("F.eventValidation('{0}');", newEventValidation));
             }
 
         }
@@ -338,13 +345,13 @@ namespace FineUI
         /// <param name="sb"></param>
         /// <param name="doc"></param>
         /// <param name="gzipped"></param>
-        private void UpdateViewState(StringBuilder sb, HtmlDocument doc, bool gzipped)
+        private void UpdateViewState(StringBuilder sb, HtmlDocument doc)
         {
             string viewStateHiddenFieldID = StringUtil.VIEWSTATE_ID;
-            if (gzipped)
-            {
-                viewStateHiddenFieldID = StringUtil.GZIPPED_VIEWSTATE_ID;
-            }
+            //if (gzipped)
+            //{
+            //    viewStateHiddenFieldID = StringUtil.GZIPPED_VIEWSTATE_ID;
+            //}
 
             string oldViewState = HttpContext.Current.Request.Form[viewStateHiddenFieldID];
             string newViewState = GetHtmlNodeValue(viewStateHiddenFieldID, doc);
@@ -362,6 +369,8 @@ namespace FineUI
                     }
                 }
 
+
+                /*
                 if (changeIndex == 0)
                 {
                     sb.Append(String.Format("F.util.updateViewState('{0}',{1});", newViewState, gzipped.ToString().ToLower()));
@@ -376,6 +385,28 @@ namespace FineUI
 
                     sb.Append(String.Format("F.util.updateViewState('{0}',{1},{2});", changedStr, changeIndex, gzipped.ToString().ToLower()));
                 }
+                */
+
+
+                // 如果只有很少的一些字符没改变（小于等于150个字符），还是返回完整的ViewState
+                if (changeIndex <= 150)
+                {
+                    sb.Append(String.Format("if(!F.viewState(__VIEWSTATE,'{0}'))return;", newViewState));
+                }
+                else
+                {
+                    string changedStr = String.Empty;
+                    if (newViewState.Length >= changeIndex)
+                    {
+                        changedStr = newViewState.Substring(changeIndex);
+                    }
+
+                    sb.Append(String.Format("if(!F.viewState(__VIEWSTATE,'{0}',{1}))return;", changedStr, changeIndex));
+                }
+            }
+            else
+            {
+                sb.Append("if(!F.viewState(__VIEWSTATE))return;");
             }
         }
 

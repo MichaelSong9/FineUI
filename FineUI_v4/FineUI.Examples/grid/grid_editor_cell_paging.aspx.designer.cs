@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.tabstrip {
+namespace FineUI.Examples.grid {
     
     
-    public partial class tabstrip_addtab {
+    public partial class grid_editor_cell_paging {
         
         /// <summary>
         /// form1 控件。
@@ -31,84 +31,84 @@ namespace FineUI.Examples.tabstrip {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// TabStrip1 控件。
+        /// Grid1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TabStrip TabStrip1;
+        protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// btnAddTab1 控件。
+        /// Label1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab1;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// btnAddTab2 控件。
+        /// tbxEditorName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab2;
+        protected global::FineUI.TextBox tbxEditorName;
         
         /// <summary>
-        /// btnRemoveTab1 控件。
+        /// ddlGender 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab1;
+        protected global::FineUI.DropDownList ddlGender;
         
         /// <summary>
-        /// btnRemoveTab2 控件。
+        /// tbxEditorEntranceYear 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab2;
+        protected global::FineUI.NumberBox tbxEditorEntranceYear;
         
         /// <summary>
-        /// btnAddTab3 控件。
+        /// DatePicker1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab3;
+        protected global::FineUI.DatePicker DatePicker1;
         
         /// <summary>
-        /// btnAddTab4 控件。
+        /// tbxEditorMajor 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnAddTab4;
+        protected global::FineUI.TextBox tbxEditorMajor;
         
         /// <summary>
-        /// btnRemoveTab3 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab3;
+        protected global::FineUI.Button Button2;
         
         /// <summary>
-        /// btnRemoveTab4 控件。
+        /// labResult 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnRemoveTab4;
+        protected global::FineUI.Label labResult;
     }
 }

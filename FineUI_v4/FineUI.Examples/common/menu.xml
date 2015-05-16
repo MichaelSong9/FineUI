@@ -189,12 +189,14 @@
       <TreeNode Text="数据库分页（底部工具栏）" NavigateUrl="~/grid/grid_paging_database_bbar.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="序号列">
-      <TreeNode Text="序号列与内存分页" NavigateUrl="~/grid/grid_rownumber_paging.aspx" >
+    <TreeNode Text="序号列" IsNew="true">
+      <TreeNode Text="序号列（内存分页）" NavigateUrl="~/grid/grid_rownumber_paging.aspx" >
       </TreeNode>
-      <TreeNode Text="序号列与数据库分页" NavigateUrl="~/grid/grid_rownumber_paging_database.aspx" >
+      <TreeNode Text="序号列（数据库分页）" NavigateUrl="~/grid/grid_rownumber_paging_database.aspx" >
       </TreeNode>
-      <TreeNode Text="序号列的宽度" NavigateUrl="~/grid/grid_rownumber_width.aspx" >
+      <TreeNode Text="序号列（自定义宽度）" NavigateUrl="~/grid/grid_rownumber_width.aspx" >
+      </TreeNode>
+      <TreeNode Text="序号列（靠左显示）" NavigateUrl="~/grid/grid_rownumber_align.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="行选择" IsNew="true">
@@ -221,6 +223,10 @@
     </TreeNode>
     <TreeNode Text="事件" IsNew="true">
       <TreeNode Text="行内按钮事件" NavigateUrl="~/grid/grid_rowcommand.aspx" >
+      </TreeNode>
+      <TreeNode Text="行内按钮事件（内存分页）" NavigateUrl="~/grid/grid_rowcommand_paging.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="行内按钮事件（数据库分页）" NavigateUrl="~/grid/grid_rowcommand_paging_database.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="行绑定事件" NavigateUrl="~/grid/grid_rowdatabound.aspx" >
       </TreeNode>
@@ -384,7 +390,7 @@
     <TreeNode Text="杂项" IsNew="true">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>
-      <TreeNode Text="列文本的显示位置" NavigateUrl="~/grid/grid_centercolumn.aspx" >
+      <TreeNode Text="文本居中显示（标题靠左）" NavigateUrl="~/grid/grid_centercolumn.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="显示隐藏列" NavigateUrl="~/grid/grid_hidecolumn.aspx" >
       </TreeNode>

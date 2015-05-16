@@ -5,8 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="mainCPH" runat="server">
     <f:Grid ID="Grid1" EnableCollapse="false" PageSize="5" ShowBorder="false" ShowHeader="false"
         BoxFlex="1"
-        AllowPaging="true" runat="server" EnableCheckBoxSelect="True"
-        DataKeyNames="Id,Name" IsDatabasePaging="true"
+        AllowPaging="true" IsDatabasePaging="true" runat="server" EnableCheckBoxSelect="True"
+        DataKeyNames="Id,Name" 
         AllowSorting="true" SortField="Name" SortDirection="ASC">
         <Columns>
             <f:RowNumberField />

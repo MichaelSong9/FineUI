@@ -37,6 +37,9 @@
         <br />
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
+        <br />
+        <br />
+        <strong>出于性能考虑，请在实际项目中使用数据库分页（不要使用内存分页）！</strong>
     </form>
 </body>
 </html>

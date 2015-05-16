@@ -69,7 +69,7 @@ Ext.override(Ext.tab.Panel, {
     remove: function (comp) {
         var me = this, c = me.getComponent(comp);
 
-        if (c.body) {
+        if (c && c.body) {
             // 检查当前组件内的表单是否改变（包含组件内 iframe 页面，递归查找所有 iframe）
             if (F.util.preventPageClose(c.body)) {
                 return false;

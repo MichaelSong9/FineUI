@@ -7,14 +7,10 @@
     <title></title>
     <link href="../res/css/main.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        /* .x-grid-hd-ct4
-        {
-            text-align: center;
+        /* 分组列的标题靠左显示 */
+        #Group.x-column-header {
+            text-align: left;
         }
-        .x-grid-col-ct4 
-        {
-            text-align: center;
-        }*/
     </style>
 </head>
 <body>
@@ -31,14 +27,14 @@
                     </ItemTemplate>
                 </f:TemplateField>
                 <f:BoundField Width="80px" DataField="EntranceYear" HeaderText="入学年份" />
-                <f:CheckBoxField Width="150px" TextAlign="Center" RenderAsStaticField="true" DataField="AtSchool"
-                    HeaderText="是否在校（居中）" />
+                <%--<f:CheckBoxField Width="150px" TextAlign="Center" RenderAsStaticField="true" DataField="AtSchool"
+                    HeaderText="是否在校（居中）" />--%>
                 <f:HyperLinkField HeaderText="所学专业（居中）" TextAlign="Center" DataToolTipField="Major"
                     DataTextField="Major" DataTextFormatString="{0}" DataNavigateUrlFields="Major"
                     DataNavigateUrlFormatString="http://gsa.ustc.edu.cn/search?q={0}" UrlEncode="true"
                     Target="_blank" ExpandUnusedSpace="True" />
-                <f:ImageField Width="150px" TextAlign="Right" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
-                    HeaderText="分组（靠右）"></f:ImageField>
+                <f:ImageField ColumnID="Group" Width="250px" TextAlign="Right" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
+                    HeaderText="分组（内容靠右，标题靠左）"></f:ImageField>
             </Columns>
         </f:Grid>
         <br />
