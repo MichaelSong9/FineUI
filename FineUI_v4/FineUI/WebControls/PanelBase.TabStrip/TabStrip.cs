@@ -773,7 +773,7 @@ namespace FineUI
             if (!String.IsNullOrEmpty(iconUrl))
             {
                 string className = String.Format("icon_{0}", System.Guid.NewGuid().ToString("N"));
-                iconScript = String.Format("F.util.addCSS('{0}','{1}');", className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(iconUrl)));
+                iconScript = String.Format("F.addCSS('{0}','{1}');", className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(iconUrl)));
 
                 options.AddProperty("iconCls", className);
             }

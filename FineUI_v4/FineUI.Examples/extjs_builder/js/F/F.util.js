@@ -24,12 +24,13 @@ F.alert = function () {
     F.util.alert.apply(window, arguments);
 };
 
-//F.init = function () {
-//    if (typeof (onInit) == 'function') {
-//        onInit();
-//    }
-//};
+F.init = function () {
+	F.util.init.apply(window, arguments);
+};
 
+F.load = function () {
+    F.util.load.apply(window, arguments);
+};
 
 F.ready = function () {
     F.util.ready.apply(window, arguments);
@@ -80,6 +81,10 @@ F.setHidden = function () {
     return F.util.setHiddenFieldValue.apply(window, arguments);
 };
 
+F.addCSS = function () {
+    F.util.addCSS.apply(window, arguments);
+};
+
 
 // 更新EventValidation的值
 F.eventValidation = function (newValue) {
@@ -122,6 +127,18 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
     return true;
 };
 
+
+Ext.onReady(function () {
+
+    F.util.triggerLoad();
+
+    
+    F.util.triggerReady();
+
+
+    F.util.hidePageLoading();
+
+});
 
 (function () {
 
@@ -173,10 +190,24 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
         ddlTPL: '<tpl for="."><div class="x-boundlist-item<tpl if="!enabled"> x-boundlist-item-disabled</tpl>">{prefix}{text}</div></tpl>',
 
         // 初始化
-        init: function (msgTarget, labelWidth, labelSeparator,
-            blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax, themeName,
-            formChangeConfirm) {
-            // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
+        init: function (options) { // msgTarget, labelWidth, labelSeparator, blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax, themeName, formChangeConfirm) {
+            
+			Ext.apply(F, options, {
+				language: 'zh_CN',
+				msgTarget: 'side',
+				labelWidth: 100, 
+				labelSeparator: '：', 
+				//blankImageUrl: '', 
+				enableAjaxLoading: true, 
+				ajaxLoadingType: 'default', 
+				enableAjax: true, 
+				theme: 'neptune', 
+				formChangeConfirm: false,
+				ajaxTimeout: 120
+			});
+			
+			
+			// Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
             // 表现为iframe中的页面出现滚动条时，页面上的所有按钮都不能点击了。
             // 测试例子在：aspnet/test.aspx
             //Ext.QuickTips.init(false);
@@ -184,10 +215,10 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
 
             F.ajax.hookPostBack();
 
-            F.global_enable_ajax = enableAjax;
+            F.global_enable_ajax = F.enableAjax;
 
-            F.global_enable_ajax_loading = enableAjaxLoading;
-            F.global_ajax_loading_type = ajaxLoadingType;
+            F.global_enable_ajax_loading = F.enableAjaxLoading;
+            F.global_ajax_loading_type = F.ajaxLoadingType;
 
             // 添加Ajax Loading提示节点
             F.ajaxLoadingDefault = Ext.get(F.util.appendLoadingNode());
@@ -203,32 +234,32 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
             document.forms[0].autocomplete = 'off';
 
             Ext.getBody().addCls('f-body');
+			
+			Ext.Ajax.timeout = F.ajaxTimeout * 1000;
 
             // 向document.body添加主题类
-            if (themeName) {
-                Ext.getBody().addCls('f-theme-' + themeName);
+            if (F.theme) {
+                Ext.getBody().addCls('f-theme-' + F.theme);
             }
 
             if (Ext.form.field) {
                 var fieldPro = Ext.form.field.Base.prototype;
-                fieldPro.msgTarget = msgTarget;
-                fieldPro.labelWidth = labelWidth;
-                fieldPro.labelSeparator = labelSeparator;
+                fieldPro.msgTarget = F.msgTarget;
+                fieldPro.labelWidth = F.labelWidth;
+                fieldPro.labelSeparator = F.labelSeparator;
                 fieldPro.autoFitErrors = true;
             }
             if (Ext.form.CheckboxGroup) {
                 var checkboxgroupPro = Ext.form.CheckboxGroup.prototype;
-                checkboxgroupPro.msgTarget = msgTarget;
-                checkboxgroupPro.labelWidth = labelWidth;
-                checkboxgroupPro.labelSeparator = labelSeparator;
+                checkboxgroupPro.msgTarget = F.msgTarget;
+                checkboxgroupPro.labelWidth = F.labelWidth;
+                checkboxgroupPro.labelSeparator = F.labelSeparator;
                 checkboxgroupPro.autoFitErrors = true;
             }
 
             F.beforeunloadCheck = true;
-            F.formChangeConfirm = formChangeConfirm;
             // 启用表单改变确认对话框
             if (F.formChangeConfirm) {
-
                 // 下面这个方法在 Chrome、 Firefox下无效
                 //Ext.EventManager.on(window, 'beforeunload', function (event) {
                 window.onbeforeunload = function () {
@@ -237,17 +268,18 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
                         return F.wnd.formChangeConfirmMsg;
                     }
                 };
-
             }
 
             //if (enableBigFont) {
             //    Ext.getBody().addCls('bigfont');
             //}
 
-            // Default empty image
+			/*
+            // IE6&7不支持，IE8以上支持"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
             if (Ext.isIE6 || Ext.isIE7) {
-                Ext.BLANK_IMAGE_URL = blankImageUrl;
+                Ext.BLANK_IMAGE_URL = F.blankImageUrl;
             }
+			*/
 
             // Submit
             F.ready(function () {
@@ -277,6 +309,7 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
         _readyList: [],
         _ajaxReadyList: [],
         _beforeAjaxList: [],
+        _loadList: [],
 
         ready: function (callback) {
             F.util._readyList.push(callback);
@@ -286,6 +319,7 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
                 item.call(window);
             });
         },
+
 
         ajaxReady: function (callback) {
             F.util._ajaxReadyList.push(callback);
@@ -305,6 +339,15 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
             });
         },
 
+
+        load: function (callback) {
+            F.util._loadList.push(callback);
+        },
+        triggerLoad: function () {
+            Ext.Array.each(F.util._loadList, function (item, index) {
+                item.call(window);
+            });
+        },
 
         setFState: function (cmp, state) {
             if (!cmp || !cmp['f_state']) {
@@ -369,8 +412,9 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
             }
         },
 
-        // 去除PageLoading节点
-        removePageLoading: function (fadeOut) {
+        // 隐藏PageLoading节点
+        hidePageLoading: function () {
+            /*
             if (fadeOut) {
                 Ext.get("loading").remove();
                 Ext.get("loading-mask").fadeOut({ remove: true });
@@ -379,6 +423,10 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
                 Ext.get("loading").remove();
                 Ext.get("loading-mask").remove();
             }
+            */
+
+            Ext.get("loading").hide();
+            Ext.get("loading-mask").hide();
         },
 
 
@@ -724,7 +772,7 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
             return !!Ext.get(id);
         },
 
-        addCSS: function (id, content) {
+        addCSS: function (id, content, isCSSFile) {
 
             // 如果此节点已经存在，则先删除此节点
             var node = Ext.get(id);
@@ -732,16 +780,27 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
                 Ext.removeNode(node.dom);
             }
 
-            // Tricks From: http://www.phpied.com/dynamic-script-and-style-elements-in-ie/
-            var ss1 = document.createElement("style");
-            ss1.setAttribute("type", "text/css");
-            ss1.setAttribute("id", id);
-            if (ss1.styleSheet) {   // IE
-                ss1.styleSheet.cssText = content;
-            } else {                // the world
-                var tt1 = document.createTextNode(content);
-                ss1.appendChild(tt1);
+            var ss1;
+
+            if (isCSSFile) {
+                ss1 = document.createElement('link');
+                ss1.setAttribute('type', 'text/css');
+                ss1.setAttribute('rel', 'stylesheet');
+                ss1.setAttribute('id', id);
+                ss1.setAttribute('href', content);
+            } else {
+                // Tricks From: http://www.phpied.com/dynamic-script-and-style-elements-in-ie/
+                ss1 = document.createElement("style");
+                ss1.setAttribute("type", "text/css");
+                ss1.setAttribute("id", id);
+                if (ss1.styleSheet) {   // IE
+                    ss1.styleSheet.cssText = content;
+                } else {                // the world
+                    var tt1 = document.createTextNode(content);
+                    ss1.appendChild(tt1);
+                }
             }
+
             var hh1 = document.getElementsByTagName("head")[0];
             hh1.appendChild(ss1);
         },

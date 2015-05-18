@@ -326,9 +326,9 @@
     <TreeNode Text="多表头">
       <TreeNode Text="多表头" NavigateUrl="~/grid/grid_groupheader.aspx" >
       </TreeNode>
-      <TreeNode Text="多表头与排序" NavigateUrl="~/grid/grid_groupheader_sort.aspx" >
+      <TreeNode Text="多表头（排序）" NavigateUrl="~/grid/grid_groupheader_sort.aspx" >
       </TreeNode>
-      <TreeNode Text="多表头与标题栏菜单排序" NavigateUrl="~/grid/grid_groupheader_sort_hdmenu.aspx" >
+      <TreeNode Text="多表头（初始隐藏列）" NavigateUrl="~/grid/grid_groupheader_hidden.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="合计行">

@@ -418,19 +418,94 @@ namespace FineUI
             //beforeBuilder.AppendFormat("fieldPro.msgTarget='{0}';", MsgTargetHelper.GetName(PageManager.Instance.FormMessageTarget));
             //beforeBuilder.AppendFormat("fieldPro.labelWidth={0};", PageManager.Instance.FormLabelWidth.Value);
             //beforeBuilder.AppendFormat("fieldPro.labelSeparator='{0}';", PageManager.Instance.FormLabelSeparator);
-            beforeBuilder.AppendFormat("F.util.init('{0}',{1},'{2}','{3}',{4},'{5}',{6},'{7}',{8});",
-                MessageTargetHelper.GetName(PageManager.Instance.FormMessageTarget),
-                PageManager.Instance.FormLabelWidth.Value,
-                PageManager.Instance.FormLabelSeparator,
-                //PageManager.Instance.EnableBigFont.ToString().ToLower(),
-                Page.ResolveUrl(ResourceHelper.GetEmptyImageUrl()), //String.Format("{0}/res/images/s.gif", GlobalConfig.GetExtjsBasePath())), //ResourceHelper.GetWebResourceUrlResAxd("FineUI.res.img.s.gif&v=1"),
-                //PageManager.Instance.EnableAspnetSubmitButtonAjax.ToString().ToLower(),
-                PageManager.Instance.EnableAjaxLoading.ToString().ToLower(),
-                AjaxLoadingTypeName.GetName(PageManager.Instance.AjaxLoadingType),
-                PageManager.Instance.EnableAjax.ToString().ToLower(),
-                ThemeHelper.GetName(PageManager.Instance.Theme),
-                PageManager.Instance.EnableFormChangeConfirm.ToString().ToLower()
-                );
+            //beforeBuilder.AppendFormat("F.util.init('{0}',{1},'{2}','{3}',{4},'{5}',{6},'{7}',{8});",
+            //    MessageTargetHelper.GetName(PageManager.Instance.FormMessageTarget),
+            //    PageManager.Instance.FormLabelWidth.Value,
+            //    PageManager.Instance.FormLabelSeparator,
+            //    //PageManager.Instance.EnableBigFont.ToString().ToLower(),
+            //    Page.ResolveUrl(ResourceHelper.GetEmptyImageUrl()), //String.Format("{0}/res/images/s.gif", GlobalConfig.GetExtjsBasePath())), //ResourceHelper.GetWebResourceUrlResAxd("FineUI.res.img.s.gif&v=1"),
+            //    //PageManager.Instance.EnableAspnetSubmitButtonAjax.ToString().ToLower(),
+            //    PageManager.Instance.EnableAjaxLoading.ToString().ToLower(),
+            //    AjaxLoadingTypeName.GetName(PageManager.Instance.AjaxLoadingType),
+            //    PageManager.Instance.EnableAjax.ToString().ToLower(),
+            //    ThemeHelper.GetName(PageManager.Instance.Theme),
+            //    PageManager.Instance.EnableFormChangeConfirm.ToString().ToLower()
+            //    );
+
+
+            //beforeBuilder.AppendFormat("F.util.init('{0}',{1},'{2}','{3}',{4},'{5}',{6},'{7}',{8});",
+            //    MessageTargetHelper.GetName(PageManager.Instance.FormMessageTarget),
+            //    PageManager.Instance.FormLabelWidth.Value,
+            //    PageManager.Instance.FormLabelSeparator,
+            //    //PageManager.Instance.EnableBigFont.ToString().ToLower(),
+            //    Page.ResolveUrl(ResourceHelper.GetEmptyImageUrl()), //String.Format("{0}/res/images/s.gif", GlobalConfig.GetExtjsBasePath())), //ResourceHelper.GetWebResourceUrlResAxd("FineUI.res.img.s.gif&v=1"),
+            //    //PageManager.Instance.EnableAspnetSubmitButtonAjax.ToString().ToLower(),
+            //    PageManager.Instance.EnableAjaxLoading.ToString().ToLower(),
+            //    AjaxLoadingTypeName.GetName(PageManager.Instance.AjaxLoadingType),
+            //    PageManager.Instance.EnableAjax.ToString().ToLower(),
+            //    ThemeHelper.GetName(PageManager.Instance.Theme),
+            //    PageManager.Instance.EnableFormChangeConfirm.ToString().ToLower()
+            //    );
+
+            JsObjectBuilder initObj = new JsObjectBuilder();
+
+            if (PageManager.Instance.FormMessageTarget != ConfigPropertyValue.FORM_MESSAGETARGET_DEFAULT)
+            {
+                initObj.AddProperty("msgTarget", MessageTargetHelper.GetName(PageManager.Instance.FormMessageTarget));
+            }
+
+            if (PageManager.Instance.FormLabelWidth != ConfigPropertyValue.FORM_LABELWIDTH_DEFAULT)
+            {
+                initObj.AddProperty("labelWidth", PageManager.Instance.FormLabelWidth.Value);
+            }
+
+            if (PageManager.Instance.FormLabelSeparator != ConfigPropertyValue.FORM_LABELSEPARATOR_DEFAULT)
+            {
+                initObj.AddProperty("labelSeparator", PageManager.Instance.FormLabelSeparator);
+            }
+
+            //initObj.AddProperty("blankImageUrl", Page.ResolveUrl(ResourceHelper.GetEmptyImageUrl()));
+
+            if (PageManager.Instance.EnableAjaxLoading != ConfigPropertyValue.ENABLE_AJAX_LOADING_DEFAULT)
+            {
+                initObj.AddProperty("enableAjaxLoading", PageManager.Instance.EnableAjaxLoading.ToString().ToLower());
+            }
+
+            if (PageManager.Instance.AjaxLoadingType != ConfigPropertyValue.AJAX_LOADING_TYPE_DEFAULT)
+            {
+                initObj.AddProperty("ajaxLoadingType", AjaxLoadingTypeName.GetName(PageManager.Instance.AjaxLoadingType));
+            }
+
+            if (PageManager.Instance.EnableAjax != ConfigPropertyValue.ENABLE_AJAX_DEFAULT)
+            {
+                initObj.AddProperty("enableAjax", PageManager.Instance.EnableAjax.ToString().ToLower());
+            }
+
+            if (PageManager.Instance.Theme != Theme.Neptune)
+            {
+                initObj.AddProperty("theme", ThemeHelper.GetName(PageManager.Instance.Theme));
+            }
+
+            if (PageManager.Instance.Language != ConfigPropertyValue.LANGUAGE_DEFAULT)
+            {
+                initObj.AddProperty("language", LanguageHelper.GetName(PageManager.Instance.Language));
+            }
+
+
+
+            if (PageManager.Instance.EnableFormChangeConfirm)
+            {
+                initObj.AddProperty("formChangeConfirm", PageManager.Instance.EnableFormChangeConfirm.ToString().ToLower());
+            }
+
+            if (PageManager.Instance.AjaxTimeout != ConfigPropertyValue.AJAX_TIMEOUT_DEFAULT)
+            {
+                initObj.AddProperty("ajaxTimeout", PageManager.Instance.AjaxTimeout);
+            }
+
+            initObj.AddProperty("_version", GlobalConfig.ProductVersion);
+
+            beforeBuilder.AppendFormat("F.init({0});", initObj);
 
             //if (PageManager.Instance.BeforeAjaxPostBackScript != String.Empty)
             //{
@@ -439,13 +514,13 @@ namespace FineUI
 
             //beforeBuilder.Append("F.ajax.hookPostBack();");
 
-            if (PageManager.Instance.EnableAjax)
-            {
-                if (PageManager.Instance.AjaxTimeout != ConfigPropertyValue.AJAX_TIMEOUT_DEFAULT)
-                {
-                    beforeBuilder.AppendFormat("Ext.Ajax.timeout={0};", PageManager.Instance.AjaxTimeout * 1000);
-                }
-            }
+            //if (PageManager.Instance.EnableAjax)
+            //{
+            //    if (PageManager.Instance.AjaxTimeout != ConfigPropertyValue.AJAX_TIMEOUT_DEFAULT)
+            //    {
+            //        beforeBuilder.AppendFormat("Ext.Ajax.timeout={0};", PageManager.Instance.AjaxTimeout * 1000);
+            //    }
+            //}
 
             //if (PageManager.Instance.EnableBigFont)
             //{
@@ -476,7 +551,7 @@ namespace FineUI
 
             #region afterBuilder
 
-            StringBuilder afterBuilder = new StringBuilder();
+            //StringBuilder afterBuilder = new StringBuilder();
 
             //afterBuilder.Append("\r\n");
 
@@ -486,7 +561,7 @@ namespace FineUI
             //afterBuilder.Append("box_alertDEBUG();");
 
             //afterBuilder.Append("if(typeof(onReady)==='function'){onReady.call(window);}");
-            afterBuilder.Append("F.util.triggerReady();");
+            //afterBuilder.Append("F.util.triggerReady();");
             //// 如果是回发并且允许回发注册onReady脚本
             //if (!Page.IsPostBack || (Page.IsPostBack && PageManager.Instance.ExecuteOnReadyWhenPostBack))
             //{
@@ -503,7 +578,7 @@ namespace FineUI
             // 需要注册script
             //string contentScript = String.Format("EXTASPNET_READY=function(){{{0}}};", beforeBuilder.ToString() + script + afterBuilder.ToString());
             //contentScript += "Ext.onReady(EXTASPNET_READY);";//Ext.EventManager.on(window,'onload',function(){EXTASPNET_READY();});";//if(Ext.isIE){}else{Ext.onReady(EXTASPNET_READY);}";
-            string contentScript = String.Format("Ext.onReady(function(){{{0}}});", beforeBuilder.ToString() + script + afterBuilder.ToString());
+            string contentScript = String.Format("F.load(function(){{{0}}});", beforeBuilder.ToString() + script);
             //#if DEBUG
             //            contentScript += "var x_end_time=new Date();";
             //#endif
@@ -685,7 +760,7 @@ namespace FineUI
             int returnIndex = checkList.Count;
 
             // 这个地方不能是ControlBase，比如用户控件中控件，要能向上回溯到UserControlConnector
-            Control parentControl = testControl.Parent;        
+            Control parentControl = testControl.Parent;
             while (parentControl != null)
             {
                 for (int i = 0, count = checkList.Count; i < count; i++)

@@ -5,7 +5,7 @@ FineUI Mission
 Create No JavaScript, No CSS, No UpdatePanel, No ViewState and No WebServices web application
 
 Support Browsers 
-IE 8.0+, Chrome, Firefox, Opera, Safari
+Chrome、Firefox、Safari、IE 8.0+
 
 License
 Apache License 2.0 (Apache)

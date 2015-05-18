@@ -344,7 +344,6 @@ namespace FineUI
         /// </summary>
         /// <param name="sb"></param>
         /// <param name="doc"></param>
-        /// <param name="gzipped"></param>
         private void UpdateViewState(StringBuilder sb, HtmlDocument doc)
         {
             string viewStateHiddenFieldID = StringUtil.VIEWSTATE_ID;

@@ -173,7 +173,7 @@
                                         
                                             <br />
                                             <h2>支持的浏览器</h2>
-                                            IE 8.0+、Chrome、Firefox、Opera、Safari
+                                            Chrome、Firefox、Safari、IE 8.0+
                                         
                                             <br />
                                             <h2>授权协议</h2>

@@ -76,44 +76,44 @@ namespace FineUI
 
 
 
-        /// <summary>
-        /// 回发时是否显示
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("回发时是否显示")]
-        public bool ShowOnPostBack
-        {
-            get
-            {
-                object obj = FState["ShowOnPostBack"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["ShowOnPostBack"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 回发时是否显示
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("回发时是否显示")]
+        //public bool ShowOnPostBack
+        //{
+        //    get
+        //    {
+        //        object obj = FState["ShowOnPostBack"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["ShowOnPostBack"] = value;
+        //    }
+        //}
 
 
-        /// <summary>
-        /// 是否启用淡出效果
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(false)]
-        [Description("是否启用淡出效果")]
-        public bool EnableFadeOut
-        {
-            get
-            {
-                object obj = FState["EnableFadeOut"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["EnableFadeOut"] = value;
-            }
-        }
+        ///// <summary>
+        ///// 是否启用淡出效果
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("是否启用淡出效果")]
+        //public bool EnableFadeOut
+        //{
+        //    get
+        //    {
+        //        object obj = FState["EnableFadeOut"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["EnableFadeOut"] = value;
+        //    }
+        //}
 
 
         #endregion
@@ -191,20 +191,8 @@ namespace FineUI
             {
                 string jsContent = String.Empty;
 
-                jsContent = String.Format("F.util.removePageLoading({0});", EnableFadeOut.ToString().ToLower());
-                //if (EnableFadeOut)
-                //{
-                //    jsContent = "Ext.get('loading').remove();Ext.get('loading-mask').fadeOut({remove:true});";
-                //}
-                //else
-                //{
-                //    jsContent = "Ext.get('loading').remove();Ext.get('loading-mask').remove();";
-                //    //jsContent = JsHelper.GetSetTimeoutFunction(jsContent, 10, "box");
-                //}
-
-                //jsContent += "\r\n";
-                //jsContent += "\r\n";
-
+                jsContent = String.Format("F.util.removePageLoading();"); //, EnableFadeOut.ToString().ToLower());
+                
                 AddStartupAbsoluteScript(jsContent, 50);
             }
         }

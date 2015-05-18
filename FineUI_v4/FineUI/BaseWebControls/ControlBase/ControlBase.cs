@@ -1641,7 +1641,7 @@ namespace FineUI
         /// <returns></returns>
         protected string GetSetHiddenFieldValueScript(string id, string value)
         {
-            return String.Format("F.util.setHiddenFieldValue('{0}','{1}');", id, value);
+            return String.Format("F.setHidden('{0}','{1}');", id, value);
         }
 
 
@@ -1658,7 +1658,7 @@ namespace FineUI
             {
                 return GetSetHiddenFieldValueScript(id, value);
             }
-            return String.Format("{2}.F.util.setHiddenFieldValue('{0}','{1}');", id, value, windowObj);
+            return String.Format("{2}.F.setHidden('{0}','{1}');", id, value, windowObj);
         }
 
         #endregion

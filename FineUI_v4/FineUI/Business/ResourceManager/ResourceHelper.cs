@@ -219,6 +219,8 @@ namespace FineUI
 
         #endregion
 
+        #region GetEmptyImageUrl
+
         /// <summary>
         /// 获取空白图片的地址
         /// </summary>
@@ -226,6 +228,8 @@ namespace FineUI
         public static string GetEmptyImageUrl()
         {
             return String.Format("{0}/res/s.gif", GlobalConfig.GetJSBasePath());
-        }
+        } 
+
+        #endregion
     }
 }

@@ -922,7 +922,7 @@ namespace FineUI
                 {
                     addCSSPrefix = "top.";
                 }
-                string addCSSScript = String.Format("{0}F.util.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
+                string addCSSScript = String.Format("{0}F.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, ResolveUrl(IconUrl)));
 
 
                 // 这里不需要extWindow渲染之前才添加CSS样式，只需要在页面加载完毕后就能添加此CSS样式

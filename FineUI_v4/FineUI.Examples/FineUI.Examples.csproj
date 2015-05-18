@@ -89,6 +89,7 @@
     <Content Include="grid\grid_style_rowcolor_paging.aspx" />
     <Content Include="grid\grid_editor_cell_paging.aspx" />
     <Content Include="grid\grid_rownumber_align.aspx" />
+    <Content Include="grid\grid_groupheader_hidden.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\region.aspx" />
@@ -96,6 +97,8 @@
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
+    <Content Include="other\global_error.aspx" />
+    <Content Include="other\pageloading.aspx" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
@@ -646,6 +649,13 @@
     <Compile Include="grid\grid_rownumber_align.aspx.designer.cs">
       <DependentUpon>grid_rownumber_align.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_groupheader_hidden.aspx.cs">
+      <DependentUpon>grid_groupheader_hidden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_groupheader_hidden.aspx.designer.cs">
+      <DependentUpon>grid_groupheader_hidden.aspx</DependentUpon>
+    </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -709,6 +719,20 @@
     </Compile>
     <Compile Include="master\SingleGrid.Master.designer.cs">
       <DependentUpon>SingleGrid.Master</DependentUpon>
+    </Compile>
+    <Compile Include="other\global_error.aspx.cs">
+      <DependentUpon>global_error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\global_error.aspx.designer.cs">
+      <DependentUpon>global_error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="other\pageloading.aspx.cs">
+      <DependentUpon>pageloading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\pageloading.aspx.designer.cs">
+      <DependentUpon>pageloading.aspx</DependentUpon>
     </Compile>
     <Compile Include="tabstrip\tabstrip_position.aspx.cs">
       <DependentUpon>tabstrip_position.aspx</DependentUpon>

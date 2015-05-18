@@ -52,7 +52,7 @@ namespace FineUI
         /// <summary>
         /// 语言
         /// </summary>
-        [ConfigurationProperty(ConfigPropertyName.LANGUAGE, DefaultValue = ConfigPropertyValue.LANGUAGE_DEFAULT)]
+        [ConfigurationProperty(ConfigPropertyName.LANGUAGE, DefaultValue = ConfigPropertyValue.LANGUAGE_DEFAULT_STRING)]
         public string Language
         {
             get
@@ -180,7 +180,7 @@ namespace FineUI
         /// <summary>
         /// AJAX提示信息的类型
         /// </summary>
-        [ConfigurationProperty(ConfigPropertyName.AJAXLOADINGTYPE, DefaultValue = ConfigPropertyValue.AJAX_LOADING_TYPE_DEFAULT)]
+        [ConfigurationProperty(ConfigPropertyName.AJAXLOADINGTYPE, DefaultValue = ConfigPropertyValue.AJAX_LOADING_TYPE_DEFAULT_STRING)]
         public string AjaxLoadingType
         {
             get

@@ -506,7 +506,7 @@ namespace FineUI
                 {
                     addCSSPrefix = "top.";
                 }
-                addCSSScript = String.Format("{0}F.util.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, resolvedIconUrl));
+                addCSSScript = String.Format("{0}F.addCSS('{1}','{2}');", addCSSPrefix, className, StyleUtil.GetNoRepeatBackgroundStyle("." + className, resolvedIconUrl));
 
                 iconScriptFragment = String.Format("'{0}'", className);
             }

@@ -21,7 +21,7 @@
                 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。&lt;br&gt;
                 &lt;br&gt;
                 支持的浏览器&lt;br&gt;
-                IE 8.0+、Chrome、Firefox、Opera、Safari&lt;br&gt;
+                Chrome、Firefox、Safari、IE 8.0+&lt;br&gt;
                 &lt;br&gt;
                 授权协议&lt;br&gt;
                 Apache License 2.0 (Apache)&lt;br&gt;

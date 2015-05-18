@@ -142,7 +142,9 @@ namespace FineUI
 
         public const string THEME_DEFAULT = "Neptune";
 
-        public const string LANGUAGE_DEFAULT = "zh_CN";
+        public const Language LANGUAGE_DEFAULT = Language.ZH_CN;
+        public const string LANGUAGE_DEFAULT_STRING = "zh_CN";
+        
         public const string LANGUAGE_EN = "en";
         public const string LANGUAGE_ZH_CN = "zh_CN";
         public const string LANGUAGE_ZH_TW = "zh_TW";
@@ -159,7 +161,9 @@ namespace FineUI
 
         public const bool ENABLE_AJAX_LOADING_DEFAULT = true;
 
-        public const string AJAX_LOADING_TYPE_DEFAULT = "Default";
+        public const AjaxLoadingType AJAX_LOADING_TYPE_DEFAULT = AjaxLoadingType.Default;
+        public const string AJAX_LOADING_TYPE_DEFAULT_STRING = "Default";
+
         public const string AJAX_LOADING_TYPE_MASK = "Mask";
 
         // 是否启用开发者模式（引入 JS 的非压缩版本，以及页面 JS 的格式化输出）

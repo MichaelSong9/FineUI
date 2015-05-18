@@ -30,6 +30,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Web.UI.WebControls;
 using System.Web;
+using System.Web.UI.Design;
+using System.Drawing.Design;
 
 namespace FineUI
 {
@@ -44,6 +46,15 @@ namespace FineUI
     [PersistChildren(false)]
     public class PageManager : ControlBase, IPostBackEventHandler
     {
+        #region static
+
+        internal static readonly string PAGELOADING_TEMLATE = "<div id='loading-mask'></div><div id='loading'><div class='loading-indicator'><img align='absmiddle' src='#LOADING_IMAGE_SRC#'/></div></div>";
+
+        internal static readonly string PAGELOADING_IMAGE_PATH = "/res/images/loading_32.gif";
+
+
+        #endregion
+
         #region Unsupported Properties
 
         ///// <summary>
@@ -115,6 +126,26 @@ namespace FineUI
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// 自定义页面加载图片
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue("")]
+        [Description("自定义页面加载图片")]
+        [Editor(typeof(ImageUrlEditor), typeof(UITypeEditor))]
+        public string PageLoadingImageUrl
+        {
+            get
+            {
+                object obj = FState["PageLoadingImageUrl"];
+                return obj == null ? "" : (string)obj;
+            }
+            set
+            {
+                FState["PageLoadingImageUrl"] = value;
+            }
+        }
 
         #region old code
 
@@ -347,7 +378,7 @@ namespace FineUI
             }
         }
 
-        
+
         internal void AddAjaxGridClientID(string clientID)
         {
             if (!_ajaxGridClientIDs.Contains(clientID))
@@ -421,7 +452,7 @@ namespace FineUI
         /// 样式
         /// </summary>
         [Category(CategoryName.OPTIONS)]
-        [DefaultValue(Theme.Blue)]
+        [DefaultValue(Theme.Neptune)]
         [Description("样式")]
         public Theme Theme
         {
@@ -432,7 +463,7 @@ namespace FineUI
                 {
                     if (DesignMode)
                     {
-                        return Theme.Blue;
+                        return Theme.Neptune;
                     }
                     else
                     {
@@ -979,19 +1010,19 @@ namespace FineUI
 
         #endregion
 
-        #region PageLoadingControlExist
+        #region oldcode
 
-        /// <summary>
-        /// PageLoading控件是否存在页面
-        /// </summary>
-        internal bool PageLoadingControlExist
-        {
-            get
-            {
-                Control loading = ControlUtil.FindControl(Page, typeof(PageLoading));
-                return loading != null;
-            }
-        }
+        ///// <summary>
+        ///// PageLoading控件是否存在页面
+        ///// </summary>
+        //internal bool PageLoadingControlExist
+        //{
+        //    get
+        //    {
+        //        Control loading = ControlUtil.FindControl(Page, typeof(PageLoading));
+        //        return loading != null;
+        //    }
+        //}
 
         #endregion
 
@@ -1003,16 +1034,28 @@ namespace FineUI
         /// <param name="writer">输出流</param>
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
-            if (!PageLoadingControlExist)
+            if (EnablePageLoading)
             {
-                if (EnablePageLoading)
-                {
-                    string content = PageLoading.LOADING_TEMLATE;
-                    content = content.Replace("#LOADING_IMAGE_SRC#", ResolveUrl(GlobalConfig.GetJSBasePath() + PageLoading.LOADING_IMAGE_PATH)); // ResourceHelper.GetWebResourceUrlResAxd(Page, PageLoading.LOADING_IMAGE_NAME));
+                //string content = PAGELOADING_TEMLATE;
+                //content = content.Replace("#LOADING_IMAGE_SRC#", ResolveUrl(GlobalConfig.GetJSBasePath() + PAGELOADING_IMAGE_PATH)); // ResourceHelper.GetWebResourceUrlResAxd(Page, PageLoading.LOADING_IMAGE_NAME));
 
-                    writer.Write(content);
+                string content = PAGELOADING_TEMLATE;
+
+                string imageUrl = String.Empty;
+                if (!String.IsNullOrEmpty(PageLoadingImageUrl))
+                {
+                    imageUrl = ResolveUrl(PageLoadingImageUrl);
                 }
+                else
+                {
+                    imageUrl = ResolveUrl(GlobalConfig.GetJSBasePath() + PAGELOADING_IMAGE_PATH); //ResourceHelper.GetWebResourceUrl(Page, LOADING_IMAGE_NAME);
+                }
+
+                content = content.Replace("#LOADING_IMAGE_SRC#", imageUrl);
+
+                writer.Write(content);
             }
+
 
 
             base.RenderBeginTag(writer);
@@ -1085,21 +1128,19 @@ namespace FineUI
 
             #endregion
 
-            #region PageLoading
-            
-            
+            #region oldcode
 
-            if (!PageLoadingControlExist)
-            {
-                string jsContent = String.Empty;
+            //if (!PageLoadingControlExist)
+            //{
+            //    string jsContent = String.Empty;
 
-                if (EnablePageLoading)
-                {
-                    jsContent += "F.util.removePageLoading(false);";
-                }
+            //    if (EnablePageLoading)
+            //    {
+            //        jsContent += "F.util.removePageLoading(false);";
+            //    }
 
-                AddStartupAbsoluteScript(jsContent);
-            }
+            //    AddStartupAbsoluteScript(jsContent);
+            //}
 
 
             #endregion
@@ -1110,7 +1151,7 @@ namespace FineUI
             //{
             //    AddStartupAbsoluteScript("F.global_disable_ajax=true;");
             //}
- 
+
             //#endregion
 
             #region AutoSizePanelID

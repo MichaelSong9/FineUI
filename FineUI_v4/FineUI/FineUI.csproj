@@ -254,7 +254,6 @@
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Tree\Tree.cs" />
     <Compile Include="Business\ResourceManager\AbsoluteScriptBlock.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.ContentPanel\ContentPanel.cs" />
-    <Compile Include="WebControls\ControlBase.PageLoading\PageLoading.cs" />
     <Compile Include="WebControls\PanelBase.CollapsablePanel.Form\Form.cs">
       <SubType>Code</SubType>
     </Compile>

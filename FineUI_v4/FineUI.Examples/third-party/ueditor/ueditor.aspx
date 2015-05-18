@@ -22,7 +22,7 @@
                 创建 No JavaScript，No CSS，No UpdatePanel，No ViewState，No WebServices 的网站应用程序。<br>
                 <br>
                 支持的浏览器<br>
-                IE 8.0+、Chrome、Firefox、Opera、Safari<br>
+                Chrome、Firefox、Safari、IE 8.0+<br>
                 <br>
                 授权协议<br>
                 Apache License 2.0 (Apache)<br>
