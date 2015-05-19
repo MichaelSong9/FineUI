@@ -11,9 +11,7 @@
     <style>
         #header {
             position: relative;
-            border-bottom-width: 2px;
-            border-bottom-style: solid;
-            padding: 8px 12px 6px;
+            padding: 10px 10px 8px;
         }
 
             #header a.logo {
@@ -25,7 +23,7 @@
                 font-weight: bold;
                 font-size: 24px;
                 text-decoration: none;
-                line-height: 30px;
+                line-height: 36px;
                 color: #fff;
             }
 
@@ -39,48 +37,9 @@
                 #header .themeroller a {
                     font-size: 20px;
                     text-decoration: none;
-                    line-height: 30px;
+                    line-height: 36px;
                     color: #fff;
                 }
-
-
-
-        .f-theme-neptune #header {
-            background-color: #005999;
-            border-bottom: 1px solid #1E95EC;
-        }
-
-            .f-theme-neptune #header .title a {
-                color: #fff;
-            }
-
-        .f-theme-blue #header {
-            background-color: #004BA8;
-            border-bottom: 1px solid #034699;
-        }
-
-            .f-theme-blue #header .title a {
-                color: #fff;
-            }
-
-        .f-theme-gray #header {
-            background-color: #d3d3d3;
-            border-bottom: 1px solid #bab9b9;
-        }
-
-            .f-theme-gray #header .title a {
-                color: #333;
-            }
-
-        .f-theme-access #header {
-            background-color: #343b48;
-            border-bottom: 1px solid #1f232b;
-        }
-
-            .f-theme-access #header .title a {
-                color: #fff;
-            }
-
 
 
         #logo {
@@ -93,18 +52,73 @@
             z-index: 100000;
         }
 
-
-        .f-theme-access .maincontent .x-panel-body {
-            background-image: none;
-        }
-
         .isnew {
             color: red;
         }
 
         .bottomtable {
             width: 100%;
-            font-size: 10px;
+            font-size: 12px;
+        }
+
+        /* 修正选项卡标题中放置红色[New!]时，底部出现的一行空白线 */
+        .f-theme-neptune .x-tab .x-tab-inner {
+            line-height: 16px !important;
+        }
+
+
+        /* 主题相关样式 - neptune */
+        .f-theme-neptune #header,
+        .f-theme-neptune .bottomtable,
+        .f-theme-neptune .x-splitter {
+            background-color: #1475BB;
+            color: #fff;
+        }
+
+            .f-theme-neptune #header a,
+            .f-theme-neptune .bottomtable a {
+                color: #fff;
+            }
+
+
+        /* 主题相关样式 - blue */
+        .f-theme-blue #header,
+        .f-theme-blue .bottomtable {
+            background-color: #DFE8F6;
+            color: #000;
+        }
+
+            .f-theme-blue #header a,
+            .f-theme-blue .bottomtable a {
+                color: #000;
+            }
+
+        /* 主题相关样式 - gray */
+        .f-theme-gray #header,
+        .f-theme-gray .bottomtable {
+            background-color: #E0E0E0;
+            color: #333;
+        }
+
+            .f-theme-gray #header a,
+            .f-theme-gray .bottomtable a {
+                color: #333;
+            }
+
+        /* 主题相关样式 - access */
+        .f-theme-access #header,
+        .f-theme-access .bottomtable {
+            background-color: #3F4757;
+            color: #fff;
+        }
+
+            .f-theme-access #header a,
+            .f-theme-access .bottomtable a {
+                color: #fff;
+            }
+
+        .f-theme-access .maincontent .x-panel-body {
+            background-image: none;
         }
     </style>
 </head>
@@ -136,7 +150,7 @@
                         </div>
                     </Content>
                 </f:Region>
-                <f:Region ID="leftRegion" RegionSplit="true" Width="220px" ShowHeader="true" ShowBorder="true" Title="全部示例"
+                <f:Region ID="leftPanel" RegionSplit="true" Width="220px" ShowHeader="true" ShowBorder="true" Title="全部示例"
                     EnableCollapse="true" Layout="Fit" Collapsed="false" RegionPosition="Left" runat="server">
                 </f:Region>
                 <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" ShowBorder="true" Position="Center"
@@ -195,13 +209,13 @@
                                             <br />
                                             注：FineUI 不再内置 ExtJS 库，请手工添加 ExtJS 库：<a target="_blank" href="http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218">http://fineui.com/bbs/forum.php?mod=viewthread&tid=3218</a>
 
-											
-											<div style="position:fixed;bottom:30px;right:10px;text-align:center;border:solid 1px #ddd;padding:10px;background-color:#efefef;">
-												<div style="margin-bottom:5px;">
-												扫描二维码，关注 FineUI 微信公众号
-												</div>
-												<img src="http://fineui.com/images/weixin_fineui.jpg" style="width:150px;" alert="关注 FineUI 微信公众号">
-											</div>
+
+                                            <div style="position: fixed; bottom: 30px; right: 10px; text-align: center; border: solid 1px #ddd; padding: 10px; background-color: #efefef;">
+                                                <div style="margin-bottom: 5px;">
+                                                    扫描二维码，关注 FineUI 微信公众号
+                                                </div>
+                                                <img src="http://fineui.com/images/weixin_fineui.jpg" style="width: 150px;" alert="关注 FineUI 微信公众号">
+                                            </div>
                                         </f:ContentPanel>
                                     </Items>
                                 </f:Tab>
@@ -238,46 +252,37 @@
             </f:MenuButton>
             <f:MenuSeparator ID="MenuSeparator4" runat="server">
             </f:MenuSeparator>
-            <f:MenuCheckBox runat="server" ID="cbxShowOnlyNew" Text="仅显示最新示例" AutoPostBack="true" OnCheckedChanged="cbxShowOnlyNew_CheckedChanged">
+            <f:MenuCheckBox runat="server" ID="cbxShowOnlyNew" Text="仅显示最新示例">
             </f:MenuCheckBox>
             <f:MenuSeparator ID="MenuSeparator1" runat="server">
             </f:MenuSeparator>
             <f:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
-                <Menu ID="Menu3" runat="server">
-                    <f:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle"
-                        AutoPostBack="true" OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
+                <Menu runat="server">
+                    <f:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle" runat="server">
                     </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="手风琴+树菜单" ID="MenuStyleAccordion" GroupName="MenuStyle" AutoPostBack="true"
-                        OnCheckedChanged="MenuStyle_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="手风琴+树菜单" ID="MenuStyleAccordion" GroupName="MenuStyle" runat="server">
                     </f:MenuCheckBox>
                 </Menu>
             </f:MenuButton>
             <f:MenuButton EnablePostBack="false" Text="语言" ID="MenuLang" runat="server">
                 <Menu ID="Menu2" runat="server">
-                    <f:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang"
-                        AutoPostBack="true" OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="简体中文" ID="MenuLangZHCN" Checked="true" GroupName="MenuLang" runat="server">
                     </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" AutoPostBack="true"
-                        OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" runat="server">
                     </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" AutoPostBack="true"
-                        OnCheckedChanged="MenuLang_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" runat="server">
                     </f:MenuCheckBox>
                 </Menu>
             </f:MenuButton>
             <f:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
                 <Menu ID="Menu4" runat="server">
-                    <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme"
-                        AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme" runat="server">
                     </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme"
-                        AutoPostBack="true" OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme" runat="server">
                     </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" AutoPostBack="true"
-                        OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" runat="server">
                     </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" AutoPostBack="true"
-                        OnCheckedChanged="MenuTheme_CheckedChanged" runat="server">
+                    <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" runat="server">
                     </f:MenuCheckBox>
                 </Menu>
             </f:MenuButton>
@@ -292,31 +297,45 @@
             <f:MenuHyperLink ID="MenuHyperLink3" runat="server" Text="转到专业版示例" NavigateUrl="http://fineui.com/demo_pro/" Target="_blank">
             </f:MenuHyperLink>
         </f:Menu>
-        <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/common/menu.xml"></asp:XmlDataSource>
+        <asp:XmlDataSource ID="XmlDataSource1" runat="server" EnableCaching="false" DataFile="~/common/menu.xml"></asp:XmlDataSource>
     </form>
-	<!--
+    <!--
     <img src="./res/images/logo/logo3.png" alt="FineUI 图标" id="logo" />
 	-->
     <script src="./res/js/jquery.min.js"></script>
     <script>
 
+        var btnExpandAllClientID = '<%= btnExpandAll.ClientID %>';
+        var btnCollapseAllClientID = '<%= btnCollapseAll.ClientID %>';
+        var leftPanelClientID = '<%= leftPanel.ClientID %>';
+        var mainTabStripClientID = '<%= mainTabStrip.ClientID %>';
+        var windowSourceCodeClientID = '<%= windowSourceCode.ClientID %>';
+        var menuSettingsClientID = '<%= menuSettings.ClientID %>';
+        var cbxShowOnlyNewClientID = '<%= cbxShowOnlyNew.ClientID %>';
+
+        var MenuStyleClientID = '<%= MenuStyle.ClientID %>';
+        var MenuLangClientID = '<%= MenuLang.ClientID %>';
+        var MenuThemeClientID = '<%= MenuTheme.ClientID %>';
+
 
         F.ready(function () {
-            // IDS：default.aspx.cs 中向页面输出的控件客户端ID集合
-            var btnExpandAll = F(IDS.btnExpandAll);
-            var btnCollapseAll = F(IDS.btnCollapseAll);
-            var mainMenu = F(IDS.mainMenu);
-            var mainTabStrip = F(IDS.mainTabStrip);
-            var windowSourceCode = F(IDS.windowSourceCode);
-            var leftRegion = F(IDS.leftRegion);
-            var menuSettings = F(IDS.menuSettings);
+            var btnExpandAll = F(btnExpandAllClientID);
+            var btnCollapseAll = F(btnCollapseAllClientID);
+            var leftPanel = F(leftPanelClientID);
+            var mainTabStrip = F(mainTabStripClientID);
+            var windowSourceCode = F(windowSourceCodeClientID);
+            var menuSettings = F(menuSettingsClientID);
+            var cbxShowOnlyNew = F(cbxShowOnlyNewClientID);
 
+            var MenuStyle = F(MenuStyleClientID);
+            var MenuLang = F(MenuLangClientID);
+            var MenuTheme = F(MenuThemeClientID);
 
-            if (window.Ext) {
-                F.Button = Ext.Button;
-                F.Toolbar = Ext.Toolbar;
+            var mainMenu = leftPanel.items.getAt(0);
+            var menuType = 'accordion';
+            if (mainMenu.isXType('treepanel')) {
+                menuType = 'menu';
             }
-
 
             // 当前展开的手风琴面板
             function getExpandedPanel() {
@@ -331,7 +350,7 @@
 
             // 点击展开菜单
             btnExpandAll.on('click', function () {
-                if (IDS.menuType == 'menu') {
+                if (menuType == 'menu') {
                     // 左侧为树控件
                     mainMenu.expandAll();
                 } else {
@@ -345,7 +364,7 @@
 
             // 点击折叠菜单
             btnCollapseAll.on('click', function () {
-                if (IDS.menuType == 'menu') {
+                if (menuType == 'menu') {
                     // 左侧为树控件
                     mainMenu.collapseAll();
                 } else {
@@ -357,6 +376,80 @@
                 }
             });
 
+            // 点击仅显示最新示例
+            cbxShowOnlyNew.on('click', function () {
+                var checked = this.checked;
+                if (checked) {
+                    F.cookie('ShowOnlyNew_v4', checked, {
+                        expires: 100 // 单位：天
+                    });
+                } else {
+                    F.removeCookie('ShowOnlyNew_v4');
+                }
+                top.window.location.reload();
+            });
+
+            // 点击菜单样式
+            function MenuStyleItemCheckChange(cmp, checked) {
+                if (checked) {
+                    var menuStyle = 'accordion';
+                    if (cmp.id.indexOf('MenuStyleTree') >= 0) {
+                        menuStyle = 'tree';
+                    }
+                    F.cookie('MenuStyle_v4', menuStyle, {
+                        expires: 100 // 单位：天
+                    });
+                    top.window.location.reload();
+                }
+            }
+            MenuStyle.menu.items.each(function (item, index) {
+                item.on('checkchange', MenuStyleItemCheckChange);
+            });
+
+
+            // 切换语言
+            function MenuLangItemCheckChange(cmp, checked) {
+                if (checked) {
+                    var lang = 'en';
+                    if (cmp.id.indexOf('MenuLangZHCN') >= 0) {
+                        lang = 'zh_CN';
+                    } else if (cmp.id.indexOf('MenuLangZHTW') >= 0) {
+                        lang = 'zh_TW';
+                    }
+
+                    F.cookie('Language_v4', lang, {
+                        expires: 100 // 单位：天
+                    });
+                    top.window.location.reload();
+                }
+            }
+            MenuLang.menu.items.each(function (item, index) {
+                item.on('checkchange', MenuLangItemCheckChange);
+            });
+
+
+            // 切换主题
+            function MenuThemeItemCheckChange(cmp, checked) {
+                if (checked) {
+                    var lang = 'neptune';
+                    if (cmp.id.indexOf('MenuThemeBlue') >= 0) {
+                        lang = 'blue';
+                    } else if (cmp.id.indexOf('MenuThemeGray') >= 0) {
+                        lang = 'gray';
+                    } else if (cmp.id.indexOf('MenuThemeAccess') >= 0) {
+                        lang = 'access';
+                    }
+
+                    F.cookie('Theme_v4', lang, {
+                        expires: 100 // 单位：天
+                    });
+                    top.window.location.reload();
+                }
+            }
+            MenuTheme.menu.items.each(function (item, index) {
+                item.on('checkchange', MenuThemeItemCheckChange);
+            });
+
 
             function createToolbar(tabConfig) {
 
@@ -365,7 +458,7 @@
                     return $('#' + btn.id).parents('.f-tab').find('iframe');
                 }
 
-                var sourcecodeButton = new F.Button({
+                var sourcecodeButton = new Ext.Button({
                     text: '源代码',
                     type: 'button',
                     icon: './res/icon/page_white_code.png',
@@ -384,7 +477,7 @@
                     }
                 });
 
-                var openNewWindowButton = new F.Button({
+                var openNewWindowButton = new Ext.Button({
                     text: '新标签页中打开',
                     type: 'button',
                     icon: './res/icon/tab_go.png',
@@ -396,7 +489,7 @@
                     }
                 });
 
-                var refreshButton = new F.Button({
+                var refreshButton = new Ext.Button({
                     text: '刷新',
                     type: 'button',
                     icon: './res/icon/reload.png',
@@ -408,7 +501,7 @@
                     }
                 });
 
-                var toolbar = new F.Toolbar({
+                var toolbar = new Ext.Toolbar({
                     items: ['->', sourcecodeButton, '-', refreshButton, '-', openNewWindowButton]
                 });
 
@@ -449,7 +542,7 @@
 
 
             // 添加工具图标，并在点击时显示上下文菜单
-            leftRegion.addTool({
+            leftPanel.addTool({
                 type: 'gear',
                 //tooltip: '系统设置',
                 handler: function (event) {

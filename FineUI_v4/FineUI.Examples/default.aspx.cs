@@ -14,54 +14,45 @@ namespace FineUI.Examples
     {
         #region Page_Init
 
-        private string menuType = "menu";
-        private bool showOnlyNew = false;
-        private int examplesCount = 0;
+        private string _menuType = "menu";
+        private bool _showOnlyNew = false;
+        private int _examplesCount = 0;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             HttpCookie menuCookie = Request.Cookies["MenuStyle_v4"];
             if (menuCookie != null)
             {
-                menuType = menuCookie.Value;
+                _menuType = menuCookie.Value;
             }
 
             // 从Cookie中读取是否仅显示最新示例
             HttpCookie menuShowOnlyNew = Request.Cookies["ShowOnlyNew_v4"];
             if (menuShowOnlyNew != null)
             {
-                showOnlyNew = Convert.ToBoolean(menuShowOnlyNew.Value);
+                _showOnlyNew = Convert.ToBoolean(menuShowOnlyNew.Value);
             }
 
 
-            // 注册客户端脚本，服务器端控件ID和客户端ID的映射关系
-            JObject ids = GetClientIDS(btnExpandAll, btnCollapseAll, windowSourceCode, mainTabStrip, leftRegion, menuSettings);
-
-            if (menuType == "accordion")
+            if (_menuType == "accordion")
             {
-                Accordion accordionMenu = InitAccordionMenu();
-                ids.Add("mainMenu", accordionMenu.ClientID);
-                ids.Add("menuType", "accordion");
+                InitAccordionMenu();
             }
             else
             {
-                Tree treeMenu = InitTreeMenu();
-                ids.Add("mainMenu", treeMenu.ClientID);
-                ids.Add("menuType", "menu");
+                InitTreeMenu();
             }
 
 
-            leftRegion.Title = String.Format("全部示例（{0}）", examplesCount);
-
-
-            ids.Add("theme", PageManager.Instance.Theme.ToString());
-
-            // 只在页面第一次加载时注册客户端用到的脚本
-            if (!Page.IsPostBack)
+            if (_showOnlyNew)
             {
-                string idsScriptStr = String.Format("window.IDS={0};", ids.ToString(Newtonsoft.Json.Formatting.None));
-                PageContext.RegisterStartupScript(idsScriptStr);
+                leftPanel.Title = String.Format("最新示例（{0}）", _examplesCount);
             }
+            else
+            {
+                leftPanel.Title = String.Format("全部示例（{0}）", _examplesCount);
+            }
+
         }
 
         private Accordion InitAccordionMenu()
@@ -70,7 +61,7 @@ namespace FineUI.Examples
             accordionMenu.ID = "accordionMenu";
             accordionMenu.ShowBorder = false;
             accordionMenu.ShowHeader = false;
-            leftRegion.Items.Add(accordionMenu);
+            leftPanel.Items.Add(accordionMenu);
 
 
             XmlDocument xmlDoc = XmlDataSource1.GetXmlDocument();
@@ -94,17 +85,15 @@ namespace FineUI.Examples
                     innerTree.EnableSingleClickExpand = true;
                     accordionPane.Items.Add(innerTree);
 
-                    XmlDocument innerXmlDoc = new XmlDocument();
-                    innerXmlDoc.LoadXml(String.Format("<?xml version=\"1.0\" encoding=\"utf-8\" ?><Tree>{0}</Tree>", xmlNode.InnerXml));
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(String.Format("<?xml version=\"1.0\" encoding=\"utf-8\" ?><Tree>{0}</Tree>", xmlNode.InnerXml));
+                    ResolveXmlDocument(doc);
 
                     // 绑定AccordionPane内部的树控件
                     innerTree.NodeDataBound += treeMenu_NodeDataBound;
                     innerTree.PreNodeDataBound += treeMenu_PreNodeDataBound;
-                    innerTree.DataSource = innerXmlDoc;
+                    innerTree.DataSource = doc;
                     innerTree.DataBind();
-
-                    //// 重新设置每个节点的图标
-                    //ResolveTreeNode(innerTree.Nodes);
                 }
             }
 
@@ -120,20 +109,89 @@ namespace FineUI.Examples
             treeMenu.EnableIcons = true;
             treeMenu.AutoScroll = true;
             treeMenu.EnableSingleClickExpand = true;
-            leftRegion.Items.Add(treeMenu);
+            leftPanel.Items.Add(treeMenu);
+
+            XmlDocument doc = XmlDataSource1.GetXmlDocument();
+            ResolveXmlDocument(doc);
 
             // 绑定 XML 数据源到树控件
             treeMenu.NodeDataBound += treeMenu_NodeDataBound;
             treeMenu.PreNodeDataBound += treeMenu_PreNodeDataBound;
-            treeMenu.DataSource = XmlDataSource1;
+            treeMenu.DataSource = doc;
             treeMenu.DataBind();
-
-            //// 重新设置每个节点的图标
-            //ResolveTreeNode(treeMenu.Nodes);
 
             return treeMenu;
         }
 
+        #region ResolveXmlDocument
+
+        private void ResolveXmlDocument(XmlDocument doc)
+        {
+            ResolveXmlDocument(doc, doc.DocumentElement.ChildNodes);
+        }
+
+        private int ResolveXmlDocument(XmlDocument doc, XmlNodeList nodes)
+        {
+            // nodes 中渲染到页面上的节点个数
+            int nodeVisibleCount = 0;
+
+            foreach (XmlNode node in nodes)
+            {
+                // Only process Xml elements (ignore comments, etc)
+                if (node.NodeType == XmlNodeType.Element)
+                {
+                    XmlAttribute removedAttr;
+
+                    // 是否叶子节点
+                    bool isLeaf = node.ChildNodes.Count == 0;
+
+
+                    // 所有过滤条件均是对叶子节点而言，而是否显示目录，要看是否存在叶子节点
+                    if (isLeaf)
+                    {
+                        // 如果仅显示最新示例
+                        if (_showOnlyNew)
+                        {
+                            XmlAttribute isNewAttr = node.Attributes["IsNew"];
+                            if (isNewAttr == null)
+                            {
+                                removedAttr = doc.CreateAttribute("Removed");
+                                removedAttr.Value = "true";
+
+                                node.Attributes.Append(removedAttr);
+
+                            }
+                        }
+                    }
+
+                    // 存在子节点
+                    if (!isLeaf)
+                    {
+                        // 递归
+                        int childVisibleCount = ResolveXmlDocument(doc, node.ChildNodes);
+
+                        if (childVisibleCount == 0)
+                        {
+                            removedAttr = doc.CreateAttribute("Removed");
+                            removedAttr.Value = "true";
+
+                            node.Attributes.Append(removedAttr);
+                        }
+                    }
+
+
+                    removedAttr = node.Attributes["Removed"];
+                    if (removedAttr == null)
+                    {
+                        nodeVisibleCount++;
+                    }
+                }
+            }
+
+            return nodeVisibleCount;
+        }
+
+        #endregion
 
         /// <summary>
         /// 树节点的绑定后事件
@@ -149,7 +207,7 @@ namespace FineUI.Examples
             }
 
             // 如果仅显示最新示例 并且 当前节点不是子节点，则展开当前节点
-            if (showOnlyNew && !e.Node.Leaf)
+            if (_showOnlyNew && !e.Node.Leaf)
             {
                 e.Node.Expanded = true;
             }
@@ -164,6 +222,7 @@ namespace FineUI.Examples
         /// <param name="e"></param>
         private void treeMenu_PreNodeDataBound(object sender, TreePreNodeEventArgs e)
         {
+            /*
             // 如果仅显示最新示例
             if (showOnlyNew)
             {
@@ -178,6 +237,21 @@ namespace FineUI.Examples
             if (e.XmlNode.ChildNodes.Count == 0)
             {
                 examplesCount++;
+            }
+            */
+
+            // 是否叶子节点
+            bool isLeaf = e.XmlNode.ChildNodes.Count == 0;
+
+            XmlAttribute removedAttr = e.XmlNode.Attributes["Removed"];
+            if (removedAttr != null)
+            {
+                e.Cancelled = true;
+            }
+
+            if (isLeaf && !e.Cancelled)
+            {
+                _examplesCount++;
             }
         }
 
@@ -199,18 +273,6 @@ namespace FineUI.Examples
         }
 
 
-
-        private JObject GetClientIDS(params ControlBase[] ctrls)
-        {
-            JObject jo = new JObject();
-            foreach (ControlBase ctrl in ctrls)
-            {
-                jo.Add(ctrl.ID, ctrl.ClientID);
-            }
-
-            return jo;
-        }
-
         #endregion
 
         #region Page_Load
@@ -231,12 +293,8 @@ namespace FineUI.Examples
 
         private void InitMenuShowOnlyNew()
         {
-            cbxShowOnlyNew.Checked = showOnlyNew;
+            cbxShowOnlyNew.Checked = _showOnlyNew;
 
-            if (showOnlyNew)
-            {
-                leftRegion.Title = "最新示例";
-            }
         }
 
 
@@ -309,110 +367,6 @@ namespace FineUI.Examples
             SetSelectedMenuID(MenuTheme, themeMenuID);
         }
 
-        #endregion
-
-        #region Event
-
-        protected void MenuLang_CheckedChanged(object sender, CheckedEventArgs e)
-        {
-            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
-            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
-            if (!e.Checked)
-            {
-                return;
-            }
-
-            string langValue = FineUI.Language.ZH_CN.ToString();
-            string langID = GetSelectedMenuID(MenuLang);
-
-            switch (langID)
-            {
-                case "MenuLangZHCN":
-                    langValue = FineUI.Language.ZH_CN.ToString();
-                    break;
-                case "MenuLangZHTW":
-                    langValue = FineUI.Language.ZH_TW.ToString();
-                    break;
-                case "MenuLangEN":
-                    langValue = FineUI.Language.EN.ToString();
-                    break;
-            }
-
-            SaveToCookieAndRefresh("Language", langValue);
-        }
-
-        protected void MenuTheme_CheckedChanged(object sender, CheckedEventArgs e)
-        {
-            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
-            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
-            if (!e.Checked)
-            {
-                return;
-            }
-
-            string themeValue = FineUI.Theme.Neptune.ToString();
-            string themeID = GetSelectedMenuID(MenuTheme);
-
-            switch (themeID)
-            {
-                case "MenuThemeNeptune":
-                    themeValue = FineUI.Theme.Neptune.ToString();
-                    break;
-                case "MenuThemeBlue":
-                    themeValue = FineUI.Theme.Blue.ToString();
-                    break;
-                case "MenuThemeGray":
-                    themeValue = FineUI.Theme.Gray.ToString();
-                    break;
-                case "MenuThemeAccess":
-                    themeValue = FineUI.Theme.Access.ToString();
-                    break;
-            }
-
-            SaveToCookieAndRefresh("Theme", themeValue);
-        }
-
-        protected void MenuStyle_CheckedChanged(object sender, CheckedEventArgs e)
-        {
-            // 单选框菜单按钮的CheckedChanged事件会触发两次，一次是取消选中的菜单项，另一次是选中的菜单项；
-            // 不处理取消选中菜单项的事件，从而防止此函数重复执行两次
-            if (!e.Checked)
-            {
-                return;
-            }
-
-            string menuValue = "menu";
-            string menuStyleID = GetSelectedMenuID(MenuStyle);
-
-            switch (menuStyleID)
-            {
-                case "MenuStyleTree":
-                    menuValue = "tree";
-                    break;
-                case "MenuStyleAccordion":
-                    menuValue = "accordion";
-                    break;
-
-            }
-            SaveToCookieAndRefresh("MenuStyle", menuValue);
-        }
-
-        protected void cbxShowOnlyNew_CheckedChanged(object sender, CheckedEventArgs e)
-        {
-            SaveToCookieAndRefresh("ShowOnlyNew", e.Checked.ToString());
-        }
-
-        private string GetSelectedMenuID(MenuButton menuButton)
-        {
-            foreach (MenuItem item in menuButton.Menu.Items)
-            {
-                if (item is MenuCheckBox && (item as MenuCheckBox).Checked)
-                {
-                    return item.ID;
-                }
-            }
-            return null;
-        }
 
         private void SetSelectedMenuID(MenuButton menuButton, string selectedMenuID)
         {
@@ -430,82 +384,8 @@ namespace FineUI.Examples
             }
         }
 
-
-        private void SaveToCookieAndRefresh(string cookieName, string cookieValue)
-        {
-            HttpCookie cookie = new HttpCookie(cookieName + "_v4", cookieValue);
-            cookie.Expires = DateTime.Now.AddYears(1);
-            Response.Cookies.Add(cookie);
-
-            PageContext.Refresh();
-        }
-
-
-
         #endregion
 
-        #region Tree
 
-        ///// <summary>
-        ///// 重新设置每个节点的图标
-        ///// </summary>
-        ///// <param name="nodes"></param>
-        //private void ResolveTreeNode(TreeNodeCollection nodes)
-        //{
-        //    foreach (TreeNode node in nodes)
-        //    {
-        //        if (node.Nodes.Count == 0)
-        //        {
-        //            if (!String.IsNullOrEmpty(node.NavigateUrl))
-        //            {
-        //                node.IconUrl = GetIconForTreeNode(node.NavigateUrl);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            ResolveTreeNode(node.Nodes);
-        //        }
-        //    }
-        //}
-
-        ///// <summary>
-        ///// 根据链接地址返回相应的图标
-        ///// </summary>
-        ///// <param name="url"></param>
-        ///// <returns></returns>
-        //private string GetIconForTreeNode(string url)
-        //{
-        //    url = url.ToLower();
-        //    int paramsIndex = url.IndexOf("?");
-        //    if (paramsIndex >= 0)
-        //    {
-        //        url = url.Substring(0, paramsIndex);
-        //    }
-        //    int lastDotIndex = url.LastIndexOf('.');
-        //    if (lastDotIndex >= 0)
-        //    {
-        //        url = url.Substring(lastDotIndex + 1);
-        //    }
-
-        //    string fileType = url;
-
-        //    string iconUrl = "~/res/images/filetype/vs_unknow.png";
-        //    if (fileType == "txt")
-        //    {
-        //        iconUrl = "~/res/images/filetype/vs_txt.png";
-        //    }
-        //    else if (fileType == "aspx")
-        //    {
-        //        iconUrl = "~/res/images/filetype/vs_aspx.png";
-        //    }
-        //    else if (fileType == "htm" || fileType == "html")
-        //    {
-        //        iconUrl = "~/res/images/filetype/vs_htm.png";
-        //    }
-
-        //    return iconUrl;
-        //}
-
-        #endregion
     }
 }

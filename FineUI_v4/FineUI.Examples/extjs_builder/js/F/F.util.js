@@ -127,6 +127,62 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
     return true;
 };
 
+// cookie('theme');
+// cookie('theme', 'gray');
+// cookie('theme', 'gray', { 'expires': 3 });
+// expires: 天
+// 新增 或者 修改Cookie
+F.cookie = function (key, value, options) {
+    if (typeof(value) === 'undefined') {
+        var cookies = document.cookie ? document.cookie.split('; ') : [];
+        var result = key ? '' : {};
+        Ext.Array.each(cookies, function (cookie, index) {
+            var parts = cookie.split('=');
+            var partName = decodeURIComponent(Ext.String.trim(parts[0]));
+            var partValue = decodeURIComponent(Ext.String.trim(parts[1]));
+
+            if (key) {
+                if (key === partName) {
+                    result = partValue;
+                    return false;
+                }
+            } else {
+                result[partName] = partValue;
+            }
+        });
+        return result;
+    } else {
+        // Set cookie
+        options = Ext.apply(options || {}, {
+            path: '/'
+        });
+
+        var expTime;
+        if (typeof (options.expires) === 'number') {
+            expTime = new Date();
+            expTime.setTime(expTime.getTime() + options.expires * 24 * 60 * 60 * 1000);
+        }
+
+        document.cookie = [
+            encodeURIComponent(key), '=', encodeURIComponent(value),
+            options.expires ? '; expires=' + expTime.toUTCString() : '',
+            options.path ? '; path=' + options.path : '',
+            options.domain ? '; domain=' + options.domain : '',
+            options.secure ? '; secure' : ''
+        ].join('');
+    }
+};
+
+// 删除Cookie
+F.removeCookie = function (key, options) {
+    options = Ext.apply(options || {}, {
+        path: '/',
+        'expires': -1
+    });
+
+    F.cookie(key, '', options);
+};
+
 
 Ext.onReady(function () {
 

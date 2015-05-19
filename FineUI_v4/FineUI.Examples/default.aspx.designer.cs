@@ -49,13 +49,13 @@ namespace FineUI.Examples {
         protected global::FineUI.Region Region1;
         
         /// <summary>
-        /// leftRegion 控件。
+        /// leftPanel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Region leftRegion;
+        protected global::FineUI.Region leftPanel;
         
         /// <summary>
         /// mainRegion 控件。

@@ -21,12 +21,12 @@
     </TreeNode>
     <TreeNode Text="登录页面" NavigateUrl="~/basic/login.aspx" >
     </TreeNode>
-    <TreeNode Text="登录页面（回车导航）" NavigateUrl="~/basic/login_enterkey.aspx" >
+    <TreeNode Text="登录页面（回车导航）" NavigateUrl="~/basic/login_enterkey.aspx" IsNew="true">
     </TreeNode>
     <TreeNode Text="登录页面（验证码）" NavigateUrl="~/basic/login_captcha.aspx" >
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="表单控件" IsNew="true">
+  <TreeNode Text="表单控件">
     <TreeNode Text="按钮控件" >
       <TreeNode Text="简单按钮" NavigateUrl="~/button/button.aspx" >
       </TreeNode>
@@ -113,7 +113,7 @@
       <TreeNode Text="工具栏中的上传控件" NavigateUrl="~/form/fileupload_toolbar.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="表单布局" IsNew="true">
+    <TreeNode Text="表单布局">
       <TreeNode Text="按钮与表单" NavigateUrl="~/form/layout_panel.aspx" >
       </TreeNode>
       <TreeNode Text="自定义表单布局" NavigateUrl="~/form/layout_panel2.aspx" >
@@ -123,7 +123,7 @@
       <TreeNode Text="复杂布局（账单信息）" NavigateUrl="~/form/layout_checkout.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="下拉列表控件" IsNew="true">
+    <TreeNode Text="下拉列表控件">
       <TreeNode Text="简单下拉列表" NavigateUrl="~/dropdownlist/dropdownlist.aspx" >
       </TreeNode>
       <!--<TreeNode Text="下拉列表（选项值可为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptyvalue.aspx" >
@@ -146,7 +146,7 @@
         <TreeNode Text="绑定到 DataTable" NavigateUrl="~/dropdownlist/databind/dropdownlist_datatable.aspx" >
         </TreeNode>
       </TreeNode>
-      <TreeNode Text="多选下拉列表" IsNew="true">
+      <TreeNode Text="多选下拉列表">
         <TreeNode Text="多选" NavigateUrl="~/dropdownlist/multiselect.aspx" IsNew="true">
         </TreeNode>
         <TreeNode Text="多选（可过滤，强制选择）" NavigateUrl="~/dropdownlist/multiselect_enableedit.aspx" IsNew="true">
@@ -155,7 +155,7 @@
         </TreeNode>
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="杂项" IsNew="true" >
+    <TreeNode Text="杂项">
       <TreeNode Text="重置表单" NavigateUrl="~/form/form_reset.aspx" >
       </TreeNode>
       <TreeNode Text="隐藏表单字段" NavigateUrl="~/form/form_hide_field.aspx" >
@@ -166,7 +166,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="表格控件" IsNew="true">
+  <TreeNode Text="表格控件">
     <TreeNode Text="FineUI 表格" NavigateUrl="~/grid/grid.aspx" >
     </TreeNode>
     <TreeNode Text="AspNet 表格" NavigateUrl="~/grid/grid_aspnet.aspx" >
@@ -189,7 +189,7 @@
       <TreeNode Text="数据库分页（底部工具栏）" NavigateUrl="~/grid/grid_paging_database_bbar.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="序号列" IsNew="true">
+    <TreeNode Text="序号列">
       <TreeNode Text="序号列（内存分页）" NavigateUrl="~/grid/grid_rownumber_paging.aspx" >
       </TreeNode>
       <TreeNode Text="序号列（数据库分页）" NavigateUrl="~/grid/grid_rownumber_paging_database.aspx" >
@@ -199,7 +199,7 @@
       <TreeNode Text="序号列（靠左显示）" NavigateUrl="~/grid/grid_rownumber_align.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="行选择" IsNew="true">
+    <TreeNode Text="行选择">
       <TreeNode Text="行选择（多选）" NavigateUrl="~/grid/grid_checkall.aspx" >
       </TreeNode>
       <TreeNode Text="行选择（单选）" NavigateUrl="~/grid/grid_checkall_singleselect.aspx" IsNew="true">
@@ -207,7 +207,7 @@
       <TreeNode Text="行选择（只能通过全选框选中行）" NavigateUrl="~/grid/grid_checkall_only.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="扩展列" IsNew="true">
+    <TreeNode Text="扩展列">
       <TreeNode Text="行扩展列" NavigateUrl="~/grid/grid_rowexpander.aspx" >
       </TreeNode>
       <TreeNode Text="行扩展列（展开全部）" NavigateUrl="~/grid/grid_rowexpander_expandall.aspx" >
@@ -221,7 +221,7 @@
       <TreeNode Text="模拟树列（数据库分页，下拉列表定位省份）" NavigateUrl="~/grid/grid_simulate_tree_database_paging_dropdownlist.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="事件" IsNew="true">
+    <TreeNode Text="事件">
       <TreeNode Text="行内按钮事件" NavigateUrl="~/grid/grid_rowcommand.aspx" >
       </TreeNode>
       <TreeNode Text="行内按钮事件（内存分页）" NavigateUrl="~/grid/grid_rowcommand_paging.aspx" IsNew="true">
@@ -297,7 +297,7 @@
       <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="模板列" IsNew="true">
+    <TreeNode Text="模板列">
       <TreeNode Text="编辑文本框" NavigateUrl="~/grid/grid_edit.aspx" >
       </TreeNode>
       <TreeNode Text="编辑下拉列表" NavigateUrl="~/grid/grid_edit_dropdownlist.aspx" >
@@ -341,7 +341,7 @@
       <TreeNode Text="合计行（浮动到顶部、当前页合计）" NavigateUrl="~/grid/grid_summary_currentpage.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="单元格编辑" IsNew="true">
+    <TreeNode Text="单元格编辑">
       <TreeNode Text="基本功能" NavigateUrl="~/grid/grid_editor_cell.aspx" >
       </TreeNode>
       <TreeNode Text="客户端单元格渲染" NavigateUrl="~/grid/grid_editor_cell_renderfunction.aspx" >
@@ -361,7 +361,7 @@
       <TreeNode Text="行扩展列与新增删除行" IsNew="true" NavigateUrl="~/grid/grid_editor_cell_new_delete_rowexpander.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="列锁定" IsNew="true">
+    <TreeNode Text="列锁定">
       <TreeNode Text="列锁定" NavigateUrl="~/grid/grid_lockcolumn.aspx" IsNew="true" >
       </TreeNode>
       <TreeNode Text="列锁定与行扩展列" NavigateUrl="~/grid/grid_lockcolumn_rowexpander.aspx" IsNew="true" >
@@ -377,7 +377,7 @@
       <!--<TreeNode Text="列锁定（多列，多行，行高不同）" NavigateUrl="~/grid/grid_lockcolumn_many_columns.aspx" >
       </TreeNode>-->
     </TreeNode>
-    <TreeNode Text="行与列样式" IsNew="true">
+    <TreeNode Text="行与列样式">
       <TreeNode Text="行样式" NavigateUrl="~/grid/grid_style_rowcolor.aspx" >
       </TreeNode>
       <TreeNode Text="行样式（数据库分页）" NavigateUrl="~/grid/grid_style_rowcolor_paging_database.aspx" IsNew="true" >
@@ -387,7 +387,7 @@
       <TreeNode Text="列样式" NavigateUrl="~/grid/grid_style_columnclass.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="杂项" IsNew="true">
+    <TreeNode Text="杂项">
       <TreeNode Text="主从表联动" NavigateUrl="~/grid/grid_twogrid.aspx" >
       </TreeNode>
       <TreeNode Text="文本居中显示（标题靠左）" NavigateUrl="~/grid/grid_centercolumn.aspx" IsNew="true">
@@ -412,7 +412,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="树控件" IsNew="true">
+  <TreeNode Text="树控件">
     <TreeNode Text="简单树控件" NavigateUrl="~/tree/tree.aspx" >
     </TreeNode>
     <TreeNode Text="图标与链接" NavigateUrl="~/tree/tree_icon.aspx" >
@@ -441,7 +441,7 @@
       <TreeNode Text="选中多行" NavigateUrl="~/tree/select/tree_multi_select.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="事件" IsNew="true">
+    <TreeNode Text="事件">
       <TreeNode Text="选中行事件" NavigateUrl="~/tree/select/tree_nodecommand.aspx" >
       </TreeNode>
       <TreeNode Text="展开折叠事件" NavigateUrl="~/tree/tree_expand.aspx" >
@@ -450,7 +450,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="其他控件" IsNew="true">
+  <TreeNode Text="其他控件">
     <TreeNode Text="选项卡控件">
       <TreeNode Text="基本用法" NavigateUrl="~/tabstrip/tabstrip.aspx" >
       </TreeNode>
@@ -475,7 +475,7 @@
       <TreeNode Text="手风琴+树控件" NavigateUrl="~/accordion/accordion_tree.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="面板与窗体" IsNew="true">
+    <TreeNode Text="面板与窗体">
       <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
       </TreeNode>
       <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
@@ -488,8 +488,10 @@
       </TreeNode>
       <TreeNode Text="窗体与表单" NavigateUrl="~/window/window_form.aspx" IsNew="true">
       </TreeNode>
+      <TreeNode Text="同时打开多个窗体" NavigateUrl="~/window/window_multi.aspx" IsNew="true">
+      </TreeNode>
     </TreeNode>
-    <TreeNode Text="工具栏和菜单" IsNew="true">
+    <TreeNode Text="工具栏和菜单">
       <TreeNode Text="内联菜单" NavigateUrl="~/toolbar/menu.aspx" >
       </TreeNode>
       <TreeNode Text="内联菜单（HideOnClick）" NavigateUrl="~/toolbar/menu_hideonclick.aspx" IsNew="true">
@@ -504,7 +506,9 @@
       </TreeNode>
       <TreeNode Text="多行工具栏" NavigateUrl="~/toolbar/multi_toolbars.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="工具栏上的图片" NavigateUrl="~/toolbar/toolbar_images.aspx" IsNew="true">
+      <TreeNode Text="工具栏上的图片（固定宽度）" NavigateUrl="~/toolbar/toolbar_images_fixedwidth.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="工具栏上的图片（动态调整）" NavigateUrl="~/toolbar/toolbar_images.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="用户控件">
@@ -515,7 +519,7 @@
       <TreeNode Text="用户控件与布局" NavigateUrl="~/usercontrol/userinfo2.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="母版页" IsNew="true">
+    <TreeNode Text="母版页">
       <TreeNode Text="树（布局）" NavigateUrl="~/master/simple.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="表格（布局、接口与动态加载）" NavigateUrl="~/master/list.aspx" IsNew="true">
@@ -524,7 +528,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="页面布局" IsNew="true" >
+  <TreeNode Text="页面布局">
     <TreeNode Text="布局（Fit）" NavigateUrl="~/layout/fit.aspx" >
     </TreeNode>
     <TreeNode Text="布局（Anchor）" NavigateUrl="~/layout/anchor.aspx" >
@@ -542,7 +546,7 @@
     <TreeNode Text="布局（Region）" NavigateUrl="~/layout/region.aspx" IsNew="true" >
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="内联框架" IsNew="true">
+  <TreeNode Text="内联框架">
     <TreeNode Text="弹出窗体（本页面或父页面）" NavigateUrl="~/iframe/button_iframe.aspx" >
     </TreeNode>
     <TreeNode Text="表格与编辑窗体" NavigateUrl="~/iframe/grid_iframe.aspx" >
@@ -581,7 +585,7 @@
       <TreeNode Text="My97日期控件" NavigateUrl="~/third-party/my97/my97.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="jQueryUI Autocomplete" IsNew="true">
+    <TreeNode Text="jQueryUI Autocomplete">
       <TreeNode Text="内联数据" NavigateUrl="~/third-party/autocomplete/inline.aspx" >
       </TreeNode>
       <TreeNode Text="内联数据（位于Window控件中）" NavigateUrl="~/third-party/autocomplete/inline_window.aspx" IsNew="true" >
@@ -616,7 +620,7 @@
       </TreeNode>
     </TreeNode>
   </TreeNode>
-  <TreeNode Text="杂项" IsNew="true">
+  <TreeNode Text="杂项">
     <TreeNode Text="ASP.NET控件">
       <TreeNode Text="ASP.NET 控件" NavigateUrl="~/aspnet/aspnet.aspx" >
       </TreeNode>
@@ -645,6 +649,5 @@
     </TreeNode>
     <TreeNode Text="向父页面添加选项卡" NavigateUrl="~/other/addtab.aspx" IsNew="true">
     </TreeNode>
-
   </TreeNode>
 </Tree>

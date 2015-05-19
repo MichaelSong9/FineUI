@@ -416,6 +416,7 @@
     <Content Include="toolbar\menucheckbox.aspx" />
     <Content Include="toolbar\menu_hideonclick.aspx" />
     <Content Include="toolbar\toolbar_images.aspx" />
+    <Content Include="toolbar\toolbar_images_fixedwidth.aspx" />
     <Content Include="tree\checkbox\tree_checked.aspx" />
     <Content Include="tree\select\tree_multi_select_selectable.aspx" />
     <Content Include="tree\select\tree_nodecommand.aspx" />
@@ -2250,6 +2251,13 @@
     </Compile>
     <Compile Include="toolbar\toolbar_images.aspx.designer.cs">
       <DependentUpon>toolbar_images.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="toolbar\toolbar_images_fixedwidth.aspx.cs">
+      <DependentUpon>toolbar_images_fixedwidth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\toolbar_images_fixedwidth.aspx.designer.cs">
+      <DependentUpon>toolbar_images_fixedwidth.aspx</DependentUpon>
     </Compile>
     <Compile Include="tree\checkbox\tree_checked.aspx.cs">
       <DependentUpon>tree_checked.aspx</DependentUpon>

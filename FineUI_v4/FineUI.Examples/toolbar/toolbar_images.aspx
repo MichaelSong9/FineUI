@@ -61,7 +61,7 @@
             });
 
             // 等工具栏上的全部图片加载完毕后，再重新布局
-            $.when.apply($, imagdefs).done(function () {
+            $.when.apply($, $.makeArray(imagdefs)).done(function () {
                 F(panelClientID).doLayout();
                 //console.log('OK');
             });
