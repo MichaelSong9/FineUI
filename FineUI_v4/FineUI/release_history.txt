@@ -29,6 +29,19 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 
 发布历史
 
++2015-06-** v4.2.1
+	+仅对表格内存分页有部分影响（不兼容提醒！）。
+		-表格属性SelectedRowIndex、SelectedRowIndexArray指的是在当前分页中的索引（和之前兼容，无需修改）。
+		+表格所有其他地方的RowIndex指的是在全部数据源中的索引（和之前不兼容，需要注意）。
+			-所有表格事件参数RowIndex属性，包括GridAfterEditEventArgs、GridRowClickEventArgs等。
+			-获取单元格编辑修改值grid1.GetModifiedDict，以及删除的行GetDeletedList。
+			-表格行实例的RowIndex属性。
+			-CheckBoxField的函数GetCheckedState的参数。
+	-增加示例：杂项->拦截服务器端重定向（模拟登陆超时，同步确认对话框）；（同步确认对话框）。
+	-客户端函数F.alert、F.confirm参数调整，接受options对象参数。
+	-
+
+
 +2015-05-20 v4.2.0
 	-增加示例：其他控件->面板与窗体->同时打开多个窗体。
 	-增加示例：第三方组件->jQueryUI Autocomplete->内联数据（位于Window控件中）。
@@ -39,13 +52,6 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-增加示例：序号列->序号列（靠左显示）（dennisliu）。
 		-更新示例：杂项->文本居中显示（标题靠左）。
 		-增加示例：事件->行内按钮事件（内存分页）；行内按钮事件（数据库分页）。
-	+仅对表格内存分页有部分影响（不兼容提醒！）。
-		-表格属性SelectedRowIndex、SelectedRowIndexArray指的是在当前分页中的索引（和之前兼容，无需修改）。
-		+表格所有其他地方的RowIndex指的是在全部数据源中的索引（和之前不兼容，需要注意）。
-			-所有表格事件参数RowIndex属性，包括GridAfterEditEventArgs、GridRowClickEventArgs等。
-			-获取单元格编辑修改值grid1.GetModifiedData返回的键值。
-			-表格行实例的RowIndex属性。
-			-CheckBoxField的函数GetCheckedState的参数。
 	+修正一直存在的一个隐藏问题。
 		-此问题仅在用户多次快速点击页面上的回发按钮，并且网速比较慢时才可能会出现。
 		-关于如何重现本问题以及内部原因，请搜索论坛 - 验证视图状态MAC失败。

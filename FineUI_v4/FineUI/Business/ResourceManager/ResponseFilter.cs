@@ -154,8 +154,8 @@ namespace FineUI
             #endregion
             #region 页面上每个控件应该输出的脚本
 
-            // 设置提交表单的按钮等元素可用enable（有可能在后面的被覆盖）
-            sb.Append(GetEnableTargetControlScript());
+            //// 设置提交表单的按钮等元素可用enable（有可能在后面的被覆盖）
+            //sb.Append(GetEnableTargetControlScript());
 
             // 添加所有需要在AJAX时更新的脚本
             StringBuilder ajaxScriptBuilder = new StringBuilder();
@@ -284,19 +284,19 @@ namespace FineUI
         //}
 
 
-        /// <summary>
-        /// 设置引起本次回发的按钮（或其他控件）可用
-        /// </summary>
-        /// <returns></returns>
-        private static string GetEnableTargetControlScript()
-        {
-            string targetControlClientID = HttpContext.Current.Request.Form[ResourceManager.DISABLED_CONTROL_BEFORE_POSTBACK];
-            if (!String.IsNullOrEmpty(targetControlClientID))
-            {
-                return String.Format("F.enable('{0}');", targetControlClientID);
-            }
-            return String.Empty;
-        }
+        ///// <summary>
+        ///// 设置引起本次回发的按钮（或其他控件）可用
+        ///// </summary>
+        ///// <returns></returns>
+        //private static string GetEnableTargetControlScript()
+        //{
+        //    string targetControlClientID = HttpContext.Current.Request.Form[ResourceManager.DISABLED_CONTROL_BEFORE_POSTBACK];
+        //    if (!String.IsNullOrEmpty(targetControlClientID))
+        //    {
+        //        return String.Format("F.enable('{0}');", targetControlClientID);
+        //    }
+        //    return String.Empty;
+        //}
 
         #endregion
 

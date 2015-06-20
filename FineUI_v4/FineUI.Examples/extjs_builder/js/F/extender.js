@@ -1066,19 +1066,28 @@ if (Ext.grid.Panel) {
 
         // 获取删除的行索引（在原始的列表中）
         f_getDeletedRows: function () {
-            var currentRecordIDs = [], deletedRows = [];
-            this.getStore().each(function (record, index) {
+            var me = this, currentRecordIDs = [], deletedRows = [];
+            me.getStore().each(function (record, index) {
                 currentRecordIDs.push(record.id);
             });
 
             // 快速判断是否存在行被删除的情况
-            if (currentRecordIDs.join('') === this.f_recordIDs.join('')) {
+            if (currentRecordIDs.join('') === me.f_recordIDs.join('')) {
                 return deletedRows;
             }
 
-            Ext.Array.each(this.f_recordIDs, function (recordID, index) {
+
+            // 内存分页，特殊处理
+            var originalIndexPlus = 0;
+            var pagingBar = me.f_getPaging();
+            if (pagingBar && !pagingBar.f_databasePaging) {
+                originalIndexPlus = pagingBar.f_pageIndex * pagingBar.f_pageSize;
+            }
+
+
+            Ext.Array.each(me.f_recordIDs, function (recordID, index) {
                 if (Ext.Array.indexOf(currentRecordIDs, recordID) < 0) {
-                    deletedRows.push(index);
+                    deletedRows.push(index + originalIndexPlus);
                 }
             });
             return deletedRows;
@@ -1128,6 +1137,13 @@ if (Ext.grid.Panel) {
             }
             */
 
+            // 内存分页，特殊处理
+            var originalIndexPlus = 0;
+            var pagingBar = me.f_getPaging();
+            if (pagingBar && !pagingBar.f_databasePaging) {
+                originalIndexPlus = pagingBar.f_pageIndex * pagingBar.f_pageSize;
+            }
+
             var modifiedRows = [];
             var store = this.getStore();
             var modifiedRecords = store.getModifiedRecords();
@@ -1172,7 +1188,7 @@ if (Ext.grid.Panel) {
                         }
                     }
                     // 修改现有数据行
-                    modifiedRows.push([rowIndex, rowIndexOriginal, rowModifiedObj]);
+                    modifiedRows.push([rowIndex, rowIndexOriginal + originalIndexPlus, rowModifiedObj]);
                 }
             }
 

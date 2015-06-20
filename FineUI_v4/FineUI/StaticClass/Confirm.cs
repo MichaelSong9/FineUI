@@ -157,42 +157,76 @@ namespace FineUI
                 }
                 return String.Format("{0}.Ext.MessageBox.show({1});", targetName, ob.ToString());
                 */
-            string scriptTitle = "''";
-            if (!String.IsNullOrEmpty(title))
-            {
-                scriptTitle = JsHelper.Enquote(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
-            }
-            string scriptMessage = JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+            //string scriptTitle = "''";
+            //if (!String.IsNullOrEmpty(title))
+            //{
+            //    scriptTitle = JsHelper.Enquote(title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+            //}
+            //string scriptMessage = JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>"));
 
-            string scriptIconName = "''";
-            if (icon != MessageBoxIcon.Warning)
+            //string scriptIconName = "''";
+            //if (icon != MessageBoxIcon.Warning)
+            //{
+            //    scriptIconName = String.Format("'{0}'", MessageBoxIconHelper.GetShortName(icon));
+            //}
+
+            //string scriptTargetName = "''";
+            //if (target != Target.Self)
+            //{
+            //    scriptTargetName = String.Format("'{0}'", TargetHelper.GetName(target));
+            //}
+            //string scriptCancel = JsHelper.Enquote(cancelScript);
+            //string scriptOK = JsHelper.Enquote(okScript);
+
+            JsObjectBuilder jsOB = new JsObjectBuilder();
+
+            if (!String.IsNullOrEmpty(cancelScript))
             {
-                scriptIconName = String.Format("'{0}'", MessageBoxIconHelper.GetShortName(icon));
+                jsOB.AddProperty("cancel", cancelScript);
             }
 
-            string scriptTargetName = "''";
+            if (!String.IsNullOrEmpty(okScript))
+            {
+                jsOB.AddProperty("ok", okScript);
+            }
+
             if (target != Target.Self)
             {
-                scriptTargetName = String.Format("'{0}'", TargetHelper.GetName(target));
+                jsOB.AddProperty("target", TargetHelper.GetName(target));
             }
-            string scriptCancel = JsHelper.Enquote(cancelScript);
-            string scriptOK = JsHelper.Enquote(okScript);
 
-            if (scriptIconName == "''")
+            if (icon != MessageBoxIcon.Warning)
             {
-                if (scriptCancel == "''")
-                {
-                    return String.Format("F.confirm({0},{1},{2},{3});", scriptTargetName, scriptTitle, scriptMessage, scriptOK);
-                }
-                else
-                {
-                    return String.Format("F.confirm({0},{1},{2},{3},{4});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel);
-                }
+                jsOB.AddProperty("messageIcon", MessageBoxIconHelper.GetShortName(icon));
             }
-            else
+
+            if (!String.IsNullOrEmpty(title))
             {
-                return String.Format("F.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel, scriptIconName);
+                jsOB.AddProperty("title", title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
             }
+
+            if (!String.IsNullOrEmpty(message))
+            {
+                jsOB.AddProperty("message", JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>")), true);
+            }
+
+            return String.Format("F.confirm({0});", jsOB.ToString());
+
+            //if (scriptIconName == "''")
+            //{
+            //    if (scriptCancel == "''")
+            //    {
+            //        return String.Format("F.confirm({0},{1},{2},{3});", scriptTargetName, scriptTitle, scriptMessage, scriptOK);
+            //    }
+            //    else
+            //    {
+            //        return String.Format("F.confirm({0},{1},{2},{3},{4});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel);
+            //    }
+            //}
+            //else
+            //{
+            //    return String.Format("F.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel, scriptIconName);
+            //}
 
         }
 

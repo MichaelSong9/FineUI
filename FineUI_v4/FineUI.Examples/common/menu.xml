@@ -649,5 +649,11 @@
     </TreeNode>
     <TreeNode Text="向父页面添加选项卡" NavigateUrl="~/other/addtab.aspx" IsNew="true">
     </TreeNode>
+    <TreeNode Text="捕获全局JavaScript错误" NavigateUrl="~/other/global_error.aspx" IsNew="true">
+    </TreeNode>
+    <TreeNode Text="拦截服务器端重定向（模拟登陆超时，同步确认对话框）" NavigateUrl="~/other/authentication_timeout.aspx" IsNew="true">
+    </TreeNode>
+    <TreeNode Text="拦截服务器端重定向（模拟登陆超时，异步确认对话框）" NavigateUrl="~/other/authentication_timeout_async.aspx" IsNew="true">
+    </TreeNode>
   </TreeNode>
 </Tree>

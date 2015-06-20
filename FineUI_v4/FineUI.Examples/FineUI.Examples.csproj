@@ -97,13 +97,18 @@
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
+    <Content Include="other\authentication_timeout.aspx" />
+    <Content Include="other\authentication_timeout_async.aspx" />
     <Content Include="other\global_error.aspx" />
     <Content Include="other\pageloading.aspx" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
+    <Content Include="test\grid_editor_cell2.aspx" />
     <Content Include="test\grid_editor_cell_databind2.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
+    <Content Include="test\grid_paging_selection2.aspx" />
+    <Content Include="test\grid_paging_test.aspx" />
     <Content Include="test\HulinY.js" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
@@ -721,6 +726,20 @@
     <Compile Include="master\SingleGrid.Master.designer.cs">
       <DependentUpon>SingleGrid.Master</DependentUpon>
     </Compile>
+    <Compile Include="other\authentication_timeout.aspx.cs">
+      <DependentUpon>authentication_timeout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\authentication_timeout.aspx.designer.cs">
+      <DependentUpon>authentication_timeout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="other\authentication_timeout_async.aspx.cs">
+      <DependentUpon>authentication_timeout_async.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="other\authentication_timeout_async.aspx.designer.cs">
+      <DependentUpon>authentication_timeout_async.aspx</DependentUpon>
+    </Compile>
     <Compile Include="other\global_error.aspx.cs">
       <DependentUpon>global_error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -756,6 +775,13 @@
     <Compile Include="test\empty.aspx.designer.cs">
       <DependentUpon>empty.aspx</DependentUpon>
     </Compile>
+    <Compile Include="test\grid_editor_cell2.aspx.cs">
+      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="test\grid_editor_cell_databind2.aspx.cs">
       <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -769,6 +795,20 @@
     </Compile>
     <Compile Include="test\grid_iframe2.aspx.designer.cs">
       <DependentUpon>grid_iframe2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_paging_selection2.aspx.cs">
+      <DependentUpon>grid_paging_selection2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_paging_selection2.aspx.designer.cs">
+      <DependentUpon>grid_paging_selection2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_paging_test.aspx.cs">
+      <DependentUpon>grid_paging_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_paging_test.aspx.designer.cs">
+      <DependentUpon>grid_paging_test.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\iframe_window.aspx.cs">
       <DependentUpon>iframe_window.aspx</DependentUpon>

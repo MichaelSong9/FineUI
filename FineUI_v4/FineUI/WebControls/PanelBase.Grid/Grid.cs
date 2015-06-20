@@ -4248,7 +4248,15 @@ namespace FineUI
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 2)
                 {
-                    OnRowClick(new GridRowClickEventArgs(Convert.ToInt32(commandArgs[1])));
+                    int rowIndex = Convert.ToInt32(commandArgs[1]);
+
+                    // 内存分页
+                    if (AllowPaging && !IsDatabasePaging)
+                    {
+                        rowIndex += PageSize * PageIndex;
+                    }
+
+                    OnRowClick(new GridRowClickEventArgs(rowIndex));
                 }
             }
             else if (eventArgument.StartsWith("RowDoubleClick$"))
@@ -4256,7 +4264,15 @@ namespace FineUI
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 2)
                 {
-                    OnRowDoubleClick(new GridRowClickEventArgs(Convert.ToInt32(commandArgs[1])));
+                    int rowIndex = Convert.ToInt32(commandArgs[1]);
+
+                    // 内存分页
+                    if (AllowPaging && !IsDatabasePaging)
+                    {
+                        rowIndex += PageSize * PageIndex;
+                    }
+
+                    OnRowDoubleClick(new GridRowClickEventArgs(rowIndex));
                 }
             }
             else if (eventArgument.StartsWith("RowSelect$"))
@@ -4264,7 +4280,15 @@ namespace FineUI
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 2)
                 {
-                    OnRowSelect(new GridRowSelectEventArgs(Convert.ToInt32(commandArgs[1])));
+                    int rowIndex = Convert.ToInt32(commandArgs[1]);
+
+                    // 内存分页
+                    if (AllowPaging && !IsDatabasePaging)
+                    {
+                        rowIndex += PageSize * PageIndex;
+                    }
+
+                    OnRowSelect(new GridRowSelectEventArgs(rowIndex));
                 }
             }
             else if (eventArgument.StartsWith("AfterEdit$"))
@@ -4272,7 +4296,15 @@ namespace FineUI
                 string[] commandArgs = eventArgument.Split('$');
                 if (commandArgs.Length == 3)
                 {
-                    OnAfterEdit(new GridAfterEditEventArgs(Convert.ToInt32(commandArgs[1]), commandArgs[2].ToString()));
+                    int rowIndex = Convert.ToInt32(commandArgs[1]);
+
+                    // 内存分页
+                    if (AllowPaging && !IsDatabasePaging)
+                    {
+                        rowIndex += PageSize * PageIndex;
+                    }
+
+                    OnAfterEdit(new GridAfterEditEventArgs(rowIndex, commandArgs[2].ToString()));
                 }
             }
         }

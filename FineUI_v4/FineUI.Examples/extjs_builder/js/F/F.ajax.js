@@ -41,28 +41,12 @@
         //if (typeof (F.util.beforeAjaxPostBackScript) === 'function') {
         //    F.util.beforeAjaxPostBackScript();
         //}
-        F.util.triggerBeforeAjax();
+		
+		// 如果显式返回false，则阻止AJAX回发
+        if(F.util.triggerBeforeAjax() === false) {
+			return;
+		}
 
-
-        function ajaxSuccess(data, viewStateBeforeAJAX) {
-            /*
-			try {
-				new Function(data)();
-			} catch (e) {
-				createErrorWindow({
-					statusText: "Execute JavaScript Exception",
-					status: -1,
-					responseText: util.htmlEncode(data)
-				});
-			}
-			*/
-            new Function('__VIEWSTATE', data)(viewStateBeforeAJAX);
-
-            // 有可能响应返回后即关闭本窗体
-            if (F && F.util) {
-                F.util.triggerAjaxReady();
-            }
-        }
 
         // Ext.encode will convert Chinese characters. Ext.encode({a:"你好"}) => '{"a":"\u4f60\u597d"}'
         // We will include the official JSON object from http://json.org/
@@ -94,6 +78,56 @@
             }
 
             var viewStateBeforeAJAX = F.util.getHiddenFieldValue('__VIEWSTATE');
+            var disabledButtonIdBeforeAJAX = F.getHidden('F_TARGET');
+
+            function ajaxSuccess(data, viewStateBeforeAJAX) {
+                /*
+                try {
+                    new Function(data)();
+                } catch (e) {
+                    createErrorWindow({
+                        statusText: "Execute JavaScript Exception",
+                        status: -1,
+                        responseText: util.htmlEncode(data)
+                    });
+                }
+                */
+
+                function processEnd() {
+                    // 启用AJAX发起时禁用的按钮
+                    if (disabledButtonIdBeforeAJAX) {
+                        F.enable(disabledButtonIdBeforeAJAX);
+                    }
+
+                    //隐藏正在加载提示
+                    ajaxStop();
+                }
+
+
+                // 如果显式返回false，则阻止AJAX回发
+                if (F.util.triggerBeforeAjaxSuccess(data) === false) {
+                    processEnd();
+                    return;
+                }
+
+                try {
+                    new Function('__VIEWSTATE', data)(viewStateBeforeAJAX);
+
+                    // 有可能响应返回后即关闭本窗体
+                    if (F && F.util) {
+                        F.util.triggerAjaxReady();
+                    }
+                } catch (e) {
+
+                    // 重新抛出异常
+                    throw e;
+
+                } finally {
+
+                    processEnd();
+                }
+
+            }
 
             Ext.Ajax.request({
                 form: theForm.id,
@@ -103,7 +137,6 @@
                 success: function (data) {
                     var scripts = data.responseText;
 
-                    
                     if (scripts && F.form_upload_file) {
                         // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
                         //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
@@ -132,11 +165,11 @@
                             F.util.triggerAjaxReady();
                         }
                         */
-                    }, 100);
+                    }, 0);
                 },
                 failure: function (data) {
-                    var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
-                    if (lastDisabledButtonId) {
+                    //var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
+                    if (disabledButtonIdBeforeAJAX) {
                         F.enable(lastDisabledButtonId);
                     }
                     createErrorWindow(data);
@@ -419,7 +452,7 @@
 
     // 显示“正在载入...”的提示信息
     function _showAjaxLoading(ajaxLoadingType) {
-        if (_requestCount > 0) {
+        if (_ajaxStarted) {
 
             if (ajaxLoadingType === "default") {
                 F.ajaxLoadingDefault.setStyle('left', (Ext.getBody().getWidth() - F.ajaxLoadingDefault.getWidth()) / 2 + 'px');
@@ -433,8 +466,7 @@
 
     // 隐藏“正在载入...”的提示信息
     function _hideAjaxLoading(ajaxLoadingType) {
-        if (_requestCount <= 0) {
-            _requestCount = 0;
+        if (!_ajaxStarted) {
 
             if (ajaxLoadingType === "default") {
                 F.ajaxLoadingDefault.hide();
@@ -445,24 +477,48 @@
         }
     }
 
-    // 当前 Ajax 的并发请求数
-    var _requestCount = 0;
-
-    // 发起 Ajax 请求之前事件处理
-    Ext.Ajax.on('beforerequest', function (conn, options) {
-        _requestCount++;
+    function ajaxStart() {
 
         if (!enableAjaxLoading()) {
             // Do nothing
         } else {
             Ext.defer(_showAjaxLoading, 50, window, [ajaxLoadingType()]);
         }
+
+    }
+
+    function ajaxStop() {
+
+        if (!enableAjaxLoading()) {
+            // ...
+        } else {
+            Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
+        }
+
+        if (!_ajaxStarted) {
+            F.control_enable_ajax_loading = undefined;
+            F.control_ajax_loading_type = undefined;
+        }
+    }
+
+    // 当前 Ajax 的并发请求数
+    //var _requestCount = 0;
+    var _ajaxStarted = false;
+
+    // 发起 Ajax 请求之前事件处理
+    Ext.Ajax.on('beforerequest', function (conn, options) {
+        //_requestCount++;
+
+        _ajaxStarted = true;
+        ajaxStart();
     });
 
     // Ajax 请求结束
     Ext.Ajax.on('requestcomplete', function (conn, options) {
-        _requestCount--;
+        //_requestCount--;
+        _ajaxStarted = false;
 
+        /*
         if (!enableAjaxLoading()) {
             // ...
         } else {
@@ -470,12 +526,15 @@
         }
         F.control_enable_ajax_loading = undefined;
         F.control_ajax_loading_type = undefined;
+        */
     });
 
     // Ajax 请求发生异常
     Ext.Ajax.on('requestexception', function (conn, options) {
-        _requestCount--;
+        //_requestCount--;
+        _ajaxStarted = false;
 
+        /*
         if (!enableAjaxLoading()) {
             // ...
         } else {
@@ -483,6 +542,7 @@
         }
         F.control_enable_ajax_loading = undefined;
         F.control_ajax_loading_type = undefined;
+        */
     });
 
 

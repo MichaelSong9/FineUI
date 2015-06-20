@@ -25,7 +25,7 @@ F.alert = function () {
 };
 
 F.init = function () {
-	F.util.init.apply(window, arguments);
+    F.util.init.apply(window, arguments);
 };
 
 F.load = function () {
@@ -46,6 +46,10 @@ F.ajaxReady = function () {
 F.beforeAjax = function () {
     F.util.beforeAjax.apply(window, arguments);
 };
+F.beforeAjaxSuccess = function () {
+    F.util.beforeAjaxSuccess.apply(window, arguments);
+};
+
 
 F.stop = function () {
     var event = arguments.callee.caller.arguments[0] || window.event;
@@ -133,7 +137,7 @@ F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
 // expires: 天
 // 新增 或者 修改Cookie
 F.cookie = function (key, value, options) {
-    if (typeof(value) === 'undefined') {
+    if (typeof (value) === 'undefined') {
         var cookies = document.cookie ? document.cookie.split('; ') : [];
         var result = key ? '' : {};
         Ext.Array.each(cookies, function (cookie, index) {
@@ -188,7 +192,7 @@ Ext.onReady(function () {
 
     F.util.triggerLoad();
 
-    
+
     F.util.triggerReady();
 
 
@@ -247,23 +251,23 @@ Ext.onReady(function () {
 
         // 初始化
         init: function (options) { // msgTarget, labelWidth, labelSeparator, blankImageUrl, enableAjaxLoading, ajaxLoadingType, enableAjax, themeName, formChangeConfirm) {
-            
-			Ext.apply(F, options, {
-				language: 'zh_CN',
-				msgTarget: 'side',
-				labelWidth: 100, 
-				labelSeparator: '：', 
-				//blankImageUrl: '', 
-				enableAjaxLoading: true, 
-				ajaxLoadingType: 'default', 
-				enableAjax: true, 
-				theme: 'neptune', 
-				formChangeConfirm: false,
-				ajaxTimeout: 120
-			});
-			
-			
-			// Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
+
+            Ext.apply(F, options, {
+                language: 'zh_CN',
+                msgTarget: 'side',
+                labelWidth: 100,
+                labelSeparator: '：',
+                //blankImageUrl: '', 
+                enableAjaxLoading: true,
+                ajaxLoadingType: 'default',
+                enableAjax: true,
+                theme: 'neptune',
+                formChangeConfirm: false,
+                ajaxTimeout: 120
+            });
+
+
+            // Ext.QuickTips.init(true); 在原生的IE7（非IE8下的IE7模式）会有问题
             // 表现为iframe中的页面出现滚动条时，页面上的所有按钮都不能点击了。
             // 测试例子在：aspnet/test.aspx
             //Ext.QuickTips.init(false);
@@ -290,8 +294,8 @@ Ext.onReady(function () {
             document.forms[0].autocomplete = 'off';
 
             Ext.getBody().addCls('f-body');
-			
-			Ext.Ajax.timeout = F.ajaxTimeout * 1000;
+
+            Ext.Ajax.timeout = F.ajaxTimeout * 1000;
 
             // 向document.body添加主题类
             if (F.theme) {
@@ -330,7 +334,7 @@ Ext.onReady(function () {
             //    Ext.getBody().addCls('bigfont');
             //}
 
-			/*
+            /*
             // IE6&7不支持，IE8以上支持"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
             if (Ext.isIE6 || Ext.isIE7) {
                 Ext.BLANK_IMAGE_URL = F.blankImageUrl;
@@ -365,6 +369,7 @@ Ext.onReady(function () {
         _readyList: [],
         _ajaxReadyList: [],
         _beforeAjaxList: [],
+        _beforeAjaxSuccessList: [],
         _loadList: [],
 
         ready: function (callback) {
@@ -372,7 +377,7 @@ Ext.onReady(function () {
         },
         triggerReady: function () {
             Ext.Array.each(F.util._readyList, function (item, index) {
-                item.call(window);
+                item.apply(window);
             });
         },
 
@@ -382,7 +387,7 @@ Ext.onReady(function () {
         },
         triggerAjaxReady: function () {
             Ext.Array.each(F.util._ajaxReadyList, function (item, index) {
-                item.call(window);
+                item.apply(window);
             });
         },
 
@@ -390,9 +395,26 @@ Ext.onReady(function () {
             F.util._beforeAjaxList.push(callback);
         },
         triggerBeforeAjax: function () {
+            var result = true, args = arguments;
             Ext.Array.each(F.util._beforeAjaxList, function (item, index) {
-                item.call(window);
+                if (item.apply(window, args) === false) {
+                    result = false;
+                }
             });
+            return result;
+        },
+
+        beforeAjaxSuccess: function (callback) {
+            F.util._beforeAjaxSuccessList.push(callback);
+        },
+        triggerBeforeAjaxSuccess: function () {
+            var result = true, args = arguments;
+            Ext.Array.each(F.util._beforeAjaxSuccessList, function (item, index) {
+                if (item.apply(window, args) === false) {
+                    result = false;
+                }
+            });
+            return result;
         },
 
 
@@ -401,7 +423,7 @@ Ext.onReady(function () {
         },
         triggerLoad: function () {
             Ext.Array.each(F.util._loadList, function (item, index) {
-                item.call(window);
+                item.apply(window);
             });
         },
 
@@ -492,24 +514,7 @@ Ext.onReady(function () {
         },
 
 
-        // 弹出Alert对话框
-        alert: function (msg, title, icon, okscript) {
-            title = title || F.util.alertTitle;
-            icon = icon || Ext.MessageBox.INFO;
-            Ext.MessageBox.show({
-                title: title,
-                msg: msg,
-                buttons: Ext.MessageBox.OK,
-                icon: icon,
-                fn: function (buttonId) {
-                    if (buttonId === "ok") {
-                        if (typeof (okscript) === "function") {
-                            okscript.call(window);
-                        }
-                    }
-                }
-            });
-        },
+
 
         // 向页面添加Loading...节点
         appendLoadingNode: function () {
@@ -1207,32 +1212,100 @@ Ext.onReady(function () {
             return icon;
         },
 
-        // 确认对话框
-        confirm: function (targetName, title, msg, okScript, cancelScript, iconShortName) {
-            var wnd = F.util.getTargetWindow(targetName);
-            var icon = F.util.getMessageBoxIcon(iconShortName);
+        // 弹出Alert对话框
+        alert: function (target, message, title, messageIcon, ok) { // 老的顺序：msg, title, icon, okscript
+            var args = [].slice.call(arguments, 0);
+
+            var options = args[0];
+            if (typeof (options) === 'string') {
+                if (!/^_self|_parent|_top$/.test(args[0])) {
+                    args.splice(0, 0, '_self');
+                }
+                options = {
+                    target: args[0],
+                    message: args[1],
+                    title: args[2],
+                    messageIcon: args[3],
+                    ok: args[4]
+                };
+            }
+
+            var wnd = F.util.getTargetWindow(options.target);
+            if (!canIFrameWindowAccessed(wnd)) {
+                return; // return
+            }
+
+            var icon = Ext.MessageBox.INFO;
+            if (options.messageIcon) {
+                icon = F.util.getMessageBoxIcon(options.messageIcon);
+            }
+
             wnd.Ext.MessageBox.show({
-                title: title || F.util.confirmTitle,
-                msg: msg,
+                title: options.title || F.util.alertTitle,
+                msg: options.message,
+                buttons: Ext.MessageBox.OK,
+                icon: icon,
+                fn: function (buttonId) {
+                    if (buttonId === "ok") {
+                        if (typeof (options.ok) === "function") {
+                            options.ok.call(window);
+                        }
+                    }
+                }
+            });
+        },
+
+
+
+        // 确认对话框
+        confirm: function (target, message, title, messageIcon, ok, cancel) { // 老的顺序：targetName, title, msg, okScript, cancelScript, iconShortName) 
+
+            var args = [].slice.call(arguments, 0); //$.makeArray(arguments);
+
+            var options = args[0];
+            if (typeof (options) === 'string') {
+                if (!/^_self|_parent|_top$/.test(args[0])) {
+                    args.splice(0, 0, '_self');
+                }
+                options = {
+                    target: args[0],
+                    message: args[1],
+                    title: args[2],
+                    messageIcon: args[3],
+                    ok: args[4],
+                    cancel: args[5]
+                };
+            }
+
+
+            var wnd = F.util.getTargetWindow(options.target);
+            if (!canIFrameWindowAccessed(wnd)) {
+                return; // return
+            }
+
+            var icon = F.util.getMessageBoxIcon(options.messageIcon);
+            wnd.Ext.MessageBox.show({
+                title: options.title || F.util.confirmTitle,
+                msg: options.message,
                 buttons: Ext.MessageBox.OKCANCEL,
                 icon: icon,
                 fn: function (btn) {
                     if (btn == 'cancel') {
-                        if (cancelScript) {
-                            if (typeof (cancelScript) === 'string') {
-                                new Function(cancelScript)();
+                        if (options.cancel) {
+                            if (typeof (options.cancel) === 'string') {
+                                new Function(options.cancel)();
                             } else {
-                                cancelScript.apply(wnd);
+                                options.cancel.apply(wnd);
                             }
                         } else {
                             return false;
                         }
                     } else {
-                        if (okScript) {
-                            if (typeof (okScript) === 'string') {
-                                new Function(okScript)();
+                        if (options.ok) {
+                            if (typeof (options.ok) === 'string') {
+                                new Function(options.ok)();
                             } else {
-                                okScript.apply(wnd);
+                                options.ok.apply(wnd);
                             }
                         } else {
                             return false;
