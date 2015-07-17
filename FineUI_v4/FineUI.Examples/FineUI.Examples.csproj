@@ -105,10 +105,12 @@
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
+    <Content Include="test\grid_editor_cell_afteredit2.aspx" />
     <Content Include="test\grid_editor_cell_databind2.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\grid_paging_selection2.aspx" />
     <Content Include="test\grid_paging_test.aspx" />
+    <Content Include="test\hello2.aspx" />
     <Content Include="test\HulinY.js" />
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
@@ -782,6 +784,13 @@
     <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="test\grid_editor_cell_afteredit2.aspx.cs">
+      <DependentUpon>grid_editor_cell_afteredit2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_afteredit2.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_afteredit2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="test\grid_editor_cell_databind2.aspx.cs">
       <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -809,6 +818,13 @@
     </Compile>
     <Compile Include="test\grid_paging_test.aspx.designer.cs">
       <DependentUpon>grid_paging_test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\hello2.aspx.cs">
+      <DependentUpon>hello2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\hello2.aspx.designer.cs">
+      <DependentUpon>hello2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\iframe_window.aspx.cs">
       <DependentUpon>iframe_window.aspx</DependentUpon>

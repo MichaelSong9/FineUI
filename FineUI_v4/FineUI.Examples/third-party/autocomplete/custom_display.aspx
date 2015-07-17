@@ -69,7 +69,7 @@
                     $('#' + textbox3ID + ' input').val(ui.item.desc);
                     return false;
                 }
-            }).data("autocomplete")._renderItem = function (ul, item) {
+            }).autocomplete('instance')._renderItem = function (ul, item) {
                 return $("<li>")
                     .append("<a><span class='autocomplete-item-title'>" + item.label + "</span><br/>" + item.desc + "</a>")
                     .appendTo(ul);

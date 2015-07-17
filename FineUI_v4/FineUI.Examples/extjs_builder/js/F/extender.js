@@ -1646,9 +1646,11 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
 
 
 
-// 修正IE7/IE8下Date.parse('2015-10-01')出错的问题
-// http://jibbering.com/faq/#parseDate
+
 (function () {
+
+    // 修正IE7/IE8下Date.parse('2015-10-01')出错的问题
+    // http://jibbering.com/faq/#parseDate
     function parseISO8601(dateStr) {
         var isoExp = /(\d{2,4})-(\d\d?)-(\d\d?)/,
        date = new Date(NaN), month,
@@ -1673,18 +1675,27 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
         return date;
     }
 
+
+
+
+    if (Ext.form.field.ComboBox) {
+        var originalComboSetValue = Ext.form.field.ComboBox.prototype.setValue;
+        Ext.form.field.ComboBox.prototype.setValue = function (value, doSelect) {
+            // value可能是数字（可编辑单元格，列的FieldType可能是Int）
+            if (typeof (value) === 'number' || typeof (value) === 'boolean') {
+                value += '';
+            }
+            return originalComboSetValue.apply(this, [value, doSelect]);
+        };
+    }
+
+
+    
+
 })();
 
 
 
-if (Ext.form.field.ComboBox) {
-    F.originalComboSetValue = Ext.form.field.ComboBox.prototype.setValue;
-    Ext.form.field.ComboBox.prototype.setValue = function (value, doSelect) {
-        // value可能是数字（可编辑单元格，列的FieldType可能是Int）
-        if (typeof (value) === 'number' || typeof (value) === 'boolean') {
-            value += '';
-        }
-        return F.originalComboSetValue.apply(this, [value, doSelect]);
-    };
-}
+
+
 

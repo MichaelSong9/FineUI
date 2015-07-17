@@ -94,5 +94,9 @@ namespace FineUI.Examples
         //    Alert.Show("Button2");
         //}
 
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Panel2.Hidden = false;
+        }
     }
 }

@@ -190,14 +190,13 @@ F.removeCookie = function (key, options) {
 
 Ext.onReady(function () {
 
-    F.util.triggerLoad();
-
-
-    F.util.triggerReady();
-
-
-    F.util.hidePageLoading();
-
+    // 加延迟，以保证在 zh_CN 中通过 Ext.onReady 注册的脚本先执行（其中对 Ext.Date 进行了初始化）
+    window.setTimeout(function () {
+        F.util.triggerLoad();
+        F.util.triggerReady();
+        F.util.hidePageLoading();
+    }, 0);
+    
 });
 
 (function () {
