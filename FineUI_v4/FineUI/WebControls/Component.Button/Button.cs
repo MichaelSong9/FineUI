@@ -826,7 +826,7 @@ namespace FineUI
             {
                 if (!String.IsNullOrEmpty(disableControlJavascriptID))
                 {
-                    postBackScript += String.Format("F.disable('{0}');", disableControlJavascriptID);
+                    postBackScript += String.Format("F.f_disable('{0}');", disableControlJavascriptID);
                 }
                 postBackScript += postBackEventReference;
             }

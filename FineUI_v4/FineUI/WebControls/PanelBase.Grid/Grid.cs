@@ -2199,7 +2199,7 @@ namespace FineUI
                 if (PropertyModified("PageIndex", "PageSize", "RecordCount"))
                 {
                     sb.AppendFormat("{0}.f_getPaging().f_update({1});", XID, GetPagingBuilder());
-                    sb.AppendFormat("{0}.f_loadData();", XID);
+                    //sb.AppendFormat("{0}.f_loadData();", XID);
 
                     //needUpdateSortIcon = true;
 
@@ -2209,23 +2209,33 @@ namespace FineUI
 
             if (PropertyModified("F_Rows"))
             {
-                //if (ClientPropertyModifiedInServer("F_Rows"))
-                if (!dataReloaded)
-                {
-                    sb.AppendFormat("{0}.f_loadData();", XID);
+                dataReloaded = true;
 
-                    //needUpdateSortIcon = true;
+                ////if (ClientPropertyModifiedInServer("F_Rows"))
+                //if (!dataReloaded)
+                //{
+                //    sb.AppendFormat("{0}.f_loadData();", XID);
 
-                    dataReloaded = true;
-                }
+                //    //needUpdateSortIcon = true;
 
-                // 如果F_Rows改变了，则每行的模版列内容应该也要变化
-                PageManager.Instance.AddAjaxGridClientID(ClientID);
+                //    dataReloaded = true;
+                //}
+
+                //// 如果F_Rows改变了，则每行的模版列内容应该也要变化
+                //PageManager.Instance.AddAjaxGridClientID(ClientID);
+            }
+
+            // 如果需要更新 模板列，则简单的重新加载表格即可
+            if (_needUpdateTemplateFields)
+            {
+                dataReloaded = true;
             }
 
             // 本次AJAX请求重新加载的表格
             if (dataReloaded)
             {
+                sb.AppendFormat("{0}.f_loadData();", XID);
+
                 PageManager.Instance.AddAjaxGridReloadedClientID(ClientID);
             }
             else
@@ -2238,22 +2248,22 @@ namespace FineUI
             }
 
 
-            bool selectRowsScriptRegistered = false;
-            if (AllowCellEditing)
-            {
-                if (PropertyModified("SelectedCell"))
-                {
-                    sb.AppendFormat("{0}.f_selectCell();", XID);
-                }
-            }
-            else
-            {
-                if (PropertyModified("SelectedRowIndexArray"))
-                {
-                    sb.AppendFormat("{0}.f_selectRows();", XID);
-                    selectRowsScriptRegistered = true;
-                }
-            }
+            //bool selectRowsScriptRegistered = false;
+            //if (AllowCellEditing)
+            //{
+            //    if (PropertyModified("SelectedCell"))
+            //    {
+            //        sb.AppendFormat("{0}.f_selectCell();", XID);
+            //    }
+            //}
+            //else
+            //{
+            //    if (PropertyModified("SelectedRowIndexArray"))
+            //    {
+            //        sb.AppendFormat("{0}.f_selectRows();", XID);
+            //        selectRowsScriptRegistered = true;
+            //    }
+            //}
 
 
             if (PropertyModified("HiddenColumns"))
@@ -2262,8 +2272,73 @@ namespace FineUI
             }
 
 
-            bool rowExpandersScriptRegistered = false;
-            if (PropertyModified("ExpandAllRowExpanders") || _registerScriptRowExpanders)
+            // 如果 SelectedCell 属性改变 或者 数据重新加载了
+            if (PropertyModified("SelectedCell") || dataReloaded)
+            {
+                sb.AppendFormat("{0}.f_selectCell();", XID);
+            }
+
+            // 如果 SelectedRowIndexArray 属性改变 或者 数据重新加载了
+            if (PropertyModified("SelectedRowIndexArray") || dataReloaded)
+            {
+                sb.AppendFormat("{0}.f_selectRows();", XID);
+            }
+
+            // 如果 ExpandAllRowExpanders 属性改变 或者 数据重新加载了 或者 在后台手工操作了展开折叠属性
+            if (PropertyModified("ExpandAllRowExpanders") || dataReloaded || _registerScriptRowExpanders)
+            {
+                RegisterRowExpanderScript(sb);
+            }
+
+            //bool rowExpandersScriptRegistered = false;
+            //if (PropertyModified("ExpandAllRowExpanders") || _registerScriptRowExpanders)
+            //{
+            //    if (ExpandAllRowExpanders)
+            //    {
+            //        sb.AppendFormat("{0}.f_expandAllRows();", XID);
+            //    }
+            //    else
+            //    {
+            //        sb.AppendFormat("{0}.f_collapseAllRows();", XID);
+            //    }
+            //    rowExpandersScriptRegistered = true;
+            //}
+
+            //// 如果数据重新加载了，即每行的数据都更新了
+            //if (dataReloaded)
+            //{
+            //    if (!rowExpandersScriptRegistered)
+            //    {
+            //        // 数据重新加载了，如果没有注册行扩展列的脚本，需要注册展开所有行扩展列的脚本
+            //        if (ExpandAllRowExpanders)
+            //        {
+            //            sb.AppendFormat("{0}.f_expandAllRows();", XID);
+            //        }
+            //        else
+            //        {
+            //            sb.AppendFormat("{0}.f_collapseAllRows();", XID);
+            //        }
+            //    }
+
+
+            //    if (!AllowCellEditing)
+            //    {
+            //        // 数据重新加载了，如果没有注册选中行的脚本，需要注册重新选中行的脚本
+            //        if (!selectRowsScriptRegistered)
+            //        {
+            //            sb.AppendFormat("{0}.f_selectRows();", XID);
+            //        }
+            //    }
+
+            //}
+
+            AddAjaxScript(sb);
+        }
+
+        private void RegisterRowExpanderScript(StringBuilder sb)
+        {
+            GridColumn rowExpanderColumn = GetRowExpanderColumn();
+            if (rowExpanderColumn != null)
             {
                 if (ExpandAllRowExpanders)
                 {
@@ -2273,38 +2348,25 @@ namespace FineUI
                 {
                     sb.AppendFormat("{0}.f_collapseAllRows();", XID);
                 }
-                rowExpandersScriptRegistered = true;
             }
+        }
 
-            // 如果数据重新加载了，即每行的数据都更新了
-            if (dataReloaded)
+        /// <summary>
+        /// 获取行扩展列
+        /// </summary>
+        /// <returns></returns>
+        internal GridColumn GetRowExpanderColumn()
+        {
+            GridColumn expanderColumn = null;
+            foreach (GridColumn column in Columns)
             {
-                if (!rowExpandersScriptRegistered)
+                if (column is TemplateField && (column as TemplateField).RenderAsRowExpander)
                 {
-                    // 数据重新加载了，如果没有注册行扩展列的脚本，需要注册展开所有行扩展列的脚本
-                    if (ExpandAllRowExpanders)
-                    {
-                        sb.AppendFormat("{0}.f_expandAllRows();", XID);
-                    }
-                    else
-                    {
-                        sb.AppendFormat("{0}.f_collapseAllRows();", XID);
-                    }
+                    expanderColumn = column;
+                    break;
                 }
-
-
-                if (!AllowCellEditing)
-                {
-                    // 数据重新加载了，如果没有注册选中行的脚本，需要注册重新选中行的脚本
-                    if (!selectRowsScriptRegistered)
-                    {
-                        sb.AppendFormat("{0}.f_selectRows();", XID);
-                    }
-                }
-
             }
-
-            AddAjaxScript(sb);
+            return expanderColumn;
         }
 
         /// <summary>
@@ -3315,13 +3377,17 @@ namespace FineUI
 
         #region UpdateTemplateFields
 
+        private bool _needUpdateTemplateFields = false;
+
+
         /// <summary>
         /// 当在客户端修改了模板列中的值，调用此函数来告诉表格控件需要更新这些值；
         /// 如果对表格重新进行了数据绑定，则不需要调用此函数，因为重新绑定后会更新表格的全部内容
         /// </summary>
         public void UpdateTemplateFields()
         {
-            PageManager.Instance.AddAjaxGridClientID(ClientID);
+            _needUpdateTemplateFields = true;
+            //PageManager.Instance.AddAjaxGridClientID(ClientID);
         }
 
         #endregion
@@ -3339,7 +3405,9 @@ namespace FineUI
 
             // 如果重新绑定数据，则每行的模版列内容有可能发生变化，就需要更新
             // 因为目前，没有判断模板列是否改变的机制，所以只要可能导致模板列的动作都要更新模板列
-            PageManager.Instance.AddAjaxGridClientID(ClientID);
+            //PageManager.Instance.AddAjaxGridClientID(ClientID);
+            _needUpdateTemplateFields = true;
+
 
             // 如果重新绑定数据，则取消之前的编辑状态提示
             if (IsFineUIAjaxPostBack && AllowCellEditing)

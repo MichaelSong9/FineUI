@@ -104,6 +104,7 @@
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\empty.aspx" />
+    <Content Include="test\empty5.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
     <Content Include="test\grid_editor_cell_afteredit2.aspx" />
     <Content Include="test\grid_editor_cell_databind2.aspx" />
@@ -776,6 +777,13 @@
     </Compile>
     <Compile Include="test\empty.aspx.designer.cs">
       <DependentUpon>empty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\empty5.aspx.cs">
+      <DependentUpon>empty5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\empty5.aspx.designer.cs">
+      <DependentUpon>empty5.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\grid_editor_cell2.aspx.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>

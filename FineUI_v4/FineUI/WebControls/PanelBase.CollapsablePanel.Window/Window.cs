@@ -1493,7 +1493,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetIFrameCustomEventReference(string eventArgument, bool validateForms)
         {
-            return String.Format("F.wnd.getIFrameWindowObject({0}).F.customEvent({1}, {2});", ScriptID, JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
+            return String.Format("F.wnd.getIFrameWindowObject({0}).F.f_customEvent({1}, {2});", ScriptID, JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
         }
         #endregion
 

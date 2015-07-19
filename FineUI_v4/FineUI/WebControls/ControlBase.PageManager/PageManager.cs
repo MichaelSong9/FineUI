@@ -361,31 +361,28 @@ namespace FineUI
         }
 
 
-        private List<string> _ajaxGridClientIDs = new List<string>();
-
-        /// <summary>
-        /// 本次AJAX请求过程中需要更新TemplateField的表格
-        /// </summary>
-        internal List<string> AjaxGridClientIDs
-        {
-            get
-            {
-                return _ajaxGridClientIDs;
-            }
-            set
-            {
-                _ajaxGridClientIDs = value;
-            }
-        }
-
-
-        internal void AddAjaxGridClientID(string clientID)
-        {
-            if (!_ajaxGridClientIDs.Contains(clientID))
-            {
-                _ajaxGridClientIDs.Add(clientID);
-            }
-        }
+        //private List<string> _ajaxGridClientIDs = new List<string>();
+        ///// <summary>
+        ///// 本次AJAX请求过程中需要更新TemplateField的表格
+        ///// </summary>
+        //internal List<string> AjaxGridClientIDs
+        //{
+        //    get
+        //    {
+        //        return _ajaxGridClientIDs;
+        //    }
+        //    set
+        //    {
+        //        _ajaxGridClientIDs = value;
+        //    }
+        //}
+        //internal void AddAjaxGridClientID(string clientID)
+        //{
+        //    if (!_ajaxGridClientIDs.Contains(clientID))
+        //    {
+        //        _ajaxGridClientIDs.Add(clientID);
+        //    }
+        //}
 
         private List<string> _ajaxGridReloadedClientIDs = new List<string>();
 
@@ -1359,7 +1356,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetCustomEventReference(string eventArgument, bool validateForms)
         {
-            return String.Format("F.customEvent({0}, {1});", JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
+            return String.Format("F.f_customEvent({0}, {1});", JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
         }
 
         #endregion

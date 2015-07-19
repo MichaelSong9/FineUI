@@ -978,7 +978,7 @@ namespace FineUI
             if (currentModifiedProperties.Count > 0)
             {
                 // 更新当前控件的 F_STATE 状态
-                sb.AppendFormat("F.state({0},{1});", XID, ConvertPropertiesToJObject(currentModifiedProperties).ToString(Formatting.None));
+                sb.AppendFormat("F.f_state({0},{1});", XID, ConvertPropertiesToJObject(currentModifiedProperties).ToString(Formatting.None));
             }
 
             sb.Append(GetHiddenPropertyChangedScript());

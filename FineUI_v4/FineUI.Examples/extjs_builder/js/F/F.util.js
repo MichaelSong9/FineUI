@@ -4,18 +4,6 @@ var F = function (cmpName) {
     return Ext.getCmp(cmpName);
 };
 
-F.state = function (cmp, state) {
-    F.util.setFState(cmp, state);
-};
-
-F.enable = function (id) {
-    F.util.enableSubmitControl(id);
-};
-
-F.disable = function (id) {
-    F.util.disableSubmitControl(id);
-};
-
 F.target = function (target) {
     return F.util.getTargetWindow(target);
 };
@@ -68,16 +56,6 @@ F.fieldValue = function (cmp) {
     return F.util.getFormFieldValue(cmp);
 };
 
-F.customEvent = function (argument, validate) {
-    var pmv = F.pagemanager.validate;
-    if (validate && pmv) {
-        if (!F.util.validForms(pmv.forms, pmv.target, pmv.messagebox)) {
-            return false;
-        }
-    }
-    __doPostBack(F.pagemanager.name, argument);
-};
-
 F.getHidden = function () {
     return F.util.getHiddenFieldValue.apply(window, arguments);
 };
@@ -90,14 +68,39 @@ F.addCSS = function () {
 };
 
 
+
+// 为了兼容保留函数签名：F.customEvent
+F.f_customEvent = F.customEvent = function (argument, validate) {
+    var pmv = F.pagemanager.validate;
+    if (validate && pmv) {
+        if (!F.util.validForms(pmv.forms, pmv.target, pmv.messagebox)) {
+            return false;
+        }
+    }
+    __doPostBack(F.pagemanager.name, argument);
+};
+
 // 更新EventValidation的值
-F.eventValidation = function (newValue) {
+F.f_eventValidation = function (newValue) {
     F.setHidden("__EVENTVALIDATION", newValue);
 };
 
+F.f_state = function (cmp, state) {
+    F.util.setFState(cmp, state);
+};
+
+// 为了兼容保留函数签名：F.enable
+F.f_enable = F.enable = function (id) {
+    F.util.enableSubmitControl(id);
+};
+
+// 为了兼容保留函数签名：F.disable
+F.f_disable = F.disable = function (id) {
+    F.util.disableSubmitControl(id);
+};
 
 // 更新ViewState的值
-F.viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
+F.f_viewState = function (viewStateBeforeAJAX, newValue, startIndex) {
     var viewStateHiddenFiledId = '__VIEWSTATE';
 
     var oldValue = F.getHidden(viewStateHiddenFiledId);
