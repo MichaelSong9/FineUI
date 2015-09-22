@@ -356,9 +356,11 @@
       </TreeNode>
       <TreeNode Text="失去焦点事件" NavigateUrl="~/grid/grid_editor_cell_afteredit.aspx" >
       </TreeNode>
-      <TreeNode Text="行扩展列与单元格编辑" IsNew="true" NavigateUrl="~/grid/grid_editor_cell_afteredit_rowexpander.aspx" >
+      <TreeNode Text="行扩展列与单元格编辑" NavigateUrl="~/grid/grid_editor_cell_afteredit_rowexpander.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="行扩展列与新增删除行" IsNew="true" NavigateUrl="~/grid/grid_editor_cell_new_delete_rowexpander.aspx" >
+      <TreeNode Text="行扩展列与新增删除行" NavigateUrl="~/grid/grid_editor_cell_new_delete_rowexpander.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="多行文本输入框" NavigateUrl="~/grid/grid_editor_cell_textarea.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="列锁定">

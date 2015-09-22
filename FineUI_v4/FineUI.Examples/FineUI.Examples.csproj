@@ -79,6 +79,7 @@
     <Content Include="grid\grid_lockcolumn_summary_scrollbar.aspx" />
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
+    <Content Include="grid\grid_many_columns.aspx" />
     <Content Include="grid\grid_paging_database_bbar.aspx" />
     <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_rowexpander.aspx" />
@@ -90,9 +91,11 @@
     <Content Include="grid\grid_editor_cell_paging.aspx" />
     <Content Include="grid\grid_rownumber_align.aspx" />
     <Content Include="grid\grid_groupheader_hidden.aspx" />
+    <Content Include="grid\grid_editor_cell_textarea.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\region.aspx" />
+    <Content Include="layout\vbox_collapse.aspx" />
     <Content Include="master\formlist.aspx" />
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
@@ -103,11 +106,16 @@
     <Content Include="other\pageloading.aspx" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\Demo.aspx" />
+    <Content Include="test\dropdownlist2.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\empty5.aspx" />
+    <Content Include="test\empty6.aspx" />
+    <Content Include="test\empty8.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
     <Content Include="test\grid_editor_cell_afteredit2.aspx" />
     <Content Include="test\grid_editor_cell_databind2.aspx" />
+    <Content Include="test\grid_editor_cell_new333.aspx" />
+    <Content Include="test\grid_editor_cell_new2.aspx" />
     <Content Include="test\grid_iframe2.aspx" />
     <Content Include="test\grid_paging_selection2.aspx" />
     <Content Include="test\grid_paging_test.aspx" />
@@ -117,6 +125,7 @@
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
     <Content Include="test\tabstrip_addtab2.aspx" />
+    <Content Include="test\tree_ajax2.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\activex.aspx" />
     <Content Include="test\empty2.aspx" />
@@ -588,6 +597,13 @@
     <Compile Include="grid\grid_lockcolumn_line_wrap.aspx.designer.cs">
       <DependentUpon>grid_lockcolumn_line_wrap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_many_columns.aspx.cs">
+      <DependentUpon>grid_many_columns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_many_columns.aspx.designer.cs">
+      <DependentUpon>grid_many_columns.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_paging_database_bbar.aspx.cs">
       <DependentUpon>grid_paging_database_bbar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -665,6 +681,13 @@
     <Compile Include="grid\grid_groupheader_hidden.aspx.designer.cs">
       <DependentUpon>grid_groupheader_hidden.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_editor_cell_textarea.aspx.cs">
+      <DependentUpon>grid_editor_cell_textarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_textarea.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_textarea.aspx</DependentUpon>
+    </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -685,6 +708,13 @@
     </Compile>
     <Compile Include="layout\region.aspx.designer.cs">
       <DependentUpon>region.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\vbox_collapse.aspx.cs">
+      <DependentUpon>vbox_collapse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\vbox_collapse.aspx.designer.cs">
+      <DependentUpon>vbox_collapse.aspx</DependentUpon>
     </Compile>
     <Compile Include="master\formlist.aspx.cs">
       <DependentUpon>formlist.aspx</DependentUpon>
@@ -771,6 +801,13 @@
     <Compile Include="test\Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="test\dropdownlist2.aspx.cs">
+      <DependentUpon>dropdownlist2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\dropdownlist2.aspx.designer.cs">
+      <DependentUpon>dropdownlist2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="test\empty.aspx.cs">
       <DependentUpon>empty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -784,6 +821,20 @@
     </Compile>
     <Compile Include="test\empty5.aspx.designer.cs">
       <DependentUpon>empty5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\empty6.aspx.cs">
+      <DependentUpon>empty6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\empty6.aspx.designer.cs">
+      <DependentUpon>empty6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\empty8.aspx.cs">
+      <DependentUpon>empty8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\empty8.aspx.designer.cs">
+      <DependentUpon>empty8.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\grid_editor_cell2.aspx.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
@@ -805,6 +856,20 @@
     </Compile>
     <Compile Include="test\grid_editor_cell_databind2.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_new333.aspx.cs">
+      <DependentUpon>grid_editor_cell_new333.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_new333.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_new333.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_new2.aspx.cs">
+      <DependentUpon>grid_editor_cell_new2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell_new2.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_new2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\grid_iframe2.aspx.cs">
       <DependentUpon>grid_iframe2.aspx</DependentUpon>
@@ -871,6 +936,13 @@
     </Compile>
     <Compile Include="test\tabstrip_addtab2.aspx.designer.cs">
       <DependentUpon>tabstrip_addtab2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\tree_ajax2.aspx.cs">
+      <DependentUpon>tree_ajax2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\tree_ajax2.aspx.designer.cs">
+      <DependentUpon>tree_ajax2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\triggerbox2.aspx.cs">
       <DependentUpon>triggerbox2.aspx</DependentUpon>
@@ -2918,7 +2990,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50184</DevelopmentServerPort>
+          <DevelopmentServerPort>6241</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -170,7 +170,7 @@
                 failure: function (data) {
                     //var lastDisabledButtonId = F.util.getHiddenFieldValue('F_TARGET');
                     if (disabledButtonIdBeforeAJAX) {
-                        F.enable(lastDisabledButtonId);
+                        F.enable(disabledButtonIdBeforeAJAX);
                     }
                     createErrorWindow(data);
                 },

@@ -41,7 +41,11 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-客户端函数F.alert、F.confirm参数调整，接受options对象参数。
 	-修正日期控件的星期中文缩写错误的问题（dzvane-7271）。
 	-修正新增的行无法清空的问题（tyarist-7284）。
-	-
+	-新增示例：表格控件->单元格编辑->多行文本输入框。
+	-增加示例：页面布局->布局（VBox，折叠面板）。
+	-启用单元格编辑的表格调用DataBind时会重新加载数据（客户端新增的行也会被清除）。
+	-修正部分IE11下出现的JS错误：无法获取未定义或null引用的属性 ext-quicktips-tip_header-overflowPadderEl（）。
+	
 
 
 +2015-05-20 v4.2.0

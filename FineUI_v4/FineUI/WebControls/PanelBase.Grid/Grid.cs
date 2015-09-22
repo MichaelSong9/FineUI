@@ -2697,14 +2697,18 @@ namespace FineUI
             {
                 // 必须延时调用 doLayout，否则显示不正常
                 viewreadySB.Append("cmp.doLayout();");
-
             }
 
-            string viewreadyScript = "window.setTimeout(function(){" + viewreadySB.ToString() + "},200);";
+            string viewreadyScript = viewreadySB.ToString();
 
-            // viewready在enableLocking时不会触发，只好改成afterrender
-            //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(viewreadyScript, "cmp"), true);
-            AddListener("afterrender", viewreadyScript, "cmp");
+            if (!String.IsNullOrEmpty(viewreadyScript))
+            {
+                viewreadyScript = "window.setTimeout(function(){" + viewreadyScript + "},200);";
+
+                // viewready在enableLocking时不会触发，只好改成afterrender
+                //OB.Listeners.AddProperty("afterrender", JsHelper.GetFunction(viewreadyScript, "cmp"), true);
+                AddListener("afterrender", viewreadyScript, "cmp");
+            }
 
             #endregion
 
@@ -3081,7 +3085,7 @@ namespace FineUI
                     string rowSelectScript = JsHelper.GetFunction(validateScript, "model", "record", "index"); //String.Format("function(model,rowIndex){{{0}}}", validateScript);
 
                     selectOB.Listeners.AddProperty("select", rowSelectScript, true);
-                   
+
                 }
 
                 if (EnableCheckBoxSelect)
