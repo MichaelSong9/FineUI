@@ -127,9 +127,13 @@
                 panel.setPosition(leftTop.left, leftTop.top);
             }
 
+            /*
             if (panel.maximizable) {
                 F.wnd.fixMaximize(panel);
             }
+            */
+
+            F.wnd.fixMaximize(panel);
         },
 
         // 获取Ghost Panel实例
@@ -173,6 +177,8 @@
         maximize: function (panel) {
             var panel = F.wnd.getGhostPanel(panel);
             panel.maximize();
+
+            F.wnd.fixMaximize(panel);
         },
 
         // 最小化

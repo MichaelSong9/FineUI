@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="window.aspx.cs" Inherits="FineUI.Examples.window.window" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="window_maximized.aspx.cs" Inherits="FineUI.Examples.window.window_maximized" %>
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +29,8 @@
         <br />
         <f:Window ID="Window2" Width="650px" Height="300px" Icon="TagBlue" Title="窗体"
             EnableCollapse="true" runat="server" EnableResize="true"
-            IsModal="false" CloseAction="HidePostBack" OnClose="Window2_Close" AutoScroll="true" BodyPadding="10px">
+            IsModal="false" CloseAction="HidePostBack" OnClose="Window2_Close" AutoScroll="true" BodyPadding="10px"
+            Hidden="true" EnableMaximize="true">
             <Content>
                 <p>
                     <a href="http://tech.163.com/special/jobsdead/" style="font-size: 18px" target="_blank"><b>乔布斯</b></a>

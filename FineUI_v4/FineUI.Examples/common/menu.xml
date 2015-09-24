@@ -486,6 +486,10 @@
       </TreeNode>
       <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
       </TreeNode>
+      <TreeNode Text="窗体（最大化）" NavigateUrl="~/window/window_maximized.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="窗体（固定最大化）" NavigateUrl="~/window/window_maximized_fixed.aspx" IsNew="true">
+      </TreeNode>
       <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
       </TreeNode>
       <TreeNode Text="窗体与表单" NavigateUrl="~/window/window_form.aspx" IsNew="true">

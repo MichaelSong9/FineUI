@@ -459,6 +459,8 @@
     <Content Include="window\window_toolbar.aspx" />
     <Content Include="window\panel_collapse.aspx" />
     <Content Include="window\window_form.aspx" />
+    <Content Include="window\window_maximized.aspx" />
+    <Content Include="window\window_maximized_fixed.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="accordion\accordion_autopostback.aspx.cs">
@@ -2886,6 +2888,20 @@
     </Compile>
     <Compile Include="window\window_form.aspx.designer.cs">
       <DependentUpon>window_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\window_maximized.aspx.cs">
+      <DependentUpon>window_maximized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window_maximized.aspx.designer.cs">
+      <DependentUpon>window_maximized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\window_maximized_fixed.aspx.cs">
+      <DependentUpon>window_maximized_fixed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window_maximized_fixed.aspx.designer.cs">
+      <DependentUpon>window_maximized_fixed.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
