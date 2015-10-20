@@ -22,6 +22,17 @@
         </f:DropDownList>
         <f:Button Text="点击弹出对话框" runat="server" ID="btnHello" >
         </f:Button>  
+
+        <f:Panel ID="Panel1" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="true" Title="Panel">
+            <Items>
+                <f:GroupPanel ID="GroupPanel1" runat="server" EnableCollapse="True" Title="GroupPanel" Hidden="true">
+                    <Items>
+                        <f:HtmlEditor ID="HtmlEditor1" runat="server" Height="250px" Label="Label" Text="" Hidden="true"></f:HtmlEditor>
+                    </Items>
+                </f:GroupPanel>
+            </Items>
+        </f:Panel>
+
     </form>
 </body>
 </html>

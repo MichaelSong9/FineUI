@@ -62,7 +62,11 @@
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
     <Content Include="basic\login_enterkey.aspx" />
+    <Content Include="dropdownlist\dropdownlist_autopostback.aspx" />
+    <Content Include="dropdownlist\dropdownlist_autopostback_enableedit.aspx" />
+    <Content Include="dropdownlist\dropdownlist_emptytext.aspx" />
     <Content Include="dropdownlist\dropdownlist_matchfieldwidth.aspx" />
+    <Content Include="dropdownlist\dropdownlist_no_autopostback.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
     <Content Include="dropdownlist\multiselect_autopostback.aspx" />
@@ -94,8 +98,20 @@
     <Content Include="grid\grid_editor_cell_textarea.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
+    <Content Include="layout\column_autoheight.aspx" />
+    <Content Include="layout\column_scrollbar.aspx" />
+    <Content Include="layout\hbox_autoheight.aspx" />
+    <Content Include="layout\hbox_autoheight_multilevels.aspx" />
+    <Content Include="layout\hbox_form.aspx" />
+    <Content Include="layout\hbox_scrollbar.aspx" />
     <Content Include="layout\region.aspx" />
+    <Content Include="layout\table_form.aspx" />
+    <Content Include="layout\vbox_autoheight.aspx" />
     <Content Include="layout\vbox_collapse.aspx" />
+    <Content Include="layout\vbox_form.aspx" />
+    <Content Include="layout\vbox_formgrid.aspx" />
+    <Content Include="layout\vbox_hbox.aspx" />
+    <Content Include="layout\vbox_scrollbar.aspx" />
     <Content Include="master\formlist.aspx" />
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
@@ -104,6 +120,7 @@
     <Content Include="other\authentication_timeout_async.aspx" />
     <Content Include="other\global_error.aspx" />
     <Content Include="other\pageloading.aspx" />
+    <Content Include="res\css\common.css" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\Demo.aspx" />
     <Content Include="test\dropdownlist2.aspx" />
@@ -124,6 +141,7 @@
     <Content Include="test\iframe_window.aspx" />
     <Content Include="test\login__.aspx" />
     <Content Include="test\LPList.aspx" />
+    <Content Include="test\numberbox2.aspx" />
     <Content Include="test\tabstrip_addtab2.aspx" />
     <Content Include="test\tree_ajax2.aspx" />
     <Content Include="test\triggerbox2.aspx" />
@@ -422,6 +440,7 @@
     <Content Include="third-party\my97\my97.aspx" />
     <Content Include="third-party\umeditor\umeditor.aspx" />
     <Content Include="toolbar\form.aspx" />
+    <Content Include="toolbar\formfields.aspx" />
     <Content Include="toolbar\multi_toolbars.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\cssstyle.aspx" />
@@ -454,7 +473,9 @@
     </Content>
     <Content Include="window\group_panel.aspx" />
     <Content Include="window\panel.aspx" />
+    <Content Include="window\panel_disabled.aspx" />
     <Content Include="window\window.aspx" />
+    <Content Include="window\window_minwidth.aspx" />
     <Content Include="window\window_multi.aspx" />
     <Content Include="window\window_toolbar.aspx" />
     <Content Include="window\panel_collapse.aspx" />
@@ -491,12 +512,40 @@
     <Compile Include="basic\login_enterkey.aspx.designer.cs">
       <DependentUpon>login_enterkey.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dropdownlist\dropdownlist_autopostback.aspx.cs">
+      <DependentUpon>dropdownlist_autopostback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_autopostback.aspx.designer.cs">
+      <DependentUpon>dropdownlist_autopostback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_autopostback_enableedit.aspx.cs">
+      <DependentUpon>dropdownlist_autopostback_enableedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_autopostback_enableedit.aspx.designer.cs">
+      <DependentUpon>dropdownlist_autopostback_enableedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_emptytext.aspx.cs">
+      <DependentUpon>dropdownlist_emptytext.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_emptytext.aspx.designer.cs">
+      <DependentUpon>dropdownlist_emptytext.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dropdownlist\dropdownlist_matchfieldwidth.aspx.cs">
       <DependentUpon>dropdownlist_matchfieldwidth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="dropdownlist\dropdownlist_matchfieldwidth.aspx.designer.cs">
       <DependentUpon>dropdownlist_matchfieldwidth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_no_autopostback.aspx.cs">
+      <DependentUpon>dropdownlist_no_autopostback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_no_autopostback.aspx.designer.cs">
+      <DependentUpon>dropdownlist_no_autopostback.aspx</DependentUpon>
     </Compile>
     <Compile Include="dropdownlist\multiselect.aspx.cs">
       <DependentUpon>multiselect.aspx</DependentUpon>
@@ -704,6 +753,48 @@
     <Compile Include="iframe\selectprovince_executescript_child.aspx.designer.cs">
       <DependentUpon>selectprovince_executescript_child.aspx</DependentUpon>
     </Compile>
+    <Compile Include="layout\column_autoheight.aspx.cs">
+      <DependentUpon>column_autoheight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\column_autoheight.aspx.designer.cs">
+      <DependentUpon>column_autoheight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\column_scrollbar.aspx.cs">
+      <DependentUpon>column_scrollbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\column_scrollbar.aspx.designer.cs">
+      <DependentUpon>column_scrollbar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\hbox_autoheight.aspx.cs">
+      <DependentUpon>hbox_autoheight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\hbox_autoheight.aspx.designer.cs">
+      <DependentUpon>hbox_autoheight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\hbox_autoheight_multilevels.aspx.cs">
+      <DependentUpon>hbox_autoheight_multilevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\hbox_autoheight_multilevels.aspx.designer.cs">
+      <DependentUpon>hbox_autoheight_multilevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\hbox_form.aspx.cs">
+      <DependentUpon>hbox_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\hbox_form.aspx.designer.cs">
+      <DependentUpon>hbox_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\hbox_scrollbar.aspx.cs">
+      <DependentUpon>hbox_scrollbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\hbox_scrollbar.aspx.designer.cs">
+      <DependentUpon>hbox_scrollbar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="layout\region.aspx.cs">
       <DependentUpon>region.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -711,12 +802,54 @@
     <Compile Include="layout\region.aspx.designer.cs">
       <DependentUpon>region.aspx</DependentUpon>
     </Compile>
+    <Compile Include="layout\table_form.aspx.cs">
+      <DependentUpon>table_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\table_form.aspx.designer.cs">
+      <DependentUpon>table_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\vbox_autoheight.aspx.cs">
+      <DependentUpon>vbox_autoheight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\vbox_autoheight.aspx.designer.cs">
+      <DependentUpon>vbox_autoheight.aspx</DependentUpon>
+    </Compile>
     <Compile Include="layout\vbox_collapse.aspx.cs">
       <DependentUpon>vbox_collapse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="layout\vbox_collapse.aspx.designer.cs">
       <DependentUpon>vbox_collapse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\vbox_form.aspx.cs">
+      <DependentUpon>vbox_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\vbox_form.aspx.designer.cs">
+      <DependentUpon>vbox_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\vbox_formgrid.aspx.cs">
+      <DependentUpon>vbox_formgrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\vbox_formgrid.aspx.designer.cs">
+      <DependentUpon>vbox_formgrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\vbox_hbox.aspx.cs">
+      <DependentUpon>vbox_hbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\vbox_hbox.aspx.designer.cs">
+      <DependentUpon>vbox_hbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="layout\vbox_scrollbar.aspx.cs">
+      <DependentUpon>vbox_scrollbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="layout\vbox_scrollbar.aspx.designer.cs">
+      <DependentUpon>vbox_scrollbar.aspx</DependentUpon>
     </Compile>
     <Compile Include="master\formlist.aspx.cs">
       <DependentUpon>formlist.aspx</DependentUpon>
@@ -921,6 +1054,13 @@
     </Compile>
     <Compile Include="test\LPList.aspx.designer.cs">
       <DependentUpon>LPList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\numberbox2.aspx.cs">
+      <DependentUpon>numberbox2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\numberbox2.aspx.designer.cs">
+      <DependentUpon>numberbox2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\SingleGrid.Master.cs">
       <DependentUpon>SingleGrid.Master</DependentUpon>
@@ -2310,6 +2450,13 @@
     <Compile Include="toolbar\form.aspx.designer.cs">
       <DependentUpon>form.aspx</DependentUpon>
     </Compile>
+    <Compile Include="toolbar\formfields.aspx.cs">
+      <DependentUpon>formfields.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\formfields.aspx.designer.cs">
+      <DependentUpon>formfields.aspx</DependentUpon>
+    </Compile>
     <Compile Include="toolbar\multi_toolbars.aspx.cs">
       <DependentUpon>multi_toolbars.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2854,12 +3001,26 @@
     <Compile Include="window\panel.aspx.designer.cs">
       <DependentUpon>panel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="window\panel_disabled.aspx.cs">
+      <DependentUpon>panel_disabled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\panel_disabled.aspx.designer.cs">
+      <DependentUpon>panel_disabled.aspx</DependentUpon>
+    </Compile>
     <Compile Include="window\window.aspx.cs">
       <DependentUpon>window.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="window\window.aspx.designer.cs">
       <DependentUpon>window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="window\window_minwidth.aspx.cs">
+      <DependentUpon>window_minwidth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="window\window_minwidth.aspx.designer.cs">
+      <DependentUpon>window_minwidth.aspx</DependentUpon>
     </Compile>
     <Compile Include="window\window_multi.aspx.cs">
       <DependentUpon>window_multi.aspx</DependentUpon>
@@ -2956,7 +3117,6 @@
     <Content Include="basic\hello.aspx" />
     <Content Include="basic\login.aspx" />
     <Content Include="config\icons.htm" />
-    <Content Include="res\css\main.css" />
     <Content Include="tree\checkbox\tree_checkall.aspx" />
     <Content Include="dropdownlist\shengshixian.aspx" />
     <Content Include="dropdownlist\dropdownlist.aspx" />

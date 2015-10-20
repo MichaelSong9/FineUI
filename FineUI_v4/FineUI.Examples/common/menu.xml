@@ -124,19 +124,13 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="下拉列表控件">
-      <TreeNode Text="简单下拉列表" NavigateUrl="~/dropdownlist/dropdownlist.aspx" >
+      <TreeNode Text="下拉列表" NavigateUrl="~/dropdownlist/dropdownlist.aspx" >
       </TreeNode>
       <!--<TreeNode Text="下拉列表（选项值可为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptyvalue.aspx" >
       </TreeNode>-->
-      <TreeNode Text="下拉列表（可过滤，强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_enableedit.aspx" >
+      <TreeNode Text="下拉列表（默认为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptytext.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="下拉列表（不强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_forceselection.aspx" >
-      </TreeNode>
-      <TreeNode Text="模拟树的下拉列表" NavigateUrl="~/dropdownlist/dropdownlist_simulate_tree.aspx" >
-      </TreeNode>
-      <TreeNode Text="中国省市县联动" NavigateUrl="~/dropdownlist/shengshixian.aspx" >
-      </TreeNode>
-      <TreeNode Text="下拉列表（MatchFieldWidth）" NavigateUrl="~/dropdownlist/dropdownlist_matchfieldwidth.aspx" IsNew="true">
+      <TreeNode Text="下拉列表（强制选择，可编辑）" NavigateUrl="~/dropdownlist/dropdownlist_enableedit.aspx" >
       </TreeNode>
       <TreeNode Text="数据绑定">
         <TreeNode Text="绑定到简单列表" NavigateUrl="~/dropdownlist/databind/dropdownlist_simplelist.aspx" >
@@ -151,7 +145,25 @@
         </TreeNode>
         <TreeNode Text="多选（可过滤，强制选择）" NavigateUrl="~/dropdownlist/multiselect_enableedit.aspx" IsNew="true">
         </TreeNode>
-        <TreeNode Text="下拉列表（自动回发）" NavigateUrl="~/dropdownlist/multiselect_autopostback.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="事件">
+        <TreeNode Text="下拉列表（自动回发）" NavigateUrl="~/dropdownlist/dropdownlist_autopostback.aspx" >
+        </TreeNode>
+        <TreeNode Text="下拉列表（自动回发，可编辑，强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_autopostback_enableedit.aspx" IsNew="true">
+        </TreeNode>
+        <TreeNode Text="下拉列表（多选，自动回发）" NavigateUrl="~/dropdownlist/multiselect_autopostback.aspx" IsNew="true">
+        </TreeNode>
+        <TreeNode Text="下拉列表（不自动回发，定义了回发事件）" NavigateUrl="~/dropdownlist/dropdownlist_no_autopostback.aspx" IsNew="true">
+        </TreeNode>
+      </TreeNode>
+      <TreeNode Text="杂项">
+        <TreeNode Text="模拟树的下拉列表" NavigateUrl="~/dropdownlist/dropdownlist_simulate_tree.aspx" >
+        </TreeNode>
+        <TreeNode Text="中国省市县联动" NavigateUrl="~/dropdownlist/shengshixian.aspx" >
+        </TreeNode>
+        <TreeNode Text="下拉列表（MatchFieldWidth）" NavigateUrl="~/dropdownlist/dropdownlist_matchfieldwidth.aspx" IsNew="true">
+        </TreeNode>
+        <TreeNode Text="下拉列表（不强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_forceselection.aspx" >
         </TreeNode>
       </TreeNode>
     </TreeNode>
@@ -480,15 +492,19 @@
     <TreeNode Text="面板与窗体">
       <TreeNode Text="面板" NavigateUrl="~/window/panel.aspx" >
       </TreeNode>
-      <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
-      </TreeNode>
       <TreeNode Text="面板的折叠事件" NavigateUrl="~/window/panel_collapse.aspx" >
+      </TreeNode>
+      <TreeNode Text="面板（初始禁用）" NavigateUrl="~/window/panel_disabled.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="分组面板" NavigateUrl="~/window/group_panel.aspx" >
       </TreeNode>
       <TreeNode Text="窗体" NavigateUrl="~/window/window.aspx" >
       </TreeNode>
       <TreeNode Text="窗体（最大化）" NavigateUrl="~/window/window_maximized.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="窗体（固定最大化）" NavigateUrl="~/window/window_maximized_fixed.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="窗体（限制最小和最大尺寸）" NavigateUrl="~/window/window_minwidth.aspx" IsNew="true" >
       </TreeNode>
       <TreeNode Text="窗体与工具栏" NavigateUrl="~/window/window_toolbar.aspx" >
       </TreeNode>
@@ -511,6 +527,8 @@
       <TreeNode Text="单选框与复选框菜单" NavigateUrl="~/toolbar/menucheckbox.aspx" >
       </TreeNode>
       <TreeNode Text="多行工具栏" NavigateUrl="~/toolbar/multi_toolbars.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="工具栏上的表单字段" NavigateUrl="~/toolbar/formfields.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="工具栏上的图片（固定宽度）" NavigateUrl="~/toolbar/toolbar_images_fixedwidth.aspx" IsNew="true">
       </TreeNode>
@@ -541,13 +559,39 @@
     </TreeNode>
     <TreeNode Text="布局（Column）" NavigateUrl="~/layout/column.aspx" >
     </TreeNode>
+    <TreeNode Text="布局（Column，纵向滚动条）" NavigateUrl="~/layout/column_scrollbar.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（Column，自动高度）" NavigateUrl="~/layout/column_autoheight.aspx" IsNew="true" >
+    </TreeNode>
     <TreeNode Text="布局（Absolute）" NavigateUrl="~/layout/absolute.aspx"  >
     </TreeNode>
     <TreeNode Text="布局（Table）" NavigateUrl="~/layout/table.aspx"  >
     </TreeNode>
+    <TreeNode Text="布局（Table，Table布局的表单）" NavigateUrl="~/layout/table_form.aspx" IsNew="true" >
+    </TreeNode>
     <TreeNode Text="布局（HBox）" NavigateUrl="~/layout/hbox.aspx"  >
     </TreeNode>
+    <TreeNode Text="布局（HBox，横向滚动条）" NavigateUrl="~/layout/hbox_scrollbar.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（HBox，自动高度）" NavigateUrl="~/layout/hbox_autoheight.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（HBox，自动高度，多层嵌套）" NavigateUrl="~/layout/hbox_autoheight_multilevels.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（HBox，横向表单）" NavigateUrl="~/layout/hbox_form.aspx" IsNew="true" >
+    </TreeNode>
     <TreeNode Text="布局（VBox）" NavigateUrl="~/layout/vbox.aspx"  >
+    </TreeNode>
+    <TreeNode Text="布局（VBox，纵向滚动条）" NavigateUrl="~/layout/vbox_scrollbar.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（VBox，自动高度）" NavigateUrl="~/layout/vbox_autoheight.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（VBox，表单）" NavigateUrl="~/layout/vbox_form.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（VBox，表单与表格，纵向滚动条）" NavigateUrl="~/layout/vbox_formgrid.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（VBox，折叠面板）" NavigateUrl="~/layout/vbox_collapse.aspx" IsNew="true" >
+    </TreeNode>
+    <TreeNode Text="布局（VBox+HBox，平分当前页面）" NavigateUrl="~/layout/vbox_hbox.aspx" IsNew="true" >
     </TreeNode>
     <TreeNode Text="布局（Region）" NavigateUrl="~/layout/region.aspx" IsNew="true" >
     </TreeNode>

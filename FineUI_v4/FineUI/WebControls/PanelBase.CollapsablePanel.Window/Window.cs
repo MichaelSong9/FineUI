@@ -430,7 +430,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(typeof(Unit), "100")]
         [Description("最小高度")]
-        public Unit MinHeight
+        public new Unit MinHeight
         {
             get
             {
@@ -450,7 +450,7 @@ namespace FineUI
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(typeof(Unit), "200")]
         [Description("最小宽度")]
-        public Unit MinWidth
+        public new Unit MinWidth
         {
             get
             {
