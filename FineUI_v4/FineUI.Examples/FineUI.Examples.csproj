@@ -124,31 +124,8 @@
     <Content Include="other\pageloading.aspx" />
     <Content Include="res\css\common.css" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
-    <Content Include="test\Demo.aspx" />
-    <Content Include="test\dropdownlist2.aspx" />
     <Content Include="test\empty.aspx" />
-    <Content Include="test\empty5.aspx" />
-    <Content Include="test\empty6.aspx" />
-    <Content Include="test\empty8.aspx" />
-    <Content Include="test\grid_editor_cell2.aspx" />
-    <Content Include="test\grid_editor_cell_afteredit2.aspx" />
-    <Content Include="test\grid_editor_cell_databind2.aspx" />
-    <Content Include="test\grid_editor_cell_new333.aspx" />
-    <Content Include="test\grid_editor_cell_new2.aspx" />
-    <Content Include="test\grid_iframe2.aspx" />
-    <Content Include="test\grid_paging_selection2.aspx" />
-    <Content Include="test\grid_paging_test.aspx" />
-    <Content Include="test\hello2.aspx" />
-    <Content Include="test\HulinY.js" />
-    <Content Include="test\iframe_window.aspx" />
-    <Content Include="test\login__.aspx" />
-    <Content Include="test\LPList.aspx" />
-    <Content Include="test\numberbox2.aspx" />
-    <Content Include="test\tabstrip_addtab2.aspx" />
-    <Content Include="test\tree_ajax2.aspx" />
-    <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\activex.aspx" />
-    <Content Include="test\empty2.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
@@ -432,7 +409,6 @@
     <Content Include="res\js\jquery.min.js" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
     <Content Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx" />
-    <Content Include="test\start.aspx" />
     <Content Include="third-party\autocomplete\custom_display.aspx" />
     <Content Include="third-party\autocomplete\email.aspx" />
     <Content Include="third-party\autocomplete\inline.aspx" />
@@ -448,8 +424,6 @@
     <Content Include="other\cssstyle.aspx" />
     <Content Include="other\addtab.aspx" />
     <Content Include="other\ajax_loading.aspx" />
-    <Content Include="test\textbox.aspx" />
-    <Content Include="test\timer.aspx" />
     <Content Include="toolbar\menu.aspx" />
     <Content Include="toolbar\menucheckbox.aspx" />
     <Content Include="toolbar\menu_hideonclick.aspx" />
@@ -945,20 +919,6 @@
     <Compile Include="tabstrip\tabstrip_position.aspx.designer.cs">
       <DependentUpon>tabstrip_position.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\Demo.aspx.cs">
-      <DependentUpon>Demo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\Demo.aspx.designer.cs">
-      <DependentUpon>Demo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\dropdownlist2.aspx.cs">
-      <DependentUpon>dropdownlist2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\dropdownlist2.aspx.designer.cs">
-      <DependentUpon>dropdownlist2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="test\empty.aspx.cs">
       <DependentUpon>empty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -966,162 +926,12 @@
     <Compile Include="test\empty.aspx.designer.cs">
       <DependentUpon>empty.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\empty5.aspx.cs">
-      <DependentUpon>empty5.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\empty5.aspx.designer.cs">
-      <DependentUpon>empty5.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\empty6.aspx.cs">
-      <DependentUpon>empty6.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\empty6.aspx.designer.cs">
-      <DependentUpon>empty6.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\empty8.aspx.cs">
-      <DependentUpon>empty8.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\empty8.aspx.designer.cs">
-      <DependentUpon>empty8.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_editor_cell2.aspx.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_afteredit2.aspx.cs">
-      <DependentUpon>grid_editor_cell_afteredit2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_afteredit2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell_afteredit2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_databind2.aspx.cs">
-      <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_databind2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell_databind2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_new333.aspx.cs">
-      <DependentUpon>grid_editor_cell_new333.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_new333.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell_new333.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_new2.aspx.cs">
-      <DependentUpon>grid_editor_cell_new2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_editor_cell_new2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell_new2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_iframe2.aspx.cs">
-      <DependentUpon>grid_iframe2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_iframe2.aspx.designer.cs">
-      <DependentUpon>grid_iframe2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_paging_selection2.aspx.cs">
-      <DependentUpon>grid_paging_selection2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_paging_selection2.aspx.designer.cs">
-      <DependentUpon>grid_paging_selection2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_paging_test.aspx.cs">
-      <DependentUpon>grid_paging_test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_paging_test.aspx.designer.cs">
-      <DependentUpon>grid_paging_test.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\hello2.aspx.cs">
-      <DependentUpon>hello2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\hello2.aspx.designer.cs">
-      <DependentUpon>hello2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\iframe_window.aspx.cs">
-      <DependentUpon>iframe_window.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\iframe_window.aspx.designer.cs">
-      <DependentUpon>iframe_window.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\login__.aspx.cs">
-      <DependentUpon>login__.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\login__.aspx.designer.cs">
-      <DependentUpon>login__.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\LPList.aspx.cs">
-      <DependentUpon>LPList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\LPList.aspx.designer.cs">
-      <DependentUpon>LPList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\numberbox2.aspx.cs">
-      <DependentUpon>numberbox2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\numberbox2.aspx.designer.cs">
-      <DependentUpon>numberbox2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\SingleGrid.Master.cs">
-      <DependentUpon>SingleGrid.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\SingleGrid.Master.designer.cs">
-      <DependentUpon>SingleGrid.Master</DependentUpon>
-    </Compile>
-    <Compile Include="test\SingleGridPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\tabstrip_addtab2.aspx.cs">
-      <DependentUpon>tabstrip_addtab2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\tabstrip_addtab2.aspx.designer.cs">
-      <DependentUpon>tabstrip_addtab2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\tree_ajax2.aspx.cs">
-      <DependentUpon>tree_ajax2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\tree_ajax2.aspx.designer.cs">
-      <DependentUpon>tree_ajax2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\triggerbox2.aspx.cs">
-      <DependentUpon>triggerbox2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\triggerbox2.aspx.designer.cs">
-      <DependentUpon>triggerbox2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="test\activex.aspx.cs">
       <DependentUpon>activex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test\activex.aspx.designer.cs">
       <DependentUpon>activex.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\empty2.aspx.cs">
-      <DependentUpon>empty2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\empty2.aspx.designer.cs">
-      <DependentUpon>empty2.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\autocomplete\inline_window.aspx.cs">
       <DependentUpon>inline_window.aspx</DependentUpon>
@@ -2393,13 +2203,6 @@
     <Compile Include="tabstrip\tabstrip_iframe_disabled_tab1.aspx.designer.cs">
       <DependentUpon>tabstrip_iframe_disabled_tab1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\start.aspx.cs">
-      <DependentUpon>start.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\start.aspx.designer.cs">
-      <DependentUpon>start.aspx</DependentUpon>
-    </Compile>
     <Compile Include="third-party\autocomplete\custom_display.aspx.cs">
       <DependentUpon>custom_display.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2507,23 +2310,6 @@
     </Compile>
     <Compile Include="other\ajax_loading.aspx.designer.cs">
       <DependentUpon>ajax_loading.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\test3.aspx.designer.cs">
-      <DependentUpon>test3.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\textbox.aspx.cs">
-      <DependentUpon>textbox.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\textbox.aspx.designer.cs">
-      <DependentUpon>textbox.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\timer.aspx.cs">
-      <DependentUpon>timer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\timer.aspx.designer.cs">
-      <DependentUpon>timer.aspx</DependentUpon>
     </Compile>
     <Compile Include="toolbar\menu.aspx.cs">
       <DependentUpon>menu.aspx</DependentUpon>
@@ -2929,30 +2715,12 @@
     <Compile Include="test\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\test2.aspx.cs">
-      <DependentUpon>test2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\test2.aspx.designer.cs">
-      <DependentUpon>test2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="config\ajax.aspx.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="config\ajax.aspx.designer.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\test3.aspx.cs">
-      <DependentUpon>test3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\test4.aspx.cs">
-      <DependentUpon>test4.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\test4.aspx.designer.cs">
-      <DependentUpon>test4.aspx</DependentUpon>
     </Compile>
     <Compile Include="tree\select\tree_multi_select.aspx.cs">
       <DependentUpon>tree_multi_select.aspx</DependentUpon>
@@ -3123,8 +2891,6 @@
     <Content Include="toolbar\menu_dynamic.aspx" />
     <Content Include="accordion\accordion_tree.aspx" />
     <Content Include="other\timer.aspx" />
-    <Content Include="test\test.htm" />
-    <Content Include="test\test2.aspx" />
     <Content Include="config\ajax.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -3146,16 +2912,12 @@
     <Content Include="tabstrip\tabstrip_enableclose.aspx" />
     <Content Include="tabstrip\tabstrip_addtab.aspx" />
     <Content Include="tabstrip\tabstrip_autopostback.aspx" />
-    <Content Include="test\test2.htm" />
-    <Content Include="test\test3.aspx" />
-    <Content Include="test\test4.aspx" />
     <Content Include="tree\select\tree_multi_select.aspx" />
     <Content Include="grid\image.ashx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extjs_builder\build.bat" />
     <Content Include="third-party\autocomplete\search.ashx" />
-    <Content Include="test\SingleGrid.Master" />
     <Content Include="master\Simple.Master" />
     <Content Include="master\SingleGrid.Master" />
   </ItemGroup>
