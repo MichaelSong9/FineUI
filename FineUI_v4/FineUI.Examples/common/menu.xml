@@ -130,7 +130,9 @@
       </TreeNode>-->
       <TreeNode Text="下拉列表（默认为空）" NavigateUrl="~/dropdownlist/dropdownlist_emptytext.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="下拉列表（强制选择，可编辑）" NavigateUrl="~/dropdownlist/dropdownlist_enableedit.aspx" >
+      <TreeNode Text="下拉列表（可编辑，强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_enableedit.aspx" >
+      </TreeNode>
+      <TreeNode Text="下拉列表（可编辑，不强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_forceselection.aspx" >
       </TreeNode>
       <TreeNode Text="数据绑定">
         <TreeNode Text="绑定到简单列表" NavigateUrl="~/dropdownlist/databind/dropdownlist_simplelist.aspx" >
@@ -143,7 +145,7 @@
       <TreeNode Text="多选下拉列表">
         <TreeNode Text="多选" NavigateUrl="~/dropdownlist/multiselect.aspx" IsNew="true">
         </TreeNode>
-        <TreeNode Text="多选（可过滤，强制选择）" NavigateUrl="~/dropdownlist/multiselect_enableedit.aspx" IsNew="true">
+        <TreeNode Text="多选（可编辑，强制选择）" NavigateUrl="~/dropdownlist/multiselect_enableedit.aspx" IsNew="true">
         </TreeNode>
       </TreeNode>
       <TreeNode Text="事件">
@@ -151,7 +153,11 @@
         </TreeNode>
         <TreeNode Text="下拉列表（自动回发，可编辑，强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_autopostback_enableedit.aspx" IsNew="true">
         </TreeNode>
+        <TreeNode Text="下拉列表（自动回发，可编辑，不强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_autopostback_enableedit_noforceselection.aspx" IsNew="true">
+        </TreeNode>
         <TreeNode Text="下拉列表（多选，自动回发）" NavigateUrl="~/dropdownlist/multiselect_autopostback.aspx" IsNew="true">
+        </TreeNode>
+        <TreeNode Text="下拉列表（多选，自动回发，可编辑，强制选择）" NavigateUrl="~/dropdownlist/multiselect_autopostback_enableedit.aspx" IsNew="true">
         </TreeNode>
         <TreeNode Text="下拉列表（不自动回发，定义了回发事件）" NavigateUrl="~/dropdownlist/dropdownlist_no_autopostback.aspx" IsNew="true">
         </TreeNode>
@@ -162,8 +168,6 @@
         <TreeNode Text="中国省市县联动" NavigateUrl="~/dropdownlist/shengshixian.aspx" >
         </TreeNode>
         <TreeNode Text="下拉列表（MatchFieldWidth）" NavigateUrl="~/dropdownlist/dropdownlist_matchfieldwidth.aspx" IsNew="true">
-        </TreeNode>
-        <TreeNode Text="下拉列表（不强制选择）" NavigateUrl="~/dropdownlist/dropdownlist_forceselection.aspx" >
         </TreeNode>
       </TreeNode>
     </TreeNode>

@@ -70,6 +70,8 @@
     <Content Include="dropdownlist\multiselect.aspx" />
     <Content Include="dropdownlist\multiselect_enableedit.aspx" />
     <Content Include="dropdownlist\multiselect_autopostback.aspx" />
+    <Content Include="dropdownlist\multiselect_autopostback_enableedit.aspx" />
+    <Content Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx" />
     <Content Include="extjs_builder\version.txt" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
@@ -567,6 +569,20 @@
     </Compile>
     <Compile Include="dropdownlist\multiselect_autopostback.aspx.designer.cs">
       <DependentUpon>multiselect_autopostback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\multiselect_autopostback_enableedit.aspx.cs">
+      <DependentUpon>multiselect_autopostback_enableedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\multiselect_autopostback_enableedit.aspx.designer.cs">
+      <DependentUpon>multiselect_autopostback_enableedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx.cs">
+      <DependentUpon>dropdownlist_autopostback_enableedit_noforceselection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx.designer.cs">
+      <DependentUpon>dropdownlist_autopostback_enableedit_noforceselection.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
