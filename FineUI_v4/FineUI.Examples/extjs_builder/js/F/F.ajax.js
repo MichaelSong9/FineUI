@@ -16,24 +16,24 @@
     };
 
     function enableAjax() {
-        if (typeof (F.control_enable_ajax) === 'undefined') {
-            return F.global_enable_ajax;
+        if (typeof (F.controlEnableAjax) === 'undefined') {
+            return F.enableAjax;
         }
-        return F.control_enable_ajax;
+        return F.controlEnableAjax;
     }
 
     function enableAjaxLoading() {
-        if (typeof (F.control_enable_ajax_loading) === 'undefined') {
-            return F.global_enable_ajax_loading;
+        if (typeof (F.controlEnableAjaxLoading) === 'undefined') {
+            return F.enableAjaxLoading;
         }
-        return F.control_enable_ajax_loading;
+        return F.controlEnableAjaxLoading;
     }
 
     function ajaxLoadingType() {
-        if (typeof (F.control_ajax_loading_type) === 'undefined') {
-            return F.global_ajax_loading_type;
+        if (typeof (F.controlAjaxLoadingType) === 'undefined') {
+            return F.ajaxLoadingType;
         }
-        return F.control_ajax_loading_type;
+        return F.controlAjaxLoadingType;
     }
 
 
@@ -63,13 +63,13 @@
         F.util.setHiddenFieldValue('F_STATE', fstate);
         //F.util.setHiddenFieldValue('F_STATE', encodeURIComponent(Ext.encode(getFState())));
         if (!enableAjax()) {
-            // 当前请求结束后必须重置 F.control_enable_ajax
-            F.control_enable_ajax = undefined;
+            // 当前请求结束后必须重置 F.controlEnableAjax
+            F.controlEnableAjax = undefined;
             F.util.setHiddenFieldValue('F_AJAX', 'false');
             theForm.submit();
         } else {
-            // 当前请求结束后必须重置 F.control_enable_ajax
-            F.control_enable_ajax = undefined;
+            // 当前请求结束后必须重置 F.controlEnableAjax
+            F.controlEnableAjax = undefined;
             F.util.setHiddenFieldValue('F_AJAX', 'true');
             var url = document.location.href;
             var urlHashIndex = url.indexOf('#');
@@ -187,12 +187,25 @@
 
     // 如果启用 Ajax，则所有对 __doPostBack 的调用都会到这里来
     function f__doPostBack(eventTarget, eventArgument) {
+        var enableAjax;
+        if (typeof (eventTarget) === 'boolean') {
+            enableAjax = eventTarget;
+            eventTarget = eventArgument;
+            eventArgument = arguments[2];
+        }
+
         // 回发页面之前延时 100 毫秒，确保页面上的操作完成（比如选中复选框的动作）
         window.setTimeout(function () {
+            
             // theForm variable will always exist, because we invoke the GetPostBackEventReference in PageManager.
             if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
                 theForm.__EVENTTARGET.value = eventTarget;
                 theForm.__EVENTARGUMENT.value = eventArgument;
+
+                // 设置当前请求是否为AJAX请求
+                if (typeof (enableAjax) === 'boolean') {
+                    F.controlEnableAjax = enableAjax;
+                }
 
                 f__doPostBack_internal();
             }
@@ -359,7 +372,15 @@
             if(cmp.f_cellEditing) {
                 // 可编辑单元格的表格
                 // 选中单元格
-                saveInHiddenField('SelectedCell', cmp.f_getSelectedCell().join(','));
+                //saveInHiddenField('SelectedCell', cmp.f_getSelectedCell().join(','));
+				
+				 // 选中单元格
+				var selectedCell = cmp.f_getSelectedCell();
+				if (selectedCell && selectedCell.length) {
+					saveInHiddenField('SelectedCell', JSON.stringify(selectedCell));
+				} else {
+					removeHiddenField('SelectedCell');
+				}
 
                 //// 新增行
                 //var newAddedRows = cmp.f_getNewAddedRows();
@@ -377,6 +398,7 @@
                     removeHiddenField('ModifiedData');
                 }
 
+                /*
                 // 删除的行索引列表
                 var deletedRows = cmp.f_getDeletedRows();
                 if (deletedRows.length > 0) {
@@ -384,11 +406,19 @@
                 } else {
                     removeHiddenField('DeletedRows');
                 }
+                */
 
             } else {
                 // 普通的表格
                 // 选中行索引列表
-                saveInHiddenField('SelectedRowIndexArray', cmp.f_getSelectedRows().join(','));
+                //saveInHiddenField('SelectedRowIndexArray', cmp.f_getSelectedRows().join(','));
+                // 选中行标识符列表
+                var selectedRows = cmp.f_getSelectedRows();
+                if (selectedRows && selectedRows.length) {
+                    saveInHiddenField('SelectedRows', JSON.stringify(selectedRows));
+                } else {
+                    removeHiddenField('SelectedRows');
+                }
             }
 
 
@@ -496,8 +526,8 @@
         }
 
         if (!_ajaxStarted) {
-            F.control_enable_ajax_loading = undefined;
-            F.control_ajax_loading_type = undefined;
+            F.controlEnableAjaxLoading = undefined;
+            F.controlAjaxLoadingType = undefined;
         }
     }
 
@@ -524,8 +554,8 @@
         } else {
             Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
         }
-        F.control_enable_ajax_loading = undefined;
-        F.control_ajax_loading_type = undefined;
+        F.controlEnableAjaxLoading = undefined;
+        F.controlAjaxLoadingType = undefined;
         */
     });
 
@@ -540,8 +570,8 @@
         } else {
             Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
         }
-        F.control_enable_ajax_loading = undefined;
-        F.control_ajax_loading_type = undefined;
+        F.controlEnableAjaxLoading = undefined;
+        F.controlAjaxLoadingType = undefined;
         */
     });
 

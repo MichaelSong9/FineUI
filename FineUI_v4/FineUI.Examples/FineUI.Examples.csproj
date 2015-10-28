@@ -75,6 +75,16 @@
     <Content Include="extjs_builder\version.txt" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
+    <Content Include="grid\grid_editor_cell_afteredit_selectcell.aspx" />
+    <Content Include="grid\grid_editor_cell_client_validate.aspx" />
+    <Content Include="grid\grid_editor_cell_newdelete_getmergeddata.aspx" />
+    <Content Include="grid\grid_editor_cell_new_editcolumnid.aspx" />
+    <Content Include="grid\grid_editor_cell_renderfunction_complex.aspx" />
+    <Content Include="grid\grid_editor_cell_updatecellvalue.aspx" />
+    <Content Include="grid\grid_editor_cell_updatecellvalue_hiddencolumn.aspx" />
+    <Content Include="grid\grid_editor_cell_updatecellvalue_noedit.aspx" />
+    <Content Include="grid\grid_editor_cell_updatesummary.aspx" />
+    <Content Include="grid\grid_excel_dblclick_download.aspx" />
     <Content Include="grid\grid_excel_findcontrol.aspx" />
     <Content Include="grid\grid_excel_groupfield.aspx" />
     <Content Include="grid\grid_hide_gridheader.aspx" />
@@ -86,10 +96,12 @@
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
     <Content Include="grid\grid_many_columns.aspx" />
+    <Content Include="grid\grid_paging_aspnet.aspx" />
     <Content Include="grid\grid_paging_database_bbar.aspx" />
+    <Content Include="grid\grid_paging_fineui.aspx" />
     <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_rowexpander.aspx" />
-    <Content Include="grid\grid_editor_cell_new_delete_rowexpander.aspx" />
+    <Content Include="grid\grid_editor_cell_newdelete_rowexpander.aspx" />
     <Content Include="grid\grid_style_columnclass.aspx" />
     <Content Include="grid\grid_summary_scrollbar_flow.aspx" />
     <Content Include="grid\grid_style_rowcolor_paging_database.aspx" />
@@ -118,6 +130,10 @@
     <Content Include="master\list.aspx" />
     <Content Include="master\simple.aspx" />
     <Content Include="master\simple2.aspx" />
+    <Content Include="message\alert_download.aspx" />
+    <Content Include="message\alert_download_hide.aspx" />
+    <Content Include="message\alert_download_hideiframe.aspx" />
+    <Content Include="message\alert_download_hideiframe_window.aspx" />
     <Content Include="other\authentication_timeout.aspx" />
     <Content Include="other\authentication_timeout_async.aspx" />
     <Content Include="other\global_error.aspx" />
@@ -235,7 +251,7 @@
     <Content Include="grid\grid_editor_cell_renderfunction.aspx" />
     <Content Include="grid\grid_rowcommand_paging.aspx" />
     <Content Include="grid\grid_rowcommand_paging_database.aspx" />
-    <Content Include="grid\grid_editor_cell_new_delete.aspx" />
+    <Content Include="grid\grid_editor_cell_newdelete.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit.aspx" />
     <Content Include="grid\grid_excel_selectcolumns.aspx" />
     <Content Include="grid\grid_summary.aspx" />
@@ -401,10 +417,10 @@
     <Content Include="layout\table.aspx" />
     <Content Include="layout\hbox.aspx" />
     <Content Include="layout\vbox.aspx" />
-    <Content Include="other\alert.aspx" />
-    <Content Include="other\confirm_cancel.aspx" />
+    <Content Include="message\alert.aspx" />
+    <Content Include="message\confirm_cancel.aspx" />
     <Content Include="other\cssclass.aspx" />
-    <Content Include="other\confirm_cancel2.aspx" />
+    <Content Include="message\confirm_cancel_customevent.aspx" />
     <Content Include="res\js\jquery.js" />
     <Content Include="res\js\jquery.min.js" />
     <Content Include="tabstrip\tabstrip_iframe_disabled.aspx" />
@@ -488,6 +504,7 @@
     <Compile Include="basic\login_enterkey.aspx.designer.cs">
       <DependentUpon>login_enterkey.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\DataSourceUtil.cs" />
     <Compile Include="dropdownlist\dropdownlist_autopostback.aspx.cs">
       <DependentUpon>dropdownlist_autopostback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -568,6 +585,76 @@
     <Compile Include="grid\grid_checkall_singleselect.aspx.designer.cs">
       <DependentUpon>grid_checkall_singleselect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_editor_cell_afteredit_selectcell.aspx.cs">
+      <DependentUpon>grid_editor_cell_afteredit_selectcell.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_afteredit_selectcell.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_afteredit_selectcell.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_client_validate.aspx.cs">
+      <DependentUpon>grid_editor_cell_client_validate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_client_validate.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_client_validate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_newdelete_getmergeddata.aspx.cs">
+      <DependentUpon>grid_editor_cell_newdelete_getmergeddata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_newdelete_getmergeddata.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_newdelete_getmergeddata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_new_editcolumnid.aspx.cs">
+      <DependentUpon>grid_editor_cell_new_editcolumnid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_new_editcolumnid.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_new_editcolumnid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_renderfunction_complex.aspx.cs">
+      <DependentUpon>grid_editor_cell_renderfunction_complex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_renderfunction_complex.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_renderfunction_complex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatecellvalue.aspx.cs">
+      <DependentUpon>grid_editor_cell_updatecellvalue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatecellvalue.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_updatecellvalue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatecellvalue_hiddencolumn.aspx.cs">
+      <DependentUpon>grid_editor_cell_updatecellvalue_hiddencolumn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatecellvalue_hiddencolumn.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_updatecellvalue_hiddencolumn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatecellvalue_noedit.aspx.cs">
+      <DependentUpon>grid_editor_cell_updatecellvalue_noedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatecellvalue_noedit.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_updatecellvalue_noedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatesummary.aspx.cs">
+      <DependentUpon>grid_editor_cell_updatesummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_editor_cell_updatesummary.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_updatesummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_excel_dblclick_download.aspx.cs">
+      <DependentUpon>grid_excel_dblclick_download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_excel_dblclick_download.aspx.designer.cs">
+      <DependentUpon>grid_excel_dblclick_download.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_excel_findcontrol.aspx.cs">
       <DependentUpon>grid_excel_findcontrol.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -645,12 +732,26 @@
     <Compile Include="grid\grid_many_columns.aspx.designer.cs">
       <DependentUpon>grid_many_columns.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_paging_aspnet.aspx.cs">
+      <DependentUpon>grid_paging_aspnet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_paging_aspnet.aspx.designer.cs">
+      <DependentUpon>grid_paging_aspnet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_paging_database_bbar.aspx.cs">
       <DependentUpon>grid_paging_database_bbar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="grid\grid_paging_database_bbar.aspx.designer.cs">
       <DependentUpon>grid_paging_database_bbar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_paging_fineui.aspx.cs">
+      <DependentUpon>grid_paging_fineui.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_paging_fineui.aspx.designer.cs">
+      <DependentUpon>grid_paging_fineui.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_prerowdatabound_cancelled.aspx.cs">
       <DependentUpon>grid_prerowdatabound_cancelled.aspx</DependentUpon>
@@ -666,12 +767,12 @@
     <Compile Include="grid\grid_editor_cell_afteredit_rowexpander.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_afteredit_rowexpander.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_editor_cell_new_delete_rowexpander.aspx.cs">
-      <DependentUpon>grid_editor_cell_new_delete_rowexpander.aspx</DependentUpon>
+    <Compile Include="grid\grid_editor_cell_newdelete_rowexpander.aspx.cs">
+      <DependentUpon>grid_editor_cell_newdelete_rowexpander.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_editor_cell_new_delete_rowexpander.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell_new_delete_rowexpander.aspx</DependentUpon>
+    <Compile Include="grid\grid_editor_cell_newdelete_rowexpander.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_newdelete_rowexpander.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_style_columnclass.aspx.cs">
       <DependentUpon>grid_style_columnclass.aspx</DependentUpon>
@@ -883,6 +984,34 @@
     </Compile>
     <Compile Include="master\SingleGrid.Master.designer.cs">
       <DependentUpon>SingleGrid.Master</DependentUpon>
+    </Compile>
+    <Compile Include="message\alert_download.aspx.cs">
+      <DependentUpon>alert_download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message\alert_download.aspx.designer.cs">
+      <DependentUpon>alert_download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="message\alert_download_hide.aspx.cs">
+      <DependentUpon>alert_download_hide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message\alert_download_hide.aspx.designer.cs">
+      <DependentUpon>alert_download_hide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="message\alert_download_hideiframe.aspx.cs">
+      <DependentUpon>alert_download_hideiframe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message\alert_download_hideiframe.aspx.designer.cs">
+      <DependentUpon>alert_download_hideiframe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="message\alert_download_hideiframe_window.aspx.cs">
+      <DependentUpon>alert_download_hideiframe_window.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message\alert_download_hideiframe_window.aspx.designer.cs">
+      <DependentUpon>alert_download_hideiframe_window.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\authentication_timeout.aspx.cs">
       <DependentUpon>authentication_timeout.aspx</DependentUpon>
@@ -1276,12 +1405,12 @@
     <Compile Include="grid\grid_rowcommand_paging_database.aspx.designer.cs">
       <DependentUpon>grid_rowcommand_paging_database.aspx</DependentUpon>
     </Compile>
-    <Compile Include="grid\grid_editor_cell_new_delete.aspx.cs">
-      <DependentUpon>grid_editor_cell_new_delete.aspx</DependentUpon>
+    <Compile Include="grid\grid_editor_cell_newdelete.aspx.cs">
+      <DependentUpon>grid_editor_cell_newdelete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="grid\grid_editor_cell_new_delete.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell_new_delete.aspx</DependentUpon>
+    <Compile Include="grid\grid_editor_cell_newdelete.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell_newdelete.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_editor_cell_afteredit.aspx.cs">
       <DependentUpon>grid_editor_cell_afteredit.aspx</DependentUpon>
@@ -2154,18 +2283,18 @@
     <Compile Include="layout\vbox.aspx.designer.cs">
       <DependentUpon>vbox.aspx</DependentUpon>
     </Compile>
-    <Compile Include="other\alert.aspx.cs">
+    <Compile Include="message\alert.aspx.cs">
       <DependentUpon>alert.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="other\alert.aspx.designer.cs">
+    <Compile Include="message\alert.aspx.designer.cs">
       <DependentUpon>alert.aspx</DependentUpon>
     </Compile>
-    <Compile Include="other\confirm_cancel.aspx.cs">
+    <Compile Include="message\confirm_cancel.aspx.cs">
       <DependentUpon>confirm_cancel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="other\confirm_cancel.aspx.designer.cs">
+    <Compile Include="message\confirm_cancel.aspx.designer.cs">
       <DependentUpon>confirm_cancel.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\cssclass.aspx.cs">
@@ -2175,12 +2304,12 @@
     <Compile Include="other\cssclass.aspx.designer.cs">
       <DependentUpon>cssclass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="other\confirm_cancel2.aspx.cs">
-      <DependentUpon>confirm_cancel2.aspx</DependentUpon>
+    <Compile Include="message\confirm_cancel_customevent.aspx.cs">
+      <DependentUpon>confirm_cancel_customevent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="other\confirm_cancel2.aspx.designer.cs">
-      <DependentUpon>confirm_cancel2.aspx</DependentUpon>
+    <Compile Include="message\confirm_cancel_customevent.aspx.designer.cs">
+      <DependentUpon>confirm_cancel_customevent.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\custom_postback2.aspx.cs">
       <DependentUpon>custom_postback2.aspx</DependentUpon>

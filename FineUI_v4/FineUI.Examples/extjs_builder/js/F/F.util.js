@@ -67,18 +67,41 @@ F.addCSS = function () {
     F.util.addCSS.apply(window, arguments);
 };
 
+// 记录最后一个控件的序号
+F.f_objectIndex = 0;
 
 
 // 为了兼容保留函数签名：F.customEvent
 F.f_customEvent = F.customEvent = function (argument, validate) {
-    var pmv = F.pagemanager.validate;
+    //var pmv = F.f_pagemanager.validate;
+    //if (validate && pmv) {
+    //    if (!F.util.validForms(pmv.forms, pmv.target, pmv.messagebox)) {
+    //        return false;
+    //    }
+    //}
+    //__doPostBack(F.f_pagemanager.name, argument);
+
+    var enableAjax;
+    if (typeof(argument) === 'boolean') {
+        enableAjax = argument;
+        argument = validate;
+        validate = arguments[2];
+    }
+
+    var pmv = F.f_pagemanager.validate;
     if (validate && pmv) {
-        if (!F.util.validForms(pmv.forms, pmv.target, pmv.messagebox)) {
+        if (!F.util.validateForms(pmv.forms, pmv.target, pmv.messagebox)) {
             return false;
         }
     }
-    __doPostBack(F.pagemanager.name, argument);
+
+    if (typeof (enableAjax) === 'boolean') {
+        __doPostBack(enableAjax, F.f_pagemanager.name, argument);
+    } else {
+        __doPostBack(F.f_pagemanager.name, argument);
+    }
 };
+
 
 // 更新EventValidation的值
 F.f_eventValidation = function (newValue) {
@@ -277,10 +300,9 @@ Ext.onReady(function () {
 
             F.ajax.hookPostBack();
 
-            F.global_enable_ajax = F.enableAjax;
-
-            F.global_enable_ajax_loading = F.enableAjaxLoading;
-            F.global_ajax_loading_type = F.ajaxLoadingType;
+            //F.global_enable_ajax = F.enableAjax;
+            //F.global_enable_ajax_loading = F.enableAjaxLoading;
+            //F.global_ajax_loading_type = F.ajaxLoadingType;
 
             // 添加Ajax Loading提示节点
             F.ajaxLoadingDefault = Ext.get(F.util.appendLoadingNode());
@@ -288,7 +310,7 @@ Ext.onReady(function () {
 
 
             F.form_upload_file = false;
-            F.global_disable_ajax = false;
+            //F.global_disable_ajax = false;
             //F.x_window_manager = new Ext.WindowManager();
             //F.x_window_manager.zseed = 6000;
 
