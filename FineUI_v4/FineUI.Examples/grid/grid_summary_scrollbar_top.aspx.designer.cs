@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_summary_currentpage {
+    public partial class grid_summary_scrollbar_top {
         
         /// <summary>
         /// form1 控件。

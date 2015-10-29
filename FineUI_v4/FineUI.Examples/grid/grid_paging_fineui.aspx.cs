@@ -5,11 +5,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
-using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_width : PageBase
+    public partial class grid_paging_fineui : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,24 +16,29 @@ namespace FineUI.Examples.grid
             {
                 BindGrid();
             }
+
+            Grid1.PageIndexChange += Grid1_PageIndexChange;
         }
 
-        #region BindGrid
+        #region LoadData
 
         private void BindGrid()
         {
-            DataTable table = DataSourceUtil.GetDataTable();
+            DataTable table = DataSourceUtil.GetDataTable2();
 
             Grid1.DataSource = table;
             Grid1.DataBind();
-
         }
-
-        
 
         #endregion
 
+        #region Events
 
+        protected void Grid1_PageIndexChange(object sender, GridPageEventArgs e)
+        {
+            Grid1.PageIndex = e.NewPageIndex;
+        }
 
+        #endregion
     }
 }

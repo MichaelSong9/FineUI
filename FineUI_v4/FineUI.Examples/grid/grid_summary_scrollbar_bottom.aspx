@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_scrollbar.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_summary_scrollbar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_summary_scrollbar_bottom.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_summary_scrollbar_bottom" %>
 
 <!DOCTYPE html>
 <html>

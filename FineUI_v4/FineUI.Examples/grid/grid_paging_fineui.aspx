@@ -1,19 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_rowselect.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_rowselect" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_paging_fineui.aspx.cs" Inherits="FineUI.Examples.grid.grid_paging_fineui" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
-            runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name"
-            EnableMultiSelect="true" EnableRowSelectEvent="true" OnRowSelect="Grid1_RowSelect"
-            EnableRowDeselectEvent="true" OnRowDeselect="Grid1_RowDeselect">
+        <f:Grid ID="Grid1" Title="表格" EnableCollapse="true" PageSize="5" ShowBorder="true" ShowHeader="true"
+            AllowPaging="true" IsDatabasePaging="false" runat="server" EnableCheckBoxSelect="True" Width="800px" DataKeyNames="Id,Name">
             <Columns>
                 <f:RowNumberField />
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
@@ -33,11 +31,8 @@
             </Columns>
         </f:Grid>
         <br />
-        注：
-        <ul>
-            <li>观察行选中事件与行单击事件的区别；</li>
-            <li>点击复选框取消选中行时，也会触发相应事件。</li>
-        </ul>
+        <br />
+        <strong>出于性能考虑，请在实际项目中使用数据库分页（不要使用内存分页）！</strong>
     </form>
 </body>
 </html>

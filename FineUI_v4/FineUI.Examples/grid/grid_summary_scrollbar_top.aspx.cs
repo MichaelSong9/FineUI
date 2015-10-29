@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_summary_currentpage : PageBase
+    public partial class grid_summary_scrollbar_top : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,9 +32,9 @@ namespace FineUI.Examples.grid
                 feeTotal += Convert.ToInt32(row["Fee"]);
             }
 
-            
+
             JObject summary = new JObject();
-            //summary.Add("major", "全部合计");
+            //summary.Add("major", "当前页合计");
             summary.Add("fee", feeTotal.ToString("F2"));
             summary.Add("donate", donateTotal.ToString("F2"));
 
@@ -56,11 +56,12 @@ namespace FineUI.Examples.grid
             Grid1.DataBind();
 
 
-            // 当前页的合计
+            // 输出分页合计结果
             OutputSummaryData(table);
+
         }
 
-        
+
         /// <summary>
         /// 模拟返回总项数
         /// </summary>

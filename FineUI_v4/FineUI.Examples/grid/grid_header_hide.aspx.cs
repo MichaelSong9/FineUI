@@ -5,25 +5,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
+using System.IO;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_rowcommand : PageBase
+    public partial class grid_header_hide : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LoadData();
+                BindGrid();
             }
         }
 
-        #region LoadData
-
-        private void LoadData()
-        {
-            BindGrid();
-        }
+        #region BindGrid
 
         private void BindGrid()
         {
@@ -34,6 +30,8 @@ namespace FineUI.Examples.grid
 
         }
 
+        
+
         #endregion
 
         #region Events
@@ -43,17 +41,9 @@ namespace FineUI.Examples.grid
             labResult.Text = HowManyRowsAreSelected(Grid1);
         }
 
-        protected void Grid1_RowCommand(object sender, GridCommandEventArgs e)
-        {
-            if (e.CommandName == "Action1" || e.CommandName == "Action2")
-            {
-                object[] keys = Grid1.DataKeys[e.RowIndex];
-                labResult.Text = String.Format("你点击了第 {0} 行，第 {1} 列，行命令是 {2}", e.RowIndex + 1, e.ColumnIndex + 1, e.CommandName) +
-                       "<br />" +
-                       String.Format("当前行数据 - 编号：{0}，姓名：{1}", keys[0], keys[1]);
-            }
-        }
-
         #endregion
+
+
+
     }
 }
