@@ -37,7 +37,7 @@ namespace FineUI.Examples.grid
 
         #region Events
 
-        protected void Grid1_RowDataBound(object sender, FineUI.GridRowEventArgs e)
+        protected void Grid1_RowDataBound(object sender, GridRowEventArgs e)
         {
             AspNet.RadioButtonList rblGender = (AspNet.RadioButtonList)Grid1.Rows[e.RowIndex].FindControl("rblGender");
 

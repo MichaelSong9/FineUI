@@ -65,7 +65,7 @@ namespace FineUI.Examples.grid
 
         }
 
-        protected void Grid1_RowCommand(object sender, FineUI.GridCommandEventArgs e)
+        protected void Grid1_RowCommand(object sender, GridCommandEventArgs e)
         {
             if (e.CommandName == "Delete")
             {

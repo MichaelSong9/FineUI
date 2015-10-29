@@ -80,7 +80,7 @@ namespace FineUI.Examples.grid
         }
 
 
-        //protected void Grid1_RowSelect(object sender, FineUI.GridRowSelectEventArgs e)
+        //protected void Grid1_RowSelect(object sender, GridRowSelectEventArgs e)
         //{
         //    int rowDataId = Convert.ToInt32(Grid1.DataKeys[e.RowIndex][0]);
         //    UpdateDetailForm(rowDataId);
