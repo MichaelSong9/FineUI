@@ -1,12 +1,6 @@
-﻿body.f-body {
-    height: auto;
-    /*background-image: url(../images/square.gif);*/
+﻿body {
     padding: 10px;
 }
-
-    body.f-body.f-theme-access {
-        background-image: none;
-    }
 
 .marginr {
     margin-right: 5px;
@@ -42,3 +36,7 @@ table.result {
     }
 
 
+.highlight {
+    font-weight: bold;
+    color: red;
+}

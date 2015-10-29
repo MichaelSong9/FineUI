@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.other {
+namespace FineUI.Examples.message {
     
     
-    public partial class confirm_cancel {
+    public partial class alert_download_hide {
         
         /// <summary>
         /// form1 控件。
@@ -31,30 +31,21 @@ namespace FineUI.Examples.other {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// btnOperation1 控件。
+        /// Window1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnOperation1;
+        protected global::FineUI.Window Window1;
         
         /// <summary>
-        /// btnOperation2 控件。
+        /// btnOperation 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnOperation2;
-        
-        /// <summary>
-        /// btnOperation3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnOperation3;
+        protected global::FineUI.Button btnOperation;
     }
 }

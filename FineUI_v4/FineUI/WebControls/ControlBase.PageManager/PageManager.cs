@@ -1217,7 +1217,7 @@ namespace FineUI
 
             }
 
-            string createScript = String.Format("F.pagemanager={1};", XID, job);
+            string createScript = String.Format("F.f_pagemanager={1};", XID, job);
             AddStartupScript(createScript);
         }
 
@@ -1336,7 +1336,7 @@ namespace FineUI
 
         #endregion
 
-        #region GetIFramePostBackEventReference
+        #region GetCustomEventReference
 
         /// <summary>
         /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
@@ -1351,12 +1351,70 @@ namespace FineUI
         /// <summary>
         /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
         /// </summary>
+        /// <param name="enableAjax">当前请求是否启用AJAX</param>
+        /// <param name="eventArgument">事件参数</param>
+        /// <returns>客户端脚本</returns>
+        public string GetCustomEventReference(bool enableAjax, string eventArgument)
+        {
+            return GetCustomEventReference(enableAjax, eventArgument, false);
+        }
+
+        /// <summary>
+        /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
         /// <param name="eventArgument">事件参数</param>
         /// <param name="validateForms">是否在回发前验证表单（在PageManager上进行表单配置）</param>
         /// <returns>客户端脚本</returns>
         public string GetCustomEventReference(string eventArgument, bool validateForms)
         {
-            return String.Format("F.f_customEvent({0}, {1});", JsHelper.Enquote(eventArgument), validateForms.ToString().ToLower());
+            return GetCustomEventReference(eventArgument, validateForms, false);
+        }
+
+        /// <summary>
+        /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="enableAjax">当前请求是否启用AJAX</param>
+        /// <param name="eventArgument">事件参数</param>
+        /// <param name="validateForms">是否在回发前验证表单（在PageManager上进行表单配置）</param>
+        /// <returns>客户端脚本</returns>
+        public string GetCustomEventReference(bool enableAjax, string eventArgument, bool validateForms)
+        {
+            return GetCustomEventReference(enableAjax, eventArgument, validateForms, false);
+        }
+
+        /// <summary>
+        /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="eventArgument">事件参数</param>
+        /// <param name="validateForms">是否在回发前验证表单（在PageManager上进行表单配置）</param>
+        /// <param name="persistOriginal">保持eventArgument参数原样输出</param>
+        /// <returns>客户端脚本</returns>
+        public string GetCustomEventReference(string eventArgument, bool validateForms, bool persistOriginal)
+        {
+            string arg = eventArgument;
+            if (!persistOriginal)
+            {
+                arg = JsHelper.Enquote(arg);
+            }
+            return String.Format("F.f_customEvent({0},{1});", arg, validateForms.ToString().ToLower());
+        }
+
+        /// <summary>
+        /// 获取回发的客户端脚本（触发PageManager的CustomEvent事件）
+        /// </summary>
+        /// <param name="enableAjax">当前请求是否启用AJAX</param>
+        /// <param name="eventArgument">事件参数</param>
+        /// <param name="validateForms">是否在回发前验证表单（在PageManager上进行表单配置）</param>
+        /// <param name="persistOriginal">保持eventArgument参数原样输出</param>
+        /// <returns>客户端脚本</returns>
+        public string GetCustomEventReference(bool enableAjax, string eventArgument, bool validateForms, bool persistOriginal)
+        {
+            string arg = eventArgument;
+            if (!persistOriginal)
+            {
+                arg = JsHelper.Enquote(arg);
+            }
+            return String.Format("F.f_customEvent({0},{1},{2});", enableAjax.ToString().ToLower(), arg, validateForms.ToString().ToLower());
         }
 
         #endregion

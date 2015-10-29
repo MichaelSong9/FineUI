@@ -43,62 +43,279 @@ namespace FineUI
         /// <summary>
         /// 确认对话框默认图标
         /// </summary>
-        public static MessageBoxIcon DefaultIcon = MessageBoxIcon.Question;
+        public static MessageBoxIcon DefaultMessageBoxIcon = MessageBoxIcon.Question;
+
+
+        ///// <summary>
+        ///// 确认对话框默认图标
+        ///// </summary>
+        //public static MessageBoxIcon DefaultIcon = MessageBoxIcon.Question;
 
 
         #endregion
 
-        #region Show
+
+        #region static Show
 
         /// <summary>
-        /// 显示消息框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">消息正文</param>
         public static void Show(string message)
         {
-            Show(message, null, DefaultIcon);
+            Show(message, String.Empty, DefaultMessageBoxIcon, String.Empty, String.Empty);
         }
 
         /// <summary>
-        /// 显示消息框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">标题</param>
         public static void Show(string message, string title)
         {
-            Show(message, title, DefaultIcon);
+            Show(message, title, DefaultMessageBoxIcon, String.Empty, String.Empty);
         }
 
         /// <summary>
-        /// 显示消息框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">消息正文</param>
+        /// <param name="icon">图标</param>
         public static void Show(string message, MessageBoxIcon icon)
         {
-            Show(message, null, icon);
+            Show(message, String.Empty, icon, String.Empty, String.Empty);
         }
 
         /// <summary>
-        /// 显示消息框
+        /// 显示对话框
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="title"></param>
-        /// <param name="icon"></param>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        public static void Show(string message, string title, string okScript, string cancelScript)
+        {
+            Show(message, title, DefaultMessageBoxIcon, okScript, cancelScript);
+        }
+
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
         public static void Show(string message, string title, MessageBoxIcon icon)
         {
-            PageContext.RegisterStartupScript(GetShowReference(message, title, icon));
+            Show(message, title, icon, String.Empty, String.Empty);
         }
+
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        public static void Show(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript)
+        {
+            PageContext.RegisterStartupScript(GetShowReference(message, title, icon, okScript, cancelScript));
+        }
+
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        /// <param name="target">显示对话框的目标页面</param>
+        public static void Show(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript, Target target)
+        {
+            PageContext.RegisterStartupScript(GetShowReference(message, title, icon, okScript, cancelScript, target));
+        }
+
+        #endregion
+
+        #region static ShowInParent
+
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        public static void ShowInParent(string message)
+        {
+            ShowInParent(message, String.Empty, DefaultMessageBoxIcon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">标题</param>
+        public static void ShowInParent(string message, string title)
+        {
+            ShowInParent(message, title, DefaultMessageBoxIcon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="icon">图标</param>
+        public static void ShowInParent(string message, MessageBoxIcon icon)
+        {
+            ShowInParent(message, String.Empty, icon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        public static void ShowInParent(string message, string title, string okScript, string cancelScript)
+        {
+            ShowInParent(message, title, DefaultMessageBoxIcon, okScript, cancelScript);
+        }
+
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        public static void ShowInParent(string message, string title, MessageBoxIcon icon)
+        {
+            ShowInParent(message, title, icon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在父页面中显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        public static void ShowInParent(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript)
+        {
+            PageContext.RegisterStartupScript(GetShowInParentReference(message, title, icon, okScript, cancelScript));
+        }
+
+        #endregion
+
+        #region static ShowInTop
+
+        /// <summary>
+        /// 在顶层窗口中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        public static void ShowInTop(string message)
+        {
+            ShowInTop(message, String.Empty, DefaultMessageBoxIcon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在顶层窗口中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">对话框标题</param>
+        public static void ShowInTop(string message, string title)
+        {
+            ShowInTop(message, title, DefaultMessageBoxIcon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在顶层窗口中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="icon">对话框消息图标</param>
+        public static void ShowInTop(string message, MessageBoxIcon icon)
+        {
+            ShowInTop(message, String.Empty, icon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在顶层窗口中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        public static void ShowInTop(string message, string title, string okScript, string cancelScript)
+        {
+            ShowInTop(message, title, DefaultMessageBoxIcon, okScript, cancelScript);
+        }
+
+        /// <summary>
+        /// 在顶层窗口中显示对话框
+        /// </summary>
+        /// <param name="message">消息正文</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        public static void ShowInTop(string message, string title, MessageBoxIcon icon)
+        {
+            ShowInTop(message, title, icon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 在顶层窗口中显示对话框
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        public static void ShowInTop(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript)
+        {
+            PageContext.RegisterStartupScript(GetShowInTopReference(message, title, icon, okScript, cancelScript));
+        }
+
         #endregion
 
         #region GetShowReference
 
         /// <summary>
-        /// 获取显示确认对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowReference(string message)
+        {
+            return GetShowReference(message, String.Empty, DefaultMessageBoxIcon);
+        }
+
+        /// <summary>
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowReference(string message, string title)
+        {
+            return GetShowReference(message, title, DefaultMessageBoxIcon);
+        }
+
+        /// <summary>
+        /// 获取显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowReference(string message, MessageBoxIcon icon)
+        {
+            return GetShowReference(message, String.Empty, icon);
+        }
+
+        /// <summary>
+        /// 获取显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, string title, MessageBoxIcon icon)
         {
@@ -106,17 +323,30 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 获取显示确认对话框的客户端脚本
+        /// 获取显示对话框的客户端脚本
         /// </summary>
         /// <param name="message">对话框消息</param>
         /// <param name="title">对话框标题</param>
-        /// <param name="icon">对话框图标</param>
-        /// <param name="okScriptstring">点击确定按钮执行的客户端脚本</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
         /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
         /// <returns>客户端脚本</returns>
-        public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScriptstring, string cancelScript)
+        public static string GetShowReference(string message, string title, string okScript, string cancelScript)
         {
-            return GetShowReference(message, title, icon, okScriptstring, cancelScript, Target.Self);
+            return GetShowReference(message, title, DefaultMessageBoxIcon, okScript, cancelScript);
+        }
+
+        /// <summary>
+        /// 获取显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript)
+        {
+            return GetShowReference(message, title, icon, okScript, cancelScript, Target.Self);
         }
 
         /// <summary>
@@ -232,5 +462,155 @@ namespace FineUI
 
         #endregion
 
+
+        #region static GetShowInParentReference
+
+        /// <summary>
+        /// 获取在父页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInParentReference(string message)
+        {
+            return GetShowInParentReference(message, String.Empty, DefaultMessageBoxIcon);
+        }
+
+        /// <summary>
+        /// 获取在父页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInParentReference(string message, string title)
+        {
+            return GetShowInParentReference(message, title, DefaultMessageBoxIcon);
+        }
+
+        /// <summary>
+        /// 获取在父页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInParentReference(string message, MessageBoxIcon icon)
+        {
+            return GetShowInParentReference(message, String.Empty, icon);
+        }
+
+        /// <summary>
+        /// 获取在父页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInParentReference(string message, string title, MessageBoxIcon icon)
+        {
+            return GetShowInParentReference(message, title, icon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 获取在父页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInParentReference(string message, string title, string okScript, string cancelScript)
+        {
+            return GetShowInParentReference(message, title, DefaultMessageBoxIcon, okScript, cancelScript);
+        }
+
+        /// <summary>
+        /// 获取在父页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInParentReference(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript)
+        {
+            return GetShowReference(message, title, icon, okScript, cancelScript, Target.Parent);
+        }
+
+        #endregion
+
+        #region static GetShowInTopReference
+
+        /// <summary>
+        /// 获取在最上层页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInTopReference(string message)
+        {
+            return GetShowInTopReference(message, String.Empty, DefaultMessageBoxIcon);
+        }
+
+        /// <summary>
+        /// 获取在最上层页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInTopReference(string message, string title)
+        {
+            return GetShowInTopReference(message, title, DefaultMessageBoxIcon);
+        }
+
+        /// <summary>
+        /// 获取在最上层页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInTopReference(string message, MessageBoxIcon icon)
+        {
+            return GetShowInTopReference(message, String.Empty, icon);
+        }
+
+        /// <summary>
+        /// 获取在最上层页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInTopReference(string message, string title, MessageBoxIcon icon)
+        {
+            return GetShowInTopReference(message, title, icon, String.Empty, String.Empty);
+        }
+
+        /// <summary>
+        /// 获取在最上层页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInTopReference(string message, string title, string okScript, string cancelScript)
+        {
+            return GetShowInTopReference(message, title, DefaultMessageBoxIcon, okScript, cancelScript);
+        }
+
+        /// <summary>
+        /// 获取在最上层页面中显示对话框的客户端脚本
+        /// </summary>
+        /// <param name="message">对话框消息</param>
+        /// <param name="title">对话框标题</param>
+        /// <param name="icon">对话框消息图标</param>
+        /// <param name="okScript">点击确定按钮执行的客户端脚本</param>
+        /// <param name="cancelScript">点击取消按钮执行的客户端脚本</param>
+        /// <returns>客户端脚本</returns>
+        public static string GetShowInTopReference(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript)
+        {
+            return GetShowReference(message, title, icon, okScript, cancelScript, Target.Top);
+        }
+
+        #endregion
     }
 }

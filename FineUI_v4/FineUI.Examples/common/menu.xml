@@ -320,9 +320,11 @@
       </TreeNode>
     </TreeNode>
     <TreeNode Text="标题栏菜单">
-      <TreeNode Text="显示隐藏列" NavigateUrl="~/grid/grid_hdmenu_hidecolumn.aspx" >
+      <TreeNode Text="隐藏标题栏" NavigateUrl="~/grid/grid_header_hide.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="排序" NavigateUrl="~/grid/grid_hdmenu_sorting.aspx" >
+      <TreeNode Text="标题栏自动换行" NavigateUrl="~/grid/grid_header_wrap.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="禁用表头菜单" NavigateUrl="~/grid/grid_header_disablemenu.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="模板列">
@@ -362,11 +364,13 @@
     <TreeNode Text="合计行">
       <TreeNode Text="合计行" NavigateUrl="~/grid/grid_summary.aspx" >
       </TreeNode>
-      <TreeNode Text="合计行（纵向+横向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar_flow.aspx" >
+      <TreeNode Text="合计行（当前页合计）" NavigateUrl="~/grid/grid_summary_currentpage.aspx" >
       </TreeNode>
-      <TreeNode Text="合计行（浮动到底部、纵向+横向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar.aspx" >
+      <TreeNode Text="合计行（横向纵向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar_flow.aspx" >
       </TreeNode>
-      <TreeNode Text="合计行（浮动到顶部、当前页合计）" NavigateUrl="~/grid/grid_summary_currentpage.aspx" >
+      <TreeNode Text="合计行（浮动到底部，横向纵向滚动条）" NavigateUrl="~/grid/grid_summary_scrollbar_bottom.aspx" >
+      </TreeNode>
+      <TreeNode Text="合计行（浮动到顶部，横向纵向滚动条，当前页合计）" NavigateUrl="~/grid/grid_summary_scrollbar_top.aspx" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="单元格编辑">
@@ -414,15 +418,15 @@
     <TreeNode Text="列锁定">
       <TreeNode Text="列锁定" NavigateUrl="~/grid/grid_lockcolumn.aspx" IsNew="true" >
       </TreeNode>
-      <TreeNode Text="列锁定与行扩展列" NavigateUrl="~/grid/grid_lockcolumn_rowexpander.aspx" IsNew="true" >
+      <TreeNode Text="列锁定（行扩展列）" NavigateUrl="~/grid/grid_lockcolumn_rowexpander.aspx" IsNew="true" >
       </TreeNode>
-      <TreeNode Text="列锁定与多表头" NavigateUrl="~/grid/grid_lockcolumn_groupheader_sort.aspx" IsNew="true">
+      <TreeNode Text="列锁定（多表头）" NavigateUrl="~/grid/grid_lockcolumn_groupheader_sort.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="列锁定与合计行" NavigateUrl="~/grid/grid_lockcolumn_summary_scrollbar.aspx" IsNew="true">
+      <TreeNode Text="列锁定（合计行）" NavigateUrl="~/grid/grid_lockcolumn_summary_scrollbar.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="列锁定与单元格编辑" NavigateUrl="~/grid/grid_lockcolumn_editor_cell_new.aspx" IsNew="true">
+      <TreeNode Text="列锁定（单元格编辑）" NavigateUrl="~/grid/grid_lockcolumn_editor_cell_new.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="列锁定与自动换行" NavigateUrl="~/grid/grid_lockcolumn_line_wrap.aspx" IsNew="true">
+      <TreeNode Text="列锁定（自动换行）" NavigateUrl="~/grid/grid_lockcolumn_line_wrap.aspx" IsNew="true">
       </TreeNode>
       <!--<TreeNode Text="列锁定（多列，多行，行高不同）" NavigateUrl="~/grid/grid_lockcolumn_many_columns.aspx" >
       </TreeNode>-->

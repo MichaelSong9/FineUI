@@ -7,11 +7,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
-    <style>
-        body.f-body {
-            padding: 0;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

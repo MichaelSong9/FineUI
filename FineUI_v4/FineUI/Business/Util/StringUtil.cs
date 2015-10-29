@@ -227,11 +227,24 @@ namespace FineUI
 
         /// <summary>
         /// 比较两个整形数组是否相等
+        /// 顺序无关，比如 [1,2] 和 [2,1] 被认为是相同的
         /// </summary>
         /// <param name="array1">整形数组1</param>
         /// <param name="array2">整形数组2</param>
         /// <returns>是否相等</returns>
         public static bool CompareIntArray(int[] array1, int[] array2)
+        {
+            return CompareIntArray(array1, array2, false);
+        }
+
+        /// <summary>
+        /// 比较两个整形数组是否相等
+        /// </summary>
+        /// <param name="array1">整形数组1</param>
+        /// <param name="array2">整形数组2</param>
+        /// <param name="keepOrder">是否保持顺序</param>
+        /// <returns>是否相等</returns>
+        public static bool CompareIntArray(int[] array1, int[] array2, bool keepOrder)
         {
             if (array1 == null && array2 == null)
             {
@@ -248,9 +261,31 @@ namespace FineUI
                 return false;
             }
 
-            List<int> list1 = new List<int>(array1);
-            List<int> list2 = new List<int>(array2);
+            if (keepOrder)
+            {
+                for (int i = 0, count = array1.Length; i < count; i++)
+                {
+                    if (array1[i] != array2[i])
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                List<int> list1 = new List<int>(array1);
+                List<int> list2 = new List<int>(array2);
 
+                foreach (int item in list1)
+                {
+                    if (!list2.Contains(item))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            /*
             for (int i = 0; i < list1.Count; i++)
             {
                 if (list1[i] != list2[i])
@@ -258,8 +293,21 @@ namespace FineUI
                     return false;
                 }
             }
+            */
 
             return true;
+        }
+
+        /// <summary>
+        /// 比较两个字符串数组是否相等
+        /// 顺序无关，比如 ["value1","value2"] 和 ["value2","value1"] 被认为是相同的
+        /// </summary>
+        /// <param name="array1">字符串数组1</param>
+        /// <param name="array2">字符串数组2</param>
+        /// <returns>是否相等</returns>
+        public static bool CompareStringArray(string[] array1, string[] array2)
+        {
+            return CompareStringArray(array1, array2, false);
         }
 
         /// <summary>
@@ -267,8 +315,9 @@ namespace FineUI
         /// </summary>
         /// <param name="array1">字符串数组1</param>
         /// <param name="array2">字符串数组2</param>
+        /// <param name="keepOrder">是否保持顺序</param>
         /// <returns>是否相等</returns>
-        public static bool CompareStringArray(string[] array1, string[] array2)
+        public static bool CompareStringArray(string[] array1, string[] array2, bool keepOrder)
         {
             if (array1 == null && array2 == null)
             {
@@ -285,9 +334,31 @@ namespace FineUI
                 return false;
             }
 
-            List<string> list1 = new List<string>(array1);
-            List<string> list2 = new List<string>(array2);
+            if (keepOrder)
+            {
+                for (int i = 0, count = array1.Length; i < count; i++)
+                {
+                    if (array1[i] != array2[i])
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                List<string> list1 = new List<string>(array1);
+                List<string> list2 = new List<string>(array2);
 
+                foreach (string item in list1)
+                {
+                    if (!list2.Contains(item))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            /*
             for (int i = 0; i < list1.Count; i++)
             {
                 if (list1[i] != list2[i])
@@ -295,6 +366,7 @@ namespace FineUI
                     return false;
                 }
             }
+            */
 
             return true;
         }

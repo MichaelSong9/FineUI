@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="confirm_cancel.aspx.cs"
-    Inherits="FineUI.Examples.other.confirm_cancel" %>
+    Inherits="FineUI.Examples.message.confirm_cancel" %>
 
 <!DOCTYPE html>
 <html>

@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FineUI.Examples.other
+namespace FineUI.Examples.message
 {
     public partial class alert : PageBase
     {

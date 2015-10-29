@@ -1598,18 +1598,18 @@ namespace FineUI
 
             if (enableAjax != PageManager.Instance.EnableAjax)
             {
-                sb.AppendFormat("F.control_enable_ajax={0};", enableAjax ? "true" : "false");
+                sb.AppendFormat("F.controlEnableAjax={0};", enableAjax ? "true" : "false");
             }
 
 
             if (EnableAjaxLoading != PageManager.Instance.EnableAjaxLoading)
             {
-                sb.AppendFormat("F.control_enable_ajax_loading={0};", EnableAjaxLoading ? "true" : "false");
+                sb.AppendFormat("F.controlEnableAjaxLoading={0};", EnableAjaxLoading ? "true" : "false");
             }
 
             if (AjaxLoadingType != PageManager.Instance.AjaxLoadingType)
             {
-                sb.AppendFormat("F.control_ajax_loading_type='{0}';", AjaxLoadingTypeName.GetName(AjaxLoadingType));
+                sb.AppendFormat("F.controlAjaxLoadingType='{0}';", AjaxLoadingTypeName.GetName(AjaxLoadingType));
             }
 
             sb.Append(Page.ClientScript.GetPostBackEventReference(this, eventArgument));

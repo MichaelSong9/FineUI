@@ -6,11 +6,6 @@
     <title></title>
     <meta name="sourcefiles" content="~/grid/grid_iframe_window.aspx" />
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
-    <style>
-        body.f-body {
-            padding: 0;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

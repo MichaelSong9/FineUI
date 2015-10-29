@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.other {
+namespace FineUI.Examples.message {
     
     
-    public partial class confirm_cancel2 {
+    public partial class alert_download_hideiframe_window {
         
         /// <summary>
         /// form1 控件。

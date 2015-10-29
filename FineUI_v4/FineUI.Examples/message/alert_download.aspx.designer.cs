@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.other {
+namespace FineUI.Examples.message {
     
     
-    public partial class alert {
+    public partial class alert_download {
         
         /// <summary>
         /// form1 控件。
@@ -31,21 +31,12 @@ namespace FineUI.Examples.other {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// btnHello 控件。
+        /// btnOperation 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnHello;
-        
-        /// <summary>
-        /// btnHello2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnHello2;
+        protected global::FineUI.Button btnOperation;
     }
 }

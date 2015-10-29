@@ -85,6 +85,9 @@ namespace FineUI
         {
             base.OnFirstPreRender();
 
+            OB.AddProperty("f_columnType", "rendercheckfield");
+
+
             if (Grid.AllowCellEditing)
             {
                 OB.AddProperty("xtype", "checkcolumn");

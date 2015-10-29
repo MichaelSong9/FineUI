@@ -4,9 +4,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FineUI.Examples.other
+namespace FineUI.Examples.message
 {
-    public partial class confirm_cancel2 : PageBase
+    public partial class confirm_cancel_customevent : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
