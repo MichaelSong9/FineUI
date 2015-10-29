@@ -6,32 +6,16 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
 using System.IO;
-
 using Newtonsoft.Json.Linq;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_editor_cell_new : PageBase
+    public partial class grid_editor_cell_afteredit_selectcell : PageBase
     {
-        private bool AppendToEnd = true;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                JObject defaultObj = new JObject();
-                defaultObj.Add("Name", "用户名");
-                defaultObj.Add("Gender", "1");
-                defaultObj.Add("EntranceYear", "2015");
-                defaultObj.Add("EntranceDate", "2015-09-01");
-                defaultObj.Add("AtSchool", false);
-                defaultObj.Add("Major", "化学系");
-
-                // 第一行新增一条数据
-                btnNew.OnClientClick = Grid1.GetAddNewRecordReference(defaultObj, AppendToEnd);
-
-                btnReset.OnClientClick = Grid1.GetRejectChangesReference();
-
                 BindGrid();
             }
         }
@@ -46,25 +30,19 @@ namespace FineUI.Examples.grid
             Grid1.DataBind();
         }
 
+
+
         #endregion
 
         #region Events
 
-        private DataRow CreateNewData(DataTable table, Dictionary<string, object> newAddedData)
+        protected void Grid1_AfterEdit(object sender, GridAfterEditEventArgs e)
         {
-            DataRow rowData = table.NewRow();
+            // 当前选中的单元格
+            string[] selectedCell = Grid1.SelectedCell;
 
-            // 设置行ID（模拟数据库的自增长列）
-            rowData["Id"] = GetNextRowID();
-            UpdateDataRow(newAddedData, rowData);
-
-            return rowData;
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            // 修改的现有数据
             Dictionary<int, Dictionary<string, object>> modifiedDict = Grid1.GetModifiedDict();
+
             foreach (int rowIndex in modifiedDict.Keys)
             {
                 int rowID = Convert.ToInt32(Grid1.DataKeys[rowIndex][0]);
@@ -73,34 +51,16 @@ namespace FineUI.Examples.grid
                 UpdateDataRow(modifiedDict[rowIndex], row);
             }
 
-            // 新增数据
-            List<Dictionary<string, object>> newAddedList = Grid1.GetNewAddedList();
-            DataTable table = GetSourceData();
-            if (AppendToEnd)
-            {
-                for (int i = 0; i < newAddedList.Count; i++)
-                {
-                    DataRow rowData = CreateNewData(table, newAddedList[i]);
-                    table.Rows.Add(rowData);
-                }
-            }
-            else
-            {
-                for (int i = newAddedList.Count - 1; i >= 0; i--)
-                {
-                    DataRow rowData = CreateNewData(table, newAddedList[i]);
-                    table.Rows.InsertAt(rowData, 0);
-                }
-            }
-
-
+            // 数据绑定时，会清空选中的行和选中的单元格
             BindGrid();
 
             labResult.Text = String.Format("用户修改的数据：<pre>{0}</pre>", Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.Indented));
 
-            Alert.Show("数据保存成功！（表格数据已重新绑定）");
-        }
+            // 重新选中之前的单元格
+            PageContext.RegisterStartupScript(String.Format("F('{0}').f_selectCell('{1}','{2}');", Grid1.ClientID, selectedCell[0], selectedCell[1]));
 
+
+        }
 
         private void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)
         {
@@ -136,7 +96,7 @@ namespace FineUI.Examples.grid
 
         #region Data
 
-        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_new";
+        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_afteredit_selectcell";
 
         // 模拟在服务器端保存数据
         // 特别注意：在真实的开发环境中，不要在Session放置大量数据，否则会严重影响服务器性能
@@ -163,22 +123,7 @@ namespace FineUI.Examples.grid
             return null;
         }
 
-        // 模拟数据库的自增长列
-        private int GetNextRowID()
-        {
-            int maxID = 0;
-            DataTable table = GetSourceData();
-            foreach (DataRow row in table.Rows)
-            {
-                int currentRowID = Convert.ToInt32(row["Id"]);
-                if (currentRowID > maxID)
-                {
-                    maxID = currentRowID;
-                }
-            }
-            return maxID + 1;
-        }
-
         #endregion
+
     }
 }

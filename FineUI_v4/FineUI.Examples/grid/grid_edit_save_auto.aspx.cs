@@ -118,7 +118,7 @@ namespace FineUI.Examples.grid
         {
             if (Session[KEY_FOR_DATASOURCE_SESSION] == null)
             {
-                Session[KEY_FOR_DATASOURCE_SESSION] = GetDataTable();
+                Session[KEY_FOR_DATASOURCE_SESSION] = DataSourceUtil.GetDataTable();
             }
             return (DataTable)Session[KEY_FOR_DATASOURCE_SESSION];
         }

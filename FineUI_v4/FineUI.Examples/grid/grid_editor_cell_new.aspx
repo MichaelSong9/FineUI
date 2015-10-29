@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="850px"
-            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2">
+            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" DataIDField="Id">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server">
                     <Items>

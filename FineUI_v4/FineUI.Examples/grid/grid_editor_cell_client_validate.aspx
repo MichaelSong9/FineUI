@@ -1,28 +1,35 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_delete.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell_delete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_client_validate.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_client_validate" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="850px"
-            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2"
-            OnRowCommand="Grid1_RowCommand" DataIDField="Id">
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格（双击编辑）" EnableCollapse="true" Width="850px"
+            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" OnPreDataBound="Grid1_PreDataBound" 
+            DataIDField="Id">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server">
                     <Items>
-                        <f:Button ID="btnDelete" Text="删除选中行" Icon="Delete" OnClick="btnDelete_Click" runat="server">
+                        <f:Button ID="btnNew" Text="新增数据" Icon="Add" EnablePostBack="false" runat="server">
+                        </f:Button>
+                        <f:Button ID="btnDelete" Text="删除选中行" Icon="Delete" EnablePostBack="false" runat="server">
+                        </f:Button>
+                        <f:ToolbarFill runat="server">
+                        </f:ToolbarFill>
+                        <f:Button ID="btnReset" Text="重置表格数据" EnablePostBack="false" runat="server">
                         </f:Button>
                     </Items>
                 </f:Toolbar>
             </Toolbars>
             <Columns>
-                <f:TemplateField Width="60px" ID="ctl08" ColumnID="Grid1_ctl08">
+                <f:TemplateField ColumnID="Number" Width="60px">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                     </ItemTemplate>
@@ -30,7 +37,7 @@
                 <f:RenderField Width="100px" ColumnID="Name" DataField="Name" FieldType="String"
                     HeaderText="姓名">
                     <Editor>
-                        <f:TextBox ID="tbxEditorName" Required="true" runat="server">
+                        <f:TextBox ID="tbxEditorName" runat="server">
                         </f:TextBox>
                     </Editor>
                 </f:RenderField>
@@ -66,26 +73,62 @@
                         </f:TextBox>
                     </Editor>
                 </f:RenderField>
-                <f:LinkButtonField HeaderText="&nbsp;" Width="80px" ConfirmText="删除选中行？" ConfirmTarget="Top"
-                    CommandName="Delete" Icon="Delete" ID="ctl15" ColumnID="Grid1_ctl15" />
+                <f:LinkButtonField ColumnID="Delete" Width="80px" EnablePostBack="false"
+                    Icon="Delete" />
             </Columns>
         </f:Grid>
         <br />
-        <f:Button ID="Button2" runat="server" Text="保存数据" OnClick="Button2_Click">
+        <f:Button ID="Button2" runat="server" Text="保存数据" OnClientClick="if(!isValid()){return false;}" OnClick="Button2_Click">
         </f:Button>
         <br />
         <br />
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
         <br />
-        <br />
-        注：由于 extjs 本身限制，无法在单元格编辑时同时选中一行或者多行。专业版无此限制，<a target="_blank" href="http://fineui.com/demo_pro/#/demo_pro/grid/grid_editor_cell_delete.aspx">查看专业版示例</a>。
+        注：保存数据前，验证“姓名”不能为空（现有数据可以简单通过 Required="true" 属性来控制，新增数据默认为空的话需要这个客户端验证）。
     </form>
+    <script src="../res/js/jquery.min.js" type="text/javascript"></script>
     <script>
 
         function renderGender(value) {
             return value == 1 ? '男' : '女';
         }
+
+        function isValid() {
+            var grid1 = F('<%= Grid1.ClientID %>');
+            var valid = true, modifiedData = grid1.f_getModifiedData();
+
+            $.each(modifiedData, function (index, rowData) {
+
+                // rowData.rowIndex: 行在当前表格中的索引（删除行小于0）,
+                // rowData.originalIndex: 行在原始数据源中的索引（新增行小于0）,
+                // rowData.id: 行ID
+                // rowData.status: 行状态（newadded, modified, deleted）
+                // rowData.values: 行中修改单元格对象，比如 { "Name": "刘国2", "Gender": 0, "EntranceYear": 2003 }
+                if (rowData.status === 'deleted') {
+                    return true; // continue
+                }
+
+                var name = rowData.values['Name'];
+                // 更改了姓名列，并且为空字符串
+                if (typeof (name) != 'undefined' && $.trim(name) == '') {
+                    F.alert({
+                        message: '姓名不能为空！',
+                        ok: function () {
+                            grid1.f_startEdit(rowData.id, 'Name');
+                        }
+                    });
+
+                    valid = false;
+
+                    return false; // break
+                }
+            });
+
+
+            return valid;
+        }
+
 
 
 

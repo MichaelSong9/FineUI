@@ -1,17 +1,20 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_afteredit_selectcell.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_afteredit_selectcell" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="850px"
-            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1" DataIDField="Id">
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格（单击编辑）" EnableCollapse="true" Width="850px"
+            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="1"
+            EnableAfterEditEvent="true" OnAfterEdit="Grid1_AfterEdit"
+            DataIDField="Id">
             <Columns>
                 <f:TemplateField Width="60px">
                     <ItemTemplate>
@@ -42,7 +45,7 @@
                         </f:NumberBox>
                     </Editor>
                 </f:RenderField>
-                <f:RenderField Width="120px" ColumnID="LogTime" DataField="LogTime" FieldType="Date"
+                <f:RenderField Width="120px" ColumnID="EntranceDate" DataField="EntranceDate" FieldType="Date"
                     Renderer="Date" RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
                     <Editor>
                         <f:DatePicker ID="DatePicker1" Required="true" runat="server">
@@ -60,13 +63,16 @@
             </Columns>
         </f:Grid>
         <br />
-        <f:Button ID="Button2" runat="server" Text="保存数据" OnClick="Button2_Click">
-        </f:Button>
-        <br />
         <br />
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
         <br />
+        <br />
+        注：
+        <ul>
+            <li>结束编辑后自动回发保存数据，并选中最后一个编辑的单元格，方便通过 TAB、ENTER 键进行接下来的操作</li>
+            <li>为了保持表格行ID的稳定，请指定表格的DataIDField</li>
+        </ul>
     </form>
     <script>
 

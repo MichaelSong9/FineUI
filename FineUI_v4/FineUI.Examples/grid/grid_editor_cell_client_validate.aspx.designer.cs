@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_editor_cell_delete {
+    public partial class grid_editor_cell_client_validate {
         
         /// <summary>
         /// form1 控件。
@@ -49,6 +49,15 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.Toolbar Toolbar1;
         
         /// <summary>
+        /// btnNew 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnNew;
+        
+        /// <summary>
         /// btnDelete 控件。
         /// </summary>
         /// <remarks>
@@ -58,13 +67,13 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.Button btnDelete;
         
         /// <summary>
-        /// ctl08 控件。
+        /// btnReset 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TemplateField ctl08;
+        protected global::FineUI.Button btnReset;
         
         /// <summary>
         /// Label1 控件。
@@ -110,15 +119,6 @@ namespace FineUI.Examples.grid {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::FineUI.TextBox tbxEditorMajor;
-        
-        /// <summary>
-        /// ctl15 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.LinkButtonField ctl15;
         
         /// <summary>
         /// Button2 控件。

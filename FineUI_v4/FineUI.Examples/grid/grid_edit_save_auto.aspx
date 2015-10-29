@@ -7,10 +7,6 @@
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
     <style>
-        body.f-body {
-            padding: 0;
-        }
-
         .success {
             color: Green;
         }
