@@ -10,7 +10,7 @@
 namespace FineUI.Examples.grid {
     
     
-    public partial class grid_editor_cell_new_delete {
+    public partial class grid_editor_cell_newdelete_getmergeddata {
         
         /// <summary>
         /// form1 控件。

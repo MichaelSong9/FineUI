@@ -110,6 +110,8 @@
     <Content Include="grid\grid_rownumber_align.aspx" />
     <Content Include="grid\grid_groupheader_hidden.aspx" />
     <Content Include="grid\grid_editor_cell_textarea.aspx" />
+    <Content Include="grid\grid_width_boxflex.aspx" />
+    <Content Include="grid\grid_width_forcefit_minwidth.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\column_autoheight.aspx" />
@@ -139,6 +141,7 @@
     <Content Include="other\global_error.aspx" />
     <Content Include="other\pageloading.aspx" />
     <Content Include="res\css\common.css" />
+    <Content Include="res\css\default.css" />
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\activex.aspx" />
@@ -829,6 +832,20 @@
     </Compile>
     <Compile Include="grid\grid_editor_cell_textarea.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_textarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_width_boxflex.aspx.cs">
+      <DependentUpon>grid_width_boxflex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_width_boxflex.aspx.designer.cs">
+      <DependentUpon>grid_width_boxflex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_width_forcefit_minwidth.aspx.cs">
+      <DependentUpon>grid_width_forcefit_minwidth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_width_forcefit_minwidth.aspx.designer.cs">
+      <DependentUpon>grid_width_forcefit_minwidth.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
@@ -1998,7 +2015,6 @@
     </Compile>
     <Compile Include="grid\grid_hidecolumn.aspx.cs">
       <DependentUpon>grid_hidecolumn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="grid\grid_hidecolumn.aspx.designer.cs">
       <DependentUpon>grid_hidecolumn.aspx</DependentUpon>

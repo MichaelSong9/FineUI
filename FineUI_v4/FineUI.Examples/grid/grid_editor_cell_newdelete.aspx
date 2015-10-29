@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_new_delete.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell_new_delete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_newdelete.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_newdelete" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,8 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="850px"
-            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" OnPreDataBound="Grid1_PreDataBound">
+            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" OnPreDataBound="Grid1_PreDataBound" 
+            DataIDField="Id">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server">
                     <Items>

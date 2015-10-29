@@ -310,9 +310,13 @@
     <TreeNode Text="列宽度">
       <TreeNode Text="固定各列宽度" NavigateUrl="~/grid/grid_width.aspx" >
       </TreeNode>
-      <TreeNode Text="自适应列" NavigateUrl="~/grid/grid_width_expandunusedspace.aspx" >
+      <TreeNode Text="自适应列（一列）" NavigateUrl="~/grid/grid_width_expandunusedspace.aspx" >
       </TreeNode>
-      <TreeNode Text="列宽度自适应" NavigateUrl="~/grid/grid_width_forcefit.aspx" >
+      <TreeNode Text="自适应列（多列）" NavigateUrl="~/grid/grid_width_boxflex.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="各列宽度自适应" NavigateUrl="~/grid/grid_width_forcefit.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="各列宽度自适应（最小列宽度）" NavigateUrl="~/grid/grid_width_forcefit_minwidth.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="标题栏菜单">

@@ -1,23 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_new_delete_rowexpander.aspx.cs"
-    Inherits="FineUI.Examples.grid.grid_editor_cell_new_delete_rowexpander" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="grid_editor_cell_new_editcolumnid.aspx.cs"
+    Inherits="FineUI.Examples.grid.grid_editor_cell_new_editcolumnid" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="850px"
-            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" OnPreDataBound="Grid1_PreDataBound">
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格（双击编辑）" EnableCollapse="true" Width="850px"
+            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" ClicksToEdit="2" EnableCheckBoxSelect="true" 
+            DataIDField="Id">
             <Toolbars>
                 <f:Toolbar ID="Toolbar1" runat="server">
                     <Items>
                         <f:Button ID="btnNew" Text="新增数据" Icon="Add" EnablePostBack="false" runat="server">
-                        </f:Button>
-                        <f:Button ID="btnDelete" Text="删除选中行" Icon="Delete" EnablePostBack="false" runat="server">
                         </f:Button>
                         <f:ToolbarFill runat="server">
                         </f:ToolbarFill>
@@ -27,7 +27,7 @@
                 </f:Toolbar>
             </Toolbars>
             <Columns>
-                <f:TemplateField ColumnID="Number" Width="60px">
+                <f:TemplateField Width="60px">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                     </ItemTemplate>
@@ -71,20 +71,6 @@
                         </f:TextBox>
                     </Editor>
                 </f:RenderField>
-                <f:LinkButtonField ColumnID="Delete" HeaderText="&nbsp;" Width="80px" EnablePostBack="false"
-                    Icon="Delete" />
-                <f:TemplateField ColumnID="expander" RenderAsRowExpander="true" ExpandOnDoubleClick="false">
-                    <ItemTemplate>
-                        <div class="expander">
-                            <p>
-                                <strong>姓名：</strong><%# Eval("Name") %>
-                            </p>
-                            <p>
-                                <strong>简介：</strong><%# Eval("Desc") %>
-                            </p>
-                        </div>
-                    </ItemTemplate>
-                </f:TemplateField>
             </Columns>
         </f:Grid>
         <br />
@@ -96,7 +82,7 @@
         </f:Label>
         <br />
         <br />
-        注：由于 extjs 对行扩展列的支持有限，导致本示例在[新增数据]后，点击行扩展列出现错乱的情况。
+        注：新增行后，使得 [所学专业] 列自动进入编辑状态。
     </form>
     <script>
 

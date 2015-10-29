@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FineUI.Examples.grid
 {
-    public partial class grid_editor_cell_new_delete : PageBase
+    public partial class grid_editor_cell_newdelete_rowexpander : PageBase
     {
         private bool AppendToEnd = false;
 
@@ -50,7 +50,7 @@ namespace FineUI.Examples.grid
         // 删除选中行的脚本
         private string GetDeleteScript()
         {
-            return Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Grid1.GetDeleteSelectedReference(), String.Empty);
+            return Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Grid1.GetDeleteSelectedRowsReference(), String.Empty);
         }
         
 
@@ -130,47 +130,42 @@ namespace FineUI.Examples.grid
             }
             
 
-            labResult.Text = "用户修改的数据：" + Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.None);
+            labResult.Text = String.Format("用户修改的数据：<pre>{0}</pre>", Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.Indented));
 
             BindGrid();
 
             Alert.Show("数据保存成功！（表格数据已重新绑定）");
         }
 
-        private static void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)
+        private void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)
         {
             // 姓名
-            if (rowDict.ContainsKey("Name"))
-            {
-                rowData["Name"] = rowDict["Name"];
-            }
+            UpdateDataRow("Name", rowDict, rowData);
+
             // 性别
-            if (rowDict.ContainsKey("Gender"))
-            {
-                rowData["Gender"] = rowDict["Gender"];
-            }
+            UpdateDataRow("Gender", rowDict, rowData);
+
             // 入学年份
-            if (rowDict.ContainsKey("EntranceYear"))
-            {
-                rowData["EntranceYear"] = rowDict["EntranceYear"];
-            }
+            UpdateDataRow("EntranceYear", rowDict, rowData);
+
             // 入学日期
-            if (rowDict.ContainsKey("EntranceDate"))
-            {
-                rowData["EntranceDate"] = rowDict["EntranceDate"];
-            }
+            UpdateDataRow("EntranceDate", rowDict, rowData);
+
             // 是否在校
-            if (rowDict.ContainsKey("AtSchool"))
-            {
-                rowData["AtSchool"] = rowDict["AtSchool"];
-            }
+            UpdateDataRow("AtSchool", rowDict, rowData);
+
             // 所学专业
-            if (rowDict.ContainsKey("Major"))
-            {
-                rowData["Major"] = rowDict["Major"];
-            }
+            UpdateDataRow("Major", rowDict, rowData);
+
         }
 
+        private void UpdateDataRow(string columnName, Dictionary<string, object> rowDict, DataRow rowData)
+        {
+            if (rowDict.ContainsKey(columnName))
+            {
+                rowData[columnName] = rowDict[columnName];
+            }
+        }
 
 
 
@@ -178,7 +173,7 @@ namespace FineUI.Examples.grid
 
         #region Data
 
-        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_new_delete";
+        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_newdelete_rowexpander";
 
         // 模拟在服务器端保存数据
         // 特别注意：在真实的开发环境中，不要在Session放置大量数据，否则会严重影响服务器性能
@@ -186,7 +181,7 @@ namespace FineUI.Examples.grid
         {
             if (Session[KEY_FOR_DATASOURCE_SESSION] == null)
             {
-                Session[KEY_FOR_DATASOURCE_SESSION] = GetDataTable();
+                Session[KEY_FOR_DATASOURCE_SESSION] = DataSourceUtil.GetDataTable();
             }
             return (DataTable)Session[KEY_FOR_DATASOURCE_SESSION];
         }
