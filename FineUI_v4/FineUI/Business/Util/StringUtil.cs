@@ -49,7 +49,7 @@ namespace FineUI
         /// <summary>
         /// GZIP压缩的ViewState隐藏字段的ID
         /// </summary>
-        public static readonly string GZIPPED_VIEWSTATE_ID = "__VIEWSTATE_GZ"; 
+        public static readonly string GZIPPED_VIEWSTATE_ID = "__VIEWSTATE_GZ";
 
         #endregion
 
@@ -382,17 +382,44 @@ namespace FineUI
         /// <returns>小数</returns>
         public static string ConvertPercentageToDecimalString(string percentageStr)
         {
+            //string decimalStr = String.Empty;
+
+            //percentageStr = percentageStr.Trim().Replace("％", "%").TrimEnd('%');
+
+            //try
+            //{
+            //    decimalStr = (Convert.ToDouble(percentageStr) * 0.01).ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+            //}
+            //catch
+            //{
+            //    ;
+            //}
+
+            //return decimalStr;
+
             string decimalStr = String.Empty;
 
-            percentageStr = percentageStr.Trim().Replace("％", "%").TrimEnd('%');
+            percentageStr = percentageStr.Trim().ToLower().Replace("％", "%");
+            if (percentageStr.EndsWith("%"))
+            {
+                percentageStr = percentageStr.TrimEnd('%');
 
-            try
-            {
-                decimalStr = (Convert.ToDouble(percentageStr) * 0.01).ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+                try
+                {
+                    decimalStr = (Convert.ToDouble(percentageStr) * 0.01).ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    // nothing
+                }
             }
-            catch
+            else if (percentageStr.EndsWith("px"))
             {
-                ;
+                decimalStr = percentageStr.Substring(0, percentageStr.Length - 2);
+            }
+            else
+            {
+                decimalStr = percentageStr;
             }
 
             return decimalStr;
@@ -442,7 +469,7 @@ namespace FineUI
         {
             byte[] toEncodeAsBytes = System.Text.UTF8Encoding.UTF8.GetBytes(toEncode);
             return System.Convert.ToBase64String(toEncodeAsBytes);
-        } 
+        }
         #endregion
 
         #region Gzip/Ungzip
@@ -496,7 +523,7 @@ namespace FineUI
                     return System.Text.Encoding.UTF8.GetString(memory.ToArray());
                 }
             }
-        } 
+        }
         #endregion
 
         #region LoadGzippedViewState
@@ -525,7 +552,7 @@ namespace FineUI
                 formatter.Serialize(writer, viewState);
                 return StringUtil.Gzip(writer.ToString());
             }
-        } 
+        }
         #endregion
 
     }

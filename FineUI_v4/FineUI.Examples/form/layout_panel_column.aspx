@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="layout_panel2.aspx.cs"
-    Inherits="FineUI.Examples.form.layout_panel2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="layout_panel_column.aspx.cs"
+    Inherits="FineUI.Examples.form.layout_panel_column" %>
 
 <!DOCTYPE html>
 <html>

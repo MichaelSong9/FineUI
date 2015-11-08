@@ -377,7 +377,7 @@ namespace FineUI
             StringBuilder sb = new StringBuilder();
             if (PropertyModified("Readonly"))
             {
-                sb.AppendFormat("{0}.setReadOnly({1});", XID, Readonly.ToString().ToLower());
+                sb.AppendFormat("{0}.f_setReadOnly();", XID);
             }
 
             if (PropertyModified("Label"))

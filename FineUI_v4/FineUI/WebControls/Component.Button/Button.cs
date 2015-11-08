@@ -47,7 +47,7 @@ namespace FineUI
     [ParseChildren(true)]
     [PersistChildren(false)]
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
-    public class Button : Component, IPostBackEventHandler, IPostBackDataHandler
+    public class Button : BoxComponent, IPostBackEventHandler, IPostBackDataHandler
     {
         #region Constructor
 

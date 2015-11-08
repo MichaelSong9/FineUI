@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.grid {
+namespace FineUI.Examples.form {
     
     
-    public partial class grid_editor_cell_delete {
+    public partial class form_longlabel {
         
         /// <summary>
         /// form1 控件。
@@ -31,58 +31,40 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Grid1 控件。
+        /// SimpleForm1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Grid Grid1;
+        protected global::FineUI.SimpleForm SimpleForm1;
         
         /// <summary>
-        /// Toolbar1 控件。
+        /// tbxUserName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Toolbar Toolbar1;
+        protected global::FineUI.TextBox tbxUserName;
         
         /// <summary>
-        /// btnDelete 控件。
+        /// tbxMyBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnDelete;
+        protected global::FineUI.TriggerBox tbxMyBox1;
         
         /// <summary>
-        /// Label1 控件。
+        /// NumberBox5 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// tbxEditorName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox tbxEditorName;
-        
-        /// <summary>
-        /// tbxEditorEntranceYear 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.NumberBox tbxEditorEntranceYear;
+        protected global::FineUI.NumberBox NumberBox5;
         
         /// <summary>
         /// DatePicker1 控件。
@@ -94,30 +76,12 @@ namespace FineUI.Examples.grid {
         protected global::FineUI.DatePicker DatePicker1;
         
         /// <summary>
-        /// tbxEditorMajor 控件。
+        /// btnSubmit 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox tbxEditorMajor;
-        
-        /// <summary>
-        /// Button2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button Button2;
-        
-        /// <summary>
-        /// labResult 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Label labResult;
+        protected global::FineUI.Button btnSubmit;
     }
 }

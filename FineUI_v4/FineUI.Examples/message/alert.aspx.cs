@@ -17,6 +17,7 @@ namespace FineUI.Examples.message
         {
             
             Alert alert = new Alert();
+            alert.CssClass = "myalert";
             alert.Message = "你好 FineUI！";
             alert.Icon = Icon.Book;
             alert.Show();

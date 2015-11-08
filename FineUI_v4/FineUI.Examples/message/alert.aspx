@@ -5,6 +5,11 @@
 <head runat="server">
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
+    <style>
+        .myalert .x-dlg-icon {
+            background-size: auto 100%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

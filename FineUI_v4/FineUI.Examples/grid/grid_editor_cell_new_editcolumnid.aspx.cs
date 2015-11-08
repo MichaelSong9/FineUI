@@ -136,7 +136,7 @@ namespace FineUI.Examples.grid
 
         #region Data
 
-        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_new";
+        private static readonly string KEY_FOR_DATASOURCE_SESSION = "datatable_for_grid_editor_cell_new_editcolumnid";
 
         // 模拟在服务器端保存数据
         // 特别注意：在真实的开发环境中，不要在Session放置大量数据，否则会严重影响服务器性能

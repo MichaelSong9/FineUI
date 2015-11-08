@@ -116,11 +116,17 @@
     <TreeNode Text="表单布局">
       <TreeNode Text="按钮与表单" NavigateUrl="~/form/layout_panel.aspx" >
       </TreeNode>
-      <TreeNode Text="自定义表单布局" NavigateUrl="~/form/layout_panel2.aspx" >
+      <TreeNode Text="复杂布局（列布局）" NavigateUrl="~/form/layout_panel_column.aspx" >
       </TreeNode>
       <TreeNode Text="复杂布局（联系我们）" NavigateUrl="~/form/layout_contactus.aspx" IsNew="true" >
       </TreeNode>
       <TreeNode Text="复杂布局（账单信息）" NavigateUrl="~/form/layout_checkout.aspx" IsNew="true" >
+      </TreeNode>
+      <TreeNode Text="按钮水平居中" NavigateUrl="~/form/form_center_button.aspx" >
+      </TreeNode>
+      <TreeNode Text="标签文本水平居中" NavigateUrl="~/form/layout_center_label.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="表单中的多行按钮" NavigateUrl="~/form/layout_multiline_buttons.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="下拉列表控件">
@@ -176,9 +182,13 @@
       </TreeNode>
       <TreeNode Text="隐藏表单字段" NavigateUrl="~/form/form_hide_field.aspx" >
       </TreeNode>
-      <TreeNode Text="按钮水平居中" NavigateUrl="~/form/form_center_button.aspx" >
-      </TreeNode>
       <TreeNode Text="禁用与只读" NavigateUrl="~/form/form_disabled.aspx" IsNew="true" >
+      </TreeNode>
+      <TreeNode Text="自定义标签宽度和位置" NavigateUrl="~/form/form_labelwidth.aspx" IsNew="true" >
+      </TreeNode>
+      <TreeNode Text="标签换行" NavigateUrl="~/form/form_longlabel.aspx" IsNew="true" >
+      </TreeNode>
+      <TreeNode Text="ColumnWidths混合使用百分比和固定宽度" NavigateUrl="~/form/form_columnwidths.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
   </TreeNode>
@@ -322,8 +332,6 @@
     <TreeNode Text="标题栏菜单">
       <TreeNode Text="隐藏标题栏" NavigateUrl="~/grid/grid_header_hide.aspx" IsNew="true">
       </TreeNode>
-      <TreeNode Text="标题栏自动换行" NavigateUrl="~/grid/grid_header_wrap.aspx" IsNew="true">
-      </TreeNode>
       <TreeNode Text="禁用表头菜单" NavigateUrl="~/grid/grid_header_disablemenu.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
@@ -387,7 +395,7 @@
         </TreeNode>
         <TreeNode Text="新增行与删除行" NavigateUrl="~/grid/grid_editor_cell_newdelete.aspx" >
         </TreeNode>
-        <TreeNode Text="新增行与删除行" NavigateUrl="~/grid/grid_editor_cell_newdelete_getmergeddata.aspx" IsNew="true">
+        <TreeNode Text="新增行与删除行（GetMergedData）" NavigateUrl="~/grid/grid_editor_cell_newdelete_getmergeddata.aspx" IsNew="true">
         </TreeNode>
       </TreeNode>
       <TreeNode Text="结束编辑">
@@ -729,6 +737,8 @@
       <TreeNode Text="响应确定按钮（点击确定按钮后，先隐藏窗体再下载文件）" NavigateUrl="~/message/alert_download_hide.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="响应确定按钮（点击确定按钮后，先隐藏IFrame窗体再下载文件）" NavigateUrl="~/message/alert_download_hideiframe.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="自定义对话框按钮文本" NavigateUrl="~/message/confirm_buttons.aspx" IsNew="true">
       </TreeNode>
     </TreeNode>
     <TreeNode Text="页面回发提示" NavigateUrl="~/other/ajax_loading.aspx">

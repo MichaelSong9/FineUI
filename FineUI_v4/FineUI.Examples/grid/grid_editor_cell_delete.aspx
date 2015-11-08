@@ -22,7 +22,7 @@
                 </f:Toolbar>
             </Toolbars>
             <Columns>
-                <f:TemplateField Width="60px" ID="ctl08" ColumnID="Grid1_ctl08">
+                <f:TemplateField Width="60px" ColumnID="Grid1_ctl08">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                     </ItemTemplate>
@@ -67,7 +67,7 @@
                     </Editor>
                 </f:RenderField>
                 <f:LinkButtonField HeaderText="&nbsp;" Width="80px" ConfirmText="删除选中行？" ConfirmTarget="Top"
-                    CommandName="Delete" Icon="Delete" ID="ctl15" ColumnID="Grid1_ctl15" />
+                    CommandName="Delete" Icon="Delete" ColumnID="Grid1_ctl15" />
             </Columns>
         </f:Grid>
         <br />

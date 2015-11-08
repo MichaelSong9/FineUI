@@ -883,6 +883,37 @@ namespace FineUI
             }
         }
 
+        /// <summary>
+        /// 表单行子项之间的间距
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(typeof(Unit), ConfigPropertyValue.FORMROW_ITEMSSPACE_DEFAULT_STRING)]
+        [Description("表单行子项之间的间距")]
+        public Unit FormRowItemsSpace
+        {
+            get
+            {
+                object obj = FState["FormRowItemsSpace"];
+                if (obj == null)
+                {
+                    if (DesignMode)
+                    {
+                        return (Unit)ConfigPropertyValue.FORMROW_ITEMSSPACE_DEFAULT;
+                    }
+                    else
+                    {
+                        return (Unit)GlobalConfig.GetFormRowItemsSpace();
+                    }
+                }
+                return (Unit)obj;
+            }
+            set
+            {
+                FState["FormRowItemsSpace"] = value;
+            }
+        }
+
+
 
         /// <summary>
         /// 表单中标签的位置

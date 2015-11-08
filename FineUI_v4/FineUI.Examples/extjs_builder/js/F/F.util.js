@@ -1223,7 +1223,7 @@ Ext.onReady(function () {
 
         // 对话框图标
         getMessageBoxIcon: function (iconShortName) {
-            var icon = Ext.MessageBox.WARNING;
+            var icon = iconShortName || Ext.MessageBox.WARNING;
             if (iconShortName === 'info') {
                 icon = Ext.MessageBox.INFO;
             } else if (iconShortName === 'warning') {
@@ -1265,6 +1265,7 @@ Ext.onReady(function () {
             }
 
             wnd.Ext.MessageBox.show({
+                cls: options.cls || '',
                 title: options.title || F.util.alertTitle,
                 msg: options.message,
                 buttons: Ext.MessageBox.OK,
@@ -1309,6 +1310,7 @@ Ext.onReady(function () {
 
             var icon = F.util.getMessageBoxIcon(options.messageIcon);
             wnd.Ext.MessageBox.show({
+                cls: options.cls || '',
                 title: options.title || F.util.confirmTitle,
                 msg: options.message,
                 buttons: Ext.MessageBox.OKCANCEL,

@@ -73,6 +73,11 @@
     <Content Include="dropdownlist\multiselect_autopostback_enableedit.aspx" />
     <Content Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx" />
     <Content Include="extjs_builder\version.txt" />
+    <Content Include="form\form_columnwidths.aspx" />
+    <Content Include="form\form_labelwidth.aspx" />
+    <Content Include="form\form_longlabel.aspx" />
+    <Content Include="form\layout_center_label.aspx" />
+    <Content Include="form\layout_multiline_buttons.aspx" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_selectcell.aspx" />
@@ -140,6 +145,7 @@
     <Content Include="message\alert_download_hide.aspx" />
     <Content Include="message\alert_download_hideiframe.aspx" />
     <Content Include="message\alert_download_hideiframe_window.aspx" />
+    <Content Include="message\confirm_buttons.aspx" />
     <Content Include="other\authentication_timeout.aspx" />
     <Content Include="other\authentication_timeout_async.aspx" />
     <Content Include="other\global_error.aspx" />
@@ -359,7 +365,7 @@
     <Content Include="form\tooltip.aspx" />
     <Content Include="form\textarea_autogrow.aspx" />
     <Content Include="form\checkboxlist.aspx" />
-    <Content Include="form\layout_panel2.aspx" />
+    <Content Include="form\layout_panel_column.aspx" />
     <Content Include="form\datepicker_autopostback.aspx" />
     <Content Include="form\calendar.aspx" />
     <Content Include="form\datepicker_range.aspx" />
@@ -581,6 +587,41 @@
     </Compile>
     <Compile Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx.designer.cs">
       <DependentUpon>dropdownlist_autopostback_enableedit_noforceselection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\form_columnwidths.aspx.cs">
+      <DependentUpon>form_columnwidths.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\form_columnwidths.aspx.designer.cs">
+      <DependentUpon>form_columnwidths.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\form_labelwidth.aspx.cs">
+      <DependentUpon>form_labelwidth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\form_labelwidth.aspx.designer.cs">
+      <DependentUpon>form_labelwidth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\form_longlabel.aspx.cs">
+      <DependentUpon>form_longlabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\form_longlabel.aspx.designer.cs">
+      <DependentUpon>form_longlabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\layout_center_label.aspx.cs">
+      <DependentUpon>layout_center_label.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\layout_center_label.aspx.designer.cs">
+      <DependentUpon>layout_center_label.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\layout_multiline_buttons.aspx.cs">
+      <DependentUpon>layout_multiline_buttons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\layout_multiline_buttons.aspx.designer.cs">
+      <DependentUpon>layout_multiline_buttons.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1061,6 +1102,13 @@
     </Compile>
     <Compile Include="message\alert_download_hideiframe_window.aspx.designer.cs">
       <DependentUpon>alert_download_hideiframe_window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="message\confirm_buttons.aspx.cs">
+      <DependentUpon>confirm_buttons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message\confirm_buttons.aspx.designer.cs">
+      <DependentUpon>confirm_buttons.aspx</DependentUpon>
     </Compile>
     <Compile Include="other\authentication_timeout.aspx.cs">
       <DependentUpon>authentication_timeout.aspx</DependentUpon>
@@ -1884,12 +1932,12 @@
     <Compile Include="form\checkboxlist.aspx.designer.cs">
       <DependentUpon>checkboxlist.aspx</DependentUpon>
     </Compile>
-    <Compile Include="form\layout_panel2.aspx.cs">
-      <DependentUpon>layout_panel2.aspx</DependentUpon>
+    <Compile Include="form\layout_panel_column.aspx.cs">
+      <DependentUpon>layout_panel_column.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="form\layout_panel2.aspx.designer.cs">
-      <DependentUpon>layout_panel2.aspx</DependentUpon>
+    <Compile Include="form\layout_panel_column.aspx.designer.cs">
+      <DependentUpon>layout_panel_column.aspx</DependentUpon>
     </Compile>
     <Compile Include="form\datepicker_autopostback.aspx.cs">
       <DependentUpon>datepicker_autopostback.aspx</DependentUpon>

@@ -34,7 +34,7 @@ namespace FineUI
     /// <summary>
     /// 确认对话框帮助类（静态类）
     /// </summary>
-    public static class Confirm
+    public class Confirm
     {
         #region public static
 
@@ -51,6 +51,174 @@ namespace FineUI
         ///// </summary>
         //public static MessageBoxIcon DefaultIcon = MessageBoxIcon.Question;
 
+
+        #endregion
+
+        #region class
+
+        private string _cssClass;
+
+        /// <summary>
+        /// 样式类名
+        /// </summary>
+        public string CssClass
+        {
+            get { return _cssClass; }
+            set { _cssClass = value; }
+        }
+
+
+        private string _message;
+
+        /// <summary>
+        /// 对话框消息正文
+        /// </summary>
+        public string Message
+        {
+            get { return _message; }
+            set { _message = value; }
+        }
+
+        private string _title;
+
+        /// <summary>
+        /// 对话框标题
+        /// </summary>
+        public string Title
+        {
+            get { return _title; }
+            set { _title = value; }
+        }
+
+        private MessageBoxIcon _messageBoxIcon = DefaultMessageBoxIcon;
+
+        /// <summary>
+        /// 对话框图标
+        /// </summary>
+        public MessageBoxIcon MessageBoxIcon
+        {
+            get { return _messageBoxIcon; }
+            set { _messageBoxIcon = value; }
+        }
+
+        private string _okScript;
+
+        /// <summary>
+        /// 点击确认按钮执行的JavaScript脚本
+        /// </summary>
+        public string OkScript
+        {
+            get { return _okScript; }
+            set { _okScript = value; }
+        }
+
+
+        private string _cancelScript;
+
+        /// <summary>
+        /// 点击取消按钮执行的JavaScript脚本
+        /// </summary>
+        public string CancelScript
+        {
+            get { return _cancelScript; }
+            set { _cancelScript = value; }
+        }
+
+        private Target _target;
+
+        /// <summary>
+        /// 对话框的目标位置
+        /// </summary>
+        public Target Target
+        {
+            get { return _target; }
+            set { _target = value; }
+        }
+
+        //private string _iconUrl;
+
+        ///// <summary>
+        ///// 自定义对话框图标地址
+        ///// </summary>
+        //public string IconUrl
+        //{
+        //    get { return _iconUrl; }
+        //    set { _iconUrl = value; }
+        //}
+
+        //private Icon _icon = Icon.None;
+
+        ///// <summary>
+        ///// 自定义对话框图标
+        ///// </summary>
+        //public Icon Icon
+        //{
+        //    get { return _icon; }
+        //    set { _icon = value; }
+        //}
+
+
+        /// <summary>
+        /// 显示对话框
+        /// </summary>
+        public void Show()
+        {
+            //Show(Message, Title, MessageBoxIcon, OkScript, Target, Icon, IconUrl);
+            PageContext.RegisterStartupScript(this.GetShowReference());
+        }
+
+        /// <summary>
+        /// 获取显示对话框的客户端脚本
+        /// </summary>
+        /// <returns>客户端脚本</returns>
+        public string GetShowReference()
+        {
+            string message = "";
+            string title = "";
+            if (!String.IsNullOrEmpty(Message))
+            {
+                message = Message;
+            }
+            if (!String.IsNullOrEmpty(Title))
+            {
+                title = Title;
+            }
+
+
+            JsObjectBuilder jsOB = new JsObjectBuilder();
+
+            if (!String.IsNullOrEmpty(CancelScript))
+            {
+                jsOB.AddProperty("cancel", CancelScript);
+            }
+
+            if (!String.IsNullOrEmpty(OkScript))
+            {
+                jsOB.AddProperty("ok", OkScript);
+            }
+
+            if (Target != Target.Self)
+            {
+                jsOB.AddProperty("target", TargetHelper.GetName(Target));
+            }
+
+            if (MessageBoxIcon != MessageBoxIcon.Warning)
+            {
+                jsOB.AddProperty("messageIcon", MessageBoxIconHelper.GetShortName(MessageBoxIcon));
+            }
+
+            if (!String.IsNullOrEmpty(title))
+            {
+                jsOB.AddProperty("title", title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+            }
+
+            if (!String.IsNullOrEmpty(message))
+            {
+                jsOB.AddProperty("message", JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>")), true);
+            }
+
+            return String.Format("F.confirm({0});", jsOB.ToString());
+        }
 
         #endregion
 
@@ -361,6 +529,16 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public static string GetShowReference(string message, string title, MessageBoxIcon icon, string okScript, string cancelScript, Target target)
         {
+            Confirm confirm = new Confirm();
+            confirm.Message = message;
+            confirm.Title = title;
+            confirm.MessageBoxIcon = icon;
+            confirm.OkScript = okScript;
+            confirm.CancelScript = cancelScript;
+            confirm.Target = target;
+
+            return confirm.GetShowReference();
+
             /*
                 if (String.IsNullOrEmpty(title))
                 {
@@ -408,56 +586,43 @@ namespace FineUI
             //string scriptCancel = JsHelper.Enquote(cancelScript);
             //string scriptOK = JsHelper.Enquote(okScript);
 
-            JsObjectBuilder jsOB = new JsObjectBuilder();
 
-            if (!String.IsNullOrEmpty(cancelScript))
-            {
-                jsOB.AddProperty("cancel", cancelScript);
-            }
 
-            if (!String.IsNullOrEmpty(okScript))
-            {
-                jsOB.AddProperty("ok", okScript);
-            }
+            //JsObjectBuilder jsOB = new JsObjectBuilder();
 
-            if (target != Target.Self)
-            {
-                jsOB.AddProperty("target", TargetHelper.GetName(target));
-            }
-
-            if (icon != MessageBoxIcon.Warning)
-            {
-                jsOB.AddProperty("messageIcon", MessageBoxIconHelper.GetShortName(icon));
-            }
-
-            if (!String.IsNullOrEmpty(title))
-            {
-                jsOB.AddProperty("title", title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
-            }
-
-            if (!String.IsNullOrEmpty(message))
-            {
-                jsOB.AddProperty("message", JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>")), true);
-            }
-
-            return String.Format("F.confirm({0});", jsOB.ToString());
-
-            //if (scriptIconName == "''")
+            //if (!String.IsNullOrEmpty(cancelScript))
             //{
-            //    if (scriptCancel == "''")
-            //    {
-            //        return String.Format("F.confirm({0},{1},{2},{3});", scriptTargetName, scriptTitle, scriptMessage, scriptOK);
-            //    }
-            //    else
-            //    {
-            //        return String.Format("F.confirm({0},{1},{2},{3},{4});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel);
-            //    }
-            //}
-            //else
-            //{
-            //    return String.Format("F.confirm({0},{1},{2},{3},{4},{5});", scriptTargetName, scriptTitle, scriptMessage, scriptOK, scriptCancel, scriptIconName);
+            //    jsOB.AddProperty("cancel", cancelScript);
             //}
 
+            //if (!String.IsNullOrEmpty(okScript))
+            //{
+            //    jsOB.AddProperty("ok", okScript);
+            //}
+
+            //if (target != Target.Self)
+            //{
+            //    jsOB.AddProperty("target", TargetHelper.GetName(target));
+            //}
+
+            //if (icon != MessageBoxIcon.Warning)
+            //{
+            //    jsOB.AddProperty("messageIcon", MessageBoxIconHelper.GetShortName(icon));
+            //}
+
+            //if (!String.IsNullOrEmpty(title))
+            //{
+            //    jsOB.AddProperty("title", title.Replace("\r\n", "\n").Replace("\n", "<br/>"));
+            //}
+
+            //if (!String.IsNullOrEmpty(message))
+            //{
+            //    jsOB.AddProperty("message", JsHelper.EnquoteWithScriptTag(message.Replace("\r\n", "\n").Replace("\n", "<br/>")), true);
+            //}
+
+            //return String.Format("F.confirm({0});", jsOB.ToString());
+
+            
         }
 
         #endregion

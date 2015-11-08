@@ -8,7 +8,8 @@
     <title></title>
     <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
     <style>
-        .f-grid-colheader-Major .f-grid-colheader-text {
+        /* 开源版有问题，实现不了 */
+        #Major .x-column-header-text {
             white-space: normal;
             word-break: break-all;
         }

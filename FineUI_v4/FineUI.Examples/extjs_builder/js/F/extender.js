@@ -334,68 +334,77 @@ if (Ext.form.field.Base) {
             if (this.setFieldLabel) {
                 this.setFieldLabel(text);
             }
-        }
+        },
 
-    });
-}
+        f_setReadOnly: function (readonly) {
+            var me = this;
 
-if (Ext.form.field.Time) {
-    Ext.override(Ext.form.field.Time, {
-
-        // Time 继承自 ComboBox，这个函数被覆盖了，因此需要重新定义
-        f_setValue: function (value) {
-            if (typeof (value) === 'undefined') {
-                value = this.f_state['Text'];
+            if (typeof (readonly) === 'undefined') {
+                readonly = me.f_state['Readonly'];
             }
-            this.setValue(value);
-        }
 
-    });
-}
-
-
-if (Ext.form.field.HtmlEditor) {
-    Ext.override(Ext.form.field.HtmlEditor, {
-
-        f_setValue: function (text) {
-            if (typeof (text) === 'undefined') {
-                text = this.f_state['Text'];
+            if (me.setReadOnly) {
+                me.setReadOnly(readonly);
             }
-            this.setValue(text);
+
+            if (readonly) {
+                me.el.addCls('f-readonly');
+            } else {
+                me.el.removeCls('f-readonly');
+            }
         }
 
     });
 }
 
 
-if (Ext.form.field.Checkbox) {
-    Ext.override(Ext.form.field.Checkbox, {
+if (Ext.form.Label) {
+    Ext.override(Ext.form.Label, {
 
-        f_setValue: function () {
-            this.setValue(this.f_state['Checked']);
+        f_setReadOnly: function (readonly) {
+            var me = this;
+
+            if (typeof (readonly) === 'undefined') {
+                readonly = me.f_state['Readonly'];
+            }
+
+            if (me.setReadOnly) {
+                me.setReadOnly(readonly);
+            }
+
+            if (readonly) {
+                me.el.addCls('f-readonly');
+            } else {
+                me.el.removeCls('f-readonly');
+            }
         }
 
     });
+
 }
 
-
-if (Ext.form.RadioGroup) {
-    Ext.override(Ext.form.RadioGroup, {
-
-        f_setValue: function (value) {
-            value = value || this.f_state['SelectedValue'];
-            var selectedObj = {};
-            selectedObj[this.name] = value;
-            this.setValue(selectedObj);
-            //Ext.form.CheckboxGroup.prototype.f_setValue.apply(this, [value]);
-        }
-
-    });
-}
 
 
 if (Ext.form.CheckboxGroup) {
     Ext.override(Ext.form.CheckboxGroup, {
+
+        f_setReadOnly: function (readonly) {
+            var me = this;
+
+            if (typeof (readonly) === 'undefined') {
+                readonly = me.f_state['Readonly'];
+            }
+
+            if (me.setReadOnly) {
+                me.setReadOnly(readonly);
+            }
+
+            if (readonly) {
+                me.el.addCls('f-readonly');
+            } else {
+                me.el.removeCls('f-readonly');
+            }
+        },
 
         f_reloadData: function (name, isradiogroup) {
             var container = this.ownerCt;
@@ -464,6 +473,63 @@ if (Ext.form.CheckboxGroup) {
 
     });
 }
+
+
+
+if (Ext.form.field.Time) {
+    Ext.override(Ext.form.field.Time, {
+
+        // Time 继承自 ComboBox，这个函数被覆盖了，因此需要重新定义
+        f_setValue: function (value) {
+            if (typeof (value) === 'undefined') {
+                value = this.f_state['Text'];
+            }
+            this.setValue(value);
+        }
+
+    });
+}
+
+
+if (Ext.form.field.HtmlEditor) {
+    Ext.override(Ext.form.field.HtmlEditor, {
+
+        f_setValue: function (text) {
+            if (typeof (text) === 'undefined') {
+                text = this.f_state['Text'];
+            }
+            this.setValue(text);
+        }
+
+    });
+}
+
+
+if (Ext.form.field.Checkbox) {
+    Ext.override(Ext.form.field.Checkbox, {
+
+        f_setValue: function () {
+            this.setValue(this.f_state['Checked']);
+        }
+
+    });
+}
+
+
+if (Ext.form.RadioGroup) {
+    Ext.override(Ext.form.RadioGroup, {
+
+        f_setValue: function (value) {
+            value = value || this.f_state['SelectedValue'];
+            var selectedObj = {};
+            selectedObj[this.name] = value;
+            this.setValue(selectedObj);
+            //Ext.form.CheckboxGroup.prototype.f_setValue.apply(this, [value]);
+        }
+
+    });
+}
+
 
 if (Ext.form.field.ComboBox) {
     Ext.override(Ext.form.field.ComboBox, {
@@ -1091,10 +1157,15 @@ if (Ext.grid.Panel) {
 		    var me = this, store = me.getStore();
             var newRecord = defaultObj; //new Ext.data.Model(defaultObj);
 			
+
+		    // 如果设置了 id，则 extjs 认为这不是一个 phantom（幻影），而是一个真实存在的数据，rejectChanges 就不能去除这条数据了
+            /*
             // 自动生成ID
 			if(typeof(newRecord.__id) === 'undefined') {
 			    newRecord.__id = me.f_generateNewId();
 			}
+            */
+            
 
 			me.f_cellEditing.cancelEdit();
 
@@ -1108,6 +1179,14 @@ if (Ext.grid.Panel) {
                 //rowIndex = 0;
             }
 
+            var newAddedRecord = newAddedRecords[0];
+
+		    
+		    // phantom: True when the record does not yet exist in a server-side database (see setDirty). Any record which has a real database pk set as its id property is NOT a phantom -- it's real.
+		    // 如果设置了 id 属性，则 extjs 认为这不是一个 phantom（幻影），而是一个真实存在的数据，然后通过 getStore().getModifiedRecords() 就得不到这条记录了。
+		    // 所以需要设置 setDirty
+            //newAddedRecord.setDirty(true);
+
             var column;
             if (typeof (editColumnId) === 'undefined') {
                 column = me.f_firstEditableColumn();
@@ -1115,7 +1194,7 @@ if (Ext.grid.Panel) {
                 column = me.f_getColumn(editColumnId);
             }
 
-            me.f_cellEditing.startEdit(newAddedRecords[0], column);
+            me.f_cellEditing.startEdit(newAddedRecord, column);
 		},
 
 

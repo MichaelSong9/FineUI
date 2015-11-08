@@ -10,7 +10,7 @@
 namespace FineUI.Examples.form {
     
     
-    public partial class form_hide_field {
+    public partial class layout_multiline_buttons {
         
         /// <summary>
         /// _form1 控件。
@@ -31,112 +31,67 @@ namespace FineUI.Examples.form {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Form2 控件。
+        /// Form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Form Form2;
+        protected global::FineUI.SimpleForm Form1;
         
         /// <summary>
-        /// labTitle 控件。
+        /// Label1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Label labTitle;
+        protected global::FineUI.Label Label1;
         
         /// <summary>
-        /// labLiuShuiHao 控件。
+        /// CheckBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Label labLiuShuiHao;
+        protected global::FineUI.CheckBox CheckBox1;
         
         /// <summary>
-        /// FormRow2 控件。
+        /// DropDownList1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.FormRow FormRow2;
+        protected global::FineUI.DropDownList DropDownList1;
         
         /// <summary>
-        /// labPhone 控件。
+        /// TextBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Label labPhone;
+        protected global::FineUI.TextBox TextBox1;
         
         /// <summary>
-        /// Label16 控件。
+        /// Panel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Label Label16;
+        protected global::FineUI.Panel Panel1;
         
         /// <summary>
-        /// FormRow3 控件。
+        /// Button3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.FormRow FormRow3;
-        
-        /// <summary>
-        /// Label4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Label Label4;
-        
-        /// <summary>
-        /// TextBox2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox TextBox2;
-        
-        /// <summary>
-        /// DropDownList3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.DropDownList DropDownList3;
-        
-        /// <summary>
-        /// NumberBox1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.NumberBox NumberBox1;
-        
-        /// <summary>
-        /// TextArea1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextArea TextArea1;
+        protected global::FineUI.Button Button3;
         
         /// <summary>
         /// Panel2 控件。
@@ -148,48 +103,21 @@ namespace FineUI.Examples.form {
         protected global::FineUI.Panel Panel2;
         
         /// <summary>
-        /// btnSubmitForm2 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnSubmitForm2;
+        protected global::FineUI.Button Button1;
         
         /// <summary>
-        /// btnShowHideTitle 控件。
+        /// btnReset 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Button btnShowHideTitle;
-        
-        /// <summary>
-        /// btnShowHidePhone 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnShowHidePhone;
-        
-        /// <summary>
-        /// btnShowHideFormRow2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnShowHideFormRow2;
-        
-        /// <summary>
-        /// btnShowHideFormRow3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnShowHideFormRow3;
+        protected global::FineUI.Button btnReset;
     }
 }

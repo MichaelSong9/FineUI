@@ -398,6 +398,7 @@
 
 
 
+            // 此函数源代码定义在：extjs_builder\js\F\F.util.js
             // 初始化主框架中的树(或者Accordion+Tree)和选项卡互动，以及地址栏的更新
             // treeMenu： 主框架中的树控件实例，或者内嵌树控件的手风琴控件实例
             // mainTabStrip： 选项卡实例
@@ -429,7 +430,9 @@
             };
 
 
+
             // 添加工具图标，并在点击时显示上下文菜单
+            // 专业版提醒：请将 type:'gear' 改为 iconFont:'gear'
             leftPanel.addTool({
                 type: 'gear',
                 //tooltip: '系统设置',
