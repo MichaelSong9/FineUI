@@ -1,6 +1,9 @@
 ﻿
 (function () {
 
+    // 正在进行中的AJAX请求个数
+    var __ajaxUnderwayCount = 0;
+
     F.ajax = {
 
         timeoutErrorMsg: "Request timeout, please refresh the page and try again!",
@@ -129,15 +132,21 @@
 
             }
 
+            ajaxStart();
+
+
+            // 判断是否有文件上传
+            var isFileUpload = !!Ext.get(theForm).query('input[type=file]').length;
+
             Ext.Ajax.request({
                 form: theForm.id,
                 url: url,
-                isUpload: F.form_upload_file,
+                isUpload: isFileUpload, //F.form_upload_file,
                 //params: serializeForm(theForm) + '&X_AJAX=true',
                 success: function (data) {
                     var scripts = data.responseText;
 
-                    if (scripts && F.form_upload_file) {
+                    if (scripts && isFileUpload) {
                         // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
                         //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
                         scripts = decodeURIComponent(scripts);
@@ -482,7 +491,8 @@
 
     // 显示“正在载入...”的提示信息
     function _showAjaxLoading(ajaxLoadingType) {
-        if (_ajaxStarted) {
+        // 延迟后，要再次检查当前有 AJAX 正在进行，才显示提示信息
+        if (__ajaxUnderwayCount > 0) {
 
             if (ajaxLoadingType === "default") {
                 F.ajaxLoadingDefault.setStyle('left', (Ext.getBody().getWidth() - F.ajaxLoadingDefault.getWidth()) / 2 + 'px');
@@ -496,7 +506,7 @@
 
     // 隐藏“正在载入...”的提示信息
     function _hideAjaxLoading(ajaxLoadingType) {
-        if (!_ajaxStarted) {
+        if (__ajaxUnderwayCount === 0) {
 
             if (ajaxLoadingType === "default") {
                 F.ajaxLoadingDefault.hide();
@@ -509,6 +519,14 @@
 
     function ajaxStart() {
 
+        // 计数加一
+        __ajaxUnderwayCount++;
+
+        // 仅在第一个 AJAX 发起时，延迟显示提示信息
+        if (__ajaxUnderwayCount !== 1) {
+            return;
+        }
+
         if (!enableAjaxLoading()) {
             // Do nothing
         } else {
@@ -518,19 +536,25 @@
     }
 
     function ajaxStop() {
+        // 计数减一
+        __ajaxUnderwayCount--;
+        if (__ajaxUnderwayCount < 0) {
+            __ajaxUnderwayCount = 0;
+        }
 
         if (!enableAjaxLoading()) {
             // ...
         } else {
-            Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
+           Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
         }
 
-        if (!_ajaxStarted) {
+        if (__ajaxUnderwayCount === 0) {
             F.controlEnableAjaxLoading = undefined;
             F.controlAjaxLoadingType = undefined;
         }
     }
 
+    /*
     // 当前 Ajax 的并发请求数
     //var _requestCount = 0;
     var _ajaxStarted = false;
@@ -547,34 +571,17 @@
     Ext.Ajax.on('requestcomplete', function (conn, options) {
         //_requestCount--;
         _ajaxStarted = false;
-
-        /*
-        if (!enableAjaxLoading()) {
-            // ...
-        } else {
-            Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
-        }
-        F.controlEnableAjaxLoading = undefined;
-        F.controlAjaxLoadingType = undefined;
-        */
+        
     });
 
     // Ajax 请求发生异常
     Ext.Ajax.on('requestexception', function (conn, options) {
         //_requestCount--;
         _ajaxStarted = false;
+        
 
-        /*
-        if (!enableAjaxLoading()) {
-            // ...
-        } else {
-            Ext.defer(_hideAjaxLoading, 0, window, [ajaxLoadingType()]);
-        }
-        F.controlEnableAjaxLoading = undefined;
-        F.controlAjaxLoadingType = undefined;
-        */
     });
-
+    */
 
 
 

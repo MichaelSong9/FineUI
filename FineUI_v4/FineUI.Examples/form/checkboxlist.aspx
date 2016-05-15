@@ -76,13 +76,13 @@
             var selectedCheckboxs = list2.getValue(), selectedValues, i;
 
             if (Ext.Object.isEmpty(selectedCheckboxs)) {
-                top.F.util.alert("列表一没有选中项！");
+                top.F.alert("列表一没有选中项！");
             } else {
                 selectedValues = [];
                 Ext.Object.each(selectedCheckboxs, function (key, value) {
                     selectedValues.push(value);
                 });
-                top.F.util.alert("列表一选中项的值：" + selectedValues.join(','));
+                top.F.alert("列表一选中项的值：" + selectedValues.join(','));
             }
         }
 

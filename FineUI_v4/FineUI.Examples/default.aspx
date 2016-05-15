@@ -144,6 +144,18 @@
             </f:MenuCheckBox>
             <f:MenuSeparator ID="MenuSeparator1" runat="server">
             </f:MenuSeparator>
+            <f:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
+                <Menu ID="Menu4" runat="server">
+                    <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" runat="server">
+                    </f:MenuCheckBox>
+                    <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" runat="server">
+                    </f:MenuCheckBox>
+                </Menu>
+            </f:MenuButton>
             <f:MenuButton EnablePostBack="false" Text="菜单样式" ID="MenuStyle" runat="server">
                 <Menu runat="server">
                     <f:MenuCheckBox Text="树菜单" ID="MenuStyleTree" Checked="true" GroupName="MenuStyle" runat="server">
@@ -159,18 +171,6 @@
                     <f:MenuCheckBox Text="繁體中文" ID="MenuLangZHTW" GroupName="MenuLang" runat="server">
                     </f:MenuCheckBox>
                     <f:MenuCheckBox Text="English" ID="MenuLangEN" GroupName="MenuLang" runat="server">
-                    </f:MenuCheckBox>
-                </Menu>
-            </f:MenuButton>
-            <f:MenuButton ID="MenuTheme" EnablePostBack="false" Text="主题" runat="server">
-                <Menu ID="Menu4" runat="server">
-                    <f:MenuCheckBox Text="Neptune" ID="MenuThemeNeptune" Checked="true" GroupName="MenuTheme" runat="server">
-                    </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="Blue" ID="MenuThemeBlue" GroupName="MenuTheme" runat="server">
-                    </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="Gray" ID="MenuThemeGray" GroupName="MenuTheme" runat="server">
-                    </f:MenuCheckBox>
-                    <f:MenuCheckBox Text="Access" ID="MenuThemeAccess" GroupName="MenuTheme" runat="server">
                     </f:MenuCheckBox>
                 </Menu>
             </f:MenuButton>
@@ -406,7 +406,7 @@
             // updateLocationHash: 切换Tab时，是否更新地址栏Hash值
             // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
             // refreshWhenTabChange: 切换选项卡时，是否刷新内部IFrame
-            F.util.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, false, false);
+            F.initTreeTabStrip(mainMenu, mainTabStrip, createToolbar, true, false, false);
 
 
 

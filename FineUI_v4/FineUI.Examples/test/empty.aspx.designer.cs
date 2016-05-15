@@ -46,34 +46,34 @@ namespace FineUI.Examples.test {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.RegionPanel regionPanel;
+        protected global::FineUI.Panel regionPanel;
         
         /// <summary>
-        /// regionTop 控件。
+        /// topPanel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Region regionTop;
+        protected global::FineUI.Panel topPanel;
         
         /// <summary>
-        /// Toolbar1 控件。
+        /// topRegionToolbar 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Toolbar Toolbar1;
+        protected global::FineUI.Toolbar topRegionToolbar;
         
         /// <summary>
-        /// txtUser 控件。
+        /// lblUser 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ToolbarText txtUser;
+        protected global::FineUI.ToolbarText lblUser;
         
         /// <summary>
         /// ToolbarSeparator1 控件。
@@ -121,24 +121,6 @@ namespace FineUI.Examples.test {
         protected global::FineUI.ToolbarFill ToolbarFill1;
         
         /// <summary>
-        /// btnShowHideHeader 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Button btnShowHideHeader;
-        
-        /// <summary>
-        /// ToolbarSeparator4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.ToolbarSeparator ToolbarSeparator4;
-        
-        /// <summary>
         /// btnHelp 控件。
         /// </summary>
         /// <remarks>
@@ -148,94 +130,31 @@ namespace FineUI.Examples.test {
         protected global::FineUI.Button btnHelp;
         
         /// <summary>
-        /// ToolbarSeparator5 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ToolbarSeparator ToolbarSeparator5;
+        protected global::FineUI.Button Button2;
         
         /// <summary>
-        /// ContentPanel1 控件。
+        /// btnChange 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel1;
+        protected global::FineUI.Button btnChange;
         
         /// <summary>
-        /// imgLogo 控件。
+        /// leftPanel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLogo;
-        
-        /// <summary>
-        /// litProductVersion 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litProductVersion;
-        
-        /// <summary>
-        /// regionLeft 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region regionLeft;
-        
-        /// <summary>
-        /// accordionMenu 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Accordion accordionMenu;
-        
-        /// <summary>
-        /// AccordionPane1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.AccordionPane AccordionPane1;
-        
-        /// <summary>
-        /// mainRegion 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region mainRegion;
-        
-        /// <summary>
-        /// regionPanel1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.RegionPanel regionPanel1;
-        
-        /// <summary>
-        /// RegionCenter 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region RegionCenter;
+        protected global::FineUI.Panel leftPanel;
         
         /// <summary>
         /// mainTabStrip 控件。
@@ -256,12 +175,147 @@ namespace FineUI.Examples.test {
         protected global::FineUI.Tab Tab1;
         
         /// <summary>
-        /// contenPanelDiv 控件。
+        /// winShangBaoKouFen 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ContentPanel contenPanelDiv;
+        protected global::FineUI.Window winShangBaoKouFen;
+        
+        /// <summary>
+        /// formaShangBaoKouFen 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Form formaShangBaoKouFen;
+        
+        /// <summary>
+        /// panRiQi 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Panel panRiQi;
+        
+        /// <summary>
+        /// labRiQi 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Label labRiQi;
+        
+        /// <summary>
+        /// calFaShengRiQi 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Calendar calFaShengRiQi;
+        
+        /// <summary>
+        /// panKouFenXingXi 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Panel panKouFenXingXi;
+        
+        /// <summary>
+        /// taKouFenTiaoJian 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextArea taKouFenTiaoJian;
+        
+        /// <summary>
+        /// labKouFenBiaoZhun 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Label labKouFenBiaoZhun;
+        
+        /// <summary>
+        /// panKouFenZhi 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Panel panKouFenZhi;
+        
+        /// <summary>
+        /// nbWenTiJianShu 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.NumberBox nbWenTiJianShu;
+        
+        /// <summary>
+        /// nbMeiJianKouFen 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.NumberBox nbMeiJianKouFen;
+        
+        /// <summary>
+        /// textKouFenYuanYing 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextArea textKouFenYuanYing;
+        
+        /// <summary>
+        /// tool2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Toolbar tool2;
+        
+        /// <summary>
+        /// btnQueRenKouFen 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnQueRenKouFen;
+        
+        /// <summary>
+        /// btnChongZhiBiaoDan 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnChongZhiBiaoDan;
+        
+        /// <summary>
+        /// btnQuXiao 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Button btnQuXiao;
     }
 }

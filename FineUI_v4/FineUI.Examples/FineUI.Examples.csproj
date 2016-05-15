@@ -24,6 +24,10 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,6 +62,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="accordion\accordion_fill.aspx" />
     <Content Include="accordion\accordion_tree_index.htm" />
     <Content Include="accordion\accordion_autopostback.aspx" />
     <Content Include="aspnet\aspnet_literal.aspx" />
@@ -65,6 +70,7 @@
     <Content Include="dropdownlist\dropdownlist_autopostback.aspx" />
     <Content Include="dropdownlist\dropdownlist_autopostback_enableedit.aspx" />
     <Content Include="dropdownlist\dropdownlist_emptytext.aspx" />
+    <Content Include="dropdownlist\dropdownlist_emptytext_enableedit.aspx" />
     <Content Include="dropdownlist\dropdownlist_matchfieldwidth.aspx" />
     <Content Include="dropdownlist\dropdownlist_no_autopostback.aspx" />
     <Content Include="dropdownlist\multiselect.aspx" />
@@ -78,6 +84,7 @@
     <Content Include="form\form_longlabel.aspx" />
     <Content Include="form\layout_center_label.aspx" />
     <Content Include="form\layout_multiline_buttons.aspx" />
+    <Content Include="form\calendar_fit.aspx" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_selectcell.aspx" />
@@ -110,6 +117,7 @@
     <Content Include="grid\grid_prerowdatabound_cancelled.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_rowexpander.aspx" />
     <Content Include="grid\grid_editor_cell_newdelete_rowexpander.aspx" />
+    <Content Include="grid\grid_rowexpander_grid.aspx" />
     <Content Include="grid\grid_style_columnclass.aspx" />
     <Content Include="grid\grid_summary_scrollbar_flow.aspx" />
     <Content Include="grid\grid_style_rowcolor_paging_database.aspx" />
@@ -121,6 +129,7 @@
     <Content Include="grid\grid_summary_scrollbar_top.aspx" />
     <Content Include="grid\grid_width_boxflex.aspx" />
     <Content Include="grid\grid_width_forcefit_minwidth.aspx" />
+    <Content Include="grid\grid_checkall_keepcurrentselection.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\column_autoheight.aspx" />
@@ -155,6 +164,9 @@
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\activex.aspx" />
+    <Content Include="test\form2.aspx" />
+    <Content Include="test\grid_editor_cell2.aspx" />
+    <Content Include="test\hello.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
@@ -449,6 +461,7 @@
     <Content Include="toolbar\form.aspx" />
     <Content Include="toolbar\formfields.aspx" />
     <Content Include="toolbar\multi_toolbars.aspx" />
+    <Content Include="toolbar\toolbar_fill.aspx" />
     <Content Include="toolbar\toolbar_iframe.aspx" />
     <Content Include="other\cssstyle.aspx" />
     <Content Include="other\addtab.aspx" />
@@ -461,6 +474,7 @@
     <Content Include="tree\checkbox\tree_checked.aspx" />
     <Content Include="tree\select\tree_multi_select_selectable.aspx" />
     <Content Include="tree\select\tree_nodecommand.aspx" />
+    <Content Include="tree\tree_contextmenu.aspx" />
     <Content Include="tree\tree_icon.aspx" />
     <Content Include="tree\select\tree_select.aspx" />
     <Content Include="tree\databind\tree_sitemap.aspx" />
@@ -469,6 +483,9 @@
     <Content Include="tree\tree.aspx" />
     <Content Include="tree\tree_expand.aspx" />
     <Content Include="tree\tree_nodedatabound.aspx" />
+    <Content Include="tree\tree_node_cssclass.aspx" />
+    <Content Include="tree\tree_singleexpand.aspx" />
+    <Content Include="tree\tree_textselection.aspx" />
     <Content Include="usercontrol\UserInfoControl.ascx" />
     <Content Include="usercontrol\userinfo.aspx" />
     <Content Include="usercontrol\userinfo2.aspx" />
@@ -495,6 +512,13 @@
     </Compile>
     <Compile Include="accordion\accordion_autopostback.aspx.designer.cs">
       <DependentUpon>accordion_autopostback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="accordion\accordion_fill.aspx.cs">
+      <DependentUpon>accordion_fill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="accordion\accordion_fill.aspx.designer.cs">
+      <DependentUpon>accordion_fill.aspx</DependentUpon>
     </Compile>
     <Compile Include="aspnet\aspnet.aspx.cs">
       <DependentUpon>aspnet.aspx</DependentUpon>
@@ -538,6 +562,13 @@
     </Compile>
     <Compile Include="dropdownlist\dropdownlist_emptytext.aspx.designer.cs">
       <DependentUpon>dropdownlist_emptytext.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_emptytext_enableedit.aspx.cs">
+      <DependentUpon>dropdownlist_emptytext_enableedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dropdownlist\dropdownlist_emptytext_enableedit.aspx.designer.cs">
+      <DependentUpon>dropdownlist_emptytext_enableedit.aspx</DependentUpon>
     </Compile>
     <Compile Include="dropdownlist\dropdownlist_matchfieldwidth.aspx.cs">
       <DependentUpon>dropdownlist_matchfieldwidth.aspx</DependentUpon>
@@ -622,6 +653,13 @@
     </Compile>
     <Compile Include="form\layout_multiline_buttons.aspx.designer.cs">
       <DependentUpon>layout_multiline_buttons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\calendar_fit.aspx.cs">
+      <DependentUpon>calendar_fit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\calendar_fit.aspx.designer.cs">
+      <DependentUpon>calendar_fit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -843,6 +881,16 @@
     <Compile Include="grid\grid_editor_cell_newdelete_rowexpander.aspx.designer.cs">
       <DependentUpon>grid_editor_cell_newdelete_rowexpander.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_rowexpander_grid.aspx.cs">
+      <DependentUpon>grid_rowexpander_grid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_rowexpander_grid.aspx.designer.cs">
+      <DependentUpon>grid_rowexpander_grid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_rowexpander_grid_data.ashx.cs">
+      <DependentUpon>grid_rowexpander_grid_data.ashx</DependentUpon>
+    </Compile>
     <Compile Include="grid\grid_style_columnclass.aspx.cs">
       <DependentUpon>grid_style_columnclass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -919,6 +967,13 @@
     </Compile>
     <Compile Include="grid\grid_width_forcefit_minwidth.aspx.designer.cs">
       <DependentUpon>grid_width_forcefit_minwidth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_checkall_keepcurrentselection.aspx.cs">
+      <DependentUpon>grid_checkall_keepcurrentselection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_checkall_keepcurrentselection.aspx.designer.cs">
+      <DependentUpon>grid_checkall_keepcurrentselection.aspx</DependentUpon>
     </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
@@ -1158,6 +1213,26 @@
     </Compile>
     <Compile Include="test\activex.aspx.designer.cs">
       <DependentUpon>activex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\form2.aspx.cs">
+      <DependentUpon>form2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\form2.aspx.designer.cs">
+      <DependentUpon>form2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_editor_cell2.aspx.cs">
+      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
+      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\hello.aspx.cs">
+      <DependentUpon>hello.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\hello.aspx.designer.cs">
+      <DependentUpon>hello.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\autocomplete\inline_window.aspx.cs">
       <DependentUpon>inline_window.aspx</DependentUpon>
@@ -2509,6 +2584,13 @@
     <Compile Include="toolbar\multi_toolbars.aspx.designer.cs">
       <DependentUpon>multi_toolbars.aspx</DependentUpon>
     </Compile>
+    <Compile Include="toolbar\toolbar_fill.aspx.cs">
+      <DependentUpon>toolbar_fill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="toolbar\toolbar_fill.aspx.designer.cs">
+      <DependentUpon>toolbar_fill.aspx</DependentUpon>
+    </Compile>
     <Compile Include="toolbar\toolbar_iframe.aspx.cs">
       <DependentUpon>toolbar_iframe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2592,6 +2674,13 @@
     </Compile>
     <Compile Include="tree\select\tree_nodecommand.aspx.designer.cs">
       <DependentUpon>tree_nodecommand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tree\tree_contextmenu.aspx.cs">
+      <DependentUpon>tree_contextmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\tree_contextmenu.aspx.designer.cs">
+      <DependentUpon>tree_contextmenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="tree\tree_icon.aspx.cs">
       <DependentUpon>tree_icon.aspx</DependentUpon>
@@ -2969,6 +3058,27 @@
     <Compile Include="tree\tree_nodedatabound.aspx.designer.cs">
       <DependentUpon>tree_nodedatabound.aspx</DependentUpon>
     </Compile>
+    <Compile Include="tree\tree_node_cssclass.aspx.cs">
+      <DependentUpon>tree_node_cssclass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\tree_node_cssclass.aspx.designer.cs">
+      <DependentUpon>tree_node_cssclass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tree\tree_singleexpand.aspx.cs">
+      <DependentUpon>tree_singleexpand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\tree_singleexpand.aspx.designer.cs">
+      <DependentUpon>tree_singleexpand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tree\tree_textselection.aspx.cs">
+      <DependentUpon>tree_textselection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tree\tree_textselection.aspx.designer.cs">
+      <DependentUpon>tree_textselection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="usercontrol\UserInfoControl.ascx.cs">
       <DependentUpon>UserInfoControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3146,6 +3256,7 @@
     <Content Include="third-party\autocomplete\search.ashx" />
     <Content Include="master\Simple.Master" />
     <Content Include="master\SingleGrid.Master" />
+    <Content Include="grid\grid_rowexpander_grid_data.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\themes\" />
@@ -3170,7 +3281,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6241</DevelopmentServerPort>
+          <DevelopmentServerPort>62105</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

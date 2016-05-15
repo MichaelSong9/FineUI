@@ -67,6 +67,20 @@ F.addCSS = function () {
     F.util.addCSS.apply(window, arguments);
 };
 
+F.initTreeTabStrip = function () {
+    F.util.initTreeTabStrip.apply(window, arguments);
+};
+
+
+F.addMainTab = function () {
+    F.util.addMainTab.apply(window, arguments);
+};
+
+F.getActiveWindow = function () {
+    return F.wnd.getActiveWindow.apply(window, arguments);
+};
+
+
 // 记录最后一个控件的序号
 F.f_objectIndex = 0;
 
@@ -214,6 +228,26 @@ F.removeCookie = function (key, options) {
 };
 
 
+// 能否访问 iframe 中的 window.F 对象
+F.canAccess = function (iframeWnd) {
+
+    // 访问 iframeWnd.F 时，可能出现错误 Blocked a frame with origin "http://fineui.com/" from accessing a cross-origin frame.
+    // Blocked：这个问题出现在 http://fineui.com/ 页面加载一个 http://baidu.com/ 的 iframe 页面
+    try {
+        iframeWnd.F;
+        iframeWnd.window;
+    } catch (e) {
+        return false;
+    }
+
+    if (!iframeWnd.F || !iframeWnd.window) {
+        return false;
+    }
+
+    return true;
+};
+
+
 Ext.onReady(function () {
 
     // 加延迟，以保证在 zh_CN 中通过 Ext.onReady 注册的脚本先执行（其中对 Ext.Date 进行了初始化）
@@ -242,7 +276,7 @@ Ext.onReady(function () {
         });
     }
 
-
+    /*
     // 能否访问 iframe 中的 window.F 对象
     function canIFrameWindowAccessed(iframeWnd) {
 
@@ -260,6 +294,7 @@ Ext.onReady(function () {
 
         return true;
     }
+    */
 
 
     // FineUI常用函数域（Utility）
@@ -309,7 +344,7 @@ Ext.onReady(function () {
             F.ajaxLoadingMask = Ext.create('Ext.LoadMask', Ext.getBody(), { msg: F.util.loading });
 
 
-            F.form_upload_file = false;
+            //F.form_upload_file = false;
             //F.global_disable_ajax = false;
             //F.x_window_manager = new Ext.WindowManager();
             //F.x_window_manager.zseed = 6000;
@@ -661,7 +696,7 @@ Ext.onReady(function () {
             iframeEls.each(function (iframeEl) {
                 var iframeWnd = iframeEl.dom.contentWindow;
 
-                if (!canIFrameWindowAccessed(iframeWnd)) {
+                if (!F.canAccess(iframeWnd)) {
                     return true; // continue
                 }
 
@@ -865,6 +900,7 @@ Ext.onReady(function () {
                 Ext.removeNode(node.dom);
             }
 
+			/*
             var ss1;
 
             if (isCSSFile) {
@@ -888,6 +924,32 @@ Ext.onReady(function () {
 
             var hh1 = document.getElementsByTagName("head")[0];
             hh1.appendChild(ss1);
+			*/
+			
+			var ss1;
+			var hh1 = document.getElementsByTagName('head')[0];
+			if (isCSSFile) {
+				ss1 = document.createElement('link');
+				//ss1.setAttribute('type', 'text/css');
+				ss1.setAttribute('rel', 'stylesheet');
+				ss1.setAttribute('id', id);
+				ss1.setAttribute('href', content);
+				hh1.appendChild(ss1);
+			} else {
+				// Tricks From: http://www.phpied.com/dynamic-script-and-style-elements-in-ie/
+				ss1 = document.createElement('style');
+				//ss1.setAttribute('type', 'text/css');
+				ss1.setAttribute('id', id);
+				// Update: note that it's important for IE that you append the style to the head *before* setting its content. Otherwise IE678 will *crash* is the css string contains an @import. 
+				hh1.appendChild(ss1); 
+				if (ss1.styleSheet) {   // IE
+					ss1.styleSheet.cssText = content;
+				} else {                // the world
+					var tt1 = document.createTextNode(content);
+					ss1.appendChild(tt1);
+				}
+			}
+			
         },
 
         /*
@@ -1255,7 +1317,7 @@ Ext.onReady(function () {
             }
 
             var wnd = F.util.getTargetWindow(options.target);
-            if (!canIFrameWindowAccessed(wnd)) {
+            if (!F.canAccess(wnd)) {
                 return; // return
             }
 
@@ -1304,7 +1366,7 @@ Ext.onReady(function () {
 
 
             var wnd = F.util.getTargetWindow(options.target);
-            if (!canIFrameWindowAccessed(wnd)) {
+            if (!F.canAccess(wnd)) {
                 return; // return
             }
 
@@ -1395,6 +1457,8 @@ Ext.onReady(function () {
             return result;
         },
 
+
+        
 
         noop: function () { }
 

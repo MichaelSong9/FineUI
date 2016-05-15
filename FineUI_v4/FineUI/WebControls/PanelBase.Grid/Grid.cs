@@ -669,6 +669,25 @@ namespace FineUI
         #region Properties
 
         /// <summary>
+        /// 多选时保持当前已选中行
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(false)]
+        [Description("多选时保持当前已选中行")]
+        public bool KeepCurrentSelection
+        {
+            get
+            {
+                object obj = FState["KeepCurrentSelection"];
+                return obj == null ? false : (bool)obj;
+            }
+            set
+            {
+                FState["KeepCurrentSelection"] = value;
+            }
+        }
+
+        /// <summary>
         /// 数据为空时显示在内容区域的文本，可以是HTML标签
         /// </summary>
         [Category(CategoryName.OPTIONS)]
@@ -2580,7 +2599,7 @@ namespace FineUI
             }
 
             // 如果 SelectedRowIndexArray 属性改变 或者 数据重新加载了
-            if (PropertyModified("SelectedRowIndexArray") || dataReloaded)
+            if (PropertyModified("SelectedRowIDArray") || dataReloaded)
             {
                 sb.AppendFormat("{0}.f_selectRows();", XID);
             }
@@ -3383,7 +3402,14 @@ namespace FineUI
 
                 if (EnableMultiSelect)
                 {
-                    selectOB.AddProperty("mode", "MULTI");
+                    if (KeepCurrentSelection)
+                    {
+                        selectOB.AddProperty("mode", "SIMPLE");
+                    }
+                    else
+                    {
+                        selectOB.AddProperty("mode", "MULTI");
+                    }
                 }
                 else
                 {

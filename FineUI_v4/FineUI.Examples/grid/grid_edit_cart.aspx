@@ -68,7 +68,11 @@
         var priceSelector = '.f-grid-tpl input.price';
 
         function getRowNumber(row) {
-            return parseInt(row.find(numberSelector).val(), 10);
+            var num = parseInt(row.find(numberSelector).val(), 10);
+            if (isNaN(num)) {
+                num = 0;
+            }
+            return num;
         }
         function getRowPrice(row) {
             return parseFloat(row.find(priceSelector).val());
@@ -100,15 +104,31 @@
             }
         }
 
+        // 过滤数字输入框中的无效字符
+        function filterNumberInput(inputNode) {
+            // 仅保留数字、点号和负号
+            //var filterRegex = /[^0-9\.\-]/g;
+            // 仅保留数字
+            var filterRegex = /[^0-9]/g;
+
+            var originalValue = inputNode.val();
+            var filteredValue = originalValue.replace(filterRegex, '');
+            if (originalValue !== filteredValue) {
+                inputNode.val(filteredValue);
+            }
+        }
+
         function registerNumberChangeEvents() {
             var grid = F(gridClientID);
 
             // 数量改变事件
             // http://stackoverflow.com/questions/17384218/jquery-input-event
             $(grid.el.dom).find(numberSelector).on('input propertychange', function (evt) {
-                var $this = $(this);
+                var cnode = $(this);
 
-                var row = $this.parents('.x-grid-row');
+                filterNumberInput(cnode);
+
+                var row = cnode.parents('.x-grid-row');
                 var number = getRowNumber(row);
                 var price = getRowPrice(row);
                 var resultNode = row.find('.f-grid-tpl span.xiaoji');

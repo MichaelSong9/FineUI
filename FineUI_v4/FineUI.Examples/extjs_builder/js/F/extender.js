@@ -861,13 +861,17 @@ if (Ext.grid.Panel) {
 
         // 选中某些行
         f_selectRows: function (rows) {
-            rows = rows || this.f_state['SelectedRowIndexArray'] || [];
-            var sm = this.getSelectionModel();
-            if (sm.select) {
+            var me = this;
+            rows = rows || me.f_state['SelectedRowIDArray'] || [];
+
+            var sm = me.getSelectionModel();
+            var store = me.getStore();
+
+            if (rows.length && sm.select) {
                 sm.deselectAll(true);
                 Ext.Array.each(rows, function (row, index) {
                     // select( records, [keepExisting], [suppressEvent] )
-                    sm.select(row, true, true);
+                    sm.select(store.getById(row), true, true);
                 });
             }
         },
@@ -1534,7 +1538,9 @@ if (Ext.tree.Panel) {
                 // 19 - EnableExpandEvent
                 // 20 - EnableCollapseEvent
 
-                // 21 - Nodes
+                // 21 - CssClass
+
+                // 22 - Nodes
                 node.text = data[0];
                 node.leaf = !!data[1];
                 node.id = data[2];
@@ -1567,9 +1573,12 @@ if (Ext.tree.Panel) {
                 node.f_enableexpandevent = !!data[19];
                 node.f_enablecollapseevent = !!data[20];
 
+                if (data[21]) {
+                    node.cls = data[21];
+                }
 
-                if (data[21] && data[21].length > 0) {
-                    node.children = that.f_tranformData(data[21]);
+                if (data[22] && data[22].length > 0) {
+                    node.children = that.f_tranformData(data[22]);
                 }
 
                 nodes.push(node);

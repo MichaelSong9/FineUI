@@ -11,111 +11,94 @@
 <body>
     <form id="form1" runat="server">
 
-        <f:PageManager ID="PageManager1" AutoSizePanelID="regionPanel"
-            runat="server" />
-        <f:RegionPanel ID="regionPanel" ShowBorder="false" runat="server">
-            <Regions>
-                <f:Region ID="regionTop" Height="60px" ShowBorder="false" ShowHeader="false" Position="Top"
-                    Layout="Fit" runat="server">
+        <f:PageManager ID="PageManager1" AutoSizePanelID="regionPanel" runat="server" />
+        <f:Panel Layout="Region" ID="regionPanel" ShowBorder="false" ShowHeader="false" runat="server">
+            <Items>
+                <f:Panel ID="topPanel" CssClass="topregion" RegionPosition="Top" ShowBorder="false" ShowHeader="false"
+                    EnableCollapse="true" runat="server">
+                    <Content>
+                        <div id="header" class="ui-widget-header f-mainheader" style="background-color: #333333">
+                            <img src="./res/images/login/login_10.png" class="logoimg" alt="Logo" />
+                            <asp:HyperLink ID="linkSystemTitle" CssClass="logo" runat="server" NavigateUrl="~/main.aspx"></asp:HyperLink>
+                        </div>
+                    </Content>
                     <Toolbars>
-                        <f:Toolbar ID="Toolbar1" Position="Bottom" runat="server">
+                        <f:Toolbar ID="topRegionToolbar" Position="Bottom" runat="server">
                             <Items>
-                                <f:ToolbarText ID="txtUser" runat="server">
-                                </f:ToolbarText>
-                                <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server" />
-                                <f:ToolbarText ID="txtOnlineUserCount" runat="server">
-                                </f:ToolbarText>
-                                <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
-                                <f:ToolbarText ID="txtCurrentTime" runat="server">
-                                </f:ToolbarText>
-                                <f:ToolbarFill ID="ToolbarFill1" runat="server" />
-                                <f:Button ID="btnShowHideHeader" runat="server" Icon="SectionExpanded" ToolTip="隐藏标题栏"
-                                    EnablePostBack="false">
-                                </f:Button>
-                                <f:ToolbarSeparator ID="ToolbarSeparator4" runat="server" />
-                                <f:Button ID="btnHelp" EnablePostBack="false" Icon="Help" Text="帮助" runat="server">
-                                </f:Button>
-                                <f:ToolbarSeparator ID="ToolbarSeparator5" runat="server" />
-
+                                <f:ToolbarText ID="lblUser" Text="lblUser" runat="server"></f:ToolbarText>
+                                <f:ToolbarSeparator ID="ToolbarSeparator1" runat="server"></f:ToolbarSeparator>
+                                <f:ToolbarText ID="txtOnlineUserCount" Text="txtOnlineUserCount" runat="server"></f:ToolbarText>
+                                <f:ToolbarSeparator ID="ToolbarSeparator2" runat="server"></f:ToolbarSeparator>
+                                <f:ToolbarText ID="txtCurrentTime" Text="txtCurrentTime" runat="server"></f:ToolbarText>
+                                <f:ToolbarFill ID="ToolbarFill1" runat="server"></f:ToolbarFill>
+                                <f:Button ID="btnHelp" EnablePostBack="false" Icon="Help" Text="帮助" runat="server"></f:Button>
+                                <f:Button ID="Button2" runat="server" Icon="UserRed" Text="安全退出" ConfirmText="确定退出系统？"></f:Button>
+                                <f:Button ID="btnChange" runat="server" Icon="UserGo" Text="切换" Hidden="true" EnablePostBack="false" HideMode="Display"></f:Button>
                             </Items>
                         </f:Toolbar>
                     </Toolbars>
-                    <Items>
-                        <f:ContentPanel ShowBorder="false" ShowHeader="false" BodyStyle="background-color:#1C3E7E;"
-                            ID="ContentPanel1" runat="server">
-                            <div style="font-size: 20px; color: White; font-weight: bold; padding: 5px 10px;">
-                                <a style="color: White; text-decoration: none;">后台管理</a>
-                                <asp:Image runat="server" ID="imgLogo" align="absmiddle" />
-                                <asp:Literal ID="litProductVersion" runat="server"></asp:Literal>
-                            </div>
-                        </f:ContentPanel>
-                    </Items>
-                </f:Region>
-                <f:Region ID="regionLeft" Split="true"
-                    Icon="Outline" EnableCollapse="true" Width="200px"
-                    CssStyle=" margin:0 auto" ShowHeader="true" Title="系统菜单" Layout="Fit" Position="Left"
-                    runat="server">
-                    <Items>
-                        <f:Accordion ID="accordionMenu" runat="server" ShowBorder="false" ShowHeader="false"
-                            ShowCollapseTool="true">
-                            <Panes>
-                                <f:AccordionPane ID="AccordionPane1" runat="server" Title="aaaaa" IconUrl="~/images/16/1.png"
-                                    Layout="Fit" ShowBorder="false">
-                                    <Items>
-                                    </Items>
-                                </f:AccordionPane>
-                            </Panes>
-                        </f:Accordion>
-                    </Items>
-                </f:Region>
-                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Position="Center"
-                    runat="server">
-                    <Items>
-                        <f:RegionPanel ID="regionPanel1" ShowBorder="false" runat="server">
-                            <Regions>
-                                <f:Region ID="RegionCenter" ShowHeader="false" Layout="Fit" Position="Center"
-                                    runat="server">
-                                    <Items>
-                                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" ShowBorder="false" runat="server">
-                                            <Tabs>
-                                                <f:Tab ID="Tab1" Title="首页" Icon="House" runat="server">
-                                                    <Items>
-                                                        <f:ContentPanel ID="contenPanelDiv" runat="server"
-                                                            BodyPadding="0px" BodyStyle="height:100%" ShowHeader="false">
-                                                            <div id="divBig" style="display: none" ondblclick="HideImage();">
-                                                                <img id="imgBig" width="100%" height="100%" />
-                                                            </div>
-                                                            <div id="center2" style="height: 650px; width: 100%">
-                                                            </div>
-                                                        </f:ContentPanel>
-                                                    </Items>
-                                                </f:Tab>
-                                            </Tabs>
-                                        </f:TabStrip>
-                                    </Items>
-                                </f:Region>
-                            </Regions>
-                        </f:RegionPanel>
-                    </Items>
-                </f:Region>
-            </Regions>
-        </f:RegionPanel>
+                </f:Panel>
+                <f:Panel ID="leftPanel" CssClass="leftregion" RegionSplit="true" EnableCollapse="true" Width="250px"
+                    ShowHeader="true" ShowBorder="true" Title="系统菜单" Layout="Fit" RegionPosition="Left" runat="server">
+                </f:Panel>
+                <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" ShowBorder="true" runat="server">
+                    <Tabs>
+                        <f:Tab ID="Tab1" Title="首页" EnableIFrame="true" IFrameUrl="~/admin/default.aspx"
+                            Icon="House" runat="server">
+                        </f:Tab>
+                    </Tabs>
 
+                </f:TabStrip>
+            </Items>
+        </f:Panel>
 
+        <f:Window ID="winShangBaoKouFen" runat="server" Title="按照所选定标准进行对应扣分" IsModal="true" EnableClose="true" EnableResize="false"
+            Width="650px" MinHeight="340px" Layout="Fit" Hidden="true" Icon="BasketAdd">
+            <Items>
+
+                <f:Form runat="server" ID="formaShangBaoKouFen" Title="按照所选定标准进行对应扣分" ShowHeader="false"
+                    MessageTarget="Qtip" ShowBorder="false" LabelWidth="100px" LabelAlign="Top" Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Left" BoxConfigChildMargin="0 3 0 3">
+                    <Items>
+                        <f:Panel runat="server" ID="panRiQi" ShowBorder="false" ShowHeader="false" BoxFlex="1" Layout="VBox" BoxConfigAlign="Center" BoxConfigPosition="Center">
+                            <Items>
+                                <f:Label runat="server" ID="labRiQi" Text="111" ShowEmptyLabel="true" ShowLabel="false"></f:Label>
+                                <f:Calendar runat="server" ID="calFaShengRiQi" DateFormatString="yyyy-MM-dd" EnableDateSelectEvent="true"></f:Calendar>
+                            </Items>
+                        </f:Panel>
+
+                        <f:Panel runat="server" ID="panKouFenXingXi" ShowBorder="false" ShowHeader="false" Layout="VBox" BoxFlex="2">
+                            <Items>
+                                <f:TextArea runat="server" ID="taKouFenTiaoJian" Label="扣分条件" Readonly="true" Margin="7 0 0 0" AutoGrowHeight="true" AutoGrowHeightMax="60px" AutoGrowHeightMin="5px"></f:TextArea>
+                                <f:Label runat="server" ID="labKouFenBiaoZhun" Label="扣分标准" Readonly="true" ShowLabel="false"></f:Label>
+                                <f:Panel runat="server" ID="panKouFenZhi" ShowBorder="false" ShowHeader="false" Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Left">
+                                    <Items>
+                                        <f:NumberBox runat="server" ID="nbWenTiJianShu" MinLength="1" Label="发生问题件数" MinValue="1" BoxFlex="1" Margin="0 4 0 0"></f:NumberBox>
+                                        <f:NumberBox runat="server" ID="nbMeiJianKouFen" Label="每件问题扣分值" MinValue="0" DecimalPrecision="1" BoxFlex="1" Margin="0 0 0 4"
+                                            Required="true" CompareMessage="必须填写扣分值">
+                                        </f:NumberBox>
+                                    </Items>
+                                </f:Panel>
+                                <f:TextArea runat="server" ID="textKouFenYuanYing" Label="扣分原因" EmptyText="请在此填写此次扣分的原因" Required="true" CompareMessage="必须填写扣分具体原因"></f:TextArea>
+                            </Items>
+                        </f:Panel>
+                    </Items>
+                    <Toolbars>
+                        <f:Toolbar runat="server" ID="tool2" Position="Bottom" ToolbarAlign="Center">
+                            <Items>
+                                <f:Button runat="server" ID="btnQueRenKouFen" Text="确认扣分" ConfirmText="确认要对车间进行此项扣分吗？"
+                                    ConfirmTitle="请确认" ConfirmTarget="Top" Icon="ApplicationFormAdd" ValidateForms="formaShangBaoKouFen" ValidateTarget="Top">
+                                </f:Button>
+                                <f:Button runat="server" ID="btnChongZhiBiaoDan" Text="重新填写" Icon="ApplicationFormMagnify"></f:Button>
+                                <f:Button runat="server" ID="btnQuXiao" Text="取消" Icon="ApplicationCascade"></f:Button>
+                            </Items>
+                        </f:Toolbar>
+                    </Toolbars>
+                </f:Form>
+            </Items>
+        </f:Window>
 
 
     </form>
 
-    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?sensor=false&libraries=drawing"></script>
-   
-    <script type="text/javascript" src="HulinY.js"></script>
-    <script>
-
-        F.ready(function () {
-            setupMap2();
-        });
-
-
-    </script>
 </body>
 </html>

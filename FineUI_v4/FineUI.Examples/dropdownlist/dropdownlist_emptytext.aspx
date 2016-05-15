@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:SimpleForm ID="SimpleForm1" BodyPadding="5px" runat="server" Width="450px" EnableCollapse="true"
-            ShowBorder="True" Title="下拉列表（默认为空）" ShowHeader="True">
+            ShowBorder="True" Title="下拉列表（初始值为空）" ShowHeader="True">
             <Items>
                 <f:DropDownList runat="server" ID="DropDownList1" AutoSelectFirstItem="false" EmptyText="请选择一项">
                     <f:ListItem Text="可选项1" Value="Value1" />

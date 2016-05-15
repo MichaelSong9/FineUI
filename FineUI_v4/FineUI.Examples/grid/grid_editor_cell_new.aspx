@@ -25,7 +25,11 @@
                 </f:Toolbar>
             </Toolbars>
             <Columns>
-                <f:RowNumberField />
+                <f:TemplateField ColumnID="Number" Width="60px">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
+                    </ItemTemplate>
+                </f:TemplateField>
                 <f:RenderField Width="100px" ColumnID="Name" DataField="Name" FieldType="String"
                     HeaderText="姓名">
                     <Editor>

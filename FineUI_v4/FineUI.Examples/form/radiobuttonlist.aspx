@@ -75,9 +75,9 @@
             var list2 = F('<%= RadioButtonList1.ClientID %>');
             var selectedRadio = list2.getValue();
             if (Ext.Object.isEmpty(selectedRadio)) {
-                top.F.util.alert("列表一没有选中项！");
+                top.F.alert("列表一没有选中项！");
             } else {
-                top.F.util.alert("列表一选中项的值：" + selectedRadio[list2.name]);
+                top.F.alert("列表一选中项的值：" + selectedRadio[list2.name]);
             }
         }
 
