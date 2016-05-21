@@ -23,11 +23,7 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,7 +80,6 @@
     <Content Include="form\form_longlabel.aspx" />
     <Content Include="form\layout_center_label.aspx" />
     <Content Include="form\layout_multiline_buttons.aspx" />
-    <Content Include="form\calendar_fit.aspx" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_selectcell.aspx" />
@@ -130,6 +125,7 @@
     <Content Include="grid\grid_width_boxflex.aspx" />
     <Content Include="grid\grid_width_forcefit_minwidth.aspx" />
     <Content Include="grid\grid_checkall_keepcurrentselection.aspx" />
+    <Content Include="grid\grid_backup.aspx" />
     <Content Include="iframe\selectprovince_executescript.aspx" />
     <Content Include="iframe\selectprovince_executescript_child.aspx" />
     <Content Include="layout\column_autoheight.aspx" />
@@ -167,6 +163,7 @@
     <Content Include="test\form2.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
     <Content Include="test\hello.aspx" />
+    <Content Include="test\WebForm1.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
@@ -654,13 +651,6 @@
     <Compile Include="form\layout_multiline_buttons.aspx.designer.cs">
       <DependentUpon>layout_multiline_buttons.aspx</DependentUpon>
     </Compile>
-    <Compile Include="form\calendar_fit.aspx.cs">
-      <DependentUpon>calendar_fit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="form\calendar_fit.aspx.designer.cs">
-      <DependentUpon>calendar_fit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -975,6 +965,13 @@
     <Compile Include="grid\grid_checkall_keepcurrentselection.aspx.designer.cs">
       <DependentUpon>grid_checkall_keepcurrentselection.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grid\grid_backup.aspx.cs">
+      <DependentUpon>grid_backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_backup.aspx.designer.cs">
+      <DependentUpon>grid_backup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="iframe\selectprovince_executescript.aspx.cs">
       <DependentUpon>selectprovince_executescript.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1230,9 +1227,17 @@
     </Compile>
     <Compile Include="test\hello.aspx.cs">
       <DependentUpon>hello.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test\hello.aspx.designer.cs">
       <DependentUpon>hello.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\autocomplete\inline_window.aspx.cs">
       <DependentUpon>inline_window.aspx</DependentUpon>
