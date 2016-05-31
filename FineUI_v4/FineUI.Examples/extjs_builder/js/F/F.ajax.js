@@ -83,29 +83,12 @@
             var viewStateBeforeAJAX = F.util.getHiddenFieldValue('__VIEWSTATE');
             var disabledButtonIdBeforeAJAX = F.getHidden('F_TARGET');
 
+            function processEnd() {
+                //隐藏正在加载提示
+                ajaxStop();
+            }
+
             function ajaxSuccess(data, viewStateBeforeAJAX) {
-                /*
-                try {
-                    new Function(data)();
-                } catch (e) {
-                    createErrorWindow({
-                        statusText: "Execute JavaScript Exception",
-                        status: -1,
-                        responseText: util.htmlEncode(data)
-                    });
-                }
-                */
-
-                function processEnd() {
-                    // 启用AJAX发起时禁用的按钮
-                    if (disabledButtonIdBeforeAJAX) {
-                        F.enable(disabledButtonIdBeforeAJAX);
-                    }
-
-                    //隐藏正在加载提示
-                    ajaxStop();
-                }
-
 
                 // 如果显式返回false，则阻止AJAX回发
                 if (F.util.triggerBeforeAjaxSuccess(data) === false) {
@@ -152,28 +135,14 @@
                         scripts = decodeURIComponent(scripts);
                     }
 
+                    // 启用AJAX发起时禁用的按钮
+                    if (disabledButtonIdBeforeAJAX) {
+                        F.enable(disabledButtonIdBeforeAJAX);
+                    }
 
                     // 因为这里调用后（可能会关闭当前页面），extjs还有代码要执行（Ext.callback...），所以这里要延迟一下，等 extjs 代码执行完毕后再执行这里代码
                     window.setTimeout(function () {
                         ajaxSuccess(scripts, viewStateBeforeAJAX);
-                        /*
-                        if (scripts) {
-                            if (F.form_upload_file) {
-                                // 文件上传时，输出内容经过encodeURIComponent编码（在ResponseFilter中的Close函数中）
-                                //scripts = scripts.replace(/<\/?pre[^>]*>/ig, '');
-                                scripts = decodeURIComponent(scripts);
-                            }
-
-
-                            new Function(scripts)();
-                            
-
-                        }
-                        // 有可能响应返回后即关闭本窗体
-                        if (F && F.util) {
-                            F.util.triggerAjaxReady();
-                        }
-                        */
                     }, 0);
                 },
                 failure: function (data) {

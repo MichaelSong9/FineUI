@@ -2004,6 +2004,27 @@ if (Ext.ux.grid && Ext.ux.grid.ColumnHeaderGroup) {
 */
 
 
+// enableTextSelection: true --> Uncaught TypeError: Cannot call method 'getVisibleIndex' of undefined
+// https://www.sencha.com/forum/showthread.php?265507-Uncaught-TypeError-Cannot-call-method-getVisibleIndex-of-undefined.-Upgrade-issues
+Ext.override(Ext.selection.CellModel, {
+
+    onMouseDown: function (view, cell, cellIndex, record, row, recordIndex, e) {
+
+        // Added - Change cellIndex value
+        if (view.enableTextSelection && cellIndex === -1) {
+            cellIndex = cell.cellIndex;
+        }
+
+        // Record index will be -1 if the clicked record is a metadata record and not selectable
+        if (recordIndex !== -1) {
+            this.setCurrentPosition({
+                view: view,
+                row: row,
+                column: cellIndex
+            });
+        }
+    }
+});
 
 
 (function () {

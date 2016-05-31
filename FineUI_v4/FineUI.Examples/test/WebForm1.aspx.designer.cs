@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.test {
+namespace EmptyProjectNet40_FineUI {
     
     
     public partial class WebForm1 {
@@ -31,12 +31,39 @@ namespace FineUI.Examples.test {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Button1 control.
+        /// Grid1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Button Button1;
+        protected global::FineUI.Grid Grid1;
+        
+        /// <summary>
+        /// ctl25 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.BoundField ctl25;
+        
+        /// <summary>
+        /// BoundField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.BoundField BoundField1;
+        
+        /// <summary>
+        /// TextBox4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.TextBox TextBox4;
     }
 }
