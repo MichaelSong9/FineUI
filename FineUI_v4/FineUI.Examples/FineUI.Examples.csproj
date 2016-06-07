@@ -74,12 +74,14 @@
     <Content Include="dropdownlist\multiselect_autopostback.aspx" />
     <Content Include="dropdownlist\multiselect_autopostback_enableedit.aspx" />
     <Content Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx" />
+    <Content Include="extjs_builder\js\ux\TabCloseMenu.js" />
     <Content Include="extjs_builder\version.txt" />
     <Content Include="form\form_columnwidths.aspx" />
     <Content Include="form\form_labelwidth.aspx" />
     <Content Include="form\form_longlabel.aspx" />
     <Content Include="form\layout_center_label.aspx" />
     <Content Include="form\layout_multiline_buttons.aspx" />
+    <Content Include="form\triggerbox_triggerboxurl.aspx" />
     <Content Include="Global.asax" />
     <Content Include="grid\grid_checkall_singleselect.aspx" />
     <Content Include="grid\grid_editor_cell_afteredit_selectcell.aspx" />
@@ -163,6 +165,7 @@
     <Content Include="test\form2.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
     <Content Include="test\hello.aspx" />
+    <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\WebForm1.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
@@ -650,6 +653,13 @@
     </Compile>
     <Compile Include="form\layout_multiline_buttons.aspx.designer.cs">
       <DependentUpon>layout_multiline_buttons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="form\triggerbox_triggerboxurl.aspx.cs">
+      <DependentUpon>triggerbox_triggerboxurl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="form\triggerbox_triggerboxurl.aspx.designer.cs">
+      <DependentUpon>triggerbox_triggerboxurl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1231,6 +1241,13 @@
     </Compile>
     <Compile Include="test\hello.aspx.designer.cs">
       <DependentUpon>hello.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\triggerbox2.aspx.cs">
+      <DependentUpon>triggerbox2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\triggerbox2.aspx.designer.cs">
+      <DependentUpon>triggerbox2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

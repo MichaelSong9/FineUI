@@ -45,6 +45,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	+为了方便在源代码视图书写ASPX文件，将部分可空类型转换为不可空类型。
 		-表格列控件的TextAlign和HeaderTextAlign的类型：TextAlign? -> TextAlign。
 		-表单字段的LabelAlign的类型：LabelAlign? -> LabelAlign。
+	-修正触发器输入框TriggerBoxUrl无效的问题，增加示例：杂项->自定义触发器输入框图标。
 	
 
 
