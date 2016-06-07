@@ -346,6 +346,20 @@
 
         if (cmp.isXType('grid')) {
 
+            // 启用分页
+            if (cmp.f_paging) {
+                var pagingBar = cmp.f_getPaging();
+                saveInHiddenField('PageIndex', pagingBar.f_pageIndex);
+            }
+
+            // 启用排序
+            if (cmp.f_sorting) {
+                var gridSorter = cmp.getStore().sorters.get(0);
+                saveInHiddenField('SortField', gridSorter.property);
+                saveInHiddenField('SortDirection', gridSorter.direction);
+            }
+
+
             //if (cmp.getPlugin(cmp.id + '_celledit')) {
             if(cmp.f_cellEditing) {
                 // 可编辑单元格的表格
