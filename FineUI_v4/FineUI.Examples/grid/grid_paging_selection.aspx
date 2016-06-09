@@ -12,7 +12,7 @@
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" Title="表格（跨页选中行）" EnableCollapse="true" PageSize="5" ShowBorder="true" ShowHeader="true"
             AllowPaging="true" IsDatabasePaging="false" runat="server" EnableCheckBoxSelect="True" Width="800px" DataKeyNames="Id,Name"
-            OnPageIndexChange="Grid1_PageIndexChange" ClearSelectedRowsAfterPaging="false"
+            OnPageIndexChange="Grid1_PageIndexChange" ClearSelectionsBeforePaging="false"
             DataIDField="Id">
             <Columns>
                 <f:RowNumberField />

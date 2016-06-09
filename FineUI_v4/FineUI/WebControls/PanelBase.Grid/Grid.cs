@@ -300,18 +300,19 @@ namespace FineUI
         }
 
 
-        /// <summary>
-        /// 服务器端分页后清空选中的行
-        /// </summary>
-        [Category(CategoryName.OPTIONS)]
-        [DefaultValue(true)]
-        [Description("服务器端分页后清空选中的行")]
+        ///// <summary>
+        ///// 服务器端分页后清空选中的行
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(false)]
+        //[Description("服务器端分页后清空选中的行")]
+        [Obsolete("已废除，请使用ClearSelectionsBeforePaging属性")]
         public bool ClearSelectedRowsAfterPaging
         {
             get
             {
                 object obj = FState["ClearSelectedRowsAfterPaging"];
-                return obj == null ? true : (bool)obj;
+                return obj == null ? false : (bool)obj;
             }
             set
             {
@@ -319,6 +320,25 @@ namespace FineUI
             }
         }
 
+
+        /// <summary>
+        /// 排序前清空选中项
+        /// </summary>
+        [Category(CategoryName.OPTIONS)]
+        [DefaultValue(true)]
+        [Description("排序前清空选中项")]
+        public bool ClearSelectionsBeforePaging
+        {
+            get
+            {
+                object obj = FState["ClearSelectionsBeforePaging"];
+                return obj == null ? true : (bool)obj;
+            }
+            set
+            {
+                FState["ClearSelectionsBeforePaging"] = value;
+            }
+        }
 
         /// <summary>
         /// 每页显示项数
@@ -2940,6 +2960,10 @@ namespace FineUI
                 string postbackScript = String.Empty;
                 postbackScript = GetPostBackEventReference("#PLACEHOLDER#");
                 string loadPageScriptVars = "var oldPageIndex=bar.f_pageIndex;var newPageIndex=pageNum-1;bar.f_update({f_pageIndex:newPageIndex});";
+                if (ClearSelectionsBeforePaging)
+                {
+                    loadPageScriptVars += "this.ownerCt.f_clearSelections();";
+                }
                 string loadPageScript = JsHelper.GetFunction(loadPageScriptVars + postbackScript.Replace("'#PLACEHOLDER#'", "'Page$'+newPageIndex+'$'+oldPageIndex") + "return false;", "bar", "pageNum");
 
                 pagingBuilder.Listeners.AddProperty("beforechange", loadPageScript, true);
@@ -4139,7 +4163,7 @@ namespace FineUI
         private JArray _mergedData;
 
         /// <summary>
-        /// 获取合并后的表格数据（包含修改和未修改的数据，不包含已经删除的行数据）
+        /// 获取合并后的表格数据（不包含已经删除的行数据）（仅在启用单元格编辑时有效）
         /// </summary>
         /// <returns>合并后的表格数据</returns>
         public JArray GetMergedData()
@@ -4261,7 +4285,7 @@ namespace FineUI
         private JArray _modifiedData = new JArray();
 
         /// <summary>
-        /// 获取用户修改的数据
+        /// 获取用户修改的数据（仅在启用单元格编辑时有效）
         /// </summary>
         /// <returns></returns>
         public JArray GetModifiedData()
@@ -4285,7 +4309,7 @@ namespace FineUI
         private List<int> _deletedList;
 
         /// <summary>
-        /// 获取删除的行索引列表
+        /// 获取删除的行索引列表（仅在启用单元格编辑时有效）
         /// </summary>
         /// <returns></returns>
         public List<int> GetDeletedList()
@@ -4297,7 +4321,7 @@ namespace FineUI
         private List<Dictionary<string, object>> _newAddedList;
 
         /// <summary>
-        /// 获取新增的行数据
+        /// 获取新增的行数据（仅在启用单元格编辑时有效）
         /// </summary>
         /// <returns></returns>
         public List<Dictionary<string, object>> GetNewAddedList()
@@ -4309,7 +4333,7 @@ namespace FineUI
         private Dictionary<int, Dictionary<string, object>> _modifiedDict;
 
         /// <summary>
-        /// 获取用户修改的行数据
+        /// 获取用户修改的行数据（仅在启用单元格编辑时有效）
         /// </summary>
         /// <returns></returns>
         public Dictionary<int, Dictionary<string, object>> GetModifiedDict()
@@ -4714,7 +4738,7 @@ namespace FineUI
         /// <returns>客户端脚本</returns>
         public string GetClearSelectionsReference()
         {
-            return String.Format("{0}.getSelectionModel().clearSelections();", ScriptID);
+            return String.Format("{0}.f_clearSelections();", ScriptID);
         }
 
         /// <summary>
@@ -5193,8 +5217,9 @@ namespace FineUI
                         // 因为内存分页时不会重新绑定数据（数据库分页才会重新绑定数据，所以数据库分页时自然会清空选中的行）
                         // 所以需要一个设置，在分页结束后自动清空选中的行
                         SelectedRowIndexArray = null;
+                        SelectedCell = null;
                     }
-                    SelectedCell = null;
+                    
                 }
             }
             //else if (eventArgument.StartsWith("RowClick$"))

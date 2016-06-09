@@ -859,6 +859,14 @@ if (Ext.grid.Panel) {
             return selectedCount;
         },
 
+
+        f_clearSelections: function () {
+            var me = this;
+            var sm = me.getSelectionModel();
+
+            sm.deselectAll(true);
+        },
+
         // 选中某些行
         f_selectRows: function (rows) {
             var me = this;

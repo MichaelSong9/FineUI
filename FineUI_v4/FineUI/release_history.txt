@@ -38,6 +38,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		+简化表格的分页和排序代码，不需要显式赋值操作（不兼容提醒）。
 			-分页事件中不需要赋值代码：Grid1.PageIndex = e.NewPageIndex;
 			-排序事件中不需要赋值代码：Grid1.SortDirection = e.SortDirection;Grid1.SortField = e.SortField;
+			-废除表格ClearSelectedRowsAfterPaging属性，请使用ClearSelectionsBeforePaging属性。
 			-更新示例：分页与排序->内存分页（跨页保持选中行）；数据库分页（跨页保持选中行）。
 	-修正按钮回发事件中不能禁用自己的问题（FighterLuo-8364）。
 	-修正窗体控件在父页面弹出时不能最大化的问题（老鱼翁-7900）。
