@@ -46,9 +46,7 @@ namespace FineUI.Examples.grid
         {
             SyncSelectedRowIDArrayToHiddenField(e.OldPageIndex);
 
-            BindGrid();
-
-            UpdateSelectedRowIDArray();
+            UpdateSelectedRowIDArray(e.NewPageIndex);
         }
 
         private List<string> GetSelectedRowIDArrayFromHiddenField()
@@ -77,8 +75,11 @@ namespace FineUI.Examples.grid
             List<string> ids = GetSelectedRowIDArrayFromHiddenField();
 
             List<string> selectedRowIDs = new List<string>(Grid1.SelectedRowIDArray);
+
+            // 当前页的开始序号和结束序号
             int startPageIndex = pageIndex * Grid1.PageSize;
-            for (int i = startPageIndex, count = Math.Min(startPageIndex + Grid1.PageSize, Grid1.RecordCount); i < count; i++)
+            int endPageIndex = Math.Min(startPageIndex + Grid1.PageSize, Grid1.RecordCount) - 1;
+            for (int i = startPageIndex; i <= endPageIndex; i++)
             {
                 string rowID = Grid1.Rows[i].RowID;
                 if (selectedRowIDs.Contains(rowID))
@@ -100,16 +101,20 @@ namespace FineUI.Examples.grid
             hfSelectedIDS.Text = new JArray(ids).ToString(Formatting.None);
         }
 
-        private void UpdateSelectedRowIDArray()
+        private void UpdateSelectedRowIDArray(int pageIndex)
         {
             List<string> ids = GetSelectedRowIDArrayFromHiddenField();
 
             List<string> selectedRowIDs = new List<string>();
-            foreach (GridRow row in Grid1.Rows)
+            // 当前页的开始序号和结束序号
+            int startPageIndex = pageIndex * Grid1.PageSize;
+            int endPageIndex = Math.Min(startPageIndex + Grid1.PageSize, Grid1.RecordCount) - 1;
+            for (int i = startPageIndex; i <= endPageIndex; i++)
             {
-                if (ids.Contains(row.RowID))
+                string rowID = Grid1.Rows[i].RowID;
+                if (ids.Contains(rowID))
                 {
-                    selectedRowIDs.Add(row.RowID);
+                    selectedRowIDs.Add(rowID);
                 }
             }
 

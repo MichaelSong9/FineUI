@@ -101,10 +101,6 @@
       <TreeNode Text="服务器端验证" NavigateUrl="~/form/form_validate.aspx" >
       </TreeNode>
     </TreeNode>
-    <TreeNode Text="动态创建表单元素">
-      <TreeNode Text="动态创建表单元素" NavigateUrl="~/form/form_dynamic.aspx" >
-      </TreeNode>
-    </TreeNode>
     <TreeNode Text="上传控件">
       <TreeNode Text="上传控件" NavigateUrl="~/form/fileupload.aspx" >
       </TreeNode>
@@ -182,6 +178,8 @@
     <TreeNode Text="杂项">
       <TreeNode Text="重置表单" NavigateUrl="~/form/form_reset.aspx" >
       </TreeNode>
+      <TreeNode Text="动态创建表单元素" NavigateUrl="~/form/form_dynamic.aspx" >
+      </TreeNode>
       <TreeNode Text="隐藏表单字段" NavigateUrl="~/form/form_hide_field.aspx" >
       </TreeNode>
       <TreeNode Text="禁用与只读" NavigateUrl="~/form/form_disabled.aspx" IsNew="true" >
@@ -221,8 +219,6 @@
       <TreeNode Text="内存分页（跨页保持选中行）" NavigateUrl="~/grid/grid_paging_selection.aspx" >
       </TreeNode>
       <TreeNode Text="数据库分页（跨页保持选中行）" NavigateUrl="~/grid/grid_paging_database_selection.aspx" >
-      </TreeNode>
-      <TreeNode Text="数据库分页（底部工具栏）" NavigateUrl="~/grid/grid_paging_database_bbar.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
     <TreeNode Text="序号列">
@@ -479,6 +475,8 @@
       <TreeNode Text="右键菜单(全选复选框列）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_contextmenu.aspx" >
       </TreeNode>
       <TreeNode Text="隐藏表格标题栏" NavigateUrl="~/grid/grid_hide_gridheader.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="底部工具栏（分页栏也存在）" NavigateUrl="~/grid/grid_paging_database_bbar.aspx" IsNew="true" >
       </TreeNode>
     </TreeNode>
   </TreeNode>

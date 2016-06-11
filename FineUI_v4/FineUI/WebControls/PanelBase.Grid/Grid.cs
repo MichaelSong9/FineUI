@@ -300,25 +300,25 @@ namespace FineUI
         }
 
 
-        ///// <summary>
-        ///// 服务器端分页后清空选中的行
-        ///// </summary>
-        //[Category(CategoryName.OPTIONS)]
-        //[DefaultValue(false)]
-        //[Description("服务器端分页后清空选中的行")]
-        [Obsolete("已废除，请使用ClearSelectionsBeforePaging属性")]
-        public bool ClearSelectedRowsAfterPaging
-        {
-            get
-            {
-                object obj = FState["ClearSelectedRowsAfterPaging"];
-                return obj == null ? false : (bool)obj;
-            }
-            set
-            {
-                FState["ClearSelectedRowsAfterPaging"] = value;
-            }
-        }
+        /////// <summary>
+        /////// 服务器端分页后清空选中的行
+        /////// </summary>
+        ////[Category(CategoryName.OPTIONS)]
+        ////[DefaultValue(false)]
+        ////[Description("服务器端分页后清空选中的行")]
+        //[Obsolete("已废除，请使用ClearSelectionsBeforePaging属性")]
+        //public bool ClearSelectedRowsAfterPaging
+        //{
+        //    get
+        //    {
+        //        object obj = FState["ClearSelectedRowsAfterPaging"];
+        //        return obj == null ? false : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["ClearSelectedRowsAfterPaging"] = value;
+        //    }
+        //}
 
 
         /// <summary>
@@ -339,6 +339,25 @@ namespace FineUI
                 FState["ClearSelectionsBeforePaging"] = value;
             }
         }
+
+        ///// <summary>
+        ///// 数据绑定前清空选中项
+        ///// </summary>
+        //[Category(CategoryName.OPTIONS)]
+        //[DefaultValue(true)]
+        //[Description("数据绑定前清空选中项")]
+        //public bool ClearSelectionsBeforeBinding
+        //{
+        //    get
+        //    {
+        //        object obj = FState["ClearSelectionsBeforeBinding"];
+        //        return obj == null ? true : (bool)obj;
+        //    }
+        //    set
+        //    {
+        //        FState["ClearSelectionsBeforeBinding"] = value;
+        //    }
+        //}
 
         /// <summary>
         /// 每页显示项数
@@ -1715,7 +1734,7 @@ namespace FineUI
 
 
         /// <summary>
-        /// [AJAX属性]选中行的索引（列表中的第一项）
+        /// [AJAX属性]选中行的索引（选中行在当前分页中的索引值）
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -1740,7 +1759,7 @@ namespace FineUI
 
 
         /// <summary>
-        /// [AJAX属性]选中行的索引列表
+        /// [AJAX属性]选中行的索引列表（选中行在当前分页中的索引值）
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -1755,11 +1774,13 @@ namespace FineUI
 
                 // 如果是内存分页，当前是第2页，每页5条数据，则这个值是 startRowIndex == 5 
                 int startRowIndex = GetStartRowIndex();
+                int endRowIndex = GetEndRowIndex();
 
                 List<string> selectedRowIds = new List<string>(SelectedRowIDArray);
                 List<int> selectedRowIndexs = new List<int>();
-                foreach (GridRow row in Rows)
+                for (int i = startRowIndex; i <= endRowIndex; i++)
                 {
+                    GridRow row = Rows[i];
                     if (selectedRowIds.Contains(row.RowID))
                     {
                         selectedRowIndexs.Add(row.RowIndex - startRowIndex);
@@ -1778,11 +1799,13 @@ namespace FineUI
 
                 // 如果是内存分页，当前是第2页，每页5条数据，则这个值是 startRowIndex == 5 
                 int startRowIndex = GetStartRowIndex();
+                int endRowIndex = GetEndRowIndex();
 
                 List<string> selectedRowIds = new List<string>();
                 List<int> selectedRowIndexs = new List<int>(value);
-                foreach (GridRow row in Rows)
+                for (int i = startRowIndex; i <= endRowIndex; i++)
                 {
+                    GridRow row = Rows[i];
                     if (selectedRowIndexs.Contains(row.RowIndex - startRowIndex))
                     {
                         selectedRowIds.Add(row.RowID);
@@ -3756,36 +3779,9 @@ namespace FineUI
         internal void ResolveStartEndRowIndex(out int startRowIndex, out int endRowIndex)
         {
             startRowIndex = GetStartRowIndex();
-            endRowIndex = Rows.Count - 1;
-
-            // 内存分页
-            if (AllowPaging && !IsDatabasePaging)
-            {
-                endRowIndex = (PageIndex + 1) * PageSize - 1;
-                endRowIndex = (endRowIndex < RecordCount - 1) ? endRowIndex : RecordCount - 1;
-            }
-            /*
-            startRowIndex = 0;
-            endRowIndex = Rows.Count - 1;
-
-            if (AllowPaging)
-            {
-                if (IsDatabasePaging)
-                {
-                    // 数据库分页
-                    startRowIndex = 0;
-                    endRowIndex = Rows.Count - 1;
-                }
-                else
-                {
-                    // 简单的服务器端分页
-                    startRowIndex = PageSize * PageIndex;
-                    endRowIndex = (PageIndex + 1) * PageSize - 1;
-                    endRowIndex = endRowIndex < RecordCount - 1 ? endRowIndex : RecordCount - 1;
-                }
-            }
-             * */
+            endRowIndex = GetEndRowIndex();
         }
+
 
         /// <summary>
         /// 获取当前分页的起始行序号（不分页或者数据库分页时，返回零）
@@ -3802,6 +3798,24 @@ namespace FineUI
             }
 
             return startRowIndex;
+        }
+
+        /// <summary>
+        /// 获取当前分页的结束行序号
+        /// </summary>
+        /// <returns></returns>
+        public int GetEndRowIndex()
+        {
+            int endRowIndex = Rows.Count - 1;
+
+            // 内存分页
+            if (AllowPaging && !IsDatabasePaging)
+            {
+                endRowIndex = (PageIndex + 1) * PageSize - 1;
+                endRowIndex = (endRowIndex < RecordCount - 1) ? endRowIndex : RecordCount - 1;
+            }
+
+            return endRowIndex;
         }
 
         /// <summary>
@@ -3959,9 +3973,13 @@ namespace FineUI
             // 数据绑定之前要先清空 _dataKeys
             _dataKeys = null;
 
+            //if (ClearSelectionsBeforeBinding)
+            //{
             // 重新绑定数据前清空选中的值
             SelectedRowIndexArray = null;
             SelectedCell = null;
+            //}
+
 
             // 数据绑定之前要先清空现有的数据
             ClearRows();
@@ -5211,15 +5229,15 @@ namespace FineUI
 
                     OnPageIndexChange(new GridPageEventArgs(newPageIndex, oldPageIndex));
 
-                    if (ClearSelectedRowsAfterPaging)
-                    {
-                        // 分页后清空选中的值
-                        // 因为内存分页时不会重新绑定数据（数据库分页才会重新绑定数据，所以数据库分页时自然会清空选中的行）
-                        // 所以需要一个设置，在分页结束后自动清空选中的行
-                        SelectedRowIndexArray = null;
-                        SelectedCell = null;
-                    }
-                    
+                    //if (ClearSelectedRowsAfterPaging)
+                    //{
+                    //    // 分页后清空选中的值
+                    //    // 因为内存分页时不会重新绑定数据（数据库分页才会重新绑定数据，所以数据库分页时自然会清空选中的行）
+                    //    // 所以需要一个设置，在分页结束后自动清空选中的行
+                    //    SelectedRowIndexArray = null;
+                    //    SelectedCell = null;
+                    //}
+
                 }
             }
             //else if (eventArgument.StartsWith("RowClick$"))

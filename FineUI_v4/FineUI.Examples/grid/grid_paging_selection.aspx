@@ -5,15 +5,14 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="../res/css/common.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Grid ID="Grid1" Title="表格（跨页选中行）" EnableCollapse="true" PageSize="5" ShowBorder="true" ShowHeader="true"
             AllowPaging="true" IsDatabasePaging="false" runat="server" EnableCheckBoxSelect="True" Width="800px" DataKeyNames="Id,Name"
-            OnPageIndexChange="Grid1_PageIndexChange" ClearSelectionsBeforePaging="false"
-            DataIDField="Id">
+            OnPageIndexChange="Grid1_PageIndexChange" KeepCurrentSelection="true"
+            DataIDField="Id" ClearSelectionsBeforePaging="false">
             <Columns>
                 <f:RowNumberField />
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
