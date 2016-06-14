@@ -6,12 +6,14 @@ using System.Web.UI.WebControls;
 
 namespace FineUI.Examples.form
 {
-    public partial class calendar : PageBase
+    public partial class calendar_mindate : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                Calendar1.MinDate = DateTime.Now;
+                Calendar1.MaxDate = DateTime.Now.AddDays(20);
                 Calendar1.SelectedDate = DateTime.Now.AddDays(10);
 
                 Button1.Text = String.Format("选中{0}", DateTime.Now.AddDays(2).ToString(Calendar1.DateFormatString));

@@ -10,7 +10,7 @@
 namespace FineUI.Examples.form {
     
     
-    public partial class calendar {
+    public partial class form_textalign {
         
         /// <summary>
         /// form1 control.
@@ -31,30 +31,48 @@ namespace FineUI.Examples.form {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Calendar1 control.
+        /// SimpleForm1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Calendar Calendar1;
+        protected global::FineUI.SimpleForm SimpleForm1;
         
         /// <summary>
-        /// Button1 control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Button Button1;
+        protected global::FineUI.TextBox TextBox1;
         
         /// <summary>
-        /// labResult1 control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Label labResult1;
+        protected global::FineUI.TextBox TextBox2;
+        
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.TextBox TextBox3;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.Button btnSubmit;
     }
 }

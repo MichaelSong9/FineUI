@@ -10,7 +10,7 @@
 namespace FineUI.Examples.form {
     
     
-    public partial class calendar {
+    public partial class calendar_mindate {
         
         /// <summary>
         /// form1 control.

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="calendar.aspx.cs" Inherits="FineUI.Examples.form.calendar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="calendar_mindate.aspx.cs" Inherits="FineUI.Examples.form.calendar_mindate" %>
 
 <!DOCTYPE html>
 <html>

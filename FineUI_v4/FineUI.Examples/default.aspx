@@ -118,7 +118,7 @@
                                 <tr>
                                     <td style="width: 300px;">&nbsp;版本：<a target="_blank" href="http://fineui.com/version">v<asp:Literal runat="server" ID="litVersion"></asp:Literal></a>
                                         &nbsp;&nbsp; <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=5a98eb42b742a1edaf22826648d5f61bc16ed08e0253976bc8d30f97508c09c7">QQ公开群</a></td>
-                                    <td style="text-align: center;">Copyright &copy; 2008-2015 合肥三生石上软件有限公司</td>
+                                    <td style="text-align: center;">Copyright &copy; 2008-2016 合肥三生石上软件有限公司</td>
                                     <td style="width: 300px; text-align: right;">在线人数：<asp:Literal runat="server" ID="litOnlineUserCount"></asp:Literal>&nbsp;</td>
                                 </tr>
                             </table>

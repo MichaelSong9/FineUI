@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.form {
+namespace FineUI.Examples.dropdownlist {
     
     
-    public partial class calendar {
+    public partial class dropdownlist_focus {
         
         /// <summary>
         /// form1 control.
@@ -31,30 +31,48 @@ namespace FineUI.Examples.form {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Calendar1 control.
+        /// SimpleForm1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Calendar Calendar1;
+        protected global::FineUI.SimpleForm SimpleForm1;
         
         /// <summary>
-        /// Button1 control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Button Button1;
+        protected global::FineUI.DropDownList DropDownList1;
         
         /// <summary>
-        /// labResult1 control.
+        /// btnSelectItem6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Label labResult1;
+        protected global::FineUI.Button btnSelectItem6;
+        
+        /// <summary>
+        /// btnGetSelection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.Button btnGetSelection;
+        
+        /// <summary>
+        /// labResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.Label labResult;
     }
 }
