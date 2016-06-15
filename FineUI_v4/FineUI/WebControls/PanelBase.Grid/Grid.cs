@@ -3251,14 +3251,20 @@ namespace FineUI
         private string GetSortColummID()
         {
             string columnID = String.Empty;
-            foreach (GridColumn column in AllColumns)
+
+            // 这个判断一定要加上，因为序号列的 SortField 也为空！
+            if (!String.IsNullOrEmpty(SortField))
             {
-                if (column.SortField == SortField)
+                foreach (GridColumn column in AllColumns)
                 {
-                    columnID = column.ColumnID;
-                    break;
+                    if (column.SortField == SortField)
+                    {
+                        columnID = column.ColumnID;
+                        break;
+                    }
                 }
             }
+
             return columnID;
         }
 
@@ -4401,23 +4407,26 @@ namespace FineUI
                 string sortFieldPostValue = postCollection[SortFieldHiddenFieldID];
                 string sortDirectionPostValue = postCollection[SortDirectionHiddenFieldID];
 
-                // FineUIPro的客户端中，field和columnId是一样的，因此在客户端并不知道 SortField 的值
-                GridColumn column = FindColumn(sortFieldPostValue);
-                if (column != null)
+                if (!String.IsNullOrEmpty(sortFieldPostValue))
                 {
-                    // 当前列的排序字段和排序方向
-                    string sortField = column.SortField;
-
-                    if (SortField != sortField)
+                    // FineUIPro的客户端中，field和columnId是一样的，因此在客户端并不知道 SortField 的值
+                    GridColumn column = FindColumn(sortFieldPostValue);
+                    if (column != null)
                     {
-                        SortField = sortField;
-                        FState.BackupPostDataProperty("SortField");
-                    }
+                        // 当前列的排序字段和排序方向
+                        string sortField = column.SortField;
 
-                    if (SortDirection != sortDirectionPostValue)
-                    {
-                        SortDirection = sortDirectionPostValue;
-                        FState.BackupPostDataProperty("SortDirection");
+                        if (SortField != sortField)
+                        {
+                            SortField = sortField;
+                            FState.BackupPostDataProperty("SortField");
+                        }
+
+                        if (SortDirection != sortDirectionPostValue)
+                        {
+                            SortDirection = sortDirectionPostValue;
+                            FState.BackupPostDataProperty("SortDirection");
+                        }
                     }
                 }
             }

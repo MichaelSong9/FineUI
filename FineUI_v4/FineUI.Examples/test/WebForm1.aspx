@@ -8,22 +8,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" runat="server" />
-
-
-        <f:Grid ID="Grid1" runat="server" Title="Grid" EnableTextSelection="true" Height="600px" EnableCollapse="true"
-            ShowHeader="false" DataKeyNames="myid" AllowCellEditing="true" ClicksToEdit="1" EnableCheckBoxSelect="true">
-            <Columns>
-                <f:BoundField DataField="id" ID="ctl25" ColumnID="Grid1_ctl25" HeaderText="FInterID" Hidden="true" />
-                <f:BoundField DataField="Cusname" ID="BoundField1" ColumnID="Cusname" HeaderText="客户名称" Width="150px" />
-                <f:RenderField Width="300px" ColumnID="type" DataField="type" FieldType="String" HeaderText="类型">
-                    <Editor>
-                        <f:TextBox ID="TextBox4" runat="server"></f:TextBox>
-                    </Editor>
-                </f:RenderField>
-                <f:HyperLinkField HeaderText="所学专业"></f:HyperLinkField>
-            </Columns>
-        </f:Grid>
+        <f:PageManager ID="ageManager1" runat="server" />
+        <f:Button Text="点击弹出对话框" runat="server" ID="btnHello">
+        </f:Button>
+        <f:Panel ID="anel1" runat="server" BodyPadding="5px" ShowBorder="true" ShowHeader="true" Title="anel">
+            <Items>
+                <f:Grid ID="Grid1" AllowSorting="true" SortField="Gender" SortDirection="ASC" runat="server">
+                    <Columns>
+                        <f:RowNumberField />
+                        <f:BoundField Width="100px" SortField="Gender" DataField="Gender" DataFormatString="{0}"
+                            HeaderText="性别" />
+                    </Columns>
+                </f:Grid>
+            </Items>
+        </f:Panel>
     </form>
 </body>
 </html>

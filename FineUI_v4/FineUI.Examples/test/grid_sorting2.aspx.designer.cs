@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmptyProjectNet40_FineUI {
+namespace FineUI.Examples.grid {
     
     
-    public partial class WebForm1 {
+    public partial class grid_sorting2 {
         
         /// <summary>
         /// form1 control.
@@ -22,31 +22,13 @@ namespace EmptyProjectNet40_FineUI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ageManager1 control.
+        /// PageManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.PageManager ageManager1;
-        
-        /// <summary>
-        /// btnHello control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.Button btnHello;
-        
-        /// <summary>
-        /// anel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.Panel anel1;
+        protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
         /// Grid1 control.
@@ -56,5 +38,32 @@ namespace EmptyProjectNet40_FineUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::FineUI.Grid Grid1;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.Button Button1;
+        
+        /// <summary>
+        /// labResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FineUI.Label labResult;
     }
 }

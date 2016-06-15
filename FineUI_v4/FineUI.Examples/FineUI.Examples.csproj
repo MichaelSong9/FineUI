@@ -170,6 +170,7 @@
     <Content Include="test\activex.aspx" />
     <Content Include="test\form2.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
+    <Content Include="test\grid_sorting2.aspx" />
     <Content Include="test\hello.aspx" />
     <Content Include="test\triggerbox2.aspx" />
     <Content Include="test\WebForm1.aspx" />
@@ -1282,6 +1283,13 @@
     </Compile>
     <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\grid_sorting2.aspx.cs">
+      <DependentUpon>grid_sorting2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\grid_sorting2.aspx.designer.cs">
+      <DependentUpon>grid_sorting2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\hello.aspx.cs">
       <DependentUpon>hello.aspx</DependentUpon>
