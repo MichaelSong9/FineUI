@@ -107,7 +107,7 @@ F.f_customEvent = F.customEvent = function (argument, validate) {
 
     var pmv = F.f_pagemanager.validate;
     if (validate && pmv) {
-        if (!F.util.validateForms(pmv.forms, pmv.target, pmv.messagebox)) {
+        if (!F.util.validForms(pmv.forms, pmv.target, pmv.messagebox)) {
             return false;
         }
     }

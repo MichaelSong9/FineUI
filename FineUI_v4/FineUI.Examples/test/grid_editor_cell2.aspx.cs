@@ -51,7 +51,7 @@ namespace FineUI.Examples.grid
 
             labResult.Text = String.Format("用户修改的数据：<pre>{0}</pre>", Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.Indented));
 
-            ShowNotify("数据保存成功！（表格数据已重新绑定）");
+            Alert.Show("数据保存成功！（表格数据已重新绑定）");
         }
 
         private void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)
@@ -114,7 +114,7 @@ namespace FineUI.Examples.grid
             }
             return null;
         }
-
+        
         #endregion
 
     }

@@ -30,7 +30,7 @@
                             ShowLabel="false" Label="销毁统计结束时间"
                             runat="server" EnableEdit="false">
                         </f:DatePicker>
-                        <f:Button runat="server" ID="btnClearDate" CssClass="marginr" Text="重置起止时间">
+                        <f:Button runat="server" ID="btnClearDate" CssClass="marginr" Text="重置起止时间" EnablePostBack="false">
                             <Listeners>
                                 <f:Listener Event="click" Handler="onClearDateClick" />
                             </Listeners>
@@ -66,7 +66,7 @@
                             ShowLabel="false" Label="销毁统计结束时间"
                             runat="server" EnableEdit="false">
                         </f:DatePicker>
-                        <f:Button runat="server" ID="Button1" CssClass="marginr" Text="重置起止时间">
+                        <f:Button runat="server" ID="Button1" CssClass="marginr" Text="重置起止时间" EnablePostBack="false">
                             <Listeners>
                                 <f:Listener Event="click" Handler="onClearDateClick" />
                             </Listeners>
@@ -86,9 +86,9 @@
 
         function onClearDateClick(event) {
             // this -> 按钮实例；获取按钮所在的表单ID
-            var formId = this.el.parents('.f-form').attr('id');
+            var formId = this.el.findParent('.mysimpleform').getAttribute('id');
 
-            F(formId).reset();
+            F(formId).f_reset();
         }
 
     </script>

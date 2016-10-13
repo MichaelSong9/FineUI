@@ -9,16 +9,15 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格（单击编辑）" EnableCollapse="true" Width="850px"
-            runat="server" DataKeyNames="Id,Name"
-            AllowCellEditing="true" ClicksToEdit="1">
+        <f:Grid ID="Grid1" ShowBorder="true" ShowHeader="true" Title="表格" EnableCollapse="true" Width="850px"
+            runat="server" DataKeyNames="Id,Name" AllowCellEditing="true" PageSize="5" AllowPaging="true" ClicksToEdit="1" DataIDField="Id">
             <Columns>
                 <f:TemplateField Width="60px">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                     </ItemTemplate>
                 </f:TemplateField>
-                <f:RenderField Width="100px" ColumnID="Name" DataField="Name"
+                <f:RenderField Width="100px" ColumnID="Name" DataField="Name" FieldType="String"
                     HeaderText="姓名">
                     <Editor>
                         <f:TextBox ID="tbxEditorName" Required="true" runat="server">
@@ -42,15 +41,15 @@
                         </f:NumberBox>
                     </Editor>
                 </f:RenderField>
-                <f:RenderField Width="200px" ColumnID="LogTime" DataField="LogTime" FieldType="Date"
-                    Renderer="Date" RendererArgument="yyyy-MM-dd HH:mm:ss" HeaderText="记录日期">
+                <f:RenderField Width="120px" ColumnID="LogTime" DataField="LogTime" FieldType="Date"
+                    Renderer="Date" RendererArgument="yyyy-MM-dd" HeaderText="入学日期">
                     <Editor>
                         <f:DatePicker ID="DatePicker1" Required="true" runat="server">
                         </f:DatePicker>
                     </Editor>
                 </f:RenderField>
                 <f:RenderCheckField Width="100px" ColumnID="AtSchool" DataField="AtSchool" HeaderText="是否在校" />
-                <f:RenderField Width="100px" ColumnID="Major" DataField="Major"
+                <f:RenderField Width="100px" ColumnID="Major" DataField="Major" FieldType="String"
                     ExpandUnusedSpace="true" HeaderText="所学专业">
                     <Editor>
                         <f:TextBox ID="tbxEditorMajor" Required="true" runat="server">
@@ -67,15 +66,6 @@
         <f:Label ID="labResult" EncodeText="false" runat="server">
         </f:Label>
         <br />
-        <br />
-        快捷键说明：
-        <ul>
-            <li>方向键在单元格之间导航（非编辑状态）</li>
-            <li>回车键使单元格进入编辑状态</li>
-            <li>ESC键取消单元格的编辑状态</li>
-            <li>Tab键进入下一个单元格（如果单元格可编辑，则使其进入编辑状态）</li>
-            <li>Shift+Tab键回退到上一个单元格（如果单元格可编辑，则使其进入编辑状态）</li>
-        </ul>
     </form>
     <script>
 
