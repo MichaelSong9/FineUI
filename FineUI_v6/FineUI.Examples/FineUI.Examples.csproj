@@ -175,12 +175,6 @@
     <Content Include="tabstrip\tabstrip_position.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\activex.aspx" />
-    <Content Include="test\form2.aspx" />
-    <Content Include="test\grid_editor_cell2.aspx" />
-    <Content Include="test\hello.aspx" />
-    <Content Include="test\triggerbox2.aspx" />
-    <Content Include="test\WebForm1.aspx" />
-    <Content Include="test\WebForm2.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
@@ -1303,48 +1297,6 @@
     </Compile>
     <Compile Include="test\activex.aspx.designer.cs">
       <DependentUpon>activex.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\form2.aspx.cs">
-      <DependentUpon>form2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\form2.aspx.designer.cs">
-      <DependentUpon>form2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\grid_editor_cell2.aspx.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
-      <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\hello.aspx.cs">
-      <DependentUpon>hello.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\hello.aspx.designer.cs">
-      <DependentUpon>hello.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\triggerbox2.aspx.cs">
-      <DependentUpon>triggerbox2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\triggerbox2.aspx.designer.cs">
-      <DependentUpon>triggerbox2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\autocomplete\inline_window.aspx.cs">
       <DependentUpon>inline_window.aspx</DependentUpon>
@@ -3135,13 +3087,6 @@
     <Compile Include="tabstrip\tabstrip_autopostback.aspx.designer.cs">
       <DependentUpon>tabstrip_autopostback.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="config\ajax.aspx.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3329,7 +3274,6 @@
     <Content Include="tabstrip\tabstrip_iframe.aspx" />
     <Content Include="tabstrip\tabstrip.aspx" />
     <Content Include="other\toolbar.aspx" />
-    <Content Include="test\test.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="config\ajax_properties.txt" />
