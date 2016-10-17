@@ -77,6 +77,9 @@ F.getActiveWindow = function () {
     return F.wnd.getActiveWindow.apply(window, arguments);
 };
 
+F.isEOBJ = function (value) {
+    return F.util.isObjectEmpty(value);
+};
 
 // 创建客户端控件，标识这是一个FineUI服务器端创建的控件
 F.create = function () {

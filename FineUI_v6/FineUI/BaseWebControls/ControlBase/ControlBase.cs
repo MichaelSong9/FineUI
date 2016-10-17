@@ -1056,6 +1056,7 @@ namespace FineUI
 
             #endregion
 
+            // f_state表明这个控件对应一个服务器端控件
             List<string> totalModifiedProperties = FState.GetTotalModifiedProperties();
             if (totalModifiedProperties.Count > 0)
             {
@@ -1071,10 +1072,10 @@ namespace FineUI
                     OB.AddProperty("f_state_v", GetFStateValidation(fstateall));
                 }
             }
-            //else
-            //{
-            //    OB.AddProperty("f_state", "{}", true);
-            //}
+            else
+            {
+                OB.AddProperty("f_state", "{}", true);
+            }
 
 
 

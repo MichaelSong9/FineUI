@@ -272,15 +272,18 @@
     function getFState() {
         var state = {};
         Ext.ComponentManager.each(function (key, cmp) {
-            // 只处理FineUI服务器端生成的控件
-            if (cmp.isXType && cmp.fineui) {
+            // 只处理FineUI服务器端生成的控件（f_state表明这个控件对应一个服务器端控件）
+            if (cmp.fineui && cmp.f_state) {
                 resolveCmpHiddenFields(cmp);
 
                 var fstate = cmp['f_state'];
-                if (fstate && cmp.id) {
+                if (fstate && !F.isEOBJ(fstate)) {
                     if (F.fstateValidation) {
+                        // 如果验证信息不存在，则不添加f_state
                         var fstatev = cmp['f_state_v'];
-                        state[cmp.id] = [fstate, fstatev];
+                        if (fstatev) {
+                            state[cmp.id] = [fstate, fstatev];
+                        }
                     } else {
                         state[cmp.id] = fstate;
                     }
