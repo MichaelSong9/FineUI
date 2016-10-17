@@ -749,7 +749,7 @@ namespace FineUI
 
             #endregion
 
-            string createScript = String.Format("var {0}=Ext.create('Ext.button.Button',{1});", XID, OB.ToString());
+            string createScript = String.Format("var {0}=F.create('Ext.button.Button',{1});", XID, OB.ToString());
             AddStartupScript(submitButtonScript + createScript);
         }
 

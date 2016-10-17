@@ -82,10 +82,10 @@
     <Content Include="dropdownlist\multiselect_autopostback_enableedit.aspx" />
     <Content Include="dropdownlist\dropdownlist_autopostback_enableedit_noforceselection.aspx" />
     <Content Include="extjs_builder\js\ux\TabCloseMenu.js" />
-    <Content Include="extjs_builder\res\backup.css" />
     <Content Include="extjs_builder\res\theme-crisp.css" />
     <Content Include="extjs_builder\res\theme-triton.css" />
     <Content Include="extjs_builder\version.txt" />
+    <Content Include="extjs_builder\如何自行创建extjs目录.txt" />
     <Content Include="form\calendar_mindate.aspx" />
     <Content Include="form\form_columnwidths.aspx" />
     <Content Include="form\form_labelwidth.aspx" />

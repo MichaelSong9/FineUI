@@ -180,7 +180,7 @@ namespace FineUI
             if (this is TemplateField && (this as TemplateField).RenderAsRowExpander)
             {
                 JsObjectBuilder rowExpanderBuilder = new JsObjectBuilder();
-                rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("Ext.create('Ext.XTemplate','{{{0}}}')", ColumnID), true);
+                rowExpanderBuilder.AddProperty("rowBodyTpl", String.Format("F.create('Ext.XTemplate','{{{0}}}')", ColumnID), true);
                 rowExpanderBuilder.AddProperty("pluginId", String.Format("{0}_rowexpander", Grid.ClientID));
 
                 if (!ExpandOnDoubleClick)
@@ -199,7 +199,7 @@ namespace FineUI
                 }
 
 
-                string jsContent = String.Format("var {0}=Ext.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
+                string jsContent = String.Format("var {0}=F.create('Ext.grid.plugin.RowExpander',{1});", XID, rowExpanderBuilder);
                 AddGridColumnScript(jsContent);
                 
             }

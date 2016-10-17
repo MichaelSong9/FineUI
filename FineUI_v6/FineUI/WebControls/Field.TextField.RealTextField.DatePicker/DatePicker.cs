@@ -343,7 +343,7 @@ namespace FineUI
                 AddListener("select", GetPostBackEventReference("Select"));
             }
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.Date',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.form.field.Date',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

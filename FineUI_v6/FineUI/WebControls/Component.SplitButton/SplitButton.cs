@@ -84,7 +84,7 @@ namespace FineUI
             // 首先删除注册脚本（因为已经在Button中注册过了）
             ResourceManager.Instance.RemoveStartupScript(this);
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.button.Split',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.button.Split',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

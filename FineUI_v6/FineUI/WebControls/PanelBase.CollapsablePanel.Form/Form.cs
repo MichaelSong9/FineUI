@@ -259,7 +259,7 @@ namespace FineUI
             
 
 
-            string formPanelScript = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());
+            string formPanelScript = String.Format("var {0}=F.create('Ext.form.Panel',{1});", XID, OB.ToString());
             
             //string jsContent = rowScriptStr + formPanelScript;
             AddStartupScript(formPanelScript);
@@ -518,7 +518,7 @@ namespace FineUI
         //    rowBuilder.AddProperty("id", rowId);
 
         //    // 注意要注册 最后 一个 Row的脚本
-        //    return String.Format("var {0}=Ext.create('Ext.panel.Panel',{1});", rowId, rowBuilder.ToString());
+        //    return String.Format("var {0}=F.create('Ext.panel.Panel',{1});", rowId, rowBuilder.ToString());
         //}
 
         ///// <summary>

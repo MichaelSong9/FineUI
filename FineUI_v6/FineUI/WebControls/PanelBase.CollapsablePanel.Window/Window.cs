@@ -1387,7 +1387,7 @@ namespace FineUI
 
 
             // 创建Window对象
-            string jsContent = String.Format("var {0}=Ext.create('Ext.window.Window',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.window.Window',{1});", XID, OB.ToString());
 
             // 通过Javascript的方式向页面添加Window的DIV包裹容器
             string addWrapperScript = String.Format("F.util.appendFormNode('{0}');", String.Format("<div class=\"f-window-wrapper\" id=\"{0}\"></div>", WrapperID));

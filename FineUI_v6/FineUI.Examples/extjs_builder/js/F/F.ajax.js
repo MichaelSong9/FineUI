@@ -151,6 +151,8 @@
                     if (disabledButtonIdBeforeAJAX) {
                         F.enable(disabledButtonIdBeforeAJAX);
                     }
+
+                    processEnd(); // v6.0.0：失败也要做清理工作
                     createErrorWindow(data);
                 },
                 callback: function (options, success, response) {
@@ -270,7 +272,8 @@
     function getFState() {
         var state = {};
         Ext.ComponentManager.each(function (key, cmp) {
-            if (cmp.isXType) {
+            // 只处理FineUI服务器端生成的控件
+            if (cmp.isXType && cmp.fineui) {
                 resolveCmpHiddenFields(cmp);
 
                 var fstate = cmp['f_state'];

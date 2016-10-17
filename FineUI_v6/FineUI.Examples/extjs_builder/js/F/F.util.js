@@ -78,6 +78,18 @@ F.getActiveWindow = function () {
 };
 
 
+// 创建客户端控件，标识这是一个FineUI服务器端创建的控件
+F.create = function () {
+    var cmp = Ext.create.apply(window, arguments);
+
+    // 是个UI组件（排除 Ext.data.ArrayStore...）
+    if (cmp instanceof Ext.Component) {
+        cmp.fineui = true;
+    }
+    
+    return cmp;
+};
+
 // 记录最后一个控件的序号
 F.f_objectIndex = 0;
 

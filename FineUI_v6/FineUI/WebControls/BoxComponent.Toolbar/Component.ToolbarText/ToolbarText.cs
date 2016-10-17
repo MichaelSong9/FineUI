@@ -133,7 +133,7 @@ namespace FineUI
             //    AddAjaxPropertyChangedScript(String.Format("{0}.setText({1});", XID, JsHelper.Enquote(Text)));
             //}
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.toolbar.TextItem',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.toolbar.TextItem',{1});", XID, OB.ToString());
 
             AddStartupScript(jsContent);
         }

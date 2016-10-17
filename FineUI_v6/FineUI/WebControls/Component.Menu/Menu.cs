@@ -197,7 +197,7 @@ namespace FineUI
 
             if (Items.Count > 0)
             {
-                string jsContent = String.Format("var {0}=Ext.create('Ext.menu.Menu',{1});", XID, OB.ToString());
+                string jsContent = String.Format("var {0}=F.create('Ext.menu.Menu',{1});", XID, OB.ToString());
                 AddStartupScript(jsContent);
             }
 

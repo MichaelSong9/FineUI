@@ -146,7 +146,7 @@ namespace FineUI
             Ext.override(Ext.form.Panel, {
                 listeners: {
                     render: function () {
-                        Ext.create('Ext.util.KeyNav', this.el, {
+                        F.create('Ext.util.KeyNav', this.el, {
                             "enter": function (e) {
                                 var el = Ext.Element.getActiveElement();
                                 if (el.type != 'textarea') {
@@ -169,7 +169,7 @@ namespace FineUI
             */
 
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.form.Panel',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.form.Panel',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
 
         }

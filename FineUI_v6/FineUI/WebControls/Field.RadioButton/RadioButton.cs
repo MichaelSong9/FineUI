@@ -258,7 +258,7 @@ namespace FineUI
 
             #endregion
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.form.field.Radio',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.form.field.Radio',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

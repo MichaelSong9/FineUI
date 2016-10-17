@@ -56,10 +56,12 @@ namespace FineUI.Examples.grid
 
             labResult.Text = String.Format("用户修改的数据：<pre>{0}</pre>", Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.Indented));
 
-            // 重新选中之前的单元格
-            PageContext.RegisterStartupScript(String.Format("F('{0}').f_selectCell('{1}','{2}');", Grid1.ClientID, selectedCell[0], selectedCell[1]));
-
-
+            if (selectedCell != null)
+            {
+                // 重新选中之前的单元格
+                PageContext.RegisterStartupScript(String.Format("F('{0}').f_selectCell('{1}','{2}');", Grid1.ClientID, selectedCell[0], selectedCell[1]));
+            }
+            
         }
 
         private void UpdateDataRow(Dictionary<string, object> rowDict, DataRow rowData)

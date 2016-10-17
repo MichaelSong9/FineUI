@@ -1202,7 +1202,7 @@ namespace FineUI
             JsObjectBuilder storeBuilder = new JsObjectBuilder();
             storeBuilder.AddProperty("fields", "['value','text','enabled','prefix']", true);
             storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.F_Items)", GetFStateScriptID()), true);
-            OB.AddProperty("store", String.Format("Ext.create('Ext.data.ArrayStore',{0})", storeBuilder), true);
+            OB.AddProperty("store", String.Format("F.create('Ext.data.ArrayStore',{0})", storeBuilder), true);
 
             OB.AddProperty("value", String.Format("{0}.{1}", GetFStateScriptID(), EnableMultiSelect ? "SelectedValueArray" : "SelectedValue"), true);
 
@@ -1408,7 +1408,7 @@ namespace FineUI
 
             #region AddStartupScript
 
-            string contentScript = String.Format("var {0}=Ext.create('Ext.form.field.ComboBox',{1});", XID, OB.ToString());
+            string contentScript = String.Format("var {0}=F.create('Ext.form.field.ComboBox',{1});", XID, OB.ToString());
 
             AddStartupScript(autoPostBackScript + contentScript);
 

@@ -654,7 +654,7 @@ namespace FineUI
                 AddListener("render", "cmp.setReadOnly(true);", "cmp");
             }
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.form.RadioGroup',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.form.RadioGroup',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

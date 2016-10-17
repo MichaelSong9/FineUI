@@ -264,7 +264,7 @@ namespace FineUI
             }
 
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.picker.Date',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.picker.Date',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

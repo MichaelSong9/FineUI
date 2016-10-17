@@ -94,7 +94,7 @@ namespace FineUI
             //AddPageFirstLoadAbsoluteScript(hideScript);
 
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.toolbar.Fill',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.toolbar.Fill',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

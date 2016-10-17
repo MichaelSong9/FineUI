@@ -1131,7 +1131,7 @@ namespace FineUI
             //loaderBuilder.AddProperty("preloadChildren", true);
             //loaderBuilder.AddProperty("clearOnLoad", false);
 
-            loaderScript = String.Format("var {0}=Ext.create('Ext.data.TreeStore',{1});", Render_StoreID, loaderBuilder);
+            loaderScript = String.Format("var {0}=F.create('Ext.data.TreeStore',{1});", Render_StoreID, loaderBuilder);
 
             OB.AddProperty("store", Render_StoreID, true);
             #endregion
@@ -1187,11 +1187,11 @@ namespace FineUI
             string selectModelScript = String.Empty;
             if (EnableMultiSelect)
             {
-                selectModelScript = "Ext.create('Ext.selection.TreeModel',{mode:'MULTI'})";
+                selectModelScript = "F.create('Ext.selection.TreeModel',{mode:'MULTI'})";
             }
             else
             {
-                selectModelScript = "Ext.create('Ext.selection.TreeModel',{mode:'SINGLE'})";
+                selectModelScript = "F.create('Ext.selection.TreeModel',{mode:'SINGLE'})";
             }
             OB.AddProperty("selModel", selectModelScript, true);
 
@@ -1257,13 +1257,13 @@ namespace FineUI
 
             //scripts.AppendLine(hiddenFieldsScript);
 
-            //OB.AddProperty("store", "Ext.create('Ext.data.TreeStore')", true);
+            //OB.AddProperty("store", "F.create('Ext.data.TreeStore')", true);
 
 
             //StringBuilder sb = new StringBuilder();
 
             //scripts.AppendLine(loaderScript);
-            string startupScript = String.Format("var {0}=Ext.create('Ext.tree.Panel',{1});", XID, OB);
+            string startupScript = String.Format("var {0}=F.create('Ext.tree.Panel',{1});", XID, OB);
 
             AddStartupScript(loaderScript + startupScript);
 

@@ -122,7 +122,7 @@ namespace FineUI
                 AddStartupAbsoluteScript(GetTimerScript());
             }
 
-            string contentScript = String.Format("var {0}=Ext.create('Ext.Component',{1});", XID, OB.ToString());
+            string contentScript = String.Format("var {0}=F.create('Ext.Component',{1});", XID, OB.ToString());
             AddStartupScript(contentScript);
         }
 

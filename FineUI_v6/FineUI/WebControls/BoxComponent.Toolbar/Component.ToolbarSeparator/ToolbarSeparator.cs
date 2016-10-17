@@ -94,7 +94,7 @@ namespace FineUI
 
 
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.toolbar.Separator',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.toolbar.Separator',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
         }
 

@@ -3192,7 +3192,7 @@ namespace FineUI
                 cellEditBuilder.AddProperty("pluginId", pluginId);
                 cellEditBuilder.AddProperty("clicksToEdit", ClicksToEdit);
 
-                cellEditScript = String.Format("var {0}=Ext.create('Ext.grid.plugin.CellEditing',{1});", pluginId, cellEditBuilder);
+                cellEditScript = String.Format("var {0}=F.create('Ext.grid.plugin.CellEditing',{1});", pluginId, cellEditBuilder);
 
                 pluginBuilder.AddProperty(pluginId, true);
 
@@ -3232,7 +3232,7 @@ namespace FineUI
 
             StringBuilder sb = new StringBuilder();
             sb.Append(gridSelectModelScript + gridStoreScript + pagingScript + gridColumnsScript + cellEditScript);
-            sb.AppendFormat("var {0}=Ext.create('Ext.grid.Panel',{1});", XID, OB);
+            sb.AppendFormat("var {0}=F.create('Ext.grid.Panel',{1});", XID, OB);
 
             AddStartupScript(sb.ToString());
 
@@ -3351,7 +3351,7 @@ namespace FineUI
             //        rowNumberBuilder.AddProperty("f_paging_enabled", EnableRowNumberPaging);
             //    }
 
-            //    columnsBuilder.AddProperty(String.Format("Ext.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
+            //    columnsBuilder.AddProperty(String.Format("F.create('Ext.grid.column.RowNumberer',{0})", rowNumberBuilder.ToString()), true);
 
             //}
 
@@ -3493,7 +3493,7 @@ namespace FineUI
 
             if (AllowCellEditing)
             {
-                return String.Format("var {0}=Ext.create('Ext.selection.CellModel',{1});", Render_SelectModelID, selectOB);
+                return String.Format("var {0}=F.create('Ext.selection.CellModel',{1});", Render_SelectModelID, selectOB);
             }
             else
             {
@@ -3544,11 +3544,11 @@ namespace FineUI
 
                 if (EnableCheckBoxSelect)
                 {
-                    return String.Format("var {0}=Ext.create('Ext.selection.CheckboxModel',{1});", Render_SelectModelID, selectOB);
+                    return String.Format("var {0}=F.create('Ext.selection.CheckboxModel',{1});", Render_SelectModelID, selectOB);
                 }
                 else
                 {
-                    return String.Format("var {0}=Ext.create('Ext.selection.RowModel',{1});", Render_SelectModelID, selectOB);
+                    return String.Format("var {0}=F.create('Ext.selection.RowModel',{1});", Render_SelectModelID, selectOB);
                 }
             }
         }
@@ -3632,7 +3632,7 @@ namespace FineUI
 
             storeBuilder.Listeners.AddProperty("beforeload", JsHelper.GetFunction(postbackScript, "store", "operation"), true);
 
-            return fieldsScript + String.Format("var {0}=Ext.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
+            return fieldsScript + String.Format("var {0}=F.create('Ext.data.ArrayStore',{1});", Render_GridStoreID, storeBuilder.ToString());
 
             #region old code
 

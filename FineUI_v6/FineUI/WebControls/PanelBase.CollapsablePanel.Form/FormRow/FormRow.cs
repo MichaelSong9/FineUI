@@ -336,7 +336,7 @@ namespace FineUI
             // 自定义样式
             OB.AddProperty("cls", "f-formrow");
 
-            string jsContent = String.Format("var {0}=Ext.create('Ext.panel.Panel',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.panel.Panel',{1});", XID, OB.ToString());
             AddStartupScript(jsContent);
             
             ////// 目的：子控件的JS代码在父控件的前面

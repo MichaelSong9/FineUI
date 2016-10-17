@@ -1351,7 +1351,7 @@ namespace FineUI
                     OB.AddProperty("border", false);
                     OB.AddProperty("items", String.Format("{0}", autosizePanel.XID), true);
 
-                    string jsContent = String.Format("var {0}=Ext.create('Ext.ux.FormViewport',{1});", XID, OB.ToString());
+                    string jsContent = String.Format("var {0}=F.create('Ext.ux.FormViewport',{1});", XID, OB.ToString());
 
                     // 确保FormViewport脚本在所以用户自定义脚本（PageContext.RegisterStartupScript）之前执行
                     AddStartupAbsoluteScript(jsContent, Constants.ABSOLUTE_STARTUP_SCRIPT_DEFAULT_LEVEL - 20);

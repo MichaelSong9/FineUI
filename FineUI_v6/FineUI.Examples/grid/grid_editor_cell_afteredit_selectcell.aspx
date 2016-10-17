@@ -70,6 +70,7 @@
         <ul>
             <li>结束编辑后自动回发保存数据，并选中最后一个编辑的单元格，方便通过 TAB、ENTER 键进行接下来的操作</li>
             <li>为了保持表格行ID的稳定，请指定表格的DataIDField</li>
+            <li>第一次选中复选框时，后台获取到SelectedCell为空！</li>
         </ul>
     </form>
     <script>

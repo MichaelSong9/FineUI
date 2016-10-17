@@ -39,15 +39,15 @@
 }
 
 #header .x-btn-text.x-btn-icon-top > .x-btn-icon-el-default-small {
-    background-size: 24px 24px;
-    height: 24px;
-    margin-bottom: 5px;
+    background-size: 22px 22px;
+    height: 22px;
+    margin-bottom: 2px;
 }
 
 #header .x-btn-text.x-btn-icon-left > .x-btn-icon-el-default-small {
-    background-size: 45px 45px;
-    height: 45px;
-    width: 45px;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
