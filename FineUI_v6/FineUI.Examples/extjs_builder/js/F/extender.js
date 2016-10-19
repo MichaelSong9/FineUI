@@ -364,6 +364,34 @@ if (Ext.form.field.Base) {
 }
 
 
+Ext.override(Ext.form.field.Trigger, {
+
+    showTrigger: function () {
+        this.setTriggerVisible(1, true);
+    },
+    showTrigger1: function () {
+        this.setTriggerVisible(1, true);
+    },
+    showTrigger2: function () {
+        this.setTriggerVisible(2, true);
+    },
+
+    hideTrigger: function () {
+        this.setTriggerVisible(1, false);
+    },
+    hideTrigger1: function () {
+        this.setTriggerVisible(1, false);
+    },
+    hideTrigger2: function () {
+        this.setTriggerVisible(2, false);
+    },
+
+    setTriggerVisible: function (triggerNumber, visible) {
+        this.triggerCell.item(triggerNumber - 1).setDisplayed(visible);
+    }
+
+});
+
 if (Ext.form.Label) {
     Ext.override(Ext.form.Label, {
 
@@ -927,39 +955,39 @@ if (Ext.grid.Panel) {
 
         // 选中单元格（AllowCellEditing）
         f_selectCell: function (rowId, columnId) {
-			var me = this;
-			
-			var cell = rowId;
-			if(typeof(cell) === 'undefined') {
-				cell = me.f_state['SelectedCell'] || [];
-			} else if(!Ext.isArray(cell)) {
-				cell = [rowId, columnId];
-			}
-			
+            var me = this;
+
+            var cell = rowId;
+            if (typeof (cell) === 'undefined') {
+                cell = me.f_state['SelectedCell'] || [];
+            } else if (!Ext.isArray(cell)) {
+                cell = [rowId, columnId];
+            }
+
             if (cell && cell.length === 2) {
-				// 支持[行索引,列索引]，也支持[行Id,列Id]
-				var row = cell[0];
-				var column = cell[1];
+                // 支持[行索引,列索引]，也支持[行Id,列Id]
+                var row = cell[0];
+                var column = cell[1];
 
                 // 如果未定义，则直接返回
-				if (!row || !column) {
-				    return;
-				}
-				
-				if(typeof(row) === 'string') {
-					row = me.f_getRow(row);
-				}
-				
-				if(typeof(column) === 'string') {
-					column = me.f_getColumn(column);
-				}
-				
-				var sm = me.getSelectionModel();
-				sm.setCurrentPosition({
-					row: row,
-					column: column
-				});
-			}
+                if (!row || !column) {
+                    return;
+                }
+
+                if (typeof (row) === 'string') {
+                    row = me.f_getRow(row);
+                }
+
+                if (typeof (column) === 'string') {
+                    column = me.f_getColumn(column);
+                }
+
+                var sm = me.getSelectionModel();
+                sm.setCurrentPosition({
+                    row: row,
+                    column: column
+                });
+            }
         },
 
         // 获取选中的单元格（AllowCellEditing）
@@ -1172,7 +1200,7 @@ if (Ext.grid.Panel) {
 
             return selectedRows;
         },
-        
+
         // 仅内部使用（f_deleteSelectedRows）
         f_getSelectedCellIndex: function () {
             var selectedCell = [], currentPos;
@@ -1204,8 +1232,8 @@ if (Ext.grid.Panel) {
                 }
             }
         },
-		
-		f_generateNewId: function () {
+
+        f_generateNewId: function () {
             var newid = 'fineui_' + F.f_objectIndex;
 
             F.f_objectIndex++;
@@ -1214,29 +1242,29 @@ if (Ext.grid.Panel) {
         },
 
         // 添加一条新纪录
-		f_addNewRecord: function (defaultObj, appendToEnd, editColumnId) {
-		    var me = this, store = me.getStore();
+        f_addNewRecord: function (defaultObj, appendToEnd, editColumnId) {
+            var me = this, store = me.getStore();
             var newRecord = defaultObj; //new Ext.data.Model(defaultObj);
-			
 
-		    // 如果设置了 id，则 extjs 认为这不是一个 phantom（幻影），而是一个真实存在的数据，rejectChanges 就不能去除这条数据了
+
+            // 如果设置了 id，则 extjs 认为这不是一个 phantom（幻影），而是一个真实存在的数据，rejectChanges 就不能去除这条数据了
             /*
             // 自动生成ID
 			if(typeof(newRecord.__id) === 'undefined') {
 			    newRecord.__id = me.f_generateNewId();
 			}
             */
-            
-		    // 清空当前选中的单元格
+
+            // 清空当前选中的单元格
             me.getSelectionModel().setCurrentPosition();
 
 
             // 取消正在编辑 
             me.f_cellEditing.cancelEdit();
 
-            
 
-			var newAddedRecords;
+
+            var newAddedRecords;
             //var rowIndex = 0;
             if (appendToEnd) {
                 newAddedRecords = store.add(newRecord);
@@ -1248,10 +1276,10 @@ if (Ext.grid.Panel) {
 
             var newAddedRecord = newAddedRecords[0];
 
-		    
-		    // phantom: True when the record does not yet exist in a server-side database (see setDirty). Any record which has a real database pk set as its id property is NOT a phantom -- it's real.
-		    // 如果设置了 id 属性，则 extjs 认为这不是一个 phantom（幻影），而是一个真实存在的数据，然后通过 getStore().getModifiedRecords() 就得不到这条记录了。
-		    // 所以需要设置 setDirty
+
+            // phantom: True when the record does not yet exist in a server-side database (see setDirty). Any record which has a real database pk set as its id property is NOT a phantom -- it's real.
+            // 如果设置了 id 属性，则 extjs 认为这不是一个 phantom（幻影），而是一个真实存在的数据，然后通过 getStore().getModifiedRecords() 就得不到这条记录了。
+            // 所以需要设置 setDirty
             //newAddedRecord.setDirty(true);
 
             var column;
@@ -1262,14 +1290,14 @@ if (Ext.grid.Panel) {
             }
 
             me.f_cellEditing.startEdit(newAddedRecord, column);
-		},
+        },
 
 
-		f_startEdit: function(rowId, columnId) {
-		    var me = this;
+        f_startEdit: function (rowId, columnId) {
+            var me = this;
 
-		    me.f_cellEditing.startEdit(me.f_getRow(rowId), me.f_getColumn(columnId));
-		},
+            me.f_cellEditing.startEdit(me.f_getRow(rowId), me.f_getColumn(columnId));
+        },
 
         //// 获取新增的行索引（在修改后的列表中）
         //f_getNewAddedRows: function () {
@@ -1283,7 +1311,7 @@ if (Ext.grid.Panel) {
         //    return newAddedRows;
         //},
 
-		/*
+        /*
         // 获取删除的行索引（在原始的列表中）
         f_getDeletedRows: function () {
             var me = this, currentRecordIDs = [], deletedRows = [];
@@ -1357,7 +1385,7 @@ if (Ext.grid.Panel) {
         f_getColumn: function (columnID) {
             var me = this, columns = me.f_getColumns();
 
-            for (var i=0, count = columns.length; i < count; i++) {
+            for (var i = 0, count = columns.length; i < count; i++) {
                 var column = columns[i];
                 if (column.id === columnID) {
                     return column;
@@ -1366,33 +1394,33 @@ if (Ext.grid.Panel) {
             return undefined;
         },
 
-        f_getRow: function(rowId) {
+        f_getRow: function (rowId) {
             var me = this, store = me.getStore();
             return store.getById(rowId);
         },
-		
-		f_getCellValue: function(rowId, columnId) {
-			var me = this;
-			
-			var row = me.f_getRow(rowId);
-			if(row && row.data) {
-				return row.data[columnId];
-			}
-			
-			return undefined;
-		},
-		
-		f_updateCellValue: function(rowId, columnId, newvalue) {
-			var me = this;
-			
-			var row = me.f_getRow(rowId);
-			if(row && row.set) {
-				row.set(columnId, newvalue);
-			}
-		},
-		
 
-		/*
+        f_getCellValue: function (rowId, columnId) {
+            var me = this;
+
+            var row = me.f_getRow(rowId);
+            if (row && row.data) {
+                return row.data[columnId];
+            }
+
+            return undefined;
+        },
+
+        f_updateCellValue: function (rowId, columnId, newvalue) {
+            var me = this;
+
+            var row = me.f_getRow(rowId);
+            if (row && row.set) {
+                row.set(columnId, newvalue);
+            }
+        },
+
+
+        /*
         // 获取用户修改的单元格值
         f_getModifiedData: function () {
             var me = this, i, j, count, columns = this.f_getColumns();
@@ -1456,8 +1484,8 @@ if (Ext.grid.Panel) {
             return modifiedRows.sort(function (a, b) { return a[0] - b[0]; });
         },
 		*/
-		
-		// 获取用户修改的单元格值
+
+        // 获取用户修改的单元格值
         f_getModifiedData: function () {
             var me = this, i, j, count, columns = me.f_getColumns();
 
@@ -1474,7 +1502,7 @@ if (Ext.grid.Panel) {
             for (i = 0, count = modifiedRecords.length; i < count; i++) {
                 var modifiedRecord = modifiedRecords[i];
                 var recordID = modifiedRecord.id;
-				var rowId = modifiedRecord.getId(); // getId() is not the same as id property
+                var rowId = modifiedRecord.getId(); // getId() is not the same as id property
                 var rowIndex = store.indexOf(modifiedRecord);
                 var rowData = modifiedRecord.data;
                 if (rowIndex < 0) {
@@ -1502,16 +1530,16 @@ if (Ext.grid.Panel) {
                     });
                     // 新增数据行
                     //modifiedRows.push([rowIndex, -1, newRowData]);
-					modifiedRows.push({
-						index: rowIndex,
-						originalIndex: -1,
-						id: rowId,
-						values: newRowData,
-						status: 'newadded'
-					});
+                    modifiedRows.push({
+                        index: rowIndex,
+                        originalIndex: -1,
+                        id: rowId,
+                        values: newRowData,
+                        status: 'newadded'
+                    });
                 } else {
                     var rowModifiedObj = {};
-                    Ext.Object.each(modifiedRecord.modified, function(columnID, value) {
+                    Ext.Object.each(modifiedRecord.modified, function (columnID, value) {
                         //for (var columnID in modifiedRecord.modified) {
                         // 不删除非可编辑列，比如[总成绩（不可编辑）]列不可编辑，但是可以通过代码更改
                         //if (me.f_columnEditable(columnID)) {
@@ -1525,28 +1553,28 @@ if (Ext.grid.Panel) {
                     });
                     // 修改现有数据行
                     //modifiedRows.push([rowIndex, rowIndexOriginal + originalIndexPlus, rowModifiedObj]);
-					modifiedRows.push({
-						index: rowIndex,
-						originalIndex: rowIndexOriginal + originalIndexPlus,
-						id: rowId,
-						values: rowModifiedObj,
-						status: 'modified'
-					});
+                    modifiedRows.push({
+                        index: rowIndex,
+                        originalIndex: rowIndexOriginal + originalIndexPlus,
+                        id: rowId,
+                        values: rowModifiedObj,
+                        status: 'modified'
+                    });
                 }
             }
-			
-			// 删除的行
-			//modifiedRows = modifiedRows.concat(me.f_getDeletedRows());
-			var removedRecords = store.getRemovedRecords();
-			Ext.Array.each(removedRecords, function (record, index) {
-				var recordOriginalIndex = Ext.Array.indexOf(me.f_recordIDs, record.id);
-				modifiedRows.push({
-					index: -1,
-					originalIndex: recordOriginalIndex + originalIndexPlus,
-					id: record.getId(),
-					status: 'deleted'
-				});
-			});
+
+            // 删除的行
+            //modifiedRows = modifiedRows.concat(me.f_getDeletedRows());
+            var removedRecords = store.getRemovedRecords();
+            Ext.Array.each(removedRecords, function (record, index) {
+                var recordOriginalIndex = Ext.Array.indexOf(me.f_recordIDs, record.id);
+                modifiedRows.push({
+                    index: -1,
+                    originalIndex: recordOriginalIndex + originalIndexPlus,
+                    id: record.getId(),
+                    status: 'deleted'
+                });
+            });
 
             // 结果按照 originalIndex 升序排序
             return modifiedRows.sort(function (a, b) { return a.originalIndex - b.originalIndex; });
@@ -2072,7 +2100,7 @@ Ext.override(Ext.selection.CellModel, {
     }
 
 
-    
+
 
 })();
 

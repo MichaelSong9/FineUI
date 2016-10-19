@@ -1208,7 +1208,7 @@ Ext.onReady(function () {
                 createToolbar = createToolbar.createToolbar;
             } else {
                 // 处理忽略 createToolbar 参数的情况
-                if (isBOO(createToolbar)) {
+                if (typeof (createToolbar) === 'boolean') {
                     maxTabMessage = maxTabCount;
                     maxTabCount = hashWindow;
                     hashWindow = refreshWhenTabChange;

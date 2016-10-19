@@ -506,7 +506,10 @@ namespace FineUI
             initObj.AddProperty("loadingImage", PageManager.Instance.GetLoadingImageUrl());
             initObj.AddProperty("_version", GlobalConfig.ProductVersion);
 
-            
+
+            // 客户端根网址
+            initObj.AddProperty("baseUrl", Page.ResolveUrl("~/"));
+
 
             beforeBuilder.AppendFormat("F.f_init({0});", initObj);
 
