@@ -1174,6 +1174,21 @@ namespace FineUI.Examples
 
         #endregion
 
+        #region GetDeleteSelectedRowsScript
+
+        /// <summary>
+        /// 删除表格选中行（FineUI v6.0更新：必须加上延迟，否则弹出框会阻止事件向上传播，导致不能选中单元格！！）
+        /// </summary>
+        /// <param name="grid1"></param>
+        /// <returns></returns>
+        protected string GetDeleteScript(Grid grid1)
+        {
+            string confirmScript = Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, grid1.GetDeleteSelectedRowsReference(), String.Empty);
+
+            return String.Format("F.defer(function(){{{0}}},100);", confirmScript);
+        }
+
+        #endregion
     }
 
 }

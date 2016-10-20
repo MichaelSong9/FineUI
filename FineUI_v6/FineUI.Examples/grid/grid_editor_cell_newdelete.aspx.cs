@@ -20,7 +20,7 @@ namespace FineUI.Examples.grid
             if (!IsPostBack)
             {
                 // 删除选中单元格的客户端脚本
-                string deleteScript = GetDeleteScript();
+                string deleteScript = GetDeleteScript(Grid1);
 
                 // 新增数据初始值
                 JObject defaultObj = new JObject();
@@ -38,7 +38,7 @@ namespace FineUI.Examples.grid
                 // 重置表格
                 btnReset.OnClientClick = Grid1.GetRejectChangesReference();
 
-                
+
                 // 删除选中行按钮
                 btnDelete.OnClientClick = Grid1.GetNoSelectionAlertReference("请至少选择一项！") + deleteScript;
 
@@ -47,12 +47,12 @@ namespace FineUI.Examples.grid
             }
         }
 
-        // 删除选中行的脚本
-        private string GetDeleteScript()
-        {
-            return Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Grid1.GetDeleteSelectedRowsReference(), String.Empty);
-        }
-        
+        //// 删除选中行的脚本
+        //private string GetDeleteScript()
+        //{
+        //    return Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Grid1.GetDeleteSelectedRowsReference(), String.Empty);
+        //}
+
 
         #region BindGrid
 
@@ -74,7 +74,7 @@ namespace FineUI.Examples.grid
         {
             // 设置LinkButtonField的点击客户端事件
             LinkButtonField deleteField = Grid1.FindColumn("Delete") as LinkButtonField;
-            deleteField.OnClientClick = GetDeleteScript();
+            deleteField.OnClientClick = GetDeleteScript(Grid1);
         }
 
         private DataRow CreateNewData(DataTable table, Dictionary<string, object> newAddedData)
@@ -128,7 +128,7 @@ namespace FineUI.Examples.grid
                     table.Rows.InsertAt(rowData, 0);
                 }
             }
-            
+
 
             labResult.Text = String.Format("用户修改的数据：<pre>{0}</pre>", Grid1.GetModifiedData().ToString(Newtonsoft.Json.Formatting.Indented));
 

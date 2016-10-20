@@ -20,7 +20,7 @@ namespace FineUI.Examples.grid
             if (!IsPostBack)
             {
                 // 删除选中单元格的客户端脚本
-                string deleteScript = GetDeleteScript();
+                string deleteScript = GetDeleteScript(Grid1);
 
                 // 新增数据初始值
                 JObject defaultObj = new JObject();
@@ -48,11 +48,11 @@ namespace FineUI.Examples.grid
             }
         }
 
-        // 删除选中行的脚本
-        private string GetDeleteScript()
-        {
-            return Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Grid1.GetDeleteSelectedRowsReference(), String.Empty);
-        }
+        //// 删除选中行的脚本
+        //private string GetDeleteScript()
+        //{
+        //    return Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Grid1.GetDeleteSelectedRowsReference(), String.Empty);
+        //}
         
 
         #region BindGrid
@@ -73,7 +73,7 @@ namespace FineUI.Examples.grid
         {
             // 设置LinkButtonField的点击客户端事件
             LinkButtonField deleteField = Grid1.FindColumn("Delete") as LinkButtonField;
-            deleteField.OnClientClick = GetDeleteScript();
+            deleteField.OnClientClick = GetDeleteScript(Grid1);
         }
 
         protected void Button2_Click(object sender, EventArgs e)

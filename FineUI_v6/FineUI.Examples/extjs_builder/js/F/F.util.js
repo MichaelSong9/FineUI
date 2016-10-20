@@ -81,6 +81,16 @@ F.isEOBJ = function (value) {
     return F.util.isObjectEmpty(value);
 };
 
+F.defer = function (fn, miliseconds, scope) {
+    if (scope) {
+        return window.setTimeout(function () {
+            fn.apply(scope);
+        }, miliseconds);
+    } else {
+        return window.setTimeout(fn, miliseconds);
+    }
+};
+
 // 创建客户端控件，标识这是一个FineUI服务器端创建的控件
 F.create = function () {
     var cmp = Ext.create.apply(window, arguments);
