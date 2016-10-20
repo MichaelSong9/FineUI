@@ -25,7 +25,7 @@
                                         <a class="homepage" href="http://fineui.com/" title="官网首页">
                                             <img src="./res/icon/house.png" alt="Home" />
                                         </a>
-                                        <a class="logo" href="./default.aspx" title="在线示例首页">FineUI（专业版）在线示例
+                                        <a class="logo" href="./default.aspx" title="在线示例首页">FineUI（开源版）在线示例
                                         </a>
                                     </td>
                                     <td style="text-align: right;">

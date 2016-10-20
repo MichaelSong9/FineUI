@@ -34,9 +34,7 @@
                         <f:Panel Height="80px" ShowHeader="false" BodyPadding="10px"
                             ShowBorder="true" runat="server">
                             <Items>
-                                <f:Label ID="Label4" runat="server" CssStyle="font-weight:bold;" Text="班级描述：">
-                                </f:Label>
-                                <f:Label ID="labelClassDesc" runat="server">
+                                <f:Label ID="labelClassDesc" EncodeText="false" runat="server">
                                 </f:Label>
                             </Items>
                         </f:Panel>

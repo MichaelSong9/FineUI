@@ -106,6 +106,8 @@
                             }
                         }]
                     });
+                } else {
+                    rowExpandersDoLayout();
                 }
             });
 

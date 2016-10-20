@@ -63,7 +63,7 @@ namespace FineUI.Examples.grid
                 int currentClassId = (int)row["Id"];
                 if (classId == currentClassId)
                 {
-                    labelClassDesc.Text = row["Desc"].ToString();
+                    labelClassDesc.Text = String.Format("<div style=\"margin-bottom:10px;\"><strong>班级描述：</strong></div><div>{0}</div>", row["Desc"].ToString());
                     break;
                 }
             }
