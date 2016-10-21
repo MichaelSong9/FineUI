@@ -835,6 +835,9 @@ namespace FineUI
             if (!String.IsNullOrEmpty(confirmText))
             {
                 postBackScript = Confirm.GetShowReference(confirmText, confirmTitle, confirmIcon, postBackScript, "", confirmTarget);
+
+                // ExtJSv6.2中模式弹出框会阻止事件传播，导致点击删除图标时不能选中单元格，所以一定要加上延迟！
+                postBackScript = String.Format("F.defer(function(){{{0}}},100);", postBackScript);
             }
 
             return validateScript + clientClickScript + postBackScript;
