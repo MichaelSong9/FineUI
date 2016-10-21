@@ -47,6 +47,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 		-v6中node.raw改为node.data,beforeload事件参数op.id改为op.node.id。
 		-v6在IE11点击链接时，event.preventDefault()不能阻止链接跳转（需要设置translate:false）。
 		-v6在IE11下会给x-viewport添加样式-ms-overflow-x:auto;-ms-overflow-y:auto;，需要通过自定义CSS修正。
+		-v6中点击按钮并禁用，会让页面上第一个输入框获取焦点，我们通过手工聚焦一个隐藏输入框来避免此问题。
 	-表单验证失败的错误提示由[请为用户邮箱*提供有效值！]改为[用户邮箱 BR 请输入有效的邮箱地址！]。
 	-关闭验证失败提示框后，第一个验证失败的输入框将获取焦点。
 	-修正启用排序，但是默认不排序可能引起的JS错误（dongfanghong，柳黯花明，雨天不打伞）。

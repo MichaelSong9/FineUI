@@ -456,7 +456,8 @@ Ext.onReady(function () {
 
 
             // 为了防止【页面中只有一个input[type=text]，则回车会提交表单】的问题，现在页面上创建一个input[type=text]的空元素
-            F.util.appendFormNode('<input type="text" class="f-input-text-hidden">');
+            //F.util.appendFormNode('<input type="text" class="f-input-text-hidden">');
+            Ext.DomHelper.insertFirst(document.forms[0], '<input type="text" class="f-input-text-hidden">');
 
         },
 
@@ -665,7 +666,7 @@ Ext.onReady(function () {
         disableSubmitControl: function (controlClientID) {
             F(controlClientID).disable();
             // extjs v6.0需要，如果禁用按钮，则会查找页面上第一个可以获取焦点的元素，并使其获得焦点（对于面板而言，就是右上角的折叠按钮）
-            F(controlClientID).focus();
+            Ext.query('.f-input-text-hidden')[0].focus();
             F.util.setHiddenFieldValue('F_TARGET', controlClientID);
         },
         // 启用提交按钮（在回发之后启用提交按钮）

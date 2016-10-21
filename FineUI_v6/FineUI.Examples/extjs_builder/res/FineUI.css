@@ -139,7 +139,6 @@
 }
 
 
-
 /* 去除focus的样式 */
 .x-grid-item-focused .x-grid-cell-inner:before,
 .x-column-header.x-column-header-focus .x-column-header-inner:after {
@@ -153,6 +152,9 @@
     box-shadow: none !important;
     outline: none !important;
 }
+    
+
+
 
 /* 上层页面弹出窗体时可能会导致页面整体上移的问题 */
 .f-window-wrapper {

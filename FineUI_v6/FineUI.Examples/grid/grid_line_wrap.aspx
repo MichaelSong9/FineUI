@@ -36,7 +36,15 @@
         </f:Grid>
         <br />
         <br />
-        注：ExtJS v6.0无法处理行高不一样的情况，令人惊讶。
+        注：
+        <ul>
+            <li>
+                ExtJS v6.2 遇到行高不同时会在下方出现空白，属于已知问题，暂时没有解决办法。
+            </li>
+            <li>
+                参考：<a href="https://www.sencha.com/forum/showthread.php?329718-extjs-6-0-2-grid-rows-with-variable-height">https://www.sencha.com/forum/showthread.php?329718-extjs-6-0-2-grid-rows-with-variable-height</a>
+            </li>
+        </ul>
     </form>
 </body>
 </html>

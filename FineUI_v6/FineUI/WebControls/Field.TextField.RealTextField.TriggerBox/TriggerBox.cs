@@ -231,8 +231,7 @@ namespace FineUI
 
             #region TriggerClick
 
-            //if (Enabled)
-            //{
+            
             string clientClickScript = OnClientTriggerClick;
             if (!String.IsNullOrEmpty(clientClickScript) && !clientClickScript.EndsWith(";"))
             {
@@ -245,9 +244,13 @@ namespace FineUI
                 postbackScript = GetPostBackEventReference();
             }
 
-            OB.AddProperty("onTriggerClick", JsHelper.GetFunction(clientClickScript + postbackScript), true);
-            //}
+            string triggerScript = clientClickScript + postbackScript;
 
+            if (!String.IsNullOrEmpty(triggerScript))
+            {
+                OB.AddProperty("onTriggerClick", JsHelper.GetFunction(triggerScript), true);
+            }
+            
             #endregion
 
             #region Specialkey
