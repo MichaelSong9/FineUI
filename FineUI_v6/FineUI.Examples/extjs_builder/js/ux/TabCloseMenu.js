@@ -165,7 +165,7 @@ Ext.define('Ext.ux.TabCloseMenu', {
                 items = items.concat(me.extraItemsTail);
             }
 
-            me.menu = Ext.create('Ext.menu.Menu', {
+            me.menu = F.create('Ext.menu.Menu', {
                 items: items,
                 listeners: {
                     hide: me.onHideMenu,

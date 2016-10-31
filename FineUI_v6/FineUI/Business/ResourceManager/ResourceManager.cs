@@ -481,7 +481,7 @@ namespace FineUI
                 initObj.AddProperty("enableAjax", PageManager.Instance.EnableAjax.ToString().ToLower());
             }
 
-            
+
             if (PageManager.Instance.Language != ConfigPropertyValue.LANGUAGE_DEFAULT)
             {
                 initObj.AddProperty("language", LanguageHelper.GetName(PageManager.Instance.Language));
@@ -999,15 +999,15 @@ namespace FineUI
             }
         }
 
-        
 
-        private string DecodeFrom64(string encodedData)
+
+        public static string DecodeFrom64(string encodedData)
         {
             byte[] encodedDataAsBytes = System.Convert.FromBase64String(encodedData);
             return System.Text.UTF8Encoding.UTF8.GetString(encodedDataAsBytes);
         }
 
-        private string EncodeTo64(string toEncode)
+        public static string EncodeTo64(string toEncode)
         {
             byte[] toEncodeAsBytes = System.Text.UTF8Encoding.UTF8.GetBytes(toEncode);
             return System.Convert.ToBase64String(toEncodeAsBytes);

@@ -1574,7 +1574,7 @@ Ext.onReady(function () {
         // 表单字段内按回车键触发提交按钮
         registerPanelEnterKey: function (panel) {
             if (F.submitbutton) {
-                Ext.create('Ext.util.KeyNav', panel.el, {
+                F.create('Ext.util.KeyNav', panel.el, {
                     enter: function (e) {
                         var el = Ext.Element.getActiveElement();
                         if (el.type !== 'textarea') {

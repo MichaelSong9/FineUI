@@ -65,8 +65,10 @@ namespace FineUI
                 case FieldType.Boolean:
                     result = "boolean";
                     break;
+                    // ExtJS v6.0不支持客户端指定 double 字符串，需要改为 float
+                    // 客户端处理一样，这个设置只影响服务器端的解析
                 case FieldType.Double:
-                    result = "double";
+                    result = "float";
                     break;
                 case FieldType.Date:
                     result = "date";

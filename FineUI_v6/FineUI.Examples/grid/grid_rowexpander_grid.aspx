@@ -52,7 +52,7 @@
                 var tplEl = Ext.get(expandRow).query('.f-grid-tpl')[0];
                 if (!Ext.String.trim(tplEl.innerHTML)) {
 
-                    var store = Ext.create('Ext.data.Store', {
+                    var store = F.create('Ext.data.Store', {
                         fields: ['type', 'yuwen', 'shuxue', 'yingwen', 'wuli', 'huaxue'],
                         proxy: {
                             type: 'ajax',
@@ -71,7 +71,7 @@
                         }
                     });
 
-                    Ext.create('Ext.grid.Panel', {
+                    F.create('Ext.grid.Panel', {
                         renderTo: tplEl,
                         header: false,
                         border: true,

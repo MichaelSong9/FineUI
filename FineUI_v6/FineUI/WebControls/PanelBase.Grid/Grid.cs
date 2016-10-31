@@ -2147,8 +2147,12 @@ namespace FineUI
                 {
                     JObject jo = new JObject();
 
-                    jo.Add("f0", new JArray(row.Values));
-                    jo.Add("f1", new JArray(row.DataKeys));
+                    //jo.Add("f0", new JArray(row.Values));
+                    //jo.Add("f1", new JArray(row.DataKeys));
+
+                    // +修正DataKeyNames值如果是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
+                    AddClientSuitableFormatValues(jo, "f0", row.Values);
+                    AddClientSuitableFormatValues(jo, "f1", row.DataKeys);
 
                     if (row.HasStates())
                     {
@@ -2201,18 +2205,44 @@ namespace FineUI
                 // 现在只是从FState中恢复数据，如果清空 SelectedRowIndexArray ，可能会导致 SelectedRowIndexArray 状态不对c
                 ClearRows();
 
-                for (int i = 0, length = value.Count; i < length; i++)
+                JArray frows = value;
+                for (int i = 0, length = frows.Count; i < length; i++)
                 {
-                    JObject rowValue = value[i] as JObject;
+                    JObject rowValue = frows[i] as JObject;
 
                     GridRow row = new GridRow(this, null, i);
 
-                    // row.Values
-                    row.Values = JSONUtil.ObjectArrayFromJArray(rowValue["f0"] as JArray);
+                    //// row.Values
+                    //row.Values = JSONUtil.ObjectArrayFromJArray(rowValue["f0"] as JArray);
+                    //// row.DataKeys
+                    //row.DataKeys = JSONUtil.ObjectArrayFromJArray(rowValue["f1"] as JArray);
 
+                    //// row.Values
+                    //row.Values = JSONUtil.ObjectArrayFromJArray(JArray.Parse(rowValue["f0"].ToString()));
+                    //// row.DataKeys
+                    //row.DataKeys = JSONUtil.ObjectArrayFromJArray(JArray.Parse(rowValue["f1"].ToString()));
+
+                    // row.Values
+                    object rowf0 = rowValue["f0"];
+                    if (rowf0 is JArray)
+                    {
+                        row.Values = JSONUtil.ObjectArrayFromJArray(rowf0 as JArray);
+                    }
+                    else
+                    {
+                        row.Values = JSONUtil.ObjectArrayFromJArray(JArray.Parse(rowf0.ToString()));
+                    }
 
                     // row.DataKeys
-                    row.DataKeys = JSONUtil.ObjectArrayFromJArray(rowValue["f1"] as JArray);
+                    object rowf1 = rowValue["f1"];
+                    if (rowf1 is JArray)
+                    {
+                        row.DataKeys = JSONUtil.ObjectArrayFromJArray(rowf1 as JArray);
+                    }
+                    else
+                    {
+                        row.DataKeys = JSONUtil.ObjectArrayFromJArray(JArray.Parse(rowf1.ToString()));
+                    }
 
 
                     // row.States
@@ -2235,6 +2265,45 @@ namespace FineUI
                     Rows.Add(row);
                 }
 
+            }
+        }
+
+        // 获取适用于客户端的值
+        private void AddClientSuitableFormatValues(JObject jo, string name, object[] values)
+        {
+            // 修正DataKeyNames值是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
+            // 是否渲染为JArray（如果任意一个值为数字，则渲染为字符串）
+            bool renderAsJArray = true;
+            foreach (object value in values)
+            {
+                if (value is float 
+                    || value is double 
+                    || value is decimal
+                    || value is long
+                    || value is ulong)
+                {
+                    renderAsJArray = false;
+                    break;
+                }
+            }
+
+            if (renderAsJArray)
+            {
+                jo.Add(name, new JArray(values));
+            }
+            else
+            {
+                string valuestr = String.Empty;
+                if (values == null || values.Length == 0)
+                {
+                    valuestr = "[]";
+                }
+                else
+                {
+                    valuestr = new JArray(values).ToString(Newtonsoft.Json.Formatting.None);
+                }
+
+                jo.Add(name, valuestr);
             }
         }
 

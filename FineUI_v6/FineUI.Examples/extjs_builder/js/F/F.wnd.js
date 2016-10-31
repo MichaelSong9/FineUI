@@ -145,7 +145,7 @@
 
         createGhostWindow: function (config) {
 
-            var ghostWnd = Ext.create('Ext.window.Window', config);
+            var ghostWnd = F.create('Ext.window.Window', config);
             ghostWnd.on('beforeclose', function () {
 
                 // 如果原始窗体所在的页面存在，则触发原始窗体的 beforeclose 事件

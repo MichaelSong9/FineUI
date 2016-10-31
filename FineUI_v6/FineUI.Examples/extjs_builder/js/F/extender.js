@@ -444,6 +444,7 @@ if (Ext.form.CheckboxGroup) {
             var container = this.ownerCt;
             var newConfig = Ext.apply(this.initialConfig, {
                 "f_state": this.f_state,
+                "f_state_v": this.f_state_v,
                 "items": F.util.resolveCheckBoxGroup(name, this.f_state, isradiogroup)
             });
 
@@ -452,18 +453,18 @@ if (Ext.form.CheckboxGroup) {
                 container.remove(this, true);
 
                 if (isradiogroup) {
-                    container.insert(originalIndex, Ext.create('Ext.form.RadioGroup', newConfig));
+                    container.insert(originalIndex, F.create('Ext.form.RadioGroup', newConfig));
                 } else {
-                    container.insert(originalIndex, Ext.create('Ext.form.CheckboxGroup', newConfig));
+                    container.insert(originalIndex, F.create('Ext.form.CheckboxGroup', newConfig));
                 }
 
                 container.doLayout();
             } else {
                 this.destroy();
                 if (isradiogroup) {
-                    Ext.create('Ext.form.RadioGroup', newConfig);
+                    F.create('Ext.form.RadioGroup', newConfig);
                 } else {
-                    Ext.create('Ext.form.CheckboxGroup', newConfig);
+                    F.create('Ext.form.CheckboxGroup', newConfig);
                 }
 
             }
@@ -665,6 +666,7 @@ if (Ext.grid.Panel) {
         f_getData: function () {
             var $this = this, rows = this.f_state['F_Rows'];
 
+            
             //////////////////////////////////////////////////
             var tpls = this.f_getTpls(this.f_tpls);
 
@@ -722,7 +724,14 @@ if (Ext.grid.Panel) {
                 var newdataitem = [];
 
                 // row['f0'] -> Values
-                Ext.Array.each(row['f0'], function (item, cellIndex) {
+				
+				// [v6.0.1]修正DataKeyNames值是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
+				var rowf0 = row['f0'];
+				if(typeof(rowf0) === 'string') {
+					rowf0 = JSON.parse(rowf0);
+				}
+			
+                Ext.Array.each(rowf0, function (item, cellIndex) {
                     var newcellvalue = item;
                     if (typeof (item) === 'string' && item.substr(0, 7) === "#@TPL@#") {
                         var clientId = $this.id + '_' + item.substr(7);

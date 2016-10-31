@@ -80,17 +80,17 @@ namespace FineUI.Examples.form
         private void BindCheckBoxList1()
         {
             List<TestClass> myList = new List<TestClass>();
-            myList.Add(new TestClass("value1", "数据绑定值 1"));
-            myList.Add(new TestClass("value2", "数据绑定值 2"));
-            myList.Add(new TestClass("value3", "数据绑定值 3"));
-            myList.Add(new TestClass("value4", "数据绑定值 4"));
+            myList.Add(new TestClass("data1", "数据绑定值 1"));
+            myList.Add(new TestClass("data2", "数据绑定值 2"));
+            myList.Add(new TestClass("data3", "数据绑定值 3"));
+            myList.Add(new TestClass("data4", "数据绑定值 4"));
 
             CheckBoxList1.DataTextField = "Name";
             CheckBoxList1.DataValueField = "Id";
             CheckBoxList1.DataSource = myList;
             CheckBoxList1.DataBind();
 
-            CheckBoxList1.SelectedValueArray = new string[] { "value1", "value3" };
+            CheckBoxList1.SelectedValueArray = new string[] { "data1", "data3" };
 
         }
 
@@ -114,19 +114,19 @@ namespace FineUI.Examples.form
         private void BindCheckBoxList2()
         {
             List<TestClass> myList = new List<TestClass>();
-            myList.Add(new TestClass("value1", "数据绑定值 1"));
-            myList.Add(new TestClass("value2", "数据绑定值 2"));
-            myList.Add(new TestClass("value3", "数据绑定值 3"));
-            myList.Add(new TestClass("value4", "数据绑定值 4"));
-            myList.Add(new TestClass("value5", "数据绑定值 5"));
-            myList.Add(new TestClass("value6", "数据绑定值 6"));
+            myList.Add(new TestClass("data1", "数据绑定值 1"));
+            myList.Add(new TestClass("data2", "数据绑定值 2"));
+            myList.Add(new TestClass("data3", "数据绑定值 3"));
+            myList.Add(new TestClass("data4", "数据绑定值 4"));
+            myList.Add(new TestClass("data5", "数据绑定值 5"));
+            myList.Add(new TestClass("data6", "数据绑定值 6"));
 
             CheckBoxList2.DataTextField = "Name";
             CheckBoxList2.DataValueField = "Id";
             CheckBoxList2.DataSource = myList;
             CheckBoxList2.DataBind();
 
-            CheckBoxList2.SelectedValueArray = new string[] { "value1", "value3", "value6" };
+            CheckBoxList2.SelectedValueArray = new string[] { "data1", "data3", "data6" };
 
         }
 
@@ -149,22 +149,22 @@ namespace FineUI.Examples.form
         private void BindCheckBoxList3()
         {
             List<TestClass> myList = new List<TestClass>();
-            myList.Add(new TestClass("value1", "数据绑定值 1"));
-            myList.Add(new TestClass("value2", "数据绑定值 2"));
-            myList.Add(new TestClass("value3", "数据绑定值 3"));
-            myList.Add(new TestClass("value4", "数据绑定值 4"));
-            myList.Add(new TestClass("value5", "数据绑定值 5"));
-            myList.Add(new TestClass("value6", "数据绑定值 6"));
-            myList.Add(new TestClass("value7", "数据绑定值 7"));
-            myList.Add(new TestClass("value8", "数据绑定值 8"));
-            myList.Add(new TestClass("value9", "数据绑定值 9"));
+            myList.Add(new TestClass("data1", "数据绑定值 1"));
+            myList.Add(new TestClass("data2", "数据绑定值 2"));
+            myList.Add(new TestClass("data3", "数据绑定值 3"));
+            myList.Add(new TestClass("data4", "数据绑定值 4"));
+            myList.Add(new TestClass("data5", "数据绑定值 5"));
+            myList.Add(new TestClass("data6", "数据绑定值 6"));
+            myList.Add(new TestClass("data7", "数据绑定值 7"));
+            myList.Add(new TestClass("data8", "数据绑定值 8"));
+            myList.Add(new TestClass("data9", "数据绑定值 9"));
 
             CheckBoxList3.DataTextField = "Name";
             CheckBoxList3.DataValueField = "Id";
             CheckBoxList3.DataSource = myList;
             CheckBoxList3.DataBind();
 
-            CheckBoxList3.SelectedValueArray = new string[] { "value1", "value2", "value6", "value7" };
+            CheckBoxList3.SelectedValueArray = new string[] { "data1", "data2", "data6", "data7" };
 
         }
 
@@ -192,19 +192,19 @@ namespace FineUI.Examples.form
         private void BindCheckBoxList4()
         {
             List<TestClass> myList = new List<TestClass>();
-            myList.Add(new TestClass("value1", "数据绑定值 1"));
-            myList.Add(new TestClass("value2", "数据绑定值 2"));
-            myList.Add(new TestClass("value3", "数据绑定值 3"));
-            myList.Add(new TestClass("value4", "数据绑定值 4"));
-            myList.Add(new TestClass("value5", "数据绑定值 5"));
-            myList.Add(new TestClass("value6", "数据绑定值 6"));
+            myList.Add(new TestClass("data1", "数据绑定值 1"));
+            myList.Add(new TestClass("data2", "数据绑定值 2"));
+            myList.Add(new TestClass("data3", "数据绑定值 3"));
+            myList.Add(new TestClass("data4", "数据绑定值 4"));
+            myList.Add(new TestClass("data5", "数据绑定值 5"));
+            myList.Add(new TestClass("data6", "数据绑定值 6"));
 
             CheckBoxList4.DataTextField = "Name";
             CheckBoxList4.DataValueField = "Id";
             CheckBoxList4.DataSource = myList;
             CheckBoxList4.DataBind();
 
-            CheckBoxList4.SelectedValueArray = new string[] { "value1", "value2" };
+            CheckBoxList4.SelectedValueArray = new string[] { "data1", "data2" };
 
         }
 

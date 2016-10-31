@@ -222,7 +222,7 @@
         }
 
         if (!F.ajax.errorWindow) {
-            F.ajax.errorWindow = Ext.create('Ext.window.Window', {
+            F.ajax.errorWindow = F.create('Ext.window.Window', {
                 id: "FINEUI_ERROR",
                 renderTo: window.body,
                 width: 550,

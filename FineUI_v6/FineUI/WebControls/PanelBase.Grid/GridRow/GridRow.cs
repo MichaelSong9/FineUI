@@ -469,7 +469,9 @@ namespace FineUI
                     //    DataKeys[j] = GetPropertyValue(keyName);
                     //}
 
-                    DataKeys[j] = GetPropertyValue(keyName);
+                    object fieldValue = GetPropertyValue(keyName);
+
+                    DataKeys[j] = fieldValue;
                 }
             }
         }
