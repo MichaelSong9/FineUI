@@ -2141,8 +2141,10 @@ namespace FineUI
 
                 //return jo;
 
-                JArray ja = new JArray();
+                bool? renderValuesAsJArray = null;
+                bool? renderDataKeysAsJArray = null;
 
+                JArray ja = new JArray();
                 foreach (GridRow row in Rows)
                 {
                     JObject jo = new JObject();
@@ -2151,8 +2153,9 @@ namespace FineUI
                     //jo.Add("f1", new JArray(row.DataKeys));
 
                     // +修正DataKeyNames值如果是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
-                    AddClientSuitableFormatValues(jo, "f0", row.Values);
-                    AddClientSuitableFormatValues(jo, "f1", row.DataKeys);
+                    AddClientSuitableFormatValues(ref renderValuesAsJArray, jo, "f0", row.Values);
+                    AddClientSuitableFormatValues(ref renderDataKeysAsJArray, jo, "f1", row.DataKeys);
+
 
                     if (row.HasStates())
                     {
@@ -2269,25 +2272,28 @@ namespace FineUI
         }
 
         // 获取适用于客户端的值
-        private void AddClientSuitableFormatValues(JObject jo, string name, object[] values)
+        private void AddClientSuitableFormatValues(ref bool? renderAsJArray, JObject jo, string name, object[] values)
         {
-            // 修正DataKeyNames值是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
-            // 是否渲染为JArray（如果任意一个值为数字，则渲染为字符串）
-            bool renderAsJArray = true;
-            foreach (object value in values)
+            if (renderAsJArray == null)
             {
-                if (value is float 
-                    || value is double 
-                    || value is decimal
-                    || value is long
-                    || value is ulong)
+                // 修正DataKeyNames值是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
+                // 是否渲染为JArray（如果任意一个值为数字，则渲染为字符串）
+                renderAsJArray = true;
+                foreach (object value in values)
                 {
-                    renderAsJArray = false;
-                    break;
+                    if (value is float
+                        || value is double
+                        || value is decimal
+                        || value is long
+                        || value is ulong)
+                    {
+                        renderAsJArray = false;
+                        break;
+                    }
                 }
             }
 
-            if (renderAsJArray)
+            if (renderAsJArray.Value)
             {
                 jo.Add(name, new JArray(values));
             }
