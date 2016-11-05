@@ -180,3 +180,25 @@
 .x-viewport > .x-body {
     overflow: hidden !important;
 }
+
+
+
+
+.x-ie11 .f-fileupload-buttononly .x-form-text-field-body-default,
+.x-ie10 .f-fileupload-buttononly .x-form-text-field-body-default,
+.x-ie9 .f-fileupload-buttononly .x-form-text-field-body-default,
+.x-ie8 .f-fileupload-buttononly .x-form-text-field-body-default {
+    min-width: inherit;
+}
+.x-ie11 .f-fileupload-buttononly .x-form-trigger-wrap,
+.x-ie10 .f-fileupload-buttononly .x-form-trigger-wrap,
+.x-ie9 .f-fileupload-buttononly .x-form-trigger-wrap,
+.x-ie8 .f-fileupload-buttononly .x-form-trigger-wrap {
+    display: inline;
+}
+.x-ie11 .f-fileupload-buttononly .x-form-trigger,
+.x-ie10 .f-fileupload-buttononly .x-form-trigger,
+.x-ie9 .f-fileupload-buttononly .x-form-trigger,
+.x-ie8 .f-fileupload-buttononly .x-form-trigger {
+    display: block;
+}
