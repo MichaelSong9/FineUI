@@ -43,7 +43,7 @@
 
 .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small {
     background-image: none;
-    background-color: #3892d4;
+    background-color: #3892d4 !important;
     background-image: -webkit-gradient(linear, top, bottom, color-stop(0%, #4c9dd8), color-stop(50%, #3892d4), color-stop(51%, #358bc9), color-stop(0%, #3892d4));
     background-image: -webkit-linear-gradient(top, #4c9dd8, #3892d4 50%, #358bc9 51%, #3892d4);
     background-image: -moz-linear-gradient(top, #4c9dd8, #3892d4 50%, #358bc9 51%, #3892d4);
@@ -59,8 +59,8 @@
 
     .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small.x-btn-over {
         border-color: #1164a1;
-        background-image: none;
-        background-color: #3487c3;
+        background-image: none !important;
+        background-color: #3487c3 !important;
         background-image: -webkit-gradient(linear, top, bottom, color-stop(0%, #4893c9), color-stop(50%, #3487c3), color-stop(51%, #3180b9), color-stop(0%, #3487c3));
         background-image: -webkit-linear-gradient(top, #4893c9, #3487c3 50%, #3180b9 51%, #3487c3);
         background-image: -moz-linear-gradient(top, #4893c9, #3487c3 50%, #3180b9 51%, #3487c3);
@@ -73,8 +73,8 @@
     .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small.x-btn-menu-active,
     .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small.x-btn-pressed {
         border-color: #0e5284;
-        background-image: none;
-        background-color: #2a6e9f;
+        background-image: none !important;
+        background-color: #2a6e9f !important;
         background-image: -webkit-gradient(linear, top, bottom, color-stop(0%, #2a6e9f), color-stop(50%, #286897), color-stop(51%, #2a6e9f), color-stop(0%, #3f7ca8));
         background-image: -webkit-linear-gradient(top, #2a6e9f, #286897 50%, #2a6e9f 51%, #3f7ca8);
         background-image: -moz-linear-gradient(top, #2a6e9f, #286897 50%, #2a6e9f 51%, #3f7ca8);
@@ -95,6 +95,18 @@
 
 
 
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-mc,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-ml,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-mr,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-tc,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-tl,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-tr,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-bc,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-bl,
+.x-nbr .x-toolbar.x-toolbar-default .x-btn-default-toolbar-small-br {
+    background-image: none;
+    background-color: transparent;
+}
 
 
 
