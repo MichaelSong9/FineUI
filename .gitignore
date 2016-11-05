@@ -253,3 +253,7 @@ paket-files/
 src/FineUI.Examples/extjs_builder/extjs_source_all/
 src/FineUI.Examples/res/icon/
 src/FineUI.Examples/extjs/
+src/FineUI.Examples/icon/
+src/FineUI.Examples/ueditor/
+src/FineUI.Examples/fckeditor/
+src/FineUI.Examples/ckeditor/

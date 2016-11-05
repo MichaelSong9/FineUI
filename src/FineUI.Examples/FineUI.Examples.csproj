@@ -2090,6 +2090,28 @@
     <Compile Include="tree\select\tree_multi_select.aspx.designer.cs">
       <DependentUpon>tree_multi_select.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ueditor\net\fileUp.ashx.cs">
+      <DependentUpon>fileUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\getContent.ashx.cs">
+      <DependentUpon>getContent.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\getMovie.ashx.cs">
+      <DependentUpon>getMovie.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\getRemoteImage.ashx.cs">
+      <DependentUpon>getRemoteImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\imageManager.ashx.cs">
+      <DependentUpon>imageManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\imageUp.ashx.cs">
+      <DependentUpon>imageUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\scrawlUp.ashx.cs">
+      <DependentUpon>scrawlUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ueditor\net\Uploader.cs" />
     <Compile Include="usercontrol\UserInfoControl.ascx.cs">
       <DependentUpon>UserInfoControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2189,6 +2211,9 @@
   <ItemGroup>
     <Content Include="config\ajax_properties.txt" />
     <Content Include="aspnet\fckeditor.aspx" />
+    <Content Include="fckeditor\editor\filemanager\connectors\aspx\config.ascx" />
+    <Content Include="fckeditor\editor\filemanager\connectors\aspx\connector.aspx" />
+    <Content Include="fckeditor\editor\filemanager\connectors\aspx\upload.aspx" />
     <Content Include="config\icons.aspx" />
     <Content Include="toolbar\menu_dynamic2.aspx" />
     <Content Include="toolbar\menu.xml" />
@@ -2230,6 +2255,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="autocomplete\search.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ueditor\net\fileUp.ashx" />
+    <Content Include="ueditor\net\getContent.ashx" />
+    <Content Include="ueditor\net\getMovie.ashx" />
+    <Content Include="ueditor\net\getRemoteImage.ashx" />
+    <Content Include="ueditor\net\imageManager.ashx" />
+    <Content Include="ueditor\net\imageUp.ashx" />
+    <Content Include="ueditor\net\scrawlUp.ashx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extjs_builder\build.bat" />
