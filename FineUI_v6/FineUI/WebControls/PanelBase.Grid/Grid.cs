@@ -2115,6 +2115,12 @@ namespace FineUI
 
         #region F_Rows
 
+        // 如果当前是回发请求，则这两个值需要从回发参数中读取
+        // 1. 页面回发过程不会改变Values和DataKeys的类型
+        // 2. 重新绑定数据时，清空这两个值
+        private bool? _renderValuesAsJArray = null;
+        private bool? _renderDataKeysAsJArray = null;
+
         /// <summary>
         /// 保存的行数据（内部使用）
         /// </summary>
@@ -2141,8 +2147,7 @@ namespace FineUI
 
                 //return jo;
 
-                bool? renderValuesAsJArray = null;
-                bool? renderDataKeysAsJArray = null;
+                
 
                 JArray ja = new JArray();
                 foreach (GridRow row in Rows)
@@ -2153,8 +2158,8 @@ namespace FineUI
                     //jo.Add("f1", new JArray(row.DataKeys));
 
                     // +修正DataKeyNames值如果是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
-                    AddClientSuitableFormatValues(ref renderValuesAsJArray, jo, "f0", row.Values);
-                    AddClientSuitableFormatValues(ref renderDataKeysAsJArray, jo, "f1", row.DataKeys);
+                    AddClientSuitableFormatValues(ref _renderValuesAsJArray, jo, "f0", row.Values);
+                    AddClientSuitableFormatValues(ref _renderDataKeysAsJArray, jo, "f1", row.DataKeys);
 
 
                     if (row.HasStates())
@@ -2230,10 +2235,12 @@ namespace FineUI
                     if (rowf0 is JArray)
                     {
                         row.Values = JSONUtil.ObjectArrayFromJArray(rowf0 as JArray);
+                        _renderValuesAsJArray = true;
                     }
                     else
                     {
                         row.Values = JSONUtil.ObjectArrayFromJArray(JArray.Parse(rowf0.ToString()));
+                        _renderValuesAsJArray = false;
                     }
 
                     // row.DataKeys
@@ -2241,10 +2248,12 @@ namespace FineUI
                     if (rowf1 is JArray)
                     {
                         row.DataKeys = JSONUtil.ObjectArrayFromJArray(rowf1 as JArray);
+                        _renderDataKeysAsJArray = true;
                     }
                     else
                     {
                         row.DataKeys = JSONUtil.ObjectArrayFromJArray(JArray.Parse(rowf1.ToString()));
+                        _renderDataKeysAsJArray = false;
                     }
 
 
@@ -4024,6 +4033,9 @@ namespace FineUI
 
             // 重新绑定数据后，GetMergedData要重新计算了，并且清空已更改数据记录
             _mergedData = null;
+
+            _renderValuesAsJArray = null;
+            _renderDataKeysAsJArray = null;
 
             // 如果重新绑定数据，则每行的模版列内容有可能发生变化，就需要更新
             // 因为目前，没有判断模板列是否改变的机制，所以只要可能导致模板列的动作都要更新模板列
