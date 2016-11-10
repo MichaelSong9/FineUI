@@ -1159,6 +1159,9 @@ namespace FineUI
 
             #region Properties
 
+            // 从任意位置匹配
+            OB.AddProperty("anyMatch", true);
+
             if (!MatchFieldWidth)
             {
                 OB.AddProperty("matchFieldWidth", false);
