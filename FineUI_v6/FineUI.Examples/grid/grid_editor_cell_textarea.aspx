@@ -48,7 +48,7 @@
                         </f:NumberBox>
                     </Editor>
                 </f:RenderField>
-                <f:RenderField Width="120px" ColumnID="LogTime" DataField="LogTime" FieldType="Date"
+                <f:RenderField Width="120px" ColumnID="EntranceDate" DataField="EntranceDate" FieldType="Date"
                     Renderer="Date" RendererArgument="yyyy-MM-dd" HeaderText="入学日期" Hidden="true">
                     <Editor>
                         <f:DatePicker ID="DatePicker1" Required="true" runat="server">
