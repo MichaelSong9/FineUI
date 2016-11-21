@@ -2288,16 +2288,20 @@ namespace FineUI
                 // 修正DataKeyNames值是小数（比如9.80），则页面回发时会出现F_STATE验证出错的问题（Fire-8910）。
                 // 是否渲染为JArray（如果任意一个值为数字，则渲染为字符串）
                 renderAsJArray = true;
-                foreach (object value in values)
+                // values（row.DataKeys）可能为空！
+                if (values != null)
                 {
-                    if (value is float
-                        || value is double
-                        || value is decimal
-                        || value is long
-                        || value is ulong)
+                    foreach (object value in values)
                     {
-                        renderAsJArray = false;
-                        break;
+                        if (value is float
+                            || value is double
+                            || value is decimal
+                            || value is long
+                            || value is ulong)
+                        {
+                            renderAsJArray = false;
+                            break;
+                        }
                     }
                 }
             }
@@ -3097,10 +3101,12 @@ namespace FineUI
                     pagingBuilder.AddProperty("items", ab.ToString(), true);
                 }
 
-                pagingBuilder.AddProperty("xtype", "simplepagingtoolbar");
+                //pagingBuilder.AddProperty("xtype", "simplepagingtoolbar");
                 pagingBuilder.AddProperty("dock", "bottom");
 
-                pagingScript = String.Format("var {0}={1};", Render_PagingID, pagingBuilder);
+                pagingScript = String.Format("var {0}=F.create('Ext.ux.SimplePagingToolbar',{1});", Render_PagingID, pagingBuilder);
+
+                //pagingScript = String.Format("var {0}={1};", Render_PagingID, pagingBuilder);
 
                 OB.AddProperty("f_paging", true);
             }

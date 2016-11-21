@@ -50,7 +50,6 @@ namespace FineUI
     [ControlBuilder(typeof(NotAllowWhitespaceLiteralsBuilder))]
     public class Toolbar : BoxComponent
     {
-
         #region Properties
 
 
@@ -222,10 +221,9 @@ namespace FineUI
 
             OB.AddProperty("dock", ToolbarPositionHelper.GetExtName(Position));
 
-            //string jsContent = String.Format("var {0}=F.create('Ext.toolbar.Toolbar',{1});", XID, OB.ToString());
+            string jsContent = String.Format("var {0}=F.create('Ext.Toolbar',{1});", XID, OB.ToString());
 
-            //string jsContent = String.Format("var {0}={1};", XID, OB.GetProperty("items"));
-            string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
+            //string jsContent = String.Format("var {0}={1};", XID, OB.ToString());
 
             AddStartupScript(jsContent);
 
