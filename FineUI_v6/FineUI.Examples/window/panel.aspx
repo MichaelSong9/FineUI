@@ -11,7 +11,7 @@
         <f:Panel ID="Panel1" runat="server" Title="面板" Width="650px"
             BodyPadding="10px" EnableCollapse="True" IconUrl="~/res/images/16/8.png">
             <Toolbars>
-                <f:Toolbar runat="server">
+                <f:Toolbar ID="Toolbar1" runat="server">
                     <Items>
                         <f:ToolbarText Text="工具条文本一" ID="ToolbarText1" runat="server">
                         </f:ToolbarText>
@@ -52,6 +52,10 @@
         <f:Button ID="Button5" CssClass="marginr" Text="更新工具条文本一的值" runat="server" OnClick="Button5_Click">
         </f:Button>
         <f:Button ID="Button6" Text="显示/隐藏工具条文本一" runat="server" OnClick="Button6_Click">
+        </f:Button>
+        <br />
+        <br />
+        <f:Button ID="Button7" Text="显示/隐藏工具条" runat="server" OnClick="Button7_Click">
         </f:Button>
     </form>
 </body>

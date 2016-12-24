@@ -582,12 +582,12 @@ if (Ext.form.field.ComboBox) {
         f_setValue: function (value) {
             // value 可以是空字符串
             if (typeof (value) === 'undefined') {
+                var stateSelectedValueArray = this.f_state['SelectedValueArray'];
                 if (this.multiSelect) {
-                    value = this.f_state['SelectedValueArray'];
+                    value = stateSelectedValueArray;
                 } else {
-                    value = this.f_state['SelectedValue'];
+                    value = stateSelectedValueArray[0];
                 }
-                //value = this.f_state['SelectedValue'];
             }
             this.setValue(value);
         },

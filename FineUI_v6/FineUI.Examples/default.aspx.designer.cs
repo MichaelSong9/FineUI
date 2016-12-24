@@ -337,42 +337,6 @@ namespace FineUI.Examples {
         protected global::FineUI.MenuSeparator MenuSeparator2;
         
         /// <summary>
-        /// MenuHyperLink4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.MenuHyperLink MenuHyperLink4;
-        
-        /// <summary>
-        /// MenuHyperLink2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.MenuHyperLink MenuHyperLink2;
-        
-        /// <summary>
-        /// MenuHyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.MenuHyperLink MenuHyperLink1;
-        
-        /// <summary>
-        /// MenuHyperLink3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.MenuHyperLink MenuHyperLink3;
-        
-        /// <summary>
         /// XmlDataSource1 control.
         /// </summary>
         /// <remarks>

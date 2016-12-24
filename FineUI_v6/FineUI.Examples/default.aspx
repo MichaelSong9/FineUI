@@ -29,7 +29,10 @@
                                         </a>
                                     </td>
                                     <td style="text-align: right;">
-                                        <f:Button runat="server" CssClass="" Text="专业版示例" IconAlign="Top" Icon="ThumbUp"
+                                        <f:Button runat="server" CssClass="" Text="企业版示例（MVC）" IconAlign="Top" Icon="Lightning"
+                                            EnablePostBack="false" OnClientClick="window.location.href='http://fineui.com/demo_mvc';">
+                                        </f:Button>
+                                        <f:Button runat="server" CssClass="" Text="专业版示例" IconAlign="Top" Icon="Star"
                                             EnablePostBack="false" OnClientClick="window.location.href='http://fineui.com/demo_pro';">
                                         </f:Button>
                                         <f:Button runat="server" CssClass="" Text="加载动画" IconAlign="Top" Icon="Hourglass"
@@ -204,17 +207,19 @@
             </f:MenuButton>
             <f:MenuSeparator ID="MenuSeparator2" runat="server">
             </f:MenuSeparator>
-            <f:MenuButton Text="FineUI（开源版）示例" runat="server">
+            <f:MenuButton Text="开源版示例（WebForms）" runat="server">
                 <Menu runat="server">
-                    <f:MenuHyperLink ID="MenuHyperLink4" runat="server" Text="v4.x 示例" NavigateUrl="http://fineui.com/demo_v4/" Target="_blank">
+                    <f:MenuHyperLink runat="server" Text="v4.x 示例" NavigateUrl="http://fineui.com/demo_v4/" Target="_blank">
                     </f:MenuHyperLink>
-                    <f:MenuHyperLink ID="MenuHyperLink2" runat="server" Text="v3.x 示例" NavigateUrl="http://fineui.com/demo_v3/" Target="_blank">
+                    <f:MenuHyperLink runat="server" Text="v3.x 示例" NavigateUrl="http://fineui.com/demo_v3/" Target="_blank">
                     </f:MenuHyperLink>
-                    <f:MenuHyperLink ID="MenuHyperLink1" runat="server" Text="v3.x 示例（英文）" NavigateUrl="http://fineui.com/demo_en/" Target="_blank">
+                    <f:MenuHyperLink runat="server" Text="v3.x 示例（英文）" NavigateUrl="http://fineui.com/demo_en/" Target="_blank">
                     </f:MenuHyperLink>
                 </Menu>
             </f:MenuButton>
-            <f:MenuHyperLink ID="MenuHyperLink3" runat="server" Text="FineUI（专业版）示例" NavigateUrl="http://fineui.com/demo_pro/" Target="_blank">
+            <f:MenuHyperLink runat="server" Text="专业版示例（WebForms）" NavigateUrl="http://fineui.com/demo_pro/" Target="_blank">
+            </f:MenuHyperLink>
+            <f:MenuHyperLink runat="server" Text="企业版示例（MVC）" NavigateUrl="http://fineui.com/demo_mvc/" Target="_blank">
             </f:MenuHyperLink>
         </f:Menu>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" EnableCaching="false" DataFile="~/common/menu.xml"></asp:XmlDataSource>

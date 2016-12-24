@@ -62,7 +62,8 @@ namespace FineUI
         public DropDownList()
         {
             AddServerAjaxProperties("F_Items");
-            AddClientAjaxProperties("SelectedValue", "SelectedValueArray", "Text");
+            // 注意，不要添加 SelectedValue，否则在启用多选时，回发 SelectedValue 值可能会覆盖 SelectedValueArray 的值
+            AddClientAjaxProperties("SelectedValueArray", "Text");
 
             //AddGzippedAjaxProperties("F_Items");
         }
@@ -300,7 +301,8 @@ namespace FineUI
                 }
                 */
                 // 自动修正（仅在页面第一次加载时有效），但是不改变Items属性
-                if (selectedValues.Count == 0 && AutoSelectFirstItem && !Page.IsPostBack && Items.Count > 0)
+                // Page == null 说明此下拉列表尚未添加到页面
+                if (selectedValues.Count == 0 && AutoSelectFirstItem && Items.Count > 0 && (Page == null || !Page.IsPostBack))
                 {
                     selectedValues.Add(Items[0].Value);
                 }
@@ -1051,22 +1053,26 @@ namespace FineUI
                 sb.AppendFormat("{0}.f_loadData();", XID);
             }
 
-
             bool selectedValueChanged = false;
-            if (EnableMultiSelect)
+            if (PropertyModified("SelectedValueArray"))
             {
-                if (PropertyModified("SelectedValueArray"))
-                {
-                    selectedValueChanged = true;
-                }
+                selectedValueChanged = true;
             }
-            else
-            {
-                if (PropertyModified("SelectedValue"))
-                {
-                    selectedValueChanged = true;
-                }
-            }
+            //bool selectedValueChanged = false;
+            //if (EnableMultiSelect)
+            //{
+            //    if (PropertyModified("SelectedValueArray"))
+            //    {
+            //        selectedValueChanged = true;
+            //    }
+            //}
+            //else
+            //{
+            //    if (PropertyModified("SelectedValue"))
+            //    {
+            //        selectedValueChanged = true;
+            //    }
+            //}
 
             // 修改Items记录后要更新SelectedValue
             if (dataReloaded || selectedValueChanged)
@@ -1119,7 +1125,7 @@ namespace FineUI
 
             // 确保 F_Items 和 SelectedValue 在页面第一次加载时都存在于f_state中
             FState.AddModifiedProperty("F_Items");
-            FState.AddModifiedProperty("SelectedValue");
+            //FState.AddModifiedProperty("SelectedValue");
             FState.AddModifiedProperty("SelectedValueArray");
 
             base.OnFirstPreRender();
@@ -1207,10 +1213,20 @@ namespace FineUI
             storeBuilder.AddProperty("data", String.Format("F.simulateTree.transform({0}.F_Items)", GetFStateScriptID()), true);
             OB.AddProperty("store", String.Format("F.create('Ext.data.ArrayStore',{0})", storeBuilder), true);
 
-            OB.AddProperty("value", String.Format("{0}.{1}", GetFStateScriptID(), EnableMultiSelect ? "SelectedValueArray" : "SelectedValue"), true);
-
-            //OB.AddProperty("value", "['Value1','Value4']", true);
-
+            //OB.AddProperty("value", String.Format("{0}.{1}", GetFStateScriptID(), EnableMultiSelect ? "SelectedValueArray" : "SelectedValue"), true);
+            if (EnableMultiSelect)
+            {
+                OB.AddProperty("value", String.Format("{0}.SelectedValueArray", GetFStateScriptID()), true);
+            }
+            else
+            {
+                // 单选
+                if (SelectedValue != null)
+                {
+                    OB.AddProperty("value", String.Format("{0}.SelectedValueArray[0]", GetFStateScriptID()), true);
+                }
+            }
+            
             OB.AddProperty("tpl", "F.util.ddlTPL", true);
 
             OB.AddProperty("queryMode", "local");
@@ -1845,7 +1861,7 @@ namespace FineUI
                     if (SelectedValue != postValue)
                     {
                         SelectedValue = postValue;
-                        FState.BackupPostDataProperty("SelectedValue");
+                        FState.BackupPostDataProperty("SelectedValueArray");
                         return true;
                     }
                 }
@@ -1855,7 +1871,7 @@ namespace FineUI
                     //if (Text != postText)
                     //{
                     SelectedValue = null;
-                    FState.BackupPostDataProperty("SelectedValue");
+                    FState.BackupPostDataProperty("SelectedValueArray");
 
                     Text = postText;
                     FState.BackupPostDataProperty("Text");

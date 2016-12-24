@@ -43,5 +43,10 @@ namespace FineUI.Examples.window
             ToolbarText1.Hidden = !ToolbarText1.Hidden;
             ToolbarSeparator1.Hidden = !ToolbarSeparator1.Hidden;
         }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            Toolbar1.Hidden = !Toolbar1.Hidden;
+        }
     }
 }

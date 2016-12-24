@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FineUI.Examples.window {
+namespace FineUI.Examples.grid {
     
     
-    public partial class panel {
+    public partial class grid_editor_cell2 {
         
         /// <summary>
         /// form1 control.
@@ -31,94 +31,67 @@ namespace FineUI.Examples.window {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// Panel1 control.
+        /// Grid1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Panel Panel1;
+        protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// Toolbar1 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Toolbar Toolbar1;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// ToolbarText1 control.
+        /// tbxEditorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.ToolbarText ToolbarText1;
+        protected global::FineUI.TextBox tbxEditorName;
         
         /// <summary>
-        /// ToolbarSeparator1 control.
+        /// ddlGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.ToolbarSeparator ToolbarSeparator1;
+        protected global::FineUI.DropDownList ddlGender;
         
         /// <summary>
-        /// ToolbarText2 control.
+        /// tbxEditorEntranceYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.ToolbarText ToolbarText2;
+        protected global::FineUI.NumberBox tbxEditorEntranceYear;
         
         /// <summary>
-        /// ToolbarSeparator2 control.
+        /// DatePicker1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.ToolbarSeparator ToolbarSeparator2;
+        protected global::FineUI.DatePicker DatePicker1;
         
         /// <summary>
-        /// Button1 control.
+        /// tbxEditorMajor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Button Button1;
-        
-        /// <summary>
-        /// ToolbarFill1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.ToolbarFill ToolbarFill1;
-        
-        /// <summary>
-        /// ToolbarText4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.ToolbarText ToolbarText4;
-        
-        /// <summary>
-        /// ContentPanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel1;
+        protected global::FineUI.TextBox tbxEditorMajor;
         
         /// <summary>
         /// Button2 control.
@@ -130,48 +103,12 @@ namespace FineUI.Examples.window {
         protected global::FineUI.Button Button2;
         
         /// <summary>
-        /// Button4 control.
+        /// labResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FineUI.Button Button4;
-        
-        /// <summary>
-        /// Button3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.Button Button3;
-        
-        /// <summary>
-        /// Button5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.Button Button5;
-        
-        /// <summary>
-        /// Button6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.Button Button6;
-        
-        /// <summary>
-        /// Button7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.Button Button7;
+        protected global::FineUI.Label labResult;
     }
 }
