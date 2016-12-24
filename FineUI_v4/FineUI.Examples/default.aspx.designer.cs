@@ -346,15 +346,6 @@ namespace FineUI.Examples {
         protected global::FineUI.MenuSeparator MenuSeparator3;
         
         /// <summary>
-        /// MenuHyperLink3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::FineUI.MenuHyperLink MenuHyperLink3;
-        
-        /// <summary>
         /// XmlDataSource1 control.
         /// </summary>
         /// <remarks>

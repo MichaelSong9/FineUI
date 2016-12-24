@@ -32,8 +32,12 @@
                                 </tr>
                             </table>
                             <div class="themeroller">
-                                <a href="http://fineui.com/demo_pro" target="_blank" title="转到专业版示例">专业版示例
+                                <a href="http://fineui.com/demo_mvc" style="margin-bottom:6px;display:inline-block;" target="_blank" title="企业版示例（MVC）">企业版示例（MVC）
                                 </a>
+                                <br />
+                                <a href="http://fineui.com/demo_pro" target="_blank" title="专业版示例（WebForms）">专业版示例（WebForms）
+                                </a>
+                                
                             </div>
                         </div>
                     </Content>
@@ -182,7 +186,9 @@
             </f:MenuHyperLink>
             <f:MenuSeparator ID="MenuSeparator3" runat="server">
             </f:MenuSeparator>
-            <f:MenuHyperLink ID="MenuHyperLink3" runat="server" Text="转到专业版示例" NavigateUrl="http://fineui.com/demo_pro/" Target="_blank">
+            <f:MenuHyperLink runat="server" Text="专业版示例（WebForms）" NavigateUrl="http://fineui.com/demo_pro/" Target="_blank">
+            </f:MenuHyperLink>
+            <f:MenuHyperLink runat="server" Text="企业版示例（MVC）" NavigateUrl="http://fineui.com/demo_mvc/" Target="_blank">
             </f:MenuHyperLink>
         </f:Menu>
         <asp:XmlDataSource ID="XmlDataSource1" runat="server" EnableCaching="false" DataFile="~/common/menu.xml"></asp:XmlDataSource>
