@@ -16,6 +16,8 @@ namespace FineUI.Examples.other
 
         protected void Button4_Click(object sender, EventArgs e)
         {
+            //System.Threading.Thread.Sleep(5000);
+
             PageContext.RegisterStartupScript("test();");
         }
 

@@ -389,7 +389,7 @@ Ext.onReady(function () {
 
             Ext.getBody().addCls('f-body');
 
-            Ext.Ajax.timeout = F.ajaxTimeout * 1000;
+            Ext.Ajax.setTimeout(F.ajaxTimeout * 1000);
 
             // 向document.body添加主题类
             if (F.theme) {
