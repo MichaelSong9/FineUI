@@ -186,7 +186,7 @@ namespace FineUI
 
 
         public const bool ENABLE_FSTATE_COMPRESS_DEFAULT = false;
-        public const bool ENABLE_FSTATE_VALIDATION_DEFAULT = true;
+        public const bool ENABLE_FSTATE_VALIDATION_DEFAULT = false;
 
         public const bool ENABLE_FORMCHANGECONFIRM_DEFAULT = false;
 

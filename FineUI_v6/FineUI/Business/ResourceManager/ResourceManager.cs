@@ -497,9 +497,9 @@ namespace FineUI
                 initObj.AddProperty("ajaxTimeout", PageManager.Instance.AjaxTimeout);
             }
 
-            if (!PageManager.Instance.EnableFStateValidation)
+            if (PageManager.Instance.EnableFStateValidation)
             {
-                initObj.AddProperty("fstateValidation", false);
+                initObj.AddProperty("fstateValidation", true);
             }
 
             initObj.AddProperty("theme", ThemeHelper.GetName(PageManager.Instance.Theme));

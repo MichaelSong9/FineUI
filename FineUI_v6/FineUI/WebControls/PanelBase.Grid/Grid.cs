@@ -4693,8 +4693,8 @@ namespace FineUI
                     }
 
 
-                    //// 删除行或者新增行，都无法将客户端F_Rows的更改同步到服务器端控件，需要在服务器端重新加载数据
-                    FState.BackupPostDataProperty("F_Rows");
+                    //修改行、删除行、者新增行，都不会修改Values和DataKeys，所以无需备份F_Rows。需要重新绑定表格数据
+                    //FState.BackupPostDataProperty("F_Rows");
                     /*
                     foreach (JArray modifiedItem in _modifiedData)
                     {

@@ -808,11 +808,11 @@ namespace FineUI
         }
 
         /// <summary>
-        /// 是否启用FState验证（默认为true）
+        /// 是否启用FState验证（默认为false）
         /// </summary>
         [Category(CategoryName.OPTIONS)]
         [DefaultValue(false)]
-        [Description("是否启用FState验证（默认为true）")]
+        [Description("是否启用FState验证（默认为false）")]
         public bool EnableFStateValidation
         {
             get

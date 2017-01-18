@@ -353,7 +353,7 @@ Ext.onReady(function () {
                 theme: 'neptune',
                 formChangeConfirm: false,
                 ajaxTimeout: 120,
-                fstateValidation: true
+                fstateValidation: false
             });
 
 
