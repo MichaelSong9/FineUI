@@ -4,6 +4,9 @@ var F = function (cmpName) {
     return Ext.getCmp(cmpName);
 };
 
+// 标识这个页面是由 FineUI 创建的
+F.fineui = '6.0.2';
+
 F.target = function (target) {
     return F.util.getTargetWindow(target);
 };
@@ -105,9 +108,6 @@ F.ui = F.create = function () {
 
 // 记录最后一个控件的序号
 F.f_objectIndex = 0;
-
-// 标识这个页面是由 FineUI 创建的
-F.fineui = '6.0.2';
 
 
 // 为了兼容保留函数签名：F.customEvent

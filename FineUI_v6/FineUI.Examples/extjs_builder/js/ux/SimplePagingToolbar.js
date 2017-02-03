@@ -51,21 +51,27 @@ Ext.define('Ext.ux.SimplePagingToolbar', {
     },
 
     f_update: function (configs) {
-        Ext.Object.merge(this, configs);
-        this.store.currentPage = this.f_pageIndex + 1;
-        this.onLoad();
+        var me = this;
+        Ext.Object.merge(me, configs);
+        me.store.currentPage = me.f_pageIndex + 1;
+        
 
         // 非服务端分页，则需要重新计算 f_startRowIndex 和  f_endRowIndex
-        if (!this.f_databasePaging) {
-            var startRowIndex = this.f_pageSize * this.f_pageIndex;
-            var endRowIndex = (this.f_pageIndex + 1) * this.f_pageSize - 1;
-            if(endRowIndex > this.f_recordCount - 1) {
-                endRowIndex = this.f_recordCount - 1;
+        if (!me.f_databasePaging) {
+            var startRowIndex = me.f_pageSize * me.f_pageIndex;
+            var endRowIndex = (me.f_pageIndex + 1) * me.f_pageSize - 1;
+            if(endRowIndex > me.f_recordCount - 1) {
+                endRowIndex = me.f_recordCount - 1;
             }
             
-            this.f_startRowIndex = startRowIndex;
-            this.f_endRowIndex = endRowIndex;
+            me.f_startRowIndex = startRowIndex;
+            me.f_endRowIndex = endRowIndex;
         }
+
+        // v6.0修正，否则分页信息可能显示不正确（9097）
+        // onLoad里面会调用getPageData，会用到f_startRowIndex, f_endRowIndex，所以需要最后执行onLoad
+        me.onLoad();
+
     }
 
 });

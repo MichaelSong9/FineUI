@@ -35,6 +35,7 @@ FineUI 严格遵守 ExtJS 对开源软件的规定，不再内置 ExtJS 库，�
 	-修正AjaxTimeout无效的问题（网缘-9212）。
 	-全局配置参数EnableFStateValidation默认为false，和专业版保持一致。
 	-修正表格的DataKeyNames未定义时出错的问题（世界没有真情-9300）。
+	-修正表格内存分页时，分页信息可能显示不正确的问题（╱/茶杯oо-9097）。
 
 
 
