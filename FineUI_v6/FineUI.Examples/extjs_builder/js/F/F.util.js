@@ -92,7 +92,7 @@ F.defer = function (fn, miliseconds, scope) {
 };
 
 // 创建客户端控件，标识这是一个FineUI服务器端创建的控件
-F.create = function () {
+F.ui = F.create = function () {
     var cmp = Ext.create.apply(window, arguments);
 
     // 是个UI组件（排除 Ext.data.ArrayStore...）
@@ -107,7 +107,7 @@ F.create = function () {
 F.f_objectIndex = 0;
 
 // 标识这个页面是由 FineUI 创建的
-F.fineui = '6.0.0';
+F.fineui = '6.0.2';
 
 
 // 为了兼容保留函数签名：F.customEvent

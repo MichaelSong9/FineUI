@@ -176,9 +176,7 @@
     <Content Include="test\checkboxlist_update2.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\activex.aspx" />
-    <Content Include="test\form2.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
-    <Content Include="test\Index.aspx" />
     <Content Include="test\test2.aspx" />
     <Content Include="test\test.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
@@ -1311,26 +1309,12 @@
     <Compile Include="test\activex.aspx.designer.cs">
       <DependentUpon>activex.aspx</DependentUpon>
     </Compile>
-    <Compile Include="test\form2.aspx.cs">
-      <DependentUpon>form2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\form2.aspx.designer.cs">
-      <DependentUpon>form2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="test\grid_editor_cell2.aspx.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test\grid_editor_cell2.aspx.designer.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\test2.aspx.cs">
       <DependentUpon>test2.aspx</DependentUpon>
@@ -3291,12 +3275,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FineUI\FineUI.csproj">
-      <Project>{0F8BF1F6-DDC2-43DA-BB0B-416CC287AC1B}</Project>
-      <Name>FineUI</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="tree\tree_ajax.aspx" />
     <Content Include="tree\databind\tree_datatable.aspx" />
   </ItemGroup>
@@ -3365,6 +3343,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FineUI\FineUI.csproj">
+      <Project>{0f8bf1f6-ddc2-43da-bb0b-416cc287ac1b}</Project>
+      <Name>FineUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
