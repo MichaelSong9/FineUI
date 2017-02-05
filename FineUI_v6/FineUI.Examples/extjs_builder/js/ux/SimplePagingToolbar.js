@@ -68,7 +68,7 @@ Ext.define('Ext.ux.SimplePagingToolbar', {
             me.f_endRowIndex = endRowIndex;
         }
 
-        // v6.0修正，否则分页信息可能显示不正确（9097）
+        // v6.0.3修正，否则分页信息可能显示不正确（9097）
         // onLoad里面会调用getPageData，会用到f_startRowIndex, f_endRowIndex，所以需要最后执行onLoad
         me.onLoad();
 
