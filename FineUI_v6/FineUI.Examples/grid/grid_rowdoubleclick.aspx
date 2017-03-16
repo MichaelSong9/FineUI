@@ -11,7 +11,7 @@
     <f:PageManager ID="PageManager1" runat="server" />
     <f:Grid ID="Grid1" Title="表格"  EnableCollapse="true" ShowBorder="true" ShowHeader="true" Width="800px"
         runat="server" EnableCheckBoxSelect="true" DataKeyNames="Id,Name"
-        EnableRowDoubleClickEvent="true" OnRowDoubleClick="Grid1_RowClick">
+        EnableRowDoubleClickEvent="true" OnRowDoubleClick="Grid1_RowDoubleClick">
         <Columns>
             <f:RowNumberField />
             <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />

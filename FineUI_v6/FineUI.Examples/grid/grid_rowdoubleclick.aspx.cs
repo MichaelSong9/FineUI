@@ -34,7 +34,7 @@ namespace FineUI.Examples.grid
         #region Events
 
 
-        protected void Grid1_RowClick(object sender, GridRowClickEventArgs e)
+        protected void Grid1_RowDoubleClick(object sender, GridRowClickEventArgs e)
         {
             Alert.ShowInTop(String.Format("你点击了第 {0} 行（双击）", e.RowIndex + 1));
         }

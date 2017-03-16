@@ -176,6 +176,7 @@
     <Content Include="test\checkboxlist_update2.aspx" />
     <Content Include="test\empty.aspx" />
     <Content Include="test\activex.aspx" />
+    <Content Include="test\form2.aspx" />
     <Content Include="test\grid_editor_cell2.aspx" />
     <Content Include="test\test2.aspx" />
     <Content Include="test\test.aspx" />
@@ -1308,6 +1309,13 @@
     </Compile>
     <Compile Include="test\activex.aspx.designer.cs">
       <DependentUpon>activex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test\form2.aspx.cs">
+      <DependentUpon>form2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\form2.aspx.designer.cs">
+      <DependentUpon>form2.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\grid_editor_cell2.aspx.cs">
       <DependentUpon>grid_editor_cell2.aspx</DependentUpon>
