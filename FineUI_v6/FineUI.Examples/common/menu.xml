@@ -745,9 +745,13 @@
       <TreeNode Text="UMEditor">
         <TreeNode Text="UMEditor" NavigateUrl="~/third-party/umeditor/umeditor.aspx" >
         </TreeNode>
+        <TreeNode Text="UMEditor（后台赋值）" NavigateUrl="~/third-party/umeditor/umeditor_setvalue.aspx" >
+        </TreeNode>
       </TreeNode>
       <TreeNode Text="UEditor">
         <TreeNode Text="UEditor" NavigateUrl="~/third-party/ueditor/ueditor.aspx" >
+        </TreeNode>
+        <TreeNode Text="UEditor（后台赋值）" NavigateUrl="~/third-party/ueditor/ueditor_setvalue.aspx" >
         </TreeNode>
         <TreeNode Text="UEditor（两个编辑器）" NavigateUrl="~/third-party/ueditor/ueditor_two.aspx" >
         </TreeNode>
@@ -755,9 +759,13 @@
       <TreeNode Text="CKEditor">
         <TreeNode Text="CKEditor" NavigateUrl="~/third-party/ckeditor/ckeditor.aspx" >
         </TreeNode>
+        <TreeNode Text="CKEditor（后台赋值）" NavigateUrl="~/third-party/ckeditor/ckeditor_setvalue.aspx" >
+        </TreeNode>
       </TreeNode>
       <TreeNode Text="TinyMCE">
         <TreeNode Text="TinyMCE" NavigateUrl="~/third-party/tinymce/tinymce.aspx" >
+        </TreeNode>
+        <TreeNode Text="TinyMCE（后台赋值）" NavigateUrl="~/third-party/tinymce/tinymce_setvalue.aspx" >
         </TreeNode>
       </TreeNode>
     </TreeNode>

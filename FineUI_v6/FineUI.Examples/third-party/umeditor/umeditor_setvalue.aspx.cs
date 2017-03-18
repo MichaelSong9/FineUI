@@ -8,13 +8,13 @@ using System.Text;
 
 namespace FineUI.Examples.aspnet
 {
-    public partial class umeditor : PageBase
+    public partial class umeditor_setvalue : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                
+                hfEditorInitValue.Text = "这是<strong>初始值</strong>！";
             }
         }
 

@@ -181,8 +181,11 @@
     <Content Include="test\test2.aspx" />
     <Content Include="test\test.aspx" />
     <Content Include="third-party\autocomplete\inline_window.aspx" />
+    <Content Include="third-party\ckeditor\ckeditor_setvalue.aspx" />
     <Content Include="third-party\ckeditor\ckeditor.aspx" />
+    <Content Include="third-party\tinymce\tinymce_setvalue.aspx" />
     <Content Include="third-party\tinymce\tinymce.aspx" />
+    <Content Include="third-party\ueditor\ueditor_setvalue.aspx" />
     <Content Include="third-party\ueditor\ueditor.aspx" />
     <Content Include="third-party\ueditor\ueditor_two.aspx" />
     <Content Include="button\button_custom.aspx" />
@@ -469,6 +472,7 @@
     <Content Include="third-party\autocomplete\multi_values_remote.aspx" />
     <Content Include="third-party\autocomplete\remote_with_cache.aspx" />
     <Content Include="third-party\my97\my97.aspx" />
+    <Content Include="third-party\umeditor\umeditor_setvalue.aspx" />
     <Content Include="third-party\umeditor\umeditor.aspx" />
     <Content Include="toolbar\form.aspx" />
     <Content Include="toolbar\formfields.aspx" />
@@ -1345,6 +1349,13 @@
     <Compile Include="third-party\autocomplete\inline_window.aspx.designer.cs">
       <DependentUpon>inline_window.aspx</DependentUpon>
     </Compile>
+    <Compile Include="third-party\ckeditor\ckeditor_setvalue.aspx.cs">
+      <DependentUpon>ckeditor_setvalue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\ckeditor\ckeditor_setvalue.aspx.designer.cs">
+      <DependentUpon>ckeditor_setvalue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="third-party\ckeditor\ckeditor.aspx.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1352,12 +1363,26 @@
     <Compile Include="third-party\ckeditor\ckeditor.aspx.designer.cs">
       <DependentUpon>ckeditor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="third-party\tinymce\tinymce_setvalue.aspx.cs">
+      <DependentUpon>tinymce_setvalue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\tinymce\tinymce_setvalue.aspx.designer.cs">
+      <DependentUpon>tinymce_setvalue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="third-party\tinymce\tinymce.aspx.cs">
       <DependentUpon>tinymce.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="third-party\tinymce\tinymce.aspx.designer.cs">
       <DependentUpon>tinymce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\ueditor\ueditor_setvalue.aspx.cs">
+      <DependentUpon>ueditor_setvalue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\ueditor\ueditor_setvalue.aspx.designer.cs">
+      <DependentUpon>ueditor_setvalue.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\ueditor\ueditor.aspx.cs">
       <DependentUpon>ueditor.aspx</DependentUpon>
@@ -2659,6 +2684,13 @@
     </Compile>
     <Compile Include="third-party\my97\my97.aspx.designer.cs">
       <DependentUpon>my97.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="third-party\umeditor\umeditor_setvalue.aspx.cs">
+      <DependentUpon>umeditor_setvalue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="third-party\umeditor\umeditor_setvalue.aspx.designer.cs">
+      <DependentUpon>umeditor_setvalue.aspx</DependentUpon>
     </Compile>
     <Compile Include="third-party\umeditor\umeditor.aspx.cs">
       <DependentUpon>umeditor.aspx</DependentUpon>
