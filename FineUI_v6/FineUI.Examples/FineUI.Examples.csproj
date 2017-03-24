@@ -120,6 +120,13 @@
     <Content Include="grid\grid_lockcolumn_editor_cell_new.aspx" />
     <Content Include="grid\grid_lockcolumn_line_wrap.aspx" />
     <Content Include="grid\grid_many_columns.aspx" />
+    <Content Include="grid\grid_newtab.aspx" />
+    <Content Include="grid\grid_newtab_hiderefresh.aspx" />
+    <Content Include="grid\grid_newtab_hiderefresh_window.aspx" />
+    <Content Include="grid\grid_newtab_hideupdate.aspx" />
+    <Content Include="grid\grid_newtab_hideupdate_window.aspx" />
+    <Content Include="grid\grid_newtab_sametab.aspx" />
+    <Content Include="grid\grid_newtab_window.aspx" />
     <Content Include="grid\grid_paging_aspnet.aspx" />
     <Content Include="grid\grid_paging_database_bbar.aspx" />
     <Content Include="grid\grid_paging_fineui.aspx" />
@@ -917,6 +924,55 @@
     </Compile>
     <Compile Include="grid\grid_many_columns.aspx.designer.cs">
       <DependentUpon>grid_many_columns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab.aspx.cs">
+      <DependentUpon>grid_newtab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab.aspx.designer.cs">
+      <DependentUpon>grid_newtab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hiderefresh.aspx.cs">
+      <DependentUpon>grid_newtab_hiderefresh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hiderefresh.aspx.designer.cs">
+      <DependentUpon>grid_newtab_hiderefresh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hiderefresh_window.aspx.cs">
+      <DependentUpon>grid_newtab_hiderefresh_window.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hiderefresh_window.aspx.designer.cs">
+      <DependentUpon>grid_newtab_hiderefresh_window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hideupdate.aspx.cs">
+      <DependentUpon>grid_newtab_hideupdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hideupdate.aspx.designer.cs">
+      <DependentUpon>grid_newtab_hideupdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hideupdate_window.aspx.cs">
+      <DependentUpon>grid_newtab_hideupdate_window.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab_hideupdate_window.aspx.designer.cs">
+      <DependentUpon>grid_newtab_hideupdate_window.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab_sametab.aspx.cs">
+      <DependentUpon>grid_newtab_sametab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab_sametab.aspx.designer.cs">
+      <DependentUpon>grid_newtab_sametab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grid\grid_newtab_window.aspx.cs">
+      <DependentUpon>grid_newtab_window.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grid\grid_newtab_window.aspx.designer.cs">
+      <DependentUpon>grid_newtab_window.aspx</DependentUpon>
     </Compile>
     <Compile Include="grid\grid_paging_aspnet.aspx.cs">
       <DependentUpon>grid_paging_aspnet.aspx</DependentUpon>

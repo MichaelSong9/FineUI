@@ -257,6 +257,87 @@
         }
 
 
+        // 添加示例标签页
+        // id： 选项卡ID
+        // iframeUrl: 选项卡IFrame地址 
+        // title： 选项卡标题
+        // icon： 选项卡图标
+        // createToolbar： 创建选项卡前的回调函数（接受tabOptions参数）
+        // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
+        // iconFont： 选项卡图标字体
+        function addExampleTab(tabOptions) {
+
+            if (typeof (tabOptions) === 'string') {
+                tabOptions = {
+                    id: arguments[0],
+                    iframeUrl: arguments[1],
+                    title: arguments[2],
+                    icon: arguments[3],
+                    createToolbar: arguments[4],
+                    refreshWhenExist: arguments[5],
+                    iconFont: arguments[6]
+                };
+            }
+
+            F.addMainTab(F(mainTabStripClientID), tabOptions);
+        }
+
+        // 移除选中标签页
+        function removeTab(tabId) {
+            var mainTabStrip = F(mainTabStripClientID);
+            mainTabStrip.removeTab(tabId);
+        }
+
+        // 移除选中标签页
+        function removeActiveTab() {
+            var mainTabStrip = F(mainTabStripClientID);
+            var activeTab = mainTabStrip.getActiveTab();
+            mainTabStrip.removeTab(activeTab.id);
+        }
+
+        // 获取当前激活选项卡的ID
+        function getActiveTabId() {
+            var mainTabStrip = F(mainTabStripClientID);
+
+            var activeTab = mainTabStrip.getActiveTab();
+            if (activeTab) {
+                return activeTab.id;
+            }
+            return '';
+        }
+
+        // 激活选项卡，并刷新其中的内容，示例：表格控件->杂项->在新标签页中打开（关闭后刷新父选项卡）
+        function activeTabAndRefresh(tabId) {
+            var mainTabStrip = F(mainTabStripClientID);
+            var targetTab = mainTabStrip.getTab(tabId);
+            var oldActiveTabId = getActiveTabId();
+
+            if (targetTab) {
+                mainTabStrip.setActiveTab(targetTab);
+                // 通过jQuery查找 iframe 节点，并强制刷新 iframe 内的页面
+                $(targetTab.el.dom).find('iframe')[0].contentWindow.location.reload();
+                
+                // 删除之前的激活选项卡
+                mainTabStrip.removeTab(oldActiveTabId);
+            }
+        }
+
+        // 激活选项卡，并刷新其中的内容，示例：表格控件->杂项->在新标签页中打开（关闭后更新父选项卡中的表格）
+        function activeTabAndUpdate(tabId, param1) {
+            var mainTabStrip = F(mainTabStripClientID);
+            var targetTab = mainTabStrip.getTab(tabId);
+            var oldActiveTabId = getActiveTabId();
+
+            if (targetTab) {
+                mainTabStrip.setActiveTab(targetTab);
+                // 通过jQuery查找 iframe 节点，并调用 iframe 内的页面的自定义JS函数 updatePage
+                $(targetTab.el.dom).find('iframe')[0].contentWindow.updatePage(param1);
+
+                // 删除之前的激活选项卡
+                mainTabStrip.removeTab(oldActiveTabId);
+            }
+        }
+
         F.ready(function () {
             var btnExpandAll = F(btnExpandAllClientID);
             var btnCollapseAll = F(btnCollapseAllClientID);
@@ -466,33 +547,6 @@
                 maxTabCount: 10,
                 maxTabMessage: '请先关闭一些选项卡（最多允许打开 10 个）！'
             });
-
-
-            // 添加示例标签页
-            window.addExampleTab = function (id, iframeUrl, title, icon, refreshWhenExist) {
-                // 动态添加一个标签页
-                // mainTabStrip： 选项卡实例
-                // id： 选项卡ID
-                // iframeUrl: 选项卡IFrame地址 
-                // title: 选项卡标题
-                // icon： 选项卡图标
-                // createToolbar： 创建选项卡前的回调函数（接受tabConfig参数）
-                // refreshWhenExist： 添加选项卡时，如果选项卡已经存在，是否刷新内部IFrame
-                F.addMainTab(mainTabStrip, {
-                    id: id,
-                    iframeUrl: iframeUrl,
-                    title: title,
-                    icon: icon,
-                    refreshWhenExist: refreshWhenExist
-                });
-            };
-
-            // 移除选中标签页
-            window.removeActiveTab = function () {
-                var activeTab = mainTabStrip.getActiveTab();
-                mainTabStrip.removeTab(activeTab.id);
-            };
-
 
 
             // 添加工具图标，并在点击时显示上下文菜单

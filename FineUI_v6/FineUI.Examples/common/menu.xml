@@ -492,6 +492,14 @@
       </TreeNode>
       <TreeNode Text="右键菜单(全选复选框列）" NavigateUrl="~/grid/grid_checkboxfield_rowcheckall_contextmenu.aspx" >
       </TreeNode>
+      <TreeNode Text="在新标签页中打开" NavigateUrl="~/grid/grid_newtab.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="在新标签页中打开（同一个标签页）" NavigateUrl="~/grid/grid_newtab_sametab.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="在新标签页中打开（关闭后刷新父选项卡）" NavigateUrl="~/grid/grid_newtab_hiderefresh.aspx" IsNew="true">
+      </TreeNode>
+      <TreeNode Text="在新标签页中打开（关闭后更新父选项卡）" NavigateUrl="~/grid/grid_newtab_hideupdate.aspx" IsNew="true">
+      </TreeNode>
       <TreeNode Text="隐藏表格标题栏" NavigateUrl="~/grid/grid_hide_gridheader.aspx" IsNew="true">
       </TreeNode>
       <TreeNode Text="底部工具栏（分页栏也存在）" NavigateUrl="~/grid/grid_paging_database_bbar.aspx" IsNew="true" >
